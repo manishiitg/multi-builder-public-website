@@ -648,6 +648,12 @@ function Footer({ name }) {
           h('h5', null, 'Open source'),
           h('a', { href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
           h('a', { href: 'https://modelcontextprotocol.io', target: '_blank', rel: 'noreferrer' }, 'MCP spec')
+        ),
+        h('div', { className: 'footer-col' },
+          h('h5', null, 'Connect'),
+          h('a', { href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' }, 'Book a call'),
+          h('a', { href: 'https://in.linkedin.com/in/manishiitg', target: '_blank', rel: 'noreferrer' }, 'LinkedIn'),
+          h('a', { href: 'https://x.com/manish_iitg', target: '_blank', rel: 'noreferrer' }, 'X / Twitter')
         )
       ),
       h('div', { className: 'footer-bottom' },
