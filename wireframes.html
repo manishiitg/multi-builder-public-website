@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Agent Builder — Wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Architects+Daughter&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sketch.css">
+</head>
+<body class="paper-texture">
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>window.addEventListener('DOMContentLoaded', () => { window.h = React.createElement; });</script>
+<script>window.h = window.h || (window.React && React.createElement);</script>
+<script type="text/babel" data-presets="react">window.h = React.createElement;</script>
+<script type="text/babel" src="scribbles.js"></script>
+<script type="text/babel" src="page_landing.jsx"></script>
+<script type="text/babel" src="page_how.jsx"></script>
+<script type="text/babel" src="page_employees.jsx"></script>
+<script type="text/babel" src="page_workflows.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef, createElement: h } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "layout": "grid",
+  "annotations": true,
+  "paperTexture": true,
+  "accentHue": 55
+}/*EDITMODE-END*/;
+
+const PAGES = [
+  { id: 'landing', label: 'Landing / hero', subtitle: 'first impression · 4 hero metaphors', getVars: () => window.LandingVariations },
+  { id: 'how', label: 'How it works', subtitle: 'the self-improving workflow loop', getVars: () => window.HowVariations },
+];
+
+function TopBar({ active, onChange }) {
+  return h('div', { className: 'topbar' },
+    h('span', { className: 'brand' }, 'workflow',
+      h('span', { className: 'dot' }, '.'), 'co ',
+      h('span', { className: 'mono', style: { fontSize: 10, color: 'var(--ink-3)', marginLeft: 6 } }, 'wireframes')
+    ),
+    h('div', { className: 'tabs' },
+      PAGES.map(p =>
+        h('button', { key: p.id, className: `tab ${active === p.id ? 'active' : ''}`, onClick: () => onChange(p.id) }, p.label)
+      )
+    ),
+    h('div', { className: 'spacer' }),
+    h('span', { className: 'meta' }, 'lo-fi · b&w + accent · for review')
+  );
+}
+
+function PageIntro({ page }) {
+  return h('div', { className: 'page-intro' },
+    h('div', null,
+      h('div', { className: 'idx' }, `${PAGES.findIndex(p => p.id === page.id) + 1} / ${PAGES.length}`),
+      h('h1', null, page.label),
+      h('p', null, page.subtitle)
+    ),
+    h('div', { className: 'annot', style: { transform: 'rotate(-3deg)', maxWidth: 220, textAlign: 'right' } },
+      'pick a favorite →',
+      h('br'),
+      h('span', { className: 'mono', style: { color: 'var(--ink-3)', fontSize: 10 } }, 'or mix + match')
+    )
+  );
+}
+
+function VariationCell({ v, idx }) {
+  return h('div', { className: 'variation', 'data-screen-label': `${v.id} ${v.label}` },
+    h('div', { className: 'variation-head' },
+      h('div', { className: 'label' },
+        h('span', { className: 'num' }, idx + 1),
+        v.label
+      ),
+      h('div', { className: 'caption' }, v.caption)
+    ),
+    h(v.Component)
+  );
+}
+
+function App() {
+  const [page, setPage] = useState(() => localStorage.getItem('wf_page') || 'landing');
+  const [tweaks, setTweaks] = useState(TWEAK_DEFAULTS);
+  const [tweakVisible, setTweakVisible] = useState(false);
+
+  useEffect(() => { localStorage.setItem('wf_page', page); }, [page]);
+
+  // apply body classes for tweaks
+  useEffect(() => {
+    document.body.classList.toggle('no-annotations', !tweaks.annotations);
+    document.body.classList.toggle('paper-texture', tweaks.paperTexture);
+    document.body.classList.toggle('stacked', tweaks.layout === 'stacked');
+    document.documentElement.style.setProperty('--accent', `oklch(0.72 0.18 ${tweaks.accentHue})`);
+  }, [tweaks]);
+
+  // edit-mode integration
+  useEffect(() => {
+    function onMsg(e) {
+      const d = e.data || {};
+      if (d.type === '__activate_edit_mode') setTweakVisible(true);
+      if (d.type === '__deactivate_edit_mode') setTweakVisible(false);
+    }
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  function update(patch) {
+    const next = { ...tweaks, ...patch };
+    setTweaks(next);
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: patch }, '*');
+  }
+
+  const currentPage = PAGES.find(p => p.id === page);
+  const variations = (currentPage.getVars && currentPage.getVars()) || [];
+
+  return h(React.Fragment, null,
+    h(TopBar, { active: page, onChange: setPage }),
+    h(PageIntro, { page: currentPage }),
+    h('div', { className: 'variation-grid' },
+      variations.map((v, i) => h(VariationCell, { key: v.id, v, idx: i }))
+    ),
+    h('div', { className: `tweaks ${tweakVisible ? 'visible' : ''}` },
+      h('h3', null, 'Tweaks'),
+      h('div', { className: 'row' },
+        h('label', null, 'layout'),
+        h('select', { value: tweaks.layout, onChange: e => update({ layout: e.target.value }) },
+          h('option', { value: 'grid' }, 'grid (2-up)'),
+          h('option', { value: 'stacked' }, 'stacked')
+        )
+      ),
+      h('div', { className: 'row' },
+        h('label', null, 'annotations'),
+        h('input', { type: 'checkbox', checked: tweaks.annotations, onChange: e => update({ annotations: e.target.checked }) })
+      ),
+      h('div', { className: 'row' },
+        h('label', null, 'paper texture'),
+        h('input', { type: 'checkbox', checked: tweaks.paperTexture, onChange: e => update({ paperTexture: e.target.checked }) })
+      ),
+      h('div', { className: 'row' },
+        h('label', null, 'accent hue'),
+        h('input', { type: 'range', min: 0, max: 360, value: tweaks.accentHue, onChange: e => update({ accentHue: +e.target.value }) })
+      )
+    )
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
