@@ -653,7 +653,8 @@ function Footer({ name }) {
           h('h5', null, 'Connect'),
           h('a', { href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' }, 'Book a call'),
           h('a', { href: 'https://in.linkedin.com/in/manishiitg', target: '_blank', rel: 'noreferrer' }, 'LinkedIn'),
-          h('a', { href: 'https://x.com/manish_iitg', target: '_blank', rel: 'noreferrer' }, 'X / Twitter')
+          h('a', { href: 'https://x.com/manish_iitg', target: '_blank', rel: 'noreferrer' }, 'X / Twitter'),
+          h('a', { href: 'https://github.com/manishiitg', target: '_blank', rel: 'noreferrer' }, 'GitHub (@manishiitg)')
         )
       ),
       h('div', { className: 'footer-bottom' },
