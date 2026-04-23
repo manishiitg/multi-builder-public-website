@@ -7,7 +7,8 @@ function HowHero2({ name }) {
     h('div', { className: 'hero-bg' }),
     h('div', { className: 'shell hero-inner' },
       h('div', { style: { display: 'flex', gap: 8, marginBottom: 24, justifyContent: 'center' } },
-        h('span', { className: 'tag violet' }, h('span', { className: 'dot' }), 'How it works')
+        h('span', { className: 'tag violet' }, h('span', { className: 'dot' }), 'How it works'),
+        h('span', { className: 'tag amber' }, h('span', { className: 'dot' }), 'Early alpha')
       ),
       h('h1', { className: 'display', style: { textAlign: 'center', marginBottom: 24, maxWidth: 960, margin: '0 auto 24px' } },
         'Design a workflow once. ',

@@ -4,7 +4,22 @@
 function Logo({ name = 'AgentForge' }) {
   return h('div', { className: 'logo' },
     h('div', { className: 'logo-mark' }),
-    h('span', null, name)
+    h('span', null, name),
+    h('span', {
+      style: {
+        marginLeft: 8,
+        padding: '2px 7px',
+        borderRadius: 999,
+        fontFamily: 'JetBrains Mono, monospace',
+        fontSize: 10,
+        letterSpacing: '0.04em',
+        textTransform: 'uppercase',
+        background: 'var(--amber-dim, rgba(245, 158, 11, 0.15))',
+        border: '1px solid var(--amber-line, rgba(245, 158, 11, 0.35))',
+        color: 'var(--amber, #f59e0b)',
+        lineHeight: 1.4
+      }
+    }, 'alpha')
   );
 }
 
@@ -163,8 +178,8 @@ function Hero({ name, variant = 1 }) {
       h('div', { style: { display: 'flex', gap: 8, marginBottom: 32, justifyContent: 'center' } },
         h('span', { className: 'tag violet' },
           h('span', { className: 'dot' }), 'Open source · MIT'),
-        h('span', { className: 'tag' },
-          h('span', { className: 'dot' }), 'Now in private beta')
+        h('span', { className: 'tag amber' },
+          h('span', { className: 'dot' }), 'Early alpha · building in public')
       ),
       h('h1', { className: 'display', style: { textAlign: 'center', marginBottom: 24 } },
         ...hw.flatMap((line, i) => {

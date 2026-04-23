@@ -23,6 +23,8 @@
   --lime: #A3E635;
   --pink: #F0ABFC;
   --amber: #FCD34D;
+  --amber-dim: rgba(252, 211, 77, 0.12);
+  --amber-line: rgba(252, 211, 77, 0.35);
 
   --success: #4ADE80;
   --warn: #FBBF24;
@@ -161,6 +163,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--violet);
 }
 .tag.violet { background: var(--violet-dim); border-color: var(--violet-line); color: var(--violet); }
+.tag.amber  { background: var(--amber-dim);  border-color: var(--amber-line);  color: var(--amber);  }
 .tag.lime .dot { background: var(--lime); }
 .tag.cyan .dot { background: var(--cyan); }
 .tag.pink .dot { background: var(--pink); }
