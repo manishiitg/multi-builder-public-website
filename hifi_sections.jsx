@@ -620,8 +620,8 @@ function CTA() {
             'Design it visually. Run it against a real job. Each cycle the eval score climbs, the token cost falls, and the scripted steps compile to a zero-LLM fast path. 20 minute demo — leave with a workflow you can keep.'
           ),
           h('div', { style: { display: 'flex', gap: 12, justifyContent: 'center' } },
-            h('button', { className: 'btn violet' }, 'Book a demo', h('span', { className: 'arrow' }, '→')),
-            h('button', { className: 'btn ghost' }, 'Deploy OSS')
+            h('a', { className: 'btn violet', href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' }, 'Book a demo', h('span', { className: 'arrow' }, '→')),
+            h('a', { className: 'btn ghost', href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' }, 'Deploy OSS')
           )
         )
       )
@@ -646,7 +646,7 @@ function Footer({ name }) {
         ),
         h('div', { className: 'footer-col' },
           h('h5', null, 'Open source'),
-          h('a', { href: 'https://github.com/lastmile-ai/mcp-agent', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
+          h('a', { href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
           h('a', { href: 'https://modelcontextprotocol.io', target: '_blank', rel: 'noreferrer' }, 'MCP spec')
         )
       ),
