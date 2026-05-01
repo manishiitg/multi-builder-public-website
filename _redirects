@@ -1,2 +1,4 @@
+/how/ /how.html 200
+/how /how.html 200
 /automations/:slug/ /template.html 200
 /automations/:slug /template.html 200

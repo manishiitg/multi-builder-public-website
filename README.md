@@ -10,7 +10,7 @@ Static marketing site for the agent/workflow builder product. Exported from Clau
 | URL | File | What it is |
 |---|---|---|
 | `/` | `index.html` | Hi-fi landing page |
-| `/how.html` | `how.html` | "How it works" page |
+| `/how/` | `how.html` via Netlify rewrite | "How it works" page |
 | `/automations/:slug/` | `template.html` via Netlify rewrite | SEO-friendly automation landing pages |
 | `/wireframes.html` | `wireframes.html` | Lo-fi sketch wireframes (internal review) |
 

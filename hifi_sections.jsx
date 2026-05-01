@@ -1102,6 +1102,14 @@ function automationHref(slug) {
   return isLocal ? `template.html?slug=${slug}` : `/automations/${slug}/`;
 }
 window.automationHref = automationHref;
+function pageHref(page) {
+  const host = window.location.hostname;
+  const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
+  if (page === 'home') return isLocal ? 'index.html' : '/';
+  if (page === 'how') return isLocal ? 'how.html' : '/how/';
+  return page;
+}
+window.pageHref = pageHref;
 
 /* ========== SECTION: AUTOMATION GALLERY ========== */
 function Templates() {
@@ -1405,8 +1413,8 @@ function Footer({ name }) {
         ),
         h('div', { className: 'footer-col' },
           h('h5', null, 'Product'),
-          h('a', { href: 'index.html' }, 'Home'),
-          h('a', { href: 'how.html' }, 'How it works')
+          h('a', { href: pageHref('home') }, 'Home'),
+          h('a', { href: pageHref('how') }, 'How it works')
         ),
         h('div', { className: 'footer-col footer-templates' },
           h('h5', null, 'Automations'),

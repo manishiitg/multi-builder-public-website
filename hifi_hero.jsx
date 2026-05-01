@@ -25,18 +25,25 @@ function Logo({ name = 'Runloop' }) {
 
 function Nav({ name, current = 'home' }) {
   const automationLinks = window.RUNLOOP_TEMPLATES || [];
+  const pageHref = (page) => {
+    const host = window.location.hostname;
+    const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
+    if (page === 'home') return isLocal ? 'index.html' : '/';
+    if (page === 'how') return isLocal ? 'how.html' : '/how/';
+    return page;
+  };
   const automationHref = (slug) => {
     const host = window.location.hostname;
     const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
     return isLocal ? `template.html?slug=${slug}` : `/automations/${slug}/`;
   };
   const links = [
-    { id: 'home', label: 'Home', href: 'index.html' },
-    { id: 'how', label: 'How it works', href: 'how.html' },
+    { id: 'home', label: 'Home', href: pageHref('home') },
+    { id: 'how', label: 'How it works', href: pageHref('how') },
   ];
   return h('div', { className: 'nav' },
     h('div', { className: 'nav-inner' },
-      h('a', { href: 'index.html', style: { display: 'flex' } }, h(Logo, { name })),
+      h('a', { href: pageHref('home'), style: { display: 'flex' } }, h(Logo, { name })),
       h('div', { className: 'nav-links' },
         links.map(l =>
           h('a', { key: l.id, className: 'nav-link', href: l.href,
