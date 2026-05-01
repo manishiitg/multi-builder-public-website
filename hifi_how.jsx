@@ -14,7 +14,7 @@ function HowHero({ name }) {
         h('span', { style: { background: 'linear-gradient(120deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'teach themselves.')
       ),
       h('p', { className: 'lead', style: { maxWidth: 680, margin: '0 auto 16px', textAlign: 'center' } },
-        'Define the job in plain English. Set a rubric. ', name, ' runs, grades, rewrites, and remembers — then does it all again, better.'
+        'Define the job in plain English. Set a rubric. ', name, ' runs, grades, learns, and improves — then does it all again, better.'
       )
     )
   );

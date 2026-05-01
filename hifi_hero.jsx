@@ -1,7 +1,7 @@
 // Hi-fi landing — sections 1 & 2: Nav + Hero
 // uses window.h (set in shell)
 
-function Logo({ name = 'AgentForge' }) {
+function Logo({ name = 'Runloop' }) {
   return h('div', { className: 'logo' },
     h('div', { className: 'logo-mark' }),
     h('span', null, name),
@@ -24,6 +24,7 @@ function Logo({ name = 'AgentForge' }) {
 }
 
 function Nav({ name, current = 'home' }) {
+  const automationLinks = window.RUNLOOP_TEMPLATES || [];
   const links = [
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'how', label: 'How it works', href: 'how.html' },
@@ -35,6 +36,28 @@ function Nav({ name, current = 'home' }) {
         links.map(l =>
           h('a', { key: l.id, className: 'nav-link', href: l.href,
             style: current === l.id ? { color: 'var(--fg)', background: 'var(--bg-2)' } : null }, l.label)
+        ),
+        h('div', { className: 'nav-dropdown' },
+          h('button', {
+            className: 'nav-link nav-dropdown-trigger',
+            type: 'button',
+            style: current === 'templates' ? { color: 'var(--fg)', background: 'var(--bg-2)' } : null
+          },
+            'Automations',
+            h('span', { className: 'nav-caret' }, '⌄')
+          ),
+          h('div', { className: 'nav-dropdown-menu' },
+            h('div', { className: 'nav-dropdown-head mono' }, 'Automation library'),
+            automationLinks.map((item, i) =>
+              h('a', { key: item.slug, className: 'nav-dropdown-item', href: `template.html?slug=${item.slug}` },
+                h('span', { className: 'dot', style: { background: item.color || 'var(--violet)' } }),
+                h('span', null,
+                  h('strong', null, item.t),
+                  h('small', null, item.c)
+                )
+              )
+            )
+          )
         )
       ),
       h('div', { className: 'nav-spacer' }),
@@ -50,37 +73,17 @@ function Nav({ name, current = 'home' }) {
   );
 }
 
-/* Animated node graph — the hero visual
-   Layout: 3 columns in a 960x320 viewBox.
-   Models (40..180) · Workflow (320..560) · Artifacts (680..920).
-   Each column has its own header at y=24 and rows at fixed y positions.
-*/
 function HeroGraph() {
-  const models = [
-    { n: 'claude-code', y: 70,  c: 'var(--violet)' },
-    { n: 'gemini-cli',  y: 118, c: 'var(--cyan)' },
-    { n: 'codex-cli',   y: 166, c: 'var(--lime)' },
-    { n: 'glm',         y: 214, c: 'var(--pink)' },
-    { n: 'minimax',     y: 262, c: 'var(--amber)' },
+  const metrics = [
+    { label: 'accuracy', value: '94%', delta: '+7pp', y: 124, color: 'var(--success)' },
+    { label: 'false positives', value: '5', delta: '-58%', y: 176, color: 'var(--cyan)' },
+    { label: 'coverage', value: '96%', delta: 'floor met', y: 228, color: 'var(--violet)' },
   ];
-  const steps = [
-    { n: 'fetch',   y: 94,  m: 'gemini-cli',  mc: 'var(--cyan)' },
-    { n: 'analyze', y: 166, m: 'claude-code', mc: 'var(--violet)' },
-    { n: 'report',  y: 238, m: 'codex-cli',   mc: 'var(--lime)' },
+  const decisions = [
+    { label: 'rule captured', value: 'keep', y: 96, color: 'var(--success)' },
+    { label: 'rubric v3', value: 'active', y: 146, color: 'var(--cyan)' },
+    { label: 'prompt v8', value: 'reverted', y: 196, color: 'var(--amber)' },
   ];
-  const artifacts = [
-    { n: 'skills',    v: '+14',       y: 62,  c: 'var(--violet)' },
-    { n: 'knowledge', v: '247 facts', y: 112, c: 'var(--cyan)' },
-    { n: 'python',    v: '8 scripts', y: 162, c: 'var(--lime)' },
-    { n: 'evals',     v: '0.91 ↑',    y: 212, c: 'var(--success)' },
-    { n: 'tokens',    v: '4.2k ↓',    y: 262, c: 'var(--amber)' },
-  ];
-
-  const COL_W = 140;
-  const MODEL_X = 40;
-  const STEP_X  = 400 - COL_W / 2; // centered at 400
-  const ART_X   = 780;
-  const CENTER_Y = 166;
 
   return h('div', { style: { position: 'relative' } },
     h('svg', { viewBox: '0 0 960 320', width: '100%',
@@ -91,91 +94,144 @@ function HeroGraph() {
           h('stop', { offset: 0, stopColor: 'var(--violet)', stopOpacity: 0 }),
           h('stop', { offset: 0.5, stopColor: 'var(--violet)', stopOpacity: 0.9 }),
           h('stop', { offset: 1, stopColor: 'var(--violet)', stopOpacity: 0 })
+        ),
+        h('linearGradient', { id: 'evalG', x1: 0, x2: 1 },
+          h('stop', { offset: 0, stopColor: 'var(--violet)' }),
+          h('stop', { offset: 1, stopColor: 'var(--cyan)' })
+        ),
+        h('linearGradient', { id: 'metricFillG', x1: 0, x2: 0, y1: 0, y2: 1 },
+          h('stop', { offset: 0, stopColor: 'var(--cyan)', stopOpacity: 0.18 }),
+          h('stop', { offset: 1, stopColor: 'var(--cyan)', stopOpacity: 0 })
+        ),
+        h('marker', { id: 'arrowG', viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 6, markerHeight: 6, orient: 'auto-start-reverse' },
+          h('path', { d: 'M0 0 L10 5 L0 10 z', fill: 'var(--cyan)' })
         )
       ),
 
-      // column headers
-      h('text', { x: MODEL_X, y: 30, fontSize: 11, fill: 'var(--fg-3)',
-        style: { fontFamily: 'JetBrains Mono' } }, '// MODEL POOL'),
-      h('text', { x: STEP_X,  y: 30, fontSize: 11, fill: 'var(--fg-3)',
-        style: { fontFamily: 'JetBrains Mono' } }, '// WORKFLOW'),
-      h('text', { x: ART_X,   y: 30, fontSize: 11, fill: 'var(--fg-3)',
-        style: { fontFamily: 'JetBrains Mono' } }, '// LEARNS + STORES'),
+      h('text', { x: 40, y: 30, fontSize: 11, fill: 'var(--fg-3)',
+        style: { fontFamily: 'JetBrains Mono' } }, '// METRICS'),
+      h('text', { x: 288, y: 30, fontSize: 11, fill: 'var(--fg-3)',
+        style: { fontFamily: 'JetBrains Mono' } }, '// AUTO-IMPROVEMENT LOOP'),
+      h('text', { x: 736, y: 30, fontSize: 11, fill: 'var(--fg-3)',
+        style: { fontFamily: 'JetBrains Mono' } }, '// DECISION LOG'),
 
-      // models
-      ...models.map((m, i) => h('g', { key: 'm'+i },
-        h('rect', { x: MODEL_X, y: m.y - 16, width: COL_W, height: 32, rx: 8,
-          fill: 'var(--bg-2)', stroke: 'var(--line-2)', strokeWidth: 1 }),
-        h('circle', { cx: MODEL_X + 14, cy: m.y, r: 4, fill: m.c, className: 'anim-pulse',
-          style: { animationDelay: `${i * 0.2}s` } }),
-        h('text', { x: MODEL_X + 26, y: m.y + 4, fontSize: 12, fill: 'var(--fg)',
-          style: { fontFamily: 'JetBrains Mono' } }, m.n)
-      )),
-
-      // edges models → workflow center
-      ...models.map((m, i) =>
-        h('path', { key: 'e'+i,
-          d: `M ${MODEL_X + COL_W} ${m.y} C ${MODEL_X + COL_W + 60} ${m.y}, ${STEP_X - 60} ${CENTER_Y}, ${STEP_X} ${CENTER_Y}`,
-          stroke: 'var(--line-2)', strokeWidth: 1, fill: 'none', opacity: 0.5 })
-      ),
-      h('path', {
-        d: `M ${MODEL_X + COL_W} 118 C ${MODEL_X + COL_W + 60} 118, ${STEP_X - 60} ${CENTER_Y}, ${STEP_X} ${CENTER_Y}`,
-        stroke: 'url(#flowG)', strokeWidth: 2, fill: 'none', strokeDasharray: '4 4', className: 'anim-flow' }),
-
-      // workflow steps
-      ...steps.map((s, i) => h('g', { key: 's'+i },
-        h('rect', { x: STEP_X, y: s.y - 22, width: COL_W, height: 44, rx: 10,
+      h('g', null,
+        h('rect', { x: 40, y: 58, width: 208, height: 204, rx: 14,
           fill: 'var(--bg-2)', stroke: 'var(--violet-line)', strokeWidth: 1 }),
-        h('text', { x: STEP_X + 14, y: s.y - 4, fontSize: 14, fill: 'var(--fg)', fontWeight: 500 }, s.n),
-        h('circle', { cx: STEP_X + 14, cy: s.y + 10, r: 3, fill: s.mc }),
-        h('text', { x: STEP_X + 22, y: s.y + 13, fontSize: 10, fill: 'var(--fg-3)',
-          style: { fontFamily: 'JetBrains Mono' } }, s.m)
-      )),
-      // workflow internal spine
-      h('path', { d: `M ${STEP_X + COL_W / 2} 116 L ${STEP_X + COL_W / 2} 144`,
-        stroke: 'var(--violet)', strokeWidth: 1.5, opacity: 0.7 }),
-      h('path', { d: `M ${STEP_X + COL_W / 2} 188 L ${STEP_X + COL_W / 2} 216`,
-        stroke: 'var(--violet)', strokeWidth: 1.5, opacity: 0.7 }),
-
-      // edges workflow → artifacts
-      ...steps.map((s, i) =>
-        h('path', { key: 'r'+i,
-          d: `M ${STEP_X + COL_W} ${s.y} C ${STEP_X + COL_W + 60} ${s.y}, ${ART_X - 60} ${CENTER_Y}, ${ART_X} ${CENTER_Y}`,
-          stroke: 'var(--violet-line)', strokeWidth: 1.2, fill: 'none', opacity: 0.6 })
+        h('text', { x: 62, y: 88, fontSize: 13, fill: 'var(--fg)', fontWeight: 600 }, 'audit metrics'),
+        ...metrics.map((m, i) => h('g', { key: m.label },
+          h('rect', { x: 60, y: m.y - 22, width: 168, height: 40, rx: 8,
+            fill: 'var(--bg-3)', stroke: 'var(--line)', strokeWidth: 1 }),
+          h('circle', { cx: 76, cy: m.y - 3, r: 4, fill: m.color, className: i === 0 ? 'anim-pulse' : '' }),
+          h('text', { x: 90, y: m.y - 4, fontSize: 11, fill: 'var(--fg)', fontWeight: 500 }, m.label),
+          h('text', { x: 90, y: m.y + 12, fontSize: 10, fill: 'var(--fg-3)', style: { fontFamily: 'JetBrains Mono' } }, m.delta),
+          h('text', { x: 214, y: m.y + 4, fontSize: 15, fill: m.color, textAnchor: 'end',
+            style: { fontFamily: 'JetBrains Mono' } }, m.value)
+        ))
       ),
-      h('path', {
-        d: `M ${STEP_X + COL_W} ${CENTER_Y} C ${STEP_X + COL_W + 60} ${CENTER_Y}, ${ART_X - 60} ${CENTER_Y}, ${ART_X} ${CENTER_Y}`,
-        stroke: 'url(#flowG)', strokeWidth: 2, fill: 'none', strokeDasharray: '4 4', className: 'anim-flow' }),
 
-      // artifacts
-      ...artifacts.map((a, i) => h('g', { key: 'a'+i },
-        h('rect', { x: ART_X, y: a.y - 16, width: COL_W, height: 32, rx: 8,
+      h('path', { d: 'M 248 160 C 262 160, 268 160, 282 160',
+        stroke: 'url(#flowG)', strokeWidth: 2, fill: 'none', strokeDasharray: '4 4', className: 'anim-flow', markerEnd: 'url(#arrowG)' }),
+
+      h('g', null,
+        h('rect', { x: 286, y: 58, width: 402, height: 204, rx: 14,
           fill: 'var(--bg-2)', stroke: 'var(--line-2)', strokeWidth: 1 }),
-        h('text', { x: ART_X + 12, y: a.y + 4, fontSize: 12, fill: 'var(--fg)', fontWeight: 500 }, a.n),
-        h('text', { x: ART_X + COL_W - 10, y: a.y + 4, fontSize: 11, fill: a.c, textAnchor: 'end',
-          style: { fontFamily: 'JetBrains Mono' } }, a.v)
-      ))
+        h('rect', { x: 506, y: 118, width: 86, height: 96, rx: 10,
+          fill: 'rgba(167, 139, 250, 0.08)', stroke: 'var(--violet-line)', strokeWidth: 1 }),
+        h('text', { x: 521, y: 139, fontSize: 10, fill: 'var(--violet)', style: { fontFamily: 'JetBrains Mono' } }, 'experiment'),
+        h('text', { x: 521, y: 155, fontSize: 9, fill: 'var(--fg-3)', style: { fontFamily: 'JetBrains Mono' } }, 'N=4/5'),
+        h('path', { d: 'M 316 214 L 370 198 L 424 174 L 478 164 L 532 138 L 586 118 L 640 92',
+          stroke: 'url(#evalG)', strokeWidth: 3, fill: 'none' }),
+        h('path', { d: 'M 316 214 L 370 198 L 424 174 L 478 164 L 532 138 L 586 118 L 640 92 L 640 232 L 316 232 Z',
+          fill: 'url(#metricFillG)' }),
+        h('path', { d: 'M 316 214 L 370 198 L 424 174 L 478 164 L 532 138 L 586 118 L 640 92',
+          stroke: 'url(#evalG)', strokeWidth: 1.5, fill: 'none', strokeDasharray: '6 8', className: 'anim-flow', opacity: 0.9 }),
+        h('circle', { r: 5, fill: 'var(--cyan)' },
+          h('animateMotion', {
+            dur: '3.8s',
+            repeatCount: 'indefinite',
+            path: 'M 316 214 L 370 198 L 424 174 L 478 164 L 532 138 L 586 118 L 640 92'
+          })
+        ),
+        [316, 370, 424, 478, 532, 586, 640].map((x, i) => {
+          const ys = [214, 198, 174, 164, 138, 118, 92];
+          const active = i === 4 || i === 6;
+          return h('circle', { key: x, cx: x, cy: ys[i], r: active ? 5 : 3.5,
+            fill: active ? 'var(--cyan)' : 'var(--bg)',
+            stroke: active ? 'var(--cyan)' : 'var(--violet)', strokeWidth: 2,
+            className: active ? 'anim-pulse' : '' });
+        }),
+        h('line', { x1: 316, y1: 232, x2: 652, y2: 232, stroke: 'var(--line)' }),
+        h('line', { x1: 316, y1: 78, x2: 316, y2: 232, stroke: 'var(--line)' }),
+        h('text', { x: 316, y: 252, fontSize: 10, fill: 'var(--fg-3)', textAnchor: 'middle', style: { fontFamily: 'JetBrains Mono' } }, 'r1'),
+        h('text', { x: 478, y: 252, fontSize: 10, fill: 'var(--fg-3)', textAnchor: 'middle', style: { fontFamily: 'JetBrains Mono' } }, 'r42'),
+        h('text', { x: 640, y: 252, fontSize: 10, fill: 'var(--fg-3)', textAnchor: 'middle', style: { fontFamily: 'JetBrains Mono' } }, 'r142'),
+        h('text', { x: 334, y: 88, fontSize: 11, fill: 'var(--fg-3)', style: { fontFamily: 'JetBrains Mono' } }, 'metric: audit.accuracy'),
+        h('text', { x: 650, y: 88, fontSize: 16, fill: 'var(--success)', textAnchor: 'end', style: { fontFamily: 'JetBrains Mono' } }, '94%'),
+        h('g', null,
+          h('rect', { x: 334, y: 104, width: 102, height: 22, rx: 11, fill: 'var(--bg-3)', stroke: 'var(--line)' }),
+          h('circle', { cx: 350, cy: 115, r: 4, fill: 'var(--violet)', className: 'anim-pulse' }),
+          h('text', { x: 362, y: 119, fontSize: 9.5, fill: 'var(--fg-2)', style: { fontFamily: 'JetBrains Mono' } }, 'hypothesis'),
+          h('rect', { x: 603, y: 104, width: 54, height: 22, rx: 11, fill: 'rgba(74, 222, 128, 0.12)', stroke: 'rgba(74, 222, 128, 0.35)' }),
+          h('text', { x: 630, y: 119, textAnchor: 'middle', fontSize: 9.5, fill: 'var(--success)', style: { fontFamily: 'JetBrains Mono' } }, 'keep')
+        )
+      ),
+
+      h('path', { d: 'M 688 160 C 704 160, 712 160, 728 160',
+        stroke: 'url(#flowG)', strokeWidth: 2, fill: 'none', strokeDasharray: '4 4', className: 'anim-flow', markerEnd: 'url(#arrowG)' }),
+
+      h('g', null,
+        h('rect', { x: 728, y: 58, width: 192, height: 204, rx: 14,
+          fill: 'var(--bg-2)', stroke: 'var(--line-2)', strokeWidth: 1 }),
+        h('text', { x: 750, y: 88, fontSize: 13, fill: 'var(--fg)', fontWeight: 600 }, 'append-only evidence'),
+        h('text', { x: 750, y: 108, fontSize: 10, fill: 'var(--fg-3)', style: { fontFamily: 'JetBrains Mono' } }, 'proposer != evaluator'),
+        ...decisions.map((d, i) => h('g', { key: d.label },
+          h('rect', { x: 748, y: d.y - 20, width: 150, height: 36, rx: 9,
+            fill: 'var(--bg-3)', stroke: 'var(--line)', strokeWidth: 1 }),
+          h('circle', { cx: 764, cy: d.y - 2, r: 4, fill: d.color, className: i === 1 ? 'anim-pulse' : '' }),
+          h('text', { x: 778, y: d.y + 3, fontSize: 11, fill: 'var(--fg)', fontWeight: 500 }, d.label),
+          h('text', { x: 888, y: d.y + 3, fontSize: 10, fill: d.color, textAnchor: 'end',
+            style: { fontFamily: 'JetBrains Mono' } }, d.value)
+        )),
+        h('rect', { x: 748, y: 224, width: 150, height: 22, rx: 11,
+          fill: 'rgba(103, 232, 249, 0.09)', stroke: 'rgba(103, 232, 249, 0.28)' }),
+        h('text', { x: 823, y: 239, textAnchor: 'middle', fontSize: 10, fill: 'var(--cyan)',
+          style: { fontFamily: 'JetBrains Mono' } }, 'next hypothesis queued')
+      ),
+
+      h('path', { d: 'M 824 268 C 680 300, 342 300, 144 270',
+        stroke: 'url(#evalG)', strokeWidth: 1.4, fill: 'none', strokeDasharray: '5 6', opacity: 0.7, className: 'anim-flow', markerEnd: 'url(#arrowG)' }),
+      h('circle', { r: 4, fill: 'var(--violet)' },
+        h('animateMotion', {
+          dur: '5s',
+          repeatCount: 'indefinite',
+          path: 'M 824 268 C 680 300, 342 300, 144 270'
+        })
+      ),
+      h('rect', { x: 388, y: 286, width: 212, height: 18, rx: 9, fill: 'var(--bg-2)', opacity: 0.94 }),
+      h('text', { x: 494, y: 299, textAnchor: 'middle', fontSize: 11, fill: 'var(--fg-3)',
+        style: { fontFamily: 'JetBrains Mono' } }, 'verdict feeds the next run')
     )
   );
 }
 
 function Hero({ name, variant = 1 }) {
   const headlines = {
-    1: ['Workflows that', 'learn your business.'],
+    1: ['Workflows that improve', 'every time they run.'],
     2: ['Design one workflow.', 'Run it a thousand times.', 'Each run teaches the next.'],
     3: ['The last workflow', "you'll ever rewrite."],
   };
   const subs = {
-    1: 'Each run teaches the next one. Evals catch the drift, skills capture what worked, the knowledge base remembers. The hundredth run of a workflow is unrecognisable from the first.',
+    1: 'Runloop is an open-source AI workflow builder. Create AI employees, assign them repeatable workflows, and let every run open experiments, sharpen metrics, capture business rules, and improve the next run.',
     2: 'Design it visually. Grade it automatically. Watch it absorb the judgment of your team — evals sharpen, skills stick, institutional memory accrues. Runs on any coding CLI, any model, any MCP server you bring.',
-    3: 'Most automations rot the moment reality shifts. AgentForge workflows carry their own evals, skills, and knowledge base — so they adapt instead of breaking.',
+    3: 'Most automations rot the moment reality shifts. Runloop workflows carry their own evals, skills, and knowledge base — so they adapt instead of breaking.',
   };
   const hw = headlines[variant];
 
   return h('section', { className: 'hero' },
     h('div', { className: 'hero-bg' }),
     h('div', { className: 'shell hero-inner' },
-      h('div', { style: { display: 'flex', gap: 8, marginBottom: 32, justifyContent: 'center' } },
+      h('div', { className: 'hero-proof', style: { display: 'flex', gap: 8, marginBottom: 32, justifyContent: 'center' } },
         h('span', { className: 'tag violet' },
           h('span', { className: 'dot' }), 'Open source · MIT'),
         h('span', { className: 'tag amber' },
@@ -195,8 +251,8 @@ function Hero({ name, variant = 1 }) {
       h('p', { className: 'lead', style: { maxWidth: 680, margin: '0 auto 40px', textAlign: 'center' } },
         subs[variant]
       ),
-      h('div', { style: { display: 'flex', gap: 12, justifyContent: 'center', marginBottom: 80 } },
-        h('a', { className: 'btn violet', href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' }, 'Book a demo', h('span', { className: 'arrow' }, '→')),
+      h('div', { className: 'hero-actions', style: { display: 'flex', gap: 12, justifyContent: 'center', marginBottom: 80 } },
+        h('a', { className: 'btn violet', href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' }, 'Deploy OSS', h('span', { className: 'arrow' }, '→')),
         h('a', { className: 'btn ghost', href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' },
           h('svg', { width: 14, height: 14, viewBox: '0 0 16 16', fill: 'currentColor' },
             h('path', { d: 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z' })
@@ -215,8 +271,8 @@ function Hero({ name, variant = 1 }) {
           ),
           h('div', { style: { display: 'flex', gap: 10 } },
             h('span', { className: 'tag' }, h('span', { className: 'dot', style: { background: 'var(--success)' } }), 'running'),
-            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--success)' } }, 'eval 0.91 ↑'),
-            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--amber)' } }, 'tok 4.2k ↓')
+            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--success)' } }, 'metric 94% ↑'),
+            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--violet)' } }, 'experiment N=4/5')
           )
         ),
         h(HeroGraph)

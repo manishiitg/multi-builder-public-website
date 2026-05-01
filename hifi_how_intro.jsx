@@ -1,4 +1,4 @@
-// "How it works" — redesigned around the workflow lifecycle
+// "How it works" — redesigned around the automation lifecycle
 // Opening + 4 lifecycle moments + connecting sections
 
 /* ===== NEW HERO ===== */
@@ -11,17 +11,17 @@ function HowHero2({ name }) {
         h('span', { className: 'tag amber' }, h('span', { className: 'dot' }), 'Early alpha')
       ),
       h('h1', { className: 'display', style: { textAlign: 'center', marginBottom: 24, maxWidth: 960, margin: '0 auto 24px' } },
-        'Design a workflow once. ',
-        h('span', { style: { background: 'linear-gradient(120deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'Run it forever.')
+        'Run the automation. ',
+        h('span', { style: { background: 'linear-gradient(120deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'Improve the loop.')
       ),
       h('p', { className: 'lead', style: { maxWidth: 640, margin: '0 auto 8px', textAlign: 'center' } },
-        'Design once. Run forever. Every run leaves a trail \u2014 and makes the next one better.'
+        'Every run leaves evidence: evals, costs, decisions, learnings, scripts, and business rules. Runloop turns that trail into the next improvement.'
       )
     )
   );
 }
 
-/* ===== WHAT A WORKFLOW IS ===== */
+/* ===== WHAT AN AUTOMATION IS ===== */
 function WhatIsWorkflow() {
   const parts = [
     { label: 'Goal', v: 'review incoming PRs, flag risky diffs', color: 'var(--violet)' },
@@ -32,9 +32,9 @@ function WhatIsWorkflow() {
   ];
   return h('section', { className: 'section tight' },
     h('div', { className: 'shell' },
-      h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 64, alignItems: 'center' } },
+      h('div', { className: 'what-workflow-grid', style: { display: 'grid', gap: 64, alignItems: 'center' } },
         h('div', null,
-          h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What a workflow is'),
+          h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What an automation is'),
           h('h2', { className: 'h2', style: { marginBottom: 20 } },
             'A repeatable job ',
             h('span', { style: { color: 'var(--fg-3)' } }, 'you can design once and run many times.')
@@ -78,13 +78,13 @@ function WhatIsWorkflow() {
         ),
         h('div', { className: 'card', style: { padding: 28 } },
           h('div', { style: { display: 'flex', justifyContent: 'space-between', marginBottom: 18 } },
-            h('span', { className: 'mono', style: { fontSize: 12, color: 'var(--fg-3)' } }, 'workflow :: pr-reviewer'),
+            h('span', { className: 'mono', style: { fontSize: 12, color: 'var(--fg-3)' } }, 'automation :: pr-reviewer'),
             h('span', { className: 'tag violet' }, h('span', { className: 'dot' }), 'v12')
           ),
           parts.map((p, i) =>
-            h('div', { key: i, style: {
+            h('div', { key: i, className: 'workflow-part', style: {
               padding: '14px 0', borderTop: i ? '1px solid var(--line)' : 'none',
-              display: 'grid', gridTemplateColumns: '130px 1fr', gap: 16, alignItems: 'center'
+              display: 'grid', gap: 16, alignItems: 'center'
             } },
               h('div', { style: { display: 'flex', alignItems: 'center', gap: 8 } },
                 h('span', { style: { width: 8, height: 8, borderRadius: '50%', background: p.color } }),
@@ -119,6 +119,7 @@ function Lifecycle() {
       ),
       h('div', { style: { position: 'relative' } },
         h('svg', {
+          className: 'lifecycle-loop-art',
           viewBox: '0 0 1000 120', preserveAspectRatio: 'none',
           style: { position: 'absolute', left: 0, right: 0, top: -40, width: '100%', height: 120, pointerEvents: 'none', zIndex: 1 }
         },
@@ -141,7 +142,7 @@ function Lifecycle() {
             'the loop closes \u2014 every run makes the next one better'
           )
         ),
-        h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 12, position: 'relative', zIndex: 2 } },
+        h('div', { className: 'lifecycle-cards', style: { display: 'grid', gap: 12, position: 'relative', zIndex: 2 } },
           moments.map((m, i) =>
             h('div', { key: i, className: 'card', style: { padding: 22, position: 'relative', minHeight: 240 } },
               h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 } },
@@ -161,7 +162,7 @@ function Lifecycle() {
         )
       ),
       h('div', { style: { marginTop: 28, textAlign: 'center', fontSize: 13, color: 'var(--fg-3)' } },
-        h('span', { className: 'mono' }, 'one workflow. many runs. compounding returns.')
+        h('span', { className: 'mono' }, 'one automation. many runs. compounding returns.')
       )
     )
   );
@@ -173,14 +174,14 @@ function MockupsIntro() {
     { label: 'Live execution',    sub: 'what\u2019s happening now',       color: 'var(--violet)' },
     { label: 'Costs',              sub: 'tokens \u00b7 USD per run',        color: 'var(--cyan)' },
     { label: 'Evaluation reports', sub: 'score, reasoning, evidence',       color: 'var(--lime)' },
-    { label: 'Playbook',           sub: 'what the workflow has learned',    color: 'var(--amber)' },
+    { label: 'Playbook',           sub: 'what the automation has learned',    color: 'var(--amber)' },
     { label: 'Scheduled runs',     sub: 'history across every cron',        color: 'var(--pink)' },
   ];
   return h('section', { className: 'section tight', style: { paddingBottom: 40 } },
     h('div', { className: 'shell', style: { textAlign: 'center' } },
       h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// The four screens'),
       h('h2', { className: 'h2', style: { maxWidth: 820, margin: '0 auto 28px' } },
-        'One workflow, five views. ',
+        'One automation, five views. ',
         h('span', { style: { color: 'var(--fg-3)' } }, 'Built for operators, not demos.')
       ),
       h('div', { style: { display: 'flex', justifyContent: 'center', gap: 10, flexWrap: 'wrap', marginTop: 8 } },
