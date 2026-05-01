@@ -1096,6 +1096,12 @@ const RUNLOOP_TEMPLATES = [
 ];
 
 window.RUNLOOP_TEMPLATES = RUNLOOP_TEMPLATES;
+function automationHref(slug) {
+  const host = window.location.hostname;
+  const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
+  return isLocal ? `template.html?slug=${slug}` : `/automations/${slug}/`;
+}
+window.automationHref = automationHref;
 
 /* ========== SECTION: AUTOMATION GALLERY ========== */
 function Templates() {
@@ -1110,11 +1116,11 @@ function Templates() {
             h('span', { style: { color: 'var(--fg-3)' } }, 'Each one stands on its own.')
           )
         ),
-        h('a', { className: 'btn ghost', href: 'template.html?slug=lead-enrichment' }, 'Explore automations', h('span', { className: 'arrow' }, '→'))
+        h('a', { className: 'btn ghost', href: automationHref('lead-enrichment') }, 'Explore automations', h('span', { className: 'arrow' }, '→'))
       ),
       h('div', { className: 'grid cols-3' },
         tpls.map((t, i) =>
-          h('a', { key: t.slug, href: `template.html?slug=${t.slug}`, className: 'card template-card', style: { padding: 24, cursor: 'pointer', display: 'block' } },
+          h('a', { key: t.slug, href: automationHref(t.slug), className: 'card template-card', style: { padding: 24, cursor: 'pointer', display: 'block' } },
             h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 } },
               h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--fg-3)', letterSpacing: '0.08em', textTransform: 'uppercase' } }, t.c),
               h('span', { className: 'tag' }, h('span', { className: 'dot', style: { background: t.color } }), t.pill)
@@ -1405,7 +1411,7 @@ function Footer({ name }) {
         h('div', { className: 'footer-col footer-templates' },
           h('h5', null, 'Automations'),
           footerTemplates.map(t =>
-            h('a', { key: t.slug, href: `template.html?slug=${t.slug}` }, t.t)
+            h('a', { key: t.slug, href: automationHref(t.slug) }, t.t)
           )
         ),
         h('div', { className: 'footer-col' },

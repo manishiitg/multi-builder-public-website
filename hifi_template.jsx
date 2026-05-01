@@ -596,7 +596,8 @@ function CustomWorkflowSection({ template, customOptions }) {
 
 function TemplateLanding({ name }) {
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get('slug') || 'lead-enrichment';
+  const pathMatch = window.location.pathname.match(/\/automations\/([^/]+)\/?$/);
+  const slug = (pathMatch && pathMatch[1]) || params.get('slug') || 'lead-enrichment';
   const templates = window.RUNLOOP_TEMPLATES || [];
   const template = templates.find(t => t.slug === slug) || templates[0];
 
@@ -604,6 +605,22 @@ function TemplateLanding({ name }) {
     if (template) {
       const suffix = template.t.toLowerCase().includes('automation') ? '' : ' automation';
       document.title = `${template.t}${suffix} - Runloop`;
+      const canonicalUrl = `${window.location.origin}/automations/${template.slug}/`;
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute('href', canonicalUrl);
+
+      let description = document.querySelector('meta[name="description"]');
+      if (!description) {
+        description = document.createElement('meta');
+        description.setAttribute('name', 'description');
+        document.head.appendChild(description);
+      }
+      description.setAttribute('content', template.intro || template.d || 'Runloop automation landing page.');
     }
   }, [template && template.slug]);
 

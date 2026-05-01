@@ -25,6 +25,11 @@ function Logo({ name = 'Runloop' }) {
 
 function Nav({ name, current = 'home' }) {
   const automationLinks = window.RUNLOOP_TEMPLATES || [];
+  const automationHref = (slug) => {
+    const host = window.location.hostname;
+    const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
+    return isLocal ? `template.html?slug=${slug}` : `/automations/${slug}/`;
+  };
   const links = [
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'how', label: 'How it works', href: 'how.html' },
@@ -49,7 +54,7 @@ function Nav({ name, current = 'home' }) {
           h('div', { className: 'nav-dropdown-menu' },
             h('div', { className: 'nav-dropdown-head mono' }, 'Automation library'),
             automationLinks.map((item, i) =>
-              h('a', { key: item.slug, className: 'nav-dropdown-item', href: `template.html?slug=${item.slug}` },
+              h('a', { key: item.slug, className: 'nav-dropdown-item', href: automationHref(item.slug) },
                 h('span', { className: 'dot', style: { background: item.color || 'var(--violet)' } }),
                 h('span', null,
                   h('strong', null, item.t),

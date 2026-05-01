@@ -1,0 +1,2 @@
+/automations/:slug/ /template.html 200
+/automations/:slug /template.html 200
