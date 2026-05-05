@@ -7,11 +7,62 @@ function HowDeepHero() {
         h('span', { className: 'tag amber' }, h('span', { className: 'dot' }), 'Self-improving automations')
       ),
       h('h1', { className: 'display', style: { textAlign: 'center', marginBottom: 24, maxWidth: 1040, margin: '0 auto 24px' } },
-        'Build an automation. ',
-        h('span', { style: { background: 'linear-gradient(120deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'Let it get better.')
+        'Set goals and metrics. ',
+        h('span', { style: { background: 'linear-gradient(120deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'Let agents improve the automation.')
       ),
       h('p', { className: 'lead', style: { maxWidth: 790, margin: '0 auto', textAlign: 'center' } },
-        'Runloop turns a repeatable business process into a managed automation: it runs the job, checks the result, learns from each run, and keeps improving the parts that are slow, costly, risky, or unreliable.'
+        'Runloop turns a repeatable business process into a managed AI automation. You define the target outcome, metrics, tools, and approval rules. Agents run the work, evaluate the result, and make measured improvements over time.'
+      ),
+      h('div', { className: 'how-page-nav' },
+        [
+          ['Workspace', '#workspace'],
+          ['Loop', '#loop'],
+          ['Example', '#example'],
+          ['Builder', '#builder'],
+          ['Knowledge', '#knowledge'],
+          ['Models', '#models'],
+          ['Browser', '#browser'],
+          ['Observability', '#observability'],
+        ].map(item =>
+          h('a', { key: item[0], href: item[1], className: 'mono' }, item[0])
+        )
+      )
+    )
+  );
+}
+
+function LoopOverview() {
+  const items = [
+    { t: 'Goals + metrics', d: 'Define success', c: 'var(--violet)' },
+    { t: 'Agents run', d: 'Use tools and models', c: 'var(--cyan)' },
+    { t: 'Eval checks', d: 'Score against target', c: 'var(--lime)' },
+    { t: 'Improve', d: 'Propose measured changes', c: 'var(--pink)' },
+    { t: 'Skills + KB', d: 'Save what worked', c: 'var(--amber)' },
+    { t: 'Next run', d: 'Start with better defaults', c: 'var(--success)' },
+  ];
+
+  return h('section', { className: 'section tight how-loop-section' },
+    h('div', { className: 'shell' },
+      h('div', { className: 'how-loop-head' },
+        h('div', { className: 'eyebrow' }, '// The operating loop'),
+        h('p', { className: 'body', style: { margin: 0 } },
+          'The product is not just an agent runner. It is a loop that turns measured outcomes into better automation behavior.'
+        )
+      ),
+      h('div', { className: 'how-loop-visual' },
+        items.map((item, i) =>
+          h('div', { key: item.t, className: 'how-loop-node' },
+            h('div', { style: { display: 'flex', alignItems: 'center', gap: 9, marginBottom: 8 } },
+              h('span', { style: { width: 9, height: 9, borderRadius: '50%', background: item.c, boxShadow: `0 0 16px ${item.c}` } }),
+              h('span', { className: 'mono', style: { color: item.c, fontSize: 10 } }, `0${i + 1}`)
+            ),
+            h('div', { style: { fontSize: 18, fontWeight: 700, marginBottom: 5 } }, item.t),
+            h('div', { className: 'small' }, item.d),
+            i < items.length - 1
+              ? h('span', { className: 'how-loop-arrow' }, '→')
+              : h('span', { className: 'how-loop-arrow return' }, '↺')
+          )
+        )
       )
     )
   );
@@ -19,15 +70,15 @@ function HowDeepHero() {
 
 function WorkspaceAnatomy() {
   const parts = [
-    ['Goal', 'What the automation is trying to do, which metric matters, and what a good result looks like.'],
-    ['Steps', 'The work broken into clear stages: fetch, analyze, decide, write, publish, review, or anything your process needs.'],
-    ['Tools', 'Connected apps, APIs, browser actions, scripts, and model providers available to each step.'],
-    ['Memory', 'Facts, rules, decisions, reusable code, and lessons saved from previous runs so the next run starts ahead.'],
-    ['Safety', 'Human approvals for risky actions, account access, spending limits, secrets, and places where the automation should pause.'],
-    ['Schedule', 'When it should run again, which group or customer it should run for, and how much history to preserve.'],
+    ['Goals + metrics', 'What business outcome the automation is trying to improve, how it is measured, and what threshold counts as success.'],
+    ['Plan steps', 'The work broken into stages: fetch context, analyze, decide, act, write, publish, review, or ask for approval.'],
+    ['Tools + MCPs', 'Connected apps, APIs, browser actions, scripts, model providers, and internal systems available to each step.'],
+    ['Knowledgebase', 'Facts, policies, examples, edge cases, decisions, and lessons saved from previous runs so the next run starts ahead.'],
+    ['Skills', 'Reusable abilities and scripts promoted from repeated wins so stable parts become faster, cheaper, and more consistent.'],
+    ['Safety + schedule', 'Human approvals, risk limits, trigger rules, recurrence, account boundaries, and places where the automation must pause.'],
   ];
 
-  return h('section', { className: 'section tight' },
+  return h('section', { id: 'workspace', className: 'section tight' },
     h('div', { className: 'shell' },
       h('div', { className: 'how-two-col', style: { display: 'grid', gap: 54, alignItems: 'start' } },
         h('div', null,
@@ -37,7 +88,7 @@ function WorkspaceAnatomy() {
             h('span', { style: { color: 'var(--fg-3)' } }, 'lives in one workspace.')
           ),
           h('p', { className: 'body', style: { margin: 0, maxWidth: 540 } },
-            'Instead of a one-off prompt, Runloop keeps a durable operating folder for the automation. The builder edits it, the runner executes it, the evaluator scores it, and the optimizer uses the evidence to decide what should improve next.'
+            'Instead of a one-off prompt, Runloop keeps a durable operating workspace for the automation. The builder defines the system, the runner executes it, the evaluator scores it, and the optimizer uses evidence to decide what should improve next.'
           )
         ),
         h('div', { className: 'card file-map', style: { padding: 24 } },
@@ -61,21 +112,21 @@ function WorkspaceAnatomy() {
 
 function RunLifecycle() {
   const stages = [
-    { n: '01', t: 'Design', d: 'Describe the job, choose tools and models, define success, and decide where humans must stay in control.', c: 'var(--violet)' },
-    { n: '02', t: 'Run', d: 'The automation executes step by step, calling agents, tools, APIs, browser actions, or scripts as needed.', c: 'var(--cyan)' },
-    { n: '03', t: 'Check', d: 'A separate evaluation pass scores the output against the goal, flags gaps, and explains why it passed or failed.', c: 'var(--lime)' },
-    { n: '04', t: 'Learn', d: 'Useful facts, working scripts, failed assumptions, and human corrections are saved back into the workspace.', c: 'var(--amber)' },
-    { n: '05', t: 'Improve', d: 'Runloop proposes changes, measures them over future runs, and keeps only the changes that actually help.', c: 'var(--pink)' },
-    { n: '06', t: 'Repeat', d: 'The next scheduled or manual run starts with more context, better defaults, and cheaper fast paths.', c: 'var(--success)' },
+    { n: '01', t: 'Set goals', d: 'Define the business result, target metric, allowed tools, model policy, and where humans must stay in control.', c: 'var(--violet)' },
+    { n: '02', t: 'Build steps', d: 'Break the process into clear stages with inputs, expected outputs, tool access, approval gates, and fallback paths.', c: 'var(--cyan)' },
+    { n: '03', t: 'Run agents', d: 'AI agents execute step by step, calling MCP tools, APIs, browsers, code, model providers, or scripts as needed.', c: 'var(--lime)' },
+    { n: '04', t: 'Evaluate', d: 'A separate evaluation pass scores the output against the goal and explains what passed, failed, or needs review.', c: 'var(--amber)' },
+    { n: '05', t: 'Improve', d: 'Agents propose changes to prompts, steps, skills, tools, rubrics, or scripts based on the metric evidence.', c: 'var(--pink)' },
+    { n: '06', t: 'Promote or revert', d: 'Useful changes are kept as skills or fast paths. Bad changes are rejected. The next run starts with better defaults.', c: 'var(--success)' },
   ];
 
-  return h('section', { className: 'section', style: { background: 'var(--bg-2)' } },
+  return h('section', { id: 'loop', className: 'section', style: { background: 'var(--bg-2)' } },
     h('div', { className: 'shell' },
       h('div', { style: { textAlign: 'center', marginBottom: 44 } },
         h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// The loop'),
         h('h2', { className: 'h2', style: { margin: 0 } },
-          'It is not just execution. ',
-          h('span', { style: { color: 'var(--fg-3)' } }, 'It is execution plus feedback.')
+          'It is execution, evaluation, ',
+          h('span', { style: { color: 'var(--fg-3)' } }, 'and automated improvement.')
         )
       ),
       h('div', { className: 'inner-lifecycle-grid', style: { display: 'grid', gap: 14 } },
@@ -94,12 +145,48 @@ function RunLifecycle() {
   );
 }
 
+function RunningExample() {
+  const rows = [
+    ['Goal', 'Reduce false escalations in support triage without missing urgent tickets.'],
+    ['Metric', 'SLA accuracy, escalation precision, reply acceptance rate, and human corrections.'],
+    ['Run', 'The agent reads a new ticket, pulls CRM and incident context, classifies severity, and drafts the next action.'],
+    ['Evaluate', 'A separate eval checks whether the right docs were used, risk was classified correctly, and the reply followed policy.'],
+    ['Improve', 'If false escalations dropped, the new routing rule is kept. If it caused misses, the change is reverted.'],
+    ['Save', 'Repeated fixes become support skills, macros, deterministic checks, or knowledgebase rules for the next run.'],
+  ];
+
+  return h('section', { id: 'example', className: 'section tight' },
+    h('div', { className: 'shell' },
+      h('div', { className: 'running-example' },
+        h('div', null,
+          h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Concrete example'),
+          h('h2', { className: 'h2', style: { margin: '0 0 18px' } },
+            'Example: support triage ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'that improves its own routing.')
+          ),
+          h('p', { className: 'body', style: { margin: 0, maxWidth: 560 } },
+            'This is the same loop applied to a real business outcome. The team sets the target. Agents run the work. Evals decide whether the proposed improvement is worth keeping.'
+          )
+        ),
+        h('div', { className: 'card', style: { padding: 24 } },
+          rows.map((r, i) =>
+            h('div', { key: r[0], className: 'running-example-row' },
+              h('div', { className: 'mono', style: { color: i < 2 ? 'var(--violet)' : 'var(--cyan)', fontSize: 11 } }, r[0]),
+              h('div', { className: 'body', style: { color: 'var(--fg-2)' } }, r[1])
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
 function ImprovementExamples() {
   const examples = [
-    ['Quality', 'Catches missing fields, weak reasoning, bad formatting, stale sources, or outputs that do not meet the rubric.'],
-    ['Cost', 'Routes simple steps to cheaper models, reuses saved scripts, and avoids spending tokens on work that has become deterministic.'],
-    ['Reliability', 'Remembers edge cases, adds guardrails, retries fragile steps, and asks humans before high-risk actions.'],
-    ['Speed', 'Turns repeated research, parsing, cleanup, and transformation steps into reusable fast paths.'],
+    ['Goal movement', 'Tracks whether the automation moved the target metric: SLA accuracy, QA coverage, lead quality, savings, or acceptance rate.'],
+    ['Agent changes', 'Lets agents propose changes to step instructions, model routing, tool choice, rubrics, prompts, scripts, or approval rules.'],
+    ['Skills saved', 'Promotes repeated good behavior into reusable skills so future runs start with proven operating knowledge.'],
+    ['Cost reduced', 'Routes stable work to cheaper models, deterministic scripts, or fast paths after evals show the step is reliable.'],
   ];
 
   return h('section', { className: 'section tight' },
@@ -108,12 +195,12 @@ function ImprovementExamples() {
         h('div', null,
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What improves'),
           h('h2', { className: 'h2', style: { margin: 0 } },
-            'Each run leaves behind ',
-            h('span', { style: { color: 'var(--fg-3)' } }, 'usable evidence.')
+            'Each run gives agents ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'evidence for what to improve.')
           )
         ),
         h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
-          'Runloop does not assume a change helped just because it sounds better. It compares future runs against the goals you care about: quality, cost, reliability, and speed.'
+          'Runloop does not assume a change helped because it sounds better. It compares future runs against the goals and metrics you care about, then keeps only changes that improve the automation.'
         )
       ),
       h('div', { className: 'grid cols-4' },
@@ -132,10 +219,10 @@ function ImprovementExamples() {
 function BuilderSystem() {
   const capabilities = [
     {
-      k: 'Workflow builder',
-      t: 'Design the automation visually.',
-      d: 'Configure the workflow graph: steps, inputs, groups, variables, schedules, tools, model policy, approval gates, and expected output contracts.',
-      tags: ['graph', 'variables', 'schedules'],
+      k: 'Automation builder',
+      t: 'Design the automation graph.',
+      d: 'Configure the automation graph: steps, inputs, groups, variables, triggers, schedules, tools, model policy, approval gates, and expected output contracts.',
+      tags: ['graph', 'variables', 'triggers'],
       c: 'var(--violet)'
     },
     {
@@ -155,27 +242,27 @@ function BuilderSystem() {
     {
       k: 'Metrics',
       t: 'Define what better means.',
-      d: 'Attach metrics to the automation: quality, cost, latency, pass rate, coverage, retries, human escalations, or domain-specific KPIs.',
+      d: 'Attach business and run metrics to the automation: quality, cost, latency, pass rate, coverage, retries, human escalations, or domain-specific KPIs.',
       tags: ['target', 'trend', 'verdict'],
       c: 'var(--amber)'
     },
     {
       k: 'Knowledgebase',
       t: 'Keep lessons close to the automation.',
-      d: 'Store workflow-specific rules, examples, edge cases, source notes, brand voice, customer facts, prior decisions, and operator corrections.',
+      d: 'Store automation-specific rules, examples, edge cases, source notes, brand voice, customer facts, prior decisions, and operator corrections.',
       tags: ['rules', 'examples', 'decisions'],
       c: 'var(--pink)'
     },
     {
-      k: 'Workflow skills',
+      k: 'Automation skills',
       t: 'Turn repeated know-how into reusable ability.',
-      d: 'Promote reliable patterns into workflow-level skills or reusable scripts, so future runs can execute stable parts with less reasoning and fewer tokens.',
+      d: 'Promote reliable patterns into automation-level skills or reusable scripts, so future runs can execute stable parts with less reasoning and fewer tokens.',
       tags: ['skills', 'scripts', 'fast path'],
       c: 'var(--success)'
     },
   ];
 
-  return h('section', { className: 'section', style: { background: 'var(--bg-2)' } },
+  return h('section', { id: 'builder', className: 'section', style: { background: 'var(--bg-2)' } },
     h('div', { className: 'shell' },
       h('div', { className: 'split-heading', style: { display: 'grid', gridTemplateColumns: '0.85fr 1.15fr', gap: 48, alignItems: 'end', marginBottom: 38 } },
         h('div', null,
@@ -217,6 +304,25 @@ function BuilderSystem() {
   );
 }
 
+function AdvancedCapabilitiesIntro() {
+  return h('section', { className: 'section tight advanced-capabilities-intro' },
+    h('div', { className: 'shell' },
+      h('div', { className: 'split-heading', style: { display: 'grid', gridTemplateColumns: '0.82fr 1.18fr', gap: 48, alignItems: 'end' } },
+        h('div', null,
+          h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Advanced capabilities'),
+          h('h2', { className: 'h2', style: { margin: 0 } },
+            'Once the loop is clear, ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'these are the systems it can use.')
+          )
+        ),
+        h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
+          'The sections below are platform details: knowledgebase, skills, model routing, multimodal tools, browser modes, execution runtime, trust controls, and observability.'
+        )
+      )
+    )
+  );
+}
+
 function KnowledgeAndSkills() {
   const knowledge = [
     ['Rules', 'Durable instructions the automation should follow every run: brand constraints, policy rules, customer preferences, thresholds, and edge cases.'],
@@ -225,7 +331,7 @@ function KnowledgeAndSkills() {
   ];
 
   const skills = [
-    ['Workflow-level skill', 'Reusable know-how scoped to one automation, such as how to review a PR, classify a lead, score an AEO answer, or package a social post.'],
+    ['Automation-level skill', 'Reusable know-how scoped to one automation, such as how to review a PR, classify a lead, score an AEO answer, or package a social post.'],
     ['Reusable script', 'Deterministic code for stable steps like parsing, validation, report generation, routing, cleanup, or API transformation.'],
     ['Fast path', 'Before calling a large model, Runloop can try the saved skill or script, validate the output, and only escalate when the fast path fails.'],
   ];
@@ -242,7 +348,7 @@ function KnowledgeAndSkills() {
     );
   }
 
-  return h('section', { className: 'section tight' },
+  return h('section', { id: 'knowledge', className: 'section tight' },
     h('div', { className: 'shell' },
       h('div', { className: 'split-heading', style: { display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 48, alignItems: 'end', marginBottom: 38 } },
         h('div', null,
@@ -253,20 +359,20 @@ function KnowledgeAndSkills() {
           )
         ),
         h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
-          'Knowledgebase and workflow skills are the compounding layer. The knowledgebase captures what the automation learned; skills turn repeated procedures into reusable execution paths.'
+          'Knowledgebase and automation skills are the compounding layer. The knowledgebase captures what the automation learned; skills turn repeated procedures into reusable execution paths.'
         )
       ),
       h('div', { className: 'how-two-col', style: { display: 'grid', gap: 22, alignItems: 'stretch' } },
         h('div', { className: 'card', style: { padding: 24 } },
           h('div', { className: 'mono', style: { color: 'var(--pink)', fontSize: 11, marginBottom: 16, letterSpacing: '0.08em', textTransform: 'uppercase' } }, 'Knowledgebase'),
-          h('h3', { style: { margin: '0 0 12px', fontSize: 26, fontWeight: 600 } }, 'Memory the workflow can trust.'),
+          h('h3', { style: { margin: '0 0 12px', fontSize: 26, fontWeight: 600 } }, 'Memory the automation can trust.'),
           h('p', { className: 'body', style: { margin: '0 0 18px', color: 'var(--fg-2)' } },
-            'It is not generic chat memory. It is workflow-scoped context that future runs can use to avoid repeating mistakes and to preserve domain-specific decisions.'
+            'It is not generic chat memory. It is automation-scoped context that future runs can use to avoid repeating mistakes and preserve domain-specific decisions.'
           ),
           detailList(knowledge, 'var(--pink)')
         ),
         h('div', { className: 'card', style: { padding: 24 } },
-          h('div', { className: 'mono', style: { color: 'var(--success)', fontSize: 11, marginBottom: 16, letterSpacing: '0.08em', textTransform: 'uppercase' } }, 'Workflow skills'),
+          h('div', { className: 'mono', style: { color: 'var(--success)', fontSize: 11, marginBottom: 16, letterSpacing: '0.08em', textTransform: 'uppercase' } }, 'Automation skills'),
           h('h3', { style: { margin: '0 0 12px', fontSize: 26, fontWeight: 600 } }, 'Reusable ability for this automation.'),
           h('p', { className: 'body', style: { margin: '0 0 18px', color: 'var(--fg-2)' } },
             'When a repeated pattern becomes reliable, Runloop can promote it into a skill or script. The next run starts with that ability instead of rediscovering the process.'
@@ -288,7 +394,7 @@ function ModelPlans() {
     },
     {
       title: 'API models',
-      note: 'Best for workflow steps that need normal model calls: extraction, classification, summarization, ranking, writing, and eval scoring.',
+      note: 'Best for automation steps that need normal model calls: extraction, classification, summarization, ranking, writing, and eval scoring.',
       color: 'var(--cyan)',
       items: ['OpenAI', 'Anthropic', 'Google', 'Kimi API', 'OpenRouter', 'custom endpoints']
     },
@@ -300,7 +406,7 @@ function ModelPlans() {
     },
   ];
 
-  return h('section', { className: 'section', style: { background: 'var(--bg-2)' } },
+  return h('section', { id: 'models', className: 'section', style: { background: 'var(--bg-2)' } },
     h('div', { className: 'shell' },
       h('div', { className: 'split-heading', style: { display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 48, alignItems: 'end', marginBottom: 38 } },
         h('div', null,
@@ -348,13 +454,13 @@ function MultimodalCapabilities() {
     },
     {
       t: 'Read images',
-      d: 'Inspect screenshots, UI states, receipts, charts, documents, creative assets, product photos, or QA captures as part of the workflow.',
+      d: 'Inspect screenshots, UI states, receipts, charts, documents, creative assets, product photos, or QA captures as part of the automation.',
       tags: ['vision', 'screenshots', 'documents'],
       c: 'var(--violet)'
     },
     {
       t: 'Generate images',
-      d: 'Create campaign assets, thumbnails, illustrations, product mockups, social graphics, or visual variants from a workflow step.',
+      d: 'Create campaign assets, thumbnails, illustrations, product mockups, social graphics, or visual variants from an automation step.',
       tags: ['creative', 'variants', 'assets'],
       c: 'var(--pink)'
     },
@@ -389,7 +495,7 @@ function MultimodalCapabilities() {
           )
         ),
         h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
-          'A Runloop step is not limited to text generation. The workflow can research the web, read visual inputs, create media, operate a browser, and package real deliverables.'
+          'A Runloop step is not limited to text generation. The automation can research the web, read visual inputs, create media, operate a browser, and package real deliverables.'
         )
       ),
       h('div', { className: 'builder-capabilities-grid', style: { display: 'grid', gap: 16 } },
@@ -424,7 +530,7 @@ function BrowserSystem() {
     {
       k: 'Playwright MCP',
       t: 'Deterministic browser automation.',
-      d: 'Use it when the workflow needs repeatable navigation, stable selectors, screenshots, downloads, regression checks, or saved scripts that can replay the same flow later.',
+      d: 'Use it when the automation needs repeatable navigation, stable selectors, screenshots, downloads, regression checks, or saved scripts that can replay the same flow later.',
       tags: ['snapshots', 'locators', 'artifacts'],
       c: 'var(--violet)'
     },
@@ -438,7 +544,7 @@ function BrowserSystem() {
     {
       k: 'Shared session model',
       t: 'Control when browser state is reused.',
-      d: 'Browser sessions can be scoped to a workflow, group, or sub-agent. A run can share state when continuity matters, or isolate state when parallel agents should not interfere.',
+      d: 'Browser sessions can be scoped to an automation, group, or sub-agent. A run can share state when continuity matters, or isolate state when parallel agents should not interfere.',
       tags: ['session id', 'share browser', 'isolation'],
       c: 'var(--lime)'
     },
@@ -450,7 +556,7 @@ function BrowserSystem() {
     ['Human-safe actions', 'Browser steps can pause for approvals, account access, OTPs, and risky submissions before continuing.'],
   ];
 
-  return h('section', { className: 'section', style: { background: 'var(--bg-2)' } },
+  return h('section', { id: 'browser', className: 'section', style: { background: 'var(--bg-2)' } },
     h('div', { className: 'shell' },
       h('div', { className: 'split-heading', style: { display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 48, alignItems: 'end', marginBottom: 38 } },
         h('div', null,
@@ -461,7 +567,7 @@ function BrowserSystem() {
           )
         ),
         h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
-          'Runloop supports both deterministic browser automation and agent-operated browser sessions. That lets a workflow move from exploratory UI work to reliable replayable steps.'
+          'Runloop supports both deterministic browser automation and agent-operated browser sessions. That lets an automation move from exploratory UI work to reliable replayable steps.'
         )
       ),
       h('div', { className: 'inner-trust-grid', style: { display: 'grid', gap: 18, marginBottom: 22 } },
@@ -532,7 +638,7 @@ function ExecutionEngine() {
             h('span', { style: { color: 'var(--fg-3)' } }, 'Automate the rest.')
           ),
           h('p', { className: 'body', style: { margin: '0 0 20px', maxWidth: 560 } },
-            'Early runs may use more agent reasoning because the process is still being discovered. As the automation stabilizes, repeatable steps move from agent work into tool calls, code_exec, learn_code, or workflow skills. That is how runs become faster, cheaper, and more reliable over time.'
+            'Early runs may use more agent reasoning because the process is still being discovered. As the automation stabilizes, repeatable steps move from agent work into tool calls, code_exec, learn_code, or automation skills. That is how runs become faster, cheaper, and more reliable over time.'
           ),
           h('div', { className: 'tag lime' }, h('span', { className: 'dot' }), 'stable steps can graduate to fast paths')
         )
@@ -599,7 +705,7 @@ function ObservabilitySurface() {
     ['Learning', 'Rules, reusable code, and decisions that affect the next run.'],
   ];
 
-  return h('section', { className: 'section tight' },
+  return h('section', { id: 'observability', className: 'section tight' },
     h('div', { className: 'shell' },
       h('div', { className: 'card observability-card', style: { padding: 28 } },
         h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What operators inspect'),
@@ -619,4 +725,4 @@ function ObservabilitySurface() {
   );
 }
 
-Object.assign(window, { HowDeepHero, WorkspaceAnatomy, RunLifecycle, ImprovementExamples, BuilderSystem, KnowledgeAndSkills, ModelPlans, MultimodalCapabilities, BrowserSystem, ExecutionEngine, HumanEvalImprove, ObservabilitySurface });
+Object.assign(window, { HowDeepHero, LoopOverview, WorkspaceAnatomy, RunLifecycle, RunningExample, ImprovementExamples, BuilderSystem, AdvancedCapabilitiesIntro, KnowledgeAndSkills, ModelPlans, MultimodalCapabilities, BrowserSystem, ExecutionEngine, HumanEvalImprove, ObservabilitySurface });

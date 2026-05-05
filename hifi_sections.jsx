@@ -4,33 +4,33 @@
 function WhatImproves() {
   const rows = [
     {
-      k: 'Metrics',
-      v: 'Accuracy, coverage, false positives, cycle time',
-      proof: 'tracked per run',
+      k: 'Revenue operations',
+      v: 'Lead quality, account fit, enrichment confidence, routing speed',
+      proof: 'pipeline impact',
       color: 'var(--success)'
     },
     {
-      k: 'Business rules',
-      v: 'User context captured, versioned, and tied to a target metric',
-      proof: 'rule-captured',
+      k: 'Support SLA',
+      v: 'Ticket severity, customer context, escalation precision, response time',
+      proof: 'SLA protected',
       color: 'var(--cyan)'
     },
     {
-      k: 'Experiments',
-      v: 'Hypotheses measured across real runs before they are kept',
-      proof: 'N=4/5 active',
+      k: 'QA coverage',
+      v: 'Critical journeys, edge cases, release blockers, flaky test fixes',
+      proof: 'risk caught',
       color: 'var(--violet)'
     },
     {
-      k: 'Decisions',
-      v: 'Every change gets an append-only reason, source, and verdict',
-      proof: 'audit trail',
+      k: 'Cloud cost',
+      v: 'Waste, anomalies, owner routing, approved savings actions',
+      proof: 'cost reduced',
       color: 'var(--amber)'
     },
     {
-      k: 'Fast paths',
-      v: 'Stable steps become reusable skills and deterministic scripts',
-      proof: 'locked-in',
+      k: 'Content throughput',
+      v: 'Channel plans, drafts, approvals, asset briefs, performance memory',
+      proof: 'output scaled',
       color: 'var(--lime)'
     },
   ];
@@ -49,11 +49,11 @@ function WhatImproves() {
         h('div', null,
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What improves'),
           h('h2', { className: 'h2', style: { margin: '0 0 18px', maxWidth: 420 } },
-            'The framework improves ',
-            h('span', { style: { color: 'var(--fg-3)' } }, 'the workflow, not just the prompt.')
+            'The automation improves ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'the business outcome, not just the prompt.')
           ),
           h('p', { className: 'body', style: { margin: 0, maxWidth: 430 } },
-            'Runloop treats each change as evidence: metric, hypothesis, intervention, measurement window, verdict, and decision log.'
+            'Runloop ties every change to evidence: the target outcome, run metrics, intervention, measurement window, verdict, and decision log.'
           )
         ),
         h('div', { className: 'improves-rows', style: { display: 'flex', flexDirection: 'column' } },
@@ -153,12 +153,12 @@ function Integrations() {
         h('div', null,
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Reach'),
           h('h2', { className: 'h2', style: { margin: 0, maxWidth: 560 } },
-            'Talk to your workflows from ',
+            'Run AI automations from ',
             h('span', { style: { background: 'linear-gradient(90deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'where work happens.')
           )
         ),
         h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)', maxWidth: 520 } },
-          '@mention the bot from Slack, Discord, WhatsApp or Telegram and Runloop starts a multi-agent session with the MCP servers, skills, and models you\'ve configured — approvals, follow-ups and clarifying questions all happen right there in the thread.'
+          '@mention the bot from Slack, Discord, WhatsApp or Telegram and Runloop starts a multi-agent automation with the MCP servers, skills, and models you\'ve configured. Approvals, follow-ups, and clarifying questions all happen right there in the thread.'
         )
       ),
 
@@ -392,6 +392,57 @@ function Integrations() {
   );
 }
 
+/* ========== SECTION: AUTOMATION ANATOMY ========== */
+function AutomationAnatomy() {
+  const parts = [
+    { t: 'Goals', d: 'Define the business target: reduce cloud waste, improve SLA, increase QA coverage, or qualify better leads.', tag: 'what good means', color: 'var(--success)' },
+    { t: 'Metrics', d: 'Track run quality, cost, speed, acceptance rate, failures, human edits, and outcome movement over time.', tag: 'measured every run', color: 'var(--cyan)' },
+    { t: 'AI agents', d: 'Use Claude Code, Codex, Gemini, Kimi, OpenAI, Anthropic, OpenRouter, or compatible providers step by step.', tag: 'model routed', color: 'var(--violet)' },
+    { t: 'MCP tools', d: 'Connect CRM, helpdesk, GitHub, cloud billing, docs, Slack, browser, databases, and your internal APIs.', tag: 'tool access', color: 'var(--amber)' },
+    { t: 'Knowledgebase', d: 'Store SOPs, examples, policies, customer context, product rules, past decisions, and approved claims.', tag: 'company memory', color: 'var(--lime)' },
+    { t: 'Skills', d: 'Promote repeated good behavior into reusable skills, scripts, rubrics, and workflow-level playbooks.', tag: 'improvement saved', color: 'var(--pink)' },
+    { t: 'Evals', d: 'Grade whether the result met the goal before the automation changes itself or ships an output.', tag: 'quality gate', color: 'var(--success)' },
+    { t: 'Approvals', d: 'Keep risky actions human-reviewed while safe, stable steps can run on a schedule or trigger.', tag: 'controlled autonomy', color: 'var(--cyan)' },
+  ];
+
+  return h('section', { className: 'section tight automation-anatomy-section' },
+    h('div', { className: 'shell' },
+      h('div', { className: 'automation-anatomy-head' },
+        h('div', null,
+          h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What you build'),
+          h('h2', { className: 'h2', style: { margin: 0, maxWidth: 620 } },
+            'An automation is a goal-driven system, ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'not a static prompt.')
+          )
+        ),
+        h('p', { className: 'body', style: { margin: 0, maxWidth: 520 } },
+          'You set the goal, metrics, tools, permissions, and review rules. AI agents run the work, evaluate the result, and make measured improvements that can be kept, reverted, or promoted into reusable skills.'
+        )
+      ),
+      h('div', { className: 'automation-anatomy-grid' },
+        parts.map((p, i) =>
+          h('div', { key: p.t, className: 'automation-anatomy-card' },
+            h('div', { style: { display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'flex-start', marginBottom: 18 } },
+              h('span', { style: {
+                width: 10,
+                height: 10,
+                borderRadius: '50%',
+                background: p.color,
+                boxShadow: `0 0 18px ${p.color}`,
+                marginTop: 6,
+                flexShrink: 0
+              } }),
+              h('span', { className: 'mono', style: { fontSize: 10, color: p.color, textTransform: 'uppercase', letterSpacing: '0.08em' } }, p.tag)
+            ),
+            h('h3', { className: 'h3', style: { margin: '0 0 10px', fontSize: 22 } }, p.t),
+            h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } }, p.d)
+          )
+        )
+      )
+    )
+  );
+}
+
 /* ========== SECTION: HOW IT LEARNS ========== */
 function HowItLearns() {
   return h('section', { className: 'section', style: { background: 'var(--bg-2)' } },
@@ -401,21 +452,18 @@ function HowItLearns() {
         h('div', null,
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// How it learns'),
           h('h2', { className: 'h2', style: { marginBottom: 20 } },
-            'Every run makes it ',
-            h('span', { style: { background: 'linear-gradient(90deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'smarter'),
-            '. And ',
-            h('span', { style: { background: 'linear-gradient(90deg, var(--lime), var(--amber))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'cheaper'),
-            '.'
+            'AI agents improve the automation ',
+            h('span', { style: { background: 'linear-gradient(90deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'against your goals.')
           ),
           h('p', { className: 'lead', style: { marginBottom: 28 } },
-            'A scoring agent grades every run 0–10 per step with reasoning and evidence. Domain knowledge accumulates in a shared _global/SKILL.md. Scripted steps compile to a deterministic main.py — a zero-LLM fast path on future runs. Steps auto-lock after three clean runs against the same description.'
+            'After each run, an evaluator compares the output to your target metrics. If a change improves support accuracy, QA coverage, cost savings, or lead quality, it can be kept. If it hurts the metric, it is reverted. Stable wins become skills or deterministic scripts for future runs.'
           ),
           h('div', { className: 'how-learns-stats', style: { display: 'grid', gap: 12 } },
             [
-              { t: 'Global skill', v: '240 KB', s: '_global/SKILL.md' },
-              { t: 'Auto-locked', v: '7 / 12', s: '3 clean runs each' },
-              { t: 'Fast path', v: '9', s: 'main.py · 0 tokens' },
-              { t: 'Eval avg', v: '8.4', s: 'of 10 · +3.1 vs r1' },
+              { t: 'Goal metric', v: '+11pp', s: 'SLA accuracy vs r1' },
+              { t: 'Skills saved', v: '7', s: 'reused in future runs' },
+              { t: 'Fast paths', v: '9', s: 'stable steps with lower cost' },
+              { t: 'Rejected changes', v: '3', s: 'failed eval and reverted' },
             ].map((s, i) =>
               h('div', { key: i, style: { padding: '14px 16px', border: '1px solid var(--line)', borderRadius: 12 } },
                 h('div', { className: 'mono', style: { fontSize: 11, color: 'var(--fg-3)', marginBottom: 6 } }, s.t),
@@ -432,10 +480,10 @@ function HowItLearns() {
             h('span', { className: 'tag violet' }, h('span', { className: 'dot' }), 'iteration-142')
           ),
           [
-            { id: 'find_savings', score: 9, reasoning: 'Flagged 3 unused NAT gateways saving $840/mo. Evidence matched billing export.' },
-            { id: 'avoid_false_pos', score: 8, reasoning: 'One ambiguous rightsize call. Otherwise conservative and well-justified.' },
-            { id: 'report_readable', score: 6, reasoning: 'Summary dense. Per-account totals missing. Tables render narrow on mobile.' },
-            { id: 'on_schedule', score: 10, reasoning: 'Completed in 4m12s, well under the 10m SLO.' },
+            { id: 'goal_match', score: 9, reasoning: 'Ticket routing matched the SLA target and reduced handoff errors.' },
+            { id: 'knowledge_used', score: 8, reasoning: 'Pulled the right policy pages and added missing context to the knowledgebase.' },
+            { id: 'improvement_quality', score: 6, reasoning: 'One proposed rule increased false escalations, so it was not promoted.' },
+            { id: 'cost_to_run', score: 10, reasoning: 'Two stable steps moved to a scripted fast path on the next run.' },
           ].map((r, i) =>
             h('div', { key: i, style: {
               padding: '14px 0', borderTop: i ? '1px solid var(--line)' : 'none'
@@ -1216,7 +1264,7 @@ function Metrics() {
     },
     {
       title: 'API providers',
-      note: 'normal model APIs inside the same workflow',
+      note: 'normal model APIs inside the same automation',
       items: [
         { name: 'OpenAI', use: 'structured outputs', color: 'var(--cyan)' },
         { name: 'Anthropic', use: 'reasoning steps', color: 'var(--violet)' },
@@ -1240,10 +1288,10 @@ function Metrics() {
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Models + APIs'),
           h('h2', { className: 'h2', style: { margin: '0 0 18px', maxWidth: 520 } },
             'Use the right coding model or API ',
-            h('span', { style: { color: 'var(--fg-3)' } }, 'for each step of the workflow.')
+            h('span', { style: { color: 'var(--fg-3)' } }, 'for each business step.')
           ),
           h('p', { className: 'body', style: { margin: '0 0 28px', maxWidth: 520 } },
-            'Runloop can route work across coding CLIs, Kimi, GLM, MiniMax, normal APIs like OpenAI and Anthropic, OpenRouter, plus any compatible provider you add. The workflow keeps the plan, evidence, evals, and final decision in one loop.'
+            'Runloop can route work across coding CLIs, Kimi, GLM, MiniMax, normal APIs like OpenAI and Anthropic, OpenRouter, plus any compatible provider you add. The automation keeps the plan, evidence, evals, and final decision in one loop.'
           ),
           h('div', { className: 'card model-route-card', style: { padding: 22 } },
             h('div', { className: 'mono', style: { fontSize: 12, color: 'var(--fg-3)', marginBottom: 18 } }, 'routing_policy.yml'),
@@ -1387,7 +1435,7 @@ function CTA() {
             h('span', { style: { background: 'linear-gradient(90deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'Improve every run.')
           ),
           h('p', { className: 'lead', style: { maxWidth: 560, margin: '0 auto 36px' } },
-            'Design it visually. Run it against a real job. Each cycle the eval score climbs, the token cost falls, and stable steps compile to a zero-LLM fast path. 20 minute demo — leave with an automation you can keep.'
+            'Bring one business outcome: faster support, safer releases, cleaner leads, lower cloud spend, or consistent content. We will map the automation, connect tools, define evals, and show how it improves over repeated runs.'
           ),
           h('div', { style: { display: 'flex', gap: 12, justifyContent: 'center' } },
             h('a', { className: 'btn violet', href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' }, 'Book a demo', h('span', { className: 'arrow' }, '→')),
@@ -1443,4 +1491,4 @@ function Footer({ name }) {
   );
 }
 
-Object.assign(window, { WhatImproves, Integrations, HowItLearns, Templates, Employees, Metrics, Logos, Testimonials, CTA, Footer });
+Object.assign(window, { WhatImproves, Integrations, AutomationAnatomy, HowItLearns, Templates, Employees, Metrics, Logos, Testimonials, CTA, Footer });

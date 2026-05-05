@@ -87,14 +87,14 @@ function Nav({ name, current = 'home' }) {
 
 function HeroGraph() {
   const metrics = [
-    { label: 'accuracy', value: '94%', delta: '+7pp', y: 124, color: 'var(--success)' },
-    { label: 'false positives', value: '5', delta: '-58%', y: 176, color: 'var(--cyan)' },
-    { label: 'coverage', value: '96%', delta: 'floor met', y: 228, color: 'var(--violet)' },
+    { label: 'support SLA', value: '98%', delta: '+11pp', y: 124, color: 'var(--success)' },
+    { label: 'false routes', value: '5', delta: '-58%', y: 176, color: 'var(--cyan)' },
+    { label: 'QA coverage', value: '96%', delta: 'goal met', y: 228, color: 'var(--violet)' },
   ];
   const decisions = [
-    { label: 'rule captured', value: 'keep', y: 96, color: 'var(--success)' },
-    { label: 'rubric v3', value: 'active', y: 146, color: 'var(--cyan)' },
-    { label: 'prompt v8', value: 'reverted', y: 196, color: 'var(--amber)' },
+    { label: 'skill saved', value: 'keep', y: 96, color: 'var(--success)' },
+    { label: 'goal met', value: 'active', y: 146, color: 'var(--cyan)' },
+    { label: 'change failed', value: 'revert', y: 196, color: 'var(--amber)' },
   ];
 
   return h('div', { style: { position: 'relative' } },
@@ -178,12 +178,12 @@ function HeroGraph() {
         h('text', { x: 316, y: 252, fontSize: 10, fill: 'var(--fg-3)', textAnchor: 'middle', style: { fontFamily: 'JetBrains Mono' } }, 'r1'),
         h('text', { x: 478, y: 252, fontSize: 10, fill: 'var(--fg-3)', textAnchor: 'middle', style: { fontFamily: 'JetBrains Mono' } }, 'r42'),
         h('text', { x: 640, y: 252, fontSize: 10, fill: 'var(--fg-3)', textAnchor: 'middle', style: { fontFamily: 'JetBrains Mono' } }, 'r142'),
-        h('text', { x: 334, y: 88, fontSize: 11, fill: 'var(--fg-3)', style: { fontFamily: 'JetBrains Mono' } }, 'metric: audit.accuracy'),
-        h('text', { x: 650, y: 88, fontSize: 16, fill: 'var(--success)', textAnchor: 'end', style: { fontFamily: 'JetBrains Mono' } }, '94%'),
+        h('text', { x: 334, y: 88, fontSize: 11, fill: 'var(--fg-3)', style: { fontFamily: 'JetBrains Mono' } }, 'goal: fewer escalations'),
+        h('text', { x: 650, y: 88, fontSize: 16, fill: 'var(--success)', textAnchor: 'end', style: { fontFamily: 'JetBrains Mono' } }, '98%'),
         h('g', null,
           h('rect', { x: 334, y: 104, width: 102, height: 22, rx: 11, fill: 'var(--bg-3)', stroke: 'var(--line)' }),
           h('circle', { cx: 350, cy: 115, r: 4, fill: 'var(--violet)', className: 'anim-pulse' }),
-          h('text', { x: 362, y: 119, fontSize: 9.5, fill: 'var(--fg-2)', style: { fontFamily: 'JetBrains Mono' } }, 'hypothesis'),
+          h('text', { x: 362, y: 119, fontSize: 9.5, fill: 'var(--fg-2)', style: { fontFamily: 'JetBrains Mono' } }, 'improvement'),
           h('rect', { x: 603, y: 104, width: 54, height: 22, rx: 11, fill: 'rgba(74, 222, 128, 0.12)', stroke: 'rgba(74, 222, 128, 0.35)' }),
           h('text', { x: 630, y: 119, textAnchor: 'middle', fontSize: 9.5, fill: 'var(--success)', style: { fontFamily: 'JetBrains Mono' } }, 'keep')
         )
@@ -208,7 +208,7 @@ function HeroGraph() {
         h('rect', { x: 748, y: 224, width: 150, height: 22, rx: 11,
           fill: 'rgba(103, 232, 249, 0.09)', stroke: 'rgba(103, 232, 249, 0.28)' }),
         h('text', { x: 823, y: 239, textAnchor: 'middle', fontSize: 10, fill: 'var(--cyan)',
-          style: { fontFamily: 'JetBrains Mono' } }, 'next hypothesis queued')
+          style: { fontFamily: 'JetBrains Mono' } }, 'next improvement queued')
       ),
 
       h('path', { d: 'M 824 268 C 680 300, 342 300, 144 270',
@@ -222,21 +222,21 @@ function HeroGraph() {
       ),
       h('rect', { x: 388, y: 286, width: 212, height: 18, rx: 9, fill: 'var(--bg-2)', opacity: 0.94 }),
       h('text', { x: 494, y: 299, textAnchor: 'middle', fontSize: 11, fill: 'var(--fg-3)',
-        style: { fontFamily: 'JetBrains Mono' } }, 'verdict feeds the next run')
+        style: { fontFamily: 'JetBrains Mono' } }, 'goals and metrics drive the next run')
     )
   );
 }
 
 function Hero({ name, variant = 1 }) {
   const headlines = {
-    1: ['Workflows that improve', 'every time they run.'],
-    2: ['Design one workflow.', 'Run it a thousand times.', 'Each run teaches the next.'],
-    3: ['The last workflow', "you'll ever rewrite."],
+    1: ['AI automations that improve', 'business outcomes.'],
+    2: ['Build AI agents for business.', 'Automate the work.', 'Improve the result.'],
+    3: ['The AI automation platform', 'for work that keeps changing.'],
   };
   const subs = {
-    1: 'Runloop is an open-source AI workflow builder. Create AI employees, assign them repeatable workflows, and let every run open experiments, sharpen metrics, capture business rules, and improve the next run.',
-    2: 'Design it visually. Grade it automatically. Watch it absorb the judgment of your team — evals sharpen, skills stick, institutional memory accrues. Runs on any coding CLI, any model, any MCP server you bring.',
-    3: 'Most automations rot the moment reality shifts. Runloop workflows carry their own evals, skills, and knowledge base — so they adapt instead of breaking.',
+    1: 'Runloop is an open-source AI automation platform. Set the goals and metrics. AI agents run the business process, measure the result, then improve the automation using your tools, knowledgebase, skills, evals, and approval rules.',
+    2: 'Design automations visually. Grade them automatically. Watch them absorb your team judgment as evals sharpen, skills stick, and institutional memory accrues. Runs on any coding CLI, any model, any MCP server you bring.',
+    3: 'Most automations rot the moment reality shifts. Runloop automations carry their own evals, skills, and knowledgebase so they adapt instead of breaking.',
   };
   const hw = headlines[variant];
 
@@ -245,6 +245,8 @@ function Hero({ name, variant = 1 }) {
     h('div', { className: 'shell hero-inner' },
       h('div', { className: 'hero-proof', style: { display: 'flex', gap: 8, marginBottom: 32, justifyContent: 'center' } },
         h('span', { className: 'tag violet' },
+          h('span', { className: 'dot' }), 'AI automation platform'),
+        h('span', { className: 'tag' },
           h('span', { className: 'dot' }), 'Open source · MIT'),
         h('span', { className: 'tag amber' },
           h('span', { className: 'dot' }), 'Early alpha · building in public')
@@ -264,11 +266,11 @@ function Hero({ name, variant = 1 }) {
         subs[variant]
       ),
       h('div', { className: 'hero-actions', style: { display: 'flex', gap: 12, justifyContent: 'center', marginBottom: 80 } },
-        h('a', { className: 'btn violet', href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' }, 'Deploy OSS', h('span', { className: 'arrow' }, '→')),
+        h('a', { className: 'btn violet', href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' }, 'Build my automation', h('span', { className: 'arrow' }, '→')),
         h('a', { className: 'btn ghost', href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' },
           h('svg', { width: 14, height: 14, viewBox: '0 0 16 16', fill: 'currentColor' },
             h('path', { d: 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z' })
-          ), 'Star on GitHub')
+          ), 'View OSS on GitHub')
       ),
       // graph card
       h('div', { className: 'card glow-border', style: { padding: 20, position: 'relative' } },
@@ -279,12 +281,12 @@ function Hero({ name, variant = 1 }) {
                 h('span', { key: c, style: { width: 10, height: 10, borderRadius: '50%', background: c } }))
             ),
             h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--fg-3)' } },
-              'workflow :: aws-cost-optimizer · iteration-142')
+              'automation :: support-triage · iteration-142')
           ),
           h('div', { style: { display: 'flex', gap: 10 } },
             h('span', { className: 'tag' }, h('span', { className: 'dot', style: { background: 'var(--success)' } }), 'running'),
-            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--success)' } }, 'metric 94% ↑'),
-            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--violet)' } }, 'experiment N=4/5')
+            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--success)' } }, 'metric 98% ↑'),
+            h('span', { className: 'mono', style: { fontSize: 11, color: 'var(--violet)' } }, 'improvements N=4/5')
           )
         ),
         h(HeroGraph)

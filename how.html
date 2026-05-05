@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="/">
-<title>How it works — Runloop</title>
+<title>How Runloop Works - Goal-Driven AI Automations</title>
+<meta name="description" content="See how Runloop builds goal-driven AI automations: set metrics, connect MCP tools, run agents, evaluate results, save skills, and improve the automation over time.">
 <link rel="canonical" href="https://multi-builder-public.netlify.app/how/">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -13,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hifi.css?v=mobile44">
+<link rel="stylesheet" href="hifi.css?v=mobile45">
 </head>
 <body>
 <div id="root"></div>
@@ -23,9 +24,9 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script type="text/babel" data-presets="react">window.h = React.createElement;</script>
-<script type="text/babel" src="hifi_hero.jsx?v=mobile45"></script>
-<script type="text/babel" src="hifi_sections.jsx?v=mobile45"></script>
-<script type="text/babel" src="hifi_how_inner.jsx?v=mobile21"></script>
+<script type="text/babel" src="hifi_hero.jsx?v=mobile47"></script>
+<script type="text/babel" src="hifi_sections.jsx?v=mobile47"></script>
+<script type="text/babel" src="hifi_how_inner.jsx?v=mobile23"></script>
 
 <script type="text/babel" data-presets="react">
 const { useState, useEffect } = React;
@@ -66,10 +67,13 @@ function App() {
   return h(React.Fragment, null,
     h(window.Nav, { name, current: 'how' }),
     h(window.HowDeepHero),
+    h(window.LoopOverview),
     h(window.WorkspaceAnatomy),
     h(window.RunLifecycle),
+    h(window.RunningExample),
     h(window.ImprovementExamples),
     h(window.BuilderSystem),
+    h(window.AdvancedCapabilitiesIntro),
     h(window.KnowledgeAndSkills),
     h(window.ModelPlans),
     h(window.MultimodalCapabilities),
