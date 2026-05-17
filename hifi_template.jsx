@@ -27,7 +27,7 @@ function TemplateHeroVisual({ template, lifecycle }) {
       ),
       h('div', { className: 'qa-pipeline' },
         h('div', { className: 'qa-flow-line' }),
-        ['company', 'employees', 'workflows', 'improve'].map((node, i) =>
+        ['company', 'employees', 'automations', 'improve'].map((node, i) =>
           h('div', { key: node, className: `qa-node qa-node-${i + 1}` },
             h('span', { className: 'qa-node-pulse' }),
             h('span', { className: 'mono' }, node)
@@ -561,13 +561,13 @@ function CustomWorkflowSection({ template, customOptions }) {
       h('div', { className: 'card', style: { padding: 0, overflow: 'hidden' } },
         h('div', { className: 'custom-workflow-grid', style: { display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 0 } },
             h('div', { style: { padding: 30, borderRight: '1px solid var(--line)' } },
-            h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Custom workflow automation'),
+            h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Custom business automation'),
             h('h2', { className: 'h2', style: { margin: '0 0 18px' } },
-              'Start with this automation, ',
-              h('span', { style: { color: 'var(--fg-3)' } }, 'or build the workflow around your process.')
+              'This is a starting point, ',
+              h('span', { style: { color: 'var(--fg-3)' } }, 'not a pre-made workflow.')
             ),
             h('p', { className: 'body', style: { margin: '0 0 22px', color: 'var(--fg-2)' } },
-              'This is a deployable use case, not a fixed preset. Runloop can adapt the automation to your exact MCPs, reusable skills, knowledgebase, systems, policies, approval points, evals, and output format.'
+              'Runloop builds the automation around your business outcome, existing process, MCPs, reusable skills, knowledgebase, systems, policies, approval points, evals, metrics, and output format.'
             ),
             h('a', { className: 'btn violet', href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' },
               'Design a custom automation',
@@ -584,7 +584,7 @@ function CustomWorkflowSection({ template, customOptions }) {
             h('div', { className: 'template-blueprint-row', style: { display: 'grid', gap: 14, paddingTop: 18, borderTop: '1px solid var(--line)' } },
               h('div', { className: 'mono', style: { fontSize: 11, color: templateAccent(template, 2) } }, 'custom'),
               h('div', { className: 'body', style: { color: 'var(--fg-2)' } },
-                template.customWorkflowExample || 'Bring an existing SOP, spreadsheet, prompt, CI job, ticket queue, manual checklist, or internal process. The workflow can be rebuilt around it and improved over repeated runs.'
+                template.customWorkflowExample || 'Bring an existing SOP, spreadsheet, prompt, CI job, ticket queue, manual checklist, or internal process. The automation can be rebuilt around it and improved over repeated runs.'
               )
             )
           )
@@ -660,7 +660,7 @@ function TemplateLanding({ name }) {
               h('h1', { className: 'h1', style: { margin: '0 0 22px', maxWidth: 760 } }, template.hero),
               h('p', { className: 'lead', style: { maxWidth: 640, margin: '0 0 34px' } }, template.intro),
               h('div', { style: { display: 'flex', gap: 12, flexWrap: 'wrap' } },
-                h('a', { className: 'btn primary', href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' }, 'Customize this automation', h('span', { className: 'arrow' }, '→'))
+                h('a', { className: 'btn primary', href: 'https://github.com/manishiitg/mcp-agent-builder-go', target: '_blank', rel: 'noreferrer' }, 'Build my custom automation', h('span', { className: 'arrow' }, '→'))
               )
             ),
             h(TemplateHeroVisual, { template, lifecycle })
@@ -706,7 +706,7 @@ function TemplateLanding({ name }) {
               h('h2', { className: 'h2', style: { margin: 0 } }, template.t)
             ),
             h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
-              'Each automation ships with clear inputs, repeatable steps, model routing, approval points, and evals so the next run is easier to trust.'
+              'Each page shows a proven automation pattern. In production, the steps are shaped around your business process, tools, approval policy, evals, and target metrics.'
             )
           ),
           h('div', { className: 'template-outcomes', style: { display: 'grid', gap: 16 } },
@@ -749,12 +749,12 @@ function TemplateLanding({ name }) {
             h('div', null,
               h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Build plan'),
               h('h2', { className: 'h2', style: { margin: 0 } },
-                'What this automation includes ',
-                h('span', { style: { color: 'var(--fg-3)' } }, 'before customization.')
+                'What this automation can include ',
+                h('span', { style: { color: 'var(--fg-3)' } }, 'when adapted to your business.')
               )
             ),
             h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
-              `Use this as a starting solution for the job. The ${template.t.toLowerCase()} can be customized for your tools, data sources, approval policy, routing rules, evals, and reporting style.`
+              `Use this as a starting solution for the job. The ${template.t.toLowerCase()} is rebuilt around your tools, data sources, approval policy, routing rules, evals, metrics, and reporting style.`
             )
           ),
           template.skills && h('div', { style: { marginBottom: 26 } },
@@ -827,7 +827,7 @@ function TemplateLanding({ name }) {
             h('div', { className: 'card', style: { padding: 24 } },
               h('div', { className: 'eyebrow', style: { marginBottom: 18 } }, '// Customize it'),
               h('p', { className: 'body', style: { margin: '0 0 16px', color: 'var(--fg-2)' } },
-                'This automation is not fixed. Swap tools, change rules, add approvals, tune classifications, and shape reports around how your team actually works.'
+                'This automation is not fixed. Swap tools, change rules, add approvals, tune classifications, define success metrics, and shape reports around how your team actually works.'
               ),
               h('div', { style: { display: 'flex', gap: 10, flexWrap: 'wrap' } },
                 (template.customizable || []).map((item, i) =>
@@ -846,7 +846,7 @@ function TemplateLanding({ name }) {
               h('h2', { className: 'h2', style: { margin: 0 } }, 'What teams usually ask before deploying it.')
             ),
             h('p', { className: 'body', style: { margin: 0, color: 'var(--fg-2)' } },
-              'The workflow can start conservatively as a reporting layer, then take more actions as the evals and approval policy earn trust.'
+              'The automation can start conservatively as a reporting layer, then take more actions as the evals and approval policy earn trust.'
             )
           ),
           h('div', { className: 'template-faq-grid', style: { display: 'grid', gap: 16 } },

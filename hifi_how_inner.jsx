@@ -11,7 +11,7 @@ function HowDeepHero() {
         h('span', { style: { background: 'linear-gradient(120deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'Let agents improve the automation.')
       ),
       h('p', { className: 'lead', style: { maxWidth: 790, margin: '0 auto', textAlign: 'center' } },
-        'Runloop turns a repeatable business process into a managed AI automation. You define the target outcome, metrics, tools, and approval rules. Agents run the work, evaluate the result, and make measured improvements over time.'
+        'Runloop turns your repeatable business process into a custom managed AI automation. You define the target outcome, metrics, tools, and approval rules. Agents run the work, evaluate the result, and make measured improvements over time.'
       ),
       h('div', { className: 'how-page-nav' },
         [
@@ -46,7 +46,7 @@ function LoopOverview() {
       h('div', { className: 'how-loop-head' },
         h('div', { className: 'eyebrow' }, '// The operating loop'),
         h('p', { className: 'body', style: { margin: 0 } },
-          'The product is not just an agent runner. It is a loop that turns measured outcomes into better automation behavior.'
+          'The product is not a library of pre-made workflows. It is a loop that turns your measured business outcomes into better custom automation behavior.'
         )
       ),
       h('div', { className: 'how-loop-visual' },
@@ -88,7 +88,7 @@ function WorkspaceAnatomy() {
             h('span', { style: { color: 'var(--fg-3)' } }, 'lives in one workspace.')
           ),
           h('p', { className: 'body', style: { margin: 0, maxWidth: 540 } },
-            'Instead of a one-off prompt, Runloop keeps a durable operating workspace for the automation. The builder defines the system, the runner executes it, the evaluator scores it, and the optimizer uses evidence to decide what should improve next.'
+            'Instead of a one-off prompt or fixed preset, Runloop keeps a durable operating workspace for your automation. The builder defines the system, the runner executes it, the evaluator scores it, and the optimizer uses evidence to decide what should improve next.'
           )
         ),
         h('div', { className: 'card file-map', style: { padding: 24 } },

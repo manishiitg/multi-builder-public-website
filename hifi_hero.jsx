@@ -229,12 +229,12 @@ function HeroGraph() {
 
 function Hero({ name, variant = 1 }) {
   const headlines = {
-    1: ['AI automations that improve', 'business outcomes.'],
+    1: ['Custom AI automations', 'for business outcomes.'],
     2: ['Build AI agents for business.', 'Automate the work.', 'Improve the result.'],
     3: ['The AI automation platform', 'for work that keeps changing.'],
   };
   const subs = {
-    1: 'Runloop is an open-source AI automation platform. Set the goals and metrics. AI agents run the business process, measure the result, then improve the automation using your tools, knowledgebase, skills, evals, and approval rules.',
+    1: 'Runloop is an open-source AI automation platform for business-specific work. Bring your outcome, process, tools, knowledgebase, skills, evals, and approval rules. AI agents build and run the custom automation, measure the result, then improve it over time.',
     2: 'Design automations visually. Grade them automatically. Watch them absorb your team judgment as evals sharpen, skills stick, and institutional memory accrues. Runs on any coding CLI, any model, any MCP server you bring.',
     3: 'Most automations rot the moment reality shifts. Runloop automations carry their own evals, skills, and knowledgebase so they adapt instead of breaking.',
   };
@@ -245,7 +245,7 @@ function Hero({ name, variant = 1 }) {
     h('div', { className: 'shell hero-inner' },
       h('div', { className: 'hero-proof', style: { display: 'flex', gap: 8, marginBottom: 32, justifyContent: 'center' } },
         h('span', { className: 'tag violet' },
-          h('span', { className: 'dot' }), 'AI automation platform'),
+          h('span', { className: 'dot' }), 'custom AI automations'),
         h('span', { className: 'tag' },
           h('span', { className: 'dot' }), 'Open source · MIT'),
         h('span', { className: 'tag amber' },

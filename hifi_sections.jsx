@@ -49,11 +49,11 @@ function WhatImproves() {
         h('div', null,
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What improves'),
           h('h2', { className: 'h2', style: { margin: '0 0 18px', maxWidth: 420 } },
-            'The automation improves ',
-            h('span', { style: { color: 'var(--fg-3)' } }, 'the business outcome, not just the prompt.')
+            'The automation is built around ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'your business outcome, not a generic preset.')
           ),
           h('p', { className: 'body', style: { margin: 0, maxWidth: 430 } },
-            'Runloop ties every change to evidence: the target outcome, run metrics, intervention, measurement window, verdict, and decision log.'
+            'Runloop starts with your process and turns every change into evidence: the target outcome, run metrics, intervention, measurement window, verdict, and decision log.'
           )
         ),
         h('div', { className: 'improves-rows', style: { display: 'flex', flexDirection: 'column' } },
@@ -411,12 +411,12 @@ function AutomationAnatomy() {
         h('div', null,
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// What you build'),
           h('h2', { className: 'h2', style: { margin: 0, maxWidth: 620 } },
-            'An automation is a goal-driven system, ',
-            h('span', { style: { color: 'var(--fg-3)' } }, 'not a static prompt.')
+            'An automation is a custom operating system, ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'not a pre-made workflow.')
           )
         ),
         h('p', { className: 'body', style: { margin: 0, maxWidth: 520 } },
-          'You set the goal, metrics, tools, permissions, and review rules. AI agents run the work, evaluate the result, and make measured improvements that can be kept, reverted, or promoted into reusable skills.'
+          'You set the business outcome, process, metrics, tools, permissions, and review rules. AI agents run the work, evaluate the result, and make measured improvements that can be kept, reverted, or promoted into reusable skills.'
         )
       ),
       h('div', { className: 'automation-anatomy-grid' },
@@ -1168,8 +1168,8 @@ function Templates() {
         h('div', null,
           h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// Automations'),
           h('h2', { className: 'h2' },
-            'Focused automation use cases. ',
-            h('span', { style: { color: 'var(--fg-3)' } }, 'Each one stands on its own.')
+            'Automation starting points. ',
+            h('span', { style: { color: 'var(--fg-3)' } }, 'Built custom for your business.')
           )
         ),
         h('a', { className: 'btn ghost', href: automationHref('lead-enrichment') }, 'Explore automations', h('span', { className: 'arrow' }, '→'))
@@ -1212,10 +1212,10 @@ function Employees() {
         h('div', { className: 'eyebrow', style: { marginBottom: 16 } }, '// AI Employees'),
         h('h2', { className: 'h2', style: { maxWidth: 720, margin: '0 auto 16px' } },
           'Hire AI staff. ',
-          h('span', { style: { color: 'var(--fg-3)' } }, 'Assign workflows. Set a schedule.')
+          h('span', { style: { color: 'var(--fg-3)' } }, 'Assign custom automations. Set a schedule.')
         ),
         h('p', { className: 'lead', style: { maxWidth: 540, margin: '0 auto' } },
-          'Each employee owns one or more workflows. They run on cadence, grade themselves against evals, and compound skills over time.'
+          'Each employee owns one or more company-specific automations. They run on cadence, grade themselves against evals, and compound skills over time.'
         )
       ),
       h('div', { className: 'grid cols-4' },
@@ -1431,11 +1431,11 @@ function CTA() {
         h('div', { style: { position: 'relative' } },
           h('div', { className: 'eyebrow', style: { marginBottom: 20 } }, '// Get started'),
           h('h2', { className: 'h1', style: { margin: '0 auto 20px', maxWidth: 780 } },
-            'Build one automation. ',
+            'Build your custom automation. ',
             h('span', { style: { background: 'linear-gradient(90deg, var(--violet), var(--cyan))', WebkitBackgroundClip: 'text', color: 'transparent' } }, 'Improve every run.')
           ),
           h('p', { className: 'lead', style: { maxWidth: 560, margin: '0 auto 36px' } },
-            'Bring one business outcome: faster support, safer releases, cleaner leads, lower cloud spend, or consistent content. We will map the automation, connect tools, define evals, and show how it improves over repeated runs.'
+            'Bring one business outcome and the process behind it: faster support, safer releases, cleaner leads, lower cloud spend, or consistent content. We will map your custom automation, connect tools, define evals, and show how it improves over repeated runs.'
           ),
           h('div', { style: { display: 'flex', gap: 12, justifyContent: 'center' } },
             h('a', { className: 'btn violet', href: 'https://calendly.com/manishiitg/15min', target: '_blank', rel: 'noreferrer' }, 'Book a demo', h('span', { className: 'arrow' }, '→')),
@@ -1457,7 +1457,7 @@ function Footer({ name }) {
         h('div', { className: 'footer-col' },
           h(Logo, { name }),
           h('p', { style: { fontSize: 14, color: 'var(--fg-3)', margin: '16px 0 0', maxWidth: 280 } },
-            'The open-source platform for automations that improve with every run.')
+            'The open-source platform for custom AI automations that improve with every run.')
         ),
         h('div', { className: 'footer-col' },
           h('h5', null, 'Product'),
