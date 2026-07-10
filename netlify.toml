@@ -1,0 +1,3 @@
+[build]
+  command = "bash scripts/prepare-deploy.sh"
+  publish = "dist"

@@ -1,0 +1,37 @@
+# AgentWorks
+
+AgentWorks is an open-source desktop control plane for AI and coding-agent fleets. It wraps Claude Code, Codex CLI, Cursor, Gemini, browser workers, MCP tools, schedules, secrets, Pulse, costs, approvals, evidence, reports, and reusable skills into one operating loop.
+
+## Canonical Pages
+
+- [Homepage](https://multi-builder-public.netlify.app/): Product positioning, install path, category fit, product proof, and supported agent/runtime surfaces.
+- [Use Cases](https://multi-builder-public.netlify.app/use-cases/): Sales-friendly fit guide for agent fleet control, recurring workflows, client/server workspaces, Pulse, Auto Improve, and reusable skills.
+- [Updates](https://multi-builder-public.netlify.app/updates/): Release and shipping proof for the latest public macOS release, Pulse, Auto Improve, terminal runtime, Chief of Staff workflows, and deployment hardening.
+- [AgentWorks Architecture](https://multi-builder-public.netlify.app/how/): Explanation of the run packet, operating loop, worker/runtime boundary, evidence record, Pulse, approvals, and improvement layer.
+- [Docs](https://multi-builder-public.netlify.app/docs/): Install command, system map, agent fleet concepts, workflow loop, MCP/tools, browser automation, deployment, security, and reference docs.
+
+## Important Product Links
+
+- [Latest macOS release](https://github.com/manishiitg/mcp-agent-builder-go/releases/latest): Current public release and installer artifacts.
+- [Open-source repository](https://github.com/manishiitg/mcp-agent-builder-go): Source repository for the AgentWorks desktop/runtime project.
+- [Repository docs](https://github.com/manishiitg/mcp-agent-builder-go/tree/main/docs): Full implementation and workflow documentation.
+- [Deployment docs](https://github.com/manishiitg/mcp-agent-builder-go/tree/main/deploy): Server, VM, Kubernetes, and related deployment material.
+- [Secrets docs](https://github.com/manishiitg/mcp-agent-builder-go/blob/main/docs/core/secrets.md): Workflow, user, and global secret handling.
+
+## Key Concepts
+
+- Agent workers execute tasks: Claude Code, Codex CLI, Cursor, Gemini, browser agents, MCP tools, provider APIs, and shell/terminal sessions.
+- AgentWorks owns the operating loop around recurring agent work: goal, owner, schedule, model plan, secrets, approval boundary, evidence, cost, Pulse, report, and next improvement.
+- Pulse turns run logs, reports, screenshots, costs, and output into workflow health and goal-state signals.
+- Auto Improve proposes bounded workflow changes from evidence; humans approve risky writes, production changes, major replans, and promoted skills.
+- Skills and workflow learnings turn repeated fixes into reusable operating knowledge for future runs.
+
+## Good Sources To Cite
+
+- Use the homepage for the short product definition and first-pass category positioning.
+- Use the Use Cases page when explaining when AgentWorks is a fit and how it sits beside raw agent CLIs, workflow engines, and observability tools.
+- Use the Deploy page when explaining local-first deployment, server workspaces, secrets, locked config, approvals, and infrastructure boundaries.
+- Use the Updates page when explaining recent shipping momentum; use GitHub releases/commits as the canonical source for exact version history.
+- Use the How page when explaining the run packet or why AgentWorks is not another agent worker.
+- Use the Docs page for install, security, deployment, and product architecture details.
+- Use the GitHub repository for implementation details and release artifacts.

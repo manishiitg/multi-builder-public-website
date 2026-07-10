@@ -1,115 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Runloop - Custom AI Automations for Business Outcomes</title>
-<meta name="description" content="Runloop builds custom AI automations around your business outcomes, tools, knowledgebase, approval rules, and metrics. Examples are starting points, not pre-made workflows.">
-<link rel="canonical" href="https://multi-builder-public.netlify.app/">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="apple-touch-icon" sizes="256x256" href="apple-touch-icon.png">
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hifi.css?v=mobile45">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentWorks - Run Your Company with an AI Workforce</title>
+  <meta name="description" content="Coordinate 100+ AI agents across engineering, sales, marketing, support, finance, and operations with shared context, live oversight, and continuous improvement.">
+  <meta name="theme-color" content="#d8d0e6">
+  <meta name="color-scheme" content="light">
+  <meta name="application-name" content="AgentWorks">
+  <meta property="og:title" content="AgentWorks - Run Your Company with an AI Workforce">
+  <meta property="og:description" content="Coordinate 100+ agents across company workflows with shared context, live oversight, human judgment, and continuous improvement.">
+  <meta property="og:url" content="https://multi-builder-public.netlify.app/">
+  <meta property="og:site_name" content="AgentWorks">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://multi-builder-public.netlify.app/assets/og/agentworks-home-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AgentWorks organization dashboard for operating an AI workforce">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AgentWorks - Run Your Company with an AI Workforce">
+  <meta name="twitter:description" content="Coordinate 100+ agents across company workflows with shared context, live oversight, human judgment, and continuous improvement.">
+  <meta name="twitter:image" content="https://multi-builder-public.netlify.app/assets/og/agentworks-home-og.jpg">
+  <meta name="twitter:creator" content="@manish_iitg">
+  <link rel="canonical" href="https://multi-builder-public.netlify.app/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=workforce1">
+  <link rel="preload" as="image" type="image/webp" href="assets/product/org-dashboard-agentworks-retina.webp">
+  <link rel="stylesheet" href="workforce.css?v=workforce1">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AgentWorks",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "macOS",
+    "description": "Open-source operating layer for coordinating, observing, and improving an AI workforce across company workflows.",
+    "url": "https://multi-builder-public.netlify.app/",
+    "image": "https://multi-builder-public.netlify.app/assets/og/agentworks-home-og.jpg",
+    "codeRepository": "https://github.com/manishiitg/mcp-agent-builder-go",
+    "sameAs": [
+      "https://github.com/manishiitg/mcp-agent-builder-go",
+      "https://x.com/manish_iitg",
+      "https://in.linkedin.com/in/manishiitg"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
-<div id="root"></div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="AgentWorks home">
+      <img src="assets/brand/agentworks-logo.svg" alt="" width="64" height="64">
+      <span>AgentWorks</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="how.html">Product</a>
+      <a href="use-cases/">Use cases</a>
+      <a href="docs/">Docs</a>
+    </nav>
+    <div class="header-actions">
+      <a class="github-link" href="https://github.com/manishiitg/mcp-agent-builder-go" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="button button-ink" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
+    </div>
+  </header>
 
-<script type="text/babel" data-presets="react">window.h = React.createElement;</script>
-<script type="text/babel" src="hifi_hero.jsx?v=mobile48"></script>
-<script type="text/babel" src="hifi_sections.jsx?v=mobile48"></script>
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AgentWorks</p>
+        <h1>Run your company with an AI workforce.</h1>
+        <p class="hero-lead">Coordinate 100+ agents across engineering, sales, marketing, support, finance, and operations, with shared context, live oversight, and continuous improvement.</p>
+        <div class="hero-actions">
+          <a class="button button-ink" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
+          <a class="text-action" href="https://github.com/manishiitg/mcp-agent-builder-go/releases/latest" target="_blank" rel="noreferrer">Install for Mac <span aria-hidden="true">&rarr;</span></a>
+          <a class="text-action" href="#product-story">See how it works <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="runtime-rail" aria-label="Supported coding agent runtimes">
+          <span>Works with</span>
+          <ul>
+            <li>Claude Code</li>
+            <li>Codex</li>
+            <li>Cursor</li>
+            <li>Gemini CLI</li>
+            <li>Pi.dev</li>
+          </ul>
+        </div>
+      </div>
 
-<script type="text/babel" data-presets="react">
-const { useState, useEffect } = React;
+      <figure class="hero-product" data-hero-product>
+        <img src="assets/product/org-dashboard-agentworks-retina.webp" alt="AgentWorks Org Dashboard showing an organization-wide view of agent workflow health, goals, costs, schedules, and attention items." width="2852" height="1602">
+        <figcaption>One view of the work your agents are doing.</figcaption>
+      </figure>
+    </section>
 
-const TWEAKS = /*EDITMODE-BEGIN*/{
-  "theme": "dark",
-  "heroVariant": 1,
-  "productName": "Runloop"
-}/*EDITMODE-END*/;
+    <section class="story-intro" id="product-story" data-reveal>
+      <p class="eyebrow">How AgentWorks works</p>
+      <h2>Agents can do the work. Your company still needs a way to operate it.</h2>
+      <p>AgentWorks gives every agent the right worker, the right context, visible evidence, and a path to improve the next run.</p>
+    </section>
 
-const NAME_OPTIONS = ['Runloop'];
+    <section class="story-chapter story-runtime">
+      <div class="story-copy" data-reveal>
+        <p class="eyebrow">01 / Choose the worker</p>
+        <h2>Use the best agent for each job.</h2>
+        <p>Connect the coding agents, browser workers, MCP tools, and model providers you already use. Route each workflow step to the worker that fits the work.</p>
+        <ul class="story-signals">
+          <li>Dedicated coding CLIs and model providers</li>
+          <li>Browser and MCP tools alongside agent workers</li>
+          <li>One operating record, regardless of runtime</li>
+        </ul>
+      </div>
+      <div class="runtime-showcase-scene" data-runtime-showcase>
+        <div class="runtime-showcase" data-reveal="visual">
+          <div class="runtime-showcase-bar">
+            <p>Two levels of model routing</p>
+            <div class="runtime-showcase-sequence" aria-hidden="true">
+              <span class="is-active" data-showcase-step="workers"><b>01</b> Connected workers</span>
+              <span data-showcase-step="workflow"><b>02</b> Workflow routing</span>
+            </div>
+          </div>
+          <div class="runtime-showcase-stage">
+            <div class="runtime-showcase-panel is-active" aria-hidden="false" data-showcase-panel="workers">
+              <img src="assets/product/agentworks-coding-cli-retina.webp" alt="AgentWorks model library showing connected Claude Code, Codex CLI, Cursor CLI, Pi CLI, and model providers." width="2852" height="1602" loading="lazy">
+            </div>
+            <div class="runtime-showcase-panel" aria-hidden="true" data-showcase-panel="workflow">
+              <img src="assets/product/agentworks-workflow-multi-llm-retina.webp" alt="AgentWorks workflow configuration routing high, medium, and low reasoning work across Claude Code, Codex CLI, and Pi CLI." width="2852" height="1602" loading="lazy">
+            </div>
+          </div>
+          <div class="runtime-showcase-notes" aria-live="polite">
+            <p class="is-active" data-showcase-note="workers"><strong>Connect the workers you already use.</strong> Keep coding CLIs and model providers available from one library.</p>
+            <p data-showcase-note="workflow"><strong>Choose the right worker inside each workflow.</strong> Route high, medium, and low reasoning work independently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-function App() {
-  const [theme, setTheme] = useState(TWEAKS.theme);
-  const [heroVariant, setHeroVariant] = useState(TWEAKS.heroVariant);
-  const [name, setName] = useState(TWEAKS.productName);
-  const [panelOpen, setPanelOpen] = useState(false);
+    <section class="story-band story-context">
+      <div class="story-chapter story-chapter-reverse">
+        <div class="context-showcase-scene" data-context-showcase>
+          <div class="context-showcase" data-reveal="visual">
+            <div class="runtime-showcase-bar">
+              <p>Human context loop</p>
+              <div class="runtime-showcase-sequence" aria-hidden="true">
+                <span class="is-active" data-showcase-step="question"><b>01</b> Ask for judgment</span>
+                <span data-showcase-step="learnings"><b>02</b> Preserve the learning</span>
+              </div>
+            </div>
+            <div class="runtime-showcase-stage">
+              <div class="runtime-showcase-panel is-active" aria-hidden="false" data-showcase-panel="question">
+                <img src="assets/product/agentworks-pulse-human-question-retina.webp" alt="AgentWorks Pulse asking the operator to approve, reject, defer, or add context to a proposed workflow objective change." width="2852" height="1602" loading="lazy">
+              </div>
+              <div class="runtime-showcase-panel" aria-hidden="true" data-showcase-panel="learnings">
+                <img src="assets/product/agentworks-shared-learnings-retina.webp" alt="AgentWorks Automation Learnings view showing a shared global skill and reusable execution knowledge." width="2852" height="1602" loading="lazy">
+              </div>
+            </div>
+            <div class="runtime-showcase-notes" aria-live="polite">
+              <p class="is-active" data-showcase-note="question"><strong>Pulse asks where human judgment matters.</strong> The operator can approve, reject, defer, or add guidance before the workflow changes.</p>
+              <p data-showcase-note="learnings"><strong>Guidance becomes reusable execution context.</strong> Shared skills and references carry what worked into future agent runs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-copy" data-reveal>
+          <p class="eyebrow">02 / Share company context</p>
+          <h2>Recommendations become context every agent can use.</h2>
+          <p>People contribute goals, guidance, reference material, and corrections. AgentWorks makes that company context available to the agents doing the work, then preserves what successful runs teach the next one.</p>
+          <ul class="story-signals">
+            <li>Human recommendations and company knowledge</li>
+            <li>Shared skills from successful workflow runs</li>
+            <li>Context that follows work across departments</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  useEffect(() => {
-    document.body.classList.toggle('light', theme === 'light');
-  }, [theme]);
+    <section class="story-band story-pulse-band">
+      <div class="story-chapter">
+        <div class="story-copy" data-reveal>
+          <p class="eyebrow">03 / Operate by exception</p>
+          <h2>Know where your judgment is needed.</h2>
+          <p>Org Pulse turns hundreds of agent runs into a manageable operating view: goal drift, blocked work, cost pressure, risk, and the next decision that needs a human.</p>
+          <ul class="story-signals">
+            <li>Company-level health across agent work</li>
+            <li>Goals, cost, evidence, risk, and decisions together</li>
+            <li>Human review where it changes the outcome</li>
+          </ul>
+        </div>
+        <figure data-reveal="visual">
+          <img src="assets/product/org-pulse-agentworks.jpg" alt="AgentWorks Org Pulse view summarizing organizational health, at-risk work, decisions, and operational signals." width="1280" height="800" loading="lazy">
+        </figure>
+      </div>
+    </section>
 
-  useEffect(() => {
-    function onMsg(e) {
-      const d = e.data || {};
-      if (d.type === '__activate_edit_mode') setPanelOpen(true);
-      if (d.type === '__deactivate_edit_mode') setPanelOpen(false);
-    }
-    window.addEventListener('message', onMsg);
-    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-    return () => window.removeEventListener('message', onMsg);
-  }, []);
+    <section class="functions">
+      <div class="functions-copy" data-reveal>
+        <p class="eyebrow">Across the company</p>
+        <h2>One workforce. Every function.</h2>
+        <p>Start with one recurring workflow. Grow into an operating system for the work that repeats across your organization.</p>
+      </div>
+      <ul data-reveal="visual">
+        <li><span>Engineering</span><em>coding agents, tests, releases, infrastructure</em></li>
+        <li><span>Sales</span><em>research, outreach, pipeline, follow-up</em></li>
+        <li><span>Marketing</span><em>content, campaigns, reporting, experiments</em></li>
+        <li><span>Support</span><em>triage, investigation, customer updates</em></li>
+        <li><span>Finance</span><em>reconciliation, analysis, recurring reporting</em></li>
+        <li><span>Operations</span><em>briefings, coordination, exception handling</em></li>
+      </ul>
+    </section>
 
-  function update(patch) {
-    if ('theme' in patch) setTheme(patch.theme);
-    if ('heroVariant' in patch) setHeroVariant(patch.heroVariant);
-    if ('productName' in patch) setName(patch.productName);
-    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: patch }, '*');
-  }
+    <section class="connectors">
+      <div class="connectors-inner">
+        <div class="connectors-copy" data-reveal>
+          <p class="eyebrow">Connected channels</p>
+          <h2>Work starts where your team already works.</h2>
+          <p>Connect the channels people already use, then route every request to the agent workflow built to handle it.</p>
+          <ul class="connector-channels">
+            <li><strong>Slack</strong><span>Team requests and operational commands</span></li>
+            <li><strong>WhatsApp</strong><span>Mobile messages, routing, and approvals</span></li>
+            <li><strong>Gmail</strong><span>Inbox-driven workflows and follow-up</span></li>
+          </ul>
+        </div>
+        <figure data-reveal="visual">
+          <img src="assets/product/agentworks-bot-connectors-retina.webp" alt="AgentWorks Bot Connector showing Slack, WhatsApp, Gmail, and automation routing." width="2852" height="1602" loading="lazy">
+        </figure>
+      </div>
+    </section>
 
-  return h(React.Fragment, null,
-    h(window.Nav, { name, current: 'home' }),
-    h(window.Hero, { name, variant: heroVariant }),
-    h(window.WhatImproves),
-    h(window.AutomationAnatomy),
-    h(window.Integrations),
-    h(window.HowItLearns),
-    h(window.Metrics),
-    h(window.Templates),
-    h(window.CTA),
-    h(window.Footer, { name }),
-    h('div', { className: `tweak-panel ${panelOpen ? 'visible' : ''}` },
-      h('h4', null, 'Tweaks'),
-      h('div', { className: 'tweak-row' },
-        h('span', null, 'Dark / light'),
-        h('button', { className: `toggle ${theme === 'dark' ? 'on' : ''}`,
-          onClick: () => update({ theme: theme === 'dark' ? 'light' : 'dark' }) })
-      ),
-      h('div', { className: 'tweak-row' },
-        h('span', null, 'Hero variant'),
-        h('select', {
-          value: heroVariant,
-          onChange: e => update({ heroVariant: +e.target.value }),
-          style: { background: 'var(--bg-3)', color: 'var(--fg)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px', fontFamily: 'JetBrains Mono', fontSize: 11 }
-        },
-          h('option', { value: 1 }, '1 · compound'),
-          h('option', { value: 2 }, '2 · employees'),
-          h('option', { value: 3 }, '3 · no rewriting')
-        )
-      ),
-      h('div', { className: 'tweak-row' },
-        h('span', null, 'Product name'),
-        h('select', {
-          value: name,
-          onChange: e => update({ productName: e.target.value }),
-          style: { background: 'var(--bg-3)', color: 'var(--fg)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px', fontFamily: 'JetBrains Mono', fontSize: 11 }
-        },
-          NAME_OPTIONS.map(n => h('option', { key: n, value: n }, n))
-        )
-      )
-    )
-  );
-}
+    <section class="closing">
+      <p class="eyebrow">Start with one workflow</p>
+      <h2>Build the workforce your company can operate.</h2>
+      <p>Book a call to map the first workflow with us, or install the Mac app and start locally.</p>
+      <div class="closing-actions">
+        <a class="button button-light" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
+        <a class="text-action text-action-light" href="https://github.com/manishiitg/mcp-agent-builder-go/releases/latest" target="_blank" rel="noreferrer">Install for Mac <span aria-hidden="true">&rarr;</span></a>
+        <a class="text-action text-action-light" href="docs/">Read the docs <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+  </main>
 
-ReactDOM.createRoot(document.getElementById('root')).render(h(App));
-</script>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img src="assets/brand/agentworks-logo.svg" alt="" width="64" height="64">
+          <span>AgentWorks</span>
+        </a>
+        <p>Open-source operating layer for running and improving an AI workforce across your company.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div>
+          <p>Explore</p>
+          <a href="how.html">Product</a>
+          <a href="use-cases/">Use cases</a>
+          <a href="docs/">Docs</a>
+        </div>
+        <div>
+          <p>Get started</p>
+          <a href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
+          <a href="https://github.com/manishiitg/mcp-agent-builder-go/releases/latest" target="_blank" rel="noreferrer">Install for Mac</a>
+          <a href="https://github.com/manishiitg/mcp-agent-builder-go" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <div>
+          <p>Social</p>
+          <a href="https://x.com/manish_iitg" target="_blank" rel="noreferrer">X / Twitter</a>
+          <a href="https://in.linkedin.com/in/manishiitg" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>AgentWorks</p>
+      <p>Built for teams operating agent workflows.</p>
+    </div>
+  </footer>
+  <script src="workforce.js?v=homepage-final-1"></script>
 </body>
 </html>

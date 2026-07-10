@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "documents": [
+    {
+      "path": "README",
+      "title": "Documentation",
+      "section": "overview"
+    },
+    {
+      "path": "bugs/auto_unlock_loop_orchestration",
+      "title": "Bug Report: Orchestration/Todo Task Auto-Unlock Loop",
+      "section": "bugs"
+    },
+    {
+      "path": "bugs/dependency_update_failure",
+      "title": "Bug: Dependency Updates in Sibling Module Not Reflected in Agent Build",
+      "section": "bugs"
+    },
+    {
+      "path": "bugs/parallel_tool_lock_contention",
+      "title": "Bug Report: Parallel Tool Execution Stuck Due to Lock Contention",
+      "section": "bugs"
+    },
+    {
+      "path": "bugs/tool_call_latency_gemini_cli",
+      "title": "Bug Report: Tool Call Start Latency in Gemini CLI Mode",
+      "section": "bugs"
+    },
+    {
+      "path": "bugs/uvx_cache_bloat_latest_versions",
+      "title": "Bug: uvx/npx Cache Bloat from @latest MCP Server Packages",
+      "section": "bugs"
+    },
+    {
+      "path": "bugs/workspace_docs_path_inside_repo",
+      "title": "Bug: workspace-docs Lives Inside Repo, LLM Can Reach Source Files",
+      "section": "bugs"
+    },
+    {
+      "path": "core/README",
+      "title": "Core Docs",
+      "section": "core"
+    },
+    {
+      "path": "core/azure_foundry_integration",
+      "title": "Azure AI Foundry & Responses API Integration",
+      "section": "core"
+    },
+    {
+      "path": "core/bot_connector_system",
+      "title": "Bot Connector System",
+      "section": "core"
+    },
+    {
+      "path": "core/browser",
+      "title": "Browser System",
+      "section": "core"
+    },
+    {
+      "path": "core/coding_agent_builder_e2e_contract",
+      "title": "Coding Agent Builder E2E Contract",
+      "section": "core"
+    },
+    {
+      "path": "core/coding_agent_continuation_architecture",
+      "title": "Coding Agent Continuation Architecture",
+      "section": "core"
+    },
+    {
+      "path": "core/electron_standalone_app_plan",
+      "title": "Runloop — Plan",
+      "section": "core"
+    },
+    {
+      "path": "core/env-api-key-defaults",
+      "title": "Environment-Based API Key Defaults",
+      "section": "core"
+    },
+    {
+      "path": "core/event_cleanup",
+      "title": "Event Cleanup - Progress",
+      "section": "core"
+    },
+    {
+      "path": "core/event_system",
+      "title": "Event System Architecture",
+      "section": "core"
+    },
+    {
+      "path": "core/folder_guard_system",
+      "title": "Folder Guard System",
+      "section": "core"
+    },
+    {
+      "path": "core/llm_configuration_and_resilience",
+      "title": "LLM Configuration & Resilience",
+      "section": "core"
+    },
+    {
+      "path": "core/mcp_bridge_layer",
+      "title": "🌉 MCP Bridge Layer & Exposed APIs",
+      "section": "core"
+    },
+    {
+      "path": "core/mcp_session_id_propagation",
+      "title": "MCP Session ID Propagation: Workspace Env Fix",
+      "section": "core"
+    },
+    {
+      "path": "core/multi_user_authentication",
+      "title": "Multi-User Authentication & Workspace Isolation",
+      "section": "core"
+    },
+    {
+      "path": "core/native_workspace_mode",
+      "title": "Native Workspace Mode",
+      "section": "core"
+    },
+    {
+      "path": "core/oauth",
+      "title": "OAuth Integration Guide",
+      "section": "core"
+    },
+    {
+      "path": "core/remote_workspace_server_plan",
+      "title": "Remote Workspace Gateway + Local Runner Plan",
+      "section": "core"
+    },
+    {
+      "path": "core/secrets",
+      "title": "Secrets",
+      "section": "core"
+    },
+    {
+      "path": "core/session_and_tool_binding",
+      "title": "Session And Tool Binding",
+      "section": "core"
+    },
+    {
+      "path": "core/skills",
+      "title": "Skills System",
+      "section": "core"
+    },
+    {
+      "path": "core/streaming_llm_output",
+      "title": "Streaming LLM Output",
+      "section": "core"
+    },
+    {
+      "path": "core/tool_search_mode",
+      "title": "Tool Search Mode",
+      "section": "core"
+    },
+    {
+      "path": "getting-started/README",
+      "title": "Getting Started",
+      "section": "getting-started"
+    },
+    {
+      "path": "getting-started/first-workflow",
+      "title": "Build Your First Workflow",
+      "section": "getting-started"
+    },
+    {
+      "path": "multiagent/README",
+      "title": "Multiagent Docs",
+      "section": "multiagent"
+    },
+    {
+      "path": "multiagent/agent_memory_system",
+      "title": "Agent Memory System",
+      "section": "multiagent"
+    },
+    {
+      "path": "multiagent/multi_tab_chat_architecture",
+      "title": "Multi-Tab Chat Architecture",
+      "section": "multiagent"
+    },
+    {
+      "path": "multiagent/org_pulse_design",
+      "title": "Org Pulse — the Chief of Staff's daily heartbeat",
+      "section": "multiagent"
+    },
+    {
+      "path": "multiagent/slash_commands",
+      "title": "Slash Commands System",
+      "section": "multiagent"
+    },
+    {
+      "path": "multiagent/sub_agent_delegation",
+      "title": "Sub-Agent Delegation System",
+      "section": "multiagent"
+    },
+    {
+      "path": "refactor/ccdemo-poc/README",
+      "title": "ccdemo — tmux control-mode live-attach PoC (reference implementation)",
+      "section": "refactor"
+    },
+    {
+      "path": "refactor/cli_live_input_unification",
+      "title": "Refactor spec: unify CLI live-input on tmux-session liveness (drop steer-vs-queue)",
+      "section": "refactor"
+    },
+    {
+      "path": "refactor/live_attach_app_vs_demo_debug",
+      "title": "Live-Attach Terminal: App vs PoC Demo — Debug Handoff",
+      "section": "refactor"
+    },
+    {
+      "path": "refactor/terminal_live_attach_transport",
+      "title": "Design: Live-attach terminal transport (replace snapshot/replay mirror)",
+      "section": "refactor"
+    },
+    {
+      "path": "workflow/README",
+      "title": "Workflow Docs",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/auto_improvement_framework",
+      "title": "Auto-Improvement Framework",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/backup_history_consolidation",
+      "title": "Backup, History & Versions Consolidation",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/browser_automation",
+      "title": "Browser Automation: Durable Selectors & Discovery",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/cost_and_log_measurement",
+      "title": "Cost And Log Measurement",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/deterministic_routing",
+      "title": "Deterministic Routing (route-by-file)",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/evaluation_system",
+      "title": "Evaluation System",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/human_feedback_system",
+      "title": "Human Feedback System",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/iteration_run_folder_architecture",
+      "title": "Iteration Run Folder Architecture",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/learn_code_flow",
+      "title": "Learn Code and Code Execution Modes",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/learning_architecture",
+      "title": "Learning Architecture",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/message_sequence_step_design",
+      "title": "Message Sequence Step Design",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/org_dashboard_design",
+      "title": "Org Dashboard — design",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/persistent_stores_design",
+      "title": "Persistent Stores Design",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/pre_validation_guide",
+      "title": "Deterministic Pre-Validation Guide",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/publish_design",
+      "title": "Publish — share a workflow's HTML to a public URL",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/pulse_consolidation",
+      "title": "Pulse: post-run pipeline consolidation",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/self_improvement_and_reporting",
+      "title": "Workflow self-improvement & reporting — system overview",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/step_config_format_specification",
+      "title": "stepconfig.json Format Specification",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/tiered_llm_allocation",
+      "title": "Tiered LLM Allocation",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/todo-task-step-type",
+      "title": "Todo Task Orchestrator Step Type",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/tool_filtering_system",
+      "title": "Tool Filtering System",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/workflow_builder_commands_and_tools",
+      "title": "Workflow Builder Commands And Tools",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/workflow_builder_interactive",
+      "title": "Interactive Workflow Builder",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/workflow_manifest_architecture",
+      "title": "Workflow Manifest Architecture",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/workflow_monitoring",
+      "title": "Workflow Monitoring",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/workflow_scheduling",
+      "title": "Workflow Scheduling",
+      "section": "workflow"
+    },
+    {
+      "path": "workflow/workflow_shell_working_directory",
+      "title": "Workflow Shell Working Directory",
+      "section": "workflow"
+    }
+  ]
+}

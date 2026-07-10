@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /template.html
+Disallow: /wireframes.html
+Disallow: /hifi.css
+Disallow: /sketch.css
+Disallow: /hifi_*
+Disallow: /page_*
+Disallow: /scribbles.js
+
+Sitemap: https://multi-builder-public.netlify.app/sitemap.xml
