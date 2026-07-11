@@ -1,9 +1,9 @@
 # AgentWorks Marketing Site Handoff
 
-Last updated: 2026-07-10
-Current checkpoint: `agentworks-secondary21-embedded-docs-layout`
+Last updated: 2026-07-11
+Current checkpoint: `agentworks-cloudflare-seo-phase-one`
 Repo path: `/Users/mipl/ai-work/multi-builder-public-website`
-Approved homepage review URL: `http://127.0.0.1:8765/`
+Production URL: `https://agentworkshq.com/`
 
 ## Approved Homepage Candidate — 2026-07-10
 
@@ -58,10 +58,29 @@ Secondary route refresh completed in the same checkpoint:
 - The generic Deploy marketing page was removed. Deploy is no longer in navigation, the footer, sitemap, `llms.txt`, or the production payload; legacy `/deploy` traffic redirects to the repository's factual deployment documentation.
 - The generic Automations marketing page was removed because it duplicated Product and Use Cases. Automations is no longer in navigation, the footer, sitemap, `llms.txt`, or the production payload; legacy `/automations` traffic redirects to Product.
 
-### Remaining Before Production Deployment
+### Production And Rename Status — 2026-07-11
 
-1. Generate a new 1200 x 630 AgentWorks OG image based on the approved homepage.
-2. Run the final deployed Netlify smoke test across `/`, `/how/`, `/use-cases/`, `/updates/`, `/docs/`, Calendly, X, LinkedIn, GitHub, and the latest Mac release.
+The AgentWorks website is live on Cloudflare Pages project `agentworks` at `https://agentworkshq.com/`. This completes phase one of the broader Runloop-to-AgentWorks migration; it does not complete the repository, installer, desktop bundle, release, updater, or compatibility migration.
+
+Completed in this production checkpoint:
+
+- Deployed the current site to Cloudflare Pages and made `agentworkshq.com` canonical.
+- Added a permanent `www.agentworkshq.com` to apex redirect that preserves paths and query strings.
+- Added crawlable fallback content to every primary marketing route.
+- Generated 27 static technical-documentation routes from the curated `public-docs.json` allowlist.
+- Added `llms-full.txt`, expanded `llms.txt`, generated sitemap coverage, JSON-LD, Markdown alternates, and breadcrumb metadata.
+- Added responsive 480, 760, and 1440 WebP product screenshots.
+- Fixed CSP, caching, contrast, and accessibility defects.
+- Verified production at 97 Lighthouse performance and 100 accessibility, best practices, and SEO, with no console or contrast failures.
+- Pushed the production changes in commit `2ffab6c`.
+
+Remaining rename phases:
+
+1. Rename the GitHub repository only after the `coding-agent-loop` target and redirect behavior are ready.
+2. Migrate installer, release, and documentation URLs and verify a real install from the new paths.
+3. Complete the Electron/macOS product, bundle, DMG, updater, and app-data compatibility plan.
+4. Recapture remaining legacy-branded screenshots and remove temporary compatibility overlays.
+5. Publish the rename as a phased build-in-public story with proof for each completed phase.
 
 The Bot Connector screenshot contains a visible WhatsApp identifier and link code. The user explicitly approved showing that exact capture on the website on 2026-07-10; this approval is also recorded in the product screenshot library metadata.
 
@@ -75,7 +94,7 @@ This repo is the static marketing website for AgentWorks. It is not a bundled Re
 - approved secondary-route visual overrides from `secondary.css`
 - local fonts from `assets/fonts/fonts.css`
 
-There is intentionally no build step for normal local development. The deploy step copies a allowlisted production payload into `dist/`.
+There is intentionally no bundler for normal local development. The deploy preparation step copies an allowlisted production payload into `dist/` and generates static docs, the sitemap, and agent-readable content.
 
 The root homepage and secondary-route visual refresh are complete locally. Secondary routes still use the existing React runtime internally, but their public design and messaging now match the approved AgentWorks direction.
 
@@ -123,8 +142,10 @@ Important outcomes:
 |---|---|---|
 | `/` | `index.html` | Main homepage |
 | `/use-cases/` | `use-cases/index.html` | Use-case and fit guide |
-| `/how/` | `how.html` via Netlify rewrite | AgentWorks architecture |
+| `/how/` | `how.html`, deployed as `how/index.html` | AgentWorks architecture |
 | `/docs/` | `docs/index.html` | Minimal docs front door |
+| `/docs/<document>/` | generated static HTML | Crawlable public technical documentation |
+| `/llms.txt`, `/llms-full.txt` | source plus generated corpus | AI-readable product and documentation context |
 | missing routes | `404.html` | Branded not-found page |
 
 ### Latest Checkpoint: `agentworks1`
@@ -226,14 +247,15 @@ For visual work, also take focused Playwright screenshots of the changed section
 
 ## Deployment
 
-Production is linked to Netlify project `multi-builder-public`.
+Production is hosted by Cloudflare Pages project `agentworks` at `https://agentworkshq.com/`.
 
 Deploy flow:
 
 ```bash
 cd /Users/mipl/ai-work/multi-builder-public-website
 bash scripts/prepare-deploy.sh
-netlify deploy --prod --dir=dist
+node scripts/verify-dist.js
+npx wrangler@latest pages deploy dist --project-name agentworks --branch main
 ```
 
 Do not deploy the repo root directly. The root contains many local-only review screenshots, references, and legacy design files.
@@ -252,9 +274,12 @@ Do not deploy the repo root directly. The root contains many local-only review s
 | `assets/product/` | Real product screenshots and demo videos used by the site. |
 | `assets/og/` | Route-specific Open Graph images. |
 | `_headers` | CSP and security headers. Keep scripts/styles/fonts local. |
-| `_redirects` | Netlify route behavior and legacy redirects. |
-| `llms.txt` | AI-readable canonical map of the site. |
-| `sitemap.xml` | Public route index. |
+| `_redirects` | Cloudflare Pages route behavior and legacy redirects. |
+| `public-docs.json` | Allowlist of product docs that become public static HTML. |
+| `scripts/generate-agent-content.js` | Generates static documentation, `llms-full.txt`, and the production sitemap. |
+| `llms.txt` | Concise AI-readable canonical map of the site. |
+| `llms-full.txt` | Generated full public documentation context; present in `dist/`, not edited manually. |
+| `sitemap.xml` | Generated public route and documentation index in `dist/`. |
 
 ## Design Direction
 
