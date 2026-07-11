@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://agentworkshq.com/assets/og/agentworks-how-og.jpg">
 <meta name="twitter:creator" content="@manish_iitg">
 <link rel="canonical" href="https://agentworkshq.com/how/">
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="AgentWorks machine-readable context">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -37,22 +38,43 @@
 <link rel="stylesheet" href="secondary.css?v=agentworks-secondary21">
 </head>
 <body>
-<div id="root" data-page="how"></div>
+<div id="root" data-page="how">
+  <div class="agent-static-page">
+    <header class="agent-static-nav"><a class="agent-static-brand" href="/"><img src="assets/brand/agentworks-logo.svg" alt="" width="32" height="32">AgentWorks</a><nav aria-label="Primary"><a href="/how/">Product</a><a href="/use-cases/">Use cases</a><a href="/docs/">Docs</a></nav></header>
+    <main class="agent-static-main">
+      <p class="static-doc-kicker">The operating loop</p>
+      <h1>Build AI workflows that improve with every run.</h1>
+      <p class="agent-static-lead">AgentWorks turns recurring agent work into an observable operating loop: define the outcome, route each step to the right worker, preserve evidence, measure health with Pulse, and improve the next run with human judgment.</p>
+      <section><h2>Run with the right worker and context</h2><p>Each workflow can route work across Claude Code, Codex CLI, Cursor, Gemini, browser sessions, MCP tools, provider APIs, and lower-cost models. Goals, schedules, secrets, skills, and company knowledge stay attached to the workflow instead of disappearing across terminals and chat sessions.</p></section>
+      <section><h2>Measure the business outcome</h2><p>Every run keeps logs, reports, screenshots, browser state, artifacts, cost, approvals, and goal evidence in one operating record. Pulse turns that record into health signals and questions that need a human decision.</p></section>
+      <section><h2>Improve with bounded changes</h2><p>Auto Improve studies evidence from previous runs and proposes changes to instructions, model routing, skills, schedules, and workflow configuration. Risky writes, production actions, and major replans remain behind explicit approval.</p></section>
+      <p class="agent-static-actions"><a href="/docs/workflow/self_improvement_and_reporting/">Read the technical overview</a><a href="https://github.com/manishiitg/mcp-agent-builder-go/releases/latest">Install for Mac</a></p>
+    </main>
+  </div>
+</div>
 
 <script src="assets/vendor/react-18.3.1/react.production.min.js"></script>
 <script src="assets/vendor/react-18.3.1/react-dom.production.min.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "AgentWorks Product",
-  "description": "How AgentWorks uses Pulse, Auto Improve, run evidence, and human judgment to make recurring AI workflows improve over time.",
-  "url": "https://agentworkshq.com/how/",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "AgentWorks",
-    "url": "https://agentworkshq.com/"
-  }
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "AgentWorks Product",
+      "description": "How AgentWorks uses Pulse, Auto Improve, run evidence, and human judgment to make recurring AI workflows improve over time.",
+      "url": "https://agentworkshq.com/how/",
+      "dateModified": "2026-07-11",
+      "isPartOf": { "@type": "WebSite", "name": "AgentWorks", "url": "https://agentworkshq.com/" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "AgentWorks", "item": "https://agentworkshq.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Product", "item": "https://agentworkshq.com/how/" }
+      ]
+    }
+  ]
 }
 </script>
 

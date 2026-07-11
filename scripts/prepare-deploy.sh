@@ -36,10 +36,22 @@ cp -R assets/vendor/. dist/assets/vendor/
 cp assets/og/agentworks-*.jpg dist/assets/og/
 
 product_assets=(
+  agentworks-coding-cli-480.webp
+  agentworks-coding-cli-760.webp
+  agentworks-coding-cli-1440.webp
   agentworks-bot-connectors-retina.webp
   agentworks-coding-cli-retina.webp
+  agentworks-pulse-human-question-480.webp
+  agentworks-pulse-human-question-760.webp
+  agentworks-pulse-human-question-1440.webp
   agentworks-pulse-human-question-retina.webp
+  agentworks-shared-learnings-480.webp
+  agentworks-shared-learnings-760.webp
+  agentworks-shared-learnings-1440.webp
   agentworks-shared-learnings-retina.webp
+  agentworks-workflow-multi-llm-480.webp
+  agentworks-workflow-multi-llm-760.webp
+  agentworks-workflow-multi-llm-1440.webp
   agentworks-workflow-multi-llm-retina.webp
   automation-workspace.png
   bots-connector.png
@@ -54,6 +66,9 @@ product_assets=(
   multi-cli-management-demo.mp4
   operating-loop-demo-poster.jpg
   operating-loop-demo.mp4
+  org-dashboard-agentworks-480.webp
+  org-dashboard-agentworks-760.webp
+  org-dashboard-agentworks-1440.webp
   org-dashboard-agentworks-retina.webp
   org-dashboard-scale.png
   org-goals.png
@@ -73,5 +88,7 @@ cp -R docs dist/docs
 cp -R docs-content dist/docs-content
 cp -R use-cases dist/use-cases
 cp -R updates dist/updates
+
+node scripts/generate-agent-content.js
 
 find dist -name ".DS_Store" -delete

@@ -6,11 +6,11 @@ const { spawnSync } = require('child_process');
 
 const root = path.resolve(__dirname, '..');
 const dist = path.join(root, 'dist');
-const siteOrigin = 'https://multi-builder-public.netlify.app';
+const siteOrigin = 'https://agentworkshq.com';
 const requiredFiles = [
   'index.html',
   '404.html',
-  'how.html',
+  'how/index.html',
   'use-cases/index.html',
   'updates/index.html',
   'docs/index.html',
@@ -24,6 +24,7 @@ const requiredFiles = [
   'robots.txt',
   'sitemap.xml',
   'llms.txt',
+  'llms-full.txt',
   'site.webmanifest',
   'favicon.ico',
   'favicon-16.png',
@@ -38,6 +39,9 @@ const requiredFiles = [
   'docs-content/manifest.json',
   'docs-content/getting-started/README.md',
   'docs-content/getting-started/first-workflow.md',
+  'docs/overview/index.html',
+  'docs/getting-started/first-workflow/index.html',
+  'docs/workflow/auto_improvement_framework/index.html',
   'assets/fonts/fonts.css',
   'assets/og/agentworks-home-og.jpg',
   'assets/og/agentworks-how-og.jpg',
@@ -53,16 +57,16 @@ const pageExpectations = [
     route: '/index.html',
     title: 'AgentWorks - Run Your Company with an AI Workforce',
     h1: 'Run your company with an AI workforce.',
-    canonical: 'https://multi-builder-public.netlify.app/',
+    canonical: 'https://agentworkshq.com/',
     ogImage: 'assets/og/agentworks-home-og.jpg'
   },
   {
     name: 'how',
-    file: 'how.html',
-    route: '/how.html',
+    file: 'how/index.html',
+    route: '/how/',
     title: 'AgentWorks Product - Operating Loop for AI Workflows',
     h1: 'Build AI workflows that improve with every run.',
-    canonical: 'https://multi-builder-public.netlify.app/how/',
+    canonical: 'https://agentworkshq.com/how/',
     ogImage: 'assets/og/agentworks-how-og.jpg'
   },
   {
@@ -71,7 +75,7 @@ const pageExpectations = [
     route: '/use-cases/',
     title: 'AgentWorks Use Cases - AI Workflows Across Your Company',
     h1: 'One AI workforce. Every function.',
-    canonical: 'https://multi-builder-public.netlify.app/use-cases/',
+    canonical: 'https://agentworkshq.com/use-cases/',
     ogImage: 'assets/og/agentworks-use-cases-og.jpg'
   },
   {
@@ -80,7 +84,7 @@ const pageExpectations = [
     route: '/updates/',
     title: 'AgentWorks Updates - Shipping the Agent Operating Loop',
     h1: 'Shipping proof for the agent operating loop.',
-    canonical: 'https://multi-builder-public.netlify.app/updates/',
+    canonical: 'https://agentworkshq.com/updates/',
     ogImage: 'assets/og/agentworks-updates-og.jpg'
   },
   {
@@ -89,7 +93,7 @@ const pageExpectations = [
     route: '/docs/',
     title: 'AgentWorks Docs - Build and Operate AI Workflows',
     h1: 'Build and operate your first workflow.',
-    canonical: 'https://multi-builder-public.netlify.app/docs/',
+    canonical: 'https://agentworkshq.com/docs/',
     ogImage: 'assets/og/agentworks-docs-og.jpg'
   },
   {
@@ -98,7 +102,7 @@ const pageExpectations = [
     route: '/404.html',
     title: 'Page Not Found - AgentWorks',
     h1: 'This run does not have a page.',
-    canonical: 'https://multi-builder-public.netlify.app/404.html',
+    canonical: 'https://agentworkshq.com/404.html',
     ogImage: 'assets/og/agentworks-404-og.jpg'
   }
 ];
@@ -252,7 +256,7 @@ function assertReferencedAssetsExist() {
     assertFileExists(`assets/product/${match[1]}`);
   }
 
-  for (const file of ['index.html', '404.html', 'how.html', 'use-cases/index.html', 'updates/index.html', 'docs/index.html', 'assets/fonts/fonts.css']) {
+  for (const file of ['index.html', '404.html', 'how/index.html', 'use-cases/index.html', 'updates/index.html', 'docs/index.html', 'assets/fonts/fonts.css']) {
     const text = readDist(file);
     const resolvesFromRoot = /<base\s+href=["']\/["']/.test(text);
     const matches = [
@@ -301,12 +305,34 @@ function assertDeployPayload() {
   }
 
   const llms = readDist('llms.txt');
-  if (!llms.includes('# AgentWorks') || !llms.includes('https://multi-builder-public.netlify.app/docs/') || !llms.includes('https://multi-builder-public.netlify.app/use-cases/') || !llms.includes('https://multi-builder-public.netlify.app/updates/')) {
+  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/use-cases/') || !llms.includes('https://agentworkshq.com/updates/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
     fail('llms.txt missing canonical AgentWorks content');
   }
 
+  const llmsFull = readDist('llms-full.txt');
+  for (const phrase of ['Complete Product and Documentation Context', 'Auto-Improvement Framework', 'Build Your First Workflow']) {
+    if (!llmsFull.includes(phrase)) fail(`llms-full.txt missing ${phrase}`);
+  }
+
+  const sitemap = readDist('sitemap.xml');
+  for (const route of ['/', '/how/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+    if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
+  }
+
+  for (const file of ['how/index.html', 'use-cases/index.html', 'updates/index.html', 'docs/index.html']) {
+    const html = readDist(file);
+    if (!/<div id="root"[^>]*>[\s\S]*<h1>/.test(html)) fail(`${file} lacks initial agent-readable content`);
+  }
+
+  for (const file of ['docs/overview/index.html', 'docs/getting-started/first-workflow/index.html', 'docs/workflow/auto_improvement_framework/index.html']) {
+    const html = readDist(file);
+    if (!html.includes('rel="alternate" type="text/markdown"') || !html.includes('BreadcrumbList') || !/<h1>[^<]+<\/h1>/.test(html)) {
+      fail(`${file} lacks static documentation metadata`);
+    }
+  }
+
   const sizeBytes = listFiles(dist).reduce((sum, file) => sum + fs.statSync(file).size, 0);
-  const maxBytes = 8 * 1024 * 1024;
+  const maxBytes = 12 * 1024 * 1024;
   if (sizeBytes > maxBytes) fail(`dist payload too large: ${Math.round(sizeBytes / 1024)} KiB`);
 }
 

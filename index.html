@@ -36,24 +36,46 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "AgentWorks",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "macOS",
-    "description": "Open-source operating layer for coordinating, observing, and improving an AI workforce across company workflows.",
-    "url": "https://agentworkshq.com/",
-    "image": "https://agentworkshq.com/assets/og/agentworks-home-og.jpg",
-    "codeRepository": "https://github.com/manishiitg/mcp-agent-builder-go",
-    "sameAs": [
-      "https://github.com/manishiitg/mcp-agent-builder-go",
-      "https://x.com/manish_iitg",
-      "https://in.linkedin.com/in/manishiitg"
-    ],
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://agentworkshq.com/#organization",
+        "name": "AgentWorks",
+        "url": "https://agentworkshq.com/",
+        "logo": "https://agentworkshq.com/assets/brand/agentworks-logo.svg",
+        "sameAs": [
+          "https://github.com/manishiitg/mcp-agent-builder-go",
+          "https://x.com/manish_iitg",
+          "https://in.linkedin.com/in/manishiitg"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://agentworkshq.com/#website",
+        "name": "AgentWorks",
+        "url": "https://agentworkshq.com/",
+        "publisher": { "@id": "https://agentworkshq.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://agentworkshq.com/#software",
+        "name": "AgentWorks",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "AI workflow orchestration and agent operations",
+        "operatingSystem": "macOS",
+        "description": "Open-source operating layer for coordinating, observing, and improving an AI workforce across company workflows.",
+        "url": "https://agentworkshq.com/",
+        "image": "https://agentworkshq.com/assets/og/agentworks-home-og.jpg",
+        "downloadUrl": "https://github.com/manishiitg/mcp-agent-builder-go/releases/latest",
+        "codeRepository": "https://github.com/manishiitg/mcp-agent-builder-go",
+        "publisher": { "@id": "https://agentworkshq.com/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -100,7 +122,7 @@
       </div>
 
       <figure class="hero-product" data-hero-product>
-        <img src="assets/product/org-dashboard-agentworks-retina.webp" alt="AgentWorks Org Dashboard showing an organization-wide view of agent workflow health, goals, costs, schedules, and attention items." width="2852" height="1602">
+        <img src="assets/product/org-dashboard-agentworks-retina.webp" srcset="assets/product/org-dashboard-agentworks-480.webp 480w, assets/product/org-dashboard-agentworks-760.webp 760w, assets/product/org-dashboard-agentworks-1440.webp 1440w, assets/product/org-dashboard-agentworks-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 32px), min(1240px, calc(100vw - 64px))" alt="AgentWorks Org Dashboard showing an organization-wide view of agent workflow health, goals, costs, schedules, and attention items." width="2852" height="1602">
         <figcaption>One view of the work your agents are doing.</figcaption>
       </figure>
     </section>
@@ -133,10 +155,10 @@
           </div>
           <div class="runtime-showcase-stage">
             <div class="runtime-showcase-panel is-active" aria-hidden="false" data-showcase-panel="workers">
-              <img src="assets/product/agentworks-coding-cli-retina.webp" alt="AgentWorks model library showing connected Claude Code, Codex CLI, Cursor CLI, Pi CLI, and model providers." width="2852" height="1602" loading="lazy">
+              <img src="assets/product/agentworks-coding-cli-retina.webp" srcset="assets/product/agentworks-coding-cli-480.webp 480w, assets/product/agentworks-coding-cli-760.webp 760w, assets/product/agentworks-coding-cli-1440.webp 1440w, assets/product/agentworks-coding-cli-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1100px" alt="AgentWorks model library showing connected Claude Code, Codex CLI, Cursor CLI, Pi CLI, and model providers." width="2852" height="1602" loading="lazy">
             </div>
             <div class="runtime-showcase-panel" aria-hidden="true" data-showcase-panel="workflow">
-              <img src="assets/product/agentworks-workflow-multi-llm-retina.webp" alt="AgentWorks workflow configuration routing high, medium, and low reasoning work across Claude Code, Codex CLI, and Pi CLI." width="2852" height="1602" loading="lazy">
+              <img src="assets/product/agentworks-workflow-multi-llm-retina.webp" srcset="assets/product/agentworks-workflow-multi-llm-480.webp 480w, assets/product/agentworks-workflow-multi-llm-760.webp 760w, assets/product/agentworks-workflow-multi-llm-1440.webp 1440w, assets/product/agentworks-workflow-multi-llm-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1100px" alt="AgentWorks workflow configuration routing high, medium, and low reasoning work across Claude Code, Codex CLI, and Pi CLI." width="2852" height="1602" loading="lazy">
             </div>
           </div>
           <div class="runtime-showcase-notes" aria-live="polite">
@@ -160,10 +182,10 @@
             </div>
             <div class="runtime-showcase-stage">
               <div class="runtime-showcase-panel is-active" aria-hidden="false" data-showcase-panel="question">
-                <img src="assets/product/agentworks-pulse-human-question-retina.webp" alt="AgentWorks Pulse asking the operator to approve, reject, defer, or add context to a proposed workflow objective change." width="2852" height="1602" loading="lazy">
+                <img src="assets/product/agentworks-pulse-human-question-retina.webp" srcset="assets/product/agentworks-pulse-human-question-480.webp 480w, assets/product/agentworks-pulse-human-question-760.webp 760w, assets/product/agentworks-pulse-human-question-1440.webp 1440w, assets/product/agentworks-pulse-human-question-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1100px" alt="AgentWorks Pulse asking the operator to approve, reject, defer, or add context to a proposed workflow objective change." width="2852" height="1602" loading="lazy">
               </div>
               <div class="runtime-showcase-panel" aria-hidden="true" data-showcase-panel="learnings">
-                <img src="assets/product/agentworks-shared-learnings-retina.webp" alt="AgentWorks Automation Learnings view showing a shared global skill and reusable execution knowledge." width="2852" height="1602" loading="lazy">
+                <img src="assets/product/agentworks-shared-learnings-retina.webp" srcset="assets/product/agentworks-shared-learnings-480.webp 480w, assets/product/agentworks-shared-learnings-760.webp 760w, assets/product/agentworks-shared-learnings-1440.webp 1440w, assets/product/agentworks-shared-learnings-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1100px" alt="AgentWorks Automation Learnings view showing a shared global skill and reusable execution knowledge." width="2852" height="1602" loading="lazy">
               </div>
             </div>
             <div class="runtime-showcase-notes" aria-live="polite">

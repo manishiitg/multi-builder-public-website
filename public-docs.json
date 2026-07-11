@@ -1,0 +1,31 @@
+{
+  "documents": [
+    "README",
+    "getting-started/README",
+    "getting-started/first-workflow",
+    "core/README",
+    "core/bot_connector_system",
+    "core/browser",
+    "core/llm_configuration_and_resilience",
+    "core/mcp_bridge_layer",
+    "core/secrets",
+    "core/skills",
+    "multiagent/README",
+    "multiagent/agent_memory_system",
+    "multiagent/org_pulse_design",
+    "workflow/README",
+    "workflow/auto_improvement_framework",
+    "workflow/browser_automation",
+    "workflow/cost_and_log_measurement",
+    "workflow/evaluation_system",
+    "workflow/human_feedback_system",
+    "workflow/learning_architecture",
+    "workflow/pulse_consolidation",
+    "workflow/self_improvement_and_reporting",
+    "workflow/tiered_llm_allocation",
+    "workflow/tool_filtering_system",
+    "workflow/workflow_manifest_architecture",
+    "workflow/workflow_monitoring",
+    "workflow/workflow_scheduling"
+  ]
+}

@@ -4,11 +4,21 @@ AgentWorks is an open-source desktop control plane for AI and coding-agent fleet
 
 ## Canonical Pages
 
-- [Homepage](https://multi-builder-public.netlify.app/): Product positioning, install path, category fit, product proof, and supported agent/runtime surfaces.
-- [Use Cases](https://multi-builder-public.netlify.app/use-cases/): Sales-friendly fit guide for agent fleet control, recurring workflows, client/server workspaces, Pulse, Auto Improve, and reusable skills.
-- [Updates](https://multi-builder-public.netlify.app/updates/): Release and shipping proof for the latest public macOS release, Pulse, Auto Improve, terminal runtime, Chief of Staff workflows, and deployment hardening.
-- [AgentWorks Architecture](https://multi-builder-public.netlify.app/how/): Explanation of the run packet, operating loop, worker/runtime boundary, evidence record, Pulse, approvals, and improvement layer.
-- [Docs](https://multi-builder-public.netlify.app/docs/): Install command, system map, agent fleet concepts, workflow loop, MCP/tools, browser automation, deployment, security, and reference docs.
+- [Homepage](https://agentworkshq.com/): Product positioning, install path, category fit, product proof, and supported agent/runtime surfaces.
+- [Use Cases](https://agentworkshq.com/use-cases/): Sales-friendly fit guide for agent fleet control, recurring workflows, client/server workspaces, Pulse, Auto Improve, and reusable skills.
+- [Updates](https://agentworkshq.com/updates/): Release and shipping proof for the latest public macOS release, Pulse, Auto Improve, terminal runtime, Chief of Staff workflows, and deployment hardening.
+- [AgentWorks Architecture](https://agentworkshq.com/how/): Explanation of the run packet, operating loop, worker/runtime boundary, evidence record, Pulse, approvals, and improvement layer.
+- [Docs](https://agentworkshq.com/docs/): Install command, system map, agent fleet concepts, workflow loop, MCP/tools, browser automation, deployment, security, and reference docs.
+
+## Machine-Readable Sources
+
+- [Complete AgentWorks context](https://agentworkshq.com/llms-full.txt): Product context plus curated public documentation in one text file.
+- [Documentation manifest](https://agentworkshq.com/docs-content/manifest.json): Structured index of the available raw Markdown documents.
+- [Documentation overview](https://agentworkshq.com/docs/overview/): Static HTML documentation overview.
+- [Build your first workflow](https://agentworkshq.com/docs/getting-started/first-workflow/): Crawlable setup guide with a raw Markdown alternate.
+- [Auto Improve](https://agentworkshq.com/docs/workflow/auto_improvement_framework/): Technical design for bounded workflow improvement.
+- [Pulse and self-improvement](https://agentworkshq.com/docs/workflow/self_improvement_and_reporting/): Evidence, reporting, Pulse, and improvement loop.
+- [Raw documentation README](https://agentworkshq.com/docs-content/README.md): Canonical Markdown entry point.
 
 ## Important Product Links
 

@@ -116,7 +116,7 @@ a { color: inherit; text-decoration: none; }
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--blue);
+  color: #58339b;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
@@ -158,7 +158,7 @@ h1 {
 }
 
 .runtime-rail > span {
-  color: #73677f;
+  color: #5d5268;
   font-family: var(--mono);
   font-size: 10px;
   text-transform: uppercase;
@@ -220,7 +220,7 @@ h1 {
 
 .hero-product figcaption {
   padding: 14px 0 18px;
-  color: #625a6c;
+  color: #554d5e;
   font-family: var(--mono);
   font-size: 11px;
 }
@@ -777,7 +777,7 @@ h1 {
   padding: 22px 48px 26px;
   margin: 0 auto;
   border-top: 1px solid var(--panel-line);
-  color: #756c80;
+  color: #a79eaf;
   font-size: 12px;
 }
 

@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://agentworkshq.com/assets/og/agentworks-use-cases-og.jpg">
 <meta name="twitter:creator" content="@manish_iitg">
 <link rel="canonical" href="https://agentworkshq.com/use-cases/">
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="AgentWorks machine-readable context">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -37,23 +38,45 @@
 <link rel="stylesheet" href="secondary.css?v=agentworks-secondary21">
 </head>
 <body>
-<div id="root" data-page="usecases"></div>
+<div id="root" data-page="usecases">
+  <div class="agent-static-page">
+    <header class="agent-static-nav"><a class="agent-static-brand" href="/"><img src="assets/brand/agentworks-logo.svg" alt="" width="32" height="32">AgentWorks</a><nav aria-label="Primary"><a href="/how/">Product</a><a href="/use-cases/">Use cases</a><a href="/docs/">Docs</a></nav></header>
+    <main class="agent-static-main">
+      <p class="static-doc-kicker">Use cases</p>
+      <h1>One AI workforce. Every function.</h1>
+      <p class="agent-static-lead">Run recurring sales, marketing, support, finance, operations, engineering, and IT workflows with shared goals, evidence, human judgment, and continuous improvement.</p>
+      <section><h2>Sales and marketing</h2><p>Coordinate prospect research, outreach, campaign production, content packages, approvals, and performance reporting around one measurable growth outcome.</p></section>
+      <section><h2>Support and customer success</h2><p>Route Slack, WhatsApp, Gmail, and support signals into recurring workflows while retaining human escalation for sensitive or high-impact decisions.</p></section>
+      <section><h2>Finance and operations</h2><p>Schedule recurring analysis, collect source evidence, track model and workflow cost, and produce operator-ready reports with an auditable trail.</p></section>
+      <section><h2>Engineering and IT</h2><p>Operate coding CLIs, model providers, browser workers, MCP tools, repositories, and controlled environments while preserving logs, tests, screenshots, approvals, and reusable skills.</p></section>
+      <p class="agent-static-actions"><a href="/docs/getting-started/first-workflow/">Build the first workflow</a><a href="https://github.com/manishiitg/mcp-agent-builder-go/releases/latest">Install for Mac</a></p>
+    </main>
+  </div>
+</div>
 
 <script src="assets/vendor/react-18.3.1/react.production.min.js"></script>
 <script src="assets/vendor/react-18.3.1/react-dom.production.min.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "AgentWorks Use Cases",
-  "description": "AgentWorks use cases for recurring AI workflows across sales, marketing, support, finance, operations, engineering, and IT.",
-  "url": "https://agentworkshq.com/use-cases/",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "AgentWorks",
-    "url": "https://agentworkshq.com/"
-  },
-  "about": ["AI agents", "coding agents", "workflow automation", "agent fleet operations", "agent observability"]
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "AgentWorks Use Cases",
+      "description": "AgentWorks use cases for recurring AI workflows across sales, marketing, support, finance, operations, engineering, and IT.",
+      "url": "https://agentworkshq.com/use-cases/",
+      "dateModified": "2026-07-11",
+      "isPartOf": { "@type": "WebSite", "name": "AgentWorks", "url": "https://agentworkshq.com/" },
+      "about": ["AI agents", "coding agents", "workflow automation", "agent fleet operations", "agent observability"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "AgentWorks", "item": "https://agentworkshq.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Use cases", "item": "https://agentworkshq.com/use-cases/" }
+      ]
+    }
+  ]
 }
 </script>
 

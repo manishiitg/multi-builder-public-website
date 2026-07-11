@@ -1923,3 +1923,216 @@ body {
   .mk-page *::before,
   .mk-page *::after { animation: none !important; transition-duration: 0.01ms !important; }
 }
+
+/* Progressive HTML shown until React mounts and retained when JavaScript is unavailable. */
+.agent-static-page,
+.static-doc-body {
+  min-height: 100vh;
+  background: #f7f5fb;
+  color: #1b1720;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.agent-static-nav {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(20px, 4vw, 64px);
+  border-bottom: 1px solid #d8d0e6;
+  background: rgba(255, 255, 255, .9);
+}
+
+.agent-static-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #1b1720;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.agent-static-brand img { border-radius: 6px; }
+
+.agent-static-nav nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.agent-static-nav nav a,
+.agent-static-actions a,
+.static-doc-breadcrumb a,
+.static-doc-source a,
+.agent-static-footer a {
+  color: #56309d;
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.agent-static-main,
+.static-doc-shell {
+  width: min(920px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 124px) 0;
+}
+
+.agent-static-main > h1,
+.static-doc-article > h1 {
+  max-width: 860px;
+  margin: 0 0 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 7vw, 82px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.agent-static-lead {
+  max-width: 760px;
+  margin-bottom: 64px;
+  color: #4e4658;
+  font-size: clamp(19px, 2.4vw, 25px);
+  line-height: 1.55;
+}
+
+.agent-static-main section {
+  padding: 32px 0;
+  border-top: 1px solid #d8d0e6;
+}
+
+.agent-static-main section h2 {
+  margin-bottom: 12px;
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.15;
+}
+
+.agent-static-main section p,
+.agent-static-main section li {
+  max-width: 760px;
+  color: #544c5e;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.agent-static-main section ul { padding-left: 22px; }
+
+.agent-static-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 28px;
+  border-top: 1px solid #d8d0e6;
+}
+
+.static-doc-body { background: #fff; }
+
+.static-doc-shell {
+  width: min(980px, calc(100% - 40px));
+  padding-top: 42px;
+}
+
+.static-doc-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 64px;
+  color: #756c80;
+  font-size: 13px;
+}
+
+.static-doc-article {
+  max-width: 780px;
+}
+
+.static-doc-kicker {
+  color: #56309d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.static-doc-article > h1 {
+  font-size: clamp(42px, 6vw, 72px);
+}
+
+.static-doc-article h2,
+.static-doc-article h3 {
+  padding-top: 24px;
+  margin: 42px 0 14px;
+  border-top: 1px solid #e0dbe8;
+  line-height: 1.2;
+}
+
+.static-doc-article p,
+.static-doc-article li {
+  color: #403947;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.static-doc-article pre {
+  overflow-x: auto;
+  padding: 20px;
+  border-radius: 6px;
+  background: #17131c;
+  color: #f6f2fb;
+  font: 13px/1.65 "JetBrains Mono", monospace;
+}
+
+.static-doc-article code {
+  font-family: "JetBrains Mono", monospace;
+  overflow-wrap: anywhere;
+}
+
+.static-doc-article :not(pre) > code {
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: #eee9f5;
+}
+
+.static-doc-article table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.static-doc-article th,
+.static-doc-article td {
+  padding: 10px 12px;
+  border: 1px solid #d8d0e6;
+  text-align: left;
+}
+
+.static-doc-source {
+  display: flex;
+  max-width: 780px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  margin-top: 64px;
+  border-top: 1px solid #d8d0e6;
+  border-bottom: 1px solid #d8d0e6;
+}
+
+.agent-static-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px clamp(20px, 4vw, 64px);
+  border-top: 1px solid #d8d0e6;
+}
+
+@media (max-width: 640px) {
+  .agent-static-nav,
+  .agent-static-footer,
+  .static-doc-source { align-items: flex-start; flex-direction: column; }
+  .agent-static-nav nav { gap: 14px; }
+  .agent-static-main,
+  .static-doc-shell { width: min(100% - 32px, 920px); }
+}
