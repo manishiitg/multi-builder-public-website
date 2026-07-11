@@ -8,4 +8,4 @@ Disallow: /hifi_*
 Disallow: /page_*
 Disallow: /scribbles.js
 
-Sitemap: https://multi-builder-public.netlify.app/sitemap.xml
+Sitemap: https://agentworkshq.com/sitemap.xml

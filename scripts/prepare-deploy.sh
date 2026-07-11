@@ -8,7 +8,8 @@ node scripts/sync-product-docs.js --if-available
 
 cp index.html dist/
 cp 404.html dist/
-cp how.html dist/
+mkdir -p dist/how
+cp how.html dist/how/index.html
 cp runloop.css dist/
 cp runloop_site.js dist/
 cp secondary.css dist/
