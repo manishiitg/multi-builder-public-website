@@ -9,7 +9,7 @@ Static marketing site for the AgentWorks agent/workflow control plane. The root 
 
 ## Branding Status
 
-Public product name is **AgentWorks**. This website is phase one of a broader migration from the legacy **Runloop** name. The rename is not complete across the app, repository, release artifacts, compatibility identifiers, and historical content.
+Public product name is **AgentWorks**. The public GitHub repository is now **`coding-agent-loop`**. The remaining migration work is limited to compatibility-sensitive app identifiers, release artifact names, and historical content.
 
 Completed in phase one:
 
@@ -18,17 +18,18 @@ Completed in phase one:
 - exposed crawlable static versions of the main marketing pages and selected technical documentation
 - added responsive real-product screenshots and removed visible Runloop branding from current website surfaces
 - configured `www.agentworkshq.com` to redirect permanently to the canonical apex domain
+- renamed the upstream GitHub repository from `mcp-agent-builder-go` to `coding-agent-loop`
+- migrated installer, updater, release, Go module, package, and public documentation URLs to the new repository
+- preserved GitHub redirects from the former repository URL
 
 Still intentionally pending:
 
-- rename the upstream GitHub repository from `mcp-agent-builder-go` to the planned `coding-agent-loop` name
-- migrate install, release, updater, package, and documentation URLs after the repository rename
 - complete the Electron/macOS product-name migration without breaking existing installs, data directories, deep links, or updates
 - preserve compatibility for `RUNLOOP_*`, `runloop://`, `.runloop`, package IDs, and local storage identifiers until a migration release exists
 - recapture any remaining product screenshots that contain legacy app branding
-- announce the rename as a build-in-public migration with evidence from each completed phase
+- publish the repository migration as the next evidence-backed build-in-public update
 
-The current install command and GitHub links therefore still point to `mcp-agent-builder-go`. Do not change them to `coding-agent-loop` until the remote repository exists and the installer/release paths have been verified.
+The canonical source, install, and release URLs now use `https://github.com/manishiitg/coding-agent-loop`. The former GitHub URL redirects for compatibility and must not be reused as a new repository name.
 
 Some internal website file names still use `runloop_site.js` / `runloop.css`. Treat those as implementation filenames, not public branding. Current product screenshots were captured before the app rename, so the site applies a small AgentWorks overlay on screenshots until the app display name is changed and screenshots are recaptured.
 

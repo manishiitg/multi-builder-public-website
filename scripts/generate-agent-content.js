@@ -120,7 +120,7 @@ function pageTemplate({ title, description, route, rawPath, articleHtml }) {
 <body class="static-doc-body">
 <header class="agent-static-nav">
   <a class="agent-static-brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="32" height="32">AgentWorks</a>
-  <nav aria-label="Documentation"><a href="/docs/">Docs</a><a href="/how/">Product</a><a href="https://github.com/manishiitg/mcp-agent-builder-go">GitHub</a></nav>
+  <nav aria-label="Documentation"><a href="/docs/">Docs</a><a href="/how/">Product</a><a href="https://github.com/manishiitg/coding-agent-loop">GitHub</a></nav>
 </header>
 <main id="main-content" class="static-doc-shell">
   <nav class="static-doc-breadcrumb" aria-label="Breadcrumb"><a href="/">AgentWorks</a><span>/</span><a href="/docs/">Docs</a><span>/</span><span>${escapeHtml(title)}</span></nav>
@@ -131,7 +131,7 @@ function pageTemplate({ title, description, route, rawPath, articleHtml }) {
   </article>
   <aside class="static-doc-source"><strong>Machine-readable source</strong><a href="/docs-content/${rawPath}.md">Open raw Markdown</a></aside>
 </main>
-<footer class="agent-static-footer"><span>AgentWorks</span><a href="https://github.com/manishiitg/mcp-agent-builder-go/releases/latest">Latest release</a></footer>
+<footer class="agent-static-footer"><span>AgentWorks</span><a href="https://github.com/manishiitg/coding-agent-loop/releases/latest">Latest release</a></footer>
 </body>
 </html>`;
 }
@@ -171,8 +171,8 @@ const llmsFull = [
   '# AgentWorks: Complete Product and Documentation Context',
   '',
   'Canonical website: https://agentworkshq.com/',
-  'Open-source repository: https://github.com/manishiitg/mcp-agent-builder-go',
-  'Latest release: https://github.com/manishiitg/mcp-agent-builder-go/releases/latest',
+  'Open-source repository: https://github.com/manishiitg/coding-agent-loop',
+  'Latest release: https://github.com/manishiitg/coding-agent-loop/releases/latest',
   '',
   'AgentWorks is an open-source operating layer for coordinating, observing, and improving AI workflows across a company. It manages goals, schedules, model and CLI routing, browser and MCP tools, secrets, evidence, costs, Pulse, human approvals, reports, reusable skills, and bounded Auto Improve proposals.',
   '',

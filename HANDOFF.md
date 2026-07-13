@@ -74,13 +74,13 @@ Completed in this production checkpoint:
 - Verified production at 97 Lighthouse performance and 100 accessibility, best practices, and SEO, with no console or contrast failures.
 - Pushed the production changes in commit `2ffab6c`.
 
-Remaining rename phases:
+Rename status:
 
-1. Rename the GitHub repository only after the `coding-agent-loop` target and redirect behavior are ready.
-2. Migrate installer, release, and documentation URLs and verify a real install from the new paths.
-3. Complete the Electron/macOS product, bundle, DMG, updater, and app-data compatibility plan.
-4. Recapture remaining legacy-branded screenshots and remove temporary compatibility overlays.
-5. Publish the rename as a phased build-in-public story with proof for each completed phase.
+1. Completed: renamed the GitHub repository to `coding-agent-loop`; the former URL redirects to it.
+2. Completed: migrated installer, updater, release, Go module, package, and public documentation URLs to the new repository.
+3. Pending: complete the Electron/macOS product, bundle, DMG, updater, and app-data compatibility plan.
+4. Pending: recapture remaining legacy-branded screenshots and remove temporary compatibility overlays.
+5. Pending: publish the repository migration as a phased build-in-public story with proof from the new repository and live website.
 
 The Bot Connector screenshot contains a visible WhatsApp identifier and link code. The user explicitly approved showing that exact capture on the website on 2026-07-10; this approval is also recorded in the product screenshot library metadata.
 
@@ -98,7 +98,7 @@ There is intentionally no bundler for normal local development. The deploy prepa
 
 The root homepage and secondary-route visual refresh are complete locally. Secondary routes still use the existing React runtime internally, but their public design and messaging now match the approved AgentWorks direction.
 
-GitHub/install links intentionally still point to `mcp-agent-builder-go` until the actual repository is renamed to the planned `coding-agent-loop` name. Internal implementation file names such as `runloop_site.js` and `runloop.css` were not renamed in this pass.
+GitHub/install links now point to `coding-agent-loop`. The local source directory remains `mcp-agent-builder-go`, and internal implementation file names such as `runloop_site.js` and `runloop.css` remain unchanged; neither is public branding or a reason to break compatibility.
 
 ## Product Positioning To Preserve
 
@@ -150,7 +150,7 @@ Important outcomes:
 
 ### Latest Checkpoint: `agentworks1`
 
-The user chose **AgentWorks** as the public product name, with `coding-agent-loop` as the planned future GitHub repo name.
+The user chose **AgentWorks** as the public product name and `coding-agent-loop` as the GitHub repository name. The repository rename was completed on 2026-07-13.
 
 Branding changes made:
 
@@ -158,7 +158,7 @@ Branding changes made:
 - Route-specific Open Graph images were renamed/regenerated as `assets/og/agentworks-*.jpg`.
 - Added `assets/brand/agentworks-logo.svg` while leaving the old logo file in place for cached/legacy references.
 - Added a temporary AgentWorks overlay on product screenshots and generated OG cards because the current product screenshots were captured before the app display-name rename.
-- Kept install commands and GitHub links on `mcp-agent-builder-go` to avoid broken installs before the remote repo rename.
+- Migrated install commands and GitHub links to `coding-agent-loop` after the repository rename, while retaining compatibility-sensitive Runloop app identifiers.
 - Verified with `node scripts/verify-dist.js` and a Chrome screenshot smoke test at `review-agentworks1-home-smoke.png`.
 
 Homepage density changes:

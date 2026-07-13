@@ -22,11 +22,11 @@ AgentWorks is an open-source desktop control plane for AI and coding-agent fleet
 
 ## Important Product Links
 
-- [Latest macOS release](https://github.com/manishiitg/mcp-agent-builder-go/releases/latest): Current public release and installer artifacts.
-- [Open-source repository](https://github.com/manishiitg/mcp-agent-builder-go): Source repository for the AgentWorks desktop/runtime project.
-- [Repository docs](https://github.com/manishiitg/mcp-agent-builder-go/tree/main/docs): Full implementation and workflow documentation.
-- [Deployment docs](https://github.com/manishiitg/mcp-agent-builder-go/tree/main/deploy): Server, VM, Kubernetes, and related deployment material.
-- [Secrets docs](https://github.com/manishiitg/mcp-agent-builder-go/blob/main/docs/core/secrets.md): Workflow, user, and global secret handling.
+- [Latest macOS release](https://github.com/manishiitg/coding-agent-loop/releases/latest): Current public release and installer artifacts.
+- [Open-source repository](https://github.com/manishiitg/coding-agent-loop): Source repository for the AgentWorks desktop/runtime project.
+- [Repository docs](https://github.com/manishiitg/coding-agent-loop/tree/main/docs): Full implementation and workflow documentation.
+- [Deployment docs](https://github.com/manishiitg/coding-agent-loop/tree/main/deploy): Server, VM, Kubernetes, and related deployment material.
+- [Secrets docs](https://github.com/manishiitg/coding-agent-loop/blob/main/docs/core/secrets.md): Workflow, user, and global secret handling.
 
 ## Key Concepts
 
