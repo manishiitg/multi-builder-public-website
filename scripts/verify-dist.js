@@ -295,9 +295,9 @@ function assertDeployPayload() {
   for (const icon of manifest.icons) assertFileExists(stripUrlSuffix(icon.src).replace(/^\//, ''));
 
   const redirects = readDist('_redirects');
-  if (!redirects.includes('/automations/:slug/ /how/ 301!')) fail('legacy automation redirect missing');
-  if (!redirects.includes('/deploy/ https://github.com/manishiitg/coding-agent-loop/tree/main/deploy 301!')) fail('deployment docs redirect missing');
-  if (!redirects.includes('/wireframes.html / 301!')) fail('wireframes redirect missing');
+  if (!redirects.includes('/automations/:slug/ /how/ 301')) fail('legacy automation redirect missing');
+  if (!redirects.includes('/deploy/ https://github.com/manishiitg/coding-agent-loop/tree/main/deploy 301')) fail('deployment docs redirect missing');
+  if (!redirects.includes('/wireframes.html / 301')) fail('wireframes redirect missing');
 
   const robots = readDist('robots.txt');
   for (const pathRule of ['/template.html', '/wireframes.html']) {
