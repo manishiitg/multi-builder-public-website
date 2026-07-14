@@ -219,7 +219,49 @@
   };
 
   setupShowcase('[data-runtime-showcase]', '.runtime-showcase', '--routing-progress');
-  setupShowcase('[data-context-showcase]', '.context-showcase', '--context-progress');
+})();
+
+(() => {
+  const context = document.querySelector('[data-context-proof]');
+  if (!context) return;
+
+  const steps = Array.from(context.querySelectorAll('[data-context-step]'));
+  const panels = Array.from(context.querySelectorAll('[data-context-panel]'));
+  const notes = Array.from(context.querySelectorAll('[data-context-note]'));
+
+  const setStep = key => {
+    steps.forEach(step => {
+      const isActive = step.dataset.contextStep === key;
+      step.classList.toggle('is-active', isActive);
+      step.setAttribute('aria-selected', String(isActive));
+      step.tabIndex = isActive ? 0 : -1;
+    });
+
+    panels.forEach(panel => {
+      const isActive = panel.dataset.contextPanel === key;
+      panel.classList.toggle('is-active', isActive);
+      panel.setAttribute('aria-hidden', String(!isActive));
+    });
+
+    notes.forEach(note => note.classList.toggle('is-active', note.dataset.contextNote === key));
+  };
+
+  steps.forEach((step, index) => {
+    step.addEventListener('click', () => setStep(step.dataset.contextStep));
+    step.addEventListener('keydown', event => {
+      let nextIndex = null;
+      if (['ArrowLeft', 'ArrowUp'].includes(event.key)) nextIndex = (index - 1 + steps.length) % steps.length;
+      if (['ArrowRight', 'ArrowDown'].includes(event.key)) nextIndex = (index + 1) % steps.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = steps.length - 1;
+      if (nextIndex === null) return;
+      event.preventDefault();
+      steps[nextIndex].focus();
+      setStep(steps[nextIndex].dataset.contextStep);
+    });
+  });
+
+  if (steps[0]) setStep(steps[0].dataset.contextStep);
 })();
 
 (() => {

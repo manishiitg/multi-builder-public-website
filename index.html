@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="assets/fonts/fonts.css?v=workforce1">
   <link rel="preload" as="image" type="image/webp" href="assets/hero/agentworks-choreography-hero-v2.webp">
-  <link rel="stylesheet" href="workforce.css?v=agentworks-home-final-1">
+  <link rel="stylesheet" href="workforce.css?v=agentworks-home-final-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -302,59 +302,85 @@
     </section>
 
     <section class="story-band story-context">
-      <div class="story-chapter story-chapter-reverse">
-        <div class="context-showcase-scene" data-context-showcase>
-          <div class="context-showcase" data-reveal="visual">
-            <div class="runtime-showcase-bar">
-              <p>Human context loop</p>
-              <div class="runtime-showcase-sequence" aria-hidden="true">
-                <span class="is-active" data-showcase-step="question"><b>01</b> Ask for judgment</span>
-                <span data-showcase-step="learnings"><b>02</b> Preserve the learning</span>
-              </div>
-            </div>
-            <div class="runtime-showcase-stage">
-              <div class="runtime-showcase-panel is-active" aria-hidden="false" data-showcase-panel="question">
-                <img class="runtime-showcase-raw" src="assets/product/agentworks-pulse-human-question-retina.webp" srcset="assets/product/agentworks-pulse-human-question-480.webp 480w, assets/product/agentworks-pulse-human-question-760.webp 760w, assets/product/agentworks-pulse-human-question-1440.webp 1440w, assets/product/agentworks-pulse-human-question-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1100px" alt="AgentWorks Pulse asking the operator to approve, reject, defer, or add context to a proposed workflow objective change." width="2852" height="1602" loading="lazy">
-              </div>
-              <div class="runtime-showcase-panel" aria-hidden="true" data-showcase-panel="learnings">
-                <img class="runtime-showcase-raw" src="assets/product/agentworks-shared-learnings-retina.webp" srcset="assets/product/agentworks-shared-learnings-480.webp 480w, assets/product/agentworks-shared-learnings-760.webp 760w, assets/product/agentworks-shared-learnings-1440.webp 1440w, assets/product/agentworks-shared-learnings-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1100px" alt="AgentWorks Automation Learnings view showing a shared global skill and reusable execution knowledge." width="2852" height="1602" loading="lazy">
-              </div>
-            </div>
-            <div class="runtime-showcase-notes" aria-live="polite">
-              <p class="is-active" data-showcase-note="question"><strong>Pulse asks where human judgment matters.</strong> The operator can approve, reject, defer, or add guidance before the workflow changes.</p>
-              <p data-showcase-note="learnings"><strong>Guidance becomes reusable execution context.</strong> Shared skills and references carry what worked into future agent runs.</p>
+      <div class="story-chapter">
+        <div class="story-copy" data-reveal>
+          <p class="eyebrow">02 / Add human judgment</p>
+          <h2>Agents ask. Humans decide. The system remembers.</h2>
+          <p>When a workflow reaches a strategic choice, Pulse asks a focused question. Your answer guides the current run and becomes reusable context for the agents that follow.</p>
+        </div>
+        <div class="context-proof" data-context-proof data-reveal="visual">
+          <div class="runtime-showcase-bar">
+            <p>Human context loop</p>
+            <div class="runtime-showcase-sequence" role="tablist" aria-label="Human context views">
+              <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="context-ask" data-context-step="ask"><b>01</b> Agent asks</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="context-decide" data-context-step="decide"><b>02</b> Human decides</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="context-remember" data-context-step="remember"><b>03</b> System remembers</button>
             </div>
           </div>
-        </div>
-        <div class="story-copy" data-reveal>
-          <p class="eyebrow">02 / Share company context</p>
-          <h2>Recommendations become context every agent can use.</h2>
-          <p>People contribute goals, guidance, reference material, and corrections. AgentWorks makes that company context available to the agents doing the work, then preserves what successful runs teach the next one.</p>
-          <ul class="story-signals">
-            <li>Human recommendations and company knowledge</li>
-            <li>Shared skills from successful workflow runs</li>
-            <li>Context that follows work across departments</li>
-          </ul>
+          <div class="context-proof-stage">
+            <div class="context-proof-panel is-active" id="context-ask" role="tabpanel" aria-hidden="false" data-context-panel="ask">
+              <button class="context-proof-media" type="button" data-lightbox-src="assets/product/agentworks-pulse-human-question-retina.webp" data-lightbox-title="Agent asks for judgment" aria-label="Open the complete AgentWorks Pulse question screenshot">
+                <img src="assets/product/agentworks-pulse-human-question-retina.webp" srcset="assets/product/agentworks-pulse-human-question-480.webp 480w, assets/product/agentworks-pulse-human-question-760.webp 760w, assets/product/agentworks-pulse-human-question-1440.webp 1440w, assets/product/agentworks-pulse-human-question-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1240px" alt="AgentWorks Pulse asking the operator to approve, reject, defer, or add context to a proposed workflow objective change." width="2852" height="1602" loading="lazy">
+                <span class="context-focus context-focus-question" aria-hidden="true">Goal Advisor question</span>
+                <span class="context-proof-expand">View full screenshot</span>
+              </button>
+            </div>
+            <div class="context-proof-panel" id="context-decide" role="tabpanel" aria-hidden="true" data-context-panel="decide">
+              <button class="context-proof-media" type="button" data-lightbox-src="assets/product/agentworks-pulse-human-question-retina.webp" data-lightbox-title="Human decision controls" aria-label="Open the complete AgentWorks Pulse decision screenshot">
+                <img src="assets/product/agentworks-pulse-human-question-retina.webp" srcset="assets/product/agentworks-pulse-human-question-480.webp 480w, assets/product/agentworks-pulse-human-question-760.webp 760w, assets/product/agentworks-pulse-human-question-1440.webp 1440w, assets/product/agentworks-pulse-human-question-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1240px" alt="AgentWorks Pulse showing approve, reject, defer, and optional-note controls for a Goal Advisor recommendation." width="2852" height="1602" loading="lazy">
+                <span class="context-focus context-focus-decision" aria-hidden="true">Approve &middot; Reject &middot; Defer</span>
+                <span class="context-proof-expand">View full screenshot</span>
+              </button>
+            </div>
+            <div class="context-proof-panel" id="context-remember" role="tabpanel" aria-hidden="true" data-context-panel="remember">
+              <button class="context-proof-media" type="button" data-lightbox-src="assets/product/agentworks-shared-learnings-retina.webp" data-lightbox-title="Shared execution knowledge" aria-label="Open the complete AgentWorks shared learnings screenshot">
+                <img src="assets/product/agentworks-shared-learnings-retina.webp" srcset="assets/product/agentworks-shared-learnings-480.webp 480w, assets/product/agentworks-shared-learnings-760.webp 760w, assets/product/agentworks-shared-learnings-1440.webp 1440w, assets/product/agentworks-shared-learnings-retina.webp 2852w" sizes="(max-width: 700px) calc(100vw - 34px), 1240px" alt="AgentWorks Automation Learnings view showing a shared global skill and reusable execution knowledge." width="2852" height="1602" loading="lazy">
+                <span class="context-proof-expand">View full screenshot</span>
+              </button>
+            </div>
+          </div>
+          <div class="context-proof-notes" aria-live="polite">
+            <p class="is-active" data-context-note="ask"><strong>Ask only when judgment changes the outcome.</strong> Pulse turns uncertainty into one focused decision.</p>
+            <p data-context-note="decide"><strong>Keep the operator in control.</strong> Approve, reject, defer, or add the business context the agent cannot infer.</p>
+            <p data-context-note="remember"><strong>Make the answer useful next time.</strong> Accepted guidance becomes shared skills and durable execution knowledge.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="story-band story-pulse-band">
-      <div class="story-chapter">
+      <div class="pulse-proof">
         <div class="story-copy" data-reveal>
           <p class="eyebrow">03 / Operate by exception</p>
-          <h2>Know where your judgment is needed.</h2>
-          <p>Org Pulse turns hundreds of agent runs into a manageable operating view: goal drift, blocked work, cost pressure, risk, and the next decision that needs a human.</p>
-          <ul class="story-signals">
-            <li>Company-level health across agent work</li>
-            <li>Goals, cost, evidence, risk, and decisions together</li>
-            <li>Human review where it changes the outcome</li>
-          </ul>
+          <h2>Manage the exceptions, not every agent run.</h2>
+          <p>Org Pulse compresses goal drift, workflow risk, pending decisions, and Goal Advisor recommendations into one review surface.</p>
         </div>
-        <figure data-reveal="visual">
-          <img src="assets/product/org-pulse-agentworks.jpg" alt="AgentWorks Org Pulse view summarizing organizational health, at-risk work, decisions, and operational signals." width="1280" height="800" loading="lazy">
-        </figure>
+        <dl class="pulse-evidence" data-reveal>
+          <div><dt>5 / 6</dt><dd>goals at risk</dd></div>
+          <div><dt>4</dt><dd>workflow issues</dd></div>
+          <div><dt>8</dt><dd>advisor suggestions</dd></div>
+          <div><dt>1</dt><dd>unaligned workflow</dd></div>
+        </dl>
+        <button class="product-screen pulse-screen" type="button" data-lightbox-src="assets/product/org-pulse-agentworks.jpg" data-lightbox-title="Organization Pulse" aria-label="Open the complete AgentWorks Organization Pulse screenshot" data-reveal="visual">
+          <span class="product-screen-bar"><strong>Organization Pulse</strong><em>Real workspace view &middot; expand</em></span>
+          <img src="assets/product/org-pulse-agentworks.jpg" alt="AgentWorks Org Pulse summarizing goals, at-risk work, workflow issues, decisions, and Goal Advisor suggestions." width="1280" height="800" loading="lazy">
+        </button>
       </div>
+    </section>
+
+    <section class="operational-proof" aria-labelledby="operational-proof-title">
+      <div class="operational-proof-copy" data-reveal>
+        <p class="eyebrow">Real workspace proof</p>
+        <h2 id="operational-proof-title">Built from operating evidence.</h2>
+        <p>These are visible counts from the current AgentWorks workspace, not projected scale or benchmark claims.</p>
+        <button class="proof-source" type="button" data-lightbox-src="assets/product/org-dashboard-agentworks-retina.webp" data-lightbox-title="Source organization dashboard" aria-label="Open the source AgentWorks organization dashboard screenshot">View source dashboard <span aria-hidden="true">&rarr;</span></button>
+      </div>
+      <dl data-reveal="visual">
+        <div><dt>4</dt><dd>coding CLIs ready</dd></div>
+        <div><dt>3</dt><dd>reasoning tiers in one workflow</dd></div>
+        <div><dt>8</dt><dd>workflows surfaced for review</dd></div>
+        <div><dt>17</dt><dd>attention signals in one view</dd></div>
+      </dl>
     </section>
 
     <section class="functions">
@@ -377,17 +403,22 @@
       <div class="connectors-inner">
         <div class="connectors-copy" data-reveal>
           <p class="eyebrow">Connected channels</p>
-          <h2>Work starts where your team already works.</h2>
-          <p>Connect the channels people already use, then route every request to the agent workflow built to handle it.</p>
-          <ul class="connector-channels">
-            <li><strong>Slack</strong><span>Team requests and operational commands</span></li>
-            <li><strong>WhatsApp</strong><span>Mobile messages, routing, and approvals</span></li>
-            <li><strong>Gmail</strong><span>Inbox-driven workflows and follow-up</span></li>
-          </ul>
+          <h2>From request to response, without changing where people work.</h2>
+          <p>Route Slack, WhatsApp, and Gmail into the right workflow. Agents do the work, people approve the consequential decisions, and the response returns to the original channel.</p>
         </div>
-        <figure data-reveal="visual">
-          <img src="assets/product/agentworks-bot-connectors-retina.webp" alt="AgentWorks Bot Connector showing Slack, WhatsApp, Gmail, and automation routing." width="2852" height="1602" loading="lazy">
-        </figure>
+        <div class="connector-route" data-reveal="visual">
+          <span class="connector-route-signal" aria-hidden="true"></span>
+          <ol>
+            <li><small>01 / Inbound</small><strong>Slack &middot; WhatsApp &middot; Gmail</strong></li>
+            <li><small>02 / Route</small><strong>Agent workflow</strong></li>
+            <li><small>03 / Review</small><strong>Human approval</strong></li>
+            <li><small>04 / Return</small><strong>Response</strong></li>
+          </ol>
+        </div>
+        <button class="product-screen connector-screen" type="button" data-lightbox-src="assets/product/agentworks-bot-connectors-retina.webp" data-lightbox-title="Connected channels and workflow routing" aria-label="Open the complete AgentWorks Bot Connector screenshot" data-reveal="visual">
+          <span class="product-screen-bar"><strong>Bot Connector</strong><em>Real workspace view &middot; expand</em></span>
+          <img src="assets/product/agentworks-bot-connectors-retina.webp" alt="AgentWorks Bot Connector showing Slack, WhatsApp, Gmail, workflow routing, and connected channel status." width="2852" height="1602" loading="lazy">
+        </button>
       </div>
     </section>
 
@@ -447,6 +478,6 @@
       <p>Built for teams operating agent workflows.</p>
     </div>
   </footer>
-  <script src="workforce.js?v=agentworks-home-final-1"></script>
+  <script src="workforce.js?v=agentworks-home-final-2"></script>
 </body>
 </html>
