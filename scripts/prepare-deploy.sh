@@ -27,10 +27,11 @@ cp favicon-32.png dist/
 cp apple-touch-icon.png dist/
 cp icon-256.png dist/
 
-mkdir -p dist/assets/{brand,fonts,og,product,vendor}
+mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard,vendor}
 cp assets/brand/agentworks-logo.svg dist/assets/brand/
 cp -R assets/fonts/. dist/assets/fonts/
 cp -R assets/vendor/. dist/assets/vendor/
+cp assets/hero/agentworks-choreography-hero-v2.webp dist/assets/hero/
 
 # Keep the public payload limited to assets referenced by production pages.
 cp assets/og/agentworks-*.jpg dist/assets/og/
@@ -83,6 +84,20 @@ product_assets=(
 )
 for asset in "${product_assets[@]}"; do
   cp "assets/product/${asset}" dist/assets/product/
+done
+
+storyboard_assets=(
+  improve-auto-agent.webp
+  improve-goal-advisor.webp
+  learn-decision.webp
+  learn-question.webp
+  measure-cost.webp
+  measure-pulse.webp
+  run-health.webp
+  run-workflows.webp
+)
+for asset in "${storyboard_assets[@]}"; do
+  cp "assets/storyboard/${asset}" dist/assets/storyboard/
 done
 cp -R docs dist/docs
 cp -R docs-content dist/docs-content
