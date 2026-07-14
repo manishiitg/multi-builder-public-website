@@ -11,6 +11,11 @@ const SALES_CALL_URL = 'https://calendly.com/manishiitg/15min';
 const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/install.sh | bash';
 
 const PRODUCT_ASSETS = {
+  productWorkspace: productAsset('agentworks-product-workspace.png'),
+  productSchedules: productAsset('agentworks-product-schedules.png'),
+  productBrowserAccess: productAsset('agentworks-product-browser-access.png'),
+  productPulsePanel: productAsset('agentworks-product-pulse-panel.png'),
+  productAutoImprovePanel: productAsset('agentworks-product-auto-improve-panel.png'),
   workspace: productAsset('automation-workspace.png'),
   heroDashboard: productAsset('org-dashboard-scale.png'),
   modelCatalog: productAsset('model-catalog.png'),
@@ -36,6 +41,11 @@ const PRODUCT_ASSETS = {
 };
 
 const ASSET_DIMENSIONS = {
+  [PRODUCT_ASSETS.productWorkspace]: [1280, 800],
+  [PRODUCT_ASSETS.productSchedules]: [1280, 800],
+  [PRODUCT_ASSETS.productBrowserAccess]: [1280, 800],
+  [PRODUCT_ASSETS.productPulsePanel]: [924, 1184],
+  [PRODUCT_ASSETS.productAutoImprovePanel]: [828, 752],
   [PRODUCT_ASSETS.workspace]: [1420, 801],
   [PRODUCT_ASSETS.heroDashboard]: [1280, 720],
   [PRODUCT_ASSETS.modelCatalog]: [1280, 720],
@@ -2567,242 +2577,328 @@ function UpdatesPage() {
   );
 }
 
+function ProductOperatingLoop({ items }) {
+  const [active, setActive] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
+  const current = items[active];
+
+  React.useEffect(() => {
+    if (paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const timer = window.setInterval(() => {
+      setActive(value => (value + 1) % items.length);
+    }, 7000);
+    return () => window.clearInterval(timer);
+  }, [items.length, paused]);
+
+  return h('div', {
+    className: 'mk-product-v2-loop',
+    onMouseEnter: () => setPaused(true),
+    onMouseLeave: () => setPaused(false),
+    onFocusCapture: () => setPaused(true),
+    onBlurCapture: event => {
+      if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+    }
+  },
+    h('div', { className: 'mk-product-v2-loop-tabs', role: 'tablist', 'aria-label': 'AgentWorks operating loop' },
+      items.map((item, index) =>
+        h('button', {
+          key: item.label,
+          id: `product-loop-tab-${index}`,
+          type: 'button',
+          role: 'tab',
+          'aria-selected': active === index ? 'true' : 'false',
+          'aria-controls': 'product-loop-panel',
+          tabIndex: active === index ? 0 : -1,
+          className: active === index ? 'active' : '',
+          onClick: () => setActive(index),
+          onKeyDown: event => {
+            if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+            event.preventDefault();
+            if (event.key === 'Home') setActive(0);
+            else if (event.key === 'End') setActive(items.length - 1);
+            else setActive(value => (value + (event.key === 'ArrowRight' ? 1 : -1) + items.length) % items.length);
+          }
+        },
+          h('span', null, String(index + 1).padStart(2, '0')),
+          h('strong', null, item.label),
+          h('small', null, item.short)
+        )
+      )
+    ),
+    h('div', {
+      id: 'product-loop-panel',
+      className: 'mk-product-v2-loop-panel',
+      role: 'tabpanel',
+      tabIndex: 0,
+      'aria-labelledby': `product-loop-tab-${active}`
+    },
+      h('div', { className: 'mk-product-v2-loop-copy' },
+        h('p', { className: 'mk-product-v2-index' }, `${String(active + 1).padStart(2, '0')} / ${current.label}`),
+        h('h3', null, current.title),
+        h('p', null, current.description),
+        h('div', { className: 'mk-product-v2-signals' },
+          current.signals.map(signal => h('span', { key: signal }, signal))
+        )
+      ),
+      h('figure', { className: `mk-product-detail mk-product-v2-loop-shot ${current.compact ? 'compact' : ''}` },
+        h('div', { className: 'mk-product-v2-shotbar' },
+          h('span', null, 'REAL PRODUCT'),
+          h('strong', null, current.mediaLabel)
+        ),
+        h(ExpandableProductImage, {
+          key: current.label,
+          src: current.image,
+          alt: current.alt,
+          label: current.mediaLabel
+        })
+      )
+    )
+  );
+}
+
 function HowPage() {
-  const packet = [
-    ['goal', 'business outcome + owner'],
-    ['worker', 'Claude Code / Codex / Cursor / browser'],
-    ['access', 'MCP tools + scoped secrets'],
-    ['evidence', 'terminal logs + files + screenshots'],
-    ['pulse', 'health, cost, risk, goal state'],
-    ['learning', 'skill or bounded improvement proposal']
-  ];
-  const loop = [
-    ['01', 'Run', 'Workers execute against a defined business outcome and output contract.', 'run'],
-    ['02', 'Observe', 'Logs, screenshots, reports, cost, failures, and decisions become evidence.', 'observe'],
-    ['03', 'Pulse', 'Evaluate health, goal alignment, risk, cost, and where human judgment is needed.', 'pulse'],
-    ['04', 'Auto Improve', 'Propose bounded workflow changes and promote successful learnings into skills.', 'improve']
-  ];
-  const layers = [
-    ['Goal and plan', 'Outcome, owner, cadence, output contract, and approval boundary.'],
-    ['Workers and access', 'CLIs, models, MCP tools, browser sessions, and scoped secrets.'],
-    ['Evidence and Pulse', 'Logs, files, screenshots, reports, cost, health, and decisions.'],
-    ['Learning and improvement', 'Shared skills and bounded Auto Improve proposals for the next run.']
-  ];
-  const automationDetails = [
+  const workers = ['Claude Code', 'Codex CLI', 'Cursor', 'Gemini CLI', 'Browser agents', 'MCP tools', 'Provider APIs'];
+  const loopItems = [
     {
-      number: '01',
-      label: 'Plan',
-      title: 'Start with a business outcome and an explicit plan.',
-      description: 'Define the goal, cadence, output contract, checkpoints, and approval boundary before execution starts. The plan remains attached to every attempt and report.',
-      signals: ['goal and owner', 'cadence and checkpoints', 'output contract'],
-      image: PRODUCT_ASSETS.tradingPlan,
-      alt: 'AgentWorks workflow plan for a recurring analysis automation',
-      mediaLabel: 'Workflow plan and execution contract'
+      label: 'Define',
+      short: 'outcome + cadence',
+      title: 'Give recurring work a goal, owner, and schedule.',
+      description: 'A workflow starts with the business result, not a prompt. Define success, cadence, output, checkpoints, and the decisions that must stay with a human.',
+      signals: ['business outcome', 'recurring schedule', 'approval boundary'],
+      image: PRODUCT_ASSETS.productSchedules,
+      alt: 'AgentWorks automation schedules showing recurring workflows, missed runs, issues, and next run times',
+      mediaLabel: 'Automation schedules'
     },
     {
-      number: '02',
-      label: 'Run',
-      title: 'Keep live execution inspectable when an agent takes over.',
-      description: 'Attach to tmux-based coding-agent sessions, inspect scrollback, reconnect to long-running work, and intervene without losing the durable workflow record.',
-      signals: ['live terminal attach', 'long-running sessions', 'operator intervention'],
-      image: PRODUCT_ASSETS.liveTerminal,
-      alt: 'AgentWorks live terminal attached to a tmux coding-agent workflow',
-      mediaLabel: 'Live agent execution'
+      label: 'Connect',
+      short: 'workers + access',
+      title: 'Route each step to the worker and environment it needs.',
+      description: 'Use coding CLIs, models, browser sessions, MCP tools, APIs, files, and scoped secrets in the same workflow. AgentWorks coordinates the work without replacing the tools your team already trusts.',
+      signals: ['multiple agent runtimes', 'logged-in browser work', 'scoped tool access'],
+      image: PRODUCT_ASSETS.productBrowserAccess,
+      alt: 'AgentWorks Browser Access dialog showing headless, Local Chrome, and Playwright MCP options',
+      mediaLabel: 'Browser access and tool routing'
     },
     {
-      number: '03',
-      label: 'Cost',
-      title: 'See exactly where every workflow dollar goes.',
-      description: 'Break spend down by run, workflow step, model, provider, input, cached tokens, output, and builder activity so cost decisions are based on evidence rather than a single monthly total.',
-      signals: ['step-level cost', 'model and token breakdown', 'builder spend'],
-      image: PRODUCT_ASSETS.workflowCostAnalysis,
-      alt: 'AgentWorks Cost Analysis showing workflow steps, models, token usage, caching, and per-step cost',
-      mediaLabel: 'Workflow cost analysis'
-    },
-    {
-      number: '04',
-      label: 'Report',
-      title: 'Turn every run into an inspectable business report.',
-      description: 'Render workflow output as a structured report with source-health warnings, summary metrics, actionable results, and detailed evidence instead of leaving the answer inside a chat transcript.',
-      signals: ['decision-ready output', 'source-health warnings', 'inspectable evidence'],
-      image: PRODUCT_ASSETS.generatedReport,
-      alt: 'AgentWorks generated day-trading report showing source health, summary metrics, and actionable results',
-      mediaLabel: 'Generated workflow report'
-    },
-    {
-      number: '05',
-      label: 'Pulse',
-      title: 'Pulse turns run evidence into a decision.',
-      description: 'Pulse evaluates the run against its business outcome, health, risk, and cost. It identifies bugs, goal drift, approval needs, and the next action without requiring an operator to read every log.',
-      signals: ['goal and health verdict', 'risk and cost signals', 'human review when needed'],
+      label: 'Evaluate',
+      short: 'evidence + Pulse',
+      title: 'Judge the run against the outcome, not just completion.',
+      description: 'Pulse reads reports, logs, screenshots, cost, failures, and prior decisions. It separates bugs from goal drift, then surfaces only the risk or judgment that needs attention.',
+      signals: ['bug and goal state', 'risk and cost signals', 'decision queue'],
       image: PRODUCT_ASSETS.workflowPulse,
-      alt: 'AgentWorks workflow Pulse view showing health, goal, cost, evidence, and next-action signals',
-      mediaLabel: 'Workflow Pulse evaluation'
+      alt: 'AgentWorks workflow Pulse showing the latest result, main risk, user decision, and next action',
+      mediaLabel: 'Workflow Pulse and Goal Advisor'
     },
     {
-      number: '06',
       label: 'Improve',
-      title: 'Turn run evidence into reusable operating knowledge.',
-      description: 'Auto Improve examines repeated failures, successful fixes, and Pulse evidence. It proposes bounded changes to the workflow, while approved learnings become workflow or global skills that improve future runs.',
-      signals: ['evidence-based proposals', 'human-reviewed changes', 'skills that compound over time'],
-      image: PRODUCT_ASSETS.globalSkills,
-      alt: 'AgentWorks global skills screen showing reusable skills generated from workflow runs',
-      mediaLabel: 'Generated global skills'
+      short: 'proposal + next run',
+      title: 'Let evidence change what happens next.',
+      description: 'Goal Advisor critiques the workflow and asks for human judgment. Auto Improve applies low-risk fixes, proposes larger changes, and promotes approved knowledge into future runs.',
+      signals: ['bounded changes', 'human-reviewed proposals', 'reusable knowledge'],
+      image: PRODUCT_ASSETS.productAutoImprovePanel,
+      alt: 'AgentWorks Auto Improve panel explaining evidence review, safe fixes, backups, and notifications',
+      mediaLabel: 'Auto Improve operating policy',
+      compact: true
     }
   ];
+  const record = [
+    ['Outcome', 'What business result was this run meant to move?'],
+    ['Output', 'What did the workflow produce for the operator or customer?'],
+    ['Evidence', 'Which files, screenshots, logs, and sources support the result?'],
+    ['Cost', 'Which step, worker, and model consumed the budget?'],
+    ['Decision', 'What requires approval, correction, or a changed goal?'],
+    ['Learning', 'What should the next run know or do differently?']
+  ];
 
-  return h('div', { className: 'mk-page mk-homev4 mk-how2-page' },
+  return h('div', { className: 'mk-page mk-homev4 mk-product-v2-page' },
     h(MarketingNav, { current: 'how' }),
     h('main', { id: 'main-content', tabIndex: -1 },
-      h('section', { className: 'mk-how2-hero' },
-        h('div', { className: 'mk-shell mk-how2-hero-grid' },
-          h('div', { className: 'mk-how2-copy' },
-            h('p', { className: 'mk-kicker' }, 'How AgentWorks works'),
-            h('h1', null, 'Build AI workflows that improve with every run.'),
-            h('p', { className: 'mk-lead' },
-              'AgentWorks keeps the outcome, workers, tools, evidence, cost, and human judgment together. Pulse evaluates what happened; Auto Improve makes the next run better.'
-            ),
-            h('div', { className: 'mk-hero-actions' },
-              h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
-              h('a', { className: 'mk-btn mk-btn-secondary', href: marketingPath('docs') }, 'Read docs'),
-              h('a', { className: 'mk-text-link', href: marketingPath('usecases') }, 'See use cases')
-            )
+      h('section', { className: 'mk-product-v2-hero' },
+        h('div', { className: 'mk-shell mk-product-v2-hero-inner' },
+          h('p', { className: 'mk-kicker' }, 'Product / the operating loop'),
+          h('h1', null, 'The agent stops. The workflow should keep improving.'),
+          h('p', { className: 'mk-product-v2-lead' },
+            'AgentWorks runs recurring business workflows across sales, marketing, support, finance, and operations. It connects the agents and tools you already use, keeps every run inspectable, and turns evidence plus human judgment into a better next run.'
           ),
-          h('div', { className: 'mk-how2-packet', 'aria-label': 'Run packet model' },
-            h('div', { className: 'mk-v4-browserbar' },
-              h('span', null), h('span', null), h('span', null),
-              h('strong', null, 'run-packet.json')
-            ),
-            h('div', { className: 'mk-how2-packet-body' },
-              packet.map(row =>
-                h('div', { key: row[0] },
-                  h('span', null, row[0]),
-                  h('strong', null, row[1])
-                )
-              ),
-              h('p', null, 'The prompt is temporary. The run packet is durable.')
-            )
+          h('div', { className: 'mk-hero-actions' },
+            h('a', { className: 'mk-btn', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call'),
+            h('a', { className: 'mk-btn mk-btn-secondary', href: marketingHash('how', 'operating-loop') }, 'See the operating loop'),
+            h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac')
+          ),
+          h('div', { className: 'mk-product-v2-hero-notes', 'aria-label': 'Product scope' },
+            h('span', null, 'Recurring business work'),
+            h('span', null, 'Multiple agent runtimes'),
+            h('span', null, 'Human judgment retained')
           )
         )
       ),
 
-      h('section', { className: 'mk-how2-loop-section' },
+      h('section', { className: 'mk-product-v2-hero-proof' },
         h('div', { className: 'mk-shell' },
-          h('div', { className: 'mk-how2-section-head' },
-            h('p', { className: 'mk-kicker' }, 'Core improvement loop'),
-            h('h2', null, 'Every run should make the next run better.'),
-            h('span', null, 'The workflow keeps its evidence, evaluates the outcome, and turns successful fixes into reusable operating knowledge.')
-          ),
-          h('div', { className: 'mk-how2-loop-grid' },
-            loop.map(item =>
-              h('article', { key: item[0], className: `mk-loop-${item[3]}` },
-                h('span', null, item[0]),
-                h('h3', null, item[1]),
-                h('p', null, item[2])
-              )
-            )
-          ),
-          h('div', { className: 'mk-improvement-flow', 'aria-label': 'Continuous workflow improvement loop' },
-            ['Run', 'Evidence', 'Pulse', 'Auto Improve', 'Next run'].map((step, index) =>
-              h('span', {
-                key: step,
-                className: index === 2 ? 'pulse' : index === 3 ? 'improve' : ''
-              }, step)
-            )
-          )
-        )
-      ),
-
-      h('section', { className: 'mk-how2-proof-section' },
-        h('div', { className: 'mk-shell mk-how2-proof-grid' },
-          h('div', { className: 'mk-how2-proof-copy' },
-            h('p', { className: 'mk-kicker' }, 'Inside an automation'),
-            h('h2', null, 'A workflow is more than a prompt.'),
-            h('p', null, 'It is a durable operating record that connects the outcome, execution, evidence, human judgment, and what should improve next.'),
-            h('div', { className: 'mk-how2-layer-list' },
-              layers.map((layer, i) =>
-                h('article', { key: layer[0] },
-                  h('span', null, String(i + 1).padStart(2, '0')),
-                  h('div', null,
-                    h('strong', null, layer[0]),
-                    h('p', null, layer[1])
-                  )
-                )
-              )
-            )
-          )
-        )
-      ),
-
-      automationDetails.map((item, index) =>
-        h('section', {
-          key: item.number,
-          className: `mk-product-detail ${index % 2 === 1 ? 'mk-product-detail-white' : ''}`
-        },
-          h('div', { className: 'mk-shell mk-product-detail-inner' },
-            h('div', { className: 'mk-product-detail-copy' },
-              h('p', { className: 'mk-product-detail-index' }, `${item.number} / ${item.label}`),
-              h('div', null,
-                h('h2', null, item.title),
-                h('p', null, item.description),
-                h('ul', null,
-                  item.signals.map(signal => h('li', { key: signal }, signal))
-                )
-              )
+          h('figure', { className: 'mk-product-detail mk-product-v2-hero-shot' },
+            h('div', { className: 'mk-product-v2-shotbar' },
+              h('span', null, 'REAL PRODUCT'),
+              h('strong', null, 'Automation workspace + live Pulse')
             ),
-            h('figure', { className: 'mk-product-detail-figure' },
-              h('div', { className: 'mk-v4-browserbar' },
-                h('span', null), h('span', null), h('span', null),
-                h('strong', null, item.mediaLabel)
+            h(ExpandableProductImage, {
+              src: PRODUCT_ASSETS.productWorkspace,
+              alt: 'AgentWorks automation workspace with previous runs and a live workflow Pulse finding',
+              label: 'Automation workspace and live Pulse',
+              loading: 'eager',
+              fetchPriority: 'high'
+            }),
+            h('figcaption', null,
+              h('strong', null, 'The work and the judgment stay together.'),
+              h('span', null, 'Run history on the left. Pulse, goal state, and the next decision on the right.')
+            )
+          )
+        )
+      ),
+
+      h('section', { className: 'mk-product-v2-workers' },
+        h('div', { className: 'mk-shell mk-product-v2-workers-inner' },
+          h('div', null,
+            h('p', { className: 'mk-kicker' }, 'One layer around your stack'),
+            h('h2', null, 'Bring the workers. AgentWorks operates the system around them.')
+          ),
+          h('div', { className: 'mk-product-v2-worker-list', 'aria-label': 'Supported worker types' },
+            workers.map(worker => h('span', { key: worker }, worker))
+          )
+        )
+      ),
+
+      h('div', { className: 'mk-product-v2-loop-section', id: 'operating-loop', role: 'region', 'aria-labelledby': 'operating-loop-title' },
+        h('div', { className: 'mk-shell' },
+          h('div', { className: 'mk-product-v2-heading' },
+            h('p', { className: 'mk-kicker' }, 'How it works'),
+            h('h2', { id: 'operating-loop-title' }, 'One recurring workflow. Four operating responsibilities.'),
+            h('p', null, 'Each responsibility stays connected, so the next run begins with stronger context instead of another blank prompt.')
+          ),
+          h(ProductOperatingLoop, { items: loopItems })
+        )
+      ),
+
+      h('section', { className: 'mk-product-v2-record' },
+        h('div', { className: 'mk-shell mk-product-v2-record-inner' },
+          h('div', { className: 'mk-product-v2-record-copy' },
+            h('p', { className: 'mk-kicker' }, 'An answer is not an audit trail'),
+            h('h2', null, 'The run ends. The operating record does not.'),
+            h('p', null, 'AgentWorks keeps the information that lets an operator trust the result, compare runs, control cost, and improve the workflow without reconstructing context from chat history.')
+          ),
+          h('div', { className: 'mk-product-v2-record-list' },
+            record.map((item, index) =>
+              h('div', { key: item[0] },
+                h('span', null, String(index + 1).padStart(2, '0')),
+                h('strong', null, item[0]),
+                h('p', null, item[1])
+              )
+            )
+          )
+        )
+      ),
+
+      h('section', { className: 'mk-product-v2-proof-section' },
+        h('div', { className: 'mk-shell mk-product-v2-proof-inner' },
+          h('div', { className: 'mk-product-v2-proof-copy' },
+            h('p', { className: 'mk-product-v2-index' }, '01 / Business output'),
+            h('h2', null, 'The result should be readable outside the chat.'),
+            h('p', null, 'A run can publish a structured report with source-health warnings, summary metrics, actionable results, and the evidence behind them.')
+          ),
+          h('figure', { className: 'mk-product-detail mk-product-v2-proof-shot' },
+            h('div', { className: 'mk-product-v2-shotbar' },
+              h('span', null, 'REAL PRODUCT'),
+              h('strong', null, 'Generated workflow report')
+            ),
+            h(ExpandableProductImage, {
+              src: PRODUCT_ASSETS.generatedReport,
+              alt: 'AgentWorks generated workflow report with source health, summary metrics, and actionable results',
+              label: 'Generated workflow report'
+            })
+          )
+        )
+      ),
+
+      h('section', { className: 'mk-product-v2-proof-section mk-product-v2-proof-section-alt' },
+        h('div', { className: 'mk-shell mk-product-v2-proof-inner' },
+          h('div', { className: 'mk-product-v2-proof-copy' },
+            h('p', { className: 'mk-product-v2-index' }, '02 / Cost evidence'),
+            h('h2', null, 'The cost should be traceable to the step and worker.'),
+            h('p', null, 'Break spend down by run, workflow step, provider, model, cached input, output, evaluation, and builder activity instead of relying on one monthly total.')
+          ),
+          h('figure', { className: 'mk-product-detail mk-product-v2-proof-shot' },
+            h('div', { className: 'mk-product-v2-shotbar' },
+              h('span', null, 'REAL PRODUCT'),
+              h('strong', null, 'Step-level cost analysis')
+            ),
+            h(ExpandableProductImage, {
+              src: PRODUCT_ASSETS.workflowCostAnalysis,
+              alt: 'AgentWorks cost analysis broken down by workflow step, model, tokens, and run activity',
+              label: 'Step-level cost analysis'
+            })
+          )
+        )
+      ),
+
+      h('div', { className: 'mk-product-v2-judgment', role: 'region', 'aria-labelledby': 'human-judgment-title' },
+        h('div', { className: 'mk-shell' },
+          h('div', { className: 'mk-product-v2-heading' },
+            h('p', { className: 'mk-kicker' }, 'Human judgment is part of the runtime'),
+            h('h2', { id: 'human-judgment-title' }, 'Humans do not watch every run. They decide the exceptions.'),
+            h('p', null, 'Pulse checks every run. Goal Advisor explains objective drift and asks a bounded question. Auto Improve can handle low-risk repairs, while larger changes remain proposals.')
+          ),
+          h('div', { className: 'mk-product-v2-judgment-grid' },
+            h('figure', { className: 'mk-product-detail mk-product-v2-policy-shot' },
+              h('div', { className: 'mk-product-v2-policy-copy' },
+                h('span', null, 'PULSE'),
+                h('strong', null, 'Review every run.'),
+                h('p', null, 'Back up, evaluate Bug and Goal state, fix small issues, and notify only when something changes.')
               ),
               h(ExpandableProductImage, {
-                src: item.image,
-                alt: item.alt,
-                label: item.mediaLabel
+                src: PRODUCT_ASSETS.productPulsePanel,
+                alt: 'AgentWorks Pulse policy describing backup, review, safe fixes, and change notifications',
+                label: 'Pulse review policy'
+              })
+            ),
+            h('figure', { className: 'mk-product-detail mk-product-v2-policy-shot' },
+              h('div', { className: 'mk-product-v2-policy-copy' },
+                h('span', null, 'AUTO IMPROVE'),
+                h('strong', null, 'Improve on evidence.'),
+                h('p', null, 'Review performance against goals, apply low-risk fixes, checkpoint the workflow, and propose material changes.')
+              ),
+              h(ExpandableProductImage, {
+                src: PRODUCT_ASSETS.productAutoImprovePanel,
+                alt: 'AgentWorks Auto Improve policy describing recurring evidence review and safe workflow changes',
+                label: 'Auto Improve operating policy'
               })
             )
           )
         )
       ),
 
-      h('section', { className: 'mk-product-boundary' },
-        h('div', { className: 'mk-shell mk-product-boundary-inner' },
-          h('div', { className: 'mk-product-boundary-head' },
-            h('p', { className: 'mk-kicker' }, 'Operating boundary'),
-            h('div', null,
-              h('h2', null, 'Agents execute. AgentWorks coordinates. Humans decide.'),
-              h('p', null, 'AgentWorks does not replace workers or human judgment. It keeps both inside one inspectable operating model.')
-            )
+      h('section', { className: 'mk-product-v2-boundary' },
+        h('div', { className: 'mk-shell mk-product-v2-boundary-inner' },
+          h('div', { className: 'mk-product-v2-boundary-copy' },
+            h('p', { className: 'mk-kicker' }, 'The operating boundary'),
+            h('h2', null, 'Agents execute. AgentWorks operates. Humans judge.'),
+            h('p', null, 'Human recommendations, company knowledge, approvals, and corrections become durable workflow context. The agents use that context; they do not silently redefine it.')
           ),
-          h('div', { className: 'mk-product-boundary-roles' },
-            h('article', null,
-              h('span', null, '01 / Workers'),
-              h('strong', null, 'Execute the work.'),
-              h('p', null, 'Claude Code, Codex CLI, Cursor, Gemini, browsers, MCP tools, and APIs run each step.')
-            ),
-            h('article', { className: 'active' },
-              h('span', null, '02 / AgentWorks'),
-              h('strong', null, 'Operate the loop.'),
-              h('p', null, 'Goals, schedules, access, evidence, Pulse, approvals, cost, and learning remain connected.')
-            ),
-            h('article', null,
-              h('span', null, '03 / Humans'),
-              h('strong', null, 'Keep judgment.'),
-              h('p', null, 'Risky actions, goal changes, replans, exceptions, and promoted skills stay reviewable.')
-            )
+          h('div', { className: 'mk-product-v2-boundary-rows' },
+            h('div', null, h('span', null, '01'), h('strong', null, 'Agents'), h('p', null, 'Execute steps with the right model, tool, browser, and skill.')),
+            h('div', null, h('span', null, '02'), h('strong', null, 'AgentWorks'), h('p', null, 'Keeps goals, schedules, evidence, cost, Pulse, and improvement connected.')),
+            h('div', null, h('span', null, '03'), h('strong', null, 'Humans'), h('p', null, 'Define outcomes, add recommendations, approve risk, and correct the system.'))
           )
         )
       ),
 
-      h('section', { className: 'mk-product-closing' },
-        h('div', { className: 'mk-shell mk-product-closing-inner' },
-          h('p', { className: 'mk-kicker' }, 'Start with one workflow'),
-          h('h2', null, 'Build the first operating loop with us.'),
-          h('p', null, 'Bring one recurring workflow, its business outcome, and the tools it already uses. We will map the workers, evidence, review points, and path to improvement.'),
-          h('div', { className: 'mk-product-closing-actions' },
+      h('section', { className: 'mk-product-v2-closing' },
+        h('div', { className: 'mk-shell mk-product-v2-closing-inner' },
+          h('p', { className: 'mk-kicker' }, 'Start with one recurring workflow'),
+          h('h2', null, 'Make the first run useful. Make every next run better.'),
+          h('p', null, 'Bring the outcome, the workers, and the tools you already use. We will map the operating record, human review points, and the path to improvement.'),
+          h('div', { className: 'mk-product-v2-closing-actions' },
             h('a', { className: 'mk-btn', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call'),
-            h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
-            h('a', { className: 'mk-text-link', href: marketingPath('docs') }, 'Read docs')
+            h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
+            h('a', { className: 'mk-text-link', href: marketingPath('docs') }, 'Read the docs')
           )
         )
       )

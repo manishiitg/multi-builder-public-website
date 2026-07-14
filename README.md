@@ -31,7 +31,7 @@ Still intentionally pending:
 
 The canonical source, install, and release URLs now use `https://github.com/manishiitg/coding-agent-loop`. The former GitHub URL redirects for compatibility and must not be reused as a new repository name.
 
-Some internal website file names still use `runloop_site.js` / `runloop.css`. Treat those as implementation filenames, not public branding. Current product screenshots were captured before the app rename, so the site applies a small AgentWorks overlay on screenshots until the app display name is changed and screenshots are recaptured.
+Some internal website file names still use `runloop_site.js` / `runloop.css`. Treat those as implementation filenames, not public branding. Current Homepage and Product page assets use real AgentWorks-branded captures without website-added brand overlays. Older unused assets may still show Runloop and should not be restored to public routes.
 
 ## Pages
 
@@ -39,7 +39,7 @@ Some internal website file names still use `runloop_site.js` / `runloop.css`. Tr
 |---|---|---|
 | `/` | `index.html` | Approved AgentWorks homepage |
 | `/use-cases/` | `use-cases/index.html` | Sales-friendly use-case and fit guide |
-| `/how/` | `how.html`, deployed as `how/index.html` | "How it works" page |
+| `/how/` | `how.html`, deployed as `how/index.html` | Product narrative: define, connect, evaluate, and improve recurring business workflows |
 | `/docs/` | `docs/index.html` | Docs front door and embedded Markdown reader |
 | `/docs/<document>/` | generated from selected `docs-content/**/*.md` files | Crawlable technical documentation |
 | `/docs-content/<document>.md` | synchronized Markdown | Raw documentation for people and agents |

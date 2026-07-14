@@ -65,7 +65,7 @@ const pageExpectations = [
     file: 'how/index.html',
     route: '/how/',
     title: 'AgentWorks Product - Operating Loop for AI Workflows',
-    h1: 'Build AI workflows that improve with every run.',
+    h1: 'The agent stops. The workflow should keep improving.',
     canonical: 'https://agentworkshq.com/how/',
     ogImage: 'assets/og/agentworks-how-og.jpg'
   },

@@ -37,6 +37,11 @@ cp assets/hero/agentworks-choreography-hero-v2.webp dist/assets/hero/
 cp assets/og/agentworks-*.jpg dist/assets/og/
 
 product_assets=(
+  agentworks-product-auto-improve-panel.png
+  agentworks-product-browser-access.png
+  agentworks-product-pulse-panel.png
+  agentworks-product-schedules.png
+  agentworks-product-workspace.png
   agentworks-coding-cli-480.webp
   agentworks-coding-cli-760.webp
   agentworks-coding-cli-1440.webp

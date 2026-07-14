@@ -7,7 +7,7 @@ AgentWorks is an open-source desktop control plane for AI and coding-agent fleet
 - [Homepage](https://agentworkshq.com/): Product positioning, install path, category fit, product proof, and supported agent/runtime surfaces.
 - [Use Cases](https://agentworkshq.com/use-cases/): Sales-friendly fit guide for agent fleet control, recurring workflows, client/server workspaces, Pulse, Auto Improve, and reusable skills.
 - [Updates](https://agentworkshq.com/updates/): Release and shipping proof for the latest public macOS release, Pulse, Auto Improve, terminal runtime, Chief of Staff workflows, and deployment hardening.
-- [AgentWorks Architecture](https://agentworkshq.com/how/): Explanation of the run packet, operating loop, worker/runtime boundary, evidence record, Pulse, approvals, and improvement layer.
+- [AgentWorks Product](https://agentworkshq.com/how/): How recurring business workflows move through Define, Connect, Evaluate, and Improve; how Pulse and Goal Advisor use run evidence; and where human judgment controls Auto Improve.
 - [Docs](https://agentworkshq.com/docs/): Install command, system map, agent fleet concepts, workflow loop, MCP/tools, browser automation, deployment, security, and reference docs.
 
 ## Machine-Readable Sources

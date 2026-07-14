@@ -726,3 +726,18 @@ Action taken: shortened the heaviest route copy, replaced the large shared CTA w
   - AgentWorks loop: goals, schedules, Pulse, Auto Improve, skills, Org Pulse
   - human judgment: approve replans, review exceptions, promote skills
 - Keep docs connected to product architecture, not a generic help center.
+
+## 2026-07-14 Product Page Comparative Audit And Rewrite
+
+The Product page had the correct ingredients but exposed too many internal concepts before establishing a simple reason to care. The old sequence opened with a `run-packet.json` abstraction, repeated the Run / Observe / Pulse / Auto Improve loop in several formats, then used six nearly identical screenshot sections. It explained the architecture, but it did not give a sales visitor a memorable mental model.
+
+Reference findings:
+
+- **Ploy:** strongest at naming a painful status quo in one sentence, then using large changes in visual rhythm to carry the scroll. Borrow the tension and pacing, not its cinematic brand treatment.
+- **Multica:** strongest at category clarity, multi-agent credibility, and progressive product proof. Borrow the sequence of short promise, real screen, and one clear responsibility at a time; do not inherit its coding-only framing.
+- **Shellular:** strongest at one instantly legible job and concise capability grouping. Borrow its directness and integration proof; AgentWorks remains a broader business-workflow operating layer.
+- **Impeccable:** strongest at terse labels, hierarchy, and scanability. Borrow the command-like section naming and restraint, not its documentation layout for a sales page.
+
+Action taken: rewrote the Product page around the headline **“The agent stops. The workflow should keep improving.”** The page now moves through one real workspace proof, a four-stage Define / Connect / Evaluate / Improve product explorer, a durable operating-record model, full-width report and cost evidence, explicit Pulse / Goal Advisor / Auto Improve policy proof, and a concise Agents / AgentWorks / Humans operating boundary. The old Runloop-branded Product screenshots were replaced with AgentWorks captures, the explorer auto-advances while remaining keyboard/click accessible, and every screenshot still opens into the shared full-size inspector.
+
+The design deliberately uses fewer patterns: one outcome-led hero, one interactive product sequence, two full-width evidence screens, one paired policy proof, and one conversion close. Copy now centers recurring business work across sales, marketing, support, finance, and operations; coding agents are workers in the system, not the category itself.
