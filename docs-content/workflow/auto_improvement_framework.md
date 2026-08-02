@@ -19,8 +19,8 @@ They are orthogonal — a run can be Bug-broken while Goal-on-target, or Bug-cle
 
 ## Files
 
-- `soul/soul.md`: objective and success criteria. The north star (Markdown — parsed for objective/success-criteria; there is no `soul.html`).
-- `builder/improve.html`: the **Pulse** — the single, self-contained, human-readable HTML log and the user's primary window into the workflow. Holds the two verdicts, a status headline, the goal card, signal tiles, the recent-runs strip, and a newest-first timeline of monitor observations, decisions, open findings, human input requests, user rules, and notes. Read it before every improve pass. See `get_reference_doc(kind="review-improve-log")` for the format.
+- `soul/soul.md`: stable intent only — objective, success criteria, optional explicit user-approved constraints, and optional notification preferences. Architecture and agent assumptions are revisable and do not belong here. It stays Markdown; there is no `soul.html`.
+- `builder/improve.html`: the **Pulse** — the single, self-contained, human-readable HTML log and the user's primary window into the workflow. Runloop renders pending decisions first; the HTML prioritizes active challenged assumptions, today's outcome, goal progress, and recent activity, with signal/cost/maintenance detail collapsed. A bottom Agent log carries only compact handoff state and evidence pointers, never duplicate narrative. Read it before every improve pass. See `get_reference_doc(kind="review-improve-log")` for the format.
 - `builder/improve-archive/YYYY-MM.html`: monthly archive files for old resolved findings and routine entries. Read only the archive files referenced by the active log's archive index or an unresolved id.
 - `builder/card.health.html`: the compact per-run dashboard card the monitor's final notify/summary step overwrites each run (final post-Pulse status + headline/detail in `data-*` attributes). The Bug/Goal verdicts themselves live in the Pulse log's pills + goal card — there is no separate verdict file.
 - `route_selection.json`: which route a run took (so the monitor judges only that path).
@@ -32,7 +32,7 @@ Old Markdown improve logs are **legacy**. Carry their unresolved findings into `
 
 Use this hierarchy when deciding what is true:
 
-1. `soul/soul.md`: canonical objective and success criteria.
+1. `soul/soul.md`: canonical stable intent. Only explicit user-approved constraints are authoritative; architecture and agent-inferred assumptions remain challengeable.
 2. `runs/iteration-0/<group>/...`: current reality from actual outputs, tool logs, validation, and eval reports.
 3. `evaluation/evaluation_plan.json`: measurement definition; fix it when it conflicts with `soul.md`.
 4. `planning/plan.json`: current implementation attempt, judged against `soul.md` and iteration-0 evidence.
@@ -44,7 +44,7 @@ The per-run monitor only **detects and records**. The scheduled passes then choo
 
 Harden and replan are the two ends of an **exploit/explore** ladder against the success-criteria definition — same plan tools, opposite intent:
 
-- `harden_workflow(group_name?, focus?)` — **exploit: refine the current strategy.** The approach is right but execution/wiring is weak: prompts, config, validation, KB, learnings, db/report wiring, or eval coverage need repair. Not a redesign. Harden removes stale `learnings/{step-id}/main.py` for `code_exec` steps; only `learn_code` steps should retain reusable `main.py`.
+- `Pulse Bug Review/Fixer(group_name?, focus?)` — **exploit: refine the current strategy.** The approach is right but execution/wiring is weak: prompts, config, validation, KB, learnings, db/report wiring, or eval coverage need repair. Not a redesign. Harden removes stale `learnings/{step-id}/main.py` for `code_exec` steps; only `learn_code` steps should retain reusable `main.py`.
 - Goal Advisor proposal/application — **explore: a different strategy for better success.** The current approach is **capped** — even executed cleanly it cannot satisfy the success criteria — or run evidence reveals a materially better approach. Scheduled Pulse starts this as a background `run_goal_advisor_review(...)` pass. New material strategy changes are proposal-first: create a `source="goal_advisor"` human-input request with exact intended edits, rationale, expected impact, risk, and evidence; a later Pulse pass applies approved changes with normal plan/config/eval/report tools.
 - Eval-plan improvement: evaluation coverage, scoring, structured output, or validation schema is weak enough that measurement cannot be trusted — a success criterion is unmeasured, an eval step is orphaned or duplicates Pulse/pre-validation, the rubric drifts, or eval cost is out of proportion to run cost.
 - No action: evidence is weak, recent changes need more runs, or the workflow is already aligned.
@@ -54,10 +54,9 @@ Each improve pass should perform at most one primary action unless the user expl
 ## Commands
 
 - `/define-success`: confirms the goal with the user, writes the workflow profile, and seeds the Pulse goal card from `soul.md`.
-- `/monitor` (and the **Monitor** toggle in the workflow toolbar): turns on the per-run review-only pass via `post_run_monitor` so every run records Bug/Goal findings.
-- `/improve-workflow`: reads the Pulse and current evidence, then chooses harden, replan, eval-plan improvement, or no action.
+- The **Pulse** toolbar control enables the per-run review/fix pass via `post_run_monitor`.
 - `/improve-evaluation`: improves eval coverage and rubric quality.
-- `/auto-improve`: turns on the per-run monitor, then creates or updates the Optimizer-mode **harden** schedule (frequent — ~every 1-2 runs) and **replan-proposal** schedule (less frequent — ~every 3-4 runs). Each Optimizer fire delegates the improvement pass to canonical `/improve-workflow` guidance, then self-tunes only its own cadence/scope.
+- Goal Advisor is selected dynamically by Pulse Gate; no separate recurring optimizer schedule is required.
 
 ## Audit Discipline
 

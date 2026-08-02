@@ -22,8 +22,8 @@ latest sync:
 |---|---|---|
 | `llmtypes.CodingProviderSessionHandle` | **Done** | `multi-llm-provider-go/llmtypes/coding_provider_session_handle.go:21` |
 | Attach/Extract helpers | **Done** | `AttachCodingProviderSessionHandle`, `ExtractCodingProviderSessionHandleFromResponse` |
-| Provider adapters emit handle | **Done** | Claude Code, Codex CLI, Gemini CLI all attach |
-| `ContinueCodingAgentSession` | **Done** | `multi-llm-provider-go/coding_agent_continuation.go:49`. Wired for Claude Code, Codex CLI, Gemini CLI. Cursor and Pi return `non_continuable` until certified. |
+| Provider adapters emit handle | **Done** | Claude Code, Codex CLI, Cursor CLI, Agy CLI, and Pi CLI attach |
+| `ContinueCodingAgentSession` | **Done** | `multi-llm-provider-go/coding_agent_continuation.go:49` routes certified coding-agent providers. |
 | Typed continuation errors | **Done** | `CodingAgentContinuationError` with kinds `non_applicable`, `non_continuable`, `stale_handle` |
 | `mcpagent.AgentSessionHandle` | **Done** | `mcpagent/agent/session_handle.go:14` |
 | `Agent.ContinueAgentSession` | **Done** | `session_handle.go:81`; also `ContinueAgentSessionWithHistory` |
@@ -46,14 +46,14 @@ from external persistence (e.g., chat history restore on builder restart).
 Normal workflow and chat execution currently goes through `mcpagent`:
 
 ```text
-mcp-agent-builder-go
+coding-agent-loop
   workflow/chat/server code
     -> creates mcpagent.Agent with provider-specific options
     -> calls agent.AskWithHistory(...)
       -> mcpagent runs history/tool loop
         -> mcpagent LLM layer calls multi-llm-provider-go GenerateContent(...)
           -> provider adapter
-            -> Claude Code / Codex CLI / Gemini CLI / API
+            -> Claude Code / Codex CLI / Cursor CLI / Pi CLI / API
 ```
 
 So workflow does not directly call the low-level provider adapter for normal
@@ -109,7 +109,7 @@ The primary integration is **auto-routing inside the normal generation path**,
 not an explicit continuation call at the workflow/chat site:
 
 ```text
-mcp-agent-builder-go
+coding-agent-loop
   workflow/chat/server code
     -> agent.AskWithHistory(messages)            // unchanged call site
       -> mcpagent inspects a.CodingProviderSessionHandle
@@ -148,9 +148,9 @@ type AgentSessionHandle struct {
 }
 
 type CodingProviderSessionHandle struct {
-    Provider        string // claude-code, codex-cli, gemini-cli, cursor-cli, etc.
+    Provider        string // claude-code, codex-cli, cursor-cli, pi-cli, etc.
     Transport       string // tmux | api
-    NativeSessionID string // Claude resume id, Codex thread id, Gemini session id
+    NativeSessionID string // provider-native resume or thread id
     TmuxSession     string // empty for api transports
     WorkingDir      string
     ProjectDirID    string // Gemini-style project/session isolation
@@ -220,8 +220,8 @@ continuation only applies to coding-agent transports:
 
 | Transport | Examples | Continuation mechanism |
 |---|---|---|
-| **tmux** | Claude Code tmux, Codex CLI tmux, Gemini CLI tmux, Cursor CLI | Paste into existing pane if alive; restart with native `--resume` if pane is gone |
-| **structured CLI** | Codex CLI `exec resume --json`, Gemini structured mode | Pass resume/thread ID as a flag; no tmux involved |
+| **tmux** | Claude Code, Codex CLI, Cursor CLI, Agy CLI, Pi CLI | Paste into an existing pane if alive; restart with native resume state if the pane is gone |
+| **structured CLI** | Codex CLI `exec resume --json` | Pass the thread ID as a flag; no tmux involved |
 | **API provider** | OpenAI, Anthropic API, Gemini API | Continue through mcpagent-managed message history; no provider-native `ContinueCodingAgentSession` |
 
 The `CodingProviderSessionHandle.Transport` field encodes which mode is active
@@ -275,7 +275,7 @@ stale_handle
 
 Provider lifecycle events should describe provider transport state only. Workflow
 events such as `waiting_for_learning_lock`, `pre_validation_passed`, and
-`kb_review_completed` belong in `mcp-agent-builder-go`, because the provider
+`kb_review_completed` belong in `coding-agent-loop`, because the provider
 does not know why the caller delayed the next continuation turn.
 
 Provider rules:
@@ -304,7 +304,7 @@ Responsibilities:
 This is the correct boundary for workflow callers. Workflow should talk to
 `mcpagent`, not directly to `multi-llm-provider-go`.
 
-### mcp-agent-builder-go
+### coding-agent-loop
 
 Owns product/workflow intent.
 
@@ -409,7 +409,7 @@ testing multi-turn memory, not recovery.
    returns a typed non-applicable error.
 7. Verify normal API providers are unaffected.
 
-### Builder-level tests in `mcp-agent-builder-go`
+### Builder-level tests in `coding-agent-loop`
 
 1. Workflow step completes main execution and pre-validation.
 2. Post-validation learning or KB review waits long enough for tmux to close.
@@ -459,14 +459,6 @@ testing multi-turn memory, not recovery.
   `WithCodexResumeSessionID` + `WithCodexProjectDirID`.
 - **Done:** explicit kill-tmux provider E2E via
   `TestCodingAgentContinuationRealE2EAfterTmuxLoss`.
-
-### Phase 5: Gemini / Future Providers — **PARTIAL**
-
-- **Done:** Gemini CLI is wired in the same `ContinueCodingAgentSession`
-  switch (`WithGeminiResumeSessionID` + `WithGeminiProjectDirID`).
-- **Done:** Cursor CLI and Pi CLI explicitly return `non_continuable`
-  from `ContinueCodingAgentSession` until they are certified.
-- **Pending:** Gemini structured-mode E2E test for the workflow-step path.
 
 ## Non-Goals
 
@@ -530,7 +522,7 @@ Deliverables:
 - Keep old metadata keys temporarily for compatibility.
 - Do not reference or import builder-side types such as
   `ChatHistoryAgentRuntime` in `multi-llm-provider-go`. Mapping existing builder
-  history fields into the new handle happens in `mcp-agent-builder-go` or
+  history fields into the new handle happens in `coding-agent-loop` or
   `mcpagent`, not in the provider package.
 
 Example fields:
@@ -645,7 +637,7 @@ Acceptance criteria:
 
 ### Step 4: Wire Builder Chat Through mcpagent Continuation
 
-Owner repo: `mcp-agent-builder-go`
+Owner repo: `coding-agent-loop`
 
 Likely areas:
 
@@ -687,7 +679,7 @@ Acceptance criteria:
 
 ### Step 5: Wire Workflow Step Continuation
 
-Owner repo: `mcp-agent-builder-go`
+Owner repo: `coding-agent-loop`
 
 Status: **Done for builder workflow runtime.** Live workflow execution agents
 reuse the same mcpagent continuation path when an `AgentSessionHandle` is
@@ -757,7 +749,7 @@ declaring a new provider certified.
 
 ### Step 6: Move Direct Learning and KB Review to Continuation
 
-Owner repo: `mcp-agent-builder-go`
+Owner repo: `coding-agent-loop`
 
 Status: **Done for builder workflow runtime.** Learning and KB review turns that
 run through the same live execution agent inherit mcpagent continuation.
@@ -821,7 +813,7 @@ Owner repos:
 
 - `multi-llm-provider-go`
 - `mcpagent`
-- `mcp-agent-builder-go`
+- `coding-agent-loop`
 
 Decision:
 
@@ -843,7 +835,7 @@ Acceptance criteria:
 
 ### Step 9: Remove Old Provider-Specific State
 
-Owner repo: `mcp-agent-builder-go`
+Owner repo: `coding-agent-loop`
 
 Status: **Done for builder session maps and runtime restore.** Keep the
 compatibility readers for old chat-history fields until old history files no
@@ -887,7 +879,7 @@ mcpagent:
   - API-provider history continuation test
   - provider-native API non-applicable error test
 
-mcp-agent-builder-go:
+coding-agent-loop:
   - chat continuation after tmux close (`coding-agent-chat-e2e --run-tmux-loss-resume`)
   - workflow step post-validation continuation after delay
   - durable post-step phase recovery after builder restart
@@ -904,7 +896,7 @@ Start with Claude Code only:
 
 1. `multi-llm-provider-go`: provider handle + Claude continuation.
 2. `mcpagent`: agent handle + continuation method.
-3. `mcp-agent-builder-go`: chat continuation only.
+3. `coding-agent-loop`: chat continuation only.
 4. Add one backend E2E that starts chat, kills tmux, continues, verifies memory.
 
 This proves the boundary without touching every workflow path at once. Once this

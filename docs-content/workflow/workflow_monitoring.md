@@ -26,12 +26,12 @@ There are three practical scopes:
 
 The **Pulse** (`builder/improve.html`) is the primary workflow-level monitoring surface and the user's main window into a workflow. It is a single, self-contained HTML document the workflow's agents curate, rendered as a first-class right-panel view alongside Plan, Report, and Soul, and it follows the app's light/dark theme.
 
-Top to bottom it reads: two verdicts → a one-line status headline → the goal card → signal tiles → recent runs → a newest-first timeline → archive. Every workflow is judged on two independent axes, each stamped with the run it's as-of:
+When pending input exists, Runloop renders **Needs your decision** first. The HTML then reads: two verdicts → a one-line status headline → active **Assumptions challenged** (only when consequential assumptions exist) → **Today's outcome** → the goal card → collapsed technical detail → recent runs → a newest-first timeline → collapsed **Agent log** → archive. The Agent log contains only current handoff state, ids, cursors, cadence, and evidence pointers; it never duplicates the user narrative. Every workflow is judged on two independent axes, each stamped with the run it's as-of:
 
 - **Bug** — did it run correctly (errors, skipped steps, missing/empty artifacts, regressions)? Fixed by hardening.
 - **Goal** — is it achieving its success criteria (eval scores and outcome metrics vs `soul.md`)? Fixed by refining or replanning.
 
-A **per-run monitor** writes to the Pulse after every run: a focused pass that detects silent breakage and goal drift, refreshes the Bug/Goal pills in `builder/improve.html`, records a finding only when something is wrong, and sends a compact summary. Its final notify/summary step writes the `builder/card.health.html` dashboard card because by then harden, artifact review, cost/time, backup, and publish outcomes are known; that card is compact dashboard state, while email can carry the fuller narrative. If Pulse asks the user a question, it first logs a structured `Human input requested` card in `builder/improve.html` and only then sends the notification. It never does broad improvement work — scheduled **auto-improve** passes (harden for Bug, replan-proposal for Goal) do that, and each applied change is later confirmed against the run that proves it worked. Turn the monitor on with `/monitor` or the toolbar **Monitor** toggle; schedule the acting passes with `/auto-improve`. See the [Auto-Improvement Framework](auto_improvement_framework.md) for the full loop.
+A **Pulse run** follows each scheduled workflow run. Pulse Gate selects only the due review modules, those reviewers return evidence without writing, and the parent Pulse Fixer applies bounded verified changes before the final dashboard/backup/publish/notify step. Enable it with the **Pulse** toolbar control. Questions are stored as structured human-input requests and shown in `builder/improve.html` before notification.
 
 ## Execution Logs
 

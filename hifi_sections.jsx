@@ -1155,6 +1155,7 @@ function pageHref(page) {
   const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
   if (page === 'home') return isLocal ? 'index.html' : '/';
   if (page === 'how') return isLocal ? 'how.html' : '/how/';
+  if (page === 'docs') return '/docs/';
   return page;
 }
 window.pageHref = pageHref;
@@ -1462,7 +1463,8 @@ function Footer({ name }) {
         h('div', { className: 'footer-col' },
           h('h5', null, 'Product'),
           h('a', { href: pageHref('home') }, 'Home'),
-          h('a', { href: pageHref('how') }, 'How it works')
+          h('a', { href: pageHref('how') }, 'How it works'),
+          h('a', { href: pageHref('docs') }, 'Docs')
         ),
         h('div', { className: 'footer-col footer-templates' },
           h('h5', null, 'Automations'),

@@ -22,11 +22,6 @@
       "section": "bugs"
     },
     {
-      "path": "bugs/tool_call_latency_gemini_cli",
-      "title": "Bug Report: Tool Call Start Latency in Gemini CLI Mode",
-      "section": "bugs"
-    },
-    {
       "path": "bugs/uvx_cache_bloat_latest_versions",
       "title": "Bug: uvx/npx Cache Bloat from @latest MCP Server Packages",
       "section": "bugs"
@@ -144,6 +139,11 @@
     {
       "path": "core/streaming_llm_output",
       "title": "Streaming LLM Output",
+      "section": "core"
+    },
+    {
+      "path": "core/terminal_lifecycle",
+      "title": "Terminal lifecycle",
       "section": "core"
     },
     {

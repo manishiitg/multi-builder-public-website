@@ -30,6 +30,7 @@ function Nav({ name, current = 'home' }) {
     const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
     if (page === 'home') return isLocal ? 'index.html' : '/';
     if (page === 'how') return isLocal ? 'how.html' : '/how/';
+    if (page === 'docs') return '/docs/';
     return page;
   };
   const automationHref = (slug) => {
@@ -40,6 +41,7 @@ function Nav({ name, current = 'home' }) {
   const links = [
     { id: 'home', label: 'Home', href: pageHref('home') },
     { id: 'how', label: 'How it works', href: pageHref('how') },
+    { id: 'docs', label: 'Docs', href: pageHref('docs') },
   ];
   return h('div', { className: 'nav' },
     h('div', { className: 'nav-inner' },
