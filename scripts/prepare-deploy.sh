@@ -27,6 +27,9 @@ cp favicon-32.png dist/
 cp apple-touch-icon.png dist/
 cp icon-256.png dist/
 
+mkdir -p dist/.well-known
+cp .well-known/mcp-client.json dist/.well-known/
+
 mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard,vendor}
 cp assets/brand/agentworks-logo.svg dist/assets/brand/
 cp -R assets/fonts/. dist/assets/fonts/

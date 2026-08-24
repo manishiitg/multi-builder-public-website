@@ -1,0 +1,17 @@
+{
+  "client_id": "https://agentworkshq.com/.well-known/mcp-client.json",
+  "client_name": "AgentWorks",
+  "client_uri": "https://agentworkshq.com/",
+  "logo_uri": "https://agentworkshq.com/icon-256.png",
+  "redirect_uris": [
+    "http://127.0.0.1/api/oauth/callback",
+    "http://127.0.0.1:45678/api/oauth/callback"
+  ],
+  "grant_types": [
+    "authorization_code"
+  ],
+  "response_types": [
+    "code"
+  ],
+  "token_endpoint_auth_method": "none"
+}

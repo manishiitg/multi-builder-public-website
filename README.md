@@ -44,6 +44,7 @@ Some internal website file names still use `runloop_site.js` / `runloop.css`. Tr
 | `/docs/<document>/` | generated from selected `docs-content/**/*.md` files | Crawlable technical documentation |
 | `/docs-content/<document>.md` | synchronized Markdown | Raw documentation for people and agents |
 | `/llms.txt` and `/llms-full.txt` | generated discovery surfaces | Concise and full AI-readable product context |
+| `/.well-known/mcp-client.json` | `.well-known/mcp-client.json` | Public OAuth Client ID Metadata Document for AgentWorks MCP authorization |
 | missing routes | `404.html` | Branded not-found page with links back to current surfaces |
 
 Legacy Claude Design pages such as `template.html` and `wireframes.html` remain in the repo for local reference only. Production redirects old `/automations/` and `/automations/:slug/` traffic to Product, while `/template.html` and `/wireframes.html` also redirect to active pages. The removed `/deploy/` marketing route redirects to the repository's factual deployment documentation.

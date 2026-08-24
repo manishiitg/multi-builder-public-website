@@ -31,6 +31,7 @@ const requiredFiles = [
   'favicon-32.png',
   'apple-touch-icon.png',
   'icon-256.png',
+  '.well-known/mcp-client.json',
   'assets/brand/agentworks-logo.svg',
   'assets/vendor/react-18.3.1/react.production.min.js',
   'assets/vendor/react-18.3.1/react-dom.production.min.js',
@@ -281,6 +282,22 @@ function assertReferencedAssetsExist() {
 
 function assertDeployPayload() {
   for (const file of requiredFiles) assertFileExists(file);
+
+  const clientMetadataPath = '.well-known/mcp-client.json';
+  const clientMetadataUrl = `${siteOrigin}/${clientMetadataPath}`;
+  const clientMetadata = JSON.parse(readDist(clientMetadataPath));
+  if (clientMetadata.client_id !== clientMetadataUrl) fail('CIMD client_id must exactly match its public document URL');
+  if (clientMetadata.client_name !== 'AgentWorks') fail('CIMD client_name mismatch');
+  if (clientMetadata.client_uri !== `${siteOrigin}/`) fail('CIMD client_uri mismatch');
+  if (clientMetadata.token_endpoint_auth_method !== 'none') fail('CIMD must describe AgentWorks as a public client');
+  if (!clientMetadata.grant_types?.includes('authorization_code')) fail('CIMD authorization_code grant missing');
+  if (!clientMetadata.response_types?.includes('code')) fail('CIMD code response type missing');
+  for (const redirectUri of [
+    'http://127.0.0.1/api/oauth/callback',
+    'http://127.0.0.1:45678/api/oauth/callback'
+  ]) {
+    if (!clientMetadata.redirect_uris?.includes(redirectUri)) fail(`CIMD redirect URI missing: ${redirectUri}`);
+  }
 
   const files = listFiles(dist).map(file => path.relative(dist, file));
   for (const file of files) {
