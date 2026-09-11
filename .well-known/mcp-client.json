@@ -5,7 +5,10 @@
   "logo_uri": "https://agentworkshq.com/icon-256.png",
   "redirect_uris": [
     "http://127.0.0.1/api/oauth/callback",
-    "http://127.0.0.1:45678/api/oauth/callback"
+    "http://127.0.0.1:45678/api/oauth/callback",
+    "https://video.realtrainingsys.com/api/oauth/callback",
+    "https://confida.agentworkshq.com/api/oauth/callback",
+    "https://trader.tectonicmarkets.com/api/oauth/callback"
   ],
   "grant_types": [
     "authorization_code"

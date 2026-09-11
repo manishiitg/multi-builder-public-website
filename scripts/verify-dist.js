@@ -294,7 +294,10 @@ function assertDeployPayload() {
   if (!clientMetadata.response_types?.includes('code')) fail('CIMD code response type missing');
   for (const redirectUri of [
     'http://127.0.0.1/api/oauth/callback',
-    'http://127.0.0.1:45678/api/oauth/callback'
+    'http://127.0.0.1:45678/api/oauth/callback',
+    'https://video.realtrainingsys.com/api/oauth/callback',
+    'https://confida.agentworkshq.com/api/oauth/callback',
+    'https://trader.tectonicmarkets.com/api/oauth/callback'
   ]) {
     if (!clientMetadata.redirect_uris?.includes(redirectUri)) fail(`CIMD redirect URI missing: ${redirectUri}`);
   }
