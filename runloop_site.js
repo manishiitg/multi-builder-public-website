@@ -1855,7 +1855,7 @@ function UseCasesPage() {
     {
       label: 'Sales and marketing',
       title: 'Turn research, outreach, and publishing into measurable loops.',
-      description: 'Coordinate sales prospecting, campaign work, content packages, and performance reporting.',
+      description: 'Coordinate prospect research, campaign work, content packages, and performance reporting.',
       image: PRODUCT_ASSETS.heroDashboard,
       alt: 'AgentWorks organization dashboard showing workflow goals, health, cost, and schedules',
       signals: ['research', 'campaigns', 'reporting'],
@@ -2718,7 +2718,7 @@ function HowPage() {
           h('p', { className: 'mk-kicker' }, 'Product / the operating loop'),
           h('h1', null, 'The agent stops. The workflow should keep improving.'),
           h('p', { className: 'mk-product-v2-lead' },
-            'AgentWorks runs recurring agentic workflows across sales, marketing, support, finance, and operations. It connects the agents and tools you already use, keeps every run inspectable, and turns evidence plus human judgment into a better next run.'
+            'AgentWorks runs recurring business workflows across sales, marketing, support, finance, and operations. It connects the agents and tools you already use, keeps every run inspectable, and turns evidence plus human judgment into a better next run.'
           ),
           h('div', { className: 'mk-hero-actions' },
             h('a', { className: 'mk-btn', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call'),
@@ -2783,7 +2783,7 @@ function HowPage() {
           h('div', { className: 'mk-product-v2-record-copy' },
             h('p', { className: 'mk-kicker' }, 'An answer is not an audit trail'),
             h('h2', null, 'The run ends. The operating record does not.'),
-            h('p', null, 'AgentWorks keeps the AI agent audit trail that lets an operator trust the result, compare runs, control cost, and improve the workflow without reconstructing context from chat history.')
+            h('p', null, 'AgentWorks keeps the information that lets an operator trust the result, compare runs, control cost, and improve the workflow without reconstructing context from chat history.')
           ),
           h('div', { className: 'mk-product-v2-record-list' },
             record.map((item, index) =>
