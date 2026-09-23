@@ -959,8 +959,9 @@ function TrustSection({ items }) {
   );
 }
 
-function FAQSection() {
-  const faqs = [
+function FAQSection({ items }) {
+  const faqs = items;
+  const _unused = [
     {
       question: 'Is AgentWorks replacing Claude Code, Codex CLI, Cursor, or Gemini?',
       answer: 'No. Those are workers. AgentWorks is the operating layer around goals, schedules, tool access, evidence, costs, Pulse, approvals, and reusable skills.'
@@ -1854,11 +1855,11 @@ function UseCasesPage() {
   const useCases = [
     {
       label: 'Sales and marketing',
-      title: 'Turn research, outreach, and publishing into measurable loops.',
+      title: 'Turn sales prospecting, outreach, and publishing into measurable loops.',
       description: 'Coordinate prospect research, campaign work, content packages, and performance reporting.',
       image: PRODUCT_ASSETS.heroDashboard,
       alt: 'AgentWorks organization dashboard showing workflow goals, health, cost, and schedules',
-      signals: ['research', 'campaigns', 'reporting'],
+      signals: ['sales prospecting', 'campaigns', 'reporting'],
       when: 'Multiple agents contribute to one growth outcome.',
       proof: 'goals, artifacts, approvals, performance'
     },
@@ -1904,6 +1905,12 @@ function UseCasesPage() {
     ['Workflow engine', 'Queues, retries, schedules, and durable code.'],
     ['Observability / evals', 'Traces, scoring, and quality gates.'],
     ['AgentWorks', 'Goals, workers, evidence, Pulse, cost, approvals, and skills.']
+  ];
+  const useCasesFaqs = [
+    { question: 'What company functions can AgentWorks run workflows for?', answer: 'Sales and marketing, support and customer success, finance and operations, engineering and IT.' },
+    { question: 'Does AgentWorks remove human oversight?', answer: 'No. Sensitive or high-impact decisions retain human escalation, and every workflow keeps an auditable trail.' },
+    { question: 'What tools and agents does AgentWorks connect to?', answer: 'Coding CLIs, model providers, browser workers, MCP tools, and repositories, while preserving logs, tests, screenshots, approvals, and reusable skills.' },
+    { question: 'How do I get started?', answer: 'Follow the first workflow guide at https://agentworkshq.com/docs/getting-started/first-workflow/ or install the latest macOS release from GitHub.' }
   ];
 
   return h('div', { className: 'mk-page mk-homev4 mk-usecases-page' },
@@ -2007,6 +2014,7 @@ function UseCasesPage() {
 
       h(CompactHomeCTA)
     ),
+    h(FAQSection, { items: useCasesFaqs }),
     h(MarketingFooter)
   );
 }
@@ -2709,6 +2717,12 @@ function HowPage() {
     ['Decision', 'What requires approval, correction, or a changed goal?'],
     ['Learning', 'What should the next run know or do differently?']
   ];
+  const howFaqs = [
+    { question: 'What is AgentWorks?', answer: 'AgentWorks is an open-source desktop control plane for AI and coding-agent fleets. It wraps Claude Code, Codex CLI, Cursor, Gemini, browser workers, MCP tools, schedules, secrets, Pulse, costs, approvals, evidence, reports, and reusable skills into one operating loop.' },
+    { question: 'How does AgentWorks keep every run inspectable?', answer: 'Every run retains reports, logs, screenshots, source health, cost, approvals, and goal evidence. Pulse separates bugs from goal drift so operators review exceptions instead of every run.' },
+    { question: 'What do Pulse and Goal Advisor do?', answer: 'Goal Advisor critiques the workflow and asks bounded questions. Auto Improve applies low-risk fixes, proposes larger changes, and turns approved knowledge into better context for the next run.' },
+    { question: 'What is Auto Improve, and who approves changes?', answer: 'Auto Improve proposes bounded workflow changes from evidence; humans approve risky writes, production changes, major replans, and promoted skills.' }
+  ];
 
   return h('div', { className: 'mk-page mk-homev4 mk-product-v2-page' },
     h(MarketingNav, { current: 'how' }),
@@ -2718,7 +2732,7 @@ function HowPage() {
           h('p', { className: 'mk-kicker' }, 'Product / the operating loop'),
           h('h1', null, 'The agent stops. The workflow should keep improving.'),
           h('p', { className: 'mk-product-v2-lead' },
-            'AgentWorks runs recurring business workflows across sales, marketing, support, finance, and operations. It connects the agents and tools you already use, keeps every run inspectable, and turns evidence plus human judgment into a better next run.'
+            'AgentWorks runs recurring agentic workflows across sales, marketing, support, finance, and operations. It connects the agents and tools you already use, keeps every run inspectable, and turns evidence plus human judgment into a better next run.'
           ),
           h('div', { className: 'mk-hero-actions' },
             h('a', { className: 'mk-btn', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call'),
@@ -2783,7 +2797,7 @@ function HowPage() {
           h('div', { className: 'mk-product-v2-record-copy' },
             h('p', { className: 'mk-kicker' }, 'An answer is not an audit trail'),
             h('h2', null, 'The run ends. The operating record does not.'),
-            h('p', null, 'AgentWorks keeps the information that lets an operator trust the result, compare runs, control cost, and improve the workflow without reconstructing context from chat history.')
+            h('p', null, 'AgentWorks keeps the AI agent audit trail that lets an operator trust the result, compare runs, control cost, and improve the workflow without reconstructing context from chat history.')
           ),
           h('div', { className: 'mk-product-v2-record-list' },
             record.map((item, index) =>
@@ -2903,6 +2917,7 @@ function HowPage() {
         )
       )
     ),
+    h(FAQSection, { items: howFaqs }),
     h(MarketingFooter)
   );
 }
