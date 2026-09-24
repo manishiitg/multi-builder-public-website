@@ -45,6 +45,8 @@ review/*.png            Static reference screenshots
 
 `index.html`, `pricing/index.html`, `agents/index.html` and `enterprise/index.html` are **generated** by `python3 scripts/launch/build.py` from `scripts/launch/*` (shared header/footer/tiers/FAQ in `partials.py` + `blocks.py`, agent cards in `tpl.py`). Edit the sources and rebuild. Don't hand-edit the output. They use `launch.css` + `launch.js`, not React. Bump `V` in `partials.py` when either asset changes. Signup/login URLs live in `partials.py` (and `SIGNUP_URL` in `runloop_site.js`). Claims that depend on unreleased product work are tracked in `LAUNCH_CHECKLIST.md`. Check it before any production deploy.
 
+Pages: `/` (home), `/product/`, `/agents/`, `/pricing/`, `/enterprise/`, `/404.html` (all generated). `/how/`, `/use-cases/` and `/updates/` are retired and redirect via `_redirects`. Social images: `NODE_PATH=<playwright node_modules> python3 scripts/launch/og.py`. Hero animation: HyperFrames source in `scripts/launch/hero-animation-src/`, outputs in `assets/hero/goal-loop-*`. Public copy must not say "Pulse" (use "Auto-improve") and must not use real numbers from our own workspace; examples are illustrative.
+
 ## Production component pattern
 
 `runloop_site.js` uses plain `React.createElement` through the local `h` helper. The production HTML pages load:

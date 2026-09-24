@@ -32,7 +32,7 @@ mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard,vendor}
 cp assets/brand/agentworks-logo.svg dist/assets/brand/
 cp -R assets/fonts/. dist/assets/fonts/
 cp -R assets/vendor/. dist/assets/vendor/
-cp assets/hero/goal-loop-1600x900.mp4 assets/hero/goal-loop-1600x900.webm assets/hero/goal-loop-mobile-900x1200.mp4 assets/hero/goal-loop-poster.jpg dist/assets/hero/
+cp assets/hero/goal-loop-1600x900.mp4 assets/hero/goal-loop-1600x900.webm assets/hero/goal-loop-mobile-900x1200.mp4 assets/hero/goal-loop-poster.jpg assets/hero/goal-loop-poster-mobile.jpg dist/assets/hero/
 
 # Keep the public payload limited to assets referenced by production pages.
 cp assets/og/agentworks-*.jpg dist/assets/og/

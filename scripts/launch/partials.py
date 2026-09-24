@@ -3,7 +3,7 @@ LOGIN='https://app.agentworkshq.com/login'
 CAL='https://calendly.com/manishiitg/15min'
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch9'
+V='launch10'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
