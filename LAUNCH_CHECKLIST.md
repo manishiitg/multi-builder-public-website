@@ -38,7 +38,7 @@ Status as of 2026-09-24. The code evidence is in `mcp-agent-builder-go`.
 
 | Item | Today | Needed |
 |---|---|---|
-| "MIT license" (footer, FAQ, tiers) | The README says MIT, but there is **no LICENSE file** in `coding-agent-loop` | Add `LICENSE` |
+| "MIT license" (footer, FAQ, tiers) | LICENSE files committed locally in `coding-agent-loop` and `mcpagent` (2026-09-24), not pushed yet | Push both, and keep `mcpagent` and `multi-llm-provider-go` public (the backend needs them to build) |
 | Privacy policy and terms of service | none | Required before taking payment |
 | "We don't train on your data" | Policy statement | Confirm and publish it in the privacy policy |
 | OG images for `/pricing/`, `/agents/`, `/enterprise/` | They reuse the home OG image | A dedicated image for each page (optional) |
