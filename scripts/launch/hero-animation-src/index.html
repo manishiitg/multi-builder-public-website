@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1600, height=900" />
+    <title>Goal loop hero</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Space Grotesk";
+        src: url("assets/fonts/space-grotesk-latin.woff2") format("woff2");
+        font-weight: 300 700;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("assets/fonts/jetbrains-mono-latin.woff2") format("woff2");
+        font-weight: 400 700;
+        font-style: normal;
+      }
+      :root {
+        --bg: #fbfbf9;
+        --card: #ffffff;
+        --border: rgba(15, 15, 20, 0.08);
+        --text: #0e0e12;
+        --text-2: #45454f;
+        --muted: #6c6c77;
+        --amber: #f5a524;
+        --amber-text: #b45309;
+        --amber-soft: rgba(245, 165, 36, 0.14);
+        --green: #10b981;
+        --green-text: #047857;
+        --green-soft: rgba(16, 185, 129, 0.13);
+        --sky: #0ea5e9;
+        --neutral-soft: rgba(15, 15, 20, 0.05);
+        --shadow: 0 1px 2px rgba(15, 15, 20, 0.04), 0 12px 32px -12px rgba(15, 15, 20, 0.12);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg);
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--text);
+      }
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.02em;
+        color: var(--muted);
+      }
+      #stage {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 1.12fr 0.88fr;
+        gap: 36px;
+        padding: 64px 72px;
+      }
+      .col {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        min-width: 0;
+        min-height: 0;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      /* ---------- chat ---------- */
+      .chat {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .chat .who {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--text);
+        color: var(--bg);
+        font-size: 22px;
+        font-weight: 600;
+        display: grid;
+        place-items: center;
+      }
+      .bubble {
+        position: relative;
+        align-self: flex-start;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px 20px 20px 6px;
+        box-shadow: var(--shadow);
+        padding: 20px 26px;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+      }
+      .bubble .ghost {
+        visibility: hidden;
+      }
+      .bubble .typed {
+        position: absolute;
+        left: 26px;
+        top: 20px;
+        right: 26px;
+      }
+      .caret {
+        display: inline-block;
+        width: 3px;
+        height: 1.05em;
+        margin-left: 3px;
+        vertical-align: -0.15em;
+        background: var(--amber);
+        border-radius: 2px;
+      }
+
+      /* ---------- steps ---------- */
+      .steps {
+        flex: 1;
+        padding: 26px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-height: 0;
+      }
+      .steps-h {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 6px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 40px 1fr auto;
+        align-items: center;
+        column-gap: 18px;
+        padding: 16px 0;
+      }
+      .icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: var(--amber-soft);
+      }
+      .icon svg {
+        width: 20px;
+        height: 20px;
+        overflow: visible;
+      }
+      .icon path {
+        fill: none;
+        stroke: var(--amber-text);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .row.drop .icon {
+        background: var(--neutral-soft);
+      }
+      .row.drop .icon path {
+        stroke: var(--muted);
+      }
+      .row.win .icon {
+        background: var(--green-soft);
+      }
+      .row.win .icon path {
+        stroke: var(--green-text);
+      }
+      .row-body {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .row-body .mono {
+        font-size: 22px;
+      }
+      .row-text {
+        position: relative;
+        align-self: flex-start;
+        font-size: 25px;
+        line-height: 1.25;
+        color: var(--text);
+      }
+      .strike {
+        background-image: linear-gradient(var(--muted), var(--muted));
+        background-repeat: no-repeat;
+        background-position: 0 58%;
+        background-size: 0% 2px;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: slice;
+      }
+      .chip {
+        font-size: 23px;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 999px;
+        white-space: nowrap;
+        background: var(--amber-soft);
+        color: var(--amber-text);
+      }
+      .row.drop .chip {
+        background: var(--neutral-soft);
+        color: #5a5a64;
+      }
+      .row.win .chip {
+        background: var(--green-soft);
+        color: var(--green-text);
+      }
+
+      /* ---------- goal card ---------- */
+      .goal {
+        flex: 1;
+        padding: 30px 34px 26px;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      .goal-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 44px;
+      }
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 23px;
+        font-weight: 600;
+        padding: 7px 16px;
+        border-radius: 999px;
+        background: var(--green-soft);
+        color: var(--green-text);
+      }
+      .badge svg {
+        width: 20px;
+        height: 20px;
+      }
+      .badge path {
+        fill: none;
+        stroke: var(--green-text);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .goal-title {
+        font-size: 36px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin-top: 6px;
+      }
+      .metric {
+        display: flex;
+        align-items: flex-end;
+        gap: 22px;
+        margin-top: 10px;
+      }
+      .big {
+        font-size: 132px;
+        font-weight: 600;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums;
+        color: var(--text);
+      }
+      .metric-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-bottom: 10px;
+      }
+      .metric-meta .of {
+        font-size: 26px;
+        color: var(--text-2);
+      }
+      .metric-meta b {
+        font-weight: 600;
+        color: var(--text);
+      }
+      .chart {
+        flex: 1;
+        min-height: 0;
+        margin-top: 14px;
+        display: flex;
+      }
+      .chart svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      .chart text {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        fill: var(--muted);
+      }
+
+      /* ---------- portrait ---------- */
+      #stage.portrait {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 44px 48px 44px;
+      }
+      #stage.portrait .col {
+        display: contents;
+      }
+      #stage.portrait .chat {
+        order: 1;
+      }
+      #stage.portrait .goal {
+        order: 2;
+        flex: 0 0 auto;
+        padding: 24px 30px 22px;
+      }
+      #stage.portrait .goal {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "top top" "big title" "big meta" "chart chart";
+        column-gap: 24px;
+      }
+      #stage.portrait .goal-top {
+        grid-area: top;
+      }
+      #stage.portrait .goal-title {
+        grid-area: title;
+        align-self: end;
+        margin-top: 8px;
+      }
+      #stage.portrait .metric {
+        display: contents;
+      }
+      #stage.portrait .big {
+        grid-area: big;
+        align-self: center;
+      }
+      #stage.portrait .metric-meta {
+        grid-area: meta;
+        flex-direction: row;
+        gap: 14px;
+        align-items: baseline;
+        padding-bottom: 0;
+      }
+      #stage.portrait .chart {
+        grid-area: chart;
+        height: 296px;
+        margin-top: 16px;
+      }
+      #stage.portrait .row {
+        padding: 8px 0;
+      }
+      #stage.portrait .steps {
+        padding: 20px 28px;
+      }
+      #stage.portrait .chat {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 14px;
+      }
+      #stage.portrait .chat .who {
+        padding-bottom: 22px;
+      }
+      #stage.portrait .steps {
+        order: 3;
+        flex: 1;
+      }
+      #stage.portrait .big {
+        font-size: 100px;
+      }
+      #stage.portrait .goal-title {
+        font-size: 32px;
+      }
+      #stage.portrait .bubble {
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      
+      data-composition-id="main"
+      data-start="0"
+      data-duration="13"
+      data-width="1600"
+      data-height="900"
+    >
+      <div id="stage" class="clip landscape" data-start="0" data-duration="13" data-track-index="0">
+        <div class="col left">
+          <div class="chat" id="chat">
+            <div class="who" id="who">
+              <div class="avatar">Y</div>
+              <div class="mono">You</div>
+            </div>
+            <div class="bubble" id="bubble">
+              <span class="ghost">Book more sales demos. I want 5 a week.</span>
+              <span class="typed"><span id="typed"></span><span class="caret" id="caret"></span></span>
+            </div>
+          </div>
+
+          <div class="card steps" id="steps">
+            <div class="steps-h mono" id="steps-h">
+              <span>What the agent changed</span><span>example</span>
+            </div>
+            <div class="row" id="r1">
+              <div class="icon"><svg viewBox="0 0 20 20"><path class="tick" d="M4 10.5l4 4 8-9" /></svg></div>
+              <div class="row-body">
+                <div class="mono">Week 1</div>
+                <div class="row-text">Emails every new signup within a day</div>
+              </div>
+              <div class="chip">1 a week</div>
+            </div>
+            <div class="row" id="r2">
+              <div class="icon"><svg viewBox="0 0 20 20"><path class="tick" d="M4 10.5l4 4 8-9" /></svg></div>
+              <div class="row-body">
+                <div class="mono">Week 3</div>
+                <div class="row-text">Replies within 10 minutes instead of a day</div>
+              </div>
+              <div class="chip">3 a week</div>
+            </div>
+            <div class="row drop" id="r3">
+              <div class="icon"><svg viewBox="0 0 20 20"><path class="tick" d="M5 10h10" /></svg></div>
+              <div class="row-body">
+                <div class="mono">Week 4</div>
+                <div class="row-text" id="r3-text"><span class="strike" id="r3-strike">Stops the third follow-up. Nobody replied to it</span></div>
+              </div>
+              <div class="chip">dropped</div>
+            </div>
+            <div class="row win" id="r4">
+              <div class="icon"><svg viewBox="0 0 20 20"><path class="tick" d="M4 10.5l4 4 8-9" /></svg></div>
+              <div class="row-body">
+                <div class="mono">Week 6</div>
+                <div class="row-text">Adds a two-line customer story to the first email</div>
+              </div>
+              <div class="chip">6 a week ✓</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col right">
+          <div class="card goal" id="goal">
+            <div class="goal-top">
+              <div class="mono">Goal</div>
+              <div class="badge" id="badge">
+                <svg viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-9" /></svg>
+                Target hit
+              </div>
+            </div>
+            <div class="goal-title">Demos booked per week</div>
+            <div class="metric">
+              <div class="big" id="num">1</div>
+              <div class="metric-meta">
+                <div class="mono">current</div>
+                <div class="of">target <b>5</b> a week</div>
+              </div>
+            </div>
+            <div class="chart" id="chart">
+              <svg id="chart-svg" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid meet">
+                <line id="baseline" x1="20" y1="340" x2="620" y2="340" stroke="rgba(15,15,20,0.12)" stroke-width="2" />
+                <g id="goal-g">
+                  <line id="goal-line" x1="20" y1="0" x2="620" y2="0" stroke="#6c6c77" stroke-width="2" stroke-dasharray="8 8" />
+                  <text id="goal-label" x="20" y="0" text-anchor="start">goal: 5 a week</text>
+                </g>
+                <path id="line" d="" fill="none" stroke="#f5a524" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                <g id="dots"></g>
+                <text class="xlab" x="20" y="384" text-anchor="start">start</text>
+                <text class="xlab" x="320" y="384" text-anchor="middle">week 3</text>
+                <text class="xlab" x="620" y="384" text-anchor="end">week 6</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const C = {
+          amber: "#f5a524",
+          green: "#10b981",
+          greenText: "#047857",
+          text: "#0e0e12",
+          muted: "#6c6c77",
+          card: "#ffffff",
+        };
+        // ---- chart geometry (deterministic) ----
+        const PORTRAIT = document.getElementById("stage").classList.contains("portrait");
+        const H = PORTRAIT ? 256 : 400;
+        const X0 = 20, X1 = 620, YB = H - 60, YMAX = 7, PLOT_H = YB - 40;
+        document.getElementById("chart-svg").setAttribute("viewBox", "0 0 640 " + H);
+        document.getElementById("baseline").setAttribute("y1", YB);
+        document.getElementById("baseline").setAttribute("y2", YB);
+        document.querySelectorAll(".xlab").forEach((t) => t.setAttribute("y", H - 16));
+        const xw = (w) => X0 + (w / 6) * (X1 - X0);
+        const yv = (v) => YB - (v / YMAX) * PLOT_H;
+        const pts = [[0, 1], [1, 1], [3, 3], [4, 3], [6, 6]].map(([w, v]) => [xw(w), yv(v)]);
+        const goalY = yv(5);
+        const svgNS = "http://www.w3.org/2000/svg";
+        document.getElementById("goal-line").setAttribute("y1", goalY);
+        document.getElementById("goal-line").setAttribute("y2", goalY);
+        document.getElementById("goal-label").setAttribute("y", goalY - 14);
+        const line = document.getElementById("line");
+        line.setAttribute("d", "M" + pts.map((p) => p[0] + " " + p[1]).join(" L"));
+        const seg = [0];
+        for (let i = 1; i < pts.length; i++) {
+          seg.push(seg[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+        }
+        const L = seg[seg.length - 1];
+        line.setAttribute("stroke-dasharray", L + " " + (L + 4));
+        line.setAttribute("stroke-dashoffset", L + 2);
+        const dots = pts.map((p, i) => {
+          const c = document.createElementNS(svgNS, "circle");
+          c.setAttribute("cx", p[0]);
+          c.setAttribute("cy", p[1]);
+          c.setAttribute("r", i === pts.length - 1 ? 9 : 7);
+          c.setAttribute("fill", C.card);
+          c.setAttribute("stroke", i === pts.length - 1 ? C.green : C.amber);
+          c.setAttribute("stroke-width", 4);
+          c.setAttribute("id", "dot" + i);
+          document.getElementById("dots").appendChild(c);
+          return c;
+        });
+
+        // ---- ticks: dash setup ----
+        document.querySelectorAll(".tick").forEach((p) => {
+          const len = p.getTotalLength();
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+          p.dataset.len = len;
+        });
+
+        const tl = gsap.timeline({ paused: true });
+        const E = "power2.out";
+
+        // ---- 1. chat request, typed ----
+        const msg = "Book more sales demos. I want 5 a week.";
+        const typed = document.getElementById("typed");
+        const tp = { n: 0 };
+        tl.fromTo("#who", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, 0.2);
+        tl.fromTo("#bubble", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: E }, 0.3);
+        tl.fromTo(
+          tp,
+          { n: 0 },
+          {
+            n: msg.length,
+            duration: 1.7,
+            ease: "none",
+            onUpdate: () => (typed.textContent = msg.slice(0, Math.round(tp.n))),
+          },
+          0.6
+        );
+        tl.fromTo("#caret", { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "power1.out" }, 2.45);
+
+        // ---- 2. goal card forms ----
+        tl.fromTo("#goal", { autoAlpha: 0, y: 22, scale: 0.98 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 2.5);
+        tl.fromTo("#baseline", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: E }, 2.9);
+        tl.fromTo("#goal-g", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.6, ease: E }, 3.0);
+        tl.fromTo(dots[0], { opacity: 0 }, { opacity: 1, duration: 0.3, ease: E }, 3.1);
+        tl.fromTo("#steps", { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 2.8);
+
+        // ---- 3. steps ----
+        const num = document.getElementById("num");
+        const counter = { v: 1 };
+        const setNum = () => (num.textContent = Math.round(counter.v));
+
+        function step(id, t, opts) {
+          const row = "#" + id;
+          const tick = document.querySelector(row + " .tick");
+          tl.fromTo(row, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t);
+          tl.fromTo(row + " .icon", { scale: 0.6 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, t + 0.15);
+          tl.fromTo(tick, { strokeDashoffset: tick.dataset.len }, { strokeDashoffset: 0, duration: 0.35, ease: E }, t + 0.35);
+          tl.fromTo(row + " .chip", { autoAlpha: 0, x: -10 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: E }, t + 0.55);
+          // chart: draw to point index
+          const from = opts.fromPt === 0 ? L + 2 : L - seg[opts.fromPt], to = L - seg[opts.toPt];
+          tl.fromTo(line, { attr: { "stroke-dashoffset": from } }, { attr: { "stroke-dashoffset": to }, duration: opts.draw, ease: "power1.inOut", immediateRender: false }, t + 0.5);
+          for (let i = opts.fromPt + 1; i <= opts.toPt; i++) {
+            const at = t + 0.5 + opts.draw * ((seg[i] - seg[opts.fromPt]) / (seg[opts.toPt] - seg[opts.fromPt]));
+            tl.fromTo(dots[i], { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, at - 0.1);
+          }
+          if (opts.count) {
+            tl.fromTo(counter, { v: opts.count[0] }, { v: opts.count[1], duration: opts.draw, ease: "power1.inOut", onUpdate: setNum, immediateRender: false }, t + 0.5);
+          }
+        }
+        // initial dot states hidden
+        dots.forEach((d, i) => i > 0 && gsap.set(d, { opacity: 0 }));
+
+        step("r1", 3.5, { fromPt: 0, toPt: 1, draw: 0.7 });
+        step("r2", 5.0, { fromPt: 1, toPt: 2, draw: 0.9, count: [1, 3] });
+        step("r3", 6.5, { fromPt: 2, toPt: 3, draw: 0.6 });
+        tl.fromTo("#r3-strike", { backgroundSize: "0% 2px" }, { backgroundSize: "100% 2px", duration: 0.7, ease: "power2.inOut" }, 7.0);
+        tl.fromTo("#r3-text", { color: C.text }, { color: C.muted, duration: 0.5, ease: E }, 7.0);
+        step("r4", 8.0, { fromPt: 3, toPt: 4, draw: 1.1, count: [3, 6] });
+
+        // crossing the goal at 2/3 of the last segment
+        const cross = 8.5 + 1.1 * 0.62;
+        tl.fromTo("#goal-line", { attr: { stroke: C.muted } }, { attr: { stroke: C.green }, duration: 0.4, ease: E }, cross);
+        tl.fromTo("#goal-label", { fill: C.muted }, { fill: C.greenText, duration: 0.4, ease: E }, cross);
+        tl.fromTo(num, { color: C.text }, { color: C.greenText, duration: 0.5, ease: E }, cross + 0.1);
+
+        // ---- 5. target hit ----
+        tl.fromTo("#badge", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 9.7);
+
+        // ---- soft reset for the loop ----
+        tl.to(["#chat", "#steps", "#goal"], { opacity: 0, y: -10, duration: 0.8, ease: "power2.in", stagger: 0.08 }, 11.9);
+        tl.set({}, {}, 13);
+
+        window.__timelines["main"] = tl;
+        tl.seek(0);
+      })();
+    </script>
+  </body>
+</html>

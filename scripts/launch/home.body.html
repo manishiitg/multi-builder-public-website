@@ -33,35 +33,14 @@
         </div>
       </div>
 
-      <div class="story" aria-label="Example: an agent working toward a sales goal">
-        <div class="story-card">
-          <div class="story-ask">
-            <span class="avatar avatar-you" aria-hidden="true">Y</span>
-            <p>"Book more sales demos. <b>I want 5 a week.</b>"</p>
-          </div>
-          <ol class="story-steps">
-            <li><time>Week 1</time><p>Emails every new signup within a day.</p><span class="num low">1 a week</span></li>
-            <li><time>Week 3</time><p>Replies within 10 minutes instead of a day.</p><span class="num mid">3 a week</span></li>
-            <li><time>Week 4</time><p>Stops the third follow-up. Nobody ever replied to it.</p><span class="num flat">dropped</span></li>
-            <li><time>Week 6</time><p>Adds a two-line customer story to the first email.</p><span class="num hit">6 a week ✓</span></li>
-            <li><time>Now</time><p>Testing a Monday check-in for signups who went quiet.</p><span class="num next">checks in 7 days</span></li>
-          </ol>
-          <p class="story-foot"><b>9</b> ideas tried · <b>4</b> dropped · the rest kept because they worked</p>
-        </div>
-        <div class="story-chart" aria-hidden="true">
-          <p class="story-big">1 <span>→</span> 6</p>
-          <p class="story-sub">demos booked a week</p>
-          <svg viewBox="0 0 320 150" preserveAspectRatio="none">
-            <defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f5a524" stop-opacity=".35"/><stop offset="1" stop-color="#f5a524" stop-opacity="0"/></linearGradient></defs>
-            <line x1="0" y1="30" x2="320" y2="30" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 5"/>
-            <text x="2" y="22" font-size="11" fill="#047857">goal: 5 a week</text>
-            <path d="M0,130 L53,130 L107,90 L160,95 L213,60 L267,12 L320,18 L320,150 L0,150 Z" fill="url(#sg)"/>
-            <polyline points="0,130 53,130 107,90 160,95 213,60 267,12 320,18" fill="none" stroke="#f5a524" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="267" cy="12" r="5" fill="#f5a524"/>
-          </svg>
-          <p class="story-axis"><span>Week 1</span><span>Week 7</span></p>
-        </div>
-      </div>
+      <figure class="hero-video">
+        <video autoplay muted loop playsinline preload="auto" width="1600" height="900" poster="/assets/hero/goal-loop-poster.jpg" aria-label="Example: an AI agent is asked to book 5 sales demos a week. It tries new approaches week by week, drops one that did not work, and goes from 1 to 6 demos a week, hitting the target." data-hero-video>
+          <source src="/assets/hero/goal-loop-mobile-900x1200.mp4" type="video/mp4" media="(max-width: 720px)">
+          <source src="/assets/hero/goal-loop-1600x900.webm" type="video/webm">
+          <source src="/assets/hero/goal-loop-1600x900.mp4" type="video/mp4">
+        </video>
+        <figcaption class="sr-only">Example goal: "Book more sales demos. I want 5 a week." Week 1: emails every new signup within a day, 1 a week. Week 3: replies within 10 minutes, 3 a week. Week 4: stops the third follow-up because nobody replied, dropped. Week 6: adds a two-line customer story to the first email, 6 a week, target hit.</figcaption>
+      </figure>
       <p class="frame-caption"><b>An example goal.</b> You set the number. The agent keeps changing its approach, and keeps what works, until it gets there.</p>
     </section>
 

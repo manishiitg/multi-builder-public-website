@@ -642,3 +642,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .tpl-grid { gap: 12px; background: transparent; border: 0; border-radius: 0; overflow: visible; }
 .tpl { border: 1px solid var(--line); border-radius: var(--radius-lg); }
 .tpl:hover { border-color: var(--line-2); box-shadow: var(--shadow-lg); }
+
+/* ---------- Hero video ---------- */
+.hero-video { max-width: 1120px; margin: 64px auto 0; padding: 0 var(--gutter); }
+.hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 24px; border: 1px solid var(--line); background: #fbfbf9; box-shadow: var(--shadow-lg); }
+@media (max-width: 720px) { .hero-video video { aspect-ratio: 3 / 4; border-radius: 18px; } }

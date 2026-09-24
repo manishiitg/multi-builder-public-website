@@ -64,6 +64,13 @@
     if (search) search.addEventListener('input', apply);
   });
 
+  // Hero video: respect reduced motion (the poster frame shows the end state).
+  var heroVideo = document.querySelector('[data-hero-video]');
+  if (heroVideo && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.pause();
+  }
+
   // Reveal on scroll.
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {
