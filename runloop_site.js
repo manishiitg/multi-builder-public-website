@@ -8,6 +8,7 @@ const BRAND_ASSETS = {
 const PRODUCT_ASSET_BASE = 'assets/product/';
 const productAsset = name => `${PRODUCT_ASSET_BASE}${name}`;
 const SALES_CALL_URL = 'https://calendly.com/manishiitg/15min';
+const SIGNUP_URL = 'https://app.agentworkshq.com/signup';
 const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/install.sh | bash';
 
 const PRODUCT_ASSETS = {
@@ -317,9 +318,9 @@ function marketingPath(page) {
   const host = window.location.hostname;
   const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
   if (page === 'home') return isLocal ? '/index.html' : '/';
-  if (page === 'usecases') return '/use-cases/';
-  if (page === 'updates') return '/updates/';
-  if (page === 'how') return isLocal ? '/how.html' : '/how/';
+  if (page === 'usecases') return '/agents/';
+  if (page === 'updates') return 'https://github.com/manishiitg/coding-agent-loop/releases';
+  if (page === 'how') return '/product/';
   if (page === 'docs') return '/docs/';
   if (page === 'notfound') return '/404.html';
   return page;
@@ -357,7 +358,9 @@ function ProductLogo() {
 function MarketingNav({ current = 'home' }) {
   const links = [
     { id: 'how', label: 'Product', href: marketingPath('how') },
-    { id: 'usecases', label: 'Use cases', href: marketingPath('usecases') },
+    { id: 'agents', label: 'Agents', href: '/agents/' },
+    { id: 'pricing', label: 'Pricing', href: '/pricing/' },
+    { id: 'enterprise', label: 'Enterprise', href: '/enterprise/' },
     { id: 'docs', label: 'Docs', href: marketingPath('docs') }
   ];
   return h('header', { className: 'mk-nav' },
@@ -375,7 +378,7 @@ function MarketingNav({ current = 'home' }) {
       ),
       h('div', { className: 'mk-nav-actions' },
         h('a', { href: 'https://github.com/manishiitg/coding-agent-loop', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
-        h('a', { className: 'mk-btn mk-btn-small', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call')
+        h('a', { className: 'mk-btn mk-btn-small', href: SIGNUP_URL }, 'Sign up')
       )
     )
   );
@@ -2186,7 +2189,7 @@ function DocsArticlePage({ docPath }) {
     ['Getting started', docsArticleHref('getting-started/README')],
     ['First workflow', docsArticleHref('getting-started/first-workflow')],
     ['Workflow overview', docsArticleHref('workflow/README')],
-    ['Pulse and reporting', docsArticleHref('workflow/self_improvement_and_reporting')],
+    ['Auto-improve and reporting', docsArticleHref('workflow/self_improvement_and_reporting')],
     ['Auto Improve', docsArticleHref('workflow/auto_improvement_framework')],
     ['Models and agents', docsArticleHref('core/llm_configuration_and_resilience')],
     ['MCP bridge', docsArticleHref('core/mcp_bridge_layer')],
@@ -2292,9 +2295,9 @@ function DocsPage() {
       id: 'improve',
       title: 'Improve every run',
       href: docsArticleHref('workflow/self_improvement_and_reporting'),
-      description: 'Use Pulse, evaluations, run evidence, and saved skills to make the next run more reliable.',
+      description: 'Use goals, evaluations, run evidence, and saved skills to make the next run more reliable.',
       links: [
-        ['Pulse and reporting', 'Understand the fix, report, and improvement loops.', docsArticleHref('workflow/self_improvement_and_reporting')],
+        ['Auto-improve and reporting', 'Understand the fix, report, and improvement loops.', docsArticleHref('workflow/self_improvement_and_reporting')],
         ['Auto Improve', 'Propose changes from measured run evidence.', docsArticleHref('workflow/auto_improvement_framework')],
         ['Evaluations', 'Score workflow outputs against explicit criteria.', docsArticleHref('workflow/evaluation_system')],
         ['Learning architecture', 'Save reusable workflow and step learnings.', docsArticleHref('workflow/learning_architecture')],
@@ -2322,7 +2325,7 @@ function DocsPage() {
       description: 'Roll workflow activity up to goals, coordinate agents, and preserve the context operators want them to reuse.',
       links: [
         ['Organization dashboard', 'Track goals, plans, and workflow progress together.', docsArticleHref('workflow/org_dashboard_design')],
-        ['Org Pulse', 'Summarize cross-workflow health and requests for attention.', docsArticleHref('multiagent/org_pulse_design')],
+        ['Organization overview', 'Summarize cross-workflow health and requests for attention.', docsArticleHref('multiagent/org_pulse_design')],
         ['Sub-agent delegation', 'Delegate bounded work to specialist agents.', docsArticleHref('multiagent/sub_agent_delegation')],
         ['Agent memory', 'Persist useful context across agent sessions.', docsArticleHref('multiagent/agent_memory_system')],
         ['Multi-tab coordination', 'Coordinate parallel agent conversations.', docsArticleHref('multiagent/multi_tab_chat_architecture')]
@@ -2347,7 +2350,7 @@ function DocsPage() {
     ['01', 'Install', 'Choose a workspace and connect a provider.'],
     ['02', 'Build', 'Define the outcome, evidence, and approval boundary.'],
     ['03', 'Run', 'Observe the agent, files, logs, cost, and report.'],
-    ['04', 'Improve', 'Use Pulse and learnings to strengthen the next run.']
+    ['04', 'Improve', 'Use auto-improve and learnings to strengthen the next run.']
   ];
 
   return h('div', { className: 'mk-page mk-docs-page' },
@@ -2363,7 +2366,7 @@ function DocsPage() {
         h('section', { id: 'overview', className: 'mk-doc-hero mk-doc-minimal-hero' },
           h('p', { className: 'mk-kicker' }, 'AgentWorks Docs'),
           h('h1', null, 'Build and operate your first workflow.'),
-          h('p', null, 'Install AgentWorks, connect a worker, schedule a run, inspect its report and Pulse, then improve the next run.'),
+          h('p', null, 'Install AgentWorks, connect a worker, set a goal, schedule a run, inspect its report, then improve the next run.'),
           h('div', { className: 'mk-doc-actions' },
             h('a', { className: 'mk-btn mk-btn-small', href: docsArticleHref('getting-started/first-workflow') }, 'Build the first workflow'),
             h('a', { className: 'mk-text-link', href: docsArticleHref('getting-started/README') }, 'Getting started')
@@ -2928,14 +2931,15 @@ function MarketingFooter() {
     h('div', { className: 'mk-shell mk-footer-grid' },
       h('div', null,
         h(ProductLogo),
-        h('p', null, 'Open-source operating layer for running and improving an AI workforce across your company.')
+        h('p', null, 'AI teammates that own a goal. Open source, hosted for $99 a month, or deployed in your own cloud.')
       ),
       h('div', null,
         h('strong', null, 'Product'),
         h('a', { href: marketingPath('home') }, 'Home'),
-        h('a', { href: marketingPath('usecases') }, 'Use cases'),
-        h('a', { href: marketingPath('updates') }, 'Updates'),
         h('a', { href: marketingPath('how') }, 'Product'),
+        h('a', { href: '/agents/' }, 'Premade agents'),
+        h('a', { href: '/pricing/' }, 'Pricing'),
+        h('a', { href: '/enterprise/' }, 'Enterprise'),
         h('a', { href: marketingPath('docs') }, 'Docs')
       ),
       h('div', null,

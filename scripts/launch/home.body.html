@@ -1,0 +1,407 @@
+  <main id="main">
+    <section class="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="kicker">AI agents for business</p>
+        <h1>Give an AI agent a goal and a metric. <span class="dim">It keeps working until it hits the target.</span></h1>
+        <p class="lede">Book 5 sales demos a week. Get overdue invoices under 5%. AgentWorks plans the work, runs it every day, measures the result and changes the plan until the metric moves.</p>
+        <div class="hero-actions">
+          <a class="btn btn-amber" href="{{SIGNUP}}">Start for $99/month</a>
+          <a class="btn btn-ghost" href="/agents/">Browse premade agents</a>
+        </div>
+        <p class="hero-note">7-day money-back guarantee · Cancel anytime · Open source</p>
+
+        <div class="byo-row" aria-label="Your AI plan powers your AI teammates">
+          <div class="byo-group">
+            <p>The AI plan you already pay for</p>
+            <ul>
+              <li class="chip">{{LOGO:claude}}Claude</li>
+              <li class="chip">{{LOGO:openai}}ChatGPT</li>
+              <li class="chip">{{LOGO:googlegemini}}Gemini</li>
+              <li class="chip">{{LOGO:cursor}}Cursor</li>
+            </ul>
+          </div>
+          <div class="byo-link" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
+          <div class="byo-group">
+            <p>Powers your AI teammates</p>
+            <ul>
+              <li class="chip"><span class="avatar avatar-ava" aria-hidden="true">A</span>Ava</li>
+              <li class="chip"><span class="avatar avatar-rio" aria-hidden="true">R</span>Rio</li>
+              <li class="chip"><span class="avatar avatar-sage" aria-hidden="true">S</span>Sage</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="story" aria-label="Example: an agent working toward a sales goal">
+        <div class="story-card">
+          <div class="story-ask">
+            <span class="avatar avatar-you" aria-hidden="true">Y</span>
+            <p>"Book more sales demos. <b>I want 5 a week.</b>"</p>
+          </div>
+          <ol class="story-steps">
+            <li><time>Week 1</time><p>Emails every new signup within a day.</p><span class="num low">1 a week</span></li>
+            <li><time>Week 3</time><p>Replies within 10 minutes instead of a day.</p><span class="num mid">3 a week</span></li>
+            <li><time>Week 4</time><p>Stops the third follow-up. Nobody ever replied to it.</p><span class="num flat">dropped</span></li>
+            <li><time>Week 6</time><p>Adds a two-line customer story to the first email.</p><span class="num hit">6 a week ✓</span></li>
+            <li><time>Now</time><p>Testing a Monday check-in for signups who went quiet.</p><span class="num next">checks in 7 days</span></li>
+          </ol>
+          <p class="story-foot"><b>9</b> ideas tried · <b>4</b> dropped · the rest kept because they worked</p>
+        </div>
+        <div class="story-chart" aria-hidden="true">
+          <p class="story-big">1 <span>→</span> 6</p>
+          <p class="story-sub">demos booked a week</p>
+          <svg viewBox="0 0 320 150" preserveAspectRatio="none">
+            <defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f5a524" stop-opacity=".35"/><stop offset="1" stop-color="#f5a524" stop-opacity="0"/></linearGradient></defs>
+            <line x1="0" y1="30" x2="320" y2="30" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 5"/>
+            <text x="2" y="22" font-size="11" fill="#047857">goal: 5 a week</text>
+            <path d="M0,130 L53,130 L107,90 L160,95 L213,60 L267,12 L320,18 L320,150 L0,150 Z" fill="url(#sg)"/>
+            <polyline points="0,130 53,130 107,90 160,95 213,60 267,12 320,18" fill="none" stroke="#f5a524" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="267" cy="12" r="5" fill="#f5a524"/>
+          </svg>
+          <p class="story-axis"><span>Week 1</span><span>Week 7</span></p>
+        </div>
+      </div>
+      <p class="frame-caption"><b>An example goal.</b> You set the number. The agent keeps changing its approach, and keeps what works, until it gets there.</p>
+    </section>
+
+    <section class="strip" aria-label="Works with">
+      <div class="wrap strip-row">
+        <p class="strip-label">Works with your tools</p>
+        <div class="marquee">
+          <ul class="marquee-track">
+            <li>Slack</li><li>WhatsApp</li><li>Gmail</li><li>Google Drive</li><li>Google Sheets</li><li>Google Calendar</li><li>Stripe</li><li>Shopify</li><li>QuickBooks</li><li>HubSpot</li><li>Notion</li><li>GitHub</li><li>Linear</li><li>PostHog</li><li>Any MCP server</li><li>Any website, in its own browser</li>
+            <li aria-hidden="true">Slack</li><li aria-hidden="true">WhatsApp</li><li aria-hidden="true">Gmail</li><li aria-hidden="true">Google Drive</li><li aria-hidden="true">Google Sheets</li><li aria-hidden="true">Google Calendar</li><li aria-hidden="true">Stripe</li><li aria-hidden="true">Shopify</li><li aria-hidden="true">QuickBooks</li><li aria-hidden="true">HubSpot</li><li aria-hidden="true">Notion</li><li aria-hidden="true">GitHub</li><li aria-hidden="true">Linear</li><li aria-hidden="true">PostHog</li><li aria-hidden="true">Any MCP server</li><li aria-hidden="true">Any website, in its own browser</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="goals">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Goals</p>
+          <h2>Other agents finish the task. <span class="dim">AgentWorks chases the number.</span></h2>
+          <p class="lede">Chat bots and assistants stop when the job is done. A Goal keeps running, measures what every run changed, and adjusts the plan until the metric moves.</p>
+        </div>
+        <ol class="loop reveal">
+          <li><h3>Set the goal</h3><p>Say what you want in plain words, pick the number that proves it, and set the target.</p></li>
+          <li><h3>Run</h3><p>Agents plan the steps, connect your tools and run on schedule, with your approval on anything that goes out.</p></li>
+          <li><h3>Measure</h3><p>Every run records what happened and moves the metric. You see progress, not activity.</p></li>
+          <li><h3>Improve</h3><p>AgentWorks compares the result with the target, fixes what broke and changes the plan, then runs again.</p></li>
+        </ol>
+        <div class="goal-demo reveal">
+          <div class="goal-spec" aria-label="Example goal">
+            <p class="goal-spec-label">What we're working toward</p>
+            <p class="goal-spec-title">Turn more inbound signups into booked demos.</p>
+            <p class="goal-spec-body">Every run: reply to new signups fast, follow up with the ones who went quiet, try one new idea at a time, measure what it did to bookings, and keep only what works.</p>
+            <div class="goal-spec-metric">
+              <div><small>Primary metric</small><b>Demos booked per week</b></div>
+              <div class="goal-spec-num"><strong>6</strong><span>target 5</span></div>
+            </div>
+            <div class="bar"><i class="w-100"></i></div>
+          </div>
+          <div class="goal-stack">
+            <div class="goal-card"><p class="goal-top"><span class="tag tag-goal">Money · tracking</span><span>target under 5%</span></p><p class="goal-name">Overdue invoices</p><p class="goal-nums"><strong>8.9%</strong><span>from 14%</span></p><div class="bar"><i class="w-62"></i></div></div>
+            <div class="goal-card"><p class="goal-top"><span class="tag tag-ok">Support · target met</span><span>target 15 min</span></p><p class="goal-name">Median first reply</p><p class="goal-nums"><strong>11 min</strong><span>from 3 hours</span></p><div class="bar"><i class="w-100"></i></div></div>
+            <div class="goal-card"><p class="goal-top"><span class="tag tag-goal">Your goal</span><span>you set it</span></p><p class="goal-name">Anything you can measure</p><p class="goal-nums"><strong>?</strong><span>describe it, pick the number</span></p><div class="bar"><i class="w-0"></i></div></div>
+          </div>
+        </div>
+        <p class="frame-caption">Example goals. Numbers are illustrative.</p>
+      </div>
+    </section>
+
+    <section class="section" id="improve">
+      <div class="wrap">
+        <div class="feature">
+          <div class="reveal">
+            <p class="kicker">Auto-improve</p>
+            <h2>It finds what would move the goal. <span class="dim">Then it does it.</span></h2>
+            <p class="lede">After every run, AgentWorks reviews what happened against your goal. It fixes what broke, finds the work nobody is doing, does it, and checks later whether it actually worked.</p>
+            <ul class="points">
+              <li><span><b>Does the missing work.</b> Looks for what would move your goal that nobody is doing, and does it.</span></li>
+              <li><span><b>Shows its reasoning.</b> Every change says what it should move and when it will check.</span></li>
+              <li><span><b>Takes direction.</b> Point it at the areas to explore first. Your goals and rules always win.</span></li>
+            </ul>
+          </div>
+          <div class="explainer reveal" aria-hidden="true">
+            <p class="explainer-title"><span>Did for you</span><span>Demo bookings · this week</span></p>
+            <div class="did">
+              <p><b>Replies were going out 6 hours late.</b> Now answers new signups within 10 minutes.</p>
+              <p class="did-meta"><span class="tag tag-goal">Should move: demos booked</span><span class="tag">Check in 7 days</span></p>
+            </div>
+            <div class="did">
+              <p><b>The third follow-up never got a reply.</b> 40 sent, 0 answers, so it was dropped.</p>
+              <p class="did-meta"><span class="tag">Dropped</span></p>
+            </div>
+            <div class="did">
+              <p><b>The booking link broke after a calendar change.</b> Fixed it and re-sent the 3 invites that failed.</p>
+              <p class="did-meta"><span class="tag tag-ok">Fixed</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="autonomy">
+      <div class="wrap">
+        <div class="feature flip">
+          <div class="reveal">
+            <p class="kicker">Autonomy</p>
+            <h2>You decide how far it goes. <span class="dim">Turn it up as you trust it.</span></h2>
+            <p class="lede">Start with it asking before anything changes. Let it run steps on its own, then edit the workflow itself. It even challenges the rules that hold your goal back, and nothing changes until you answer.</p>
+            <ul class="points">
+              <li><span><b>Challenges your rules.</b> "Is this limit still worth what it costs the goal?" The rule stays until you answer.</span></li>
+              <li><span><b>Schedules its own checks.</b> It picks when to look next, and tells you why.</span></li>
+            </ul>
+          </div>
+          <div class="explainer reveal" aria-hidden="true">
+            <p class="explainer-title"><span>Autonomy</span><span>Run steps</span></p>
+            <div class="slider"><i></i><b></b></div>
+            <div class="slider-labels"><span>Ask first</span><span class="on">Run steps</span><span>Edit workflow</span><span>Full</span></div>
+            <p class="muted slider-note">Runs your workflow steps on its own. Asks before new posts or workflow edits.</p>
+            <div class="row"><span class="tag tag-run"><span class="dot dot-pulse"></span>Next check</span><div class="grow">Tomorrow, 9:00 AM<small>After a full day of new signups, to see whether faster replies booked more demos.</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="crew">
+      <div class="wrap">
+        <div class="feature">
+          <div class="reveal">
+            <p class="kicker sky">Crew</p>
+            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, email.</span></h2>
+            <p class="lede">Crew teammates are always on, each with its own browser, files, tools and memory. Hand one a job in chat, or ask how a goal is doing, and it answers in the channel you asked from.</p>
+            <ul class="points">
+              <li><span><b>Remembers.</b> Your customers, preferences and past decisions carry into every job.</span></li>
+              <li><span><b>Signs in.</b> Uses your tools and websites through its own browser, with credentials from the vault.</span></li>
+              <li><span><b>Reports back.</b> Runs on a schedule and answers in the channel you asked from.</span></li>
+            </ul>
+          </div>
+          <div class="explainer reveal" aria-hidden="true">
+            <p class="explainer-title"><span>Your crew · today</span><span>4 teammates</span></p>
+            <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Finance · chasing 3 invoices</small></div><span class="tag tag-wait">Needs you</span></div>
+            <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Rio<small>Support · 14 replies sent</small></div><span class="tag tag-ok">Done</span></div>
+            <div class="row"><span class="avatar avatar-sage">S</span><div class="grow">Sage<small>Growth · researching 22 leads</small></div><span class="tag tag-run">Working</span></div>
+            <div class="row"><span class="avatar avatar-otto">O</span><div class="grow">Otto<small>Ops · next run 14:00</small></div><span class="tag">Scheduled</span></div>
+          </div>
+        </div>
+        <div class="crew-frame reveal">
+      <div class="frame-wrap frame-wrap-inline">
+        <div class="frame dark" aria-label="Example: Ava, a Crew teammate, chasing invoices and reporting against a goal">
+          <div class="frame-bar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><b># finance</b><span>Slack</span><span class="tag tag-run"><span class="dot dot-pulse"></span>Ava is working</span></div>
+          <div class="frame-body">
+            <div class="frame-side" aria-hidden="true">
+              <span class="grp">Crew</span>
+              <span class="on"><span class="avatar avatar-ava">A</span>Ava · Finance</span>
+              <span><span class="avatar avatar-rio">R</span>Rio · Support</span>
+              <span><span class="avatar avatar-sage">S</span>Sage · Growth</span>
+              <span><span class="avatar avatar-otto">O</span>Otto · Ops</span>
+              <span class="grp">Goals</span>
+              <span>Overdue invoices</span>
+              <span>Lead response time</span>
+              <span>Stuck orders</span>
+            </div>
+            <div class="frame-main">
+              <div class="msg">
+                <span class="avatar avatar-you" aria-hidden="true">Y</span>
+                <div class="msg-body">
+                  <p class="msg-meta"><b>You</b>9:04 AM</p>
+                  <p class="msg-text">@Ava chase everything over 30 days. Go easy on Acme, they're a key account.</p>
+                </div>
+              </div>
+              <div class="msg">
+                <span class="avatar avatar-ava" aria-hidden="true">A</span>
+                <div class="msg-body">
+                  <p class="msg-meta"><b>Ava</b>Finance · Crew · 9:05 AM</p>
+                  <p class="msg-text">Found 3 invoices over 30 days, <b>$18,400</b> in total. Drafted a follow-up for each. Acme gets the softer one.</p>
+                  <ul class="steps-mini">
+                    <li>Read overdue invoices in Stripe</li>
+                    <li>Checked each customer's last emails</li>
+                    <li>Remembered: Acme is a key account</li>
+                  </ul>
+                  <div class="approval">
+                    <p class="approval-head"><span class="dot"></span>Waiting for your yes</p>
+                    <p class="approval-body">Send <b>3 follow-up emails</b> from billing@</p>
+                    <p class="approval-actions"><span class="yes">Approve</span><span>Edit</span><span>Skip</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="frame-aside">
+              <p class="aside-title">Goal</p>
+              <div class="goal-card">
+                <p class="goal-top"><span class="tag tag-goal">On track</span><span>9:30 AM</span></p>
+                <p class="goal-name">Overdue invoices</p>
+                <p class="goal-nums"><strong>8.9%</strong><span>target 5%</span></p>
+                <p class="goal-delta">↓ 2.3 pts this week</p>
+                <svg class="spark" viewBox="0 0 240 44" preserveAspectRatio="none" aria-hidden="true">
+                  <line x1="0" y1="36" x2="240" y2="36" stroke="#3ddc97" stroke-width="1" stroke-dasharray="4 4"/>
+                  <polyline points="0,6 30,9 60,8 90,14 120,17 150,20 180,24 210,26 240,28" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="aside-title">Suggestion</p>
+              <div class="goal-card">
+                <p class="msg-text">Invoices over 60 days rarely pay after a reminder. <b>Offer a payment plan instead?</b></p>
+                <p class="approval-actions"><span class="yes">Yes</span><span>Not now</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agents">
+      <div class="wrap" data-tpl-filter>
+        <div class="section-head reveal">
+          <p class="kicker">Premade agents</p>
+          <h2>Hire an agent that <span class="dim">already knows the job.</span></h2>
+          <p class="lede">Every premade agent comes with its goal, its tools and its guardrails. Install one, answer a few questions, and it starts running.</p>
+        </div>
+        <div class="tabs" role="group" aria-label="Filter agents">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="money" aria-pressed="false">Money</button>
+          <button type="button" data-filter="customers" aria-pressed="false">Customers</button>
+          <button type="button" data-filter="growth" aria-pressed="false">Growth</button>
+          <button type="button" data-filter="ops" aria-pressed="false">Operations</button>
+          <button type="button" data-filter="eng" aria-pressed="false">Engineering</button>
+        </div>
+        <div class="tpl-grid">
+          {{TEMPLATES}}
+          <article class="tpl tpl-create" data-cat="money customers growth ops eng">
+            <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="tpl-cat">Your own</span></div>
+            <h3>Describe any goal</h3>
+            <p>"Keep our Amazon listings in stock." "Book every inbound demo within a day." Tell AgentWorks the outcome and it builds the plan with you.</p>
+            <a class="btn btn-ghost btn-sm" href="{{SIGNUP}}">Start with your goal</a>
+          </article>
+        </div>
+        <div class="tpl-more">
+          <a class="btn btn-ghost" href="/agents/">See all premade agents</a>
+          <span class="muted">Plus 23 engineering playbooks for QA, reliability, security and cloud cost.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap day">
+        <div class="day-side reveal">
+          <p class="kicker">A day with AgentWorks</p>
+          <h2>The work happens. <span class="dim">You make the calls.</span></h2>
+          <p class="lede">Four teammates and three goals, one ordinary Tuesday. Everything that leaves the building waits for your yes.</p>
+          <dl class="day-stats">
+            <div><dt>11</dt><dd>jobs finished</dd></div>
+            <div><dt>3</dt><dd>taps to approve</dd></div>
+            <div><dt>1</dt><dd>question for you</dd></div>
+            <div><dt>0</dt><dd>tabs you opened</dd></div>
+          </dl>
+        </div>
+        <ol class="timeline">
+          <li class="tl reveal"><time>8:00</time><div class="tl-card"><span class="avatar avatar-pulse" aria-hidden="true">P</span><div><p>Weekly Business Report lands in #founders.</p><small>Revenue up 6%. Two anomalies flagged: refunds doubled on one SKU, and a churned annual plan.</small><span class="tag tag-goal">Goal met · on time</span></div></div></li>
+          <li class="tl reveal"><time>9:04</time><div class="tl-card"><span class="avatar avatar-you" aria-hidden="true">Y</span><div><p>You, on WhatsApp: "Chase the overdue invoices. Go easy on Acme."</p><small>Ava drafts three follow-ups from your billing inbox.</small></div></div></li>
+          <li class="tl reveal"><time>9:07</time><div class="tl-card"><span class="avatar avatar-ava" aria-hidden="true">A</span><div><p>You tap Approve. Three emails go out.</p><small>Each one is logged against the Overdue invoices goal.</small><span class="tag tag-ok">Sent</span></div></div></li>
+          <li class="tl reveal"><time>11:30</time><div class="tl-card"><span class="avatar avatar-rio" aria-hidden="true">R</span><div><p>Rio has answered 14 support emails.</p><small>Two refund requests are over your limit, so they're waiting for you with the order attached.</small><span class="tag tag-wait">2 need you</span></div></div></li>
+          <li class="tl reveal"><time>14:10</time><div class="tl-card"><span class="avatar avatar-otto" aria-hidden="true">O</span><div><p>Three Shopify orders stuck in fulfilment.</p><small>Otto emailed the supplier, updated the customers and set a check for tomorrow.</small><span class="tag tag-ok">Resolved</span></div></div></li>
+          <li class="tl reveal"><time>16:45</time><div class="tl-card"><span class="avatar avatar-sage" aria-hidden="true">S</span><div><p>A competitor cut their Pro price by 10%.</p><small>Sage posts a two-line summary and the changed page to #growth.</small></div></div></li>
+          <li class="tl reveal"><time>22:00</time><div class="tl-card"><span class="avatar avatar-pulse" aria-hidden="true">P</span><div><p>AgentWorks reviews today's runs.</p><small>Fixes a broken login in Review Responder and asks you one question: "Offer a payment plan to invoices over 60 days?"</small><span class="tag tag-goal">1 question</span></div></div></li>
+          <li class="tl reveal"><time>7:30</time><div class="tl-card"><span class="avatar avatar-pulse" aria-hidden="true">P</span><div><p>Your morning digest.</p><small>What got done, what moved each goal, and the three things that need you today.</small></div></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="feature flip">
+          <div class="reveal">
+            <p class="kicker">Under your control</p>
+            <h2>Autonomous where it's safe. <span class="dim">Asks where it matters.</span></h2>
+            <p class="lede">You decide how much each teammate and goal can do alone. Anything that reaches a customer waits for your yes until you say otherwise.</p>
+          </div>
+          <div class="explainer reveal" aria-hidden="true">
+            <p class="explainer-title"><span>Needs your approval</span><span>2 pending</span></p>
+            <div class="approval">
+              <p class="approval-head"><span class="dot"></span>Rio · Refund over your $200 limit</p>
+              <p class="approval-body">Refund <b>$340</b> to order #4812. Customer received a damaged item (photo attached).</p>
+              <p class="approval-actions"><span class="yes">Approve</span><span>Edit</span><span>Reject</span></p>
+            </div>
+            <div class="row"><span class="mono">STRIPE_KEY</span><div class="grow"><small>Used by Ava · never shown in chat</small></div><span class="tag">Vault</span></div>
+            <div class="row"><span class="mono">Gmail</span><div class="grow"><small>Ava can draft · sending needs approval</small></div><span class="tag tag-wait">Ask first</span></div>
+            <div class="row"><span class="mono">Shopify</span><div class="grow"><small>Otto can read and update orders</small></div><span class="tag tag-ok">Allowed</span></div>
+          </div>
+        </div>
+        <div class="section-tight">
+          <ul class="control">
+            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Approvals</h3><p>Emails, payments, posts and workflow changes wait for Approve, Edit or Reject. Set limits per teammate.</p></li>
+            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Secrets vault</h3><p>Passwords and API keys are encrypted and injected only at run time. Agents use them without seeing them in chat.</p></li>
+            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><h3>Sandboxed</h3><p>Every agent runs in an OS-enforced sandbox with access only to the folders and tools you grant.</p></li>
+            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span><h3>Full run log</h3><p>Every step, tool call and message is recorded, so you can see exactly what happened and why.</p></li>
+            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Cost per goal</h3><p>Usage and cost per teammate, per goal and per run, not one mystery bill at the end of the month.</p></li>
+            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 11a3 3 0 1 0 0-6M21 20c0-2.5-2-4.3-4.5-4.8"/></svg></span><h3>Roles &amp; sharing</h3><p>Admins, members and read-only users. Share each goal with the people who should see it, and no one else.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="feature">
+          <div class="reveal">
+            <p class="kicker">Bring your own AI</p>
+            <h2>Use the AI plan <span class="dim">you already pay for.</span></h2>
+            <p class="lede">AgentWorks runs on your Claude, ChatGPT, Gemini or Cursor subscription. No credits, no per-task fees, no marked-up tokens.</p>
+            <ol class="numbered">
+              <li><div><b>Connect your plan</b><span>Sign in once with Claude Code, Codex, Cursor or Pi. Or add an API key.</span></div></li>
+              <li><div><b>Match the model to the job</b><span>Your strongest model for judgment, a cheaper one for routine runs.</span></div></li>
+              <li><div><b>Keep working at the limit</b><span>When a plan hits its limit, work pauses and resumes at the reset, or moves to another plan you've connected.</span></div></li>
+            </ol>
+          </div>
+          <div class="explainer reveal" aria-label="Example plan routing">
+            <p class="explainer-title"><span>Connected AI plans</span><span>3 plans · 4 teammates</span></p>
+            <div class="plans">
+              <div class="plan-row">{{LOGO:claude}}<b>Claude Max</b><small>Judgment, planning, customer-facing drafts</small><span class="tag tag-run"><span class="dot"></span>In use</span></div>
+              <div class="plan-row">{{LOGO:openai}}<b>ChatGPT Pro</b><small>Research, reports, routine runs</small><span class="tag tag-run"><span class="dot"></span>In use</span></div>
+              <div class="plan-row">{{LOGO:googlegemini}}<b>Gemini</b><small>Takes over when a plan hits its limit</small><span class="tag">Standby</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="plans">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="kicker">Pricing</p>
+          <h2>One engine. <span class="dim">Three ways to run it.</span></h2>
+          <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud.</p>
+        </div>
+        {{TIERS}}
+        <p class="tpl-more"><a class="btn btn-ghost" href="/pricing/">Compare plans</a><span class="muted">Every plan runs on your own AI subscription.</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap faq-grid">
+        <div class="reveal">
+          <p class="kicker">FAQ</p>
+          <h2 class="h2">Questions, <span class="dim">answered.</span></h2>
+          <p class="muted">Something else? <a href="{{CAL}}" target="_blank" rel="noreferrer">Book 15 minutes with us.</a></p>
+        </div>
+        <div class="faq">
+          {{FAQ}}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2>Hire your first AI teammate <span class="dim">today.</span></h2>
+        <p>Pick a premade agent, connect your tools and set the goal. Ten minutes to set up, on the AI plan you already have.</p>
+        <div class="cta-actions">
+          <a class="btn btn-amber" href="{{SIGNUP}}">Start for $99/month</a>
+          <a class="btn btn-ghost" href="{{CAL}}" target="_blank" rel="noreferrer">Book a demo</a>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -8,13 +8,11 @@ node scripts/sync-product-docs.js --if-available
 
 cp index.html dist/
 cp 404.html dist/
-mkdir -p dist/how
-cp how.html dist/how/index.html
 cp runloop.css dist/
 cp runloop_site.js dist/
 cp secondary.css dist/
-cp workforce.css dist/
-cp workforce.js dist/
+cp launch.css dist/
+cp launch.js dist/
 cp _headers dist/
 cp _redirects dist/
 cp robots.txt dist/
@@ -94,6 +92,11 @@ for asset in "${product_assets[@]}"; do
   cp "assets/product/${asset}" dist/assets/product/
 done
 
+# Launch-page screenshots (optional until captured).
+if [ -d assets/product/launch ]; then
+  cp -R assets/product/launch dist/assets/product/
+fi
+
 storyboard_assets=(
   improve-auto-agent.webp
   improve-goal-advisor.webp
@@ -109,8 +112,10 @@ for asset in "${storyboard_assets[@]}"; do
 done
 cp -R docs dist/docs
 cp -R docs-content dist/docs-content
-cp -R use-cases dist/use-cases
-cp -R updates dist/updates
+cp -R product dist/product
+cp -R pricing dist/pricing
+cp -R enterprise dist/enterprise
+cp -R agents dist/agents
 
 node scripts/generate-agent-content.js
 

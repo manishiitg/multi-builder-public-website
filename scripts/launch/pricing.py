@@ -1,0 +1,125 @@
+Y='<span class="yes" aria-label="Included">✓</span>'
+N='<span class="no" aria-label="Not included">—</span>'
+ROWS=[
+ ("Teammates & goals",None),
+ ("Crew teammates",("Unlimited","Unlimited","Unlimited")),
+ ("Goals with measured targets",(Y,Y,Y)),
+ ("Auto-improvement toward your goals",(Y,Y,Y)),
+ ("Premade business agents",(Y,Y,Y)),
+ ("Engineering playbooks",(Y,Y,Y)),
+ ("Custom playbooks built with you",(N,N,Y)),
+ ("Channels & tools",None),
+ ("Slack and WhatsApp",(Y,Y,Y)),
+ ("Email inbox per teammate",(N,Y,Y)),
+ ("Browser per teammate",("Self-run","Hosted","Your cloud")),
+ ("MCP servers and API tools",(Y,Y,Y)),
+ ("Custom integrations",(N,N,Y)),
+ ("Control & security",None),
+ ("Approvals and autonomy limits",(Y,Y,Y)),
+ ("Encrypted secrets vault",(Y,Y,Y)),
+ ("OS-enforced sandbox",(Y,Y,Y)),
+ ("Run logs and cost per goal",(Y,Y,Y)),
+ ("Roles and per-goal sharing",(Y,Y,Y)),
+ ("SSO (SAML / OIDC) and SCIM",(N,N,Y)),
+ ("Audit log export",(N,N,Y)),
+ ("Deployment & support",None),
+ ("Where it runs","Your Mac or server|AgentWorks cloud|Your VPC or private cloud"),
+ ("Onboarding",("Docs","First goal set up with you","Scoped pilot")),
+ ("Support",("Community","Priority email","Dedicated + SLA")),
+]
+def compare():
+    out=['<div class="compare-wrap"><table class="compare"><caption class="sr-only">Plan comparison</caption><thead><tr><th scope="col">Feature</th><th scope="col">Open source</th><th scope="col">Cloud</th><th scope="col">Enterprise</th></tr></thead><tbody>']
+    for label,vals in ROWS:
+        if vals is None:
+            out.append(f'<tr class="grp"><th scope="rowgroup" colspan="4">{label}</th></tr>'); continue
+        if isinstance(vals,str): vals=vals.split('|')
+        out.append(f'<tr><th scope="row">{label}</th>'+''.join(f'<td>{v}</td>' for v in vals)+'</tr>')
+    out.append('</tbody></table></div>')
+    return '\n        '.join(out)
+
+FAQ_PRICING=[
+ ("What does the $99 cover?","Your hosted workspace, unlimited Crew teammates and goals, a browser and email inbox for every teammate, every premade agent, onboarding for your first goal, and priority support."),
+ ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, or on your own API keys. We never mark up tokens, so your AI bill stays with your provider."),
+ ("Which AI plan should I use?","Light use works on a $20 plan. If teammates run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
+ ("Is there a free trial?","The open-source edition is free forever. Cloud comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),
+ ("Can I cancel anytime?","Yes. Cancel from your workspace settings. You keep access until the end of the billing period and can export your goals, agents and logs."),
+ ("Can I move between open source and Cloud?","Yes. It's the same engine, so goals, agents and playbooks move either way."),
+ ("How is Enterprise priced?","By deployment and scope, as an annual contract. Most teams start with a paid pilot on one engineering goal with agreed success metrics, then expand."),
+]
+
+body=f'''  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="kicker">Pricing</p>
+        <h1>One engine. Three ways to run it.</h1>
+        <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
+        <p class="guarantee">✓ 7-day money-back guarantee on Cloud</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="wrap">
+        {tiers()}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap byo-grid">
+        <div class="reveal">
+          <p class="kicker">What you'll actually pay</p>
+          <h2 class="h2">$99 plus the AI plan you already have.</h2>
+          <p class="lede">No credits to count, no pool that runs dry mid-month, no marked-up tokens. Your Claude, ChatGPT or Gemini plan does the work, and your provider bills you directly.</p>
+          <ol class="numbered">
+            <li><div><b>AgentWorks Cloud: $99/month</b><span>Unlimited teammates and goals, hosting, browsers, inboxes, onboarding and support.</span></div></li>
+            <li><div><b>Your AI plan: $20–$200/month</b><span>Billed by Anthropic, OpenAI, Google or Cursor. Most teams already have one.</span></div></li>
+            <li><div><b>What it replaces</b><span>Hours of chasing, triaging and reporting every week, and the part-time hire you were about to make.</span></div></li>
+          </ol>
+        </div>
+        <div class="plans reveal" aria-label="Example monthly cost">
+          <div class="plan-row"><b>AgentWorks Cloud</b><small>Unlimited teammates and goals</small><span class="tag tag-goal">$99</span></div>
+          <div class="plan-row"><b>Claude Max</b><small>Heavy daily use, billed by Anthropic</small><span class="tag">$100</span></div>
+          <div class="plan-row"><b>Total</b><small>For a team running 4 teammates and 5 goals</small><span class="tag tag-ok">$199/mo</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Compare plans</p>
+          <h2>Everything in each plan.</h2>
+        </div>
+        {compare()}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap faq-grid">
+        <div class="reveal">
+          <p class="kicker">FAQ</p>
+          <h2 class="h2">Pricing questions.</h2>
+          <p class="muted">Still unsure? <a href="{CAL}" target="_blank" rel="noreferrer">Book 15 minutes with us.</a></p>
+        </div>
+        <div class="faq">
+          {faq(FAQ_PRICING)}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-card">
+          <h2>Start with one goal this week.</h2>
+          <p>Pick a premade agent, connect your tools and set the target. If it's not for you, you get your money back.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="{SIGNUP}">Start for $99/month</a>
+            <a class="btn btn-ghost" href="/enterprise/">Enterprise</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+'''
+PRICE_LD={"@type":"WebPage","name":"AgentWorks Pricing","url":"https://agentworkshq.com/pricing/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
+BC=lambda name,path: {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgentWorks","item":"https://agentworkshq.com/"},{"@type":"ListItem","position":2,"name":name,"item":"https://agentworkshq.com"+path}]}
+pages['pricing/index.html']=head('AgentWorks Pricing - Open Source, $99 Cloud, Enterprise','AgentWorks pricing: free and open source, $99/month hosted with unlimited AI agents and goals, or Enterprise in your own cloud. Runs on your own AI plan.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()

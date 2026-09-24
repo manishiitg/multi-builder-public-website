@@ -10,15 +10,16 @@ const siteOrigin = 'https://agentworkshq.com';
 const requiredFiles = [
   'index.html',
   '404.html',
-  'how/index.html',
-  'use-cases/index.html',
-  'updates/index.html',
+  'product/index.html',
   'docs/index.html',
   'runloop.css',
   'runloop_site.js',
   'secondary.css',
-  'workforce.css',
-  'workforce.js',
+  'launch.css',
+  'launch.js',
+  'pricing/index.html',
+  'enterprise/index.html',
+  'agents/index.html',
   '_headers',
   '_redirects',
   'robots.txt',
@@ -45,9 +46,6 @@ const requiredFiles = [
   'docs/workflow/auto_improvement_framework/index.html',
   'assets/fonts/fonts.css',
   'assets/og/agentworks-home-og.jpg',
-  'assets/og/agentworks-how-og.jpg',
-  'assets/og/agentworks-use-cases-og.jpg',
-  'assets/og/agentworks-updates-og.jpg',
   'assets/og/agentworks-docs-og.jpg',
   'assets/og/agentworks-404-og.jpg'
 ];
@@ -56,37 +54,51 @@ const pageExpectations = [
     name: 'home',
     file: 'index.html',
     route: '/index.html',
-    title: 'AgentWorks - Run Your Company with an AI Workforce',
-    h1: 'Run your company with an AI workforce.',
+    title: 'AgentWorks - Goal-Driven AI Agents for Business',
+    h1: 'Give an AI agent a goal and a metric. It keeps working until it hits the target.',
     canonical: 'https://agentworkshq.com/',
-    ogImage: 'assets/og/agentworks-home-og.jpg'
+    ogImage: 'assets/og/agentworks-home-og.jpg',
+    allowTallSections: true
   },
   {
-    name: 'how',
-    file: 'how/index.html',
-    route: '/how/',
-    title: 'AgentWorks Product - Operating Loop for AI Workflows',
-    h1: 'The agent stops. The workflow should keep improving.',
-    canonical: 'https://agentworkshq.com/how/',
-    ogImage: 'assets/og/agentworks-how-og.jpg'
+    name: 'pricing',
+    file: 'pricing/index.html',
+    route: '/pricing/',
+    title: 'AgentWorks Pricing - Open Source, $99 Cloud, Enterprise',
+    h1: 'One engine. Three ways to run it.',
+    canonical: 'https://agentworkshq.com/pricing/',
+    ogImage: 'assets/og/agentworks-pricing-og.jpg',
+    allowTallSections: true
   },
   {
-    name: 'usecases',
-    file: 'use-cases/index.html',
-    route: '/use-cases/',
-    title: 'AgentWorks Use Cases - AI Workflows Across Your Company',
-    h1: 'One AI workforce. Every function.',
-    canonical: 'https://agentworkshq.com/use-cases/',
-    ogImage: 'assets/og/agentworks-use-cases-og.jpg'
+    name: 'enterprise',
+    file: 'enterprise/index.html',
+    route: '/enterprise/',
+    title: 'AgentWorks Enterprise - Agentic Engineering Operations',
+    h1: 'Agentic engineering operations, in your own cloud.',
+    canonical: 'https://agentworkshq.com/enterprise/',
+    ogImage: 'assets/og/agentworks-enterprise-og.jpg',
+    allowTallSections: true
   },
   {
-    name: 'updates',
-    file: 'updates/index.html',
-    route: '/updates/',
-    title: 'AgentWorks Updates - Shipping the Agent Operating Loop',
-    h1: 'Shipping proof for the agent operating loop.',
-    canonical: 'https://agentworkshq.com/updates/',
-    ogImage: 'assets/og/agentworks-updates-og.jpg'
+    name: 'agents',
+    file: 'agents/index.html',
+    route: '/agents/',
+    title: 'AgentWorks Premade Agents - Ready-Made AI Teammates and Goals',
+    h1: 'Premade agents, ready to start today.',
+    canonical: 'https://agentworkshq.com/agents/',
+    ogImage: 'assets/og/agentworks-agents-og.jpg',
+    allowTallSections: true
+  },
+  {
+    name: 'product',
+    file: 'product/index.html',
+    route: '/product/',
+    title: 'AgentWorks Product - Goals, Auto-improve and Crew',
+    h1: "One goal. One metric. An agent that doesn't stop at done.",
+    canonical: 'https://agentworkshq.com/product/',
+    ogImage: 'assets/og/agentworks-product-og.jpg',
+    allowTallSections: true
   },
   {
     name: 'docs',
@@ -102,7 +114,7 @@ const pageExpectations = [
     file: '404.html',
     route: '/404.html',
     title: 'Page Not Found - AgentWorks',
-    h1: 'This run does not have a page.',
+    h1: "This page isn't here. Your goals still are.",
     canonical: 'https://agentworkshq.com/404.html',
     ogImage: 'assets/og/agentworks-404-og.jpg'
   }
@@ -257,7 +269,7 @@ function assertReferencedAssetsExist() {
     assertFileExists(`assets/product/${match[1]}`);
   }
 
-  for (const file of ['index.html', '404.html', 'how/index.html', 'use-cases/index.html', 'updates/index.html', 'docs/index.html', 'assets/fonts/fonts.css']) {
+  for (const file of ['index.html', '404.html', 'product/index.html', 'docs/index.html', 'pricing/index.html', 'enterprise/index.html', 'agents/index.html', 'assets/fonts/fonts.css']) {
     const text = readDist(file);
     const resolvesFromRoot = /<base\s+href=["']\/["']/.test(text);
     const matches = [
@@ -315,7 +327,8 @@ function assertDeployPayload() {
   for (const icon of manifest.icons) assertFileExists(stripUrlSuffix(icon.src).replace(/^\//, ''));
 
   const redirects = readDist('_redirects');
-  if (!redirects.includes('/automations/:slug/ /how/ 301')) fail('legacy automation redirect missing');
+  if (!redirects.includes('/automations/:slug/ /product/ 301')) fail('legacy automation redirect missing');
+  if (!redirects.includes('/how/ /product/ 301')) fail('legacy product redirect missing');
   if (!redirects.includes('/deploy/ https://github.com/manishiitg/coding-agent-loop/tree/main/deploy 301')) fail('deployment docs redirect missing');
   if (!redirects.includes('/wireframes.html / 301')) fail('wireframes redirect missing');
 
@@ -325,7 +338,7 @@ function assertDeployPayload() {
   }
 
   const llms = readDist('llms.txt');
-  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/use-cases/') || !llms.includes('https://agentworkshq.com/updates/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
+  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/product/') || !llms.includes('https://agentworkshq.com/agents/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
     fail('llms.txt missing canonical AgentWorks content');
   }
 
@@ -335,11 +348,11 @@ function assertDeployPayload() {
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/how/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/agents/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
 
-  for (const file of ['how/index.html', 'use-cases/index.html', 'updates/index.html', 'docs/index.html']) {
+  for (const file of ['docs/index.html']) {
     const html = readDist(file);
     if (!/<div id="root"[^>]*>[\s\S]*<h1>/.test(html)) fail(`${file} lacks initial agent-readable content`);
   }
@@ -484,7 +497,7 @@ async function assertRenderedPages() {
         }
       }
       if (metrics.mediaIssues.length) fail(`${label} media issues:\n${metrics.mediaIssues.join('\n')}`);
-      if (expected.name !== 'home' && metrics.tallSections.length) {
+      if (!expected.allowTallSections && metrics.tallSections.length) {
         const details = metrics.tallSections.map(section =>
           `${section.i}:${section.className}:${section.height}px:${section.text}`
         ).join('\n');
@@ -541,7 +554,7 @@ async function assertRenderedPages() {
     }));
     await missingPage.close();
     if (missingMetrics.title !== 'Page Not Found - AgentWorks') fail('missing route rendered wrong title');
-    if (missingMetrics.h1 !== 'This run does not have a page.') fail('missing route rendered wrong h1');
+    if (missingMetrics.h1 !== "This page isn't here. Your goals still are.") fail('missing route rendered wrong h1');
     if (missingMetrics.manifest !== '/site.webmanifest') fail('missing route manifest link mismatch');
   } finally {
     await browser.close();

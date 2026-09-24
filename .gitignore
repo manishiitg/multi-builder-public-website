@@ -7,3 +7,4 @@ node_modules/
 /review*.png
 /review*.jpg
 /reference-*.png
+__pycache__/

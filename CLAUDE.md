@@ -41,6 +41,10 @@ scribbles.js            Hand-drawn SVG primitives for sketch wireframes
 review/*.png            Static reference screenshots
 ```
 
+## Launch pages (2026-09 SaaS launch)
+
+`index.html`, `pricing/index.html`, `agents/index.html` and `enterprise/index.html` are **generated** by `python3 scripts/launch/build.py` from `scripts/launch/*` (shared header/footer/tiers/FAQ in `partials.py` + `blocks.py`, agent cards in `tpl.py`). Edit the sources and rebuild. Don't hand-edit the output. They use `launch.css` + `launch.js`, not React. Bump `V` in `partials.py` when either asset changes. Signup/login URLs live in `partials.py` (and `SIGNUP_URL` in `runloop_site.js`). Claims that depend on unreleased product work are tracked in `LAUNCH_CHECKLIST.md`. Check it before any production deploy.
+
 ## Production component pattern
 
 `runloop_site.js` uses plain `React.createElement` through the local `h` helper. The production HTML pages load:

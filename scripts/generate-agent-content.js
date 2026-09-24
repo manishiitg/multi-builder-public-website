@@ -120,7 +120,7 @@ function pageTemplate({ title, description, route, rawPath, articleHtml }) {
 <body class="static-doc-body">
 <header class="agent-static-nav">
   <a class="agent-static-brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="32" height="32">AgentWorks</a>
-  <nav aria-label="Documentation"><a href="/docs/">Docs</a><a href="/how/">Product</a><a href="https://github.com/manishiitg/coding-agent-loop">GitHub</a></nav>
+  <nav aria-label="Documentation"><a href="/docs/">Docs</a><a href="/product/">Product</a><a href="https://github.com/manishiitg/coding-agent-loop">GitHub</a></nav>
 </header>
 <main id="main-content" class="static-doc-shell">
   <nav class="static-doc-breadcrumb" aria-label="Breadcrumb"><a href="/">AgentWorks</a><span>/</span><a href="/docs/">Docs</a><span>/</span><span>${escapeHtml(title)}</span></nav>
@@ -174,7 +174,7 @@ const llmsFull = [
   'Open-source repository: https://github.com/manishiitg/coding-agent-loop',
   'Latest release: https://github.com/manishiitg/coding-agent-loop/releases/latest',
   '',
-  'AgentWorks is an open-source operating layer for coordinating, observing, and improving AI workflows across a company. It manages goals, schedules, model and CLI routing, browser and MCP tools, secrets, evidence, costs, Pulse, human approvals, reports, reusable skills, and bounded Auto Improve proposals.',
+  'AgentWorks gives an AI agent a goal and a metric, and it keeps working until it hits the target. It manages goals and metrics, schedules, model and CLI routing, browser and MCP tools, secrets, evidence, costs, human approvals, reports, reusable skills, and auto-improvement of the workflow.',
   '',
   ...renderedDocs.flatMap(doc => [
     `## ${doc.title}`,
@@ -190,9 +190,10 @@ fs.writeFileSync(path.join(dist, 'llms-full.txt'), `${llmsFull.trim()}\n`);
 
 const marketingRoutes = [
   { route: '/', changefreq: 'weekly', priority: '1.0' },
-  { route: '/how/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/use-cases/', changefreq: 'monthly', priority: '0.85' },
-  { route: '/updates/', changefreq: 'weekly', priority: '0.75' },
+  { route: '/pricing/', changefreq: 'monthly', priority: '0.9' },
+  { route: '/agents/', changefreq: 'weekly', priority: '0.9' },
+  { route: '/enterprise/', changefreq: 'monthly', priority: '0.9' },
+  { route: '/product/', changefreq: 'monthly', priority: '0.9' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' }
 ];
 const docRoutes = renderedDocs.map(doc => ({ route: doc.route, changefreq: 'monthly', priority: '0.65' }));
