@@ -26,7 +26,7 @@ body=f'''  <main id="main" data-tpl-filter>
         <div class="tpl-section" data-tpl-section>
           <div class="tpl-section-head">
             <h2>For your business</h2>
-            <p>Included in every plan. Crew agents live in your chat; Goal agents run on their own against a target.</p>
+            <p>Rolling out now, included in every plan. Crew agents live in your chat; Goal agents run on their own against a target.</p>
           </div>
           <div class="tpl-grid">
           {tpl('smb')}
@@ -42,7 +42,7 @@ body=f'''  <main id="main" data-tpl-filter>
           {tpl('eng')}
           </div>
         </div>
-        <p class="empty" data-tpl-empty>No agents match that search. <a href="{SIGNUP}">Describe your goal</a> and we'll build it with you.</p>
+        <p class="empty" data-tpl-empty>No agents match that search. <a href="{SIGNUP}" target="_blank" rel="noreferrer">Describe your goal</a> and we'll build it with you.</p>
       </div>
     </section>
 
@@ -65,7 +65,7 @@ body=f'''  <main id="main" data-tpl-filter>
           <h2>Don't see your goal?</h2>
           <p>Describe the outcome in a sentence. AgentWorks proposes the plan, the tools and the metric, and you approve it.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="{SIGNUP}">Start for $99/month</a>
+            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
             <a class="btn btn-ghost" href="{CAL}" target="_blank" rel="noreferrer">Book a demo</a>
           </div>
         </div>

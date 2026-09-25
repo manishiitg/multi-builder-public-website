@@ -1,9 +1,11 @@
-SIGNUP='https://app.agentworkshq.com/signup'
-LOGIN='https://app.agentworkshq.com/login'
-CAL='https://calendly.com/manishiitg/15min'
+CAL_URL='https://calendly.com/manishiitg/15min'
+# Cloud is not live yet: early access goes through a call. Point this at the app when signup ships.
+SIGNUP=CAL_URL
+LOGIN=None
+CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch10'
+V='launch11'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -71,8 +73,7 @@ def header(active=None):
       </nav>
       <div class="header-actions">
         <a class="link" href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="link" href="{LOGIN}">Log in</a>
-        <a class="btn btn-primary btn-sm" href="{SIGNUP}">Sign up</a>
+        <a class="btn btn-primary btn-sm" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -82,8 +83,7 @@ def header(active=None):
 {mprod}
 {mlinks}
       <a href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="{LOGIN}">Log in</a>
-      <a class="btn btn-primary" href="{SIGNUP}">Sign up for $99/month</a>
+      <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
     </div>
   </header>
 '''
@@ -110,7 +110,7 @@ def footer():
           <h2 class="fh">Plans</h2>
           <ul>
             <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="{SIGNUP}">Cloud sign up</a></li>
+            <li><a href="{SIGNUP}" target="_blank" rel="noreferrer">Cloud early access</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
             <li><a href="{GH}" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>

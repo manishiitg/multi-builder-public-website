@@ -1,5 +1,16 @@
 # SaaS launch checklist (internal, not deployed)
 
+## Decision 2026-09-25: launch the website with Cloud "coming soon"
+
+Cloud is marked **Coming soon**. Every "Get early access" button opens Calendly (`SIGNUP` in `scripts/launch/partials.py`), and there is no Log in link. Business agents that aren't built yet are tagged "Coming soon". That removes signup, billing and hosting from the *website* launch gate. The tables below now gate the **Cloud** launch. To switch over when the app ships:
+
+1. Set `SIGNUP` to the app signup URL, restore the Log in link, and set `SIGNUP_URL` in `runloop_site.js`.
+2. Change the tier badge back from "Coming soon" to "Most popular", and restore the guarantee wording.
+3. Remove `tag-soon` from each agent as it ships (see `AVAILABLE` in `scripts/launch/tpl.py`).
+
+**Still gating the website launch:** push the LICENSE files (see Legal); confirm the Enterprise claims (SSO/SCIM, audit export, SLA) are OK to sell as part of a scoped pilot; add a privacy policy page (it can be short while no payments are taken).
+
+
 The launch pages (`/`, `/pricing/`, `/agents/`, `/enterprise/`) describe AgentWorks as it will be at launch. Each claim below depends on work that is still in flight. Do not deploy to production until every row is done, or its copy is changed or removed.
 
 Status as of 2026-09-24. The code evidence is in `mcp-agent-builder-go`.

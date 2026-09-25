@@ -21,7 +21,7 @@ def tiers(heading='h3'):
             </div>
           </article>
           <article class="tier tier-featured reveal">
-            <span class="tier-badge">Most popular</span>
+            <span class="tier-badge">Coming soon</span>
             <p class="tier-name">Cloud</p>
             <p class="tier-price"><strong>$99</strong><span>/ month</span></p>
             <p class="tier-desc">Everything in open source, hosted and set up for you. Nothing to install.</p>
@@ -35,8 +35,8 @@ def tiers(heading='h3'):
               <li>Priority email support</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-amber btn-block" href="{SIGNUP}">Start for $99/month</a>
-              <small>7-day money-back guarantee · Cancel anytime</small>
+              <a class="btn btn-amber btn-block" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
+              <small>Launching soon · 7-day money-back guarantee at launch</small>
             </div>
           </article>
           <article class="tier reveal">
@@ -61,13 +61,14 @@ def tiers(heading='h3'):
 
 FAQ_HOME=[
  ("Do I need to know how to code?","No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks."),
- ("What's the difference between Crew and Goals?","A Crew teammate does what you ask, when you ask, in Slack, WhatsApp, email or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals."),
+ ("What's the difference between Crew and Goals?","A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals."),
  ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini and Cursor, through Claude Code, Codex, Cursor and Pi. You can also add API keys from OpenAI, Anthropic, Google, AWS Bedrock, Azure or OpenRouter."),
  ("What does the $99 cover, and what else will I pay?","$99 covers your hosted workspace, unlimited teammates and goals, every premade agent, onboarding and support. Your AI plan is billed separately by its provider. Most teams use a plan they already have; heavy use works best on a $100–$200 plan."),
  ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
  ("Is my data used to train AI models?","We don't train on your data. Your AI provider's own policy applies to the prompts sent through your plan, and business plans from the major providers don't train on them either."),
  ("Is AgentWorks really open source?","Yes. The engine is MIT-licensed on GitHub and you can run it free on your Mac or your own server. Cloud is the same engine, hosted and set up for you."),
- ("What if it's not for me?","Cancel anytime. If you cancel in your first 7 days, we refund you in full, no questions asked."),
+ ("When can I start with Cloud?","Cloud is opening in stages. Book a short call and we'll set up your first goal with you. The open-source app is free to download today."),
+ ("What if it's not for me?","When Cloud launches you can cancel anytime, and if you cancel in your first 7 days we refund you in full, no questions asked."),
 ]
 def faq(items, heading=None):
     out=[]

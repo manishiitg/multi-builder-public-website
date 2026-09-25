@@ -31,7 +31,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch10">
+  <link rel="stylesheet" href="/launch.css?v=launch11">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,6 +75,7 @@
           "name": "Cloud",
           "price": "99",
           "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
             "price": "99",
@@ -100,7 +101,7 @@
           "name": "What's the difference between Crew and Goals?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A Crew teammate does what you ask, when you ask, in Slack, WhatsApp, email or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals."
+            "text": "A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals."
           }
         },
         {
@@ -145,10 +146,18 @@
         },
         {
           "@type": "Question",
+          "name": "When can I start with Cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cloud is opening in stages. Book a short call and we'll set up your first goal with you. The open-source app is free to download today."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What if it's not for me?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cancel anytime. If you cancel in your first 7 days, we refund you in full, no questions asked."
+            "text": "When Cloud launches you can cancel anytime, and if you cancel in your first 7 days we refund you in full, no questions asked."
           }
         }
       ]
@@ -174,8 +183,7 @@
       </nav>
       <div class="header-actions">
         <a class="link" href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="link" href="https://app.agentworkshq.com/login">Log in</a>
-        <a class="btn btn-primary btn-sm" href="https://app.agentworkshq.com/signup">Sign up</a>
+        <a class="btn btn-primary btn-sm" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Get early access</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -190,8 +198,7 @@
       <a href="/enterprise/">Enterprise</a>
       <a href="/docs/">Docs</a>
       <a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://app.agentworkshq.com/login">Log in</a>
-      <a class="btn btn-primary" href="https://app.agentworkshq.com/signup">Sign up for $99/month</a>
+      <a class="btn btn-primary" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Get early access</a>
     </div>
   </header>
   <main id="main">
@@ -202,10 +209,10 @@
         <h1>Give an AI agent a goal and a metric. <span class="dim">It keeps working until it hits the target.</span></h1>
         <p class="lede">Book 5 sales demos a week. Get overdue invoices under 5%. AgentWorks plans the work, runs it every day, measures the result and changes the plan until the metric moves.</p>
         <div class="hero-actions">
-          <a class="btn btn-amber" href="https://app.agentworkshq.com/signup">Start for $99/month</a>
-          <a class="btn btn-ghost" href="/agents/">Browse premade agents</a>
+          <a class="btn btn-amber" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Get early access</a>
+          <a class="btn btn-ghost" href="https://github.com/manishiitg/coding-agent-loop/releases/latest" target="_blank" rel="noreferrer">Download free app</a>
         </div>
-        <p class="hero-note">7-day money-back guarantee · Cancel anytime · Open source</p>
+        <p class="hero-note">Cloud launching soon · The open-source app is free today</p>
 
         <div class="byo-row" aria-label="Your AI plan powers your AI teammates">
           <div class="byo-group">
@@ -346,7 +353,7 @@
         <div class="feature">
           <div class="reveal">
             <p class="kicker sky">Crew</p>
-            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, email.</span></h2>
+            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, the app.</span></h2>
             <p class="lede">Crew teammates are always on, each with its own browser, files, tools and memory. Hand one a job in chat, or ask how a goal is doing, and it answers in the channel you asked from.</p>
             <ul class="points">
               <li><span><b>Remembers.</b> Your customers, preferences and past decisions carry into every job.</span></li>
@@ -450,35 +457,35 @@
             <h3>Invoice Chaser</h3>
             <p>Watches Stripe or QuickBooks for overdue invoices and sends polite, escalating follow-ups from your own inbox.</p>
             <p class="tpl-goal"><span>Goal</span>Overdue invoices under 5% of receivables</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
           <article class="tpl" data-cat="money">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span class="tpl-cat">Money</span></div>
             <h3>Weekly Business Report</h3>
             <p>Pulls revenue, orders, pipeline and support numbers into one Monday brief in Slack, with anomalies flagged.</p>
             <p class="tpl-goal"><span>Goal</span>In #founders every Monday by 8am</p>
-            <div class="tpl-foot"><span class="tag tag-goal">Goal</span></div>
+            <div class="tpl-foot"><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
           <article class="tpl" data-cat="customers">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/></svg></span><span class="tpl-cat">Customers</span></div>
             <h3>Inbox Triage</h3>
             <p>Sorts your inbox, answers the routine emails in your voice and leaves only the ones that need you.</p>
             <p class="tpl-goal"><span>Goal</span>90% of inbound answered within 4 business hours</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
           <article class="tpl" data-cat="customers">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><span class="tpl-cat">Customers</span></div>
             <h3>Support First Response</h3>
             <p>Answers support questions on email and WhatsApp from your docs and order history, and hands off anything sensitive.</p>
             <p class="tpl-goal"><span>Goal</span>Median first response under 15 minutes</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
           <article class="tpl" data-cat="growth">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="tpl-cat">Growth</span></div>
             <h3>Lead Follow-up</h3>
             <p>Researches each new lead, writes a personal first email and follows up until they book or say no.</p>
             <p class="tpl-goal"><span>Goal</span>Every new lead contacted within 1 hour</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
           <article class="tpl" data-cat="growth">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><span class="tpl-cat">Growth</span></div>
@@ -492,7 +499,7 @@
             <h3>Order Watchdog</h3>
             <p>Finds Shopify orders stuck in payment, fulfilment or shipping, fixes what it can and tells the customer.</p>
             <p class="tpl-goal"><span>Goal</span>Zero orders stuck more than 24 hours</p>
-            <div class="tpl-foot"><span class="tag tag-goal">Goal</span></div>
+            <div class="tpl-foot"><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
           <article class="tpl" data-cat="eng">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span class="tpl-cat">Engineering</span></div>
@@ -505,7 +512,7 @@
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="tpl-cat">Your own</span></div>
             <h3>Describe any goal</h3>
             <p>"Keep our Amazon listings in stock." "Book every inbound demo within a day." Tell AgentWorks the outcome and it builds the plan with you.</p>
-            <a class="btn btn-ghost btn-sm" href="https://app.agentworkshq.com/signup">Start with your goal</a>
+            <a class="btn btn-ghost btn-sm" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Start with your goal</a>
           </article>
         </div>
         <div class="tpl-more">
@@ -625,7 +632,7 @@
             </div>
           </article>
           <article class="tier tier-featured reveal">
-            <span class="tier-badge">Most popular</span>
+            <span class="tier-badge">Coming soon</span>
             <p class="tier-name">Cloud</p>
             <p class="tier-price"><strong>$99</strong><span>/ month</span></p>
             <p class="tier-desc">Everything in open source, hosted and set up for you. Nothing to install.</p>
@@ -639,8 +646,8 @@
               <li>Priority email support</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-amber btn-block" href="https://app.agentworkshq.com/signup">Start for $99/month</a>
-              <small>7-day money-back guarantee · Cancel anytime</small>
+              <a class="btn btn-amber btn-block" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Get early access</a>
+              <small>Launching soon · 7-day money-back guarantee at launch</small>
             </div>
           </article>
           <article class="tier reveal">
@@ -675,13 +682,14 @@
         </div>
         <div class="faq">
           <details open><summary>Do I need to know how to code?</summary><p>No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks.</p></details>
-          <details><summary>What&#x27;s the difference between Crew and Goals?</summary><p>A Crew teammate does what you ask, when you ask, in Slack, WhatsApp, email or the app. A Goal has a target, like &quot;every lead contacted within an hour&quot;, and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals.</p></details>
+          <details><summary>What&#x27;s the difference between Crew and Goals?</summary><p>A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like &quot;every lead contacted within an hour&quot;, and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals.</p></details>
           <details><summary>Which AI plans can I use?</summary><p>Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini and Cursor, through Claude Code, Codex, Cursor and Pi. You can also add API keys from OpenAI, Anthropic, Google, AWS Bedrock, Azure or OpenRouter.</p></details>
           <details><summary>What does the $99 cover, and what else will I pay?</summary><p>$99 covers your hosted workspace, unlimited teammates and goals, every premade agent, onboarding and support. Your AI plan is billed separately by its provider. Most teams use a plan they already have; heavy use works best on a $100–$200 plan.</p></details>
           <details><summary>Can a teammate send something without me?</summary><p>Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it.</p></details>
           <details><summary>Is my data used to train AI models?</summary><p>We don&#x27;t train on your data. Your AI provider&#x27;s own policy applies to the prompts sent through your plan, and business plans from the major providers don&#x27;t train on them either.</p></details>
           <details><summary>Is AgentWorks really open source?</summary><p>Yes. The engine is MIT-licensed on GitHub and you can run it free on your Mac or your own server. Cloud is the same engine, hosted and set up for you.</p></details>
-          <details><summary>What if it&#x27;s not for me?</summary><p>Cancel anytime. If you cancel in your first 7 days, we refund you in full, no questions asked.</p></details>
+          <details><summary>When can I start with Cloud?</summary><p>Cloud is opening in stages. Book a short call and we&#x27;ll set up your first goal with you. The open-source app is free to download today.</p></details>
+          <details><summary>What if it&#x27;s not for me?</summary><p>When Cloud launches you can cancel anytime, and if you cancel in your first 7 days we refund you in full, no questions asked.</p></details>
         </div>
       </div>
     </section>
@@ -691,7 +699,7 @@
         <h2>Hire your first AI teammate <span class="dim">today.</span></h2>
         <p>Pick a premade agent, connect your tools and set the goal. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
-          <a class="btn btn-amber" href="https://app.agentworkshq.com/signup">Start for $99/month</a>
+          <a class="btn btn-amber" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Get early access</a>
           <a class="btn btn-ghost" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a demo</a>
         </div>
       </div>
@@ -718,7 +726,7 @@
           <h2 class="fh">Plans</h2>
           <ul>
             <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="https://app.agentworkshq.com/signup">Cloud sign up</a></li>
+            <li><a href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Cloud early access</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
             <li><a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>
@@ -746,6 +754,6 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch10"></script>
+  <script src="/launch.js?v=launch11"></script>
 </body>
 </html>

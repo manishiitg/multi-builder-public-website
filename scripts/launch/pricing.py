@@ -41,7 +41,7 @@ FAQ_PRICING=[
  ("What does the $99 cover?","Your hosted workspace, unlimited Crew teammates and goals, a browser and email inbox for every teammate, every premade agent, onboarding for your first goal, and priority support."),
  ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, or on your own API keys. We never mark up tokens, so your AI bill stays with your provider."),
  ("Which AI plan should I use?","Light use works on a $20 plan. If teammates run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
- ("Is there a free trial?","The open-source edition is free forever. Cloud comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),
+ ("Is there a free trial?","The open-source edition is free forever. When Cloud launches it comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),
  ("Can I cancel anytime?","Yes. Cancel from your workspace settings. You keep access until the end of the billing period and can export your goals, agents and logs."),
  ("Can I move between open source and Cloud?","Yes. It's the same engine, so goals, agents and playbooks move either way."),
  ("How is Enterprise priced?","By deployment and scope, as an annual contract. Most teams start with a paid pilot on one engineering goal with agreed success metrics, then expand."),
@@ -53,7 +53,7 @@ body=f'''  <main id="main">
         <p class="kicker">Pricing</p>
         <h1>One engine. Three ways to run it.</h1>
         <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
-        <p class="guarantee">✓ 7-day money-back guarantee on Cloud</p>
+        <p class="guarantee">Cloud is launching soon · Get early access and we'll set up your first goal with you</p>
       </div>
     </section>
 
@@ -110,9 +110,9 @@ body=f'''  <main id="main">
       <div class="wrap">
         <div class="cta-card">
           <h2>Start with one goal this week.</h2>
-          <p>Pick a premade agent, connect your tools and set the target. If it's not for you, you get your money back.</p>
+          <p>Pick a premade agent, connect your tools and set the target. Cloud is launching soon, and early access starts with a short call.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="{SIGNUP}">Start for $99/month</a>
+            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
             <a class="btn btn-ghost" href="/enterprise/">Enterprise</a>
           </div>
         </div>

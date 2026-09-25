@@ -8,7 +8,7 @@ const BRAND_ASSETS = {
 const PRODUCT_ASSET_BASE = 'assets/product/';
 const productAsset = name => `${PRODUCT_ASSET_BASE}${name}`;
 const SALES_CALL_URL = 'https://calendly.com/manishiitg/15min';
-const SIGNUP_URL = 'https://app.agentworkshq.com/signup';
+const SIGNUP_URL = SALES_CALL_URL;
 const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/install.sh | bash';
 
 const PRODUCT_ASSETS = {
@@ -378,7 +378,7 @@ function MarketingNav({ current = 'home' }) {
       ),
       h('div', { className: 'mk-nav-actions' },
         h('a', { href: 'https://github.com/manishiitg/coding-agent-loop', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
-        h('a', { className: 'mk-btn mk-btn-small', href: SIGNUP_URL }, 'Sign up')
+        h('a', { className: 'mk-btn mk-btn-small', href: SIGNUP_URL, target: '_blank', rel: 'noreferrer' }, 'Get early access')
       )
     )
   );
