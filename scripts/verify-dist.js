@@ -456,7 +456,10 @@ async function assertRenderedPages() {
         if (msg.type() === 'error') consoleErrors.push(msg.text());
       });
       page.on('requestfailed', req => {
-        failedRequests.push(`${req.url()} ${req.failure()?.errorText || ''}`);
+        const error = req.failure()?.errorText || '';
+        // Browsers abort in-flight video range requests when the page closes; that is not a broken asset.
+        if (/\.(mp4|webm)(\?|$)/.test(req.url()) && error.includes('ERR_ABORTED')) return;
+        failedRequests.push(`${req.url()} ${error}`);
       });
       const response = await page.goto(`http://127.0.0.1:${port}${expected.route}`, { waitUntil: 'networkidle' });
       if (response?.status() !== 200) fail(`${expected.name} returned ${response?.status()}`);
