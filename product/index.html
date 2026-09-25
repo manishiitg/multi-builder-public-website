@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch16">
+  <link rel="stylesheet" href="/launch.css?v=launch17">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -99,6 +99,14 @@
         },
         {
           "@type": "Question",
+          "name": "Can I use it from ChatGPT or Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. AgentWorks includes an MCP server. Connect it to ChatGPT, Claude, Cowork or any MCP client to check goals, read reports and start runs from that chat. Hosted AI apps connect to your AgentWorks server with a sign-in link."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Does it work with the tools I already use?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -119,7 +127,7 @@
       <nav class="nav" aria-label="Primary">
         <div class="nav-drop is-current" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="product-menu" data-drop-btn>Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-          <div class="nav-panel" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a><a class="pm-item" href="/product/#goals"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>Give an AI agent a goal and a metric. It works until it hits the target.</small></span></a><a class="pm-item" href="/product/#improve"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Auto-improve</b><small>It measures every run and changes its own plan.</small></span></a><a class="pm-item" href="/product/#crew"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crew</b><small>Always-on teammates you talk to in Slack and WhatsApp.</small></span></a></div>
+          <div class="nav-panel" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a><a class="pm-item" href="/product/#goals"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>Give an AI agent a goal and a metric. It works until it hits the target.</small></span></a><a class="pm-item" href="/product/#improve"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Auto-improve</b><small>It measures every run and changes its own plan.</small></span></a><a class="pm-item" href="/product/#crew"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crew</b><small>Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.</small></span></a></div>
         </div>
         <div class="nav-drop" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="enterprise-menu" data-drop-btn>Enterprise <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
@@ -277,12 +285,13 @@
         <div class="feature flip">
           <div class="reveal">
             <p class="kicker sky">Crew</p>
-            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, the app.</span></h2>
+            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, ChatGPT, Claude.</span></h2>
             <p class="lede">Crew teammates are always on. Each has its own browser, files, tools, memory and schedule. Hand one a job in chat, approve what it drafted, or ask how a goal is doing.</p>
             <ul class="points">
               <li><span><b>Remembers.</b> Customers, preferences and past decisions carry into every job.</span></li>
               <li><span><b>Signs in.</b> Uses your web apps through its own browser, with credentials from the vault.</span></li>
               <li><span><b>Reports back.</b> Answers in the channel you asked from, and sends updates by email.</span></li>
+              <li><span><b>From your AI app.</b> Connect ChatGPT, Claude, Cowork or any MCP client to the AgentWorks MCP server to check goals, read reports and start runs. It can read and run; it can't edit your workflows.</span></li>
             </ul>
           </div>
           <div class="explainer reveal" aria-hidden="true">
@@ -301,7 +310,7 @@
           <h2>Built on the tools <span class="dim">you already trust.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><h3>Your AI plan</h3><p>Runs on Claude Code, Codex, Cursor or Pi with the subscription you already have, or on API keys.</p></li>
+          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><h3>Your AI plan</h3><p>Runs on Claude Code, Codex, Cursor, Pi or Muse with the subscription you already have, or on API keys.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span><h3>Its own browser</h3><p>A persistent, isolated browser per workflow, so agents can work in any web app you use.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></span><h3>MCP and APIs</h3><p>Connect any MCP server or API. Tools are granted per workflow, not globally.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Secrets vault</h3><p>Encrypted, injected only at run time, never shown in chat or logs.</p></li>
@@ -322,6 +331,7 @@
           <details><summary>What if the metric can&#x27;t be measured automatically?</summary><p>AgentWorks says so. A missing or stale measurement is flagged on the goal instead of guessed, and the agent asks you how to get the number.</p></details>
           <details><summary>Can it change my workflow without asking?</summary><p>Only if you let it. At the default autonomy level it runs steps on its own and asks before posting, sending or editing the workflow. You can move it up or down at any time.</p></details>
           <details><summary>What&#x27;s the difference between a Goal and a Crew teammate?</summary><p>A Goal owns an outcome and keeps working on its own schedule. A Crew teammate is who you talk to: you hand it a job in Slack or WhatsApp, or ask how a goal is doing.</p></details>
+          <details><summary>Can I use it from ChatGPT or Claude?</summary><p>Yes. AgentWorks includes an MCP server. Connect it to ChatGPT, Claude, Cowork or any MCP client to check goals, read reports and start runs from that chat. Hosted AI apps connect to your AgentWorks server with a sign-in link.</p></details>
           <details><summary>Does it work with the tools I already use?</summary><p>Yes. Agents use MCP servers, APIs and their own browser, so anything you can do in a web app, they can do too, with credentials kept in the vault.</p></details>
         </div>
       </div>
@@ -387,6 +397,6 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch16"></script>
+  <script src="/launch.js?v=launch17"></script>
 </body>
 </html>

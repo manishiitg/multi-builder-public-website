@@ -3,6 +3,7 @@ FAQ_PRODUCT=[
  ("What if the metric can't be measured automatically?","AgentWorks says so. A missing or stale measurement is flagged on the goal instead of guessed, and the agent asks you how to get the number."),
  ("Can it change my workflow without asking?","Only if you let it. At the default autonomy level it runs steps on its own and asks before posting, sending or editing the workflow. You can move it up or down at any time."),
  ("What's the difference between a Goal and a Crew teammate?","A Goal owns an outcome and keeps working on its own schedule. A Crew teammate is who you talk to: you hand it a job in Slack or WhatsApp, or ask how a goal is doing."),
+ ("Can I use it from ChatGPT or Claude?","Yes. AgentWorks includes an MCP server. Connect it to ChatGPT, Claude, Cowork or any MCP client to check goals, read reports and start runs from that chat. Hosted AI apps connect to your AgentWorks server with a sign-in link."),
  ("Does it work with the tools I already use?","Yes. Agents use MCP servers, APIs and their own browser, so anything you can do in a web app, they can do too, with credentials kept in the vault."),
 ]
 
@@ -134,12 +135,13 @@ body=f'''  <main id="main">
         <div class="feature flip">
           <div class="reveal">
             <p class="kicker sky">Crew</p>
-            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, the app.</span></h2>
+            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, ChatGPT, Claude.</span></h2>
             <p class="lede">Crew teammates are always on. Each has its own browser, files, tools, memory and schedule. Hand one a job in chat, approve what it drafted, or ask how a goal is doing.</p>
             <ul class="points">
               <li><span><b>Remembers.</b> Customers, preferences and past decisions carry into every job.</span></li>
               <li><span><b>Signs in.</b> Uses your web apps through its own browser, with credentials from the vault.</span></li>
               <li><span><b>Reports back.</b> Answers in the channel you asked from, and sends updates by email.</span></li>
+              <li><span><b>From your AI app.</b> Connect ChatGPT, Claude, Cowork or any MCP client to the AgentWorks MCP server to check goals, read reports and start runs. It can read and run; it can't edit your workflows.</span></li>
             </ul>
           </div>
           <div class="explainer reveal" aria-hidden="true">
@@ -158,7 +160,7 @@ body=f'''  <main id="main">
           <h2>Built on the tools <span class="dim">you already trust.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><h3>Your AI plan</h3><p>Runs on Claude Code, Codex, Cursor or Pi with the subscription you already have, or on API keys.</p></li>
+          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><h3>Your AI plan</h3><p>Runs on Claude Code, Codex, Cursor, Pi or Muse with the subscription you already have, or on API keys.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span><h3>Its own browser</h3><p>A persistent, isolated browser per workflow, so agents can work in any web app you use.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></span><h3>MCP and APIs</h3><p>Connect any MCP server or API. Tools are granted per workflow, not globally.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Secrets vault</h3><p>Encrypted, injected only at run time, never shown in chat or logs.</p></li>

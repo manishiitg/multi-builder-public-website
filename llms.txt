@@ -36,7 +36,7 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
 
 ## Key Concepts
 
-- Agent workers execute tasks: Claude Code, Codex CLI, Cursor, Gemini, browser agents, MCP tools, provider APIs, and shell/terminal sessions.
+- Agent workers execute tasks: Claude Code, Codex CLI, Cursor, Pi, Muse, Gemini, browser agents, MCP tools, provider APIs, and shell/terminal sessions.
 - Every workflow has a goal: an outcome in plain words, a primary metric with a target, supporting metrics, and rules that must stay true.
 - AgentWorks owns the loop around recurring agent work: goal, schedule, model plan, secrets, approval boundary, evidence, cost, report, and next improvement.
 - Auto-improve reviews run evidence against the goal, repairs broken steps, drops approaches that did not work, does missing work, and checks later whether it helped. Autonomy levels (Ask first, Run steps, Edit workflow, Full) decide what it may do without approval.

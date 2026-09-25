@@ -5,7 +5,7 @@ LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch16'
+V='launch17'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -52,7 +52,7 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
 NAV=[('/agents/','Agents','agents'),('/pricing/','Pricing','pricing'),('/enterprise/','Enterprise','enterprise'),('/docs/','Docs','docs')]
 PRODUCT=[('/product/#goals','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/product/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
-         ('/product/#crew','Crew','Always-on teammates you talk to in Slack and WhatsApp.','crew')]
+         ('/product/#crew','Crew','Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.','crew')]
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
         'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'}
