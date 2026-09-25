@@ -126,6 +126,9 @@
 /icon-256.png
   Cache-Control: public, max-age=604800
 
+/icon-512-maskable.png
+  Cache-Control: public, max-age=604800
+
 /robots.txt
   Cache-Control: public, max-age=3600
 

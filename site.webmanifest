@@ -1,12 +1,12 @@
 {
   "name": "AgentWorks",
   "short_name": "AgentWorks",
-  "description": "Open-source desktop control plane for AI and coding-agent fleets.",
+  "description": "Give an AI agent a goal and a metric. It keeps working until it hits the target.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#202020",
-  "theme_color": "#1f1f20",
+  "background_color": "#fbfbf9",
+  "theme_color": "#fbfbf9",
   "icons": [
     {
       "src": "/favicon-32.png",
@@ -14,15 +14,16 @@
       "type": "image/png"
     },
     {
-      "src": "/apple-touch-icon.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
       "src": "/icon-256.png",
       "sizes": "256x256",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

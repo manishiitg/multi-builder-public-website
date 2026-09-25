@@ -24,6 +24,7 @@ cp favicon-16.png dist/
 cp favicon-32.png dist/
 cp apple-touch-icon.png dist/
 cp icon-256.png dist/
+cp icon-512-maskable.png dist/
 
 mkdir -p dist/.well-known
 cp .well-known/mcp-client.json dist/.well-known/
