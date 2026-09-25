@@ -89,7 +89,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ---------- Buttons ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 18px; border-radius: 10px; border: 1px solid transparent; font-weight: 600; font-size: 15px; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
 .btn-primary { background: var(--text); color: var(--bg); }
-.btn-primary:hover { background: #fff; }
+.btn-primary:hover { background: #2c2c34; color: #fff; }
 .btn-amber { background: var(--amber); color: #111; }
 .btn-amber:hover { background: var(--amber-2); }
 .btn-ghost { background: var(--surface); border-color: var(--line-2); color: var(--text); }
@@ -649,3 +649,5 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 24px; border: 1px solid var(--line); background: #fbfbf9; box-shadow: var(--shadow-lg); }
 @media (max-width: 720px) { .hero-video video { aspect-ratio: 3 / 4; border-radius: 18px; } }
 .tag-soon { background: var(--surface-3); color: var(--muted); border-color: transparent; }
+.marquee-track li { display: inline-flex; align-items: center; gap: 9px; }
+.marquee-track li svg { width: 20px; height: 20px; flex: none; }

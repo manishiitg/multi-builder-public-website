@@ -53,7 +53,7 @@ body=f'''  <main id="main">
         <p class="kicker">Pricing</p>
         <h1>One engine. Three ways to run it.</h1>
         <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
-        <p class="guarantee">Cloud is launching soon · Get early access and we'll set up your first goal with you</p>
+        <p class="guarantee">Cloud is launching soon · Book a call and we'll set up your first goal with you</p>
       </div>
     </section>
 
@@ -112,7 +112,7 @@ body=f'''  <main id="main">
           <h2>Start with one goal this week.</h2>
           <p>Pick a premade agent, connect your tools and set the target. Cloud is launching soon, and early access starts with a short call.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
+            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
             <a class="btn btn-ghost" href="/enterprise/">Enterprise</a>
           </div>
         </div>

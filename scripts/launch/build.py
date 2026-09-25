@@ -9,6 +9,7 @@ def fill(s, **kw):
     for k,v in kw.items(): s=s.replace('{{'+k+'}}',v)
     import re
     s=re.sub(r'\{\{LOGO:(\w+)\}\}',lambda m: logo(m.group(1)),s)
+    s=re.sub(r'\{\{TOOL:(\w+)\}\}',lambda m: tool(m.group(1)),s)
     s=re.sub(r'\{\{SHOT:([^|}]+)\|([^|}]+)\|([^|}]+)\|([^}]*)\}\}',lambda m: shot(*m.groups()),s)
     assert '{{' not in s, s[s.index('{{'):s.index('{{')+40]
     return s

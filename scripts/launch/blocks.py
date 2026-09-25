@@ -35,7 +35,7 @@ def tiers(heading='h3'):
               <li>Priority email support</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-amber btn-block" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
+              <a class="btn btn-amber btn-block" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
               <small>Launching soon · 7-day money-back guarantee at launch</small>
             </div>
           </article>

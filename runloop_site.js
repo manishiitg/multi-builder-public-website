@@ -378,7 +378,7 @@ function MarketingNav({ current = 'home' }) {
       ),
       h('div', { className: 'mk-nav-actions' },
         h('a', { href: 'https://github.com/manishiitg/coding-agent-loop', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
-        h('a', { className: 'mk-btn mk-btn-small', href: SIGNUP_URL, target: '_blank', rel: 'noreferrer' }, 'Get early access')
+        h('a', { className: 'mk-btn mk-btn-small', href: SIGNUP_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call')
       )
     )
   );

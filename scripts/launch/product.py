@@ -22,7 +22,7 @@ body=f'''  <main id="main">
         <h1>One goal. One metric. <span class="dim">An agent that doesn't stop at done.</span></h1>
         <p class="lede">Most AI automation finishes a task and waits for the next prompt. AgentWorks gives an agent an outcome to own. It plans the work, runs it on schedule, measures every run and changes its own plan until the metric hits your target.</p>
         <div class="hero-actions">
-          <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
+          <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="/agents/">Browse premade agents</a>
         </div>
       </div>
@@ -185,8 +185,8 @@ body=f'''  <main id="main">
         <h2>Pick one goal. <span class="dim">Watch the number move.</span></h2>
         <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
-          <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
-          <a class="btn btn-ghost" href="{CAL}" target="_blank" rel="noreferrer">Book a demo</a>
+          <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
+          <a class="btn btn-ghost" href="{INSTALL}" target="_blank" rel="noreferrer">Download free app</a>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch13'
+V='launch14'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -73,7 +73,7 @@ def header(active=None):
       </nav>
       <div class="header-actions">
         <a class="link" href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn btn-primary btn-sm" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
+        <a class="btn btn-primary btn-sm" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -83,7 +83,7 @@ def header(active=None):
 {mprod}
 {mlinks}
       <a href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
-      <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Get early access</a>
+      <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
     </div>
   </header>
 '''
@@ -110,7 +110,7 @@ def footer():
           <h2 class="fh">Plans</h2>
           <ul>
             <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="{SIGNUP}" target="_blank" rel="noreferrer">Cloud early access</a></li>
+            <li><a href="/pricing/">Cloud (coming soon)</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
             <li><a href="{GH}" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>
@@ -146,6 +146,12 @@ def footer():
 import os, glob, re as _re
 _ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
 _LOGO_FILL={'claude':'#D97757','openai':'currentColor','googlegemini':'#8E75B2','cursor':'currentColor'}
+_TOOL_FILL={'slack':'#4A154B','whatsapp':'#25D366','gmail':'#EA4335','googledrive':'#4285F4','googlesheets':'#34A853','googlecalendar':'#4285F4','stripe':'#635BFF','shopify':'#7AB55C','quickbooks':'#2CA01C','hubspot':'#FF7A59','notion':'#000000','github':'#181717','linear':'#5E6AD2','posthog':'#F54E00','modelcontextprotocol':'#000000','googlechrome':'#4285F4'}
+def tool(name):
+    svg=open(os.path.join(_ROOT,'assets','brand','tools',name+'.svg')).read()
+    svg=_re.sub(r'<title>.*?</title>','',svg).replace('role="img" ','')
+    return svg.replace('<svg ','<svg aria-hidden="true" fill="%s" '%_TOOL_FILL[name],1)
+
 def logo(name):
     svg=open(os.path.join(_ROOT,'assets','brand','ai',name+'.svg')).read()
     svg=_re.sub(r'<title>.*?</title>','',svg).replace('role="img" ','')
