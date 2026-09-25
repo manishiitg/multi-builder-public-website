@@ -1,3 +1,4 @@
+from uc_data import uc_nav_items
 AREAS=[
  ("Browser QA",8,"Agents that test your product like users do, keep evidence and repair their own tests.",
   ["Critical journey validation","Release and PR quality gate","Authentication and session validation","Role and permission validation","Flaky-test detection and stabilization","Browser test self-healing","Scheduled regression and synthetic monitoring","Basic browser setup"]),
@@ -67,6 +68,17 @@ body=f'''  <main id="main">
         <div class="areas">
           {areas()}
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="use-cases">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Use cases</p>
+          <h2>Start with the goal that hurts most.</h2>
+          <p class="lede">Each use case comes with its playbooks, an example goal and a four-week pilot plan.</p>
+        </div>
+        <div class="uc-grid five">{''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>' for h,t,d,i in uc_nav_items())}</div>
       </div>
     </section>
 

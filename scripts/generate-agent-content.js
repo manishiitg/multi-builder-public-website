@@ -193,6 +193,11 @@ const marketingRoutes = [
   { route: '/pricing/', changefreq: 'monthly', priority: '0.9' },
   { route: '/agents/', changefreq: 'weekly', priority: '0.9' },
   { route: '/enterprise/', changefreq: 'monthly', priority: '0.9' },
+  { route: '/enterprise/release-quality/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/enterprise/incident-response/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/enterprise/security-testing/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/enterprise/cloud-cost/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/enterprise/growth-analytics/', changefreq: 'monthly', priority: '0.8' },
   { route: '/product/', changefreq: 'monthly', priority: '0.9' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' }
 ];

@@ -20,6 +20,11 @@ const requiredFiles = [
   'pricing/index.html',
   'enterprise/index.html',
   'agents/index.html',
+  'enterprise/release-quality/index.html',
+  'enterprise/incident-response/index.html',
+  'enterprise/security-testing/index.html',
+  'enterprise/cloud-cost/index.html',
+  'enterprise/growth-analytics/index.html',
   '_headers',
   '_redirects',
   'robots.txt',
@@ -88,6 +93,16 @@ const pageExpectations = [
     h1: 'Premade agents, ready to start today.',
     canonical: 'https://agentworkshq.com/agents/',
     ogImage: 'assets/og/agentworks-agents-og.jpg',
+    allowTallSections: true
+  },
+  {
+    name: 'uc-release-quality',
+    file: 'enterprise/release-quality/index.html',
+    route: '/enterprise/release-quality/',
+    title: 'AgentWorks for Release Quality - AI QA and Self-Healing Tests',
+    h1: 'No release ships without a QA decision. AI agents own the tests.',
+    canonical: 'https://agentworkshq.com/enterprise/release-quality/',
+    ogImage: 'assets/og/agentworks-enterprise-og.jpg',
     allowTallSections: true
   },
   {
@@ -348,7 +363,7 @@ function assertDeployPayload() {
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/agents/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
 

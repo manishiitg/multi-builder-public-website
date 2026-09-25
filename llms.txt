@@ -9,6 +9,11 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
 - [Premade agents](https://agentworkshq.com/agents/): Ready-made business agents (invoice chasing, inbox triage, support, lead follow-up, Shopify orders, SEO, AI visibility) and 23 engineering playbooks, each with a measurable goal.
 - [Pricing](https://agentworkshq.com/pricing/): Open source ($0), Cloud ($99/month plus your own AI plan; launching soon, with a 7-day money-back guarantee at launch) and Enterprise (custom), with a full plan comparison.
 - [Enterprise](https://agentworkshq.com/enterprise/): Agentic engineering operations for QA, reliability, security, performance and cloud cost, deployed in the customer's cloud, sold as a four-week pilot.
+  - [Release quality](https://agentworkshq.com/enterprise/release-quality/): AI QA, self-healing browser tests and release gates.
+  - [Incident response](https://agentworkshq.com/enterprise/incident-response/): CI triage, evidence-backed RCA, approved remediation and follow-ups.
+  - [Security testing](https://agentworkshq.com/enterprise/security-testing/): authorized AppSec and role/tenant permission testing driven to verified closure.
+  - [Cloud cost](https://agentworkshq.com/enterprise/cloud-cost/): FinOps anomalies, reviewed IaC rightsizing and verified savings.
+  - [Growth analytics](https://agentworkshq.com/enterprise/growth-analytics/): an AI growth analyst for funnels, retention, SEO and AI-search visibility.
 - [Docs](https://agentworkshq.com/docs/): Install command, system map, workflow loop, MCP/tools, browser automation, deployment, security, and reference docs.
 
 ## Machine-Readable Sources

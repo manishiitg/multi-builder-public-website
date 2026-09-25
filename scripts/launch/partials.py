@@ -5,7 +5,7 @@ LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch14'
+V='launch15'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -56,19 +56,28 @@ _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><c
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
         'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'}
 
+def _drop(label, overview, items, menu_id, current):
+    rows=''.join(f'<a class="pm-item" href="{h}"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span><span><b>{t}</b><small>{d}</small></span></a>' for h,t,d,ic in items)
+    oh,ot=overview
+    return f'''        <div class="nav-drop{" is-current" if current else ""}" data-drop>
+          <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="{menu_id}" data-drop-btn>{label} <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="nav-panel" id="{menu_id}"><a class="pm-all" href="{oh}">{ot} <span aria-hidden="true">→</span></a>{rows}</div>
+        </div>'''
+
 def header(active=None):
-    items=''.join(f'<a class="pm-item" href="{h}"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{_PICON[i]}</svg></span><span><b>{t}</b><small>{d}</small></span></a>' for h,t,d,i in PRODUCT)
-    links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV)
+    from uc_data import uc_nav_items
+    prod=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT]
+    ent=uc_nav_items()
+    links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV if k!='enterprise')
     mprod='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in PRODUCT)
-    mlinks='\n'.join(f'      <a href="{h}">{t}</a>' for h,t,k in NAV)
+    ment='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in ent)
+    mlinks='\n'.join(f'      <a href="{h}">{t}</a>' for h,t,k in NAV if k!='enterprise')
     return f'''  <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
-        <div class="nav-drop{" is-current" if active=="product" else ""}" data-drop>
-          <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="product-menu" data-drop-btn>Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-          <div class="nav-panel" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a>{items}</div>
-        </div>
+{_drop('Product',('/product/','How AgentWorks works'),prod,'product-menu',active=='product')}
+{_drop('Enterprise',('/enterprise/','Enterprise overview'),ent,'enterprise-menu',active=='enterprise')}
 {links}
       </nav>
       <div class="header-actions">
@@ -81,6 +90,9 @@ def header(active=None):
       <p class="mm-label">Product</p>
       <a class="sub" href="/product/">Overview</a>
 {mprod}
+      <p class="mm-label">Enterprise</p>
+      <a class="sub" href="/enterprise/">Overview</a>
+{ment}
 {mlinks}
       <a href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
       <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
