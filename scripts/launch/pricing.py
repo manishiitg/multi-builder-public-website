@@ -5,7 +5,7 @@ ROWS=[
  ("Crew teammates",("Unlimited","Unlimited","Unlimited")),
  ("Goals with measured targets",(Y,Y,Y)),
  ("Auto-improvement toward your goals",(Y,Y,Y)),
- ("Premade business agents",(Y,Y,Y)),
+ ("Premade business agents",("Rolling out","Rolling out","Rolling out")),
  ("Engineering playbooks",(Y,Y,Y)),
  ("Custom playbooks built with you",(N,N,Y)),
  ("Channels & tools",None),
@@ -64,21 +64,22 @@ body=f'''  <main id="main">
     </section>
 
     <section class="section">
-      <div class="wrap byo-grid">
+      <div class="wrap feature">
         <div class="reveal">
           <p class="kicker">What you'll actually pay</p>
-          <h2 class="h2">$99 plus the AI plan you already have.</h2>
+          <h2 class="h2">$99 plus the AI plan <span class="dim">you already have.</span></h2>
           <p class="lede">No credits to count, no pool that runs dry mid-month, no marked-up tokens. Your Claude, ChatGPT or Gemini plan does the work, and your provider bills you directly.</p>
           <ol class="numbered">
-            <li><div><b>AgentWorks Cloud: $99/month</b><span>Unlimited teammates and goals, hosting, browsers, inboxes, onboarding and support.</span></div></li>
+            <li><div><b>AgentWorks Cloud: $99/month</b><span>Unlimited teammates and goals, hosting, browsers, onboarding and support.</span></div></li>
             <li><div><b>Your AI plan: $20–$200/month</b><span>Billed by Anthropic, OpenAI, Google or Cursor. Most teams already have one.</span></div></li>
             <li><div><b>What it replaces</b><span>Hours of chasing, triaging and reporting every week, and the part-time hire you were about to make.</span></div></li>
           </ol>
         </div>
-        <div class="plans reveal" aria-label="Example monthly cost">
-          <div class="plan-row"><b>AgentWorks Cloud</b><small>Unlimited teammates and goals</small><span class="tag tag-goal">$99</span></div>
-          <div class="plan-row"><b>Claude Max</b><small>Heavy daily use, billed by Anthropic</small><span class="tag">$100</span></div>
-          <div class="plan-row"><b>Total</b><small>For a team running 4 teammates and 5 goals</small><span class="tag tag-ok">$199/mo</span></div>
+        <div class="explainer reveal" aria-label="Example monthly cost">
+          <p class="explainer-title"><span>Example monthly bill</span><span>4 teammates · 5 goals</span></p>
+          <div class="cost-row"><div><b>AgentWorks Cloud</b><small>Unlimited teammates and goals</small></div><strong>$99</strong></div>
+          <div class="cost-row"><div><b>Claude Max</b><small>Heavy daily use, billed by Anthropic</small></div><strong>$100</strong></div>
+          <div class="cost-row total"><div><b>Total</b><small>No per-task fees or credits</small></div><strong>$199<span>/mo</span></strong></div>
         </div>
       </div>
     </section>
@@ -108,7 +109,7 @@ body=f'''  <main id="main">
 
     <section class="cta">
       <div class="wrap">
-        <div class="cta-card">
+        <div>
           <h2>Start with one goal this week.</h2>
           <p>Pick a premade agent, connect your tools and set the target. Cloud is launching soon, and early access starts with a short call.</p>
           <div class="cta-actions">

@@ -61,7 +61,7 @@ body=f'''  <main id="main" data-tpl-filter>
 
     <section class="cta">
       <div class="wrap">
-        <div class="cta-card">
+        <div>
           <h2>Don't see your goal?</h2>
           <p>Describe the outcome in a sentence. AgentWorks proposes the plan, the tools and the metric, and you approve it.</p>
           <div class="cta-actions">

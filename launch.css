@@ -666,3 +666,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .control li h3:first-child { margin-top: 0; }
 @media (max-width: 1080px) { .uc-grid, .uc-grid.five { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 720px) { .uc-grid, .uc-grid.five { grid-template-columns: 1fr; } }
+
+/* ---------- Pricing cost breakdown ---------- */
+.cost-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); }
+.cost-row b { display: block; font-size: 15px; }
+.cost-row small { display: block; margin-top: 2px; font-size: 13px; color: var(--muted); }
+.cost-row strong { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+.cost-row strong span { font-size: 14px; color: var(--muted); font-weight: 500; }
+.cost-row.total { background: var(--surface); border-color: rgba(245, 165, 36, .45); }
+.cost-row.total strong { color: var(--amber-text); }

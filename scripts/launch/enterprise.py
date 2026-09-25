@@ -159,7 +159,7 @@ body=f'''  <main id="main">
 
     <section class="cta">
       <div class="wrap">
-        <div class="cta-card">
+        <div>
           <h2>Pick the goal. We'll prove it in four weeks.</h2>
           <p>Tell us where engineering time is leaking. We'll bring the playbook and the success metric to the first call.</p>
           <div class="cta-actions">
