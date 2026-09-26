@@ -10,7 +10,7 @@ ROWS=[
  ("Custom playbooks built with you",(N,N,Y)),
  ("Channels & tools",None),
  ("Slack and WhatsApp",(Y,Y,Y)),
- ("Email inbox per teammate",(N,Y,Y)),
+ ("Gmail updates and granted mailbox work",(Y,Y,Y)),
  ("Browser per teammate",("Self-run","Hosted","Your cloud")),
  ("MCP servers and API tools",(Y,Y,Y)),
  ("Custom integrations",(N,N,Y)),
@@ -38,7 +38,7 @@ def compare():
     return '\n        '.join(out)
 
 FAQ_PRICING=[
- ("What does the $99 cover?","Your hosted workspace, unlimited Crew teammates and goals, a browser and email inbox for every teammate, every premade agent, onboarding for your first goal, and priority support."),
+ ("What does the $99 cover?","Your hosted workspace, unlimited Crew teammates and goals, a browser for every teammate, every premade agent, onboarding for your first goal, and priority support."),
  ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
  ("Which AI plan should I use?","Light use works on a $20 plan. If teammates run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
  ("Is there a free trial?","The open-source edition is free forever. Cloud comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),

@@ -29,7 +29,7 @@ def tiers(heading='h3'):
               <li class="head">Everything in Open source, plus</li>
               <li>Unlimited Crew teammates and Goals</li>
               <li>Hosted workspace with a browser per teammate</li>
-              <li>Email inbox for every teammate</li>
+              <li>Gmail updates and mailbox work you grant</li>
               <li>Hand-held onboarding: we set up your first goal with you</li>
               <li>Invite your team with roles</li>
               <li>Priority email support</li>
