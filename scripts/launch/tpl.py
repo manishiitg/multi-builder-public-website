@@ -4,12 +4,12 @@ SMB = [
  ("money","Money","💸","Invoice Chaser","Watches Stripe or QuickBooks for overdue invoices and sends polite, escalating follow-ups from your own inbox.","Overdue invoices under 5% of receivables",["crew","goal"],True),
  ("money","Money","💳","Failed Payment Recovery","Spots failed card payments, retries at the right time and asks customers to update their card before access lapses.","Recover 40% of failed payments",["goal"],False),
  ("money","Money","📊","Weekly Business Report","Pulls revenue, orders, pipeline and support numbers into one Monday brief in Slack, with anomalies flagged.","In #founders every Monday by 8am",["goal"],False),
- ("customers","Customers","📥","Inbox Triage","Sorts your inbox, answers the routine emails in your voice and leaves only the ones that need you.","90% of inbound answered within 4 business hours",["crew","goal"],True),
+ ("customers","Customers","📥","Inbox Triage","Sorts your inbox, answers the routine emails in your voice and leaves only the ones that need you.","90% of inbound answered within 4 business hours",["crew","goal"],False),
  ("customers","Customers","🎧","Support First Response","Answers support questions on email and WhatsApp from your docs and order history, and hands off anything sensitive.","Median first response under 15 minutes",["crew","goal"],False),
  ("customers","Customers","⭐","Review Responder","Replies to every Google and marketplace review, and routes the unhappy ones to you with the order attached.","Every review answered within 48 hours",["goal"],False),
  ("growth","Growth","🎯","Lead Follow-up","Researches each new lead, writes a personal first email and follows up until they book or say no.","Every new lead contacted within 1 hour",["crew","goal"],True),
  ("growth","Growth","🔎","SEO Intelligence","Finds keywords you can win, fixes technical SEO issues and writes page-level briefs, then tracks rankings.","Organic clicks up 15% a quarter",["goal"],True),
- ("growth","Growth","🤖","AI Visibility","Checks whether ChatGPT, Perplexity, Gemini and Google AI Overviews cite you, and closes the gaps.","Cited for your top 20 buyer questions",["goal"],False),
+ ("growth","Growth","🤖","AI Visibility","Checks whether ChatGPT, Perplexity, Gemini and Google AI Overviews cite you, and closes the gaps.","Cited for your top 20 buyer questions",["goal"],True),
  ("growth","Growth","👀","Competitor Watch","Tracks competitors' pricing, launches and messaging, and sends a short digest when something actually changes.","Price changes surfaced within 7 days",["crew","goal"],False),
  ("ops","Operations","📦","Order Watchdog","Finds Shopify orders stuck in payment, fulfilment or shipping, fixes what it can and tells the customer.","Zero orders stuck more than 24 hours",["goal"],True),
  ("ops","Operations","📝","Meeting Notes to Actions","Turns meeting notes into tasks with owners and due dates, and chases them in Slack.","Every action item owned within 1 hour",["crew"],False),
@@ -29,6 +29,8 @@ def card(t, heading='h3'):
     tags=''.join(f'<span class="tag tag-{k}">{"Crew" if k=="crew" else "Goal"}</span>' for k in kinds)
     if cat!='eng' and name not in AVAILABLE:
         tags+='<span class="tag tag-soon">Coming soon</span>'
+    elif name in AVAILABLE:
+        tags+='<span class="tag tag-live">Available now</span>'
     return f'''<article class="tpl" data-cat="{cat}">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ICON[icon]}</svg></span><span class="tpl-cat">{catlabel}</span></div>
             <{heading}>{html.escape(name)}</{heading}>
@@ -39,7 +41,8 @@ def card(t, heading='h3'):
 if __name__=='__main__':
   mode=sys.argv[1]
   if mode=='home':
-    print('\n          '.join(card(t) for t in SMB+ENG if t[7]))
+    # Live agents first, so the homepage leads with what installs today.
+    print('\n          '.join(card(t) for t in sorted((t for t in SMB+ENG if t[7]), key=lambda t: t[3] not in AVAILABLE)))
   elif mode=='smb':
     print('\n          '.join(card(t) for t in SMB))
   elif mode=='eng':
