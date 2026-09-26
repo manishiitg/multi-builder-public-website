@@ -16,6 +16,11 @@ AUTONOMY=[
 def autonomy_levels():
     return '\n          '.join(f'<li class="reveal"><small>Level {i+1}</small><h3>{t}</h3><p>{d}</p></li>' for i,(t,d) in enumerate(AUTONOMY))
 
+import re as _re
+_LAYERS=open('product_layers.html').read()
+_LAYERS=_re.sub(r'\{\{LOGO:(\w+)\}\}',lambda m: logo(m.group(1)),_LAYERS)
+_LAYERS=_re.sub(r'\{\{TOOL:(\w+)\}\}',lambda m: tool(m.group(1)),_LAYERS)
+_LAYERS=_LAYERS.replace('{{SIGNUP}}',SIGNUP).replace('{{CAL}}',CAL)
 body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
@@ -47,9 +52,9 @@ body=f'''  <main id="main">
           <h2>Three layers, <span class="dim">built to run for months.</span></h2>
         </div>
         <ol class="layer-stack reveal" aria-label="The three layers">
-          <li><a href="/#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>Pipelines of deterministic and agentic steps, learnings and a knowledge base, measured against a goal</small></a></li>
-          <li><a href="/#crew"><span>2</span><b>Crews</b><small>An agent with skills, memory, a browser, Slack and WhatsApp, triggers, and calls to other crews</small></a></li>
-          <li><a href="/#engine-agent"><span>1</span><b>Agents</b><small>Vendor-native Claude Code, Codex, Cursor, Pi and Muse in live terminals, with your MCP tools, inside a sandbox</small></a></li>
+          <li><a href="#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>Pipelines of deterministic and agentic steps, learnings and a knowledge base, measured against a goal</small></a></li>
+          <li><a href="#crew"><span>2</span><b>Crews</b><small>An agent with skills, memory, a browser, Slack and WhatsApp, triggers, and calls to other crews</small></a></li>
+          <li><a href="#engine-agent"><span>1</span><b>Agents</b><small>Vendor-native Claude Code, Codex, Cursor, Pi and Muse in live terminals, with your MCP tools, inside a sandbox</small></a></li>
         </ol>
       </div>
     </section>
@@ -144,29 +149,7 @@ body=f'''  <main id="main">
       </div>
     </section>
 
-    <section class="section" id="crew">
-      <div class="wrap">
-        <div class="feature flip">
-          <div class="reveal">
-            <p class="kicker sky">Crew</p>
-            <h2>Talk to it where you work. <span class="dim">Slack, WhatsApp, ChatGPT, Claude.</span></h2>
-            <p class="lede">Crew teammates are always on. Each has its own browser, files, tools, memory and schedule. Hand one a job in chat, approve what it drafted, or ask how a goal is doing.</p>
-            <ul class="points">
-              <li><span><b>Remembers.</b> Customers, preferences and past decisions carry into every job.</span></li>
-              <li><span><b>Signs in.</b> Uses your web apps through its own browser, with credentials from the vault.</span></li>
-              <li><span><b>Reports back.</b> Answers in the channel you asked from, and sends updates by email.</span></li>
-              <li><span><b>From your AI app.</b> Connect ChatGPT, Claude, Cowork or any MCP client to the AgentWorks MCP server to check goals, read reports and start runs. It can read and run; it can't edit your workflows.</span></li>
-            </ul>
-          </div>
-          <div class="explainer reveal" aria-hidden="true">
-            <p class="explainer-title"><span># sales · Slack</span><span>Sage is working</span></p>
-            <div class="msg"><span class="avatar avatar-you">Y</span><div class="msg-body"><p class="msg-meta"><b>You</b>9:04 AM</p><p class="msg-text">@Sage how are demo bookings doing this week?</p></div></div>
-            <div class="msg"><span class="avatar avatar-sage">S</span><div class="msg-body"><p class="msg-meta"><b>Sage</b>Crew · 9:04 AM</p><p class="msg-text"><b>6 booked, target 5.</b> Faster replies did most of it. Two signups asked about pricing, and I've drafted answers for you to approve.</p></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+{_LAYERS}
     <section class="section" id="stack">
       <div class="wrap">
         <div class="section-head reveal">

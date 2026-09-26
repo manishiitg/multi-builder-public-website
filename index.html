@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch26">
+  <link rel="stylesheet" href="/launch.css?v=launch27">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,50 +107,10 @@
         },
         {
           "@type": "Question",
-          "name": "Can I talk to it from ChatGPT or Claude?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Connect ChatGPT, Claude, Cowork or any MCP client to the AgentWorks MCP server, then check goals, read reports and start runs without leaving that chat."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Which AI plans can I use?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does the $99 cover, and what else will I pay?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "$99 covers your hosted workspace, unlimited teammates and goals, every premade agent, onboarding and support. Your AI plan is billed separately by its provider. Most teams use a plan they already have; heavy use works best on a $100–$200 plan."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can a teammate send something without me?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is my data used to train AI models?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We don't train on your data. Your AI provider's own policy applies to the prompts sent through your plan, and business plans from the major providers don't train on them either."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is AgentWorks really open source?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The engine is MIT-licensed on GitHub and you can run it free on your Mac or your own server. Cloud is the same engine, hosted and set up for you."
           }
         },
         {
@@ -163,10 +123,10 @@
         },
         {
           "@type": "Question",
-          "name": "What if it's not for me?",
+          "name": "Can a teammate send something without me?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cancel anytime. If you cancel in your first 7 days, we refund you in full, no questions asked."
+            "text": "Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."
           }
         }
       ]
@@ -302,8 +262,8 @@
           <li><h3>Measure</h3><p>Every run records what happened and moves the metric. You see progress, not activity.</p></li>
           <li><h3>Improve</h3><p>AgentWorks compares the result with the target, fixes what broke and changes the plan, then runs again.</p></li>
         </ol>
-        <div class="goal-demo reveal">
-          <div class="goal-spec" aria-label="Example goal">
+        <div class="goal-pair">
+          <div class="goal-spec reveal" aria-label="Example goal">
             <p class="goal-spec-label">What we're working toward</p>
             <p class="goal-spec-title">Turn more inbound signups into booked demos.</p>
             <p class="goal-spec-body">Every run: reply to new signups fast, follow up with the ones who went quiet, try one new idea at a time, measure what it did to bookings, and keep only what works.</p>
@@ -312,29 +272,6 @@
               <div class="goal-spec-num"><strong>6</strong><span>target 5</span></div>
             </div>
             <div class="bar"><i class="w-100"></i></div>
-          </div>
-          <div class="goal-stack">
-            <div class="goal-card"><p class="goal-top"><span class="tag tag-goal">Money · tracking</span><span>target under 5%</span></p><p class="goal-name">Overdue invoices</p><p class="goal-nums"><strong>8.9%</strong><span>from 14%</span></p><div class="bar"><i class="w-62"></i></div></div>
-            <div class="goal-card"><p class="goal-top"><span class="tag tag-ok">Support · target met</span><span>target 15 min</span></p><p class="goal-name">Median first reply</p><p class="goal-nums"><strong>11 min</strong><span>from 3 hours</span></p><div class="bar"><i class="w-100"></i></div></div>
-            <div class="goal-card"><p class="goal-top"><span class="tag tag-goal">Your goal</span><span>you set it</span></p><p class="goal-name">Anything you can measure</p><p class="goal-nums"><strong>?</strong><span>describe it, pick the number</span></p><div class="bar"><i class="w-0"></i></div></div>
-          </div>
-        </div>
-        <p class="frame-caption">Example goals. Numbers are illustrative.</p>
-      </div>
-    </section>
-
-    <section class="section" id="improve">
-      <div class="wrap">
-        <div class="feature">
-          <div class="reveal">
-            <p class="kicker">Auto-improve</p>
-            <h2>It finds what would move the goal. <span class="dim">Then it does it.</span></h2>
-            <p class="lede">After every run, AgentWorks reviews what happened against your goal. It fixes what broke, finds the work nobody is doing, does it, and checks later whether it actually worked.</p>
-            <ul class="points">
-              <li><span><b>Does the missing work.</b> Looks for what would move your goal that nobody is doing, and does it.</span></li>
-              <li><span><b>Shows its reasoning.</b> Every change says what it should move and when it will check.</span></li>
-              <li><span><b>Takes direction.</b> Point it at the areas to explore first. Your goals and rules always win.</span></li>
-            </ul>
           </div>
           <div class="explainer reveal" aria-hidden="true">
             <p class="explainer-title"><span>Did for you</span><span>Demo bookings · this week</span></p>
@@ -352,108 +289,23 @@
             </div>
           </div>
         </div>
+        <p class="tpl-more"><a class="btn btn-ghost" href="/product/#goals">How goals and auto-improve work</a><span class="muted">Example goal. Numbers are illustrative.</span></p>
       </div>
     </section>
 
-    <section class="section" id="autonomy">
+    <section class="section" id="layers">
       <div class="wrap">
-        <div class="feature flip">
-          <div class="reveal">
-            <p class="kicker">Autonomy</p>
-            <h2>You decide how far it goes. <span class="dim">Turn it up as you trust it.</span></h2>
-            <p class="lede">Start with it asking before anything changes. Let it run steps on its own, then edit the workflow itself. It even challenges the rules that hold your goal back, and nothing changes until you answer.</p>
-            <ul class="points">
-              <li><span><b>Challenges your rules.</b> "Is this limit still worth what it costs the goal?" The rule stays until you answer.</span></li>
-              <li><span><b>Schedules its own checks.</b> It picks when to look next, and tells you why.</span></li>
-            </ul>
-          </div>
-          <div class="explainer reveal" aria-hidden="true">
-            <p class="explainer-title"><span>Autonomy</span><span>Run steps</span></p>
-            <div class="slider"><i></i><b></b></div>
-            <div class="slider-labels"><span>Ask first</span><span class="on">Run steps</span><span>Edit workflow</span><span>Full</span></div>
-            <p class="muted slider-note">Runs your workflow steps on its own. Asks before new posts or workflow edits.</p>
-            <div class="row"><span class="tag tag-run"><span class="dot dot-pulse"></span>Next check</span><div class="grow">Tomorrow, 9:00 AM<small>After a full day of new signups, to see whether faster replies booked more demos.</small></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="engine">
-      <div class="wrap">
-        <div class="section-head reveal">
+        <div class="section-head center reveal">
           <p class="kicker">Under the hood</p>
           <h2>Three layers, <span class="dim">built to run for months.</span></h2>
-          <p class="lede">Workflows decide what to do and how to measure it. Crews are the specialists who do it. Agents are the engines underneath. Each layer is something we had to build properly, not wrap.</p>
+          <p class="lede">Workflows decide what to do and how to measure it. Crews are the specialists who do it. Agents are the engines underneath.</p>
         </div>
         <ol class="layer-stack reveal" aria-label="The three layers">
-          <li><a href="#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>The plan: pipelines of deterministic and agentic steps, measured against a goal</small></a></li>
-          <li><a href="#crew"><span>2</span><b>Crews</b><small>Specialists: an agent with skills, memory, a browser, channels and a schedule</small></a></li>
-          <li><a href="#engine-agent"><span>1</span><b>Agents</b><small>The engine: vendor-native coding agents, your tools, a sandbox</small></a></li>
+          <li><a href="/product/#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>The plan: pipelines of deterministic and agentic steps, measured against a goal</small></a></li>
+          <li><a href="/product/#crew"><span>2</span><b>Crews</b><small>Specialists: an agent with skills, memory, a browser, channels and a schedule</small></a></li>
+          <li><a href="/product/#engine-agent"><span>1</span><b>Agents</b><small>The engine: vendor-native coding agents, your tools, a sandbox</small></a></li>
         </ol>
-        <div class="section-head layer-head reveal" id="engine-agent">
-          <p class="kicker">Layer 1 · Agents</p>
-          <h2>Real agents, not a model <span class="dim">behind a wrapper.</span></h2>
-          <p class="lede">Most AI tools call a model and bolt their own loop around it. AgentWorks runs each vendor's own agent, with the model and the harness its makers built and tuned together, so you get everything the agent can do.</p>
-        </div>
-        <div class="engine reveal" aria-label="How an AgentWorks agent runs">
-          <div class="eng-layer eng-goal"><span class="eng-tag">Your goal</span><b>Demos booked per week · target 5</b><small>AgentWorks plans, schedules, measures and improves</small></div>
-          <div class="eng-arrow" aria-hidden="true"></div>
-          <div class="eng-sandbox">
-            <span class="eng-fence">Sandbox · only the folders this workflow was granted</span>
-            <div class="eng-layer eng-harness"><span class="eng-tag">Native agent in a live terminal</span>
-              <ul class="eng-chips">
-                <li><svg aria-hidden="true" fill="#D97757" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude Code</li><li><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>Codex</li><li><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>Cursor</li><li><span class="mono-logo">P</span>Pi</li><li><span class="mono-logo">M</span>Muse</li>
-              </ul>
-              <small>Model + harness from the company that built it · watch it live, step in anytime</small>
-            </div>
-            <div class="eng-tools">
-              <div><b>MCP servers</b><small>Your tools and AgentWorks' own</small></div>
-              <div><b>Shell &amp; CLIs</b><small>git, gh, cloud CLIs, scripts</small></div>
-              <div><b>Browser</b><small>Its own persistent, isolated session</small></div>
-            </div>
-          </div>
-        </div>
-        <ul class="control engine-points">
-          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></span><h3>The full agent, not just the model</h3><p>Claude Code, Codex, Cursor, Pi and Muse run as themselves in a live terminal session, with the planning and reasoning their makers built. That is also why they run on the subscription you already pay for.</p></li>
-          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Your tools, governed</h3><p>Every agent gets your MCP servers, AgentWorks' own tools, a shell and a browser, granted per workflow. Writes go through AgentWorks' tools, so every change is checked and logged.</p></li>
-          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Walled off from everything else</h3><p>An OS-enforced sandbox (Landlock on Linux, sandbox-exec on macOS) limits each agent to its workflow's folders, with separate read and write access. Your other files, other workflows and machine secrets stay out of reach.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="crew">
-      <div class="wrap">
-        <div class="feature">
-          <div class="reveal">
-            <p class="kicker sky">Layer 2 · Crews</p>
-            <h2>A specialist with a memory, <span class="dim">a desk and a phone.</span></h2>
-            <p class="lede">A crew is an agent turned into a long-lived teammate. It keeps its own workspace, skills and memory, has its own browser, answers in Slack or WhatsApp, runs on schedules, and can call other crews when a job needs a different specialist.</p>
-            <div class="connect-row" aria-label="Where you can talk to a crew">
-              <span class="chip"><svg aria-hidden="true" fill="#4A154B" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Slack</span>
-              <span class="chip"><svg aria-hidden="true" fill="#25D366" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</span>
-              <span class="chip"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>ChatGPT</span>
-              <span class="chip"><svg aria-hidden="true" fill="#D97757" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude &amp; Cowork</span>
-              <span class="chip"><svg aria-hidden="true" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.85 0a4.16 4.16 0 0 0-2.95 1.217L1.456 10.66a.835.835 0 0 0 0 1.18.835.835 0 0 0 1.18 0l9.442-9.442a2.49 2.49 0 0 1 3.541 0 2.49 2.49 0 0 1 0 3.541L8.59 12.97l-.1.1a.835.835 0 0 0 0 1.18.835.835 0 0 0 1.18 0l.1-.098 7.03-7.034a2.49 2.49 0 0 1 3.542 0l.049.05a2.49 2.49 0 0 1 0 3.54l-8.54 8.54a1.96 1.96 0 0 0 0 2.755l1.753 1.753a.835.835 0 0 0 1.18 0 .835.835 0 0 0 0-1.18l-1.753-1.753a.266.266 0 0 1 0-.394l8.54-8.54a4.185 4.185 0 0 0 0-5.9l-.05-.05a4.16 4.16 0 0 0-2.95-1.218c-.2 0-.401.02-.6.048a4.17 4.17 0 0 0-1.17-3.552A4.16 4.16 0 0 0 13.85 0m0 3.333a.84.84 0 0 0-.59.245L6.275 10.56a4.186 4.186 0 0 0 0 5.902 4.186 4.186 0 0 0 5.902 0L19.16 9.48a.835.835 0 0 0 0-1.18.835.835 0 0 0-1.18 0l-6.985 6.984a2.49 2.49 0 0 1-3.54 0 2.49 2.49 0 0 1 0-3.54l6.983-6.985a.835.835 0 0 0 0-1.18.84.84 0 0 0-.59-.245"/></svg>Any MCP client</span>
-            </div>
-          </div>
-          <div class="explainer reveal" aria-hidden="true">
-            <p class="explainer-title"><span>Your crew · today</span><span>4 teammates</span></p>
-            <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Finance · chasing 3 invoices</small></div><span class="tag tag-wait">Needs you</span></div>
-            <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Rio<small>Support · asked Ava about a refund</small></div><span class="tag tag-run">Calling Ava</span></div>
-            <div class="row"><span class="avatar avatar-sage">S</span><div class="grow">Sage<small>Growth · researching 22 leads</small></div><span class="tag tag-run">Working</span></div>
-            <div class="row"><span class="avatar avatar-otto">O</span><div class="grow">Otto<small>Ops · next run 14:00</small></div><span class="tag">Scheduled</span></div>
-          </div>
-        </div>
-        <ul class="anatomy">
-          <li class="reveal"><b>Agent</b><span>Any of the five native agents from Layer 1, inside its sandbox.</span></li>
-          <li class="reveal"><b>Skills</b><span>Picks from your shared skill library and writes its own as it learns the job.</span></li>
-          <li class="reveal"><b>Memory</b><span>A written memory of your customers, preferences and decisions, plus one ongoing conversation that survives restarts.</span></li>
-          <li class="reveal"><b>Workspace</b><span>Its own files, database and live dashboard.</span></li>
-          <li class="reveal"><b>Browser</b><span>Its own managed browser for any web app, with a live view you can watch.</span></li>
-          <li class="reveal"><b>Channels</b><span>Two-way Slack and WhatsApp. Gmail for updates and for mailbox work you grant.</span></li>
-          <li class="reveal"><b>Crew-to-crew</b><span>Crews call each other like colleagues: ask a question or call a typed function, each in its own private thread.</span></li>
-          <li class="reveal"><b>Triggers &amp; schedules</b><span>Runs on schedules, signed webhooks, function calls or a message in chat.</span></li>
-        </ul>
+        <p class="tpl-more center-row"><a class="btn btn-ghost" href="/product/#layers">See how it works</a></p>
       </div>
     </section>
 
@@ -491,57 +343,12 @@
       </div>
     </section>
 
-    <section class="section" id="layer-workflow">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Layer 3 · Workflows &amp; goals</p>
-          <h2>A full plan, not a prompt. <span class="dim">Code where it should be, agents where it matters.</span></h2>
-          <p class="lede">A workflow is the whole operation written down: pipelines of steps, some fixed and deterministic, some handed to an agent or a crew, all measured against one goal. Each run adds to what it knows.</p>
-        </div>
-        <div class="plan reveal" aria-label="Example workflow plan">
-          <div class="plan-head"><b>Book more sales demos</b><span class="tag tag-goal">Goal: 5 demos a week</span></div>
-          <div class="pipe">
-            <p class="pipe-name">Pipeline · New signups</p>
-            <ol>
-              <li class="st det"><small>Deterministic</small><b>Pull new signups</b><em>saved script</em></li>
-              <li class="st agent"><small>Agent</small><b>Research each company</b><em>Claude Code</em></li>
-              <li class="st det"><small>Deterministic</small><b>Route by company size</b><em>rule, no model</em></li>
-              <li class="st crew"><small>Crew</small><b>Sage writes the email</b><em>crew step</em></li>
-              <li class="st human"><small>Approval</small><b>You approve the send</b><em>human step</em></li>
-            </ol>
-          </div>
-          <div class="pipe">
-            <p class="pipe-name">Pipeline · Follow-ups</p>
-            <ol>
-              <li class="st det"><small>Deterministic</small><b>Find quiet signups</b><em>saved script</em></li>
-              <li class="st agent"><small>Agent</small><b>Draft the check-in</b><em>Codex</em></li>
-              <li class="st det"><small>Deterministic</small><b>Log to the goal</b><em>metric update</em></li>
-            </ol>
-          </div>
-          <div class="plan-foot"><span><i class="lg det"></i>Deterministic</span><span><i class="lg agent"></i>Agent</span><span><i class="lg crew"></i>Crew</span><span><i class="lg human"></i>Human approval</span></div>
-        </div>
-        <ul class="control engine-points">
-          <li class="reveal"><h3>Deterministic where it should be</h3><p>Routing is plain code that reads a file, never a model guessing. Steps that repeat can save a script that runs first next time, so a solved problem stays solved and costs nothing.</p></li>
-          <li class="reveal"><h3>Agentic where it matters</h3><p>Research, judgment and writing go to an agent step or to a crew, with the right model for each step and a human approval wherever you want one.</p></li>
-          <li class="reveal"><h3>Learnings &amp; knowledge base</h3><p>Every run writes what it learned into a shared skill, and each workflow keeps a knowledge base that other workflows can read. Run fifty knows what run one had to discover.</p></li>
-        </ul>
-      </div>
-    </section>
-
     <section class="section" id="agents">
       <div class="wrap" data-tpl-filter>
         <div class="section-head reveal">
           <p class="kicker">Premade agents</p>
           <h2>Hire an agent that <span class="dim">already knows the job.</span></h2>
           <p class="lede">Every premade agent comes with its goal, its tools and its guardrails. Install one, answer a few questions, and it starts running.</p>
-        </div>
-        <div class="tabs" role="group" aria-label="Filter agents">
-          <button type="button" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" data-filter="money" aria-pressed="false">Money</button>
-          <button type="button" data-filter="customers" aria-pressed="false">Customers</button>
-          <button type="button" data-filter="growth" aria-pressed="false">Growth</button>
-          <button type="button" data-filter="ops" aria-pressed="false">Operations</button>
-          <button type="button" data-filter="eng" aria-pressed="false">Engineering</button>
         </div>
         <div class="tpl-grid">
           <article class="tpl" data-cat="money">
@@ -551,25 +358,11 @@
             <p class="tpl-goal"><span>Goal</span>Overdue invoices under 5% of receivables</p>
             <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
-          <article class="tpl" data-cat="money">
-            <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span class="tpl-cat">Money</span></div>
-            <h3>Weekly Business Report</h3>
-            <p>Pulls revenue, orders, pipeline and support numbers into one Monday brief in Slack, with anomalies flagged.</p>
-            <p class="tpl-goal"><span>Goal</span>In #founders every Monday by 8am</p>
-            <div class="tpl-foot"><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
-          </article>
           <article class="tpl" data-cat="customers">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/></svg></span><span class="tpl-cat">Customers</span></div>
             <h3>Inbox Triage</h3>
             <p>Sorts your inbox, answers the routine emails in your voice and leaves only the ones that need you.</p>
             <p class="tpl-goal"><span>Goal</span>90% of inbound answered within 4 business hours</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
-          </article>
-          <article class="tpl" data-cat="customers">
-            <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><span class="tpl-cat">Customers</span></div>
-            <h3>Support First Response</h3>
-            <p>Answers support questions on email and WhatsApp from your docs and order history, and hands off anything sensitive.</p>
-            <p class="tpl-goal"><span>Goal</span>Median first response under 15 minutes</p>
             <div class="tpl-foot"><span class="tag tag-crew">Crew</span><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
           <article class="tpl" data-cat="growth">
@@ -593,13 +386,6 @@
             <p class="tpl-goal"><span>Goal</span>Zero orders stuck more than 24 hours</p>
             <div class="tpl-foot"><span class="tag tag-goal">Goal</span><span class="tag tag-soon">Coming soon</span></div>
           </article>
-          <article class="tpl" data-cat="eng">
-            <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span class="tpl-cat">Engineering</span></div>
-            <h3>Release &amp; PR Quality Gate</h3>
-            <p>Binds a build to the browser QA suites it needs and publishes an auditable pass, fail or needs-review decision.</p>
-            <p class="tpl-goal"><span>Goal</span>No release ships without a recorded decision</p>
-            <div class="tpl-foot"><span class="tag tag-goal">Goal</span></div>
-          </article>
           <article class="tpl tpl-create" data-cat="money customers growth ops eng">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="tpl-cat">Your own</span></div>
             <h3>Describe any goal</h3>
@@ -610,90 +396,6 @@
         <div class="tpl-more">
           <a class="btn btn-ghost" href="/agents/">See all premade agents</a>
           <span class="muted">Plus 23 engineering playbooks for QA, reliability, security and cloud cost.</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap day">
-        <div class="day-side reveal">
-          <p class="kicker">A day with AgentWorks</p>
-          <h2>The work happens. <span class="dim">You make the calls.</span></h2>
-          <p class="lede">Four teammates and three goals, one ordinary Tuesday. Everything that leaves the building waits for your yes.</p>
-          <dl class="day-stats">
-            <div><dt>11</dt><dd>jobs finished</dd></div>
-            <div><dt>3</dt><dd>taps to approve</dd></div>
-            <div><dt>1</dt><dd>question for you</dd></div>
-            <div><dt>0</dt><dd>tabs you opened</dd></div>
-          </dl>
-        </div>
-        <ol class="timeline">
-          <li class="tl reveal"><time>8:00</time><div class="tl-card"><span class="avatar avatar-pulse" aria-hidden="true">P</span><div><p>Weekly Business Report lands in #founders.</p><small>Revenue up 6%. Two anomalies flagged: refunds doubled on one SKU, and a churned annual plan.</small><span class="tag tag-goal">Goal met · on time</span></div></div></li>
-          <li class="tl reveal"><time>9:04</time><div class="tl-card"><span class="avatar avatar-you" aria-hidden="true">Y</span><div><p>You, on WhatsApp: "Chase the overdue invoices. Go easy on Acme."</p><small>Ava drafts three follow-ups from your billing inbox.</small></div></div></li>
-          <li class="tl reveal"><time>9:07</time><div class="tl-card"><span class="avatar avatar-ava" aria-hidden="true">A</span><div><p>You tap Approve. Three emails go out.</p><small>Each one is logged against the Overdue invoices goal.</small><span class="tag tag-ok">Sent</span></div></div></li>
-          <li class="tl reveal"><time>11:30</time><div class="tl-card"><span class="avatar avatar-rio" aria-hidden="true">R</span><div><p>Rio has answered 14 support emails.</p><small>Two refund requests are over your limit, so they're waiting for you with the order attached.</small><span class="tag tag-wait">2 need you</span></div></div></li>
-          <li class="tl reveal"><time>14:10</time><div class="tl-card"><span class="avatar avatar-otto" aria-hidden="true">O</span><div><p>Three Shopify orders stuck in fulfilment.</p><small>Otto emailed the supplier, updated the customers and set a check for tomorrow.</small><span class="tag tag-ok">Resolved</span></div></div></li>
-          <li class="tl reveal"><time>16:45</time><div class="tl-card"><span class="avatar avatar-sage" aria-hidden="true">S</span><div><p>A competitor cut their Pro price by 10%.</p><small>Sage posts a two-line summary and the changed page to #growth.</small></div></div></li>
-          <li class="tl reveal"><time>22:00</time><div class="tl-card"><span class="avatar avatar-pulse" aria-hidden="true">P</span><div><p>AgentWorks reviews today's runs.</p><small>Fixes a broken login in Review Responder and asks you one question: "Offer a payment plan to invoices over 60 days?"</small><span class="tag tag-goal">1 question</span></div></div></li>
-          <li class="tl reveal"><time>7:30</time><div class="tl-card"><span class="avatar avatar-pulse" aria-hidden="true">P</span><div><p>Your morning digest.</p><small>What got done, what moved each goal, and the three things that need you today.</small></div></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="feature flip">
-          <div class="reveal">
-            <p class="kicker">Under your control</p>
-            <h2>Autonomous where it's safe. <span class="dim">Asks where it matters.</span></h2>
-            <p class="lede">You decide how much each teammate and goal can do alone. Anything that reaches a customer waits for your yes until you say otherwise.</p>
-          </div>
-          <div class="explainer reveal" aria-hidden="true">
-            <p class="explainer-title"><span>Needs your approval</span><span>2 pending</span></p>
-            <div class="approval">
-              <p class="approval-head"><span class="dot"></span>Rio · Refund over your $200 limit</p>
-              <p class="approval-body">Refund <b>$340</b> to order #4812. Customer received a damaged item (photo attached).</p>
-              <p class="approval-actions"><span class="yes">Approve</span><span>Edit</span><span>Reject</span></p>
-            </div>
-            <div class="row"><span class="mono">STRIPE_KEY</span><div class="grow"><small>Used by Ava · never shown in chat</small></div><span class="tag">Vault</span></div>
-            <div class="row"><span class="mono">Gmail</span><div class="grow"><small>Ava can draft · sending needs approval</small></div><span class="tag tag-wait">Ask first</span></div>
-            <div class="row"><span class="mono">Shopify</span><div class="grow"><small>Otto can read and update orders</small></div><span class="tag tag-ok">Allowed</span></div>
-          </div>
-        </div>
-        <div class="section-tight">
-          <ul class="control">
-            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Approvals</h3><p>Emails, payments, posts and workflow changes wait for Approve, Edit or Reject. Set limits per teammate.</p></li>
-            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Secrets vault</h3><p>Passwords and API keys are encrypted and injected only at run time. Agents use them without seeing them in chat.</p></li>
-            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><h3>Sandboxed</h3><p>Every agent runs in an OS-enforced sandbox with access only to the folders and tools you grant.</p></li>
-            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span><h3>Full run log</h3><p>Every step, tool call and message is recorded, so you can see exactly what happened and why.</p></li>
-            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Cost per goal</h3><p>Usage and cost per teammate, per goal and per run, not one mystery bill at the end of the month.</p></li>
-            <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 11a3 3 0 1 0 0-6M21 20c0-2.5-2-4.3-4.5-4.8"/></svg></span><h3>Roles &amp; sharing</h3><p>Admins, members and read-only users. Share each goal with the people who should see it, and no one else.</p></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="feature">
-          <div class="reveal">
-            <p class="kicker">Bring your own AI</p>
-            <h2>Use the AI plan <span class="dim">you already pay for.</span></h2>
-            <p class="lede">AgentWorks runs on your Claude, ChatGPT, Gemini or Cursor subscription. No credits, no per-task fees, no marked-up tokens.</p>
-            <ol class="numbered">
-              <li><div><b>Connect your plan</b><span>Sign in once with Claude Code, Codex, Cursor, Pi or Muse, using your subscription or that CLI's API key.</span></div></li>
-              <li><div><b>Match the model to the job</b><span>Your strongest model for judgment, a cheaper one for routine runs.</span></div></li>
-              <li><div><b>Keep working at the limit</b><span>When a plan hits its limit, work pauses and resumes at the reset, or moves to another plan you've connected.</span></div></li>
-            </ol>
-          </div>
-          <div class="explainer reveal" aria-label="Example plan routing">
-            <p class="explainer-title"><span>Connected AI plans</span><span>3 plans · 4 teammates</span></p>
-            <div class="plans">
-              <div class="plan-row"><svg aria-hidden="true" fill="#D97757" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg><b>Claude Max</b><small>Judgment, planning, customer-facing drafts</small><span class="tag tag-run"><span class="dot"></span>In use</span></div>
-              <div class="plan-row"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg><b>ChatGPT Pro</b><small>Research, reports, routine runs</small><span class="tag tag-run"><span class="dot"></span>In use</span></div>
-              <div class="plan-row"><svg aria-hidden="true" fill="#8E75B2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg><b>Gemini</b><small>Takes over when a plan hits its limit</small><span class="tag">Standby</span></div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -775,14 +477,9 @@
         <div class="faq">
           <details open><summary>Do I need to know how to code?</summary><p>No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks.</p></details>
           <details><summary>What&#x27;s the difference between Crew and Goals?</summary><p>A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like &quot;every lead contacted within an hour&quot;, and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals.</p></details>
-          <details><summary>Can I talk to it from ChatGPT or Claude?</summary><p>Yes. Connect ChatGPT, Claude, Cowork or any MCP client to the AgentWorks MCP server, then check goals, read reports and start runs without leaving that chat.</p></details>
           <details><summary>Which AI plans can I use?</summary><p>Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor&#x27;s own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers.</p></details>
-          <details><summary>What does the $99 cover, and what else will I pay?</summary><p>$99 covers your hosted workspace, unlimited teammates and goals, every premade agent, onboarding and support. Your AI plan is billed separately by its provider. Most teams use a plan they already have; heavy use works best on a $100–$200 plan.</p></details>
-          <details><summary>Can a teammate send something without me?</summary><p>Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it.</p></details>
-          <details><summary>Is my data used to train AI models?</summary><p>We don&#x27;t train on your data. Your AI provider&#x27;s own policy applies to the prompts sent through your plan, and business plans from the major providers don&#x27;t train on them either.</p></details>
-          <details><summary>Is AgentWorks really open source?</summary><p>Yes. The engine is MIT-licensed on GitHub and you can run it free on your Mac or your own server. Cloud is the same engine, hosted and set up for you.</p></details>
           <details><summary>How do I get Cloud?</summary><p>Book a short call. We onboard teams by hand: we set up your first goal with you, connect your tools, and check in through your first month. The open-source app is free to download today.</p></details>
-          <details><summary>What if it&#x27;s not for me?</summary><p>Cancel anytime. If you cancel in your first 7 days, we refund you in full, no questions asked.</p></details>
+          <details><summary>Can a teammate send something without me?</summary><p>Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it.</p></details>
         </div>
       </div>
     </section>
@@ -847,6 +544,6 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch26"></script>
+  <script src="/launch.js?v=launch27"></script>
 </body>
 </html>

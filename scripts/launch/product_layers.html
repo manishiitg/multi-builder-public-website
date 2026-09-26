@@ -1,0 +1,130 @@
+    <section class="section" id="engine">
+      <div class="wrap">
+        <div class="section-head reveal" id="engine-agent">
+          <p class="kicker">Layer 1 · Agents</p>
+          <h2>Real agents, not a model <span class="dim">behind a wrapper.</span></h2>
+          <p class="lede">Most AI tools call a model and bolt their own loop around it. AgentWorks runs each vendor's own agent, with the model and the harness its makers built and tuned together, so you get everything the agent can do.</p>
+        </div>
+        <div class="engine reveal" aria-label="How an AgentWorks agent runs">
+          <div class="eng-layer eng-goal"><span class="eng-tag">Your goal</span><b>Demos booked per week · target 5</b><small>AgentWorks plans, schedules, measures and improves</small></div>
+          <div class="eng-arrow" aria-hidden="true"></div>
+          <div class="eng-sandbox">
+            <span class="eng-fence">Sandbox · only the folders this workflow was granted</span>
+            <div class="eng-layer eng-harness"><span class="eng-tag">Native agent in a live terminal</span>
+              <ul class="eng-chips">
+                <li>{{LOGO:claude}}Claude Code</li><li>{{LOGO:openai}}Codex</li><li>{{LOGO:cursor}}Cursor</li><li><span class="mono-logo">P</span>Pi</li><li><span class="mono-logo">M</span>Muse</li>
+              </ul>
+              <small>Model + harness from the company that built it · watch it live, step in anytime</small>
+            </div>
+            <div class="eng-tools">
+              <div><b>MCP servers</b><small>Your tools and AgentWorks' own</small></div>
+              <div><b>Shell &amp; CLIs</b><small>git, gh, cloud CLIs, scripts</small></div>
+              <div><b>Browser</b><small>Its own persistent, isolated session</small></div>
+            </div>
+          </div>
+        </div>
+        <ul class="control engine-points">
+          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></span><h3>The full agent, not just the model</h3><p>Claude Code, Codex, Cursor, Pi and Muse run as themselves in a live terminal session, with the planning and reasoning their makers built. That is also why they run on the subscription you already pay for.</p></li>
+          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Your tools, governed</h3><p>Every agent gets your MCP servers, AgentWorks' own tools, a shell and a browser, granted per workflow. Writes go through AgentWorks' tools, so every change is checked and logged.</p></li>
+          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Walled off from everything else</h3><p>An OS-enforced sandbox (Landlock on Linux, sandbox-exec on macOS) limits each agent to its workflow's folders, with separate read and write access. Your other files, other workflows and machine secrets stay out of reach.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="crew">
+      <div class="wrap">
+        <div class="feature">
+          <div class="reveal">
+            <p class="kicker sky">Layer 2 · Crews</p>
+            <h2>A specialist with a memory, <span class="dim">a desk and a phone.</span></h2>
+            <p class="lede">A crew is an agent turned into a long-lived teammate. It keeps its own workspace, skills and memory, has its own browser, answers in Slack or WhatsApp, runs on schedules, and can call other crews when a job needs a different specialist.</p>
+            <div class="connect-row" aria-label="Where you can talk to a crew">
+              <span class="chip">{{TOOL:slack}}Slack</span>
+              <span class="chip">{{TOOL:whatsapp}}WhatsApp</span>
+              <span class="chip">{{LOGO:openai}}ChatGPT</span>
+              <span class="chip">{{LOGO:claude}}Claude &amp; Cowork</span>
+              <span class="chip">{{TOOL:modelcontextprotocol}}Any MCP client</span>
+            </div>
+          </div>
+          <div class="explainer reveal" aria-hidden="true">
+            <p class="explainer-title"><span>Your crew · today</span><span>4 teammates</span></p>
+            <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Finance · chasing 3 invoices</small></div><span class="tag tag-wait">Needs you</span></div>
+            <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Rio<small>Support · asked Ava about a refund</small></div><span class="tag tag-run">Calling Ava</span></div>
+            <div class="row"><span class="avatar avatar-sage">S</span><div class="grow">Sage<small>Growth · researching 22 leads</small></div><span class="tag tag-run">Working</span></div>
+            <div class="row"><span class="avatar avatar-otto">O</span><div class="grow">Otto<small>Ops · next run 14:00</small></div><span class="tag">Scheduled</span></div>
+          </div>
+        </div>
+        <ul class="anatomy">
+          <li class="reveal"><b>Agent</b><span>Any of the five native agents from Layer 1, inside its sandbox.</span></li>
+          <li class="reveal"><b>Skills</b><span>Picks from your shared skill library and writes its own as it learns the job.</span></li>
+          <li class="reveal"><b>Memory</b><span>A written memory of your customers, preferences and decisions, plus one ongoing conversation that survives restarts.</span></li>
+          <li class="reveal"><b>Workspace</b><span>Its own files, database and live dashboard.</span></li>
+          <li class="reveal"><b>Browser</b><span>Its own managed browser for any web app, with a live view you can watch.</span></li>
+          <li class="reveal"><b>Channels</b><span>Two-way Slack and WhatsApp. Gmail for updates and for mailbox work you grant.</span></li>
+          <li class="reveal"><b>Crew-to-crew</b><span>Crews call each other like colleagues: ask a question or call a typed function, each in its own private thread.</span></li>
+          <li class="reveal"><b>Triggers &amp; schedules</b><span>Runs on schedules, signed webhooks, function calls or a message in chat.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="layer-workflow">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Layer 3 · Workflows &amp; goals</p>
+          <h2>A full plan, not a prompt. <span class="dim">Code where it should be, agents where it matters.</span></h2>
+          <p class="lede">A workflow is the whole operation written down: pipelines of steps, some fixed and deterministic, some handed to an agent or a crew, all measured against one goal. Each run adds to what it knows.</p>
+        </div>
+        <div class="plan reveal" aria-label="Example workflow plan">
+          <div class="plan-head"><b>Book more sales demos</b><span class="tag tag-goal">Goal: 5 demos a week</span></div>
+          <div class="pipe">
+            <p class="pipe-name">Pipeline · New signups</p>
+            <ol>
+              <li class="st det"><small>Deterministic</small><b>Pull new signups</b><em>saved script</em></li>
+              <li class="st agent"><small>Agent</small><b>Research each company</b><em>Claude Code</em></li>
+              <li class="st det"><small>Deterministic</small><b>Route by company size</b><em>rule, no model</em></li>
+              <li class="st crew"><small>Crew</small><b>Sage writes the email</b><em>crew step</em></li>
+              <li class="st human"><small>Approval</small><b>You approve the send</b><em>human step</em></li>
+            </ol>
+          </div>
+          <div class="pipe">
+            <p class="pipe-name">Pipeline · Follow-ups</p>
+            <ol>
+              <li class="st det"><small>Deterministic</small><b>Find quiet signups</b><em>saved script</em></li>
+              <li class="st agent"><small>Agent</small><b>Draft the check-in</b><em>Codex</em></li>
+              <li class="st det"><small>Deterministic</small><b>Log to the goal</b><em>metric update</em></li>
+            </ol>
+          </div>
+          <div class="plan-foot"><span><i class="lg det"></i>Deterministic</span><span><i class="lg agent"></i>Agent</span><span><i class="lg crew"></i>Crew</span><span><i class="lg human"></i>Human approval</span></div>
+        </div>
+        <ul class="control engine-points">
+          <li class="reveal"><h3>Deterministic where it should be</h3><p>Routing is plain code that reads a file, never a model guessing. Steps that repeat can save a script that runs first next time, so a solved problem stays solved and costs nothing.</p></li>
+          <li class="reveal"><h3>Agentic where it matters</h3><p>Research, judgment and writing go to an agent step or to a crew, with the right model for each step and a human approval wherever you want one.</p></li>
+          <li class="reveal"><h3>Learnings &amp; knowledge base</h3><p>Every run writes what it learned into a shared skill, and each workflow keeps a knowledge base that other workflows can read. Run fifty knows what run one had to discover.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="feature">
+          <div class="reveal">
+            <p class="kicker">Bring your own AI</p>
+            <h2>Use the AI plan <span class="dim">you already pay for.</span></h2>
+            <p class="lede">AgentWorks runs on your Claude, ChatGPT, Gemini or Cursor subscription. No credits, no per-task fees, no marked-up tokens.</p>
+            <ol class="numbered">
+              <li><div><b>Connect your plan</b><span>Sign in once with Claude Code, Codex, Cursor, Pi or Muse, using your subscription or that CLI's API key.</span></div></li>
+              <li><div><b>Match the model to the job</b><span>Your strongest model for judgment, a cheaper one for routine runs.</span></div></li>
+              <li><div><b>Keep working at the limit</b><span>When a plan hits its limit, work pauses and resumes at the reset, or moves to another plan you've connected.</span></div></li>
+            </ol>
+          </div>
+          <div class="explainer reveal" aria-label="Example plan routing">
+            <p class="explainer-title"><span>Connected AI plans</span><span>3 plans · 4 teammates</span></p>
+            <div class="plans">
+              <div class="plan-row">{{LOGO:claude}}<b>Claude Max</b><small>Judgment, planning, customer-facing drafts</small><span class="tag tag-run"><span class="dot"></span>In use</span></div>
+              <div class="plan-row">{{LOGO:openai}}<b>ChatGPT Pro</b><small>Research, reports, routine runs</small><span class="tag tag-run"><span class="dot"></span>In use</span></div>
+              <div class="plan-row">{{LOGO:googlegemini}}<b>Gemini</b><small>Takes over when a plan hits its limit</small><span class="tag">Standby</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -62,14 +62,9 @@ def tiers(heading='h3'):
 FAQ_HOME=[
  ("Do I need to know how to code?","No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks."),
  ("What's the difference between Crew and Goals?","A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals."),
- ("Can I talk to it from ChatGPT or Claude?","Yes. Connect ChatGPT, Claude, Cowork or any MCP client to the AgentWorks MCP server, then check goals, read reports and start runs without leaving that chat."),
  ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."),
- ("What does the $99 cover, and what else will I pay?","$99 covers your hosted workspace, unlimited teammates and goals, every premade agent, onboarding and support. Your AI plan is billed separately by its provider. Most teams use a plan they already have; heavy use works best on a $100–$200 plan."),
- ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
- ("Is my data used to train AI models?","We don't train on your data. Your AI provider's own policy applies to the prompts sent through your plan, and business plans from the major providers don't train on them either."),
- ("Is AgentWorks really open source?","Yes. The engine is MIT-licensed on GitHub and you can run it free on your Mac or your own server. Cloud is the same engine, hosted and set up for you."),
  ("How do I get Cloud?","Book a short call. We onboard teams by hand: we set up your first goal with you, connect your tools, and check in through your first month. The open-source app is free to download today."),
- ("What if it's not for me?","Cancel anytime. If you cancel in your first 7 days, we refund you in full, no questions asked."),
+ ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
 ]
 def faq(items, heading=None):
     out=[]

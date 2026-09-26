@@ -3,9 +3,9 @@ import html, json, sys
 SMB = [
  ("money","Money","💸","Invoice Chaser","Watches Stripe or QuickBooks for overdue invoices and sends polite, escalating follow-ups from your own inbox.","Overdue invoices under 5% of receivables",["crew","goal"],True),
  ("money","Money","💳","Failed Payment Recovery","Spots failed card payments, retries at the right time and asks customers to update their card before access lapses.","Recover 40% of failed payments",["goal"],False),
- ("money","Money","📊","Weekly Business Report","Pulls revenue, orders, pipeline and support numbers into one Monday brief in Slack, with anomalies flagged.","In #founders every Monday by 8am",["goal"],True),
+ ("money","Money","📊","Weekly Business Report","Pulls revenue, orders, pipeline and support numbers into one Monday brief in Slack, with anomalies flagged.","In #founders every Monday by 8am",["goal"],False),
  ("customers","Customers","📥","Inbox Triage","Sorts your inbox, answers the routine emails in your voice and leaves only the ones that need you.","90% of inbound answered within 4 business hours",["crew","goal"],True),
- ("customers","Customers","🎧","Support First Response","Answers support questions on email and WhatsApp from your docs and order history, and hands off anything sensitive.","Median first response under 15 minutes",["crew","goal"],True),
+ ("customers","Customers","🎧","Support First Response","Answers support questions on email and WhatsApp from your docs and order history, and hands off anything sensitive.","Median first response under 15 minutes",["crew","goal"],False),
  ("customers","Customers","⭐","Review Responder","Replies to every Google and marketplace review, and routes the unhappy ones to you with the order attached.","Every review answered within 48 hours",["goal"],False),
  ("growth","Growth","🎯","Lead Follow-up","Researches each new lead, writes a personal first email and follows up until they book or say no.","Every new lead contacted within 1 hour",["crew","goal"],True),
  ("growth","Growth","🔎","SEO Intelligence","Finds keywords you can win, fixes technical SEO issues and writes page-level briefs, then tracks rankings.","Organic clicks up 15% a quarter",["goal"],True),
@@ -15,7 +15,7 @@ SMB = [
  ("ops","Operations","📝","Meeting Notes to Actions","Turns meeting notes into tasks with owners and due dates, and chases them in Slack.","Every action item owned within 1 hour",["crew"],False),
 ]
 ENG = [
- ("eng","Engineering","🚦","Release & PR Quality Gate","Binds a build to the browser QA suites it needs and publishes an auditable pass, fail or needs-review decision.","No release ships without a recorded decision",["goal"],True),
+ ("eng","Engineering","🚦","Release & PR Quality Gate","Binds a build to the browser QA suites it needs and publishes an auditable pass, fail or needs-review decision.","No release ships without a recorded decision",["goal"],False),
  ("eng","Engineering","🚨","Incident Investigation","Correlates alerts, logs and deploys, writes a first RCA with evidence and coordinates the response in Slack.","Time to first RCA under 30 minutes",["crew","goal"],False),
  ("eng","Engineering","☁️","Cloud Cost Anomaly to Savings","Detects cost spikes, proposes evidence-backed rightsizing, prepares the change and verifies the savings.","Verified monthly savings, tracked per change",["goal"],False),
  ("eng","Engineering","🛡️","Application Security","Runs authorized code, dependency, secret and config checks, then drives reviewed fixes to verified closure.","Critical findings closed within 14 days",["goal"],False),
