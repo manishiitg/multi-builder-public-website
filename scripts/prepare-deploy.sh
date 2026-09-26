@@ -8,14 +8,13 @@ node scripts/sync-product-docs.js --if-available
 
 cp index.html dist/
 cp 404.html dist/
-cp runloop.css dist/
-cp runloop_site.js dist/
-cp secondary.css dist/
 cp launch.css dist/
 cp launch.js dist/
 cp analytics.js dist/
 cp site-header.css dist/
 cp site-header.js dist/
+cp docs.css dist/
+cp docs-redirect.js dist/
 cp _headers dist/
 cp _redirects dist/
 cp robots.txt dist/
@@ -32,10 +31,11 @@ cp icon-512-maskable.png dist/
 mkdir -p dist/.well-known
 cp .well-known/mcp-client.json dist/.well-known/
 
-mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard,vendor}
+mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard}
 cp assets/brand/agentworks-logo.svg dist/assets/brand/
 cp -R assets/fonts/. dist/assets/fonts/
-cp -R assets/vendor/. dist/assets/vendor/
+mkdir -p dist/assets/docs/guides
+cp assets/docs/guides/*.webp dist/assets/docs/guides/
 cp assets/hero/goal-loop-1600x900.mp4 assets/hero/goal-loop-1600x900.webm assets/hero/goal-loop-mobile-900x1200.mp4 assets/hero/goal-loop-poster.jpg assets/hero/goal-loop-poster-mobile.jpg dist/assets/hero/
 
 # Keep the public payload limited to assets referenced by production pages.
@@ -44,7 +44,6 @@ cp assets/og/agentworks-*.jpg dist/assets/og/
 product_assets=(
   agentworks-product-auto-improve-panel.png
   agentworks-product-browser-access.png
-  agentworks-product-pulse-panel.png
   agentworks-product-schedules.png
   agentworks-product-workspace.png
   agentworks-coding-cli-480.webp
@@ -52,10 +51,6 @@ product_assets=(
   agentworks-coding-cli-1440.webp
   agentworks-bot-connectors-retina.webp
   agentworks-coding-cli-retina.webp
-  agentworks-pulse-human-question-480.webp
-  agentworks-pulse-human-question-760.webp
-  agentworks-pulse-human-question-1440.webp
-  agentworks-pulse-human-question-retina.webp
   agentworks-shared-learnings-480.webp
   agentworks-shared-learnings-760.webp
   agentworks-shared-learnings-1440.webp
@@ -83,14 +78,11 @@ product_assets=(
   org-dashboard-agentworks-retina.webp
   org-dashboard-scale.png
   org-goals.png
-  org-pulse-agentworks.jpg
-  org-pulse.png
   reporting-dashboard.png
   trading-plan-laptop.png
   workflow-automation-demo-poster.jpg
   workflow-automation-demo.mp4
   workflow-cost-analysis.jpg
-  workflow-pulse.png
 )
 for asset in "${product_assets[@]}"; do
   cp "assets/product/${asset}" dist/assets/product/
@@ -107,7 +99,6 @@ storyboard_assets=(
   learn-decision.webp
   learn-question.webp
   measure-cost.webp
-  measure-pulse.webp
   run-health.webp
   run-workflows.webp
 )
@@ -124,6 +115,8 @@ cp -R refunds dist/refunds
 cp -R pricing dist/pricing
 cp -R enterprise dist/enterprise
 cp -R agents dist/agents
+
+python3 scripts/render-site-footer.py
 
 node scripts/generate-agent-content.js
 

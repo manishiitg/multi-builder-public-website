@@ -53,24 +53,16 @@ Both frontend and backend **read and write** only the object format with `steps`
       "agent_configs": {
         "selected_servers": ["server1", "server2"],
         "selected_tools": ["server1:tool1", "server1:tool2", "server2:*"],
-        "enabled_custom_tools": ["workspace_advanced:*", "human_tools:*"],
+        "enabled_custom_tools": ["workspace_browser:agent_browser"],
         "execution_llm": {
           "provider": "openai",
           "model_id": "gpt-4o"
-        },
-        "execution_max_turns": 25,
-        "validation_max_turns": 10,
-        "learning_max_turns": 5,
-        "conditional_llm": {
-          "provider": "openai",
-          "model_id": "gpt-4o-mini"
         },
         "use_code_execution_mode": true,
         "disable_validation": false,
         "llm_validation_mode": "skip",
         "learnings_access": "read-write",
         "learning_objective": "Capture target-system selectors, auth flow quirks, and session-expiry signals",
-        "lock_learnings": false,
         "enable_context_offloading": true,
         "enable_prerequisite_detection": true,
         "prerequisite_rules": [
@@ -163,16 +155,10 @@ content, err := json.MarshalIndent(file, "", "  ")
 |-------|------|---------|---------|
 | `execution_llm` | `object` | Preset default | LLM config for execution agent (`{ provider: string, model_id: string }`) |
 | `validation_llm` | `object` | Preset default | LLM config for validation agent |
-| `conditional_llm` | `object` | Preset default | Step-specific conditional LLM for conditional step evaluation |
 
-### Max Turns Configuration
+### Turn Limits
 
-| Field | Type | Default | Purpose |
-|-------|------|---------|---------|
-| `execution_max_turns` | `number` | Preset default (typically 100) | Maximum conversation turns for execution agent |
-| `validation_max_turns` | `number` | Preset default (typically 100) | Maximum conversation turns for validation agent |
-| `learning_max_turns` | `number` | Preset default (typically 100) | Maximum conversation turns for learning agent |
-| `orchestration_max_iterations` | `number` | Orchestrator max turns (typically 100) | Maximum iterations for orchestration step loop |
+Per-step and workflow-default turn-limit properties are retired. Legacy `execution_max_turns` values are ignored on load and omitted from typed config saves; execution uses the shared runtime limit.
 
 ### Tool & Server Configuration
 
@@ -180,7 +166,7 @@ content, err := json.MarshalIndent(file, "", "  ")
 |-------|------|---------|---------|
 | `selected_servers` | `string[]` | `[]` | MCP servers to use for this step (subset of preset servers) |
 | `selected_tools` | `string[]` | `[]` | Specific tools (format: `"server:tool"` or `"server:*"` for all tools) |
-| `enabled_custom_tools` | `string[]` | `[]` | **Unified format**: Custom tools to enable (format: `"category:tool"` or `"category:*"`). Current categories include `workspace_advanced` (shell/diff/media), `workspace_tools` (backward-compatible alias for the current workspace registry), `workspace_browser`, and `human_tools`. Legacy `workspace_basic` / `list_workspace_files` style tools are not exposed to current workflow agents. Example: `"workspace_advanced:execute_shell_command"` |
+| `enabled_custom_tools` | `string[]` | `[]` | Optional additions in `"category:tool"` or `"category:*"` format. Execution agents automatically receive `workspace_advanced` plus `human_feedback`, `notify_user`, and `create_human_input_request`. Name any additional `human_tools` entry explicitly. Legacy `human_tools:*` is normalized to the same three-tool baseline. |
 | `enabled_custom_tool_categories` | `string[]` | `[]` | **Legacy format**: Tool categories (e.g., `["workspace_tools", "human_tools"]`) - deprecated, use `enabled_custom_tools` instead |
 
 ### Validation Configuration
@@ -196,7 +182,6 @@ content, err := json.MarshalIndent(file, "", "  ")
 |-------|------|---------|---------|
 | `learnings_access` | `"read"\|"read-write"\|"none"` | `"read"` (auto-migrated from `learning_objective` if unset) | Primary gate for the global learnings store. `"read"` — step sees `learnings/_global/SKILL.md` in its prompt; `"read-write"` — step also contributes (requires non-empty `learning_objective`); `"none"` — step neither reads nor contributes. Mirrors `knowledgebase_access`. |
 | `learning_objective` | `string` | `""` | Extraction instruction for the post-step learning agent — describes what patterns/selectors/recipes should land in `SKILL.md`. Required when `learnings_access="read-write"`; the validator rejects the combination of write access with an empty objective. |
-| `lock_learnings` | `boolean` | `false` (nil = unlocked) | Freeze SKILL.md writes for this step. Existing `SKILL.md` still flows into execution prompts, but no new writes. Runtime execution never auto-sets or auto-clears this field; it is a builder/user decision and should be paired with `review_notes`. |
 
 ### Execution Mode Configuration
 
@@ -204,9 +189,6 @@ content, err := json.MarshalIndent(file, "", "  ")
 |-------|------|---------|---------|
 | `use_code_execution_mode` | `boolean` | Preset default (nil = use preset) | Step-level code execution mode override (nil = use preset default, true/false = override) |
 | `enable_context_offloading` | `boolean` | `true` (nil = enabled) | Enable/disable context offloading virtual tools |
-
-Legacy note:
-`use_tool_search_mode` and `pre_discovered_tools` should not be treated as active workflow step config fields anymore. The current workflow editor strips those legacy keys on save, and the canonical documentation now lives in [Core Tool Search Mode](../core/tool_search_mode.md).
 
 ### Prerequisite Detection Configuration
 
@@ -265,12 +247,11 @@ Legacy note:
 - All boolean fields use `nil` (undefined) to mean "use default/preset value"
 - `enabled_custom_tools` uses unified format: `"category:tool"` or `"category:*"`. Current categories include `workspace_advanced`, `workspace_tools`, `workspace_browser`, and `human_tools`; use `execute_shell_command` / `diff_patch_workspace_file` for file access instead of legacy basic workspace tool names.
 - `learning_detail_level` accepts `"exact"`, `"general"`, or `"none"` (default: `"exact"`)
-- `orchestration_max_iterations` only applies to orchestration step types
 
 ---
 
 ## 📖 Related Documentation
 
 - [Workflow Docs](README.md) - Overall workflow architecture
-- [Learn Code and Code Execution Modes](learn_code_flow.md) - Scripted execution configuration and flow
+- Learn Code and Code Execution Modes - Scripted execution configuration and flow
 - [Step Config Matching](../../frontend/src/utils/stepConfigMatching.ts) - Type definitions and matching logic

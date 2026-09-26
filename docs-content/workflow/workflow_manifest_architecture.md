@@ -29,6 +29,7 @@ The backend struct lives in [workflow_manifest.go](../../agent_go/cmd/server/wor
 ```json
 {
   "schema_version": 1,
+  "version": "1.0.11",
   "id": "wf_ab12cd34",
   "label": "Customer onboarding",
   "objective": "Optional workflow-level objective",
@@ -52,7 +53,7 @@ The backend struct lives in [workflow_manifest.go](../../agent_go/cmd/server/wor
         "provider": "anthropic",
         "model_id": "claude-opus-4-8"
       },
-      "pulse_llm": {
+      "auto_improve_llm": {
         "provider": "anthropic",
         "model_id": "claude-sonnet-5"
       },
@@ -77,8 +78,7 @@ The backend struct lives in [workflow_manifest.go](../../agent_go/cmd/server/wor
     "disable_learning": false,
     "global_skill_objective": "What the shared skill should capture",
     "disable_parallel_tool_execution": false,
-    "execution_max_turns": 100,
-    "enabled_custom_tools": ["workspace_advanced:*", "human_tools:*"]
+    "enabled_custom_tools": ["workspace_browser:agent_browser"]
   },
   "ownership": {
     "employee_id": null
@@ -118,9 +118,10 @@ Workflow-wide execution defaults:
 Notes:
 
 - `llm_config.schema_version` is `2`
-- `mode="provider_profile"` stores only a coding-agent `provider`; Builder, Maintenance, Pulse, Chief of Staff, and execution tiers resolve from current provider defaults
-- `mode="explicit"` stores `builder_llm`, `maintenance_llm`, `pulse_llm`, and all three entries in `tiered_config`
-- old `phase_llm`, `auto_improve_llm`, and `llm_allocation_mode` fields are migrated once when the manifest is read and are not written again
+- `mode="provider_profile"` stores only a coding-agent `provider`; Builder, Maintenance, Auto-improve, Chief of Staff, and execution tiers resolve from current provider defaults
+- `mode="explicit"` stores `builder_llm`, `maintenance_llm`, `auto_improve_llm`, and all three entries in `tiered_config`
+- `builder_llm` runs the workflow-builder chat, scheduled runs, and every turn of the post-run Auto-improve conversation; `auto_improve_llm` runs only the background review agents an Auto-improve turn launches (plan drift / technical / strategic review) and KB maintenance. A scheduled run is one conversation on one retained coding CLI, so its model cannot change between the run and its Auto-improve turns; a background agent starts its own process, which is where `auto_improve_llm` takes effect.
+- old `phase_llm` and `llm_allocation_mode` fields are migrated once when the manifest is read and are not written again
 - tool search fields are not part of current workflow manifest capabilities
 
 ### `execution_defaults`
@@ -131,7 +132,6 @@ Workflow-level persistent execution defaults:
 - `disable_learning`
 - `global_skill_objective`
 - `disable_parallel_tool_execution`
-- `execution_max_turns`
 - `enabled_custom_tools`
 
 This is now the active home for global step overrides.
@@ -171,9 +171,11 @@ Two optional top-level fields configure hard behavioral gates the auto-improveme
 | Field | Values | Default | Purpose |
 |---|---|---|---|
 | `oversight_mode` | `manual` \| `supervised` \| `autonomous` | `supervised` | Controls when human approval is required for high-risk framework changes. Hard gate. |
-| `decision_log_mutability` | `append_only` \| `append_only_strict` | `append_only` | `append_only_strict` forbids any edit to a structured improve.md decision entry, even corrective. Used by compliance workflows. Hard gate. |
+| `decision_log_mutability` | `append_only` \| `append_only_strict` | `append_only` | `append_only_strict` forbids rewriting a dated decision entry in `builder/improve.html`, even for correction. Used by compliance workflows. Hard gate. |
 
-**The workflow's profile** — typology (deterministic / exploratory / contextual), plan stability, runtime mode (single / dual explore-exploit), and whether it accumulates business context — lives as **prose in `builder/improve.md`** under a `## Workflow Profile` section. The agent reads improve.md on every improvement turn and adjusts behavior accordingly. Real workflows mix axes a single enum can't express (e.g. social-media is exploratory + dual-mode + accumulating-context all at once); prose captures the nuance, and the framework no longer hard-gates on a workflow_type value.
+`schema_version` controls the JSON shape. `version` controls product-managed workflow behavior. Contract `1.0.21` defines an idempotent artifact-ownership migration: it removes shared AgentWorks bridge/auth, Folder Guard, managed-tool, discovery, and coding-session mechanics from workflow-authored Plan/Learnings/KB prose while preserving semantic behavior and target-specific HOW. The owner starts that migration manually in Builder; schedules keep running the saved contract and do not stamp it. Ambiguous rewrites block the version stamp rather than guessing. The prior `1.0.20` contract remains the schema-5 executive Auto-improve journal upgrade.
+
+The stable Goal lives only in `soul/soul.md`. `/define-success` records operating-model reasoning as a dated Reflection / Hansei entry in `builder/improve.html`; there is no permanent Workflow Profile card that can silently become an immutable constraint.
 
 For the design rationale and worked examples, see [auto_improvement_framework.md](./auto_improvement_framework.md).
 
@@ -204,9 +206,8 @@ These still live alongside it:
 - `planning/workflow_layout.json`
 - `planning/output_plan.json`
 - `variables/variables.json`
-- `evaluation/evaluation_plan.json`
-- `builder/improve.html` — the Pulse log: single source-of-truth entry point for auto-improvement narrative, verdict pills, the per-criterion goal card (the workflow's goal signal — the former `planning/metrics.json` numeric layer was removed 2026-07-01), open findings, decision cards, and links to older monthly `builder/improve-archive/YYYY-MM.html` details. See [auto_improvement_framework.md](./auto_improvement_framework.md).
-- `knowledgebase/rules/rules.md` and `knowledgebase/rules/examples/` — Type 3 business-rule store. User-supplied rules are captured through chat-intent rule capture. Excluded from `reorganize_knowledgebase` and `consolidate_knowledgebase` passes — never silently rewritten by the optimizer. Audit trail folded into structured `builder/improve.md` entries (filter to `source: user` + `trigger: capture-context`).
+- `builder/improve.html` — the schema-5 lightweight, newest-first Auto-improve executive journal: Bug/Goal verdicts, one status sentence, three Latest Auto-improve cells, and at most six material Activity transitions. Goal / Ikigai remains exclusively in `soul/soul.md` and is rendered directly by Runloop. Reviewer coverage, assumptions, issues, backlog counts, and complete operational detail stay in SQLite/Auto-improve; older material history can live in linked monthly `builder/improve-archive/YYYY-MM.html` files. See [auto_improvement_framework.md](./auto_improvement_framework.md).
+- `knowledgebase/rules/rules.md` and `knowledgebase/rules/examples/` — legacy business-rule storage when present. Current user-confirmed runtime context belongs in `knowledgebase/context/`; its audit trail is recorded in dated Reflection entries in `builder/improve.html`.
 
 `workflow.json` is the workflow-level definition file.
 The planning files are still the step graph and execution-plan files.

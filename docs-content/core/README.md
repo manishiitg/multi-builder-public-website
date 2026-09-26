@@ -12,9 +12,14 @@ These docs describe platform subsystems that cut across workflow and multi-agent
 ## Files
 
 - `azure_foundry_integration.md`
+- Trigger and auto notify: code-defined asynchronous triggers for Builder and Crew chats.
 - `bot_connector_system.md`
+- Combined bot connector guide and review: current architecture, configuration, Slack setup, lifecycle, and verified documentation gaps.
 - `browser.md`
+- Coding CLI turn signals: where each CLI's intake, completion and final answer come from; steering; background subagents.
+- Coding CLI updates: daily checks, persisted status, and per-chat release selection.
 - `coding_agent_builder_e2e_contract.md`
+- Coding CLI onboarding contract review: implementation map, P0/P1 enforcement findings, new-provider checklist, and proposed registration consolidation.
 - `coding_agent_continuation_architecture.md`
 - `electron_standalone_app_plan.md`
 - `env-api-key-defaults.md`
@@ -23,7 +28,6 @@ These docs describe platform subsystems that cut across workflow and multi-agent
 - `folder_guard_system.md`
 - `llm_configuration_and_resilience.md`
 - `mcp_bridge_layer.md`
-- `mcp_session_id_propagation.md`
 - `multi_user_authentication.md`
 - `native_workspace_mode.md`
 - `oauth.md`
@@ -32,4 +36,3 @@ These docs describe platform subsystems that cut across workflow and multi-agent
 - `secrets.md`
 - `skills.md`
 - `streaming_llm_output.md`
-- `tool_search_mode.md`

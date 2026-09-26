@@ -89,7 +89,9 @@ if len(config.SelectedServers) > 0 {
     "enabled_custom_tools": [
       "workspace_advanced:*",
       "workspace_advanced:execute_shell_command",
-      "human_tools:*"
+      "human_tools:human_feedback",
+      "human_tools:notify_user",
+      "human_tools:create_human_input_request"
     ]
   }
 }
@@ -107,7 +109,7 @@ if len(config.SelectedServers) > 0 {
 - `workspace_tools`: Backward-compatible alias for the current workspace registry.
 - `workspace_advanced`: Current workspace tools (`execute_shell_command`, `diff_patch_workspace_file`, `read_image`, `generate_text_llm`, `search_web_llm`, plus the media generators `image_gen` / `image_edit` / `generate_video` / `text_to_speech` / `speech_to_text` / `generate_music`)
 - Legacy basic file tools such as `list_workspace_files`, `read_workspace_file`, `update_workspace_file`, `delete_workspace_file`, and `move_workspace_file` are not part of the current workflow-builder registry. Use shell and diff tools instead.
-- `human_tools`: `human_feedback` (blocking ask-the-user), `notify_user` (non-blocking outbound push to Slack/WhatsApp/Gmail), `submit_human_answer` (resolves a launched workflow's human_input step)
+- `human_tools`: workflow execution agents receive only the narrow baseline: `human_feedback` (short-lived blocking input), `notify_user` (non-blocking notification), and `create_human_input_request` (durable non-blocking decision). Administrative, decision-consumer, Slack, and Google Workspace tools must be selected explicitly. Legacy `human_tools:*` step configuration is normalized to the same three-tool baseline rather than expanding the category.
 - `workspace_browser`: `agent_browser`
 
 ### 🛠️ Common Issues & Solutions
@@ -154,12 +156,12 @@ Tool availability is decided by **two independent gates**. Section 1 above is on
 | Layer | Scope | Where | Keyed on |
 |-------|-------|-------|----------|
 | **1. Static config filter** | Which tools are *registered* on the agent | `enabled_custom_tools` / `selected_tools` → `FilterCustomToolsByCategory` / `ToolFilter` | step/workflow config |
-| **2. Dynamic workshop-mode allow-list** | Which *registered* tools the agent may use *this turn* | `GetToolsForWorkshopMode(mode)` → `Agent.SetToolAllowList` | current workshop mode (`workshop` / `run`) |
+| **2. Dynamic workshop-mode allow-list** | Which *registered* tools the agent may use *this turn* | `GetToolsForWorkshopMode(mode)` → `Agent.SetToolAccess` | current workshop mode (`workshop` / `run`) |
 
 A tool can be **registered** (layer 1) yet still **blocked** (layer 2). This has happened in production twice:
 
 - `notify_user` was registered via `human_tools:*`, but `GetToolsForWorkshopMode` did not list it, so every workflow-phase agent (including the post-run monitor) was denied it.
-- Pulse state tools (`get_pulse_module_state`, `record_pulse_worklist`, `mark_pulse_module_result`) were registered in the workflow tool pool, but not allow-listed for workshop mode, so Pulse/module turns could be instructed to call them and then report that they were not callable.
+- Auto-improve state tools were registered in the workflow tool pool, but not allow-listed for workshop mode, so Auto-improve/module turns could be instructed to call them and then report that they were not callable.
 
 - **Layer 2 source of truth:** `GetToolsForWorkshopMode` in [`interactive_workshop_manager.go`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/interactive_workshop_manager.go). The `system` slice is "always available regardless of mode"; the `switch mode` adds the rest. To make a tool available to the builder/monitor, add its name here.
 - **Regression guard:** `TestToolSetInvariants` in [`toolset_invariant_test.go`](../../agent_go/cmd/server/toolset_invariant_test.go) checks that workshop/run allow-listed tools have a real registration path: workflow pool, workshop custom registration, guidance/status registration, or mcpagent virtual/session tools. When adding a new tool to `GetToolsForWorkshopMode`, update the registration path or the explicit known-registration map in that test.
@@ -168,18 +170,18 @@ A tool can be **registered** (layer 1) yet still **blocked** (layer 2). This has
 
 CLI providers (`claude-code`, `codex-cli`, `cursor-cli`, `pi-cli`; legacy `agy-cli`) do **not** receive tools as native tool-calling functions. They run in code-execution mode and reach every tool through the **api-bridge** (`mcp__api-bridge__*`), discovered at use-time via `get_api_spec`. So "do you have tool X?" asked of a CLI agent is unreliable — bridged tools aren't in its native list; it only sees them through `get_api_spec`.
 
-Crucially, the **layer-2 allow-list is the single gate for the bridge too**, enforced in two spots in `mcpagent` — both reading the same `sessionToolAllowLists[sessionID]` map (populated by `SetToolAllowList` → `codeexec.SetSessionToolAllowList`):
+Crucially, the **layer-2 allow-list is the single gate for the bridge too**, enforced in two spots in `mcpagent` — both reading the same `sessionToolAllowLists[sessionID]` map (populated by `SetToolAccess` → `codeexec.SetSessionToolAllowList`):
 
 1. **Discovery** — `agent/code_execution_tools.go` (`Respect toolAllowList … only include allowed custom tools in the index`): a blocked tool never appears in `get_api_spec`.
-2. **Execution** — `agent/codeexec/registry.go` `CallCustomToolWithSession`: a blocked tool's HTTP call returns `tool "<name>" is not available in the current workshop mode`.
+2. **Execution** — `agent/codeexec/registry.go` `CallCustomToolWithSession`: a blocked tool's HTTP call returns `tool_not_allowed: "<name>" is not in this session's allowed tool set`, followed by the names that *are* allowed. It deliberately does not name a cause: the registry only sees the allow-list map, and the previous wording ("not available in the current workshop mode") sent agents off to reason about modes that were never the reason.
 
-**Consequence:** adding a tool to `GetToolsForWorkshopMode` is sufficient for CLI agents — it makes the tool both *visible* in `get_api_spec` and *callable* via the bridge. No separate bridge registration is needed (registration already happened in layer 1 via `UpdateCodeExecutionRegistry`).
+**Consequence:** adding a tool to `GetToolsForWorkshopMode` is sufficient for CLI agents — it makes the tool both *visible* in `get_api_spec` and *callable* via the bridge. Registration updates routing immediately; there is no separate public registry-refresh lifecycle.
 
 ### Debugging checklist — "the agent says it doesn't have tool X"
 
 1. Is X **registered**? (in the `human_tools`/`workspace_*` pool and `enabled_custom_tools`/`PreparePhaseAgentTools`) — layer 1.
 2. Is X in **`GetToolsForWorkshopMode`** for the current mode? — layer 2. *(Most common cause.)*
-3. For CLI agents, don't trust the agent's self-report — have it call `get_api_spec` (visibility) or invoke the tool (execution). The error `not available in the current workshop mode` means layer 2 is blocking it.
-4. If X is a scheduled Pulse/workshop tool, add or update a `TestToolSetInvariants` assertion so the registered-tool pool and workshop allow-list cannot drift again.
+3. For CLI agents, don't trust the agent's self-report — have it call `get_api_spec` (visibility) or invoke the tool (execution). The error `tool_not_allowed:` means layer 2 is blocking it, and the message lists the surface the session does have.
+4. If X is a scheduled Auto-improve/workshop tool, add or update a `TestToolSetInvariants` assertion so the registered-tool pool and workshop allow-list cannot drift again.
 
 ---

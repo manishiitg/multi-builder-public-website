@@ -14,8 +14,8 @@ Remote workspace note: in the planned Remote Workspace Gateway model, the
 schedule files still live with the workflow on the server, but the server does
 not run the coding agent. An online local runner reads the schedule, claims a
 server-side job lease, executes the scheduled workshop messages locally, and
-writes run history/Pulse/report artifacts back through the gateway. See
-[Remote Workspace Gateway + Local Runner Plan](../core/remote_workspace_server_plan.md).
+writes run history/Auto-improve/report artifacts back through the gateway. See
+Remote Workspace Gateway + Local Runner Plan.
 
 ## Source Of Truth
 
@@ -102,7 +102,11 @@ Entries are defined in [schedule_runs.go](../../agent_go/cmd/server/schedule_run
 - `started_at`
 - `completed_at`
 
-The file keeps the newest entries first and is capped at 200 runs.
+The file keeps the newest entries first. Workflow history retains terminal
+runs for at least 90 days; older terminal entries are pruned when a new run
+is recorded. Active and undated runs are retained. The UI and
+`get_schedule_runs` page this history with `limit` and `offset`. Product
+schedule stores outside `Workflow/` retain their separate 200-entry cap.
 
 ## Runtime Model
 
@@ -131,7 +135,20 @@ That runtime state is not written back into `workflow.json`.
 
 ## Execution Mode
 
-Workflow schedules use one execution path: the workshop builder path. The old direct orchestrator schedule mode (`mode = workflow`, `agent_mode = workflow`) is no longer generated or executed for workflow schedules. Existing manifests with `mode = workflow` are normalized to workshop execution at runtime.
+Workflow schedules use the workflow-phase transport (`mode = workshop`, `agent_mode = workflow_phase`). Normal scheduled messages execute with `workshop_mode = run`, which gives them the constrained Run prompt, tool catalog, projected skills, and—when CLI isolation is enabled—a private runtime working directory. The old direct orchestrator schedule mode (`mode = workflow`, `agent_mode = workflow`) is no longer generated or executed. Existing manifests with `mode = workflow` are normalized to the workflow-phase transport at runtime.
+
+Pending contract upgrades are not schedule preflight turns. Cron/calendar runs,
+including runs started through `trigger_schedule`, continue against the saved
+workflow contract and never authorize, apply, or stamp a migration. Owners start
+upgrades manually from the interactive Builder chat; interactive
+`run_full_workflow` and `execute_step` calls remain blocked until the required
+migrations are complete. Direct API/webhook triggers also remain fail-closed on
+an incompatible contract.
+
+Answered-decision preflight turns temporarily use `workshop_mode = workshop`
+because they are explicitly allowed to update workflow artifacts. Post-run
+Auto-improve turns also use Workshop mode. The scheduler switches modes per turn, so a
+normal unattended run never inherits the maintenance surface.
 
 Multi-agent schedules remain separate under `_users/{userID}/multiagent-schedules.json`.
 
@@ -145,7 +162,7 @@ The scheduler builds a request with:
 - `execution_options.run_mode = use_same_run`
 - `execution_options.selected_run_folder = iteration-0`
 - `execution_options.execution_strategy = start_from_beginning_no_human`
-- `execution_options.workshop_mode = schedule.workshop_mode || run`
+- `execution_options.workshop_mode = run` for normal schedule messages
 - `execution_options.enabled_group_ids = schedule.group_ids`
 
 Then it sends the configured `messages[]` one by one and waits for the workshop session to become idle after each message.
@@ -168,7 +185,7 @@ Current implications:
 
 There is helper logic for resolving a group-scoped workshop run folder, but the standard workshop scheduler request still starts from `iteration-0`.
 
-That means scheduled runs follow the same broader run-folder model documented in [iteration_run_folder_architecture.md](./iteration_run_folder_architecture.md).
+That means scheduled runs follow the same broader run-folder model documented in iteration_run_folder_architecture.md.
 
 ## Auto Report Generation
 
@@ -214,6 +231,64 @@ The API response shape is a compatibility wrapper around:
 - in-memory runtime state
 - per-workflow run history
 
+## Product Schedules
+
+A product can declare recurring jobs of its own in `product.yaml`, under
+`profile.schedules`. They are not workflow schedules: there is no manifest,
+no run folder and no Auto-improve review. Each one runs the product's agent profile
+for a user by sending its messages one at a time into that user's product
+conversation, the same conversation the product surface shows.
+
+```yaml
+profile:
+  runtime:
+    conversation:
+      mode: singleton          # required: schedules run in the one product chat
+  schedules:
+    - id: daily-checkin
+      name: Daily check-in
+      description: Review yesterday and send a summary
+      enabled: true            # the product default; each user can override
+      cron_expression: "0 8 * * *"
+      timezone: Asia/Kolkata
+      messages:
+        - Review what changed since your last check-in and note anything worth flagging.
+        - Send the summary with notify_user.
+```
+
+The definition and the timing rule live in `agent_go/pkg/productschedule`
+(`Schedule`, `Validate`, `Decide`). Besides cron there is a cadence form
+(`cadence_hours` with an optional `preferred_hour`) and a quiet rule
+(`quiet_minutes`, `max_deferral_hours`) for products that run on their own
+and know when the user was last active; the platform runs cron schedules and
+ignores the quiet rule.
+
+On the AgentWorks server `cmd/server/product_schedules.go` runs them:
+
+- **Who**: every enabled directory user whose product access includes the
+  product (admins and unrestricted members included), or the single local
+  user when the server is not multi-user.
+- **State**: `_users/<id>/chat_history/product-schedules.json` holds each
+  user's enable override and run bookkeeping (last run, status, counts).
+  A schedule that has never run waits for its next cron occurrence rather
+  than firing on first start.
+- **Run history**: `schedule-runs.json` next to the product conversation
+  (`_users/<id>/Chats/...`), the same file and shape workflow schedules use.
+- **Execution**: one session, the product conversation's own, one
+  `startSessionInternal` call per message, strictly sequential; a failing
+  message stops the run. One run per (user, schedule) at a time.
+- **API**: product schedules appear in `GET /api/scheduler/jobs` with
+  `entity_type: "product"` and ids of the form `product:<profile>:<schedule>`.
+  `GET /jobs/{id}`, `/enable`, `/disable`, `/trigger`, `/stop` and `/runs`
+  work on them for the calling user. `PUT` and `DELETE` are refused: a
+  product declares its schedules, users only switch them on or off.
+
+SparkQuill's Auto-improve is the first schedule expressed this way (in its
+standalone family server it runs through `productschedule.Runner` with the
+parent's cadence settings, the quiet rule and per-check status at
+`GET /api/improve/status`); when SparkQuill becomes a hosted product its
+`schedules:` block is the same definition.
+
 ## UI Surfaces
 
 The current frontend scheduling surfaces are:
@@ -249,7 +324,7 @@ Use this mental model:
 Related docs:
 
 - [workflow_manifest_architecture.md](./workflow_manifest_architecture.md)
-- [iteration_run_folder_architecture.md](./iteration_run_folder_architecture.md)
-- [workflow_builder_interactive.md](./workflow_builder_interactive.md)
+- iteration_run_folder_architecture.md
+- workflow_builder_interactive.md
 - [workflow_monitoring.md](./workflow_monitoring.md)
 - [cost_and_log_measurement.md](./cost_and_log_measurement.md)

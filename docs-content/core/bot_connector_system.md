@@ -1,6 +1,6 @@
 # Bot Connector System
 
-A platform-agnostic bot framework that allows users to interact with the agent system from messaging platforms (Slack, Discord, Telegram, WhatsApp) and the built-in web simulator. Users @mention the bot (or type in the simulator), the system starts a multi-agent session with the user's pre-configured MCP servers, skills, and tool search mode, and streams progress back to the thread.
+A platform-agnostic bot framework that allows users to interact with the agent system from messaging platforms (Slack, Discord, Telegram, WhatsApp) and the built-in web simulator. Users @mention the bot (or type in the simulator), the system starts a multi-agent session with the user's pre-configured MCP servers, skills, and code-execution policy, and streams progress back to the thread.
 
 ## Architecture Overview
 
@@ -65,7 +65,7 @@ When a user sends a message, the system starts a multi-agent session directly us
 
 - **MCP Servers**: from `default_servers` in the `_global` config
 - **Skills**: from `default_skills`, falling back to all discovered skills
-- **Tool search mode**: enabled automatically when >2 servers are configured
+- **Tool access**: uses the saved workspace code-execution capability and selected servers
 - **Delegation mode**: always `"plan"` (multi-agent chat)
 - **Workspace access**: always enabled
 - **Provider/model**: high tier from `delegation_tier_config` (DB → env → defaults)
@@ -271,42 +271,33 @@ Bot capabilities (MCP servers and skills) are configured globally via a standalo
 - **Sidebar**: Top-level "Bot Configuration" card with a "Configure" button — separate from individual connector cards
 - **Modal**: Reuses the same `ServerSelectionDropdown` and `SkillSelectionDropdown` components used in the chat input area
 - **Tier display**: Read-only bar showing delegation tier models (fetched from DB config, falls back to LLM store)
-- **Save**: Persists selected servers/skills to DB via `POST /api/bot/simulate/config` (`default_servers`, `default_skills`)
+- **Save**: Persists selected servers/skills to DB via `POST /api/bot/config` (`default_servers`, `default_skills`)
 
 ### Data Flow
 
-1. On open: fetches saved config from `GET /api/bot/simulate/config`, available servers from `useMCPStore`
+1. On open: fetches saved config from `GET /api/bot/config`, available servers from `useMCPStore`
 2. User selects servers/skills using the standard dropdowns
-3. On save: `POST /api/bot/simulate/config` with `{ default_servers, default_skills }`
+3. On save: `POST /api/bot/config` with `{ default_servers, default_skills }`
 4. When any bot session starts, `buildQueryRequest()` uses `default_servers`/`default_skills` from the `_global` config
-5. Tool search mode is auto-enabled when >2 servers are configured
+5. Tool access follows the saved workspace code-execution capability
 
 ---
 
-## Web Simulator
+## Web Simulator (removed)
 
-**Files**: `agent_go/cmd/server/services/web_simulator_connector.go`, `bot_simulator_routes.go`, `frontend/src/components/settings/BotSimulatorModal.tsx`
+The web simulator (`bot_simulator_routes.go`, the Simulate tab in the bot
+connector modal, and the `/api/bot/simulate/*` routes) was removed once real
+Slack and WhatsApp channels covered testing. The one non-simulator thing that
+lived under those routes — the shared `_global` connector config
+(`allowed_emails`, delegation tier config, provider keys, default
+servers/skills) — moved to `GET`/`POST /api/bot/config` in
+`bot_config_routes.go`. `services/web_simulator_connector.go` still exists
+because `bot_connector.go` type-asserts it, but nothing registers it.
 
-The web simulator provides a chat-like UI for testing the bot flow without a Slack workspace. It uses the global bot configuration for server/skill selection.
-
-### Architecture
-
-- `WebSimulatorConnector` implements `BotConnector` with in-memory thread storage
-- Messages stored per-thread in `[]SimulatorMessage`
-- Frontend polls `/api/simulator/messages` for new messages using a `setTimeout` chain (not `setInterval`) to prevent overlapping polls when API calls are slow
-- Message ID deduplication in the frontend prevents duplicate messages from race conditions
-- `threadOffsetRef` tracks where polling starts to avoid re-fetching
-
-### REST API
-
-| Method | Path | Description |
-|---|---|---|
-| `POST` | `/api/simulator/send` | Send user message, returns `SyncMessageResult` |
-| `GET` | `/api/simulator/messages` | Poll for messages (`?thread_id=&since_index=`) |
-| `GET` | `/api/simulator/threads` | List all threads |
-| `POST` | `/api/simulator/reset` | Clear all threads and sessions |
-| `GET` | `/api/simulator/mode` | Get current thread mode |
-| `POST` | `/api/simulator/mode` | Set thread mode (threaded/non-threaded) |
+Bot connectors are now managed from each workflow's capabilities panel
+(`frontend/src/components/workflow/WorkflowBotsPanel.tsx`): the workflow's own
+Slack channel and WhatsApp slug routes as chips, per-channel Set up screens
+for the shared credentials, and the Gmail notification settings.
 
 ### Delegation Tier Config Sync
 
@@ -330,7 +321,7 @@ The agent session uses the high tier as the main provider.
 | `provider` / `model_id` | High tier from delegation config (DB → env → defaults) |
 | `servers` | `default_servers` from `_global` config |
 | `selected_skills` | `default_skills` from `_global` config (falls back to all discovered) |
-| `use_tool_search_mode` | `true` when >2 servers configured |
+| `use_code_execution_mode` | Saved workspace capability |
 | `delegation_tier_config` | From DB `_global` config or env vars |
 | `llm_config.primary` | Same as `provider`/`model_id` (ensures follow-ups recover correct model) |
 | `llm_config.api_keys` | From DB `provider_api_keys` |

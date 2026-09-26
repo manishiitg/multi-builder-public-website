@@ -105,8 +105,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .tag-wait { background: var(--amber-soft); color: var(--amber-text); border-color: transparent; }
 .tag-run { background: var(--sky-soft); color: var(--sky-text); border-color: transparent; }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
-.dot-pulse { animation: dotpulse 1.6s ease-in-out infinite; }
-@keyframes dotpulse { 50% { opacity: .3; } }
+.dot-beacon { animation: dotbeacon 1.6s ease-in-out infinite; }
+@keyframes dotbeacon { 50% { opacity: .3; } }
 
 .avatar { flex: none; width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #0b0b0e; }
 .avatar-you { background: #3a3a44; color: #fff; }
@@ -114,7 +114,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .avatar-rio { background: #38bdf8; }
 .avatar-sage { background: #3ddc97; }
 .avatar-otto { background: #c4b5fd; }
-.avatar-pulse { background: linear-gradient(135deg, #38bdf8, #f5a524); }
+.avatar-glow { background: linear-gradient(135deg, #38bdf8, #f5a524); }
 
 /* ---------- Header ---------- */
 .site-header { position: sticky; top: 0; z-index: 40; background: var(--header-bg); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid transparent; transition: border-color .2s ease; }
@@ -488,7 +488,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .goal-card .approval-actions { padding: 10px 0 0; }
 
-/* ---------- Goals + Pulse (real screenshots and explainers) ---------- */
+/* ---------- Goals + Auto-improve (real screenshots and explainers) ---------- */
 .frame-shot { border-radius: 16px; border-bottom: 1px solid var(--line-2); }
 .frame-shot img { width: 100%; }
 .frame-caption { position: relative; z-index: 1; max-width: 760px; margin: 18px auto 0; font-size: 14.5px; color: var(--muted); text-align: center; }

@@ -52,6 +52,9 @@
 /docs/index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/docs/*
+  Cache-Control: public, max-age=0, must-revalidate
+
 /docs-content/*
   Cache-Control: public, max-age=300, must-revalidate
 
@@ -117,19 +120,16 @@
 /analytics.js
   Cache-Control: public, max-age=31536000, immutable
 
-/runloop.css
+/docs.css
   Cache-Control: public, max-age=31536000, immutable
 
-/runloop_site.js
+/docs-redirect.js
   Cache-Control: public, max-age=31536000, immutable
 
 /assets/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
 
 /assets/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/assets/vendor/*
   Cache-Control: public, max-age=31536000, immutable
 
 /favicon.ico

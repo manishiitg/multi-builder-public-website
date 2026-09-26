@@ -12,12 +12,13 @@ const requiredFiles = [
   '404.html',
   'product/index.html',
   'docs/index.html',
-  'runloop.css',
-  'runloop_site.js',
-  'secondary.css',
+  'docs.css',
+  'docs-redirect.js',
   'launch.css',
   'launch.js',
   'analytics.js',
+  'site-header.css',
+  'site-header.js',
   'pricing/index.html',
   'enterprise/index.html',
   'agents/index.html',
@@ -48,16 +49,25 @@ const requiredFiles = [
   'icon-256.png',
   '.well-known/mcp-client.json',
   'assets/brand/agentworks-logo.svg',
-  'assets/vendor/react-18.3.1/react.production.min.js',
-  'assets/vendor/react-18.3.1/react-dom.production.min.js',
-  'assets/vendor/marked-18.0.6/marked.umd.js',
-  'assets/vendor/dompurify-3.4.11/purify.min.js',
+  'assets/docs/guides/first-goal.webp',
+  'assets/docs/guides/slack-thread.webp',
+  'assets/docs/guides/whatsapp-pair.webp',
+  'assets/docs/guides/autonomy-levels.webp',
   'docs-content/manifest.json',
   'docs-content/getting-started/README.md',
   'docs-content/getting-started/first-workflow.md',
+  'docs-content/guides/first-goal.md',
   'docs/overview/index.html',
+  'docs/getting-started/index.html',
   'docs/getting-started/first-workflow/index.html',
   'docs/workflow/auto_improvement_framework/index.html',
+  'docs/workflow/self_improvement_and_reporting/index.html',
+  'docs/guides/index.html',
+  'docs/guides/first-goal/index.html',
+  'docs/guides/slack/index.html',
+  'docs/guides/whatsapp/index.html',
+  'docs/guides/approvals-autonomy/index.html',
+  'docs/developers/index.html',
   'assets/fonts/fonts.css',
   'assets/og/agentworks-home-og.jpg',
   'assets/og/agentworks-docs-og.jpg',
@@ -138,10 +148,11 @@ const pageExpectations = [
     name: 'docs',
     file: 'docs/index.html',
     route: '/docs/',
-    title: 'AgentWorks Docs - Build and Operate AI Workflows',
-    h1: 'Build and operate your first workflow.',
+    title: 'AgentWorks Docs - Guides for Users, Docs for Developers',
+    h1: 'What brings you to the docs?',
     canonical: 'https://agentworkshq.com/docs/',
-    ogImage: 'assets/og/agentworks-docs-og.jpg'
+    ogImage: 'assets/og/agentworks-docs-og.jpg',
+    allowTallSections: true
   },
   {
     name: 'notfound',
@@ -298,12 +309,11 @@ function assertHtmlMetadata(page) {
 }
 
 function assertReferencedAssetsExist() {
-  const siteJs = fs.readFileSync(path.join(root, 'runloop_site.js'), 'utf8');
-  for (const match of siteJs.matchAll(/(?:productAsset|videoAsset|posterAsset)\('([^']+)'\)/g)) {
-    assertFileExists(`assets/product/${match[1]}`);
-  }
+  const htmlFiles = listFiles(dist)
+    .map(file => path.relative(dist, file))
+    .filter(file => file.endsWith('.html'));
 
-  for (const file of ['index.html', '404.html', 'product/index.html', 'docs/index.html', 'pricing/index.html', 'enterprise/index.html', 'agents/index.html', 'assets/fonts/fonts.css']) {
+  for (const file of [...htmlFiles, 'assets/fonts/fonts.css']) {
     const text = readDist(file);
     const resolvesFromRoot = /<base\s+href=["']\/["']/.test(text);
     const matches = [
@@ -372,30 +382,67 @@ function assertDeployPayload() {
   }
 
   const llms = readDist('llms.txt');
-  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/product/') || !llms.includes('https://agentworkshq.com/agents/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
+  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/docs/guides/') || !llms.includes('https://agentworkshq.com/docs/developers/') || !llms.includes('https://agentworkshq.com/product/') || !llms.includes('https://agentworkshq.com/agents/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
     fail('llms.txt missing canonical AgentWorks content');
   }
 
   const llmsFull = readDist('llms-full.txt');
-  for (const phrase of ['Complete Product and Documentation Context', 'Auto-Improvement Framework', 'Build Your First Workflow']) {
+  for (const phrase of ['Complete Product and Documentation Context', 'Auto-Improvement Framework', 'Build Your First Workflow', 'Set your first goal']) {
     if (!llmsFull.includes(phrase)) fail(`llms-full.txt missing ${phrase}`);
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/', '/docs/developers/', '/docs/guides/first-goal/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
-
-  for (const file of ['docs/index.html']) {
-    const html = readDist(file);
-    if (!/<div id="root"[^>]*>[\s\S]*<h1>/.test(html)) fail(`${file} lacks initial agent-readable content`);
+  for (const route of ['/docs/workflow/evaluation_system/', '/docs/workflow/pulse_consolidation/', '/docs/workflow/org_dashboard_design/']) {
+    if (sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap leaks dropped doc ${route}`);
   }
 
-  for (const file of ['docs/overview/index.html', 'docs/getting-started/first-workflow/index.html', 'docs/workflow/auto_improvement_framework/index.html']) {
+  const docsHome = readDist('docs/index.html');
+  if (!/<h1>What brings you to the docs\?<\/h1>/.test(docsHome)) fail('docs/index.html lacks the router headline');
+  for (const needle of ['href="/docs/guides/"', 'href="/docs/developers/"', 'src="/docs-redirect.js']) {
+    if (!docsHome.includes(needle)) fail(`docs/index.html missing ${needle}`);
+  }
+
+  for (const file of ['docs/overview/index.html', 'docs/getting-started/index.html', 'docs/getting-started/first-workflow/index.html', 'docs/workflow/auto_improvement_framework/index.html', 'docs/workflow/self_improvement_and_reporting/index.html', 'docs/guides/first-goal/index.html', 'docs/guides/slack/index.html']) {
     const html = readDist(file);
-    if (!html.includes('rel="alternate" type="text/markdown"') || !html.includes('BreadcrumbList') || !/<h1>[^<]+<\/h1>/.test(html)) {
-      fail(`${file} lacks static documentation metadata`);
+    if (!html.includes('rel="alternate" type="text/markdown"') || !html.includes('BreadcrumbList') || !/<h1>[^<]+<\/h1>/.test(html) || !html.includes('class="docs-side"') || !html.includes('On this page') || !html.includes('/analytics.js')) {
+      fail(`${file} lacks static documentation chrome`);
     }
+  }
+  for (const file of ['docs/guides/index.html', 'docs/developers/index.html']) {
+    const html = readDist(file);
+    if (!html.includes('BreadcrumbList') || !/<h1>[^<]+<\/h1>/.test(html) || !html.includes('class="docs-side"')) {
+      fail(`${file} lacks section-home chrome`);
+    }
+  }
+
+  // Internal docs must never ship: manifest ⊆ allowlist, no internal trees.
+  const publicDocs = new Set(JSON.parse(fs.readFileSync(path.join(root, 'public-docs.json'), 'utf8')).documents);
+  const shippedManifest = JSON.parse(readDist('docs-content/manifest.json'));
+  for (const doc of shippedManifest.documents) {
+    if (!publicDocs.has(doc.path)) fail(`manifest leaks non-allowlisted doc: ${doc.path}`);
+  }
+  for (const dir of ['bugs', 'refactor', 'design', 'audits', 'plans']) {
+    if (fs.existsSync(path.join(dist, 'docs-content', dir))) fail(`internal docs shipped: docs-content/${dir}/`);
+  }
+
+  // The public name is Auto-improve: no "pulse" anywhere in text payloads.
+  const textFiles = files.filter(file => /\.(html|css|js|md|txt|xml|json|webmanifest)$/.test(file));
+  for (const file of textFiles) {
+    const content = fs.readFileSync(path.join(dist, file), 'utf8');
+    if (/pulse/i.test(content)) fail(`forbidden term in dist/${file}`);
+  }
+
+  // Docs pages share the marketing footer (Privacy/Terms/Refunds included).
+  const footerOf = html => (/<footer class="site-footer">[\s\S]*?<\/footer>/.exec(html)?.[0] || '').replace(/\s+/g, ' ');
+  const siteFooter = footerOf(readDist('index.html'));
+  if (!siteFooter.includes('/privacy/') || !siteFooter.includes('/terms/') || !siteFooter.includes('/refunds/')) {
+    fail('marketing footer lost its policy links');
+  }
+  for (const file of ['docs/index.html', 'docs/guides/index.html', 'docs/developers/index.html', 'docs/guides/first-goal/index.html', 'docs/getting-started/first-workflow/index.html']) {
+    if (footerOf(readDist(file)) !== siteFooter) fail(`${file} footer differs from the site footer`);
   }
 
   const sizeBytes = listFiles(dist).reduce((sum, file) => sum + fs.statSync(file).size, 0);
@@ -545,42 +592,67 @@ async function assertRenderedPages() {
       if (failedRequests.length) fail(`${label} failed requests:\n${failedRequests.join('\n')}`);
       }
     }
+    const docsArticleRoutes = [
+      { route: '/docs/getting-started/first-workflow/', h1: 'Build Your First Workflow', name: 'dev article' },
+      { route: '/docs/guides/slack/', h1: 'Talk to your crew in Slack', name: 'guide article' },
+      { route: '/docs/developers/', h1: 'Building and self-hosting', name: 'developers home' }
+    ];
     for (const viewport of docsReaderViewports) {
-      const articlePage = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
-      const consoleErrors = [];
-      const failedRequests = [];
-      articlePage.on('console', msg => {
-        if (msg.type() === 'error') consoleErrors.push(msg.text());
-      });
-      articlePage.on('requestfailed', req => {
-        failedRequests.push(`${req.url()} ${req.failure()?.errorText || ''}`);
-      });
-      const articleResponse = await articlePage.goto(
-        `http://127.0.0.1:${port}/docs/?doc=getting-started%2Ffirst-workflow`,
-        { waitUntil: 'networkidle' }
-      );
-      if (articleResponse?.status() !== 200) fail(`docs article ${viewport.name} returned ${articleResponse?.status()}`);
-      const articleMetrics = await articlePage.evaluate(() => ({
-        title: document.title,
-        h1: document.querySelector('.mk-doc-markdown h1')?.textContent || '',
-        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) > innerWidth + 2,
-        internalLinks: [...document.querySelectorAll('.mk-doc-markdown a[href*="?doc="]')].map(link => link.getAttribute('href')),
-        markdownPresent: Boolean(document.querySelector('.mk-doc-markdown')),
-        loadingPresent: Boolean(document.querySelector('.mk-doc-loading')),
-        errorPresent: Boolean(document.querySelector('.mk-doc-error'))
-      }));
-      await articlePage.close();
-      const articleLabel = `docs article ${viewport.name}`;
-      if (!articleMetrics.markdownPresent || articleMetrics.loadingPresent || articleMetrics.errorPresent) {
-        fail(`${articleLabel} did not render the Markdown document`);
+      for (const article of docsArticleRoutes) {
+        const articlePage = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
+        const consoleErrors = [];
+        const failedRequests = [];
+        articlePage.on('console', msg => {
+          if (msg.type() === 'error') consoleErrors.push(msg.text());
+        });
+        articlePage.on('requestfailed', req => {
+          failedRequests.push(`${req.url()} ${req.failure()?.errorText || ''}`);
+        });
+        const articleResponse = await articlePage.goto(
+          `http://127.0.0.1:${port}${article.route}`,
+          { waitUntil: 'networkidle' }
+        );
+        if (articleResponse?.status() !== 200) fail(`docs ${article.name} ${viewport.name} returned ${articleResponse?.status()}`);
+        const articleMetrics = await articlePage.evaluate(() => ({
+          title: document.title,
+          h1: document.querySelector('.docs-article h1')?.textContent || '',
+          overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) > innerWidth + 2,
+          sidebar: Boolean(document.querySelector('.docs-side, .docs-nav-drop')),
+          footer: document.querySelector('.site-footer a[href="/privacy/"]')?.getAttribute('href') || '',
+          mediaIssues: [...document.querySelectorAll('.docs-article img')].flatMap((el, i) => {
+            const issues = [];
+            const label = `img[${i}] ${el.getAttribute('src') || ''}`.trim();
+            if (!el.getAttribute('width') || !el.getAttribute('height')) issues.push(`${label} missing intrinsic dimensions`);
+            if (!el.hasAttribute('alt')) issues.push(`${label} missing alt attribute`);
+            if (el.getBoundingClientRect().width > 0 && (!el.complete || el.naturalWidth === 0)) issues.push(`${label} image did not load`);
+            return issues;
+          })
+        }));
+        await articlePage.close();
+        const articleLabel = `docs ${article.name} ${viewport.name}`;
+        if (articleMetrics.h1 !== article.h1) fail(`${articleLabel} rendered h1 mismatch: ${articleMetrics.h1}`);
+        if (!articleMetrics.title.includes(article.h1)) fail(`${articleLabel} rendered title mismatch`);
+        if (articleMetrics.overflow) fail(`${articleLabel} has page-level horizontal overflow`);
+        if (!articleMetrics.sidebar) fail(`${articleLabel} lacks docs navigation`);
+        if (articleMetrics.footer !== '/privacy/') fail(`${articleLabel} lacks the site footer`);
+        if (articleMetrics.mediaIssues.length) fail(`${articleLabel} media issues:\n${articleMetrics.mediaIssues.join('\n')}`);
+        if (consoleErrors.length) fail(`${articleLabel} console errors:\n${consoleErrors.join('\n')}`);
+        if (failedRequests.length) fail(`${articleLabel} failed requests:\n${failedRequests.join('\n')}`);
       }
-      if (articleMetrics.h1 !== 'Build Your First Workflow') fail(`${articleLabel} rendered h1 mismatch`);
-      if (!articleMetrics.title.includes('Build Your First Workflow')) fail(`${articleLabel} rendered title mismatch`);
-      if (articleMetrics.overflow) fail(`${articleLabel} has page-level horizontal overflow`);
-      if (!articleMetrics.internalLinks.length) fail(`${articleLabel} did not rewrite relative documentation links`);
-      if (consoleErrors.length) fail(`${articleLabel} console errors:\n${consoleErrors.join('\n')}`);
-      if (failedRequests.length) fail(`${articleLabel} failed requests:\n${failedRequests.join('\n')}`);
+      // Legacy ?doc= reader URLs redirect to the static article.
+      const redirectPage = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
+      await redirectPage.goto(`http://127.0.0.1:${port}/docs/?doc=getting-started%2Ffirst-workflow`, { waitUntil: 'networkidle' });
+      const redirectUrl = new URL(redirectPage.url());
+      await redirectPage.close();
+      if (redirectUrl.pathname !== '/docs/getting-started/first-workflow/') {
+        fail(`docs redirect ${viewport.name} landed on ${redirectUrl.pathname}`);
+      }
     }
+    // Internal docs stay unpublished: the leaked URL from the incident must 404.
+    const leakPage = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    const leakResponse = await leakPage.goto(`http://127.0.0.1:${port}/docs-content/bugs/uvx_cache_bloat_latest_versions.md`, { waitUntil: 'networkidle' });
+    await leakPage.close();
+    if (leakResponse?.status() !== 404) fail(`internal doc returned ${leakResponse?.status()}, want 404`);
     const missingPage = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     const missingResponse = await missingPage.goto(`http://127.0.0.1:${port}/missing-runloop-page`, { waitUntil: 'networkidle' });
     if (missingResponse?.status() !== 404) fail(`missing route returned ${missingResponse?.status()}`);
@@ -601,6 +673,9 @@ async function assertRenderedPages() {
 
 async function main() {
   run(process.execPath, ['--check', 'runloop_site.js']);
+  run(process.execPath, ['--check', 'docs-redirect.js']);
+  run(process.execPath, ['--check', 'scripts/sync-product-docs.js']);
+  run(process.execPath, ['--check', 'scripts/generate-agent-content.js']);
   run('bash', ['scripts/prepare-deploy.sh']);
   assertDeployPayload();
   for (const page of pageExpectations) assertHtmlMetadata(page);

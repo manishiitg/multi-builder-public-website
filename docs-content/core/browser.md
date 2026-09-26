@@ -1,380 +1,323 @@
-# Browser System
+# Browser Automation
 
-Complete reference for browser automation in coding-agent-loop — session limits, CDP local browser, Playwright artifacts, and known bugs.
+Coding Agent Loop uses the managed `agent_browser` tool for all browser
+automation. The browser can run headlessly in the workspace or attach to a
+user-visible Chrome through CDP.
 
----
+## Modes
 
-## Table of Contents
+| Mode | Behavior | Typical use |
+|---|---|---|
+| `none` | Browser tools are disabled. | Workflows that do not browse. |
+| `auto` | Use a reachable configured CDP browser; otherwise use headless. | Default. |
+| `headless` | Use the signed-in user’s managed Chromium. | Background and scheduled runs. |
+| `cdp` | Attach to the configured Chrome debugging port. | Existing logins, visual QA, and sites that reject headless browsers. |
 
-- [Session Limit Manager](#session-limit-manager)
-- [CDP Local Browser Connection](#cdp-local-browser-connection)
-- [Playwright Artifacts and Output Location](#playwright-artifacts-and-output-location)
-- [Browser Session Identity Split Plan](#browser-session-identity-split-plan)
-- [Known Bugs](#known-bugs)
+The workflow manifest stores the mode under
+`capabilities.browser_mode`. Browser steps attach the `agent-browser` skill.
 
----
+## Starting a CDP browser
 
-## Session Limit Manager
+On macOS, install the default launcher on port `9222` with:
 
-The session tracker prevents unbounded browser process growth by enforcing per-workflow and global limits.
-
-**Source:** `agent_go/pkg/browser/session_tracker.go`
-
-### Limits
-
-| Limit | Value | Enforcement |
-|-------|-------|-------------|
-| Per workflow/chat | `MaxBrowserSessionsPerChat = 1` | Returns error to LLM — must close existing session first |
-| Global (all sessions) | `MaxBrowserSessionsGlobal = 8` | Auto-evicts oldest (LRU) session |
-
-### How It Works
-
-1. **Registration:** When the LLM calls `agent_browser(command="open", ...)`, the executor extracts the `chatSessionID` from context and calls `tracker.CheckLimits()`.
-2. **Per-chat check:** If the workflow already has 1 active session, returns an error:
-   ```
-   ERROR: Cannot open browser session "<name>" — you already have 1 active browser sessions
-   (max 1 per workflow). Active sessions: [...]. Close one first using
-   agent_browser(command="close", session="<name>") before opening a new one.
-   ```
-3. **Global check:** If 8+ sessions exist globally, the oldest (least-recently-used) session is auto-closed.
-4. **Reuse:** If the named session already exists in the tracker, it's a reuse — always allowed.
-5. **Touch:** Every `agent_browser` call updates the session's `lastUsed` timestamp.
-
-### Session Lifecycle
-
-```
-1. Workflow starts
-   └─ Browser tool executor created with chatSessionID in context
-
-2. LLM calls agent_browser(command="open", session="my_session")
-   └─ CheckLimits() validates per-chat (< 1) and global (< 8)
-   └─ Touch() registers session with timestamps
-
-3. During workflow
-   └─ Each agent_browser call updates lastUsed via Touch()
-
-4. Workflow ends (stop/clear/completion)
-   └─ CloseAllForChat(sessionID) closes all browser processes
-   └─ RemoveAllForChat() removes tracker entries
-
-5. Server restart
-   └─ In-memory tracker cleared
-   └─ Kill-all sent to workspace-api for orphaned chromium processes
+```bash
+curl -fsSL 'https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/scripts/install-chrome-cdp-macOS.sh' | bash
 ```
 
-### Tracking Data Structure
+Install another independent launcher/profile by passing a port:
 
-```go
-type browserSessionInfo struct {
-    browserSession string    // e.g., "twitter_research"
-    chatSessionID  string    // owning workflow/chat session
-    lastUsed       time.Time
-    createdAt      time.Time
+```bash
+curl -fsSL 'https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/scripts/install-chrome-cdp-macOS.sh' | bash -s -- --port 9333
+```
+
+Each CDP profile must use its own port and `--user-data-dir`. The usual port is
+`9222`; the port-specific installer creates a separate application and profile.
+
+For a specialized workflow that needs multiple login identities, launch more
+profiles on different ports, for example `9222` and `9333`, then configure:
+
+```json
+{
+  "browser_mode": "cdp",
+  "cdp_ports": [9222, 9333]
 }
 ```
 
-### Key Functions
+The runtime accepts at most four configured ports. Ordinary workflow
+concurrency does not require multiple profiles: workflows share one CDP browser
+and use labeled tabs plus a per-port select-and-act lock.
 
-| Function | Purpose |
-|----------|---------|
-| `Touch(browserSession, chatSessionID)` | Register or update last-used time |
-| `CheckLimits(browserSession, chatSessionID)` | Validate per-chat and global limits |
-| `CountForChat(chatSessionID)` | Count active sessions for a workflow |
-| `SessionsForChat(chatSessionID)` | List browser session names for a workflow |
-| `GetOldestSession()` | Find LRU session globally (for auto-eviction) |
-| `GetOldestSessionForChat(chatSessionID)` | Find LRU session for a specific workflow |
-| `RemoveAllForChat(chatSessionID)` | Remove all tracker entries for a workflow |
-| `CloseAllForChat(chatSessionID, client)` | Close browser processes + remove entries |
-| `Clear()` | Remove all tracked sessions (server restart) |
+## Managed tool
 
-### Key Files
+Do not run the `agent-browser` CLI through the shell for browser actions. Call
+the managed `agent_browser` tool. The runtime injects and validates the CDP
+endpoint, applies session limits, serializes shared-tab actions, and keeps file
+access inside the workspace.
 
-| File | Role |
-|------|------|
-| `agent_go/pkg/browser/session_tracker.go` | Core tracker with limits |
-| `agent_go/pkg/browser/executor.go` | Limit check + enforcement on each command |
-| `agent_go/cmd/server/server.go` | Cleanup on workflow stop (`cleanupBrowserSessions`) |
-| `agent_go/cmd/server/virtual-tools/workspace_browser_tools.go` | Injects chatSessionID into context |
-| `workspace/handlers/browser_session_tracker.go` | Workspace-side tracker (code execution mode) |
+To check whether CDP is reachable, use the backend status operation:
 
-### Frontend Monitoring
-
-`frontend/src/components/workspace/BrowserProcesses.tsx` displays:
-- Active sessions grouped by process
-- Age, idle time, CPU/memory usage
-- Buttons to kill individual sessions or cleanup all
-- Orphaned session detection
-
-API endpoints: `/api/browser/sessions` (agent_go), `/api/browser/processes` (workspace-api).
-
----
-
-## CDP Local Browser Connection
-
-Connect the agent's browser tools to your real Chrome browser via Chrome DevTools Protocol (CDP), allowing you to watch the agent navigate in real-time and reuse your logged-in sessions.
-
-### Overview
-
-By default, browser-based MCP servers (like `playwright` or `agent-browser`) run an isolated, headless browser inside a container. By using **CDP mode**, you can point these tools to a Chrome instance running on your host machine.
-
-**Foreground behavior:** CDP is connected to a visible real Chrome window. Browser actions may bring Chrome to the foreground and steal keyboard focus from the user. This is expected for shared visible Chrome and is separate from tab isolation. Use headless mode for background-safe runs, or run schedules against a dedicated automation Chrome profile/port instead of the user's primary Chrome.
-
-### How it Works
-
-1. **Launch Chrome with Remote Debugging**: You start Chrome on your host with a specific port (default `9222`).
-2. **Connection String**: The agent is given a CDP URL (e.g., `http://host.docker.internal:9222`).
-3. **Connectivity Check**: The frontend verifies the connection before starting the session.
-4. **Shared browser session**: In CDP mode, `agent_browser` commands are remapped to a shared raw agent-browser session per CDP port, e.g. `shared-cdp-9222`. This lets multiple workflows reuse the same Chrome while still forcing each command to name the tab it intends to use.
-
-### Shared CDP Tabs
-
-Native agent-browser tracks an active tab per `--session`. In a shared workflow environment that is too implicit: whichever workflow last selected a tab can influence the next page action. The project wrapper therefore requires an explicit tab for CDP work. Use the `tab` command to choose/create the tab, call `open` with URL-only args, then include an inline tab argument on later page actions.
-
-Allowed page action forms:
-
-```json
-{"command": "tab", "args": ["profile"], "session": "workflow_a"}
-{"command": "open", "args": ["https://example.com"], "session": "workflow_a"}
-{"command": "snapshot", "args": ["tab", "profile", "-i"], "session": "workflow_a"}
-{"command": "click", "args": ["--tab", "profile", "@e1"], "session": "workflow_a"}
-{"command": "eval", "args": ["tab", "profile", "document.title"], "session": "workflow_a"}
+```text
+agent_browser(command="status", args=[], session="default")
 ```
 
-If a CDP page action omits the tab, the tool returns an error with the selected-tab hint for the current workflow. The LLM is expected to reuse that selected tab or create a labeled tab, then retry the command. `open` is the exception: it uses the workflow's previously selected tab and passes only the URL to agent-browser.
+`status` needs no tab and no `--cdp` argument. `snapshot` is not a connectivity
+probe: it reads one specific page, so in shared CDP mode it must name the tab.
 
-Tab management commands:
+Before the first browser action, load the installed CLI's matching command guide:
 
-```json
-{"command": "tab", "args": [], "session": "workflow_a"}
-{"command": "tab", "args": ["new", "--label", "profile", "https://example.com"], "session": "workflow_a"}
-{"command": "tab", "args": ["profile"], "session": "workflow_a"}
+```text
+agent_browser(command="skills", args=["get", "core"])
 ```
 
-Operational rules:
+The common flow is:
 
-- Try the compact real tab list first and reuse a matching tab when CDP responds; if it times out, use the selected-tab fallback.
-- Create one stable labeled tab only when no tab is selected or the selected tab is unrelated.
-- Do not close user tabs unless explicitly requested.
-- Do not rely on "latest tab" or session active-tab state for page actions.
-- The wrapper serializes `select tab -> action` with a per-CDP-port mutex. Two page commands on the same CDP port do not interleave; different CDP ports are independent.
+```text
+agent_browser(command="open", args=["https://example.com"])
+agent_browser(command="snapshot", args=["-i"])
+agent_browser(command="click", args=["@e1"])
+agent_browser(command="snapshot", args=["-i"])
+```
 
-### Configuration
+In CDP mode, list and reuse a suitable tab before asking to create one. Include
+the returned real tab ID (`t1`, `t2`, and so on) inline for every page action.
+`open` itself remains URL-only. The inline system prompt gives the exact
+endpoint and argument form for the active session.
 
-#### Launch Chrome (Host)
+## Shared CDP tab lifecycle
 
-**macOS:**
+One visible Chrome is shared safely by verifying and acting under a per-port
+lock. A workflow must not assume that the tab selected during its previous tool
+call is still active: the user, the website, or another workflow may have
+changed Chrome in the meantime. The backend therefore reads the real tab state
+immediately before every page action while it holds the shared lock. It keeps
+using the requested real `tN` when that tab is already active, and switches only
+when another tab is active. This avoids repeatedly bringing Chrome to the
+foreground on macOS without allowing one workflow to act in another tab.
+
+The normal flow is:
+
+1. Call `agent_browser(command="tab", args=["--cdp", "<endpoint>"])` once to
+   inspect real tab IDs and query-free display URLs.
+2. Reuse the workflow's already-owned labeled tab when one exists. It may be
+   navigated to the requested URL.
+3. Otherwise, reuse a pre-existing tab only when its normalized URL exactly
+   matches the requested URL.
+4. If neither matches, request a stable labeled tab with
+   `agent_browser(command="tab", args=["--cdp", "<endpoint>", "new",
+   "--label", "<workflow-label>", "https://target.example"])`.
+5. Keep the returned real `tN` and provide it inline on subsequent actions.
+
+The backend repeats the list-and-reuse check atomically before executing
+`tab new`. It refuses creation if the real tab list is unavailable or invalid,
+rather than risking a duplicate. A label collision with a pre-existing tab at a
+different URL is also an error. An arbitrary same-origin tab is deliberately
+not reused because navigating it could destroy unrelated user state. URL query
+parameters are hidden from model-facing tab lists, but the backend retains the
+full normalized URL for exact-match decisions.
+
+`tab new` arguments are parsed and rewritten into the canonical
+`new --label <label> <absolute-url>` order before reaching agent-browser. This
+prevents a misplaced URL or option from being interpreted as the page to open.
+
+### Model-context behavior
+
+Tab management is intentionally compact:
+
+| Operation | Returned to the agent |
+|---|---|
+| Explicit `tab` list | At most 20 compact lines; labels, titles, and URLs are individually truncated. |
+| Select one tab | A short selected-tab message, not the raw tab list. |
+| Automatic active-tab verification before a page action | Nothing extra; the internal tab-state/selection response is discarded. |
+| Atomic reuse check before `tab new` | Nothing extra; only the reused/created tab summary is returned. |
+
+Consequently, a large Chrome window does not add every tab to context on every
+browser action. Repeated explicit list calls can still accumulate in the
+conversation history, so agents should list once, retain the returned `tN`, and
+list again only when the tab disappears or the target is genuinely unknown.
+
+### Ownership and cleanup
+
+Only tabs actually created by a workflow are registered for automatic cleanup,
+and ownership is recorded against the real `tN` ID returned by agent-browser.
+A pre-existing tab reused by exact URL remains user-owned and is never enrolled
+in cleanup.
+
+After the final browser-owner lease is released, created tabs remain available
+for review for one hour and are then closed by real `tN` ID. Concurrent runs
+delay that timer until the final lease ends. Already-missing tabs, including
+agent-browser's `No tab with label` response, are retired from the registry
+instead of being retried forever. Never call the top-level browser `close` in
+CDP mode because it can terminate the user's real Chrome session. Close a
+specific workflow-owned tab immediately only when the user requests it or the
+workflow must replace it.
+
+## State and isolation
+
+- CDP mode uses the user's real Chrome cookies and login state.
+- Managed headless mode uses one persistent browser per workflow. Authorized users, builder sessions, runs and groups for that workflow share it; unrelated workflows are isolated. Tabs are optional; reuse the current tab or create one when useful.
+- Shared CDP concurrency is isolated by real tab IDs plus a per-port
+  select-and-act lock; labels are aliases, not durable tab identities.
+- Delegated agents inherit the workflow browser. Explicit session labels do not create independent browsers. Preserve it at workflow completion. Configured CDP profiles retain their separate specialized login behavior.
+- Workflow-created CDP tabs are closed automatically one hour after the final
+  run releases its lease; reused user tabs are preserved.
+
+Browser session tracking lives in `agent_go/pkg/browser`. MCP subprocess
+connection pooling in `mcpagent` is independent of browser state.
+
+### `file://` URLs are not path-restricted (deliberate, not an oversight)
+
+In CDP mode the browser is the user's **own** Chrome — a host process this app
+neither owns nor sandboxes — so `agent_browser` can read any file on the
+machine via a `file://` URL, including files the shell tool is explicitly
+denied. SparkQuill's standalone server rejected any `file://` URL resolving
+outside the workspace or host Downloads (`validateBrowserFileURLs` in its
+`browser_tool.go`), verified against a real exploit: the shell tool refused a
+decoy file outside the workspace while the browser read the same path's
+contents straight back.
+
+That server was deleted on 2026-09-06 and the platform's `agent_browser` has
+no equivalent guard: a product's browser access is all-or-nothing
+(`runtime.browser` in its `product.yaml`; SparkQuill's child profile sets it
+to `disabled`, the parent profile to `preferred`). This gap was raised with
+SparkQuill's owner on 2026-09-06 and left unrestored by their explicit choice
+— they'd rather the model use its own judgment about which files to read than
+have a hard path guard. Not a platform default recommendation for other
+products; a single-user deployment's owner deciding what their own AI may
+read on their own machine.
+
+**Canonical reference:** [`docs/agent-execution-architecture.html`](../agent-execution-architecture.html)
+§4 — the measured before/after, the full list of rejected spellings, and how
+this relates to the shell and image-sub-agent boundaries. Keep the detail
+there, not here.
+
+## Debugging and evidence
+
+Use agent-browser's managed diagnostic commands so they operate on the same tab
+and session as the workflow:
+
+- `network` for requests and HAR capture;
+- `console` and `errors` for page diagnostics;
+- `screenshot` for visual evidence;
+- `record` for video evidence when the user or workflow explicitly requests it;
+- `trace` and `profiler` for deeper debugging.
+
+HAR and video artifacts may contain credentials, cookies, page content, or
+personal data. Review them before sharing.
+
+### Persistent browser artifact handoff
+
+The agent-browser daemon may outlive the workflow process and therefore cannot
+safely rely on that process's current directory or inherited FolderGuard. For a
+named screenshot or recording, the managed adapter rewrites the browser output
+to a unique file under `/tmp/agentworks-browser-artifacts`. The trusted
+workspace server then validates that the staged file is regular, non-empty, of
+the expected image/video type, and that the requested destination is covered by
+the current request's write paths and is not blocked. It publishes the artifact
+atomically into the workflow workspace and removes the staged source.
+
+Screenshots are finalized in the same call. Video recording uses an
+owner-and-session-scoped lease: `record start` stores the staged source and
+`record stop` finalizes that exact source into the requested workspace path.
+This handoff applies to both headless and CDP modes.
+
+In CDP mode, agent-browser recording creates a fresh temporary browser context
+and tab. The managed adapter diffs the real tab set, pins the workflow to the
+new recording `tN`, rejects interactions until a fresh snapshot succeeds, and
+routes stale original-tab arguments to the recorded context. `record stop`
+closes the temporary tab and restores the original selection. Abandoned runs
+are stopped and cleaned by delayed ownership cleanup so the shared CDP session
+cannot remain stuck in an active recording.
+
+## Recent failure findings and fixes
+
+| Finding | User-visible symptom | Current fix |
+|---|---|---|
+| A tab label was sometimes stored as though it were a real tab ID. | Delayed cleanup called `tab close <label>`, failed, and tabs remained open. | Parse both direct `tab new` and tab-list JSON, persist the returned real `tN`, and treat missing-label errors as already cleaned. |
+| Cached backend active-tab state was trusted between calls. | A page action could affect the wrong tab after Chrome changed externally. | Read the real active tab before every page action under the shared lock; select the resolved `tN` only when it is not already active. |
+| The resolved `tN` was explicitly selected before every action even when already active. | Visible Chrome repeatedly stole macOS focus while the user typed in another app. | Preserve the current tab when the real state confirms it is already active; tab creation or a genuine tab change may still foreground Chrome once. |
+| Agents could request `tab new` without a fresh reuse decision. | Repeated workflows accumulated duplicate tabs. | Perform an atomic owned-tab/exact-URL reuse check; fail closed when listing is unavailable. |
+| Flexible or malformed `tab new` argument ordering could reach the CLI. | A new tab sometimes opened an unintended URL. | Validate an absolute URL and canonicalize the command before execution. |
+| Raw tab output was suspected of entering context on every selection. | Concern about context growth with many Chrome tabs. | Return tab lists only for explicit list calls, cap them at 20 compact entries, and discard internal selection/reuse responses. |
+| A persistent daemon resolved named evidence paths from stale sandbox state. | Named screenshots or recordings failed with path/`getcwd` errors. | Use the guarded staging-and-finalization artifact handoff described above. |
+| Upload paths were forwarded unchanged while the command working directory pointed at the run Downloads folder. | Workspace-relative paths could resolve as `Downloads/Workflow/...`, and a daemon launched by an older step could not see a newly granted input folder. | Resolve and authorize upload sources in workspace-api, copy them into short-lived managed staging with the original basename, and remove staging after the command. |
+| CSS ID selectors were not shell-quoted. | `upload #file path` was parsed by the shell as a comment and agent-browser reported missing arguments. | Treat `#`, backslashes, and home-prefix characters as shell-sensitive arguments and quote them. |
+| Brokered output destinations were joined to the browser working directory. | A requested `Downloads/report.csv` could be published as `Downloads/Downloads/report.csv`. | Resolve brokered screenshot/video/download destinations once from the workspace root. |
+| `record start` created a fresh context while selected-tab enforcement returned actions to the original tab. | A valid WebM recorded an idle page while the real reproduction happened outside the video. | Detect the new active `tN`, require a fresh snapshot, pin actions to it until stop, close it afterward, and fail closed if the handoff cannot be identified. |
+
+## Live E2E contract
+
+Run the real managed-browser contract with:
+
 ```bash
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+scripts/run-browser-e2e.sh
 ```
 
-**Windows:**
-```cmd
-"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222
-```
-
-#### Connection Logic
-
-The system uses a two-tier connectivity check (`frontend/src/services/api.ts` and `agentApi.checkCdpPort`):
-
-1. **Agent API Check**: Calls `agent_go`'s `/api/cdp-check` — TCP dial from agent server to the port.
-2. **Workspace API Check**: If running in Docker, also tries the Workspace API's `/api/cdp-check` — critical because browser tools execute inside the workspace container (different network view).
-
-### Frontend UI Features
-
-- **Check Connection Button**: Found in Preset Modal and Chat Input settings, with immediate feedback.
-- **Auto-Check**: Debounced connection check as you type the port number.
-- **macOS Helper**: Download link for a pre-configured macOS launcher.
-
-### macOS "Damaged Package" Fix
-
-```bash
-xattr -cr /path/to/Chrome-CDP.app
-```
-
-### Network Paths (Docker)
-
-- **macOS/Windows**: `http://host.docker.internal:9222`
-- **Linux**: `http://172.17.0.1:9222` (or your host IP)
-
-### Troubleshooting
-
-- **Connection Refused**: Ensure Chrome is running with `--remote-debugging-port=9222`. Check no other process uses port 9222 (`lsof -i :9222`). Close all other Chrome instances first.
-- **Agent sees a blank page**: CDP only allows one connection per tab. If DevTools "Inspect" window is open for that tab, the agent's tools may be blocked.
-- **Missing tab error**: In shared CDP mode, retry with `["tab", "<tab-id-or-label>", ...]` or `["--tab", "<tab-id-or-label>", ...]` in `args`. The error includes the selected-tab hint, not a full browser-wide tab dump.
-- **Wrong tab acted on**: Check for direct CDP code or shell scripts that bypass `agent_browser`. Raw CDP scripts must use `/json/list`, connect to the chosen target, and avoid navigation/actions plus `Target.createTarget` / `Target.closeTarget` unless disposable raw-CDP control is explicitly required and the user accepts that it bypasses shared-browser locking.
-
----
-
-## Playwright Artifacts and Output Location
-
-### The Problem
-
-By default, `@playwright/mcp` might save artifacts in the process cwd. In containerized environments, files get lost in temporary directories or scattered across the repository root.
-
-### The Solution: `working_dir` Injection
-
-The project uses a custom MCP client that supports a `working_dir` property in the server configuration.
-
-#### Configuration (`agent_go/configs/mcp_servers_clean.json`)
-
-```json
-"playwright": {
-  "command": "npx",
-  "args": [
-    "@playwright/mcp@latest",
-    "--output-dir",
-    "../workspace-docs/Downloads",
-    "--isolated"
-  ],
-  "working_dir": "../workspace-docs/Downloads"
-}
-```
-
-**Key Parameters:**
-- **`working_dir`**: Sets the OS-level cwd for the spawned `npx` process.
-- **`--output-dir`**: Tells Playwright where to save snapshots and traces.
-- **`--isolated`**: Prevents browser data (cookies, storage) from leaking between sessions.
-
-### Benefits
-
-1. **Visibility**: Artifacts land in `workspace-docs/Downloads`, indexed by semantic search and `list_directory`.
-2. **Persistence**: Files survive session restarts (persistent `workspace-docs` volume).
-3. **Cleanliness**: Prevents repo root from being cluttered with screenshot/download files.
-
-### Interaction with CDP Mode
-
-Even when controlling your local browser via CDP, `working_dir` injection is active — downloads are still routed to the designated workspace folder.
-
-### Troubleshooting
-
-- **"File not found" after download**: Check the `working_dir` path in MCP config. If relative, it's relative to the `agent_go` directory.
-- **Duplicate filenames**: Playwright appends timestamp/UUID to screenshots. For specific filenames, use `take_screenshot` with a custom path.
-
----
-
-## Browser Session Identity Split Plan
-
-### Problem
-
-A single MCP session ID currently does two jobs:
-
-1. **Tool session identity** — session-scoped `MCP_API_URL`, custom tool routing, code execution mode HTTP calls.
-2. **Browser session identity** — Playwright / `agent_browser` browser reuse, page state continuity, login persistence.
-
-This coupling breaks in the workflow builder.
-
-### Concrete Failure: Builder + `run_saved_main_py`
-
-- `run_saved_main_py(step_id, group_id)` executes through the workshop controller in a **group MCP session**.
-- The builder chat agent uses its own **chat session**.
-- Result: builder cannot inspect the browser opened by the workflow step because the session IDs differ.
-
-### Current `share_browser` Behavior
-
-Available on `call_sub_agent()`, `call_generic_agent()`, and `delegate()`:
-
-- `share_browser=true` (default): Child keeps parent's MCP session → browser state shared.
-- `share_browser=false`: Isolated MCP session ID → browser isolated, but **also changes tool routing** (undesirable side-effect).
-
-### Goal: Separate the Two Identities
-
-Each agent/session should have:
-- **`tool_session_id`** — MCP/custom tool routing, `MCP_API_URL`, stable per chat/workflow agent.
-- **`browser_session_id`** — browser reuse only, can be shared across agents when desired.
-
-### Proposed Browser Session Key
-
-For workflow builder: `browser::<workspace-hash>::<group-id>` (canonical `group_id`, not display name).
-
-### Desired Behavior After Split
-
-- **Workflow builder**: Builder keeps its own `tool_session_id`. `run_saved_main_py` publishes the active `browser_session_id`. Subsequent builder browser inspection uses that ID.
-- **Sub-agents**: `share_browser=false` only creates a new browser session, not a new tool session.
-- **Multi-agent chat**: Shared browser is opt-in, not default.
-
-### What Must Change
-
-1. **Session model**: Introduce `ToolSessionID` + `BrowserSessionID` (fallback to tool session if browser session empty).
-2. **Browser tools**: Playwright and `agent_browser` must resolve `browser_session_id` first, fall back to `tool_session_id`.
-3. **Code execution env**: Add `MCP_BROWSER_SESSION_ID` or equivalent, keep `MCP_API_URL` on tool session.
-4. **Workshop controller state**: Track `map[groupID]browserSessionID` and optional `lastActiveGroupID`.
-5. **Cleanup lifecycle**: Closing a tool session must not auto-destroy a shared browser session.
-
-### Rollout Phases
-
-1. **Phase 1**: Internal split with compatibility fallback (browser falls back to tool session).
-2. **Phase 2**: Workflow builder/workshop adoption (`run_saved_main_py`, `execute_step`, builder inspection).
-3. **Phase 3**: Delegation adoption (`share_browser=false` isolates browser only).
-4. **Phase 4**: General multi-agent adoption (shared browser opt-in).
-
-### Files Involved
-
-**coding-agent-loop:**
-- `agent_go/pkg/orchestrator/base_orchestrator.go` — single-session propagation
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller.go` — workshop group session cache
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_workshop.go` — workshop group switching
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go` — agent config overrides, `share_browser` handling
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/planning_exports.go` — workshop session setup
-- `agent_go/cmd/server/server.go` — workflow-phase chat agent creation, session-aware executors
-
-**mcpagent:** Browser session registry/reuse logic, Playwright session lookup, `agent_browser` execution path.
-
-### Risk
-
-If browser sessions are shared too broadly, two agents may interfere with the same page. Shared browser reuse should be explicit, scoped, and default-on only where already expected (parent/sub-agent in same task).
-
----
-
-## Known Bugs
-
-### Playwright: "transport error: transport closed"
-
-**Status:** Known / Upstream
-
-**Symptom:** `failed to call tool browser_close: transport error: transport closed`
-
-**Meaning:** The MCP connection (stdio pipe to `npx @playwright/mcp`) is already closed by the time the call runs. Not that `browser_close` is invalid — the transport is gone.
-
-**Typical causes:**
-1. Playwright MCP process exited (crash, OOM, uncaught exception).
-2. Connection was closed on our side (`CloseSession` called, workflow ended).
-3. Browser/process died earlier — MCP server closes transport or exits.
-4. Timeout or kill (subprocess killed, pipes close).
-
-**Fix implemented:** "transport closed" is now treated as a broken-pipe error:
-- `mcpclient.IsBrokenPipeError` returns true for `"transport closed"`.
-- Agent path: broken-pipe handler closes old client, gets fresh connection, retries once.
-- HTTP executor path: same — fresh connection and one retry.
-- Registry: new agents calling `GetOrCreateConnection` ping existing connection; if dead, it's replaced.
-
-**When it still happens:** If retry also fails or the new process dies again. Start a new workflow/session.
-
-**What to do:**
-- If cleaning up after browser close: treat as "connection already gone", continue.
-- If you need a fresh session: start a new workflow run / chat session.
-- If happening often mid-workflow: check for Playwright/subprocess crashes, OOM, or premature `CloseSession`.
-
-### Playwright: Screenshots/Snapshots Saved to Repo Root
-
-**Status:** Fixed
-
-**Problem:** With `--output-dir` set, custom filenames (e.g., `screenshot.png`) were written to process root instead of the configured directory. Auto-generated filenames worked correctly.
-
-**Root cause:**
-1. Upstream Playwright MCP resolves custom filenames relative to process cwd, not `--output-dir` ([playwright-mcp#1390](https://github.com/microsoft/playwright-mcp/issues/1390)).
-2. No working-directory support when spawning the MCP subprocess.
-3. Session registry reuses connections by `(sessionID, serverName)` only — config not in key.
-
-**Fix:**
-1. Added `MCPServerConfig.WorkingDir` and `RuntimeConfigOverride.WorkingDir` to mcpagent.
-2. `StdioManager` starts subprocess with `cmd.Dir = workingDir`.
-3. Workflow override (`setupBrowserDownloadsPathOverride`) sets both `--output-dir` and `WorkingDir` to the run's `execution/Downloads`.
-4. `.gitignore` fallback for any artifacts that still land at repo root.
-
-**Files:** `mcpagent/mcpclient/config.go`, `mcpagent/mcpclient/stdio_manager.go`, `mcpagent/mcpclient/client.go`, `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go`.
-
-### Related Issues
-
-- **"Browser is already in use"** → use `--isolated` in Playwright MCP config.
-- **Session not found (HTTP transport)** → applies to streamable-http; stdio uses "transport closed" as the equivalent.
-- Upstream refs: [playwright-mcp#1245](https://github.com/microsoft/playwright-mcp/issues/1245), [#1307](https://github.com/microsoft/playwright-mcp/issues/1307), [#1140](https://github.com/microsoft/playwright-mcp/issues/1140), [#1390](https://github.com/microsoft/playwright-mcp/issues/1390).
+The test launches a dedicated temporary headless Chrome profile on a random CDP
+port. It then exercises the production path from the managed executor, through
+the real workspace `/api/execute` handler, into the installed agent-browser CLI
+and Chrome. Two simulated workflow owners share that same CDP daemon and issue
+overlapping requests. It verifies:
+
+- exact-URL reuse does not create a duplicate or claim a user-owned tab;
+- flexible input is canonicalized before a new tab opens;
+- newly created tabs are tracked by their real `tN` IDs;
+- changing Chrome's active tab externally cannot redirect the next managed
+  action;
+- selecting one tab returns a compact response rather than the all-tabs JSON;
+- parallel page actions verify and, only when needed, switch onto each workflow's own `tN` tab;
+- uploads from two newly granted, disjoint workspace trees cross an older daemon
+  sandbox while preserving both filename and file content;
+- cross-workflow upload reads and artifact writes are rejected by FolderGuard;
+- parallel screenshots and explicit downloads are published only into each
+  workflow's authorized evidence/Downloads folders and have valid content;
+- video recording produces real WebM files, remains exclusive to one workflow
+  at a time, rejects another workflow's start/stop calls, requires a fresh
+  recording-context snapshot, routes stale original-tab actions to the new
+  context, restores the original tab, and decodes the final frame to prove the
+  visible test interaction was actually captured;
+- shared reset is rejected while another workflow owns the CDP port;
+- delayed cleanup closes each workflow's created tab independently and preserves
+  both the other live workflow tab and the reused pre-existing user tab.
+
+The test never attaches to the default port or normal Chrome profile. Override
+Chrome discovery with `BROWSER_E2E_CHROME_BINARY=/path/to/chrome` when needed.
+
+## File uploads and downloads
+
+Use workspace-relative paths such as `Downloads/report.pdf` or
+`Chats/output.csv`. Upload with the `upload` command. Browser downloads for a
+workflow run are routed into its execution `Downloads` directory.
+
+Upload paths are not passed directly to the persistent daemon. The workspace
+server resolves each source against the workspace root (with a run working-dir
+fallback for a bare filename), checks the current FolderGuard read grants,
+rejects blocked paths and symlinks, and copies the file into short-lived managed
+staging. The daemon receives that staged path with the original basename, and
+the staging slot is removed as soon as the command finishes. This allows a
+later workflow step to upload from its own authorized folder even if the daemon
+was originally launched under a different step's sandbox.
+
+There are two CDP download paths:
+
+- A normal click in visible Chrome may place a file in the user's system
+  Downloads folder. That folder is exposed read-only when explicitly granted;
+  copy the required file into the run-scoped workspace before processing it.
+- `agent_browser(command="download", args=[..., "<selector>",
+  "<workspace-path>"])` is an explicit managed download. Its output is written
+  to backend staging and atomically published into the requested authorized
+  workspace path, like screenshots. It never writes through the persistent
+  daemon directly into an arbitrary workspace folder.
+
+## Operational rules
+
+- Use snapshots and current refs for live actions. Re-snapshot after navigation,
+  DOM updates, tab changes, or when ref freshness is uncertain.
+- Persist durable selectors or parse fresh refs at runtime; never save a literal
+  `@e1`-style ref as reusable configuration in a workflow script. Scoped read-only
+  `eval` is a discovery fallback when snapshots are insufficient, not a required
+  step. Verify locator uniqueness, intended context, and the action's outcome.
+- Poll for page state instead of relying on long fixed sleeps.
+- Never connect to the CDP WebSocket directly for normal actions; that bypasses
+  tab locking and can race other workflows.
+- If a site rejects headless mode, change the workflow to `cdp` and record that
+  precondition in its learnings.

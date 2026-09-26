@@ -8,7 +8,7 @@ AgentWorks runs coding agents, model providers, browsers, and MCP tools as repea
 curl -fsSL https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/install.sh | bash
 ```
 
-The installer downloads the latest release, installs the app, installs the local MCP bridge, clears the macOS quarantine flag, and launches AgentWorks. See the [latest release](https://github.com/manishiitg/coding-agent-loop/releases/latest) for manual installation artifacts.
+The installer downloads the latest release, installs the app, installs the local MCP bridge, clears the macOS quarantine flag, and launches AgentWorks. See the [latest release](https://github.com/manishiitg/coding-agent-loop/releases/latest) for manual installation artifacts. Prefer to self-host on Linux? See the [deployment docs](https://github.com/manishiitg/coding-agent-loop/tree/main/deploy).
 
 ## 2. Complete First-Launch Setup
 
@@ -28,7 +28,7 @@ Follow [Build Your First Workflow](first-workflow.md) to create an automation, d
 
 - [Schedule recurring runs](../workflow/workflow_scheduling.md)
 - [Monitor runs, reports, and costs](../workflow/workflow_monitoring.md)
-- [Understand Pulse and reporting](../workflow/self_improvement_and_reporting.md)
+- [Understand Auto-improve and reporting](../workflow/self_improvement_and_reporting.md)
 - [Configure evidence-based Auto Improve](../workflow/auto_improvement_framework.md)
 
 ## 5. Connect the Runtime
@@ -38,3 +38,7 @@ Follow [Build Your First Workflow](first-workflow.md) to create an automation, d
 - [Configure browser sessions](../core/browser.md)
 - [Manage global and workflow secrets](../core/secrets.md)
 - [Connect Slack, WhatsApp, and other channels](../core/bot_connector_system.md)
+
+## 6. Use AgentWorks from Another Agent or Terminal
+
+- Connect the hosted CLI and MCP server

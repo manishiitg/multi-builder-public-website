@@ -104,7 +104,7 @@ So one daily bucket can contain multiple runs for the same group on the same UTC
 Used for evaluation execution.
 
 Files:
-- `costs/evaluation/<group-or-__ungrouped__>/YYYY-MM-DD.json`
+- (retired) `costs/evaluation/<group-or-__ungrouped__>/YYYY-MM-DD.json` — legacy ledger, no new writes
 
 Evaluation uses the same ledger shape as execution, but under the `evaluation` scope.
 
@@ -134,7 +134,7 @@ This is what lets the UI render:
 Older layouts still exist in some workspaces:
 
 - `runs/<runFolder>/token_usage.json`
-- `evaluation/runs/<runFolder>/token_usage.json`
+- (retired) `evaluation/runs/<runFolder>/token_usage.json` — legacy path, no new writes
 - workspace-root `token_usage.json` for phase costs
 
 Current behavior:
@@ -151,7 +151,7 @@ Current behavior:
 - reads `costs/phase/token_usage.json`
 - reads `costs/phase/daily/*`
 - reads all execution daily ledgers under `costs/execution/*`
-- reads all evaluation daily ledgers under `costs/evaluation/*`
+- (retired) used to read evaluation daily ledgers under `costs/evaluation/*`
 - merges run-folder totals across daily files
 - returns execution and evaluation cost data side by side for each run folder
 
@@ -189,7 +189,6 @@ The main log families are:
 - pre-validation JSON
 - learning execution JSONL
 - learning conversation JSON
-- conditional evaluation JSON
 - orchestration execution JSONL
 - todo-task execution JSONL
 
@@ -209,7 +208,6 @@ Common files:
 - `logs/{step-folder}/pre_validation.json`
 - `logs/{step-folder}/learning-execution.json`
 - `logs/{step-folder}/learning-conversation.json`
-- `logs/{step-folder}/conditional-evaluation.json`
 - `logs/{step-folder}/orchestration-execution.json`
 - `logs/{step-folder}/todo-task-execution.json`
 
@@ -255,7 +253,6 @@ This is why the execution log popup can show:
 - per-step execution attempts
 - validation history
 - learning traces
-- conditional results
 - orchestration and todo-task traces
 
 The implementation is in [workflow.go](../../agent_go/cmd/server/workflow.go).
@@ -273,5 +270,4 @@ Use this mental model:
 ## Related Docs
 
 - [workflow_monitoring.md](./workflow_monitoring.md)
-- [iteration_run_folder_architecture.md](./iteration_run_folder_architecture.md)
-- [evaluation_system.md](./evaluation_system.md)
+- iteration_run_folder_architecture.md

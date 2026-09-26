@@ -19,13 +19,20 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
   - [Security testing](https://agentworkshq.com/enterprise/security-testing/): authorized AppSec and role/tenant permission testing driven to verified closure.
   - [Cloud cost](https://agentworkshq.com/enterprise/cloud-cost/): FinOps anomalies, reviewed IaC rightsizing and verified savings.
   - [Growth analytics](https://agentworkshq.com/enterprise/growth-analytics/): an AI growth analyst for funnels, retention, SEO and AI-search visibility.
-- [Docs](https://agentworkshq.com/docs/): Install command, system map, workflow loop, MCP/tools, browser automation, deployment, security, and reference docs.
+- [Docs](https://agentworkshq.com/docs/): Two sections — Guides for business users and developer docs for building and self-hosting.
+  - [Guides](https://agentworkshq.com/docs/guides/): Set your first goal, talk to your crew in Slack and WhatsApp, approvals and autonomy.
+  - [Developers](https://agentworkshq.com/docs/developers/): Install, first workflow, auto-improve, connectors, and reference docs.
 
 ## Machine-Readable Sources
 
 - [Complete AgentWorks context](https://agentworkshq.com/llms-full.txt): Product context plus curated public documentation in one text file.
 - [Documentation manifest](https://agentworkshq.com/docs-content/manifest.json): Structured index of the available raw Markdown documents.
+- [Set your first goal](https://agentworkshq.com/docs/guides/first-goal/): Outcome, metric, target, and rules for business users.
+- [Talk to your crew in Slack](https://agentworkshq.com/docs/guides/slack/): Mentions, threads, and approvals from Slack.
+- [Talk to your crew on WhatsApp](https://agentworkshq.com/docs/guides/whatsapp/): QR pairing, status, and approvals from chat.
+- [Approvals and autonomy](https://agentworkshq.com/docs/guides/approvals-autonomy/): The four autonomy levels and approval flow.
 - [Documentation overview](https://agentworkshq.com/docs/overview/): Static HTML documentation overview.
+- [Install AgentWorks](https://agentworkshq.com/docs/getting-started/): macOS app install and self-hosted Linux pointers.
 - [Build your first workflow](https://agentworkshq.com/docs/getting-started/first-workflow/): Crawlable setup guide with a raw Markdown alternate.
 - [Auto Improve](https://agentworkshq.com/docs/workflow/auto_improvement_framework/): Technical design for bounded workflow improvement.
 - [Auto-improve and reporting](https://agentworkshq.com/docs/workflow/self_improvement_and_reporting/): Evidence, reporting, and the improvement loop.
