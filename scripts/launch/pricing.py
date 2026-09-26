@@ -71,7 +71,7 @@ body=f'''  <main id="main">
           <p class="lede">Every Cloud team is onboarded by hand. You get a working goal in week one, not a blank workspace.</p>
         </div>
         <ol class="pilot">
-          <li class="reveal"><small>Step 1 · 15 minutes</small><h3>Book a call</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it's a fit.</p></li>
+          <li class="reveal"><small>Step 1 · 30 minutes</small><h3>Book a call</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it's a fit.</p></li>
           <li class="reveal"><small>Step 2 · Setup session</small><h3>We build your first goal with you</h3><p>We connect your tools and AI plan, pick the right premade agent or write one, and agree the metric and target together.</p></li>
           <li class="reveal"><small>Step 3 · First month</small><h3>It runs, we check in</h3><p>Your agents work toward the goal. We review the results with you and tune the setup until the number moves.</p></li>
         </ol>
@@ -115,7 +115,7 @@ body=f'''  <main id="main">
         <div class="reveal">
           <p class="kicker">FAQ</p>
           <h2 class="h2">Pricing questions.</h2>
-          <p class="muted">Still unsure? <a href="{CAL}" target="_blank" rel="noreferrer">Book 15 minutes with us.</a></p>
+          <p class="muted">Still unsure? <a href="{CAL}" target="_blank" rel="noreferrer">Book 30 minutes with us.</a></p>
         </div>
         <div class="faq">
           {faq(FAQ_PRICING)}

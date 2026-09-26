@@ -1,11 +1,11 @@
-CAL_URL='https://calendly.com/manishiitg/15min'
+CAL_URL='https://calendly.com/manish-tryagentworks/intro'
 # Cloud is not live yet: early access goes through a call. Point this at the app when signup ships.
 SIGNUP=CAL_URL
 LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch24'
+V='launch25'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path

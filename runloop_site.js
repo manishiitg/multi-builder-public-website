@@ -7,7 +7,7 @@ const BRAND_ASSETS = {
 };
 const PRODUCT_ASSET_BASE = 'assets/product/';
 const productAsset = name => `${PRODUCT_ASSET_BASE}${name}`;
-const SALES_CALL_URL = 'https://calendly.com/manishiitg/15min';
+const SALES_CALL_URL = 'https://calendly.com/manish-tryagentworks/intro';
 const SIGNUP_URL = SALES_CALL_URL;
 const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/install.sh | bash';
 
