@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch20">
+  <link rel="stylesheet" href="/launch.css?v=launch21">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,7 +83,7 @@
           "name": "Cloud",
           "price": "99",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/PreOrder",
+          "availability": "https://schema.org/LimitedAvailability",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
             "price": "99",
@@ -125,7 +125,7 @@
           "name": "Is there a free trial?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The open-source edition is free forever. When Cloud launches it comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."
+            "text": "The open-source edition is free forever. Cloud comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."
           }
         },
         {
@@ -178,7 +178,7 @@
       </nav>
       <div class="header-actions">
         <a class="link" href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn btn-primary btn-sm" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
+        <a class="btn btn-primary btn-sm" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Apply now</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -200,7 +200,7 @@
       <a href="/pricing/">Pricing</a>
       <a href="/docs/">Docs</a>
       <a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
-      <a class="btn btn-primary" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
+      <a class="btn btn-primary" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Apply for Cloud</a>
     </div>
   </header>
   <main id="main">
@@ -209,7 +209,7 @@
         <p class="kicker">Pricing</p>
         <h1>One engine. Three ways to run it.</h1>
         <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
-        <p class="guarantee">Cloud is launching soon · Book a call and we'll set up your first goal with you</p>
+        <p class="guarantee">Cloud is by application · We set up your first goal with you, by hand</p>
       </div>
     </section>
 
@@ -234,7 +234,7 @@
             </div>
           </article>
           <article class="tier tier-featured reveal">
-            <span class="tier-badge">Coming soon</span>
+            <span class="tier-badge">By application</span>
             <p class="tier-name">Cloud</p>
             <p class="tier-price"><strong>$99</strong><span>/ month</span></p>
             <p class="tier-desc">Everything in open source, hosted and set up for you. Nothing to install.</p>
@@ -243,13 +243,13 @@
               <li>Unlimited Crew teammates and Goals</li>
               <li>Hosted workspace with a browser per teammate</li>
               <li>Email inbox for every teammate</li>
-              <li>Personal onboarding: your first goal set up with you</li>
+              <li>Hand-held onboarding: we set up your first goal with you</li>
               <li>Invite your team with roles</li>
               <li>Priority email support</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-amber btn-block" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
-              <small>Launching soon · 7-day money-back guarantee at launch</small>
+              <a class="btn btn-amber btn-block" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Apply now</a>
+              <small>Hand-held onboarding · 7-day money-back guarantee</small>
             </div>
           </article>
           <article class="tier reveal">
@@ -271,6 +271,22 @@
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="onboarding">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="kicker">How Cloud onboarding works</p>
+          <h2>We don't hand you a login. <span class="dim">We set it up with you.</span></h2>
+          <p class="lede">Cloud is by application while we onboard teams by hand. You get a working goal in week one, not a blank workspace.</p>
+        </div>
+        <ol class="pilot">
+          <li class="reveal"><small>Step 1 · 15 minutes</small><h3>Apply</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it's a fit.</p></li>
+          <li class="reveal"><small>Step 2 · Setup session</small><h3>We build your first goal with you</h3><p>We connect your tools and AI plan, pick the right premade agent or write one, and agree the metric and target together.</p></li>
+          <li class="reveal"><small>Step 3 · First month</small><h3>It runs, we check in</h3><p>Your agents work toward the goal. We review the results with you and tune the setup until the number moves.</p></li>
+        </ol>
+        <p class="tpl-more center-row"><a class="btn btn-amber" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Apply now</a><span class="muted">7-day money-back guarantee once you start.</span></p>
       </div>
     </section>
 
@@ -342,7 +358,7 @@
           <details open><summary>What does the $99 cover?</summary><p>Your hosted workspace, unlimited Crew teammates and goals, a browser and email inbox for every teammate, every premade agent, onboarding for your first goal, and priority support.</p></details>
           <details><summary>Do I need my own AI plan?</summary><p>Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor&#x27;s own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider.</p></details>
           <details><summary>Which AI plan should I use?</summary><p>Light use works on a $20 plan. If teammates run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits.</p></details>
-          <details><summary>Is there a free trial?</summary><p>The open-source edition is free forever. When Cloud launches it comes with a 7-day money-back guarantee: if it&#x27;s not for you, cancel in the first week and we refund you in full.</p></details>
+          <details><summary>Is there a free trial?</summary><p>The open-source edition is free forever. Cloud comes with a 7-day money-back guarantee: if it&#x27;s not for you, cancel in the first week and we refund you in full.</p></details>
           <details><summary>Can I cancel anytime?</summary><p>Yes. Cancel from your workspace settings. You keep access until the end of the billing period and can export your goals, agents and logs.</p></details>
           <details><summary>Can I move between open source and Cloud?</summary><p>Yes. It&#x27;s the same engine, so goals, agents and playbooks move either way.</p></details>
           <details><summary>How is Enterprise priced?</summary><p>By deployment and scope, as an annual contract. Most teams start with a paid pilot on one engineering goal with agreed success metrics, then expand.</p></details>
@@ -354,9 +370,9 @@
       <div class="wrap">
         <div>
           <h2>Start with one goal this week.</h2>
-          <p>Pick a premade agent, connect your tools and set the target. Cloud is launching soon, and early access starts with a short call.</p>
+          <p>Pick a premade agent, connect your tools and set the target. Apply with a short call and we'll set up your first goal with you.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Book a call</a>
+            <a class="btn btn-primary" href="https://calendly.com/manishiitg/15min" target="_blank" rel="noreferrer">Apply now</a>
             <a class="btn btn-ghost" href="/enterprise/">Enterprise</a>
           </div>
         </div>
@@ -384,7 +400,7 @@
           <h2 class="fh">Plans</h2>
           <ul>
             <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="/pricing/">Cloud (coming soon)</a></li>
+            <li><a href="/pricing/#onboarding">Cloud (by application)</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
             <li><a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>
@@ -412,6 +428,6 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch20"></script>
+  <script src="/launch.js?v=launch21"></script>
 </body>
 </html>

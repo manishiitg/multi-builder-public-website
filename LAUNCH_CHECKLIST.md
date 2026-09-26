@@ -1,6 +1,12 @@
 # SaaS launch checklist (internal, not deployed)
 
-## Decision 2026-09-25: launch the website with Cloud "coming soon"
+## Decision 2026-09-26: Cloud "by application" with hand-held onboarding
+
+Cloud is sold as a concierge service while the payment account is being approved. "Apply now" opens Calendly. After the call, the customer pays through a hosted checkout link from the merchant of record (Dodo Payments or Paddle, applied for 2026-09-26), and we set up their workspace by hand. The Pricing page promises a three-step onboarding: an application call, a setup session to build the first goal together, and check-ins through the first month. Honour that for every Cloud customer.
+
+**Needed before taking the first payment:** approval of the merchant-of-record account; Terms of Service, Privacy Policy and Refund Policy pages (the refund page must match the 7-day money-back guarantee); one $99/month product with a hosted checkout link.
+
+## Earlier decision 2026-09-25: launch the website with Cloud "coming soon" (superseded above)
 
 Cloud is marked **Coming soon**. Every "Get early access" button opens Calendly (`SIGNUP` in `scripts/launch/partials.py`), and there is no Log in link. Business agents that aren't built yet are tagged "Coming soon". That removes signup, billing and hosting from the *website* launch gate. The tables below now gate the **Cloud** launch. To switch over when the app ships:
 

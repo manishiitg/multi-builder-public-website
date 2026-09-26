@@ -41,7 +41,7 @@ FAQ_PRICING=[
  ("What does the $99 cover?","Your hosted workspace, unlimited Crew teammates and goals, a browser and email inbox for every teammate, every premade agent, onboarding for your first goal, and priority support."),
  ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
  ("Which AI plan should I use?","Light use works on a $20 plan. If teammates run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
- ("Is there a free trial?","The open-source edition is free forever. When Cloud launches it comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),
+ ("Is there a free trial?","The open-source edition is free forever. Cloud comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),
  ("Can I cancel anytime?","Yes. Cancel from your workspace settings. You keep access until the end of the billing period and can export your goals, agents and logs."),
  ("Can I move between open source and Cloud?","Yes. It's the same engine, so goals, agents and playbooks move either way."),
  ("How is Enterprise priced?","By deployment and scope, as an annual contract. Most teams start with a paid pilot on one engineering goal with agreed success metrics, then expand."),
@@ -53,13 +53,29 @@ body=f'''  <main id="main">
         <p class="kicker">Pricing</p>
         <h1>One engine. Three ways to run it.</h1>
         <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
-        <p class="guarantee">Cloud is launching soon · Book a call and we'll set up your first goal with you</p>
+        <p class="guarantee">Cloud is by application · We set up your first goal with you, by hand</p>
       </div>
     </section>
 
     <section class="section-tight">
       <div class="wrap">
         {tiers()}
+      </div>
+    </section>
+
+    <section class="section" id="onboarding">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="kicker">How Cloud onboarding works</p>
+          <h2>We don't hand you a login. <span class="dim">We set it up with you.</span></h2>
+          <p class="lede">Cloud is by application while we onboard teams by hand. You get a working goal in week one, not a blank workspace.</p>
+        </div>
+        <ol class="pilot">
+          <li class="reveal"><small>Step 1 · 15 minutes</small><h3>Apply</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it's a fit.</p></li>
+          <li class="reveal"><small>Step 2 · Setup session</small><h3>We build your first goal with you</h3><p>We connect your tools and AI plan, pick the right premade agent or write one, and agree the metric and target together.</p></li>
+          <li class="reveal"><small>Step 3 · First month</small><h3>It runs, we check in</h3><p>Your agents work toward the goal. We review the results with you and tune the setup until the number moves.</p></li>
+        </ol>
+        <p class="tpl-more center-row"><a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Apply now</a><span class="muted">7-day money-back guarantee once you start.</span></p>
       </div>
     </section>
 
@@ -111,9 +127,9 @@ body=f'''  <main id="main">
       <div class="wrap">
         <div>
           <h2>Start with one goal this week.</h2>
-          <p>Pick a premade agent, connect your tools and set the target. Cloud is launching soon, and early access starts with a short call.</p>
+          <p>Pick a premade agent, connect your tools and set the target. Apply with a short call and we'll set up your first goal with you.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
+            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Apply now</a>
             <a class="btn btn-ghost" href="/enterprise/">Enterprise</a>
           </div>
         </div>
