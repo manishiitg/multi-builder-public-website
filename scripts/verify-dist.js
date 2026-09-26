@@ -21,6 +21,11 @@ const requiredFiles = [
   'enterprise/index.html',
   'agents/index.html',
   'enterprise/release-quality/index.html',
+  'solutions/sales/index.html',
+  'solutions/shopify/index.html',
+  'solutions/support/index.html',
+  'solutions/finance/index.html',
+  'solutions/marketing/index.html',
   'enterprise/incident-response/index.html',
   'enterprise/security-testing/index.html',
   'enterprise/cloud-cost/index.html',
@@ -103,6 +108,16 @@ const pageExpectations = [
     h1: 'No release ships without a QA decision. AI agents own the tests.',
     canonical: 'https://agentworkshq.com/enterprise/release-quality/',
     ogImage: 'assets/og/agentworks-enterprise-og.jpg',
+    allowTallSections: true
+  },
+  {
+    name: 'sol-shopify',
+    file: 'solutions/shopify/index.html',
+    route: '/solutions/shopify/',
+    title: 'AI Agents for Shopify Stores - Orders, Support and Reviews | AgentWorks',
+    h1: "No order stuck, no customer left waiting. Even when you're not at the desk.",
+    canonical: 'https://agentworkshq.com/solutions/shopify/',
+    ogImage: 'assets/og/agentworks-agents-og.jpg',
     allowTallSections: true
   },
   {
@@ -363,7 +378,7 @@ function assertDeployPayload() {
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
 

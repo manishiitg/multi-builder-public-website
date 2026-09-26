@@ -5,7 +5,7 @@ LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch22'
+V='launch23'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -49,7 +49,7 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
   <a class="skip-link" href="#main">Skip to content</a>
 '''
 
-NAV=[('/agents/','Agents','agents'),('/pricing/','Pricing','pricing'),('/enterprise/','Enterprise','enterprise'),('/docs/','Docs','docs')]
+NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/product/#goals','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/product/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
          ('/product/#crew','Crew','Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.','crew'),
@@ -69,17 +69,21 @@ def _drop(label, overview, items, menu_id, current):
 
 def header(active=None):
     from uc_data import uc_nav_items
+    from sol_data import sol_nav_items
+    sol=sol_nav_items()
     prod=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT]
     ent=uc_nav_items()
-    links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV if k!='enterprise')
+    links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV)
     mprod='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in PRODUCT)
     ment='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in ent)
-    mlinks='\n'.join(f'      <a href="{h}">{t}</a>' for h,t,k in NAV if k!='enterprise')
+    mlinks='\n'.join(f'      <a href="{h}">{t}</a>' for h,t,k in NAV)
+    msol='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in sol)
     return f'''  <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
 {_drop('Product',('/product/','How AgentWorks works'),prod,'product-menu',active=='product')}
+{_drop('Use cases',('/agents/','All premade agents'),sol,'usecase-menu',active in ('solutions','agents'))}
 {_drop('Enterprise',('/enterprise/','Enterprise overview'),ent,'enterprise-menu',active=='enterprise')}
 {links}
       </nav>
@@ -93,6 +97,9 @@ def header(active=None):
       <p class="mm-label">Product</p>
       <a class="sub" href="/product/">Overview</a>
 {mprod}
+      <p class="mm-label">Use cases</p>
+      <a class="sub" href="/agents/">All premade agents</a>
+{msol}
       <p class="mm-label">Enterprise</p>
       <a class="sub" href="/enterprise/">Overview</a>
 {ment}

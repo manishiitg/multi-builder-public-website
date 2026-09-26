@@ -7,6 +7,11 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
 - [Homepage](https://agentworkshq.com/): Goal + metric agents, auto-improve, autonomy levels, Crew, premade agents, bring-your-own AI plan, and the three plans.
 - [Product](https://agentworkshq.com/product/): How goals, primary and supporting metrics, measurement, auto-improve, autonomy levels and Crew work.
 - [Premade agents](https://agentworkshq.com/agents/): Ready-made business agents (invoice chasing, inbox triage, support, lead follow-up, Shopify orders, SEO, AI visibility) and 23 engineering playbooks, each with a measurable goal.
+  - [Sales & GTM](https://agentworkshq.com/solutions/sales/): lead follow-up, competitor watch and pipeline reporting toward a booked-demos goal.
+  - [Shopify stores](https://agentworkshq.com/solutions/shopify/): stuck orders, customer questions, reviews and failed payments.
+  - [Customer support](https://agentworkshq.com/solutions/support/): fast first replies from docs and order history, sensitive cases handed off.
+  - [Finance & billing](https://agentworkshq.com/solutions/finance/): invoice chasing, failed-payment recovery and a weekly business report.
+  - [Marketing & growth](https://agentworkshq.com/solutions/marketing/): SEO intelligence, AI-search visibility and competitor watch.
 - [Pricing](https://agentworkshq.com/pricing/): Open source ($0), Cloud ($99/month plus your own AI plan; with hand-held onboarding, starting with a call and a 7-day money-back guarantee) and Enterprise (custom), with a full plan comparison.
 - [Enterprise](https://agentworkshq.com/enterprise/): Agentic engineering operations for QA, reliability, security, performance and cloud cost, deployed in the customer's cloud, sold as a four-week pilot.
   - [Release quality](https://agentworkshq.com/enterprise/release-quality/): AI QA, self-healing browser tests and release gates.
