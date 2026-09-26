@@ -87,6 +87,83 @@ function scrubSourcePaths(text) {
   return out;
 }
 
+const goTokenPhrases = [
+  ['controller_agent_factory', 'the agent factory'],
+  ['controller_learning_detection', 'the learning detection'],
+  ['controller_execution', 'the execution controller'],
+  ['controller_learning', 'the learning controller'],
+  ['controller_progress', 'the progress controller'],
+  ['controller_todo_task', 'the todo-task controller'],
+  ['interactive_workshop_manager', 'the workshop manager'],
+  ['auto_improvement_endpoints', 'the auto-improve endpoints'],
+  ['web_simulator_connector', 'the web simulator connector'],
+  ['bot_simulator_routes', 'the simulator API routes'],
+  ['bot_event_adapter', 'the bot event adapter'],
+  ['bot_session_starter', 'the bot session starter'],
+  ['bot_event_filter', 'the bot event filter'],
+  ['bot_config_routes', 'the bot config routes'],
+  ['bot_connector', 'the bot connector'],
+  ['bot_routes', 'the bot API routes'],
+  ['base_orchestrator_feedback', 'the orchestrator feedback helpers'],
+  ['base_orchestrator_tokens', 'the orchestrator token store'],
+  ['base_orchestrator_types', 'the orchestrator types'],
+  ['context_aware_bridge', 'the context-aware bridge'],
+  ['workflow_manifest_routes', 'the manifest routes'],
+  ['human_feedback_store', 'the human-feedback store'],
+  ['code_execution_tools', 'the code-execution tools'],
+  ['coding_agents_bridge', 'the coding-agents bridge'],
+  ['toolset_invariant_test', 'the toolset invariant test'],
+  ['builtin_browser_skills', 'the built-in browser skills'],
+  ['scheduler_config_store', 'the scheduler config store'],
+  ['product_schedules', 'the schedule runner'],
+  ['builtin_schedules', 'built-in schedules'],
+  ['skills_integration', 'the skills integration'],
+  ['schedule_runs', 'the schedule runs'],
+  ['token_usage_store', 'the token usage store'],
+  ['scheduler_routes', 'the scheduler routes'],
+  ['runtime_loader', 'the skills runtime loader'],
+  ['memory_tools', 'memory tools'],
+  ['learning_agent', 'the learning agent'],
+  ['tiered_llm', 'the tier-resolution code'],
+  ['registry', 'the codeexec registry'],
+  ['cost_storage', 'the cost store'],
+  ['pre_validation', 'pre-validation'],
+  ['tool_filter', 'the tool filter'],
+  ['human_tools', 'human tools'],
+  ['gmail_service', 'the Gmail service'],
+  ['llm_agent', 'the agent wrapper'],
+  ['final_output', 'final output'],
+  ['workflow_events', 'workflow events'],
+  ['controller', 'the controller'],
+  ['scheduler', 'the scheduler'],
+  ['workflow', 'the workflow runner'],
+  ['server', 'the server']
+];
+
+function scrubFileNames(text) {
+  // File-pointer lines become a single GitHub link, or are dropped.
+  let out = text.split('\n').map(line => {
+    if (!/^\*\*Files?:?\*\*:?/.test(line) || !/\.go\b/.test(line)) return line;
+    const url = /https?:\/\/[^)\s]+/.exec(line)?.[0];
+    if (!url) return null;
+    const rest = line.slice(line.indexOf(url) + url.length).replace(/^[)\s]+/, '');
+    return `Source: [view on GitHub](${url})${rest ? ` — ${rest.replace(/^-\s*/, '')}` : ''}`;
+  }).filter(line => line !== null).join('\n');
+  // Linked file names become a generic source link (descriptive link text stays).
+  out = out.replace(/\[`?([^\]`]*?\.go(?::[\d,-]+)?)`?\]\((https?:\/\/[^)\s]+)\)/g, '[source]($2)');
+  // Bare file names become plain phrases. URLs are never rewritten.
+  out = out.split(/(https?:\/\/\S+)/g).map((part, i) => {
+    if (i % 2 === 1) return part;
+    let segment = part.replace(/^([├└│─\s]+)([\w.-]+)\.go(\s+#)/gm, '$1$2$3');
+    for (const [token, phrase] of goTokenPhrases) {
+      segment = segment.replace(new RegExp(`\`?(?:[\\w.%-]+\\/)*\\b${token}\\.go\\b\`?`, 'g'), phrase);
+    }
+    segment = segment.replace(/`?((?:[\w.%${}-]+\/)*)([\w.%${}-]+)\.go\b`?/g, '$2');
+    return segment;
+  }).join('');
+  return out;
+}
+
 function scrubPublicMarkdown(content, docPath) {
   let out = content;
 
@@ -108,6 +185,7 @@ function scrubPublicMarkdown(content, docPath) {
   // Drop "see also" / table lines that point at dropped docs.
   out = out.split('\n').filter(line => {
     if (line.includes('org_dashboard_design.md')) return true; // remapped below
+    if (docPath === 'README' && line.includes('E2E')) return false; // internal testing refs
     return !droppedFiles.some(file => line.includes(file));
   }).join('\n');
 
@@ -124,6 +202,10 @@ function scrubPublicMarkdown(content, docPath) {
   });
 
   out = scrubSourcePaths(out);
+  out = scrubFileNames(out);
+  if (docPath === 'workflow/tiered_llm_allocation') {
+    out = out.split('## Key Files').join('## Key components');
+  }
 
   // Align install copy with the site: macOS app or self-hosted Linux.
   if (docPath === 'getting-started/README' && !out.includes('deployment docs')) {

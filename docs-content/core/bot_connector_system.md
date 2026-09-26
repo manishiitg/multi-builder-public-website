@@ -23,14 +23,14 @@ Slack / Discord / Web Simulator / ...
 
 | Component | File | Purpose |
 |-----------|------|---------|
-| `BotConnector` | `bot_connector.go` | Per-platform interface |
-| `BotConversationManager` | `bot_connector.go` | Platform-agnostic orchestrator |
-| `BotEventFilter` | `bot_event_filter.go` | Event filter for thread updates + lifecycle |
-| `BotEventSubscriberAdapter` | `bot_event_adapter.go` | Bridges EventStore to BotEventSubscriber |
-| `WebSimulatorConnector` | `web_simulator_connector.go` | In-memory connector for web testing |
-| `startSessionInternal` | `bot_session_starter.go` | Starts agent sessions programmatically |
-| Bot routes | `bot_routes.go` | REST API for config, sessions, history |
-| Simulator routes | `bot_simulator_routes.go` | REST API for the web simulator |
+| `BotConnector` | the bot connector | Per-platform interface |
+| `BotConversationManager` | the bot connector | Platform-agnostic orchestrator |
+| `BotEventFilter` | the bot event filter | Event filter for thread updates + lifecycle |
+| `BotEventSubscriberAdapter` | the bot event adapter | Bridges EventStore to BotEventSubscriber |
+| `WebSimulatorConnector` | the web simulator connector | In-memory connector for web testing |
+| `startSessionInternal` | the bot session starter | Starts agent sessions programmatically |
+| Bot routes | the bot API routes | REST API for config, sessions, history |
+| Simulator routes | the simulator API routes | REST API for the web simulator |
 
 ---
 
@@ -179,7 +179,6 @@ type SyncMessageResult struct {
 
 ## Event Filter
 
-**File**: `bot_event_filter.go`
 
 The event filter subscribes to session events and forwards filtered updates to the thread. It also manages session lifecycle by tracking blocking events and delegations.
 
@@ -285,14 +284,14 @@ Bot capabilities (MCP servers and skills) are configured globally via a standalo
 
 ## Web Simulator (removed)
 
-The web simulator (`bot_simulator_routes.go`, the Simulate tab in the bot
+The web simulator (the simulator API routes, the Simulate tab in the bot
 connector modal, and the `/api/bot/simulate/*` routes) was removed once real
 Slack and WhatsApp channels covered testing. The one non-simulator thing that
 lived under those routes — the shared `_global` connector config
 (`allowed_emails`, delegation tier config, provider keys, default
 servers/skills) — moved to `GET`/`POST /api/bot/config` in
-`bot_config_routes.go`. `services/web_simulator_connector.go` still exists
-because `bot_connector.go` type-asserts it, but nothing registers it.
+the bot config routes. the web simulator connector still exists
+because the bot connector type-asserts it, but nothing registers it.
 
 Bot connectors are now managed from each workflow's capabilities panel
 (`WorkflowBotsPanel.tsx`): the workflow's own
@@ -397,21 +396,21 @@ Bot sessions load server-side stored secrets via `UserSecretsLoaderFunc`. These 
 
 The `services` package cannot import `internal/events`. Solved with:
 
-1. **`BotEventSubscriber` interface** (`bot_connector.go`): abstracts `SubscribeBot(sessionID) -> (chan, unsubscribe)`
-2. **`BotEventSubscriberAdapter`** (`bot_event_adapter.go`): bridges `EventStore` to `BotEventSubscriber`
+1. **`BotEventSubscriber` interface** (the bot connector): abstracts `SubscribeBot(sessionID) -> (chan, unsubscribe)`
+2. **`BotEventSubscriberAdapter`** (the bot event adapter): bridges `EventStore` to `BotEventSubscriber`
 3. **`SessionStartFunc`**: callback for starting new agent sessions
 4. **`SessionFollowUpFunc`**: callback for injecting follow-ups — accepts full `reqMap map[string]interface{}` (built by `buildQueryRequest()`) so follow-ups get identical config (servers, skills, delegation mode, API keys, secrets) as initial sessions
 5. **`UserSecretsLoaderFunc`**: callback for loading decrypted user secrets
 
-All wired in `server.go` during startup.
+All wired in the server during startup.
 
 ---
 
 ## Adding a New Platform
 
-1. **Create `services/{platform}_connector.go`** implementing `BotConnector`
+1. **Create {platform}_connector** implementing `BotConnector`
 2. **Implement `MessageFormatter`** for the platform's markup
-3. **Register in `server.go`**:
+3. **Register in the server**:
    ```go
    botManager.RegisterConnector(platformService)
    ```

@@ -81,7 +81,6 @@ this is the complete map.
 - Coding CLI turn signals
 - Native agent tools
 - Coding CLI updates
-- Coding Agent Builder E2E Contract
 - Coding Agent Continuation Architecture
 - Coding-Agent Timeout Contract
 - Coding CLI onboarding: contract review and implementation map

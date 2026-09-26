@@ -22,7 +22,7 @@ Each workflow workspace has a top-level manifest:
 
 - `Workflow/<name>/workflow.json`
 
-The backend struct lives in [workflow_manifest.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go).
+The backend struct lives in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go).
 
 ## Current Manifest Shape
 
@@ -220,7 +220,7 @@ Backend discovery uses [DiscoverWorkflowManifests](https://github.com/manishiitg
 
 ### CRUD APIs
 
-Manifest routes are registered in [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L1164):
+Manifest routes are registered in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L1164):
 
 - `GET /api/workflows/manifests`
 - `GET /api/workflows/manifest`
@@ -233,18 +233,18 @@ Manifest routes are registered in [server.go](https://github.com/manishiitg/codi
 
 Workflow execution loads manifest capabilities before running:
 
-- [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L2375)
-- [workflow_manifest_routes.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest_routes.go#L373)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L2375)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest_routes.go#L373)
 
 Workshop phase sessions also load manifest config directly:
 
-- [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L9762)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L9762)
 
 ### Scheduling
 
 The scheduler is manifest-based:
 
-- [scheduler.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go#L42)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go#L42)
 
 It scans workflow manifests, loads enabled schedules, and executes them without DB workflow dependency.
 
@@ -271,9 +271,9 @@ These are compatibility remnants, not the main design.
 
 ## Key Files
 
-- [workflow_manifest.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go)
-- [workflow_manifest_routes.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest_routes.go)
-- [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go)
-- [scheduler.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest_routes.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go)
 - [useWorkflowManifestStore.ts](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useWorkflowManifestStore.ts)
 - [useGlobalPresetStore.ts](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useGlobalPresetStore.ts)

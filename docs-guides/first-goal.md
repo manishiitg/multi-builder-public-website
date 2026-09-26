@@ -4,7 +4,7 @@
 
 A goal has four parts: the outcome in plain words, one metric that proves progress, a target to hit, and rules that must stay true while the work runs. Everything AgentWorks does — plans, runs, measurements, improvements — hangs off that goal.
 
-![Goal setup showing an outcome, metric, target, and rules](/assets/docs/guides/first-goal.webp)
+![The goal's progress view in the app: outcome, live metric cards, and report tabs](/assets/docs/guides/first-goal.webp)
 
 ## Steps
 
@@ -14,6 +14,8 @@ A goal has four parts: the outcome in plain words, one metric that proves progre
 4. **Add rules that must stay true.** These are your boundaries, for example "never email the same lead twice in one week" or "key accounts always need my approval." Rules apply at every autonomy level, including Full.
 5. **Review the plan.** Your crew proposes the steps, the schedule, and how it will measure the metric. Read it, ask for changes in plain words, and approve it when it looks right.
 6. **Run, then read the first report.** The crew runs the plan, collects the metric from its source, and reports what it did and what changed. The first run sets your baseline.
+
+![The goal's metric card: primary metric, target status, and supporting measurements](/assets/docs/guides/goal-metric-card.webp)
 
 ## What happens next
 

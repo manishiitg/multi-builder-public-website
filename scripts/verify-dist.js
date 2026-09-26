@@ -50,9 +50,12 @@ const requiredFiles = [
   '.well-known/mcp-client.json',
   'assets/brand/agentworks-logo.svg',
   'assets/docs/guides/first-goal.webp',
+  'assets/docs/guides/goal-metric-card.webp',
   'assets/docs/guides/slack-thread.webp',
+  'assets/docs/guides/slack-setup.webp',
   'assets/docs/guides/whatsapp-pair.webp',
   'assets/docs/guides/autonomy-levels.webp',
+  'assets/docs/guides/approval-decision.webp',
   'docs-content/manifest.json',
   'docs-content/getting-started/README.md',
   'docs-content/getting-started/first-workflow.md',
@@ -459,6 +462,18 @@ function assertDeployPayload() {
     }
   }
 
+  // No source file names in visible docs text (link targets exempt).
+  for (const file of textFiles.filter(file => file.startsWith('docs-content/') && file.endsWith('.md'))) {
+    const parts = fs.readFileSync(path.join(dist, file), 'utf8').split(/(https?:\/\/\S+)/g);
+    for (let i = 0; i < parts.length; i += 2) {
+      if (/\.go\b/.test(parts[i])) fail(`source file name in dist/${file}`);
+    }
+  }
+  for (const file of files.filter(file => file.startsWith('docs/') && file.endsWith('.html'))) {
+    const visible = fs.readFileSync(path.join(dist, file), 'utf8').replace(/(href|src)="[^"]*"/g, '');
+    if (/\.go\b/.test(visible)) fail(`source file name in dist/${file}`);
+  }
+
   // Coming-soon cards use the badge, not a title suffix.
   const guidesHome = readDist('docs/guides/index.html');
   if (guidesHome.includes('(Coming soon)')) fail('coming-soon suffix duplicated in card titles');
@@ -680,6 +695,20 @@ async function assertRenderedPages() {
       if (redirectUrl.pathname !== '/docs/getting-started/first-workflow/') {
         fail(`docs redirect ${viewport.name} landed on ${redirectUrl.pathname}`);
       }
+    }
+    // No horizontal scroll at 390px on any docs page.
+    const docsDir = path.join(dist, 'docs');
+    const docsRoutes = listFiles(docsDir)
+      .filter(file => path.basename(file) === 'index.html')
+      .map(file => `/${path.relative(dist, path.dirname(file))}/`);
+    for (const route of docsRoutes) {
+      const narrowPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+      await narrowPage.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'networkidle' });
+      const narrowOverflow = await narrowPage.evaluate(
+        () => Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) > innerWidth + 2
+      );
+      await narrowPage.close();
+      if (narrowOverflow) fail(`docs route ${route} has page-level horizontal overflow at 390px`);
     }
     // Internal docs stay unpublished: the leaked URL from the incident must 404.
     const leakPage = await browser.newPage({ viewport: { width: 1280, height: 900 } });

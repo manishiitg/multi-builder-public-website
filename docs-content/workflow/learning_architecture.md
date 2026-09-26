@@ -31,7 +31,7 @@ The main learning destination is the **global skill**:
 
 `SKILL.md` should stay lean. Treat it as the index and overview for the workflow runbook, not the place for detailed accumulated guidance. Keep it under roughly 80-100 lines, with links to focused `references/<topic>.md` files. Detailed selectors, auth flows, API quirks, timing/wait rules, file-format notes, retry patterns, and step-specific HOW guidance should live in those reference files.
 
-The learning agent prompt in [`learning_agent.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/learning_agent.go) is explicit:
+The learning agent prompt in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/learning_agent.go) is explicit:
 
 - accumulate **domain knowledge across all workflow steps**
 - keep it focused on the target system
@@ -39,7 +39,7 @@ The learning agent prompt in [`learning_agent.go`](https://github.com/manishiitg
 - follow skill structure, not old flat learning-note files
 - keep `SKILL.md` as a short index and put detailed HOW knowledge in reference files
 
-The controller also hardwires global learning mode in [`controller_learning.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go):
+The controller also hardwires global learning mode in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go):
 
 - `UseGlobalLearning = "true"`
 - `ContributingStepID`
@@ -87,7 +87,7 @@ After a successful step:
 - it updates the global skill
 - it updates step metadata
 
-This happens in [controller_learning.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go).
+This happens in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go).
 
 Important current details:
 
@@ -101,7 +101,7 @@ Runtime learning metadata is observational. It gives the workflow builder and
 review tools evidence for deciding whether a step's `learnings_access` should
 remain read-write, but it does not mutate that access.
 
-Current metadata logic in [`controller_learning_detection.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning_detection.go):
+Current metadata logic in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning_detection.go):
 
 - the step description is hashed (SHA256 of trimmed `step.GetDescription()`) on every successful run
 - if the hash matches the previously-stored `last_description_hash`, `description_hash_runs` increments
@@ -202,11 +202,11 @@ When editing related workflow docs, keep these rules consistent:
 
 ## Code references
 
-- [`controller_execution.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go): learning triggers and post-execution flow
-- [`controller_learning.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go): success learning and global-skill write path
-- [`learning_agent.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/learning_agent.go): global skill prompt and skill-structured output
-- [`controller_learning_detection.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning_detection.go): learning metadata updates
-- [`interactive_workshop_manager.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/interactive_workshop_manager.go): current user-facing guidance for global learning
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go): learning triggers and post-execution flow
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go): success learning and global-skill write path
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/learning_agent.go): global skill prompt and skill-structured output
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning_detection.go): learning metadata updates
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/interactive_workshop_manager.go): current user-facing guidance for global learning
 
 ## Related docs
 

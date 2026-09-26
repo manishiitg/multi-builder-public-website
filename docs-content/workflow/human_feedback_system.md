@@ -106,10 +106,10 @@ An app-wide durable Electron notification inbox is a separate capability. This f
 
 | Component | File |
 |---|---|
-| Tool definition and handler | `human_tools.go` |
-| Pending request coordination | `human_feedback_store.go` |
-| Direct orchestrator helpers | `base_orchestrator_feedback.go` |
-| Submit endpoint | `server.go` |
+| Tool definition and handler | human tools |
+| Pending request coordination | the human-feedback store |
+| Direct orchestrator helpers | the orchestrator feedback helpers |
+| Submit endpoint | the server |
 | Interactive event card | `BlockingHumanFeedbackDisplay.tsx` |
 | Frontend API client | `api.ts` |
 | Notification/submission dedup | `notificationDedup.ts` |

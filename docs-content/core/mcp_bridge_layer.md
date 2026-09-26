@@ -86,7 +86,7 @@ variant of the same bridge**, not the curl-discovery route:
    handler into a **session-scoped in-process registry**, and starts (once per
    process, via `ensureSharedBridge`) a small in-process HTTP "executor" server
    (`agentsession.startExecutorServer`) exposing `/tools/custom/{name}`.
-3. `mcpagent`'s own `bridgeTools` var (`coding_agents_bridge.go`)
+3. `mcpagent`'s own `bridgeTools` var (the coding-agents bridge)
    is a **small, fixed, package-level list — exactly 4 entries**
    (`execute_shell_command`, `diff_patch_workspace_file`, `agent_browser`,
    `get_api_spec`) — pinned by `TestBridgeToolsList`. **It is shared across
@@ -107,7 +107,7 @@ variant of the same bridge**, not the curl-discovery route:
    serializes the result into the `MCP_TOOLS` env var, and launches `mcpbridge`
    with that set for the session.
 5. `mcpbridge` itself has **zero hardcoded tool names** — it reads its entire tool
-   list from `MCP_TOOLS` at startup (see `cmd/mcpbridge/main.go`). For a `"custom"`
+   list from `MCP_TOOLS` at startup (see main). For a `"custom"`
    type entry, a tool call becomes `POST {MCP_API_URL}/tools/custom/{name}` with an
    `X-Session-ID` header — landing back on the *same app process* that registered
    the handler in step 2, not a separate orchestrator.

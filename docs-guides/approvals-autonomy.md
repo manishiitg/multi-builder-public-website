@@ -19,10 +19,12 @@ New goals start at **Run steps**: the crew does the work, and asks before anythi
 
 ## Steps
 
-1. **Find the slider.** Open the goal, then Autonomy. The current stop is highlighted, with a one-line summary of what it means.
+1. **Find the slider.** Open the workflow, then its activity view (the heartbeat icon in the toolbar). The **autonomy** slider shows the current stop, with a one-line summary of what it means.
 2. **Approve or redirect.** Approvals arrive where the job lives — the Slack thread, WhatsApp chat, or app inbox — with the context attached. Reply `approve` to continue, or describe what to do differently ("offer 10%, not 15%") and the crew adjusts.
 3. **Move up one stop at a time.** When a goal runs a week without surprises, move it from Run steps to Edit workflow, and later to Full. There is no prize for Full — many goals live happily at Run steps forever.
 4. **Move back down instantly.** If anything feels off, drop the goal back to Ask first. In-flight work pauses at its next decision point and waits for you.
+
+![A decision card in the app: approve, request changes, or reject, with dismiss and ask-in-chat options](/assets/docs/guides/approval-decision.webp)
 
 ## What happens next
 

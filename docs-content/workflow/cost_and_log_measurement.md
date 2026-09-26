@@ -41,7 +41,7 @@ Current flow:
    - LLM call count
 4. It persists those values directly to the `costs/` ledger.
 
-This happens in [context_aware_bridge.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/context_aware_bridge.go).
+This happens in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/context_aware_bridge.go).
 
 ## What Gets Counted
 
@@ -63,8 +63,8 @@ The cost ledger tracks per-model usage with pricing fields:
 - context window usage
 
 The main types are defined in:
-- [base_orchestrator_types.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_types.go)
-- [cost_storage.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/cost_storage.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_types.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/cost_storage.go)
 
 Important nuance:
 - cache reads and cache writes are tracked separately
@@ -83,9 +83,9 @@ Files:
 - `costs/phase/token_usage.json`
 - `costs/phase/daily/YYYY-MM-DD.json`
 
-These are written by `PersistPhaseTokenUsage(...)` in [base_orchestrator_tokens.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_tokens.go).
+These are written by `PersistPhaseTokenUsage(...)` in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_tokens.go).
 
-Builder workflow-phase sessions also write phase cost data directly in [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go).
+Builder workflow-phase sessions also write phase cost data directly in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go).
 
 ### Execution run costs
 
@@ -141,7 +141,7 @@ Current behavior:
 - these are migrated into the `costs/` ledger when read or written
 - migration is handled automatically by the cost storage helpers
 
-This logic is in [cost_storage.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/cost_storage.go) and [token_usage_store.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/token_usage_store.go).
+This logic is in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/cost_storage.go) and [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/token_usage_store.go).
 
 ## How `/api/workflow/costs` Works
 
@@ -156,8 +156,8 @@ Current behavior:
 - returns execution and evaluation cost data side by side for each run folder
 
 This happens in:
-- [workflow.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow.go)
-- [cost_storage.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/cost_storage.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow.go)
+- [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/cost_storage.go)
 
 ## Step Token Usage Events
 
@@ -172,7 +172,7 @@ This means:
 - `token_usage` events drive persistence
 - `step_token_usage` events summarize persisted step totals
 
-See [base_orchestrator_tokens.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_tokens.go).
+See [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_tokens.go).
 
 ## Workflow Log Source Of Truth
 
@@ -220,13 +220,13 @@ There are also builder/session logs under:
 Main writers:
 
 - execution result and conversation logs:
-  [controller_execution.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go)
+  [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go)
 - learning logs:
-  [controller_learning.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go)
+  [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_learning.go)
 - pre-validation logs:
-  [pre_validation.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/pre_validation.go)
+  [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/pre_validation.go)
 - workflow log API scanner:
-  [workflow.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow.go)
+  [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow.go)
 
 ## Archived Logs
 
@@ -236,7 +236,7 @@ Current behavior:
 - selected log files are moved into `archived/{timestamp}` under the step log folder
 - this preserves older attempts for debugging while keeping the active log folder readable
 
-This is handled in [controller_progress.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_progress.go).
+This is handled in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_progress.go).
 
 ## How `/api/workflow/logs` Works
 
@@ -255,7 +255,7 @@ This is why the execution log popup can show:
 - learning traces
 - orchestration and todo-task traces
 
-The implementation is in [workflow.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow.go).
+The implementation is in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow.go).
 
 ## Practical Summary
 

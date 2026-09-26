@@ -8,7 +8,7 @@ Tiered allocation is the workflow's auto-selection mode for runtime LLM choice.
 - **Tiered mode**: the runtime resolves Tier 1/2/3 from a per-agent-type default plus a few explicit overrides
 - **Phase LLM**: configured separately and not part of the tier resolver
 
-The current resolver lives in `tiered_llm.go`.
+The current resolver lives in the tier-resolution code.
 
 ## Tiers
 
@@ -155,11 +155,11 @@ The UI still exposes:
 
 This is populated for tiered start events using the default execution tier.
 
-## Key Files
+## Key components
 
-- `tiered_llm.go`
-- `controller_agent_factory.go`
-- `controller_todo_task.go`
-- `controller.go`
-- `final_output.go`
-- `workflow_events.go`
+- the tier-resolution code
+- the agent factory
+- the todo-task controller
+- the controller
+- final output
+- workflow events

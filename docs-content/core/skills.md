@@ -97,16 +97,16 @@ PresetQuery.selected_skills (workflow-wide default)
 
 ```
 skills
-├── types.go                   # Skill, SkillFrontmatter structs
-├── parser.go                  # Parse YAML frontmatter + markdown
-├── validator.go               # Validate skill folder against spec
-├── discovery.go               # Discover skills from workspace-docs/skills/ (incl. custom/)
-├── github.go                  # Download skill folders from GitHub URLs
-├── workspace_api.go           # Workspace file operations
-├── runtime_loader.go          # LoadAttachable / LoadGlobalSkill — build attachable skills for agents
-├── builtin_browser_skills.go  # Builtin agent-browser skill (served from code, never on disk)
-├── cli.go                     # skills CLI integration (npx skills), lock-file update detection
-└── zip.go                     # Zip import/export of skill folders
+├── types                   # Skill, SkillFrontmatter structs
+├── parser                  # Parse YAML frontmatter + markdown
+├── validator               # Validate skill folder against spec
+├── discovery               # Discover skills from workspace-docs/skills/ (incl. custom/)
+├── github                  # Download skill folders from GitHub URLs
+├── workspace_api           # Workspace file operations
+├── runtime_loader          # LoadAttachable / LoadGlobalSkill — build attachable skills for agents
+├── builtin_browser_skills  # Builtin agent-browser skill (served from code, never on disk)
+├── cli                     # skills CLI integration (npx skills), lock-file update detection
+└── zip                     # Zip import/export of skill folders
 ```
 
 ### Key Types
@@ -148,7 +148,7 @@ type Skill struct {
 
 ### Workflow Integration
 
-Skills are integrated into workflow execution in `skills_integration.go`:
+Skills are integrated into workflow execution in the skills integration:
 
 ```go
 // Get effective skills for a step (step override > preset default)
@@ -164,7 +164,7 @@ There is no hand-assembled "Active Skills" prompt section any more. Skill
 surfacing lives in the transport layer:
 
 1. Builders call `skills.LoadAttachable(workspaceAPIURL, selectedSkills)`
-   (`pkg/skills/runtime_loader.go`), which parses each SKILL.md into an
+   (the skills runtime loader), which parses each SKILL.md into an
    attachable skill — full markdown body plus `SupportingFiles` (everything
    under the skill folder except SKILL.md, e.g. `references/`, `scripts/`).
 2. Each skill is registered with `agent.AttachSkill(skill)`. The mcpagent
@@ -172,7 +172,7 @@ surfacing lives in the transport layer:
    system prompt at `ensureSystemPrompt()` time; CLI transports additionally
    project the skill folder to disk via the SkillProjector contract.
 3. **Builtin skills**: `agent-browser` is served from code
-   (`builtin_browser_skills.go`), not from the skills/ folder. The loader
+   (the built-in browser skills), not from the skills/ folder. The loader
    checks builtins first, so a disk folder with the same name would be
    silently shadowed — never create one.
 4. **Global learnings pointer**: `LoadGlobalSkill()` attaches a tiny
@@ -185,7 +185,7 @@ surfacing lives in the transport layer:
 Skills folders are added to the read-only paths in the folder guard:
 
 ```go
-// In controller_agent_factory.go
+// In the agent factory
 effectiveSkills := GetEffectiveSkills(stepConfig, orchestrator)
 if len(effectiveSkills) > 0 {
     skillReadPaths, _ := BuildSkillFolderGuardPaths(effectiveSkills)

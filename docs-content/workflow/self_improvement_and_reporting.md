@@ -73,7 +73,7 @@ Auto-improve also maintains compact **dashboard cards** in the workflow workspac
 - `builder/card.cost.html` remains a compatibility surface for workflows that already publish a separate cost card, while current cost/tool/runtime judgment belongs to Workflow Review.
 
 These are served to the UI by `getBuilderDoc(workspace, "card-health"|"card-progress"|"card-cost")`
-(`auto_improvement_endpoints.go`).
+(the auto-improve endpoints).
 
 ## 4. The reporting / steering surfaces
 
@@ -85,7 +85,7 @@ The same verdicts, decisions, and cards Auto-improve produces while reviewing an
   is the automatic plain fallback because Gmail strips `<style>`/`<head>`),
   **WhatsApp**, **Slack**. Deliberately
   **sparing** — only on a decision-worthy transition (broke / recovered / new finding);
-  silence on a steady run. Code: `virtual-tools/human_tools.go`, `services/gmail_service.go`.
+  silence on a steady run. Code: human tools, the Gmail service.
 - **Org dashboard** (passive, "where things stand right now"). The default Org view. It
   enumerates workflows, reads each one's two cards, parses the `data-*` attributes, and
   renders its own React components: a **triage bar** (N need attention + health/goal counts),
@@ -95,7 +95,7 @@ The same verdicts, decisions, and cards Auto-improve produces while reviewing an
 - **Org Auto-improve** (the org-level daily pass — Chief of Staff). Maintains `improve/goals.html`
   (the goal scorecard) and `improve/org-journal.html` (the dated journal), harvests cross-workflow
   insight into CoS memory, and writes **proposal-only** org recommendations. Code:
-  `builtin_schedules.go`. Guidance: `org-journal.md`, `org-html.md`, `org-goals.md`.
+  built-in schedules. Guidance: `org-journal.md`, `org-html.md`, `org-goals.md`.
 
 **Oversight is part of reporting:** because big changes are proposal-only, these surfaces are
 also where the user *decides* (approve a replan, act on a recommendation), not just a window.
@@ -114,11 +114,11 @@ also where the user *decides* (approve a replan, act on a recommendation), not j
 
 | Concern | Code | Doc |
 |---|---|---|
-| improve.html dashboard | Dashboard stage; served via `auto_improvement_endpoints.go` | guidance `review-improve-log.md` |
-| Dashboard cards | card writes in loop prompts (`scheduler.go`); `getBuilderDoc` card kinds (`auto_improvement_endpoints.go`) | `workflow_monitoring.md` |
-| Notifications | `virtual-tools/human_tools.go` (`notify_user`), `services/gmail_service.go` | (this doc) |
+| improve.html dashboard | Dashboard stage; served via the auto-improve endpoints | guidance `review-improve-log.md` |
+| Dashboard cards | card writes in loop prompts (the scheduler); `getBuilderDoc` card kinds (the auto-improve endpoints) | `workflow_monitoring.md` |
+| Notifications | human tools (`notify_user`), the Gmail service | (this doc) |
 | Org dashboard UI | `OrgDashboard.tsx`, `EmployeeDashboard.tsx`, `OrgHtmlPanels.tsx` | `workflow_monitoring.md` |
-| Org Auto-improve (CoS) | `builtin_schedules.go` | guidance `org-journal.md`, `org-html.md` |
+| Org Auto-improve (CoS) | built-in schedules | guidance `org-journal.md`, `org-html.md` |
 | Monitoring overview | — | `workflow_monitoring.md` |
 
 ## Open / evolving

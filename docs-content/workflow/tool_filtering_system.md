@@ -17,11 +17,11 @@ The Tool Filtering and Configuration System provides a powerful, multi-layered m
 
 | Component | File | Key Functions |
 |-----------|------|----------------|
-| **Core Filter** | [`tool_filter.go`](https://github.com/manishiitg/mcpagent/blob/main/agent/tool_filter.go) | `NewToolFilter()`, `ShouldIncludeTool()`, `NormalizeServerName()` |
-| **Agent Core** | [`agent.go`](https://github.com/manishiitg/mcpagent/blob/main/agent/agent.go) | `WithSelectedTools()`, `WithSelectedServers()`, `NewAgent()` |
-| **Orchestrator Utilities** | [`base_orchestrator_tools.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_tools.go) | `FilterCustomToolsByCategory()` |
-| **Agent Wrapper** | [`llm_agent.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/agentwrapper/llm_agent.go) | Pass `SelectedTools` to `mcpagent` options |
-| **Workflow Types** | [`planning_agent.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/planning_agent.go) | `AgentConfigs` struct definition (Source of Truth for JSON fields) |
+| **Core Filter** | [source](https://github.com/manishiitg/mcpagent/blob/main/agent/tool_filter.go) | `NewToolFilter()`, `ShouldIncludeTool()`, `NormalizeServerName()` |
+| **Agent Core** | [source](https://github.com/manishiitg/mcpagent/blob/main/agent/agent.go) | `WithSelectedTools()`, `WithSelectedServers()`, `NewAgent()` |
+| **Orchestrator Utilities** | [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/base_orchestrator_tools.go) | `FilterCustomToolsByCategory()` |
+| **Agent Wrapper** | [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/agentwrapper/llm_agent.go) | Pass `SelectedTools` to `mcpagent` options |
+| **Workflow Types** | [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/planning_agent.go) | `AgentConfigs` struct definition (Source of Truth for JSON fields) |
 
 ### 🔄 How It Works
 
@@ -63,7 +63,7 @@ graph TD
 #### Backend Configuration (Go)
 
 ```go
-// From llm_agent.go
+// From the agent wrapper
 if len(config.SelectedTools) > 0 {
     // Pass specific tool filters to mcpagent
     agentOptions = append(agentOptions, mcpagent.WithSelectedTools(config.SelectedTools))
@@ -142,10 +142,10 @@ The system implements a robust three-tier configuration model (Servers -> MCP To
 - **Legacy Support**: Correctly converts old-style `categories` arrays into the unified format.
 - **"NO_SERVERS" Support**: Implements the special `"NO_SERVERS"` flag to allow users to explicitly disable external tool access for pure LLM/Virtual tool steps.
 
-#### **Backend Validation (`tool_filter.go` & `controller_agent_factory.go`)**
+#### **Backend Validation (the tool filter & the agent factory)**
 - **Centralized Enforcement**: `ToolFilter` provides a single source of truth for tool visibility during both initialization and discovery.
 - **Normalization**: Robust handling of hyphen/underscore differences (e.g., `google-sheets` vs `google_sheets`) prevents common configuration mismatches.
-- **Explicit Protocol Support**: `controller_agent_factory.go` explicitly recognizes the `NO_SERVERS` flag (via `mcpclient.NoServers`), correctly interpreting it as an instruction to bind to zero external servers without error.
+- **Explicit Protocol Support**: the agent factory explicitly recognizes the `NO_SERVERS` flag (via `mcpclient.NoServers`), correctly interpreting it as an instruction to bind to zero external servers without error.
 
 ---
 
@@ -163,8 +163,8 @@ A tool can be **registered** (layer 1) yet still **blocked** (layer 2). This has
 - `notify_user` was registered via `human_tools:*`, but `GetToolsForWorkshopMode` did not list it, so every workflow-phase agent (including the post-run monitor) was denied it.
 - Auto-improve state tools were registered in the workflow tool pool, but not allow-listed for workshop mode, so Auto-improve/module turns could be instructed to call them and then report that they were not callable.
 
-- **Layer 2 source of truth:** `GetToolsForWorkshopMode` in [`interactive_workshop_manager.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/interactive_workshop_manager.go). The `system` slice is "always available regardless of mode"; the `switch mode` adds the rest. To make a tool available to the builder/monitor, add its name here.
-- **Regression guard:** `TestToolSetInvariants` in [`toolset_invariant_test.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/toolset_invariant_test.go) checks that workshop/run allow-listed tools have a real registration path: workflow pool, workshop custom registration, guidance/status registration, or mcpagent virtual/session tools. When adding a new tool to `GetToolsForWorkshopMode`, update the registration path or the explicit known-registration map in that test.
+- **Layer 2 source of truth:** `GetToolsForWorkshopMode` in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/interactive_workshop_manager.go). The `system` slice is "always available regardless of mode"; the `switch mode` adds the rest. To make a tool available to the builder/monitor, add its name here.
+- **Regression guard:** `TestToolSetInvariants` in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/toolset_invariant_test.go) checks that workshop/run allow-listed tools have a real registration path: workflow pool, workshop custom registration, guidance/status registration, or mcpagent virtual/session tools. When adding a new tool to `GetToolsForWorkshopMode`, update the registration path or the explicit known-registration map in that test.
 
 ## 3. How CLI agents see tools — the mcpbridge gate
 
@@ -172,8 +172,8 @@ CLI providers (`claude-code`, `codex-cli`, `cursor-cli`, `pi-cli`; legacy `agy-c
 
 Crucially, the **layer-2 allow-list is the single gate for the bridge too**, enforced in two spots in `mcpagent` — both reading the same `sessionToolAllowLists[sessionID]` map (populated by `SetToolAccess` → `codeexec.SetSessionToolAllowList`):
 
-1. **Discovery** — `agent/code_execution_tools.go` (`Respect toolAllowList … only include allowed custom tools in the index`): a blocked tool never appears in `get_api_spec`.
-2. **Execution** — `agent/codeexec/registry.go` `CallCustomToolWithSession`: a blocked tool's HTTP call returns `tool_not_allowed: "<name>" is not in this session's allowed tool set`, followed by the names that *are* allowed. It deliberately does not name a cause: the registry only sees the allow-list map, and the previous wording ("not available in the current workshop mode") sent agents off to reason about modes that were never the reason.
+1. **Discovery** — the code-execution tools (`Respect toolAllowList … only include allowed custom tools in the index`): a blocked tool never appears in `get_api_spec`.
+2. **Execution** — the codeexec registry `CallCustomToolWithSession`: a blocked tool's HTTP call returns `tool_not_allowed: "<name>" is not in this session's allowed tool set`, followed by the names that *are* allowed. It deliberately does not name a cause: the registry only sees the allow-list map, and the previous wording ("not available in the current workshop mode") sent agents off to reason about modes that were never the reason.
 
 **Consequence:** adding a tool to `GetToolsForWorkshopMode` is sufficient for CLI agents — it makes the tool both *visible* in `get_api_spec` and *callable* via the bridge. Registration updates routing immediately; there is no separate public registry-refresh lifecycle.
 

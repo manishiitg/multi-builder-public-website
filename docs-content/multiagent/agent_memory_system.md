@@ -127,5 +127,5 @@ The memory tool executors receive these context values:
 
 | File | Purpose |
 |------|---------|
-| `memory_tools.go` | Tool definitions, async executors, agent instructions (`GetMemoryInstructions`) |
-| `server.go` | Tool registration and context injection for multi-agent chat |
+| memory tools | Tool definitions, async executors, agent instructions (`GetMemoryInstructions`) |
+| the server | Tool registration and context injection for multi-agent chat |
