@@ -1,4 +1,4 @@
-import subprocess, json, sys, os
+import subprocess, json, sys, os, re
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from partials import *
 from blocks import *
@@ -28,3 +28,10 @@ for path,content in pages.items():
     import os
     full=os.path.join(OUT,path); os.makedirs(os.path.dirname(full),exist_ok=True)
     open(full,'w').write(content); print('wrote',path,len(content))
+
+# Shared header for pages outside the launch generator (Docs front door + generated doc articles).
+_frag=header('docs')
+open(os.path.join(OUT,'scripts','launch','site-header.fragment.html'),'w').write(_frag)
+_dp=os.path.join(OUT,'docs','index.html'); _d=open(_dp).read()
+_d=re.sub(r'<!-- site-header:start -->.*?<!-- site-header:end -->','<!-- site-header:start -->\n'+_frag+'<!-- site-header:end -->',_d,flags=re.S)
+open(_dp,'w').write(_d); print('wrote docs/index.html header')

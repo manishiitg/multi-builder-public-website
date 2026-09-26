@@ -102,6 +102,12 @@
 /agents/index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/site-header.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/site-header.js
+  Cache-Control: public, max-age=31536000, immutable
+
 /launch.css
   Cache-Control: public, max-age=31536000, immutable
 

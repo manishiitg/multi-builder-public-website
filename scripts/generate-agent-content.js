@@ -4,6 +4,7 @@ const path = require('path');
 const { Marked } = require('../assets/vendor/marked-18.0.6/marked.umd.js');
 
 const root = path.resolve(__dirname, '..');
+const siteHeader = fs.readFileSync(path.join(__dirname, 'launch', 'site-header.fragment.html'), 'utf8');
 const dist = path.join(root, 'dist');
 const docsRoot = path.join(dist, 'docs-content');
 const siteOrigin = 'https://agentworkshq.com';
@@ -115,13 +116,11 @@ function pageTemplate({ title, description, route, rawPath, articleHtml }) {
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=agentworks2">
 <link rel="stylesheet" href="/runloop.css?v=agentworks2">
 <link rel="stylesheet" href="/secondary.css?v=agentworks-secondary22">
+<link rel="stylesheet" href="/site-header.css?v=1">
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
 <body class="static-doc-body">
-<header class="agent-static-nav">
-  <a class="agent-static-brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="32" height="32">AgentWorks</a>
-  <nav aria-label="Documentation"><a href="/docs/">Docs</a><a href="/product/">Product</a><a href="https://github.com/manishiitg/coding-agent-loop">GitHub</a></nav>
-</header>
+${siteHeader}
 <main id="main-content" class="static-doc-shell">
   <nav class="static-doc-breadcrumb" aria-label="Breadcrumb"><a href="/">AgentWorks</a><span>/</span><a href="/docs/">Docs</a><span>/</span><span>${escapeHtml(title)}</span></nav>
   <article class="static-doc-article">
@@ -132,6 +131,7 @@ function pageTemplate({ title, description, route, rawPath, articleHtml }) {
   <aside class="static-doc-source"><strong>Machine-readable source</strong><a href="/docs-content/${rawPath}.md">Open raw Markdown</a></aside>
 </main>
 <footer class="agent-static-footer"><span>AgentWorks</span><a href="https://github.com/manishiitg/coding-agent-loop/releases/latest">Latest release</a></footer>
+<script src="/site-header.js?v=1"></script>
 </body>
 </html>`;
 }

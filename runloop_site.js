@@ -356,6 +356,8 @@ function ProductLogo() {
 }
 
 function MarketingNav({ current = 'home' }) {
+  // Docs pages use the shared launch-site header rendered statically above #root.
+  if (current === 'docs') return null;
   const links = [
     { id: 'how', label: 'Product', href: marketingPath('how') },
     { id: 'agents', label: 'Agents', href: '/agents/' },
