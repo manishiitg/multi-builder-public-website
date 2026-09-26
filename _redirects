@@ -24,3 +24,46 @@
 /templates/ /agents/ 301
 /playbooks /agents/ 301
 /playbooks/ /agents/ 301
+
+# Internal docs removed from the public site (bb7792c). Pages kept serving stale copies of deleted files,
+# so send them to the docs home explicitly. Keep this list when docs-content changes.
+/docs-content/bugs/* /docs/ 301
+/docs-content/refactor/* /docs/ 301
+/docs-content/design/* /docs/ 301
+/docs-content/plans/* /docs/ 301
+/docs-content/core/azure_foundry_integration.md /docs/ 301
+/docs-content/core/coding_agent_builder_e2e_contract.md /docs/ 301
+/docs-content/core/coding_agent_continuation_architecture.md /docs/ 301
+/docs-content/core/electron_standalone_app_plan.md /docs/ 301
+/docs-content/core/env-api-key-defaults.md /docs/ 301
+/docs-content/core/event_cleanup.md /docs/ 301
+/docs-content/core/event_system.md /docs/ 301
+/docs-content/core/folder_guard_system.md /docs/ 301
+/docs-content/core/mcp_session_id_propagation.md /docs/ 301
+/docs-content/core/multi_user_authentication.md /docs/ 301
+/docs-content/core/native_workspace_mode.md /docs/ 301
+/docs-content/core/oauth.md /docs/ 301
+/docs-content/core/remote_workspace_server_plan.md /docs/ 301
+/docs-content/core/session_and_tool_binding.md /docs/ 301
+/docs-content/core/streaming_llm_output.md /docs/ 301
+/docs-content/core/terminal_lifecycle.md /docs/ 301
+/docs-content/core/tool_search_mode.md /docs/ 301
+/docs-content/multiagent/multi_tab_chat_architecture.md /docs/ 301
+/docs-content/multiagent/org_pulse_design.md /docs/ 301
+/docs-content/multiagent/slash_commands.md /docs/ 301
+/docs-content/multiagent/sub_agent_delegation.md /docs/ 301
+/docs-content/workflow/backup_history_consolidation.md /docs/ 301
+/docs-content/workflow/deterministic_routing.md /docs/ 301
+/docs-content/workflow/evaluation_system.md /docs/ 301
+/docs-content/workflow/iteration_run_folder_architecture.md /docs/ 301
+/docs-content/workflow/learn_code_flow.md /docs/ 301
+/docs-content/workflow/message_sequence_step_design.md /docs/ 301
+/docs-content/workflow/org_dashboard_design.md /docs/ 301
+/docs-content/workflow/persistent_stores_design.md /docs/ 301
+/docs-content/workflow/pre_validation_guide.md /docs/ 301
+/docs-content/workflow/publish_design.md /docs/ 301
+/docs-content/workflow/pulse_consolidation.md /docs/ 301
+/docs-content/workflow/todo-task-step-type.md /docs/ 301
+/docs-content/workflow/workflow_builder_commands_and_tools.md /docs/ 301
+/docs-content/workflow/workflow_builder_interactive.md /docs/ 301
+/docs-content/workflow/workflow_shell_working_directory.md /docs/ 301
