@@ -161,6 +161,7 @@ def footer():
     </div>
   </footer>
   <script src="/launch.js?v={V}"></script>
+  <script src="/analytics.js?v=1"></script>
 </body>
 </html>
 '''

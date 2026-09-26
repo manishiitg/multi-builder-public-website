@@ -17,6 +17,7 @@ const requiredFiles = [
   'secondary.css',
   'launch.css',
   'launch.js',
+  'analytics.js',
   'pricing/index.html',
   'enterprise/index.html',
   'agents/index.html',

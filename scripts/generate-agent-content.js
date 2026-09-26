@@ -132,6 +132,7 @@ ${siteHeader}
 </main>
 <footer class="agent-static-footer"><span>AgentWorks</span><a href="https://github.com/manishiitg/coding-agent-loop/releases/latest">Latest release</a></footer>
 <script src="/site-header.js?v=1"></script>
+<script src="/analytics.js?v=1"></script>
 </body>
 </html>`;
 }

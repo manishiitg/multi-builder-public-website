@@ -13,6 +13,7 @@ cp runloop_site.js dist/
 cp secondary.css dist/
 cp launch.css dist/
 cp launch.js dist/
+cp analytics.js dist/
 cp site-header.css dist/
 cp site-header.js dist/
 cp _headers dist/
