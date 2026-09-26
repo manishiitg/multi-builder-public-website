@@ -23,12 +23,12 @@ The Model Library combines provider discovery, setup status, available models, a
 
 | Component | File | Key Functions |
 |-----------|------|---------------|
-| **LLM Store** | `frontend/src/stores/useLLMStore.ts` | `savedLLMs`, `refreshAvailableLLMs()`, `getCurrentLLMOption()` |
-| **Model Library** | `frontend/src/components/llm/LibraryTab.tsx` | Provider readiness and saved configurations |
-| **LLM Dropdown** | `frontend/src/components/LLMSelectionDropdown.tsx` | Rich metadata display |
-| **LLM Types** | `frontend/src/types/llm.ts` | `LLMOption` interface |
-| **API Types** | `frontend/src/services/api-types.ts` | `SavedLLM`, `LLMModel`, `AgentLLMConfiguration` |
-| **Backend Server** | `agent_go/cmd/server/server.go` | No internal LLM required |
+| **LLM Store** | `useLLMStore.ts` | `savedLLMs`, `refreshAvailableLLMs()`, `getCurrentLLMOption()` |
+| **Model Library** | `LibraryTab.tsx` | Provider readiness and saved configurations |
+| **LLM Dropdown** | `LLMSelectionDropdown.tsx` | Rich metadata display |
+| **LLM Types** | `llm.ts` | `LLMOption` interface |
+| **API Types** | `api-types.ts` | `SavedLLM`, `LLMModel`, `AgentLLMConfiguration` |
+| **Backend Server** | `server.go` | No internal LLM required |
 
 ### 🔄 Workflow
 
@@ -148,9 +148,9 @@ Execution agents now select models from a fixed priority chain: step override, s
 
 | Component | File Path | Key Functions |
 |-----------|-----------|---------------|
-| **Retry Logic** | [`agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isRetryAfterValidationFailure` calculation (lines 1221-1228), retry loop (line 1152) |
-| **LLM Selection** | [`agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go) | `selectExecutionLLM()` - LLM selection logic (lines 228-270) |
-| **Validation Check** | [`agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isValidationFailure()` function (lines 46-54) |
+| **Retry Logic** | [`controller_execution.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isRetryAfterValidationFailure` calculation (lines 1221-1228), retry loop (line 1152) |
+| **LLM Selection** | [`controller_agent_factory.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go) | `selectExecutionLLM()` - LLM selection logic (lines 228-270) |
+| **Validation Check** | [`controller_execution.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isValidationFailure()` function (lines 46-54) |
 
 ### 🔄 Flow Sequence
 
@@ -170,7 +170,7 @@ graph TD
 
 ### Attempt Sequence
 
-**File**: [`controller_agent_factory.go`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
+**File**: [`controller_agent_factory.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
 
 **Priority Order** (checked in this sequence):
 1. **Step execution LLM** - Used when `agent_configs.execution_llm` is set for the step.
@@ -193,7 +193,7 @@ graph TD
 
 #### Validation Status Handling
 
-**File**: [`controller_execution.go:46-54`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go#L46)
+**File**: [`controller_execution.go:46-54`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go#L46)
 
 **Retry Decision**: Uses `IsSuccessCriteriaMet` from validation response
 - If `IsSuccessCriteriaMet == true`: Stop retry, step passes
@@ -210,7 +210,7 @@ graph TD
 
 #### Key Logic
 
-**File:** [`controller_execution.go`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go)
+**File:** [`controller_execution.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go)
 
 ```go
 // Validation failure check
@@ -218,7 +218,7 @@ isRetryAfterValidationFailure := isValidationFailure(previousValidationResponse)
     (retryAttempt > 1 || (hasLoop(step) && loopIterationCount > 1))
 ```
 
-**File:** [`controller_agent_factory.go`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
+**File:** [`controller_agent_factory.go`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
 
 ```go
 if stepConfig.ExecutionLLM != nil {
@@ -234,7 +234,7 @@ if stepConfig.ExecutionLLM != nil {
 
 #### Conditions
 
-**File**: [`controller_agent_factory.go:131-236`](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go#L131)
+**File**: [`controller_agent_factory.go:131-236`](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go#L131)
 
 | Condition | Purpose | Effect | Notes |
 |-----------|---------|--------|-------|
@@ -302,9 +302,9 @@ Loop Iteration 2: Selected execution model → SUCCESS
 ## 📖 Related Documentation
 
 - [Workflow Docs](../workflow/README.md) - Overall execution system
-- [Controller Execution](../../agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) - Retry logic implementation
+- [Controller Execution](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) - Retry logic implementation
 - [Model Metadata](https://github.com/manishiitg/multi-llm-provider-go/blob/main/llmtypes/model_metadata.go) - Pricing, context, capabilities
-- [LLM Store](../../frontend/src/stores/useLLMStore.ts) - State management
+- [LLM Store](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useLLMStore.ts) - State management
 
 ## Retry behavior
 

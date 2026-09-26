@@ -148,10 +148,6 @@
 }
 
 .docs-side {
-  position: sticky;
-  top: 96px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
   font-size: 14px;
 }
 
@@ -325,6 +321,15 @@
 .docs-article ol {
   margin: 0 0 16px;
   padding-left: 24px;
+}
+
+/* launch.css resets list-style globally; restore article markers. */
+.docs-article ul {
+  list-style: disc;
+}
+
+.docs-article ol {
+  list-style: decimal;
 }
 
 .docs-article li {
@@ -517,6 +522,14 @@
 }
 
 /* ---------- Section home ---------- */
+
+.docs-section-lede {
+  text-align: left;
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
 
 .docs-sections {
   display: grid;

@@ -435,6 +435,35 @@ function assertDeployPayload() {
     if (/pulse/i.test(content)) fail(`forbidden term in dist/${file}`);
   }
 
+  // Strict CSP: no inline styles in shipped HTML.
+  for (const file of files.filter(file => file.endsWith('.html'))) {
+    if (/\sstyle="/.test(fs.readFileSync(path.join(dist, file), 'utf8'))) {
+      fail(`inline style in dist/${file}`);
+    }
+  }
+
+  // No retired product names or displayed source paths in public docs.
+  const docsTextFiles = textFiles.filter(file => file.startsWith('docs-content/') || file.startsWith('docs/'));
+  for (const file of docsTextFiles) {
+    const content = fs.readFileSync(path.join(dist, file), 'utf8');
+    if (/runloop/i.test(content)) fail(`retired name in dist/${file}`);
+    if (/coding agent loop/i.test(content)) fail(`retired name in dist/${file}`);
+    if (/real exploit/i.test(content)) fail(`internal Browser note in dist/${file}`);
+  }
+  for (const file of textFiles.filter(file => file.startsWith('docs-content/') && file.endsWith('.md'))) {
+    const lines = fs.readFileSync(path.join(dist, file), 'utf8').split('\n');
+    for (const line of lines) {
+      if (line.includes('agent_go/') && !line.includes('blob/main/agent_go/')) {
+        fail(`displayed source path in dist/${file}`);
+      }
+    }
+  }
+
+  // Coming-soon cards use the badge, not a title suffix.
+  const guidesHome = readDist('docs/guides/index.html');
+  if (guidesHome.includes('(Coming soon)')) fail('coming-soon suffix duplicated in card titles');
+  if (!guidesHome.includes('class="soon"')) fail('coming-soon badges missing');
+
   // Docs pages share the marketing footer (Privacy/Terms/Refunds included).
   const footerOf = html => (/<footer class="site-footer">[\s\S]*?<\/footer>/.exec(html)?.[0] || '').replace(/\s+/g, ' ');
   const siteFooter = footerOf(readDist('index.html'));
@@ -618,6 +647,8 @@ async function assertRenderedPages() {
           h1: document.querySelector('.docs-article h1')?.textContent || '',
           overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) > innerWidth + 2,
           sidebar: Boolean(document.querySelector('.docs-side, .docs-nav-drop')),
+          sidebarScroll: getComputedStyle(document.querySelector('.docs-side')).overflowY,
+          listStyles: [...document.querySelectorAll('.docs-article ol')].map(ol => getComputedStyle(ol).listStyleType),
           footer: document.querySelector('.site-footer a[href="/privacy/"]')?.getAttribute('href') || '',
           mediaIssues: [...document.querySelectorAll('.docs-article img')].flatMap((el, i) => {
             const issues = [];
@@ -634,6 +665,8 @@ async function assertRenderedPages() {
         if (!articleMetrics.title.includes(article.h1)) fail(`${articleLabel} rendered title mismatch`);
         if (articleMetrics.overflow) fail(`${articleLabel} has page-level horizontal overflow`);
         if (!articleMetrics.sidebar) fail(`${articleLabel} lacks docs navigation`);
+        if (articleMetrics.sidebarScroll !== 'visible') fail(`${articleLabel} sidebar hides content in internal scroll`);
+        if (articleMetrics.listStyles.some(style => style === 'none')) fail(`${articleLabel} hides ordered-list numbering`);
         if (articleMetrics.footer !== '/privacy/') fail(`${articleLabel} lacks the site footer`);
         if (articleMetrics.mediaIssues.length) fail(`${articleLabel} media issues:\n${articleMetrics.mediaIssues.join('\n')}`);
         if (consoleErrors.length) fail(`${articleLabel} console errors:\n${consoleErrors.join('\n')}`);

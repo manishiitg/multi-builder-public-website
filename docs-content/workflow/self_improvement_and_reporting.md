@@ -90,7 +90,7 @@ The same verdicts, decisions, and cards Auto-improve produces while reviewing an
   enumerates workflows, reads each one's two cards, parses the `data-*` attributes, and
   renders its own React components: a **triage bar** (N need attention + health/goal counts),
   **cards grouped by goal** (🩺+🎯 pills, headlines, "updated Xm ago"), plus loading /
-  no-automations / warming-up / error states. Code: `frontend/.../org/OrgDashboard.tsx`,
+  no-automations / warming-up / error states. Code: `OrgDashboard.tsx`,
   `EmployeeDashboard.tsx`. Detailed doc: `workflow_monitoring.md`.
 - **Org Auto-improve** (the org-level daily pass — Chief of Staff). Maintains `improve/goals.html`
   (the goal scorecard) and `improve/org-journal.html` (the dated journal), harvests cross-workflow
@@ -117,7 +117,7 @@ also where the user *decides* (approve a replan, act on a recommendation), not j
 | improve.html dashboard | Dashboard stage; served via `auto_improvement_endpoints.go` | guidance `review-improve-log.md` |
 | Dashboard cards | card writes in loop prompts (`scheduler.go`); `getBuilderDoc` card kinds (`auto_improvement_endpoints.go`) | `workflow_monitoring.md` |
 | Notifications | `virtual-tools/human_tools.go` (`notify_user`), `services/gmail_service.go` | (this doc) |
-| Org dashboard UI | `frontend/.../org/OrgDashboard.tsx`, `EmployeeDashboard.tsx`, `OrgHtmlPanels.tsx` | `workflow_monitoring.md` |
+| Org dashboard UI | `OrgDashboard.tsx`, `EmployeeDashboard.tsx`, `OrgHtmlPanels.tsx` | `workflow_monitoring.md` |
 | Org Auto-improve (CoS) | `builtin_schedules.go` | guidance `org-journal.md`, `org-html.md` |
 | Monitoring overview | — | `workflow_monitoring.md` |
 

@@ -8,7 +8,7 @@ Tiered allocation is the workflow's auto-selection mode for runtime LLM choice.
 - **Tiered mode**: the runtime resolves Tier 1/2/3 from a per-agent-type default plus a few explicit overrides
 - **Phase LLM**: configured separately and not part of the tier resolver
 
-The current resolver lives in `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/tiered_llm.go`.
+The current resolver lives in `tiered_llm.go`.
 
 ## Tiers
 
@@ -133,10 +133,10 @@ In manual mode:
 
 Relevant UI files:
 
-- `frontend/src/components/PresetModal.tsx`
-- `frontend/src/components/WorkflowLLMConfigModal.tsx`
-- `frontend/src/components/events/orchestrator/StepEditPanel.tsx`
-- `frontend/src/components/workflow/BulkStepConfigModal.tsx`
+- `PresetModal.tsx`
+- `WorkflowLLMConfigModal.tsx`
+- `StepEditPanel.tsx`
+- `BulkStepConfigModal.tsx`
 
 The UI still exposes:
 
@@ -157,9 +157,9 @@ This is populated for tiered start events using the default execution tier.
 
 ## Key Files
 
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/tiered_llm.go`
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go`
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_todo_task.go`
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller.go`
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/final_output.go`
-- `agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/workflow_events.go`
+- `tiered_llm.go`
+- `controller_agent_factory.go`
+- `controller_todo_task.go`
+- `controller.go`
+- `final_output.go`
+- `workflow_events.go`

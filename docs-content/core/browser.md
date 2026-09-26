@@ -1,6 +1,6 @@
 # Browser Automation
 
-Coding Agent Loop uses the managed `agent_browser` tool for all browser
+AgentWorks uses the managed `agent_browser` tool for all browser
 automation. The browser can run headlessly in the workspace or attach to a
 user-visible Chrome through CDP.
 
@@ -161,7 +161,7 @@ workflow must replace it.
 - Workflow-created CDP tabs are closed automatically one hour after the final
   run releases its lease; reused user tabs are preserved.
 
-Browser session tracking lives in `agent_go/pkg/browser`. MCP subprocess
+The managed browser tool tracks sessions. MCP subprocess
 connection pooling in `mcpagent` is independent of browser state.
 
 ### `file://` URLs are not path-restricted (deliberate, not an oversight)
@@ -169,27 +169,7 @@ connection pooling in `mcpagent` is independent of browser state.
 In CDP mode the browser is the user's **own** Chrome — a host process this app
 neither owns nor sandboxes — so `agent_browser` can read any file on the
 machine via a `file://` URL, including files the shell tool is explicitly
-denied. SparkQuill's standalone server rejected any `file://` URL resolving
-outside the workspace or host Downloads (`validateBrowserFileURLs` in its
-`browser_tool.go`), verified against a real exploit: the shell tool refused a
-decoy file outside the workspace while the browser read the same path's
-contents straight back.
-
-That server was deleted on 2026-09-06 and the platform's `agent_browser` has
-no equivalent guard: a product's browser access is all-or-nothing
-(`runtime.browser` in its `product.yaml`; SparkQuill's child profile sets it
-to `disabled`, the parent profile to `preferred`). This gap was raised with
-SparkQuill's owner on 2026-09-06 and left unrestored by their explicit choice
-— they'd rather the model use its own judgment about which files to read than
-have a hard path guard. Not a platform default recommendation for other
-products; a single-user deployment's owner deciding what their own AI may
-read on their own machine.
-
-**Canonical reference:** [`docs/agent-execution-architecture.html`](../agent-execution-architecture.html)
-§4 — the measured before/after, the full list of rejected spellings, and how
-this relates to the shell and image-sub-agent boundaries. Keep the detail
-there, not here.
-
+denied. 
 ## Debugging and evidence
 
 Use agent-browser's managed diagnostic commands so they operate on the same tab
@@ -228,59 +208,6 @@ closes the temporary tab and restores the original selection. Abandoned runs
 are stopped and cleaned by delayed ownership cleanup so the shared CDP session
 cannot remain stuck in an active recording.
 
-## Recent failure findings and fixes
-
-| Finding | User-visible symptom | Current fix |
-|---|---|---|
-| A tab label was sometimes stored as though it were a real tab ID. | Delayed cleanup called `tab close <label>`, failed, and tabs remained open. | Parse both direct `tab new` and tab-list JSON, persist the returned real `tN`, and treat missing-label errors as already cleaned. |
-| Cached backend active-tab state was trusted between calls. | A page action could affect the wrong tab after Chrome changed externally. | Read the real active tab before every page action under the shared lock; select the resolved `tN` only when it is not already active. |
-| The resolved `tN` was explicitly selected before every action even when already active. | Visible Chrome repeatedly stole macOS focus while the user typed in another app. | Preserve the current tab when the real state confirms it is already active; tab creation or a genuine tab change may still foreground Chrome once. |
-| Agents could request `tab new` without a fresh reuse decision. | Repeated workflows accumulated duplicate tabs. | Perform an atomic owned-tab/exact-URL reuse check; fail closed when listing is unavailable. |
-| Flexible or malformed `tab new` argument ordering could reach the CLI. | A new tab sometimes opened an unintended URL. | Validate an absolute URL and canonicalize the command before execution. |
-| Raw tab output was suspected of entering context on every selection. | Concern about context growth with many Chrome tabs. | Return tab lists only for explicit list calls, cap them at 20 compact entries, and discard internal selection/reuse responses. |
-| A persistent daemon resolved named evidence paths from stale sandbox state. | Named screenshots or recordings failed with path/`getcwd` errors. | Use the guarded staging-and-finalization artifact handoff described above. |
-| Upload paths were forwarded unchanged while the command working directory pointed at the run Downloads folder. | Workspace-relative paths could resolve as `Downloads/Workflow/...`, and a daemon launched by an older step could not see a newly granted input folder. | Resolve and authorize upload sources in workspace-api, copy them into short-lived managed staging with the original basename, and remove staging after the command. |
-| CSS ID selectors were not shell-quoted. | `upload #file path` was parsed by the shell as a comment and agent-browser reported missing arguments. | Treat `#`, backslashes, and home-prefix characters as shell-sensitive arguments and quote them. |
-| Brokered output destinations were joined to the browser working directory. | A requested `Downloads/report.csv` could be published as `Downloads/Downloads/report.csv`. | Resolve brokered screenshot/video/download destinations once from the workspace root. |
-| `record start` created a fresh context while selected-tab enforcement returned actions to the original tab. | A valid WebM recorded an idle page while the real reproduction happened outside the video. | Detect the new active `tN`, require a fresh snapshot, pin actions to it until stop, close it afterward, and fail closed if the handoff cannot be identified. |
-
-## Live E2E contract
-
-Run the real managed-browser contract with:
-
-```bash
-scripts/run-browser-e2e.sh
-```
-
-The test launches a dedicated temporary headless Chrome profile on a random CDP
-port. It then exercises the production path from the managed executor, through
-the real workspace `/api/execute` handler, into the installed agent-browser CLI
-and Chrome. Two simulated workflow owners share that same CDP daemon and issue
-overlapping requests. It verifies:
-
-- exact-URL reuse does not create a duplicate or claim a user-owned tab;
-- flexible input is canonicalized before a new tab opens;
-- newly created tabs are tracked by their real `tN` IDs;
-- changing Chrome's active tab externally cannot redirect the next managed
-  action;
-- selecting one tab returns a compact response rather than the all-tabs JSON;
-- parallel page actions verify and, only when needed, switch onto each workflow's own `tN` tab;
-- uploads from two newly granted, disjoint workspace trees cross an older daemon
-  sandbox while preserving both filename and file content;
-- cross-workflow upload reads and artifact writes are rejected by FolderGuard;
-- parallel screenshots and explicit downloads are published only into each
-  workflow's authorized evidence/Downloads folders and have valid content;
-- video recording produces real WebM files, remains exclusive to one workflow
-  at a time, rejects another workflow's start/stop calls, requires a fresh
-  recording-context snapshot, routes stale original-tab actions to the new
-  context, restores the original tab, and decodes the final frame to prove the
-  visible test interaction was actually captured;
-- shared reset is rejected while another workflow owns the CDP port;
-- delayed cleanup closes each workflow's created tab independently and preserves
-  both the other live workflow tab and the reused pre-existing user tab.
-
-The test never attaches to the default port or normal Chrome profile. Override
-Chrome discovery with `BROWSER_E2E_CHROME_BINARY=/path/to/chrome` when needed.
 
 ## File uploads and downloads
 

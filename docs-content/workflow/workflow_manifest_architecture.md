@@ -22,7 +22,7 @@ Each workflow workspace has a top-level manifest:
 
 - `Workflow/<name>/workflow.json`
 
-The backend struct lives in [workflow_manifest.go](../../agent_go/cmd/server/workflow_manifest.go).
+The backend struct lives in [workflow_manifest.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go).
 
 ## Current Manifest Shape
 
@@ -206,7 +206,7 @@ These still live alongside it:
 - `planning/workflow_layout.json`
 - `planning/output_plan.json`
 - `variables/variables.json`
-- `builder/improve.html` — the schema-5 lightweight, newest-first Auto-improve executive journal: Bug/Goal verdicts, one status sentence, three Latest Auto-improve cells, and at most six material Activity transitions. Goal / Ikigai remains exclusively in `soul/soul.md` and is rendered directly by Runloop. Reviewer coverage, assumptions, issues, backlog counts, and complete operational detail stay in SQLite/Auto-improve; older material history can live in linked monthly `builder/improve-archive/YYYY-MM.html` files. See [auto_improvement_framework.md](./auto_improvement_framework.md).
+- `builder/improve.html` — the schema-5 lightweight, newest-first Auto-improve executive journal: Bug/Goal verdicts, one status sentence, three Latest Auto-improve cells, and at most six material Activity transitions. Goal / Ikigai remains exclusively in `soul/soul.md` and is rendered directly by AgentWorks. Reviewer coverage, assumptions, issues, backlog counts, and complete operational detail stay in SQLite/Auto-improve; older material history can live in linked monthly `builder/improve-archive/YYYY-MM.html` files. See [auto_improvement_framework.md](./auto_improvement_framework.md).
 - `knowledgebase/rules/rules.md` and `knowledgebase/rules/examples/` — legacy business-rule storage when present. Current user-confirmed runtime context belongs in `knowledgebase/context/`; its audit trail is recorded in dated Reflection entries in `builder/improve.html`.
 
 `workflow.json` is the workflow-level definition file.
@@ -216,11 +216,11 @@ The planning files are still the step graph and execution-plan files.
 
 ### Discovery
 
-Backend discovery uses [DiscoverWorkflowManifests](../../agent_go/cmd/server/workflow_manifest.go#L344), which scans workspace folders and reads `workflow.json`.
+Backend discovery uses [DiscoverWorkflowManifests](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go#L344), which scans workspace folders and reads `workflow.json`.
 
 ### CRUD APIs
 
-Manifest routes are registered in [server.go](../../agent_go/cmd/server/server.go#L1164):
+Manifest routes are registered in [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L1164):
 
 - `GET /api/workflows/manifests`
 - `GET /api/workflows/manifest`
@@ -233,18 +233,18 @@ Manifest routes are registered in [server.go](../../agent_go/cmd/server/server.g
 
 Workflow execution loads manifest capabilities before running:
 
-- [server.go](../../agent_go/cmd/server/server.go#L2375)
-- [workflow_manifest_routes.go](../../agent_go/cmd/server/workflow_manifest_routes.go#L373)
+- [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L2375)
+- [workflow_manifest_routes.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest_routes.go#L373)
 
 Workshop phase sessions also load manifest config directly:
 
-- [server.go](../../agent_go/cmd/server/server.go#L9762)
+- [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go#L9762)
 
 ### Scheduling
 
 The scheduler is manifest-based:
 
-- [scheduler.go](../../agent_go/cmd/server/scheduler.go#L42)
+- [scheduler.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go#L42)
 
 It scans workflow manifests, loads enabled schedules, and executes them without DB workflow dependency.
 
@@ -252,11 +252,11 @@ It scans workflow manifests, loads enabled schedules, and executes them without 
 
 The frontend has a dedicated manifest store:
 
-- [useWorkflowManifestStore.ts](../../frontend/src/stores/useWorkflowManifestStore.ts)
+- [useWorkflowManifestStore.ts](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useWorkflowManifestStore.ts)
 
 The old "workflow preset" view is now a compatibility layer built from manifests:
 
-- [useGlobalPresetStore.ts](../../frontend/src/stores/useGlobalPresetStore.ts#L14)
+- [useGlobalPresetStore.ts](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useGlobalPresetStore.ts#L14)
 
 ## Current Compatibility Leftovers
 
@@ -271,9 +271,9 @@ These are compatibility remnants, not the main design.
 
 ## Key Files
 
-- [workflow_manifest.go](../../agent_go/cmd/server/workflow_manifest.go)
-- [workflow_manifest_routes.go](../../agent_go/cmd/server/workflow_manifest_routes.go)
-- [server.go](../../agent_go/cmd/server/server.go)
-- [scheduler.go](../../agent_go/cmd/server/scheduler.go)
-- [useWorkflowManifestStore.ts](../../frontend/src/stores/useWorkflowManifestStore.ts)
-- [useGlobalPresetStore.ts](../../frontend/src/stores/useGlobalPresetStore.ts)
+- [workflow_manifest.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go)
+- [workflow_manifest_routes.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest_routes.go)
+- [server.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/server.go)
+- [scheduler.go](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go)
+- [useWorkflowManifestStore.ts](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useWorkflowManifestStore.ts)
+- [useGlobalPresetStore.ts](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useGlobalPresetStore.ts)

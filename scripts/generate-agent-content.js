@@ -57,6 +57,18 @@ const devNav = [
   ] }
 ];
 
+// Curated card blurbs where the source's first paragraph is meaningless out of context.
+const blurbOverrides = {
+  'getting-started/README': 'Install the macOS app or self-host on Linux, then complete first-launch setup.',
+  'workflow/auto_improvement_framework': 'Bounded self-improvement: run evidence, maintenance, strategic review, and audit trail.',
+  'workflow/human_feedback_system': 'How workflows ask humans for input: approvals, choices, and blocking questions.',
+  'workflow/workflow_scheduling': 'Cron and cadence schedules, quiet hours, and per-run timing rules.',
+  'workflow/workflow_manifest_architecture': 'The workflow.json format: goals, schedules, steps, and how the backend discovers them.',
+  'workflow/learning_architecture': 'How runs turn into reusable skills, learnings, and knowledge for future runs.',
+  'workflow/workflow_monitoring': 'Run evidence, status, and health: what to look at when a workflow misbehaves.',
+  'workflow/cost_and_log_measurement': 'How token usage, run cost, and logs are measured and stored.'
+};
+
 // Friendlier page titles where the source heading is bland or has emoji.
 const titleOverrides = {
   README: 'Documentation overview',
@@ -113,10 +125,19 @@ function plainDescription(markdown, title) {
   const plain = (paragraph || `Technical documentation for ${title} in AgentWorks.`)
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/[`*_>#~-]/g, '')
+    .replace(/[*`>]/g, '')
+    .replace(/^#+\s+/, '')
+    .replace(/^-+\s+/, '')
     .replace(/\s+/g, ' ')
     .trim();
-  return plain.length > 170 ? `${plain.slice(0, 167).trim()}...` : plain;
+  return truncateWords(plain, 170);
+}
+
+function truncateWords(text, max) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 3);
+  const boundary = cut.lastIndexOf(' ');
+  return `${(boundary > max / 2 ? cut.slice(0, boundary) : cut).trim()}...`;
 }
 
 function resolveDocLink(href, currentPath, publicRoutes) {
@@ -432,13 +453,13 @@ function sectionHome({ title, description, route, kicker, intro, nav, crumbs }) 
   const groups = nav.map(({ group, soon, pages }) => {
     const items = pages.map(page => {
       const meta = (route === '/docs/developers/' ? devOrder : guideOrder).find(item => item.route === page.route);
-      const blurb = (page.blurb || meta?.description || '').slice(0, 120);
-      return `<li${soon ? ' class="soon"' : ''}><a href="${page.route}"><b>${escapeHtml(page.label)}${soon ? ' (Coming soon)' : ''}</b><span>${escapeHtml(blurb)}</span></a></li>`;
+      const blurb = truncateWords(page.blurb || blurbOverrides[page.path] || meta?.description || '', 120);
+      return `<li${soon ? ' class="soon"' : ''}><a href="${page.route}"><b>${escapeHtml(page.label)}</b><span>${escapeHtml(blurb)}</span></a></li>`;
     }).join('');
     return `<section class="docs-section-group"><h2 id="${slugify(group)}">${escapeHtml(group)}</h2><ul>${items}</ul></section>`;
   }).join('');
   const toc = nav.map(({ group }) => ({ level: 2, text: group, id: slugify(group) }));
-  const articleHtml = `<p class="docs-lede" style="text-align:left;margin:0 0 8px">${escapeHtml(intro)}</p><div class="docs-sections">${groups}</div>`;
+  const articleHtml = `<p class="docs-section-lede">${escapeHtml(intro)}</p><div class="docs-sections">${groups}</div>`;
   const output = path.join(dist, route, 'index.html');
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, pageTemplate({

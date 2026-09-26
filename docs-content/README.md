@@ -85,7 +85,7 @@ this is the complete map.
 - Coding Agent Continuation Architecture
 - Coding-Agent Timeout Contract
 - Coding CLI onboarding: contract review and implementation map
-- Runloop — Plan
+- AgentWorks — Plan
 - Environment-Based API Key Defaults
 - Event Cleanup - Progress
 - Event System Architecture

@@ -106,13 +106,13 @@ An app-wide durable Electron notification inbox is a separate capability. This f
 
 | Component | File |
 |---|---|
-| Tool definition and handler | `agent_go/cmd/server/virtual-tools/human_tools.go` |
-| Pending request coordination | `agent_go/cmd/server/virtual-tools/human_feedback_store.go` |
-| Direct orchestrator helpers | `agent_go/pkg/orchestrator/base_orchestrator_feedback.go` |
-| Submit endpoint | `agent_go/cmd/server/server.go` |
-| Interactive event card | `frontend/src/components/events/BlockingHumanFeedbackDisplay.tsx` |
-| Frontend API client | `frontend/src/services/api.ts` |
-| Notification/submission dedup | `frontend/src/utils/notificationDedup.ts` |
+| Tool definition and handler | `human_tools.go` |
+| Pending request coordination | `human_feedback_store.go` |
+| Direct orchestrator helpers | `base_orchestrator_feedback.go` |
+| Submit endpoint | `server.go` |
+| Interactive event card | `BlockingHumanFeedbackDisplay.tsx` |
+| Frontend API client | `api.ts` |
+| Notification/submission dedup | `notificationDedup.ts` |
 
 ## Operational rules
 

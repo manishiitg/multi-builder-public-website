@@ -64,8 +64,42 @@ function scrubPulse(text) {
   }).join('');
 }
 
+const repoBlob = 'https://github.com/manishiitg/coding-agent-loop/blob/main';
+
+function scrubSourcePaths(text) {
+  // Repo-escape links keep working by pointing at the public repo, with the
+  // file name (not the full source path) as link text.
+  let out = text.replace(/\[([^\]]*?)\]\(\.\.\/\.\.\/((?:agent_go|frontend)\/[^)\s]+)\)/g, (match, linkText, repoPath) => {
+    const code = linkText.startsWith('`') && linkText.endsWith('`');
+    const inner = code ? linkText.slice(1, -1) : linkText;
+    const short = inner.includes('/') ? repoPath.split('/').pop().split('#')[0] : inner;
+    return `[${code ? `\`${short}\`` : short}](${repoBlob}/${repoPath})`;
+  });
+  // Displayed source paths shrink to file names. http(s) URLs (including the
+  // GitHub links above) are never rewritten.
+  out = out.split(/(https?:\/\/\S+)/g).map((part, i) => {
+    if (i % 2 === 1) return part;
+    return part.replace(/(?:coding-agent-loop\/)?((?:agent_go|frontend|mcpagent)\/[\w.%-]+(?:\/[\w.%-]+)*)\/?/g, (match, repoPath) => {
+      const segments = repoPath.split('/').filter(Boolean);
+      return segments[segments.length - 1];
+    });
+  }).join('');
+  return out;
+}
+
 function scrubPublicMarkdown(content, docPath) {
   let out = content;
+
+  // Old product names predate the AgentWorks rename.
+  out = out.replace(/Coding Agent Loop/g, 'AgentWorks').replace(/Runloop/g, 'AgentWorks');
+  out = out.split('Browser session tracking lives in `agent_go/pkg/browser`.').join('The managed browser tool tracks sessions.');
+
+  // Drop internal Browser sections (failure archaeology, E2E contract notes,
+  // and the file:// exploit history below the security caveat).
+  if (docPath === 'core/browser') {
+    out = out.replace(/## Recent failure findings and fixes[\s\S]*?(?=\n## File uploads and downloads\n)/, '');
+    out = out.replace(/SparkQuill's standalone server rejected any[\s\S]*?(?=\n## Debugging and evidence\n)/, '');
+  }
 
   // Repair the prose sentences that linked dropped docs.
   out = out.split('[Evaluation System](../workflow/evaluation_system.md), ').join('');
@@ -88,6 +122,8 @@ function scrubPublicMarkdown(content, docPath) {
     if (allowed.has(target.replace(/\.md$/, ''))) return match;
     return text;
   });
+
+  out = scrubSourcePaths(out);
 
   // Align install copy with the site: macOS app or self-hosted Linux.
   if (docPath === 'getting-started/README' && !out.includes('deployment docs')) {

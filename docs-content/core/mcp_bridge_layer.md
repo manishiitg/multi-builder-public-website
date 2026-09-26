@@ -1,6 +1,6 @@
 # 🌉 MCP Bridge Layer & Exposed APIs
 
-The **MCP Bridge Layer** is a critical architectural component of Runloop. It acts as a universal proxy and translation layer, allowing external local CLI agents such as **Claude Code**, **Codex**, and **Pi** to access the orchestrator's loaded tools, virtual tools, and workspace capabilities.
+The **MCP Bridge Layer** is a critical architectural component of AgentWorks. It acts as a universal proxy and translation layer, allowing external local CLI agents such as **Claude Code**, **Codex**, and **Pi** to access the orchestrator's loaded tools, virtual tools, and workspace capabilities.
 
 ## Architecture Overview
 
@@ -76,7 +76,7 @@ route exists **because** the full tool catalog is too large/dynamic to hand the
 model natively every session.
 
 Small, standalone apps with a fixed, known-in-advance tool set (e.g.
-`agent_go/internal/agentsession`, which SparkQuill's standalone family server used until it was retired in September 2026) use a **leaner
+`agentsession`, which SparkQuill's standalone family server used until it was retired in September 2026) use a **leaner
 variant of the same bridge**, not the curl-discovery route:
 
 1. **No Gin server, no HTTP handlers in the app itself.** Tools are plain Go
@@ -86,7 +86,7 @@ variant of the same bridge**, not the curl-discovery route:
    handler into a **session-scoped in-process registry**, and starts (once per
    process, via `ensureSharedBridge`) a small in-process HTTP "executor" server
    (`agentsession.startExecutorServer`) exposing `/tools/custom/{name}`.
-3. `mcpagent`'s own `bridgeTools` var (`mcpagent/agent/coding_agents_bridge.go`)
+3. `mcpagent`'s own `bridgeTools` var (`coding_agents_bridge.go`)
    is a **small, fixed, package-level list — exactly 4 entries**
    (`execute_shell_command`, `diff_patch_workspace_file`, `agent_browser`,
    `get_api_spec`) — pinned by `TestBridgeToolsList`. **It is shared across

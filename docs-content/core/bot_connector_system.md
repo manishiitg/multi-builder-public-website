@@ -23,11 +23,11 @@ Slack / Discord / Web Simulator / ...
 
 | Component | File | Purpose |
 |-----------|------|---------|
-| `BotConnector` | `agent_go/cmd/server/services/bot_connector.go` | Per-platform interface |
-| `BotConversationManager` | `agent_go/cmd/server/services/bot_connector.go` | Platform-agnostic orchestrator |
-| `BotEventFilter` | `agent_go/cmd/server/services/bot_event_filter.go` | Event filter for thread updates + lifecycle |
+| `BotConnector` | `bot_connector.go` | Per-platform interface |
+| `BotConversationManager` | `bot_connector.go` | Platform-agnostic orchestrator |
+| `BotEventFilter` | `bot_event_filter.go` | Event filter for thread updates + lifecycle |
 | `BotEventSubscriberAdapter` | `bot_event_adapter.go` | Bridges EventStore to BotEventSubscriber |
-| `WebSimulatorConnector` | `agent_go/cmd/server/services/web_simulator_connector.go` | In-memory connector for web testing |
+| `WebSimulatorConnector` | `web_simulator_connector.go` | In-memory connector for web testing |
 | `startSessionInternal` | `bot_session_starter.go` | Starts agent sessions programmatically |
 | Bot routes | `bot_routes.go` | REST API for config, sessions, history |
 | Simulator routes | `bot_simulator_routes.go` | REST API for the web simulator |
@@ -179,7 +179,7 @@ type SyncMessageResult struct {
 
 ## Event Filter
 
-**File**: `agent_go/cmd/server/services/bot_event_filter.go`
+**File**: `bot_event_filter.go`
 
 The event filter subscribes to session events and forwards filtered updates to the thread. It also manages session lifecycle by tracking blocking events and delegations.
 
@@ -262,7 +262,7 @@ running ←→ awaiting_user_input → completed
 
 ## Bot Configuration (Global)
 
-**Files**: `frontend/src/components/settings/BotConfigModal.tsx`, `frontend/src/components/sidebar/HumanFeedbackConnectorsSection.tsx`
+**Files**: `BotConfigModal.tsx`, `HumanFeedbackConnectorsSection.tsx`
 
 Bot capabilities (MCP servers and skills) are configured globally via a standalone **Bot Configuration** modal, accessible from the sidebar's Human Feedback Connectors section. This configuration applies to **all bot interfaces** (Slack, Web Simulator, etc.), not just the simulator.
 
@@ -295,7 +295,7 @@ servers/skills) — moved to `GET`/`POST /api/bot/config` in
 because `bot_connector.go` type-asserts it, but nothing registers it.
 
 Bot connectors are now managed from each workflow's capabilities panel
-(`frontend/src/components/workflow/WorkflowBotsPanel.tsx`): the workflow's own
+(`WorkflowBotsPanel.tsx`): the workflow's own
 Slack channel and WhatsApp slug routes as chips, per-channel Set up screens
 for the shared credentials, and the Gmail notification settings.
 
@@ -397,7 +397,7 @@ Bot sessions load server-side stored secrets via `UserSecretsLoaderFunc`. These 
 
 The `services` package cannot import `internal/events`. Solved with:
 
-1. **`BotEventSubscriber` interface** (`agent_go/cmd/server/services/bot_connector.go`): abstracts `SubscribeBot(sessionID) -> (chan, unsubscribe)`
+1. **`BotEventSubscriber` interface** (`bot_connector.go`): abstracts `SubscribeBot(sessionID) -> (chan, unsubscribe)`
 2. **`BotEventSubscriberAdapter`** (`bot_event_adapter.go`): bridges `EventStore` to `BotEventSubscriber`
 3. **`SessionStartFunc`**: callback for starting new agent sessions
 4. **`SessionFollowUpFunc`**: callback for injecting follow-ups — accepts full `reqMap map[string]interface{}` (built by `buildQueryRequest()`) so follow-ups get identical config (servers, skills, delegation mode, API keys, secrets) as initial sessions

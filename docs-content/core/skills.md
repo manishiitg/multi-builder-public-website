@@ -96,7 +96,7 @@ PresetQuery.selected_skills (workflow-wide default)
 ### Package Structure
 
 ```
-agent_go/pkg/skills/
+skills
 ├── types.go                   # Skill, SkillFrontmatter structs
 ├── parser.go                  # Parse YAML frontmatter + markdown
 ├── validator.go               # Validate skill folder against spec
@@ -200,7 +200,7 @@ This ensures agents can read skill files but cannot modify them.
 ### Components
 
 ```
-frontend/src/components/skills/
+skills
 ├── SkillsManager.tsx       # Main panel (sidebar)
 ├── SkillsList.tsx          # List of installed skills
 ├── SkillCard.tsx           # Individual skill display
@@ -212,7 +212,7 @@ frontend/src/components/skills/
 ### API Client
 
 ```typescript
-// frontend/src/api/skills.ts
+// skills.ts
 export const skillsApi = {
   listSkills(): Promise<{ skills: Skill[] }>
   getSkill(folderName: string): Promise<Skill>

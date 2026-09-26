@@ -127,5 +127,5 @@ The memory tool executors receive these context values:
 
 | File | Purpose |
 |------|---------|
-| `agent_go/cmd/server/virtual-tools/memory_tools.go` | Tool definitions, async executors, agent instructions (`GetMemoryInstructions`) |
-| `agent_go/cmd/server/server.go` | Tool registration and context injection for multi-agent chat |
+| `memory_tools.go` | Tool definitions, async executors, agent instructions (`GetMemoryInstructions`) |
+| `server.go` | Tool registration and context injection for multi-agent chat |

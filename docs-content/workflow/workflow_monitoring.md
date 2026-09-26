@@ -31,7 +31,7 @@ The Auto-improve popup is the primary in-app monitoring surface. It reads struct
 - **Bug** — did it run correctly (errors, skipped steps, missing/empty artifacts, regressions)? Fixed by hardening.
 - **Goal** — is it achieving its success criteria (eval scores and outcome metrics vs `soul.md`)? Fixed by refining or replanning.
 
-A **Auto-improve run** follows each scheduled workflow run. Auto-improve Gate selects only the due review modules, those reviewers return evidence without writing, and the parent Auto-improve Fixer applies bounded verified changes before the final dashboard/backup/publish/notify step. Enable it with the **Auto-improve** toolbar control. Current questions are stored as structured human-input requests and rendered by Runloop; answered question/outcome history is preserved under Reflection / Hansei.
+A **Auto-improve run** follows each scheduled workflow run. Auto-improve Gate selects only the due review modules, those reviewers return evidence without writing, and the parent Auto-improve Fixer applies bounded verified changes before the final dashboard/backup/publish/notify step. Enable it with the **Auto-improve** toolbar control. Current questions are stored as structured human-input requests and rendered by AgentWorks; answered question/outcome history is preserved under Reflection / Hansei.
 
 ## Execution Logs
 
