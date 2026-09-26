@@ -5,7 +5,7 @@ LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch19'
+V='launch20'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -52,10 +52,12 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
 NAV=[('/agents/','Agents','agents'),('/pricing/','Pricing','pricing'),('/enterprise/','Enterprise','enterprise'),('/docs/','Docs','docs')]
 PRODUCT=[('/product/#goals','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/product/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
-         ('/product/#crew','Crew','Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.','crew')]
+         ('/product/#crew','Crew','Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.','crew'),
+         ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect')]
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
-        'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'}
+        'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+        'connect':'<path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/>'}
 
 def _drop(label, overview, items, menu_id, current):
     rows=''.join(f'<a class="pm-item" href="{h}"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span><span><b>{t}</b><small>{d}</small></span></a>' for h,t,d,ic in items)
@@ -159,7 +161,7 @@ def footer():
 import os, glob, re as _re
 _ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
 _LOGO_FILL={'claude':'#D97757','openai':'currentColor','googlegemini':'#8E75B2','cursor':'currentColor'}
-_TOOL_FILL={'slack':'#4A154B','whatsapp':'#25D366','gmail':'#EA4335','googledrive':'#4285F4','googlesheets':'#34A853','googlecalendar':'#4285F4','stripe':'#635BFF','shopify':'#7AB55C','quickbooks':'#2CA01C','hubspot':'#FF7A59','notion':'#000000','github':'#181717','linear':'#5E6AD2','posthog':'#F54E00','modelcontextprotocol':'#000000','googlechrome':'#4285F4'}
+_TOOL_FILL={'slack':'#4A154B','whatsapp':'#25D366','gmail':'#EA4335','googledrive':'#4285F4','googlesheets':'#34A853','googlecalendar':'#4285F4','stripe':'#635BFF','shopify':'#7AB55C','quickbooks':'#2CA01C','hubspot':'#FF7A59','notion':'#000000','github':'#181717','linear':'#5E6AD2','posthog':'#F54E00','modelcontextprotocol':'#000000','googlechrome':'#4285F4','atlassian':'#0052CC','figma':'#F24E1E','airtable':'#18BFFF','asana':'#F06A6A','clickup':'#7B68EE'}
 def tool(name):
     svg=open(os.path.join(_ROOT,'assets','brand','tools',name+'.svg')).read()
     svg=_re.sub(r'<title>.*?</title>','',svg).replace('role="img" ','')
