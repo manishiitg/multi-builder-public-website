@@ -21,7 +21,7 @@ def tiers(heading='h3'):
             </div>
           </article>
           <article class="tier tier-featured reveal">
-            <span class="tier-badge">By application</span>
+            <span class="tier-badge">Hand-held onboarding</span>
             <p class="tier-name">Cloud</p>
             <p class="tier-price"><strong>$99</strong><span>/ month</span></p>
             <p class="tier-desc">Everything in open source, hosted and set up for you. Nothing to install.</p>
@@ -35,8 +35,8 @@ def tiers(heading='h3'):
               <li>Priority email support</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-amber btn-block" href="{SIGNUP}" target="_blank" rel="noreferrer">Apply now</a>
-              <small>Hand-held onboarding · 7-day money-back guarantee</small>
+              <a class="btn btn-amber btn-block" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
+              <small>Starts with a call · 7-day money-back guarantee</small>
             </div>
           </article>
           <article class="tier reveal">
@@ -68,7 +68,7 @@ FAQ_HOME=[
  ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
  ("Is my data used to train AI models?","We don't train on your data. Your AI provider's own policy applies to the prompts sent through your plan, and business plans from the major providers don't train on them either."),
  ("Is AgentWorks really open source?","Yes. The engine is MIT-licensed on GitHub and you can run it free on your Mac or your own server. Cloud is the same engine, hosted and set up for you."),
- ("How do I get Cloud?","Apply with a short call. We onboard teams by hand: we set up your first goal with you, connect your tools, and check in through your first month. The open-source app is free to download today."),
+ ("How do I get Cloud?","Book a short call. We onboard teams by hand: we set up your first goal with you, connect your tools, and check in through your first month. The open-source app is free to download today."),
  ("What if it's not for me?","Cancel anytime. If you cancel in your first 7 days, we refund you in full, no questions asked."),
 ]
 def faq(items, heading=None):

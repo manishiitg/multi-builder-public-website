@@ -1,13 +1,13 @@
 # AgentWorks
 
-AgentWorks gives an AI agent a goal and a metric, and it keeps working until it hits the target. It plans the work, runs it on schedule, measures every run and changes its own plan (auto-improve) until the metric moves. Crew teammates are always-on agents you talk to in Slack, WhatsApp or the app. It runs on the Claude, ChatGPT, Gemini or Cursor plan the customer already pays for, and is offered as MIT open source (free, self-hosted), Cloud ($99/month, hosted, unlimited teammates and goals; by application with hand-held onboarding) and Enterprise (self-hosted agentic engineering operations with SSO, audit and SLA).
+AgentWorks gives an AI agent a goal and a metric, and it keeps working until it hits the target. It plans the work, runs it on schedule, measures every run and changes its own plan (auto-improve) until the metric moves. Crew teammates are always-on agents you talk to in Slack, WhatsApp or the app. It runs on the Claude, ChatGPT, Gemini or Cursor plan the customer already pays for, and is offered as MIT open source (free, self-hosted), Cloud ($99/month, hosted, unlimited teammates and goals; with hand-held onboarding, starting with a call) and Enterprise (self-hosted agentic engineering operations with SSO, audit and SLA).
 
 ## Canonical Pages
 
 - [Homepage](https://agentworkshq.com/): Goal + metric agents, auto-improve, autonomy levels, Crew, premade agents, bring-your-own AI plan, and the three plans.
 - [Product](https://agentworkshq.com/product/): How goals, primary and supporting metrics, measurement, auto-improve, autonomy levels and Crew work.
 - [Premade agents](https://agentworkshq.com/agents/): Ready-made business agents (invoice chasing, inbox triage, support, lead follow-up, Shopify orders, SEO, AI visibility) and 23 engineering playbooks, each with a measurable goal.
-- [Pricing](https://agentworkshq.com/pricing/): Open source ($0), Cloud ($99/month plus your own AI plan; by application with hand-held onboarding and a 7-day money-back guarantee) and Enterprise (custom), with a full plan comparison.
+- [Pricing](https://agentworkshq.com/pricing/): Open source ($0), Cloud ($99/month plus your own AI plan; with hand-held onboarding, starting with a call and a 7-day money-back guarantee) and Enterprise (custom), with a full plan comparison.
 - [Enterprise](https://agentworkshq.com/enterprise/): Agentic engineering operations for QA, reliability, security, performance and cloud cost, deployed in the customer's cloud, sold as a four-week pilot.
   - [Release quality](https://agentworkshq.com/enterprise/release-quality/): AI QA, self-healing browser tests and release gates.
   - [Incident response](https://agentworkshq.com/enterprise/incident-response/): CI triage, evidence-backed RCA, approved remediation and follow-ups.

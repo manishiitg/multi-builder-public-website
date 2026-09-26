@@ -5,7 +5,7 @@ LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch21'
+V='launch22'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -85,7 +85,7 @@ def header(active=None):
       </nav>
       <div class="header-actions">
         <a class="link" href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn btn-primary btn-sm" href="{SIGNUP}" target="_blank" rel="noreferrer">Apply now</a>
+        <a class="btn btn-primary btn-sm" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -98,7 +98,7 @@ def header(active=None):
 {ment}
 {mlinks}
       <a href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
-      <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Apply for Cloud</a>
+      <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
     </div>
   </header>
 '''
@@ -125,7 +125,7 @@ def footer():
           <h2 class="fh">Plans</h2>
           <ul>
             <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="/pricing/#onboarding">Cloud (by application)</a></li>
+            <li><a href="/pricing/#onboarding">Cloud onboarding</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
             <li><a href="{GH}" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>

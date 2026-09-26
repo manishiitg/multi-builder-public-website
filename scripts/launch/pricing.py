@@ -53,7 +53,7 @@ body=f'''  <main id="main">
         <p class="kicker">Pricing</p>
         <h1>One engine. Three ways to run it.</h1>
         <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
-        <p class="guarantee">Cloud is by application · We set up your first goal with you, by hand</p>
+        <p class="guarantee">Cloud starts with a call · We set up your first goal with you, by hand</p>
       </div>
     </section>
 
@@ -68,14 +68,14 @@ body=f'''  <main id="main">
         <div class="section-head center reveal">
           <p class="kicker">How Cloud onboarding works</p>
           <h2>We don't hand you a login. <span class="dim">We set it up with you.</span></h2>
-          <p class="lede">Cloud is by application while we onboard teams by hand. You get a working goal in week one, not a blank workspace.</p>
+          <p class="lede">Every Cloud team is onboarded by hand. You get a working goal in week one, not a blank workspace.</p>
         </div>
         <ol class="pilot">
-          <li class="reveal"><small>Step 1 · 15 minutes</small><h3>Apply</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it's a fit.</p></li>
+          <li class="reveal"><small>Step 1 · 15 minutes</small><h3>Book a call</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it's a fit.</p></li>
           <li class="reveal"><small>Step 2 · Setup session</small><h3>We build your first goal with you</h3><p>We connect your tools and AI plan, pick the right premade agent or write one, and agree the metric and target together.</p></li>
           <li class="reveal"><small>Step 3 · First month</small><h3>It runs, we check in</h3><p>Your agents work toward the goal. We review the results with you and tune the setup until the number moves.</p></li>
         </ol>
-        <p class="tpl-more center-row"><a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Apply now</a><span class="muted">7-day money-back guarantee once you start.</span></p>
+        <p class="tpl-more center-row"><a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a><span class="muted">7-day money-back guarantee once you start.</span></p>
       </div>
     </section>
 
@@ -127,9 +127,9 @@ body=f'''  <main id="main">
       <div class="wrap">
         <div>
           <h2>Start with one goal this week.</h2>
-          <p>Pick a premade agent, connect your tools and set the target. Apply with a short call and we'll set up your first goal with you.</p>
+          <p>Pick a premade agent, connect your tools and set the target. Book a short call and we'll set up your first goal with you.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Apply now</a>
+            <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
             <a class="btn btn-ghost" href="/enterprise/">Enterprise</a>
           </div>
         </div>
