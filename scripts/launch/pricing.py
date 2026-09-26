@@ -39,7 +39,7 @@ def compare():
 
 FAQ_PRICING=[
  ("What does the $99 cover?","Your hosted workspace, unlimited Crew teammates and goals, a browser and email inbox for every teammate, every premade agent, onboarding for your first goal, and priority support."),
- ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, or on your own API keys. We never mark up tokens, so your AI bill stays with your provider."),
+ ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
  ("Which AI plan should I use?","Light use works on a $20 plan. If teammates run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
  ("Is there a free trial?","The open-source edition is free forever. When Cloud launches it comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),
  ("Can I cancel anytime?","Yes. Cancel from your workspace settings. You keep access until the end of the billing period and can export your goals, agents and logs."),

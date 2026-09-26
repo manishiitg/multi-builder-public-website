@@ -22,7 +22,7 @@ def areas():
 
 FAQ_ENT=[
  ("Where does AgentWorks run?","In your AWS, GCP or Azure account, in a private cloud, or on your own servers. Agents, browsers, secrets and logs stay inside your environment."),
- ("Which models can we use?","Your enterprise Claude, ChatGPT or Gemini agreements through Claude Code, Codex, Cursor, Pi and Muse, or API models through AWS Bedrock, Azure, Vertex AI or OpenRouter. You choose per goal and per step."),
+ ("Which models can we use?","Your enterprise Claude, ChatGPT or Gemini agreements, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Pi can also reach OpenRouter and other providers. You choose the agent and model per step."),
  ("How is this different from an internal developer portal?","A portal catalogs services and gives engineers self-service actions. AgentWorks gives agents a goal, such as release quality, incident response or security backlog, and has them do the work, measure the result and improve, with approvals and audit."),
  ("How is this different from a workflow builder?","In a builder, you draw every step. In AgentWorks you set the outcome and the metric, start from a playbook, and AgentWorks keeps improving the plan against evidence from each run."),
  ("Is it open source?","Yes. The engine is MIT-licensed, so your security team can read every line. Enterprise adds SSO, SCIM, audit export, custom playbooks, deployment support and an SLA."),

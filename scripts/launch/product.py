@@ -40,6 +40,20 @@ body=f'''  <main id="main">
       </div>
     </section>
 
+    <section class="section" id="layers">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="kicker">Under the hood</p>
+          <h2>Three layers, <span class="dim">built to run for months.</span></h2>
+        </div>
+        <ol class="layer-stack reveal" aria-label="The three layers">
+          <li><a href="/#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>Pipelines of deterministic and agentic steps, learnings and a knowledge base, measured against a goal</small></a></li>
+          <li><a href="/#crew"><span>2</span><b>Crews</b><small>An agent with skills, memory, a browser, Slack and WhatsApp, triggers, and calls to other crews</small></a></li>
+          <li><a href="/#engine-agent"><span>1</span><b>Agents</b><small>Vendor-native Claude Code, Codex, Cursor, Pi and Muse in live terminals, with your MCP tools, inside a sandbox</small></a></li>
+        </ol>
+      </div>
+    </section>
+
     <section class="section" id="goals">
       <div class="wrap">
         <div class="feature">
@@ -160,7 +174,7 @@ body=f'''  <main id="main">
           <h2>Built on the tools <span class="dim">you already trust.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><h3>Your AI plan</h3><p>Runs on Claude Code, Codex, Cursor, Pi or Muse with the subscription you already have, or on API keys.</p></li>
+          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><h3>Your AI plan</h3><p>Runs each vendor's own coding agent (Claude Code, Codex, Cursor, Pi or Muse) on the subscription you already have, or on that agent's API key.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span><h3>Its own browser</h3><p>A persistent, isolated browser per workflow, so agents can work in any web app you use.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></span><h3>MCP and APIs</h3><p>Connect any MCP server or API. Tools are granted per workflow, not globally.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Secrets vault</h3><p>Encrypted, injected only at run time, never shown in chat or logs.</p></li>
