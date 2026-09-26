@@ -22,7 +22,7 @@ SOFT={"@type":"SoftwareApplication","@id":"https://agentworkshq.com/#software","
 pages={}
 body=open('home.body.html').read()
 pages['index.html']=head('AgentWorks - Goal-Driven AI Agents for Business','AI agents for business that own a goal and a metric. They run the work daily, measure every run and improve until they hit the target. $99/month or open source.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),TIERS=tiers(),FAQ=faq(FAQ_HOME))+footer()
-for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'usecases.py', 'solutions.py']:
+for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'usecases.py', 'solutions.py', 'legal.py']:
     exec(open(name).read())
 for path,content in pages.items():
     import os

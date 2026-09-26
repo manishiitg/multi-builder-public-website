@@ -69,6 +69,15 @@
 /pricing/index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/privacy/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/terms/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/refunds/*
+  Cache-Control: public, max-age=0, must-revalidate
+
 /solutions/*
   Cache-Control: public, max-age=0, must-revalidate
 

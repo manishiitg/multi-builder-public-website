@@ -2,9 +2,11 @@
 
 ## Decision 2026-09-26: Cloud "by application" with hand-held onboarding
 
-Cloud is sold as a concierge service while the payment account is being approved. "Apply now" opens Calendly. After the call, the customer pays through a hosted checkout link from the merchant of record (Dodo Payments or Paddle, applied for 2026-09-26), and we set up their workspace by hand. The Pricing page promises a three-step onboarding: an application call, a setup session to build the first goal together, and check-ins through the first month. Honour that for every Cloud customer.
+Cloud is sold as a concierge service while the payment account is being approved. "Book a call" opens Calendly. After the call, the customer pays through a hosted checkout link from the merchant of record (Dodo Payments or Paddle, applied for 2026-09-26), and we set up their workspace by hand. The Pricing page promises a three-step onboarding: an application call, a setup session to build the first goal together, and check-ins through the first month. Honour that for every Cloud customer.
 
-**Needed before taking the first payment:** approval of the merchant-of-record account; Terms of Service, Privacy Policy and Refund Policy pages (the refund page must match the 7-day money-back guarantee); one $99/month product with a hosted checkout link.
+**Needed before taking the first payment:** approval of the merchant-of-record account, and one $99/month product with a hosted checkout link. Draft Terms of Service, Privacy Policy and Refund Policy pages are live at /terms/, /privacy/ and /refunds/ (Excellence Technosoft Pvt Ltd, manish@agentworkshq.com). Have a lawyer review them before the first payment.
+
+**Website launch gate (2026-09-26):** done. The LICENSE files are pushed for coding-agent-loop and mcpagent, the policy pages are added, and the email-inbox claim is removed. After deploying, update the websiteaeo automation to edit `scripts/launch/*` and rebuild instead of hand-editing the generated HTML.
 
 ## Earlier decision 2026-09-25: launch the website with Cloud "coming soon" (superseded above)
 

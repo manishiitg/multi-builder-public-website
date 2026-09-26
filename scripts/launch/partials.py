@@ -5,7 +5,7 @@ LOGIN=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch23'
+V='launch24'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -155,7 +155,7 @@ def footer():
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 AgentWorks. Open source under the MIT license.</p>
+        <p>© 2026 Excellence Technosoft Pvt Ltd · AgentWorks is open source under the MIT license. · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refunds/">Refunds</a></p>
         <p>Runs on the AI plan you already pay for.</p>
       </div>
     </div>

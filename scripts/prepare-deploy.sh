@@ -115,6 +115,9 @@ cp -R docs dist/docs
 cp -R docs-content dist/docs-content
 cp -R product dist/product
 cp -R solutions dist/solutions
+cp -R privacy dist/privacy
+cp -R terms dist/terms
+cp -R refunds dist/refunds
 cp -R pricing dist/pricing
 cp -R enterprise dist/enterprise
 cp -R agents dist/agents

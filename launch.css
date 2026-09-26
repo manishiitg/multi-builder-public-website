@@ -774,3 +774,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 1080px) { .conn-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 720px) { .conn-grid { grid-template-columns: 1fr; } }
 .center-row { justify-content: center; }
+
+/* ---------- Legal pages ---------- */
+.legal-hero { padding-bottom: 32px; }
+.legal { max-width: 760px; }
+.legal h2 { font-size: 22px; letter-spacing: -0.02em; margin: 36px 0 10px; }
+.legal h2:first-child { margin-top: 0; }
+.legal p, .legal li { font-size: 16px; color: var(--text-2); line-height: 1.65; }
+.legal p + p { margin-top: 10px; }
+.legal ul { list-style: disc; padding-left: 22px; margin: 10px 0; display: grid; gap: 6px; }
+.legal a, .footer-bottom a { color: var(--text); }
+.legal-nav { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
