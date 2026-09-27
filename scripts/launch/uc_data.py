@@ -121,8 +121,36 @@ USECASES=[
        ('Can people still use their own plan?','Yes. Anyone can add a private account for their own work, next to the shared server account an admin manages.'),
        ('How is usage measured?','Every agent call is recorded with its user, Crew or workflow, provider and model, with token counts and cost. Subscription usage shows as a subscription-equivalent estimate, not as your bill.'),
        ('What does the terminal mode give power users?','The vendor\'s own CLI, such as Claude Code, Codex or Cursor, running live on the server in a sandbox. They get the full tool without it touching their laptop, and every run is logged.')]),
+ dict(slug='mcp-gateway', soon=True, nav='MCP gateway', icon='<path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/>',
+  navdesc='One governed door to every MCP tool your company uses.',
+  title='AgentWorks MCP Gateway - Govern Every MCP Tool Your AI Agents Use (Coming Soon)',
+  desc='Coming soon: one MCP endpoint for every AI client in your company. Deny-by-default access per group and tool, approval for new tools, PII masking, egress guards and an exportable audit log.',
+  kicker='Enterprise · MCP gateway · Coming soon',
+  h1='One door to every MCP tool.', h1dim='Every call allowed, checked and logged.',
+  lede='People are plugging MCP servers into Claude, ChatGPT, Cursor and their own agents, each with its own tokens and no oversight. The AgentWorks MCP Gateway gives your company one MCP endpoint: admins connect servers once, every client signs in, and each tool call is checked against policy and recorded.',
+  cta_label='Get early access',
+  goal=('Every MCP tool call governed','Tool calls with a grant and an audit record',('100%','of calls through the gateway, target 100%')),
+  pains=[('MCP tokens live on every laptop','Each person connects servers with their own keys, so access can\'t be reviewed or revoked in one place.'),
+         ('Anyone can call any tool','There is no way to say which team may use which server, let alone which individual tool.'),
+         ('Sensitive data flows out unseen','Customer data can leave through tool arguments and results with no masking and no record.')],
+  how_h2='Connect once.', how_h2dim='Govern every call.',
+  steps=[('Connect servers once','Admins add upstream MCP servers to the gateway, from a catalog or by pasting their config.'),
+         ('Grant by group','Access is deny by default. Grant a group a whole server or single tools; services use group API keys.'),
+         ('Approve and inspect','New tools and changed tool versions wait for approval. PII rules mask, block or send sensitive values to review.'),
+         ('Audit everything','Every call is logged with who, which tool and what happened, with usage history and CSV or JSON export.')],
+  list_kicker='What it includes', list_h2='Built for your security review.', list_h2dim='From day one.',
+  list_lede='In private preview with design partners. Book a call to join and shape the first release.',
+  list_cta='See what it includes',
+  playbooks=['One MCP endpoint for Claude, ChatGPT, Cursor and AgentWorks crews','OAuth sign-in for MCP clients, group API keys for services','Deny-by-default grants per group, server or single tool','Approval for new tools and changed tool versions','PII masking, blocking and a human review queue','Egress guards against private-network calls','Audit log and usage history with CSV and JSON export','Admin console for users, groups, servers and rules'],
+  cta_h2='Govern MCP before it sprawls.', cta_h2dim='Join the early access.',
+  cta_p='We are onboarding a small group of design partners. Tell us which MCP servers and clients you use, and we will set up the gateway with you.',
+  faq=[('When is it available?','It is in private preview with design partners now. Book a call to join, and we will tell you the release date as soon as it is set.'),
+       ('Which MCP clients work with it?','Any client that can connect to a remote MCP server, such as Claude, ChatGPT, Cursor and AgentWorks crews. Clients sign in with OAuth.'),
+       ('Does it use AI to find sensitive data?','No. PII rules are deterministic and bounded, so results are predictable. Matching values are masked, blocked, or held for a person to review.'),
+       ('Where does it run?','In your own cloud or data center, next to AgentWorks or on its own.')]),
 ]
 
 def uc_nav_items():
-    return [(f'/enterprise/{u["slug"]}/',u['nav'],u['navdesc'],u['icon']) for u in USECASES]
+    soon=' <span class="tag tag-soon">Soon</span>'
+    return [(f'/enterprise/{u["slug"]}/',u['nav']+(soon if u.get('soon') else ''),u['navdesc'],u['icon']) for u in USECASES]
 

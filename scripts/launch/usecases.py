@@ -17,7 +17,7 @@ def _page(u):
         <h1>{e(u['h1'])} <span class="dim">{e(u['h1dim'])}</span></h1>
         <p class="lede">{e(u['lede'])}</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
+          <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">{e(u.get('cta_label','Book a call'))}</a>
           <a class="btn btn-ghost" href="#playbooks">{e(u.get('list_cta','See the playbooks'))}</a>
         </div>
       </div>
@@ -100,7 +100,7 @@ def _page(u):
         <h2>{e(u.get('cta_h2','Pick the goal.'))} <span class="dim">{e(u.get('cta_h2dim',"We'll prove it in four weeks."))}</span></h2>
         <p>{e(u.get('cta_p','A scoped pilot on one goal, in your environment, with the success metric agreed up front.'))}</p>
         <div class="cta-actions">
-          <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
+          <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">{e(u.get('cta_label','Book a call'))}</a>
           <a class="btn btn-ghost" href="/enterprise/">Enterprise overview</a>
         </div>
       </div>
