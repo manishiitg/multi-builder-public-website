@@ -2,6 +2,12 @@
 COMPANY='Excellence Technosoft Pvt Ltd'
 CONTACT='manish@agentworkshq.com'
 UPDATED='26 September 2026'
+from partials import PAYPAL_SUBSCRIBE
+BILLING_DATA=('payments are processed by PayPal. We receive your name, email and payment status, never your card or bank details.' if PAYPAL_SUBSCRIBE
+  else 'payments are handled by our payment provider, which acts as merchant of record. We do not store card numbers.')
+BILLING_VIA=('through PayPal as a recurring subscription, in US dollars; any taxes that apply are shown at checkout. You can cancel from your PayPal account or by emailing us' if PAYPAL_SUBSCRIBE
+  else 'through our payment provider, which acts as merchant of record and may add applicable taxes')
+REFUND_VIA=('through PayPal' if PAYPAL_SUBSCRIBE else 'through our payment provider')
 
 def _legal(title, intro, sections):
     body=''.join(f'<h2>{h}</h2>{b}' for h,b in sections)
@@ -31,7 +37,7 @@ PRIVACY=[
  ('AgentWorks Cloud and Enterprise', '''<p>When we host or operate AgentWorks for you, we process:</p>
 <ul><li><b>Account data:</b> names, email addresses and roles of the people you invite.</li>
 <li><b>Workspace data:</b> the goals, workflows, files, memory, logs and connected-tool data your agents work with. You own this data. We process it only to provide the service to you, as your processor.</li>
-<li><b>Billing data:</b> payments are handled by our payment provider, which acts as merchant of record. We do not store card numbers.</li></ul>
+<li><b>Billing data:</b> {BILLING_DATA}</li></ul>
 <p>We do not sell personal data, and we do not use your workspace data to train AI models.</p>'''),
  ('AI providers', '<p>AgentWorks runs AI agents on your own AI plan (for example Anthropic, OpenAI, Google or Cursor). Prompts and content your agents send to those providers are handled under your agreement with them and their policies.</p>'),
  ('Other service providers', '<p>We use a small number of providers to run the service, such as cloud hosting, website analytics (PostHog), email delivery, payment processing and the connectors you choose to enable (for example Slack, WhatsApp or Gmail). They process data only as needed to provide their part of the service.</p>'),
@@ -50,7 +56,7 @@ TERMS=[
  ('Agent actions and approvals', '<p>AI agents can make mistakes. You choose how much each agent or workflow may do on its own, and outward actions such as sending messages ask for your approval by default. You are responsible for reviewing outputs and for actions you approve or allow agents to take automatically.</p>'),
  ('Acceptable use', '<p>You must not use the service to break the law, infringe others\' rights, send spam, access systems without authorization, run security tests against targets you are not authorized to test, or harm the service or other customers. We may suspend a workspace that puts the service or others at risk, and will tell you why.</p>'),
  ('Your data', '<p>You own the data in your workspace. You give us permission to process it only to provide and support the service for you. Our <a href="/privacy/">Privacy Policy</a> explains how we handle it. You can export your data at any time while your account is active.</p>'),
- ('Fees and billing', '<p>Cloud costs the price shown on our <a href="/pricing/">pricing page</a> at the time you subscribe, billed monthly in advance through our payment provider, which acts as merchant of record and may add applicable taxes. Prices can change with at least 30 days\' notice before your next billing period. Refunds are covered by our <a href="/refunds/">Refund Policy</a>.</p>'),
+ ('Fees and billing', '<p>Cloud costs the price shown on our <a href="/pricing/">pricing page</a> at the time you subscribe, billed monthly in advance {BILLING_VIA}. Prices can change with at least 30 days\' notice before your next billing period. Refunds are covered by our <a href="/refunds/">Refund Policy</a>.</p>'),
  ('Cancellation and termination', '<p>You can cancel at any time and keep access until the end of the paid period. We may terminate for material breach of these terms if it is not fixed within 14 days of notice. After termination, you can export your data for 30 days, after which we delete it.</p>'),
  ('Warranties', '<p>We provide the service with reasonable skill and care. Beyond that, and to the extent the law allows, the service is provided "as is", without warranties that it will be uninterrupted, error-free or that agent outputs will be accurate or achieve a particular result.</p>'),
  ('Liability', '<p>To the extent the law allows, neither side is liable for indirect or consequential losses, lost profits or lost data, and our total liability under these terms is limited to the fees you paid us in the 12 months before the claim. Nothing limits liability that cannot be limited by law.</p>'),
@@ -63,8 +69,17 @@ REFUNDS=[
  ('After the first 7 days', '<p>You can cancel at any time. Your subscription stops renewing and you keep access until the end of the period you have paid for. We do not give partial refunds for unused time, except where the law requires it or we have failed to provide the service.</p>'),
  ('Your AI plan', '<p>Your AI subscription or API usage (for example with Anthropic, OpenAI, Google or Cursor) is billed by that provider, not by us, so refunds for it are handled under their policy.</p>'),
  ('Enterprise', '<p>Enterprise pilots and contracts follow the refund and termination terms in your agreement.</p>'),
- ('How refunds are paid', '<p>Refunds go back to the original payment method through our payment provider, usually within 5 to 10 business days depending on your bank.</p>'),
+ ('How refunds are paid', '<p>Refunds go back to the original payment method {REFUND_VIA}, usually within 5 to 10 business days depending on your bank.</p>'),
 ]
+
+_TOK={'{BILLING_DATA}':BILLING_DATA,'{BILLING_VIA}':BILLING_VIA,'{REFUND_VIA}':REFUND_VIA}
+def _fill(sections):
+    out=[]
+    for h,b in sections:
+        for k,v in _TOK.items(): b=b.replace(k,v)
+        out.append((h,b))
+    return out
+PRIVACY,TERMS,REFUNDS=_fill(PRIVACY),_fill(TERMS),_fill(REFUNDS)
 
 for slug,title,intro,sections,desc in [
  ('privacy','Privacy Policy','What personal data AgentWorks handles, why, and your choices.',PRIVACY,'How AgentWorks handles personal data on the website, in the open-source app and in AgentWorks Cloud and Enterprise.'),

@@ -2,6 +2,9 @@ CAL_URL='https://calendly.com/manish-tryagentworks/intro'
 # Cloud is not live yet: early access goes through a call. Point this at the app when signup ships.
 SIGNUP=CAL_URL
 LOGIN=None
+# PayPal subscription link for Cloud ($99/month plan "Cloud monthly"). While None, the site keeps
+# the "Book a call" flow. Setting it switches the Cloud card, onboarding, FAQ, legal copy and offer JSON-LD.
+PAYPAL_SUBSCRIBE=None
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'

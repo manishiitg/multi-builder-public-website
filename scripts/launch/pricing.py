@@ -1,3 +1,10 @@
+GUARANTEE=('<p class="guarantee">Subscribe in 2 minutes · We set up your first goal with you, by hand · Cancel anytime</p>' if PAYPAL_SUBSCRIBE
+  else '<p class="guarantee">Cloud starts with a call · We set up your first goal with you, by hand</p>')
+ONB_STEP1=(f'<li class="reveal"><small>Step 1 · 2 minutes</small><h3>Subscribe</h3><p>Subscribe with PayPal, or <a href="{CAL}" target="_blank" rel="noreferrer">book a 30-minute call</a> first if you want to check it fits. Cancel anytime.</p></li>'
+  if PAYPAL_SUBSCRIBE else '<li class="reveal"><small>Step 1 · 30 minutes</small><h3>Book a call</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it\'s a fit.</p></li>')
+ONB_CTA=(f'<p class="tpl-more center-row"><a class="btn btn-amber" href="{PAYPAL_SUBSCRIBE}" target="_blank" rel="noreferrer">Subscribe with PayPal</a><a class="btn btn-ghost" href="{CAL}" target="_blank" rel="noreferrer">Book a call first</a><span class="muted">7-day money-back guarantee.</span></p>'
+  if PAYPAL_SUBSCRIBE else f'<p class="tpl-more center-row"><a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a><span class="muted">7-day money-back guarantee once you start.</span></p>')
+
 Y='<span class="yes" aria-label="Included">✓</span>'
 N='<span class="no" aria-label="Not included">—</span>'
 ROWS=[
@@ -53,7 +60,7 @@ body=f'''  <main id="main">
         <p class="kicker">Pricing</p>
         <h1>One engine. Three ways to run it.</h1>
         <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
-        <p class="guarantee">Cloud starts with a call · We set up your first goal with you, by hand</p>
+        {GUARANTEE}
       </div>
     </section>
 
@@ -71,11 +78,11 @@ body=f'''  <main id="main">
           <p class="lede">Every Cloud team is onboarded by hand. You get a working goal in week one, not a blank workspace.</p>
         </div>
         <ol class="pilot">
-          <li class="reveal"><small>Step 1 · 30 minutes</small><h3>Book a call</h3><p>A short call about the outcome you want and the tools you use. We tell you honestly if it's a fit.</p></li>
+          {ONB_STEP1}
           <li class="reveal"><small>Step 2 · Setup session</small><h3>We build your first goal with you</h3><p>We connect your tools and AI plan, pick the right premade agent or write one, and agree the metric and target together.</p></li>
           <li class="reveal"><small>Step 3 · First month</small><h3>It runs, we check in</h3><p>Your agents work toward the goal. We review the results with you and tune the setup until the number moves.</p></li>
         </ol>
-        <p class="tpl-more center-row"><a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a><span class="muted">7-day money-back guarantee once you start.</span></p>
+        {ONB_CTA}
       </div>
     </section>
 
