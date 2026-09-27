@@ -42,7 +42,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">AgentWorks Enterprise</p>
         <h1>Agentic engineering operations, in your own cloud.</h1>
-        <p class="lede">Your engineers ship faster with AI. Now QA, CI, incidents, security and cloud cost are the bottleneck. AgentWorks puts agents on those goals, with approvals, audit trails and your own models, and gives every team shared expert agents and shared AI plans on one governed server.</p>
+        <p class="lede">Your engineers ship faster with AI. Now QA, CI, incidents, security and cloud cost are the bottleneck. AgentWorks puts agents on those goals, with approvals, audit trails and your own models, and gives every team Expert Crews and a shared Workbench on one governed server.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{GH}" target="_blank" rel="noreferrer">Read the source</a>
@@ -84,7 +84,7 @@ body=f'''  <main id="main">
         <div class="section-head reveal">
           <p class="kicker">Use cases</p>
           <h2>Start with the goal that hurts most. <span class="dim">Or the platform your teams need.</span></h2>
-          <p class="lede">Engineering goals come with their playbooks, an example goal and a four-week pilot. The platform use cases give every team shared agents, shared AI plans and governed tools.</p>
+          <p class="lede">Engineering goals come with their playbooks, an example goal and a four-week pilot. The platform gives every team Workbench, Expert Crews and governed tools.</p>
         </div>
         {''.join(f'<p class="tpl-kind">{g}</p><div class="uc-grid">'+''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>' for h,t,d,i in items)+'</div>' for g,items in uc_nav_groups())}
       </div>

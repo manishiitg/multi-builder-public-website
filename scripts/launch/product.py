@@ -166,11 +166,11 @@ body=f'''  <main id="main">
         <div class="section-head reveal">
           <p class="kicker">More ways to use it</p>
           <h2>Beyond one team's goals. <span class="dim">Agents for the whole company.</span></h2>
-          <p class="lede">The same engine lets you share expert agents, pool your AI plans, and run fixed agent chains from any system.</p>
+          <p class="lede">The same engine gives every team Workbench for shared AI plans, Expert Crews that anyone can ask, and Relays you can run from any system.</p>
         </div>
         <div class="uc-grid">
-          <a class="uc-link" href="/enterprise/expert-agents/"><b>Shared expert agents</b><span>Teams build a DevOps, database or product expert as a Crew and share it. Engineers ask it from Claude Code, Codex, Cursor or ChatGPT through MCP or the CLI.</span></a>
-          <a class="uc-link" href="/enterprise/shared-ai-workspace/"><b>Shared AI workspace</b><span>Put the team's Claude, ChatGPT and Cursor plans on one server as shared or private accounts, and see usage and cost by person, Crew and model.</span></a>
+          <a class="uc-link" href="/enterprise/expert-crews/"><b>Expert Crews</b><span>Teams build a DevOps, database or product expert as a Crew and share it. Engineers ask it from Claude Code, Codex, Cursor or ChatGPT through MCP or the CLI.</span></a>
+          <a class="uc-link" href="/enterprise/workbench/"><b>Workbench</b><span>Put the team's Claude, ChatGPT and Cursor plans on one server as shared or private accounts, and see usage and cost by person, Crew and model.</span></a>
           <a class="uc-link" href="/relays/"><b>Relays <span class="tag tag-soon">Soon</span></b><span>Chain agent steps, conditions and scripts into one fixed sequence, and call it from your website, CRM or any system through an API or webhook.</span></a>
           <a class="uc-link" href="/enterprise/mcp-gateway/"><b>MCP gateway <span class="tag tag-soon">Soon</span></b><span>One governed door to every MCP tool: grants per group and tool, tool approval, PII masking and a full audit log.</span></a>
         </div>
