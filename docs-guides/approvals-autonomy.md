@@ -4,7 +4,7 @@
 
 Every goal has an autonomy level: a slider with four stops. Each stop lets the crew do one more kind of thing on its own; everything else it prepares and asks about. Your rules from goal setup apply at every stop — autonomy never overrides them.
 
-![The autonomy slider with four levels from Ask first to Full](/assets/docs/guides/autonomy-levels.webp)
+![The autonomy slider with four levels from Ask first to Full](/assets/docs/guides/autonomy-levels.webp?v=2)
 
 ## The four levels
 
@@ -24,7 +24,7 @@ New goals start at **Run steps**: the crew does the work, and asks before anythi
 3. **Move up one stop at a time.** When a goal runs a week without surprises, move it from Run steps to Edit workflow, and later to Full. There is no prize for Full — many goals live happily at Run steps forever.
 4. **Move back down instantly.** If anything feels off, drop the goal back to Ask first. In-flight work pauses at its next decision point and waits for you.
 
-![A decision card in the app: approve, request changes, or reject, with dismiss and ask-in-chat options](/assets/docs/guides/approval-decision.webp)
+![A decision card in the app: approve, request changes, or reject, with dismiss and ask-in-chat options](/assets/docs/guides/approval-decision.webp?v=2)
 
 ## What happens next
 
