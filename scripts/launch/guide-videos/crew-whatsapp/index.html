@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Talk to your crew on WhatsApp: AgentWorks guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url("assets/fonts/space-grotesk-latin.woff2") format("woff2"); font-weight: 300 700; font-style: normal; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+      :root { --bg: #fbfbf9; --card: #fff; --border: rgba(15,15,20,.09); --text: #0e0e12; --muted: #6c6c77; --amber: #f5a524; --amber-text: #b45309; --amber-soft: rgba(245,165,36,.14); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); font-family: "Space Grotesk", sans-serif; color: var(--text); }
+      #bg-glow { position: absolute; inset: 0; background: radial-gradient(1100px 600px at 50% 110%, rgba(245,165,36,.12), transparent 70%); }
+      .scene { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; }
+      .scene-app { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; height: 100%; padding-top: 30px; }
+      .kicker { font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber-text); }
+      .title { font-size: 84px; font-weight: 600; letter-spacing: -.03em; margin-top: 18px; text-align: center; }
+      .sub { font-size: 32px; color: var(--muted); margin-top: 16px; text-align: center; }
+      .win { position: relative; width: 1376px; height: 896px; border-radius: 22px; overflow: hidden; background: #0d0f14; box-shadow: 0 40px 90px -30px rgba(15,15,20,.45), 0 0 0 1px rgba(15,15,20,.1); }
+      .win .bar { position: absolute; top: 0; left: 0; right: 0; height: 36px; background: #1a1d25; display: flex; align-items: center; gap: 9px; padding-left: 16px; z-index: 2; }
+      .win .bar i { width: 12px; height: 12px; border-radius: 50%; background: #3a3e49; display: block; }
+      .win .view { position: absolute; top: 36px; left: 0; right: 0; bottom: 0; overflow: hidden; }
+      .win .cam { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; transform-origin: 0 0; }
+      .win .cam img { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; display: block; }
+      .ring { position: absolute; border: 4px solid var(--amber); border-radius: 12px; opacity: 0; }
+      .cursor { position: absolute; left: 0; top: 0; width: 30px; height: 30px; opacity: 0; z-index: 3; }
+      .cursor svg { width: 30px; height: 30px; display: block; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
+      .click { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid var(--amber); opacity: 0; z-index: 3; }
+      .demo-tag { position: absolute; right: 290px; top: 46px; font-family: "JetBrains Mono", monospace; font-size: 16px; letter-spacing: .06em; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; z-index: 3; }
+      .card-wrap { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding-bottom: 90px; }
+      .card-img { display: block; max-width: 1300px; max-height: 860px; border-radius: 22px; box-shadow: 0 40px 90px -30px rgba(15,15,20,.35); }
+      #end-logo { width: 110px; height: 110px; }
+      #end-next { margin-top: 34px; font-family: "JetBrains Mono", monospace; font-size: 24px; color: var(--amber-text); padding: 12px 26px; border-radius: 999px; background: var(--amber-soft); }
+      #captions { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+      .cap { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 46px; pointer-events: none; }
+      .cap span { display: block; max-width: 1400px; background: rgba(14,14,18,.82); color: #fff; font-size: 34px; font-weight: 500; line-height: 1.3; padding: 12px 26px; border-radius: 14px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="33.56">
+      <div id="bg-glow"></div>
+      <audio id="vo-s1" src="assets/vo/s1.mp3" data-start="3.00" data-duration="5.81" data-track-index="20"></audio>
+      <audio id="vo-s2" src="assets/vo/s2.mp3" data-start="9.66" data-duration="7.66" data-track-index="20"></audio>
+      <audio id="vo-s3" src="assets/vo/s3.mp3" data-start="18.17" data-duration="4.55" data-track-index="20"></audio>
+      <audio id="vo-s4" src="assets/vo/s4.mp3" data-start="23.57" data-duration="6.34" data-track-index="20"></audio>
+      <section id="title" class="clip scene" data-start="0" data-duration="2.6" data-track-index="1"><div class="kicker">AgentWorks guide</div><div class="title" id="t-title">Talk to your crew on WhatsApp</div><div class="sub" id="t-sub">Connect once, then message them from your phone</div></section>
+      <section id="s1" class="clip scene-app" data-start="2.60" data-duration="6.66" data-track-index="1"><div class="win" id="s1-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s1-cam"><img src="assets/screens/a_wa.webp" alt="" /><div class="ring" id="s1-r0" style="left:63.007%;top:16.667%;width:6.375%;height:4.222%"></div><div class="ring" id="s1-r1" style="left:93.681%;top:22.778%;width:5.278%;height:3.778%"></div><div class="cursor" id="s1-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s1-c0" style="left:96.181%;top:24.667%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s2" class="clip scene-app" data-start="9.26" data-duration="8.51" data-track-index="1"><div class="win" id="s2-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s2-cam"><img src="assets/screens/b_pair.webp" alt="" /><div class="ring" id="s2-r0" style="left:50.972%;top:30.667%;width:48.056%;height:15.444%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s3" class="clip scene-app" data-start="17.77" data-duration="5.40" data-track-index="1"><div class="win" id="s3-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s3-cam"><img src="assets/screens/b_pair.webp" alt="" /><div class="ring" id="s3-r0" style="left:65.417%;top:58.889%;width:19.167%;height:30.667%"></div><div class="ring" id="s3-r1" style="left:52.014%;top:54.722%;width:39.264%;height:4.444%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s4" class="clip scene" data-start="23.17" data-duration="7.19" data-track-index="1"><div class="card-wrap"><img class="card-img" id="s4-win" src="assets/screens/wa-chat.webp" alt="" /></div></section>
+      <section id="end" class="clip scene" data-start="30.36" data-duration="3.2" data-track-index="1"><img id="end-logo" src="assets/brand/agentworks-logo.svg" alt="AgentWorks" /><div class="title" style="font-size:60px">Your crew, on your phone.</div><div id="end-next">Next: set up your first goal</div></section>
+      <div id="captions">
+        <div class="clip cap" data-start="3.25" data-duration="5.21" data-track-index="30"><span>To talk to your crew on WhatsApp, open Integrations, then WhatsApp, and choose Open.</span></div>
+        <div class="clip cap" data-start="9.91" data-duration="3.18" data-track-index="30"><span>You connect WhatsApp once, for your whole account.</span></div>
+        <div class="clip cap" data-start="13.09" data-duration="3.88" data-track-index="30"><span>On your phone, open Linked devices, and choose Link a device.</span></div>
+        <div class="clip cap" data-start="18.42" data-duration="3.95" data-track-index="30"><span>Scan the code, and give the number a name, so your crew knows who&#x27;s writing.</span></div>
+        <div class="clip cap" data-start="23.82" data-duration="5.74" data-track-index="30"><span>Now just message them. Ask a question, approve a reply, or hand off a job, from wherever you are.</span></div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#title > *", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.15 }, 0.2);
+      tl.to("#title > *", { opacity: 0, duration: 0.35 }, 2.20);
+      tl.fromTo("#s1-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 4.74);
+      tl.to("#s1-r0", { opacity: 0, duration: 0.3 }, 6.60);
+      tl.fromTo("#s1-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 6.83);
+      tl.set("#s1-cur", { x: 955.6, y: 286.7 }, 2.60);
+      tl.to("#s1-cur", { opacity: 1, duration: 0.3 }, 3.20);
+      tl.to("#s1-cur", { x: 1323.4, y: 212.1, duration: 0.9, ease: "power2.inOut" }, 7.04);
+      tl.fromTo("#s1-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out", immediateRender: false }, 7.94);
+      tl.fromTo("#s1-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.9, x: -1238.4, y: -163.4, duration: 1.6, ease: "power2.inOut" }, 3.12);
+      tl.fromTo("#s1-win", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.65);
+      tl.to("#s1-win", { opacity: 0, duration: 0.35 }, 8.86);
+      tl.fromTo("#s2-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 11.04);
+      tl.fromTo("#s2-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.9, x: -1238.4, y: -363.1, duration: 1.6, ease: "power2.inOut" }, 9.81);
+      tl.fromTo("#s2-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 9.28);
+      tl.fromTo("#s3-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 18.40);
+      tl.to("#s3-r0", { opacity: 0, duration: 0.3 }, 20.44);
+      tl.fromTo("#s3-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 20.54);
+      tl.fromTo("#s3-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.9, x: -1238.4, y: -762.5, duration: 1.6, ease: "power2.inOut" }, 18.26);
+      tl.to("#s3-win", { opacity: 0, duration: 0.35 }, 22.77);
+      tl.fromTo("#s4-win", { opacity: 0, y: 30, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 23.22);
+      tl.to("#s4-win", { scale: 1.04, duration: 5.99, ease: "none" }, 23.97);
+      tl.to("#s4-win", { opacity: 0, duration: 0.35 }, 29.96);
+      tl.fromTo("#end > *", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.18 }, 30.51);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

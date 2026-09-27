@@ -1,0 +1,19 @@
+{
+ "title": "Talk to your crew on WhatsApp",
+ "subtitle": "Connect once, then message them from your phone",
+ "end_title": "Your crew, on your phone.",
+ "end_next": "Next: set up your first goal",
+ "scenes": [
+  {"image":"a_wa.webp","vo":"s1","demo_tag":true,
+   "zoom":{"scale":1.9,"x":720,"y":90,"at":0.02},
+   "rings":[{"box":[911.3,154,83.8,30],"at":0.3,"until":0.62,"pad":4},{"box":[1352,208,70,28],"at":0.66,"pad":3}],
+   "clicks":[{"at_xy":[1385,222],"at":0.85,"from":[1000,300]}]},
+  {"image":"b_pair.webp","vo":"s2","demo_tag":true,
+   "zoom":{"scale":1.9,"x":720,"y":200,"at":0.02},
+   "rings":[{"box":[736,278,688,135],"at":0.18,"pad":2}]},
+  {"image":"b_pair.webp","vo":"s3","demo_tag":true,
+   "zoom":{"scale":1.9,"x":720,"y":420,"at":0.02},
+   "rings":[{"box":[944,532,272,272],"at":0.05,"until":0.5,"pad":2},{"box":[753,496.5,557.4,32],"at":0.52,"pad":4}]},
+  {"image":"wa-chat.webp","vo":"s4","style":"card"}
+ ]
+}
