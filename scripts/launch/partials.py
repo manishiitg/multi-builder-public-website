@@ -4,7 +4,7 @@ SIGNUP=CAL_URL
 LOGIN=None
 # PayPal subscription link for Cloud ($99/month plan "Cloud monthly"). While None, the site keeps
 # the "Book a call" flow. Setting it switches the Cloud card, onboarding, FAQ, legal copy and offer JSON-LD.
-PAYPAL_SUBSCRIBE=None
+PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8U224306ST2761520NK4MBQA'
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'

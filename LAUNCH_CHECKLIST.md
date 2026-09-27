@@ -2,9 +2,9 @@
 
 ## Decision 2026-09-26: Cloud "by application" with hand-held onboarding
 
-Cloud is sold as a concierge service while the payment account is being approved. "Book a call" opens Calendly. After the call, the customer pays through a hosted checkout link from the merchant of record (Dodo Payments or Paddle, applied for 2026-09-26), and we set up their workspace by hand. The Pricing page promises a three-step onboarding: an application call, a setup session to build the first goal together, and check-ins through the first month. Honour that for every Cloud customer.
+Cloud is sold by self-serve PayPal subscription since 2026-09-27: plan "Cloud monthly" (P-8U224306ST2761520NK4MBQA, $99/month, product AGENTWORKS-CLOUD, owner Excellence Technosoft Pvt Ltd). The pricing page and home Cloud card link to the PayPal subscribe URL (`PAYPAL_SUBSCRIBE` in `scripts/launch/partials.py`); "Book a call first" stays as the second option. PayPal only takes payment: for every new subscription (PayPal email), email the customer within one business day and run the three-step onboarding the Pricing page promises (subscribe, setup session to build the first goal together, check-ins through the first month).
 
-**Needed before taking the first payment:** approval of the merchant-of-record account, and one $99/month product with a hosted checkout link. Draft Terms of Service, Privacy Policy and Refund Policy pages are live at /terms/, /privacy/ and /refunds/ (Excellence Technosoft Pvt Ltd, manish@agentworkshq.com). Have a lawyer review them before the first payment.
+**Payments:** PayPal processes payments; we are the merchant, so any tax/GST treatment is ours to handle with the accountant. The Terms, Privacy and Refund pages now name PayPal. Have a lawyer review them. Refunds for the 7-day guarantee are issued manually from PayPal.
 
 **Website launch gate (2026-09-26):** done. The LICENSE files are pushed for coding-agent-loop and mcpagent, the policy pages are added, and the email-inbox claim is removed. After deploying, update the websiteaeo automation to edit `scripts/launch/*` and rebuild instead of hand-editing the generated HTML.
 
