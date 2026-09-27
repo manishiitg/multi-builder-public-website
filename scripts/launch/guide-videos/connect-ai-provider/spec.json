@@ -1,0 +1,205 @@
+{
+ "title": "Connect your AI provider",
+ "subtitle": "Use the AI plan you already pay for",
+ "end_title": "Your agents are ready to work.",
+ "end_next": "Next: create your first automation",
+ "scenes": [
+  {
+   "image": "a_topbar.webp",
+   "vo": "s1",
+   "rings": [
+    {
+     "box": [
+      1245,
+      17,
+      24,
+      24
+     ],
+     "at": 0.68,
+     "pad": 7
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      1257,
+      29
+     ],
+     "at": 0.86,
+     "from": [
+      900,
+      420
+     ]
+    }
+   ],
+   "zoom": {
+    "scale": 1.7,
+    "x": 620,
+    "y": 0,
+    "at": 0.5
+   }
+  },
+  {
+   "image": "b_providers.webp",
+   "vo": "s2",
+   "rings": [
+    {
+     "box": [
+      10,
+      106,
+      200,
+      222
+     ],
+     "at": 0.12,
+     "until": 0.55,
+     "pad": 4
+    },
+    {
+     "box": [
+      448,
+      342,
+      770,
+      104
+     ],
+     "at": 0.62,
+     "pad": 4
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      102,
+      128
+     ],
+     "at": 0.45,
+     "from": [
+      640,
+      300
+     ]
+    }
+   ]
+  },
+  {
+   "image": "c_addaccount.webp",
+   "vo": "s3",
+   "rings": [
+    {
+     "box": [
+      446,
+      334,
+      776,
+      292
+     ],
+     "at": 0.3,
+     "pad": 4
+    }
+   ],
+   "zoom": {
+    "scale": 1.3,
+    "x": 300,
+    "y": 230,
+    "at": 0.2
+   }
+  },
+  {
+   "image": "b_providers.webp",
+   "vo": "s4",
+   "rings": [
+    {
+     "box": [
+      480,
+      610,
+      133,
+      38
+     ],
+     "at": 0.12,
+     "pad": 6
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      546,
+      629
+     ],
+     "at": 0.35,
+     "from": [
+      800,
+      500
+     ]
+    }
+   ],
+   "zoom": {
+    "scale": 1.5,
+    "x": 330,
+    "y": 420,
+    "at": 0.02
+   }
+  },
+  {
+   "image": "d_models.webp",
+   "vo": "s5",
+   "rings": [
+    {
+     "box": [
+      1337,
+      69,
+      28,
+      24
+     ],
+     "at": 0.18,
+     "until": 0.33,
+     "pad": 7
+    },
+    {
+     "box": [
+      249.7,
+      154,
+      66,
+      30
+     ],
+     "at": 0.34,
+     "until": 0.56,
+     "pad": 5
+    },
+    {
+     "box": [
+      1372.6,
+      370,
+      38.4,
+      24
+     ],
+     "at": 0.6,
+     "pad": 6
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      1351,
+      81
+     ],
+     "at": 0.22,
+     "from": [
+      900,
+      500
+     ]
+    },
+    {
+     "at_xy": [
+      282,
+      169
+     ],
+     "at": 0.4
+    },
+    {
+     "at_xy": [
+      1391,
+      382
+     ],
+     "at": 0.68
+    }
+   ]
+  }
+ ]
+}

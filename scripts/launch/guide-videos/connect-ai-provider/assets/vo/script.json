@@ -1,0 +1,7 @@
+[
+ {"id":"s1","text":"Every agent in AgentWorks runs on an AI plan you already pay for. So the first step is to connect one. Open Providers from the top bar."},
+ {"id":"s2","text":"You'll see Claude Code, Codex, Cursor, Pi and Muse, each with its status. Pick one. Here, Claude Code is already connected, and ready for workflows."},
+ {"id":"s3","text":"Want to use your own subscription instead of the shared account? Choose Add account, and paste the token from your own login."},
+ {"id":"s4","text":"You can check your usage at any time, so you always know how much of your plan is left."},
+ {"id":"s5","text":"Now open an automation, and go to Setup, then Identity, then Models. Choose Use next to your provider. That's it. Your agents are ready to work."}
+]
