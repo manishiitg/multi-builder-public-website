@@ -14,7 +14,7 @@ body=f'''  <main id="main" data-tpl-filter>
       <div class="wrap">
         <p class="kicker">Premade agents</p>
         <h1>Premade agents, ready to start today. <span class="dim">{_tpl.N_CREW + _tpl.N_GOALS} of them.</span></h1>
-        <p class="lede">{_tpl.N_CREW} Crew agents you talk to in chat, Slack or WhatsApp, and {_tpl.N_GOALS} Goal playbooks that run on their own against a target. Each ships with its setup steps, the tools it needs and guardrails that ask before anything reaches a customer. Open source: read, fork or extend any of them.</p>
+        <p class="lede">{_tpl.N_CREW} Crew agents you talk to in chat, Slack or WhatsApp, and {_tpl.N_GOALS} Goal playbooks that run on their own against a target. Pick one in the app, or ask the Builder to install any of them by name. Each ships with its setup steps, the tools it needs and guardrails that ask before anything reaches a customer. Open source: read, fork or extend any of them.</p>
         <label class="search"><span class="sr-only">Search agents</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <input type="search" placeholder="Search: invoices, refunds, Shopify, SEO, incidents…" data-tpl-search>
