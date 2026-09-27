@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Add a crew member: AgentWorks guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url("assets/fonts/space-grotesk-latin.woff2") format("woff2"); font-weight: 300 700; font-style: normal; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+      :root { --bg: #fbfbf9; --card: #fff; --border: rgba(15,15,20,.09); --text: #0e0e12; --muted: #6c6c77; --amber: #f5a524; --amber-text: #b45309; --amber-soft: rgba(245,165,36,.14); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); font-family: "Space Grotesk", sans-serif; color: var(--text); }
+      #bg-glow { position: absolute; inset: 0; background: radial-gradient(1100px 600px at 50% 110%, rgba(245,165,36,.12), transparent 70%); }
+      .scene { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; }
+      .scene-app { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; height: 100%; padding-top: 30px; }
+      .kicker { font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber-text); }
+      .title { font-size: 84px; font-weight: 600; letter-spacing: -.03em; margin-top: 18px; text-align: center; }
+      .sub { font-size: 32px; color: var(--muted); margin-top: 16px; text-align: center; }
+      .win { position: relative; width: 1376px; height: 896px; border-radius: 22px; overflow: hidden; background: #0d0f14; box-shadow: 0 40px 90px -30px rgba(15,15,20,.45), 0 0 0 1px rgba(15,15,20,.1); }
+      .win .bar { position: absolute; top: 0; left: 0; right: 0; height: 36px; background: #1a1d25; display: flex; align-items: center; gap: 9px; padding-left: 16px; z-index: 2; }
+      .win .bar i { width: 12px; height: 12px; border-radius: 50%; background: #3a3e49; display: block; }
+      .win .view { position: absolute; top: 36px; left: 0; right: 0; bottom: 0; overflow: hidden; }
+      .win .cam { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; transform-origin: 0 0; }
+      .win .cam img { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; display: block; }
+      .ring { position: absolute; border: 4px solid var(--amber); border-radius: 12px; opacity: 0; }
+      .cursor { position: absolute; left: 0; top: 0; width: 30px; height: 30px; opacity: 0; z-index: 3; }
+      .cursor svg { width: 30px; height: 30px; display: block; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
+      .click { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid var(--amber); opacity: 0; z-index: 3; }
+      .demo-tag { position: absolute; right: 290px; top: 46px; font-family: "JetBrains Mono", monospace; font-size: 16px; letter-spacing: .06em; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; z-index: 3; }
+      #end-logo { width: 110px; height: 110px; }
+      #end-next { margin-top: 34px; font-family: "JetBrains Mono", monospace; font-size: 24px; color: var(--amber-text); padding: 12px 26px; border-radius: 999px; background: var(--amber-soft); }
+      #captions { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+      .cap { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 46px; pointer-events: none; }
+      .cap span { display: block; max-width: 1400px; background: rgba(14,14,18,.82); color: #fff; font-size: 34px; font-weight: 500; line-height: 1.3; padding: 12px 26px; border-radius: 14px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="44.08">
+      <div id="bg-glow"></div>
+      <audio id="vo-s1" src="assets/vo/s1.mp3" data-start="3.00" data-duration="7.04" data-track-index="20"></audio>
+      <audio id="vo-s2" src="assets/vo/s2.mp3" data-start="10.89" data-duration="3.19" data-track-index="20"></audio>
+      <audio id="vo-s3" src="assets/vo/s3.mp3" data-start="14.93" data-duration="7.41" data-track-index="20"></audio>
+      <audio id="vo-s4" src="assets/vo/s4.mp3" data-start="23.19" data-duration="1.8" data-track-index="20"></audio>
+      <audio id="vo-s5" src="assets/vo/s5.mp3" data-start="25.84" data-duration="7.97" data-track-index="20"></audio>
+      <audio id="vo-s6" src="assets/vo/s6.mp3" data-start="34.66" data-duration="5.77" data-track-index="20"></audio>
+      <section id="title" class="clip scene" data-start="0" data-duration="2.6" data-track-index="1"><div class="kicker">AgentWorks guide</div><div class="title" id="t-title">Add a crew member</div><div class="sub" id="t-sub">An always-on AI teammate, set up in a minute</div></section>
+      <section id="s1" class="clip scene-app" data-start="2.60" data-duration="7.89" data-track-index="1"><div class="win" id="s1-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s1-cam"><img src="assets/screens/a_switcher.webp" alt="" /><div class="ring" id="s1-r0" style="left:1.389%;top:15.222%;width:17.292%;height:8.667%"></div><div class="cursor" id="s1-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s1-c0" style="left:8.333%;top:19.556%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s2" class="clip scene-app" data-start="10.49" data-duration="4.04" data-track-index="1"><div class="win" id="s2-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s2-cam"><img src="assets/screens/b_ava.webp" alt="" /><div class="ring" id="s2-r0" style="left:14.812%;top:1.444%;width:2.847%;height:3.556%"></div><div class="cursor" id="s2-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s2-c0" style="left:16.250%;top:3.222%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s3" class="clip scene-app" data-start="14.53" data-duration="8.26" data-track-index="1"><div class="win" id="s3-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s3-cam"><img src="assets/screens/c_form.webp" alt="" /><div class="ring" id="s3-r0" style="left:34.028%;top:9.333%;width:34.583%;height:21.556%"></div><div class="ring" id="s3-r1" style="left:34.514%;top:66.333%;width:33.056%;height:8.667%"></div><div class="ring" id="s3-r2" style="left:34.514%;top:76.333%;width:33.056%;height:13.111%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s4" class="clip scene-app" data-start="22.79" data-duration="2.65" data-track-index="1"><div class="win" id="s4-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s4-cam"><img src="assets/screens/c_form.webp" alt="" /><div class="ring" id="s4-r0" style="left:54.160%;top:90.900%;width:13.271%;height:5.111%"></div><div class="cursor" id="s4-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s4-c0" style="left:60.764%;top:93.444%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s5" class="clip scene-app" data-start="25.44" data-duration="8.82" data-track-index="1"><div class="win" id="s5-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s5-cam"><img src="assets/screens/d_sage.webp" alt="" /><div class="ring" id="s5-r0" style="left:0.556%;top:11.778%;width:49.444%;height:4.000%"></div><div class="ring" id="s5-r1" style="left:43.264%;top:11.889%;width:6.944%;height:3.778%"></div><div class="cursor" id="s5-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s5-c0" style="left:46.736%;top:13.778%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s6" class="clip scene-app" data-start="34.26" data-duration="6.62" data-track-index="1"><div class="win" id="s6-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s6-cam"><img src="assets/screens/b_ava.webp" alt="" /><div class="ring" id="s6-r0" style="left:0.556%;top:12.444%;width:48.889%;height:3.778%"></div><div class="ring" id="s6-r1" style="left:40.903%;top:12.333%;width:7.778%;height:3.778%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="end" class="clip scene" data-start="40.88" data-duration="3.2" data-track-index="1"><img id="end-logo" src="assets/brand/agentworks-logo.svg" alt="AgentWorks" /><div class="title" style="font-size:60px">Your new teammate is ready.</div><div id="end-next">Next: talk to your crew in Slack</div></section>
+      <div id="captions">
+        <div class="clip cap" data-start="3.25" data-duration="3.43" data-track-index="30"><span>Crew members are AI teammates that are always on.</span></div>
+        <div class="clip cap" data-start="6.68" data-duration="3.01" data-track-index="30"><span>To add one, switch to Crew at the top left.</span></div>
+        <div class="clip cap" data-start="11.14" data-duration="2.59" data-track-index="30"><span>Then press plus, next to the crew member&#x27;s name.</span></div>
+        <div class="clip cap" data-start="15.18" data-duration="2.52" data-track-index="30"><span>Start from a template, or from blank.</span></div>
+        <div class="clip cap" data-start="17.70" data-duration="4.29" data-track-index="30"><span>Give them an icon, a name, and one line about what they&#x27;re for.</span></div>
+        <div class="clip cap" data-start="23.44" data-duration="1.20" data-track-index="30"><span>Choose Create crew member.</span></div>
+        <div class="clip cap" data-start="26.09" data-duration="3.25" data-track-index="30"><span>A new crew member asks for a role and a purpose.</span></div>
+        <div class="clip cap" data-start="29.34" data-duration="4.12" data-track-index="30"><span>Choose Set them up, and answer a few quick questions in chat.</span></div>
+        <div class="clip cap" data-start="34.91" data-duration="5.17" data-track-index="30"><span>Templates come with their own setup steps, so your new teammate knows exactly what to ask you.</span></div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#title > *", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.15 }, 0.2);
+      tl.to("#title > *", { opacity: 0, duration: 0.35 }, 2.20);
+      tl.fromTo("#s1-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 6.87);
+      tl.set("#s1-cur", { x: 315.3, y: 286.7 }, 2.60);
+      tl.to("#s1-cur", { opacity: 1, duration: 0.3 }, 3.20);
+      tl.to("#s1-cur", { x: 114.7, y: 168.2, duration: 0.9, ease: "power2.inOut" }, 7.73);
+      tl.fromTo("#s1-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 8.63);
+      tl.fromTo("#s1-cam", { scale: 1, x: 0, y: 0 }, { scale: 2.2, x: 0.0, y: 0.0, duration: 1.6, ease: "power2.inOut" }, 3.35);
+      tl.fromTo("#s1-win", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.65);
+      tl.to("#s1-win", { opacity: 0, duration: 0.35 }, 10.09);
+      tl.fromTo("#s2-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 12.01);
+      tl.set("#s2-cur", { x: 363.1, y: 191.1 }, 10.49);
+      tl.to("#s2-cur", { opacity: 1, duration: 0.3 }, 11.09);
+      tl.to("#s2-cur", { x: 223.6, y: 27.7, duration: 0.9, ease: "power2.inOut" }, 12.38);
+      tl.fromTo("#s2-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 13.28);
+      tl.set("#s2-cam", { scale: 2.4, x: 0.0, y: 0.0 }, 10.49);
+      tl.to("#s2-win", { opacity: 0, duration: 0.35 }, 14.13);
+      tl.fromTo("#s2-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 10.51);
+      tl.fromTo("#s3-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 15.52);
+      tl.to("#s3-r0", { opacity: 0, duration: 0.3 }, 18.26);
+      tl.fromTo("#s3-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 18.41);
+      tl.to("#s3-r1", { opacity: 0, duration: 0.3 }, 20.27);
+      tl.fromTo("#s3-r2", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 20.41);
+      tl.fromTo("#s3-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.2, x: -149.1, y: -126.1, duration: 1.6, ease: "power2.inOut" }, 15.08);
+      tl.fromTo("#s3-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 14.55);
+      tl.fromTo("#s4-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 23.28);
+      tl.set("#s4-cur", { x: 668.9, y: 688.0 }, 22.79);
+      tl.to("#s4-cur", { opacity: 1, duration: 0.3 }, 23.39);
+      tl.to("#s4-cur", { x: 836.1, y: 803.6, duration: 0.9, ease: "power2.inOut" }, 23.28);
+      tl.fromTo("#s4-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 24.18);
+      tl.set("#s4-cam", { scale: 1.2, x: -149.1, y: -126.1 }, 22.79);
+      tl.to("#s4-win", { opacity: 0, duration: 0.35 }, 25.04);
+      tl.fromTo("#s5-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 27.04);
+      tl.to("#s5-r0", { opacity: 0, duration: 0.3 }, 29.82);
+      tl.fromTo("#s5-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 29.82);
+      tl.set("#s5-cur", { x: 382.2, y: 286.7 }, 25.44);
+      tl.to("#s5-cur", { opacity: 1, duration: 0.3 }, 26.04);
+      tl.to("#s5-cur", { x: 643.1, y: 118.5, duration: 0.9, ease: "power2.inOut" }, 29.88);
+      tl.fromTo("#s5-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 30.78);
+      tl.fromTo("#s5-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.9, x: 0.0, y: -72.6, duration: 1.6, ease: "power2.inOut" }, 26.24);
+      tl.to("#s5-win", { opacity: 0, duration: 0.35 }, 33.86);
+      tl.fromTo("#s5-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 25.46);
+      tl.fromTo("#s6-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 36.10);
+      tl.to("#s6-r0", { opacity: 0, duration: 0.3 }, 38.12);
+      tl.fromTo("#s6-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 38.12);
+      tl.fromTo("#s6-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.9, x: 0.0, y: -72.6, duration: 1.6, ease: "power2.inOut" }, 34.95);
+      tl.to("#s6-win", { opacity: 0, duration: 0.35 }, 40.48);
+      tl.fromTo("#s6-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 34.28);
+      tl.fromTo("#end > *", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.18 }, 41.03);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+{
+ "title": "Add a crew member",
+ "subtitle": "An always-on AI teammate, set up in a minute",
+ "end_title": "Your new teammate is ready.",
+ "end_next": "Next: talk to your crew in Slack",
+ "scenes": [
+  {
+   "image": "a_switcher.webp",
+   "vo": "s1",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 2.2,
+    "x": 0,
+    "y": 0,
+    "at": 0.05
+   },
+   "rings": [
+    {
+     "box": [
+      22,
+      139,
+      245,
+      74
+     ],
+     "at": 0.55,
+     "pad": 2
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      120,
+      176
+     ],
+     "at": 0.8,
+     "from": [
+      330,
+      300
+     ]
+    }
+   ]
+  },
+  {
+   "image": "b_ava.webp",
+   "vo": "s2",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 2.4,
+    "x": 0,
+    "y": 0,
+    "at": -1
+   },
+   "rings": [
+    {
+     "box": [
+      219.3,
+      19,
+      29,
+      20
+     ],
+     "at": 0.35,
+     "pad": 6
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      234,
+      29
+     ],
+     "at": 0.75,
+     "from": [
+      380,
+      200
+     ]
+    }
+   ]
+  },
+  {
+   "image": "c_form.webp",
+   "vo": "s3",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.2,
+    "x": 130,
+    "y": 110,
+    "at": 0.02
+   },
+   "rings": [
+    {
+     "box": [
+      492,
+      86,
+      494,
+      190
+     ],
+     "at": 0.08,
+     "until": 0.45,
+     "pad": 2
+    },
+    {
+     "box": [
+      500,
+      600,
+      470,
+      72
+     ],
+     "at": 0.47,
+     "until": 0.72,
+     "pad": 3
+    },
+    {
+     "box": [
+      500,
+      690,
+      470,
+      112
+     ],
+     "at": 0.74,
+     "pad": 3
+    }
+   ]
+  },
+  {
+   "image": "c_form.webp",
+   "vo": "s4",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.2,
+    "x": 130,
+    "y": 110,
+    "at": -1
+   },
+   "rings": [
+    {
+     "box": [
+      784.9,
+      823.1,
+      181.1,
+      36
+     ],
+     "at": 0.05,
+     "pad": 5
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      875,
+      841
+     ],
+     "at": 0.55,
+     "from": [
+      700,
+      720
+     ]
+    }
+   ]
+  },
+  {
+   "image": "d_sage.webp",
+   "vo": "s5",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.9,
+    "x": 0,
+    "y": 40,
+    "at": 0.05
+   },
+   "rings": [
+    {
+     "box": [
+      8,
+      106,
+      712,
+      36
+     ],
+     "at": 0.15,
+     "until": 0.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      628,
+      112,
+      90,
+      24
+     ],
+     "at": 0.5,
+     "pad": 5
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      673,
+      124
+     ],
+     "at": 0.62,
+     "from": [
+      400,
+      300
+     ]
+    }
+   ]
+  },
+  {
+   "image": "b_ava.webp",
+   "vo": "s6",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.9,
+    "x": 0,
+    "y": 40,
+    "at": 0.05
+   },
+   "rings": [
+    {
+     "box": [
+      10,
+      114,
+      700,
+      30
+     ],
+     "at": 0.25,
+     "until": 0.6,
+     "pad": 2
+    },
+    {
+     "box": [
+      594,
+      116,
+      102,
+      24
+     ],
+     "at": 0.6,
+     "pad": 5
+    }
+   ]
+  }
+ ]
+}
