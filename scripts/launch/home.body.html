@@ -3,8 +3,8 @@
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="wrap">
         <p class="kicker">AI agents for business</p>
-        <h1>Give an AI agent a goal and a metric. <span class="dim">It keeps working until it hits the target.</span></h1>
-        <p class="lede">Book 5 sales demos a week. Get overdue invoices under 5%. AgentWorks plans the work, runs it every day, measures the result and changes the plan until the metric moves.</p>
+        <h1>AI agents that hit your goals. <span class="dim">And experts your whole team can ask.</span></h1>
+        <p class="lede">Give an agent a goal and a metric, and it keeps working until it hits the target. Build an expert once, and everyone asks it from Claude, ChatGPT or their own tools.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{{SIGNUP}}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{{INSTALL}}" target="_blank" rel="noreferrer">Download free app</a>
@@ -98,6 +98,46 @@
           </div>
         </div>
         <p class="tpl-more"><a class="btn btn-ghost" href="/product/#goals">How goals and auto-improve work</a><span class="muted">Example goal. Numbers are illustrative.</span></p>
+      </div>
+    </section>
+
+    <section class="section" id="experts">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Expert Crews</p>
+          <h2>Build an expert once. <span class="dim">Everyone asks it from their own AI.</span></h2>
+          <p class="lede">Your DevOps team knows your infrastructure. Your product team knows the requirements. Turn that know-how into an Expert Crew with its skills, memory and tools, and anyone you share it with can ask it from Claude, ChatGPT, Cursor or the command line.</p>
+        </div>
+        <ol class="loop reveal">
+          <li><h3>Build it</h3><p>The team that knows the subject sets up a Crew with its runbooks, skills, memory and access to the right systems.</p></li>
+          <li><h3>Share it</h3><p>Give people access. They get its answers and the files you choose, never its private chats, data or settings.</p></li>
+          <li><h3>Ask from anywhere</h3><p>Claude, ChatGPT, Cursor, Claude Code, Codex or the CLI, through MCP. Each person gets their own conversation.</p></li>
+          <li><h3>Keep it sharp</h3><p>The owning team keeps adding skills and knowledge, and everyone gets the better answer the next day.</p></li>
+        </ol>
+        <div class="goal-pair">
+          <div class="goal-spec reveal" aria-label="Where an Expert Crew reaches">
+            <p class="goal-spec-label">Where it reaches</p>
+            <p class="goal-spec-title">One expert, asked from every tool.</p>
+            <ul class="reach">
+              <li><b>Your team</b><span>A Crew your team works with every day, in chat, Slack or WhatsApp.</span></li>
+              <li><b>Your company</b><span>DevOps, database, product and security experts in every engineer's Claude or ChatGPT.</span></li>
+              <li><b>Your customers <span class="tag tag-soon">Next</span></b><span>Publish a product expert your customers add to their own AI.</span></li>
+            </ul>
+            <ul class="ask-from" aria-label="Ask it from">
+              <li class="chip">{{LOGO:claude}}Claude</li>
+              <li class="chip">{{LOGO:openai}}ChatGPT</li>
+              <li class="chip">{{LOGO:cursor}}Cursor</li>
+              <li class="chip"><span class="mono-logo" aria-hidden="true">&gt;_</span>CLI</li>
+            </ul>
+          </div>
+          <div class="explainer ask-demo reveal" aria-hidden="true">
+            <p class="explainer-title"><span>In Claude</span><span>Asking the DevOps expert</span></p>
+            <p class="ask-msg you">Why is the orders API slow in eu-west since this morning?</p>
+            <p class="ask-tool">Called <b>devops-expert · ask</b> through AgentWorks</p>
+            <p class="ask-msg them"><b>DevOps expert</b> p95 latency jumped after the 09:40 deploy of orders-service. The database read replica is 40 seconds behind, so reads fall back to the primary. Rolling back is the fastest fix. I've drafted the rollback for your approval.</p>
+          </div>
+        </div>
+        <p class="tpl-more"><a class="btn btn-ghost" href="/enterprise/expert-crews/">How Expert Crews work</a><span class="muted">Illustrative conversation.</span></p>
       </div>
     </section>
 

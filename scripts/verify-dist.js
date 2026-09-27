@@ -87,8 +87,8 @@ const pageExpectations = [
     name: 'home',
     file: 'index.html',
     route: '/index.html',
-    title: 'AgentWorks - Goal-Driven AI Agents for Business',
-    h1: 'Give an AI agent a goal and a metric. It keeps working until it hits the target.',
+    title: 'AgentWorks - AI Agents That Hit Your Goals, and Experts Your Team Can Ask',
+    h1: 'AI agents that hit your goals. And experts your whole team can ask.',
     canonical: 'https://agentworkshq.com/',
     ogImage: 'assets/og/agentworks-home-og.jpg',
     allowTallSections: true
