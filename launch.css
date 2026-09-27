@@ -668,14 +668,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .pb-list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex: none; }
 .uc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .uc-grid.five { grid-template-columns: repeat(5, 1fr); }
+.uc-grid.six { grid-template-columns: repeat(3, 1fr); }
 .uc-link { display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--line); text-decoration: none; transition: border-color .15s ease, box-shadow .15s ease; }
 .uc-link:hover { border-color: var(--line-2); box-shadow: var(--shadow-lg); }
 .uc-link b { font-size: 16px; }
 .uc-link b::after { content: " →"; color: var(--amber-text); }
 .uc-link span { font-size: 14px; color: var(--muted); }
 .control li h3:first-child { margin-top: 0; }
-@media (max-width: 1080px) { .uc-grid, .uc-grid.five { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 720px) { .uc-grid, .uc-grid.five { grid-template-columns: 1fr; } }
+@media (max-width: 1080px) { .uc-grid, .uc-grid.five, .uc-grid.six { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .uc-grid, .uc-grid.five, .uc-grid.six { grid-template-columns: 1fr; } }
 
 /* ---------- Pricing cost breakdown ---------- */
 .cost-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); }

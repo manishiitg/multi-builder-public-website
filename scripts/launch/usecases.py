@@ -18,7 +18,7 @@ def _page(u):
         <p class="lede">{e(u['lede'])}</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="#playbooks">See the playbooks</a>
+          <a class="btn btn-ghost" href="#playbooks">{e(u.get('list_cta','See the playbooks'))}</a>
         </div>
       </div>
     </section>
@@ -42,7 +42,7 @@ def _page(u):
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">How it works</p>
-          <h2>Agents own the goal. <span class="dim">You own the approvals.</span></h2>
+          <h2>{e(u.get('how_h2','Agents own the goal.'))} <span class="dim">{e(u.get('how_h2dim','You own the approvals.'))}</span></h2>
         </div>
         <ol class="loop reveal">{steps}</ol>
       </div>
@@ -51,9 +51,9 @@ def _page(u):
     <section class="section" id="playbooks">
       <div class="wrap split">
         <div class="reveal">
-          <p class="kicker">Playbooks</p>
-          <h2>Ready to install. <span class="dim">Tuned to your stack.</span></h2>
-          <p class="lede">Each playbook sets up the goal, the tools, the evidence to keep and the questions agents should ask your team. They are open source and versioned, and we tune them to your environment during the pilot.</p>
+          <p class="kicker">{e(u.get('list_kicker','Playbooks'))}</p>
+          <h2>{e(u.get('list_h2','Ready to install.'))} <span class="dim">{e(u.get('list_h2dim','Tuned to your stack.'))}</span></h2>
+          <p class="lede">{e(u.get('list_lede','Each playbook sets up the goal, the tools, the evidence to keep and the questions agents should ask your team. They are open source and versioned, and we tune them to your environment during the pilot.'))}</p>
         </div>
         <ul class="pb-list reveal">{pbs}</ul>
       </div>
@@ -97,8 +97,8 @@ def _page(u):
 
     <section class="cta">
       <div class="wrap">
-        <h2>Pick the goal. <span class="dim">We'll prove it in four weeks.</span></h2>
-        <p>A scoped pilot on one goal, in your environment, with the success metric agreed up front.</p>
+        <h2>{e(u.get('cta_h2','Pick the goal.'))} <span class="dim">{e(u.get('cta_h2dim',"We'll prove it in four weeks."))}</span></h2>
+        <p>{e(u.get('cta_p','A scoped pilot on one goal, in your environment, with the success metric agreed up front.'))}</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="/enterprise/">Enterprise overview</a>

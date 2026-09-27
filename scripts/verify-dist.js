@@ -37,6 +37,7 @@ const requiredFiles = [
   'enterprise/security-testing/index.html',
   'enterprise/cloud-cost/index.html',
   'enterprise/growth-analytics/index.html',
+  'enterprise/shared-ai-workspace/index.html',
   '_headers',
   '_redirects',
   'robots.txt',

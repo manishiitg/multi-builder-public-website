@@ -86,7 +86,7 @@ body=f'''  <main id="main">
           <h2>Start with the goal that hurts most.</h2>
           <p class="lede">Each use case comes with its playbooks, an example goal and a four-week pilot plan.</p>
         </div>
-        <div class="uc-grid five">{''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>' for h,t,d,i in uc_nav_items())}</div>
+        <div class="uc-grid six">{''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>' for h,t,d,i in uc_nav_items())}</div>
       </div>
     </section>
 

@@ -19,6 +19,7 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
   - [Security testing](https://agentworkshq.com/enterprise/security-testing/): authorized AppSec and role/tenant permission testing driven to verified closure.
   - [Cloud cost](https://agentworkshq.com/enterprise/cloud-cost/): FinOps anomalies, reviewed IaC rightsizing and verified savings.
   - [Growth analytics](https://agentworkshq.com/enterprise/growth-analytics/): an AI growth analyst for funnels, retention, SEO and AI-search visibility.
+  - [Shared AI workspace](https://agentworkshq.com/enterprise/shared-ai-workspace/): put the team's Claude Code, Codex, Cursor, Pi and Muse plans on one AgentWorks server as shared or private accounts; people use Crew agents in chat or the live terminal; usage and cost recorded by user, Crew, workflow and model.
 - [Docs](https://agentworkshq.com/docs/): Two sections — Guides for business users and developer docs for building and self-hosting.
   - [Guides](https://agentworkshq.com/docs/guides/): Set your first goal, talk to your crew in Slack and WhatsApp, approvals and autonomy.
   - [Developers](https://agentworkshq.com/docs/developers/): Install, first workflow, auto-improve, connectors, and reference docs.
