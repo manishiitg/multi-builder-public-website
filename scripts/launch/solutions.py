@@ -6,8 +6,7 @@ from sol_data import SOLUTIONS
 def _sol_page(u):
     e=_h.escape
     pains=''.join(f'<li class="reveal"><span class="num">0{i+1}</span><div><b>{e(t)}</b><span>{e(d)}</span></div></li>' for i,(t,d) in enumerate(u['pains']))
-    by_name={t[3]:t for t in _tpl.SMB+_tpl.ENG}
-    cards='\n'.join(_tpl.card(by_name[n]) for n in u['agents'])
+    cards='\n'.join(_tpl.card(_tpl.by_name(n)) for n in u['agents'])
     gname,gmetric,(gval,gsub)=u['goal']
     others=''.join(f'<a class="uc-link" href="/solutions/{o["slug"]}/"><b>{e(o["nav"])}</b><span>{e(o["navdesc"])}</span></a>' for o in SOLUTIONS if o is not u)
     return f'''  <main id="main">

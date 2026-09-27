@@ -1,13 +1,23 @@
-exec(open('enterprise.py').read().split("FAQ_ENT=")[0])  # reuse AREAS/areas()
+import tpl as _tpl
+TABS='\n          '.join(f'<button type="button" data-filter="{k}" aria-pressed="false">{v}</button>' for k,v in _tpl.TEAMS)
+def _section(k,label):
+    crew=[t for t in _tpl.CREW if t['team']==k]; goals=[t for t in _tpl.GOALS if t['team']==k]
+    parts=[f'<div class="tpl-section" id="team-{k}" data-tpl-section>',
+           f'  <div class="tpl-section-head"><h2>{label}</h2><p>{len(crew)} Crew agents · {len(goals)} Goal playbooks</p></div>']
+    if crew: parts+=['  <h3 class="tpl-kind">Crew agents</h3>','  <div class="tpl-grid">',_tpl.cards(crew),'  </div>']
+    if goals: parts+=['  <h3 class="tpl-kind">Goal playbooks</h3>','  <div class="tpl-grid">',_tpl.cards(goals),'  </div>']
+    parts.append('</div>')
+    return '\n        '.join(parts)
+SECTIONS='\n\n        '.join(_section(k,v) for k,v in _tpl.TEAMS)
 body=f'''  <main id="main" data-tpl-filter>
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Premade agents</p>
-        <h1>Premade agents, ready to start today.</h1>
-        <p class="lede">Every premade agent ships with its goal, the tools it needs and sensible guardrails. Install it, answer a few questions, and it starts running. Tune anything later.</p>
+        <h1>Premade agents, ready to start today. <span class="dim">{_tpl.N_CREW + _tpl.N_GOALS} of them.</span></h1>
+        <p class="lede">{_tpl.N_CREW} Crew agents you talk to in chat, Slack or WhatsApp, and {_tpl.N_GOALS} Goal playbooks that run on their own against a target. Each ships with its setup steps, the tools it needs and guardrails that ask before anything reaches a customer. Open source: read, fork or extend any of them.</p>
         <label class="search"><span class="sr-only">Search agents</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input type="search" placeholder="Search: invoices, Shopify, SEO…" data-tpl-search>
+          <input type="search" placeholder="Search: invoices, refunds, Shopify, SEO, incidents…" data-tpl-search>
         </label>
       </div>
     </section>
@@ -16,32 +26,10 @@ body=f'''  <main id="main" data-tpl-filter>
       <div class="wrap">
         <div class="tabs" role="group" aria-label="Filter agents">
           <button type="button" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" data-filter="money" aria-pressed="false">Money</button>
-          <button type="button" data-filter="customers" aria-pressed="false">Customers</button>
-          <button type="button" data-filter="growth" aria-pressed="false">Growth</button>
-          <button type="button" data-filter="ops" aria-pressed="false">Operations</button>
-          <button type="button" data-filter="eng" aria-pressed="false">Engineering</button>
+          {TABS}
         </div>
 
-        <div class="tpl-section" data-tpl-section>
-          <div class="tpl-section-head">
-            <h2>For your business</h2>
-            <p>Rolling out now, included in every plan. Crew agents live in your chat; Goal agents run on their own against a target.</p>
-          </div>
-          <div class="tpl-grid">
-          {tpl('smb')}
-          </div>
-        </div>
-
-        <div class="tpl-section" id="engineering" data-tpl-section>
-          <div class="tpl-section-head">
-            <h2>For engineering teams</h2>
-            <p>Playbooks for QA, reliability, security, performance and cloud cost. Included in every plan, and tuned to your stack on <a href="/enterprise/">Enterprise</a>.</p>
-          </div>
-          <div class="tpl-grid">
-          {tpl('eng')}
-          </div>
-        </div>
+        {SECTIONS}
         <p class="empty" data-tpl-empty>No agents match that search. <a href="{SIGNUP}" target="_blank" rel="noreferrer">Describe your goal</a> and we'll build it with you.</p>
       </div>
     </section>
@@ -49,13 +37,11 @@ body=f'''  <main id="main" data-tpl-filter>
     <section class="section">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Full playbook library</p>
-          <h2>All 23 engineering playbooks.</h2>
-          <p class="lede">Versioned, open source and written as plain Markdown skill packages, so you can read them, fork them or write your own from the template.</p>
+          <p class="kicker">Open source library</p>
+          <h2>Read every agent before you install it.</h2>
+          <p class="lede">Each Crew agent and Goal playbook is a versioned, plain-Markdown skill package with its setup checks, required tools and the evidence it keeps. Fork one, or write your own from the template.</p>
         </div>
-        <div class="areas">
-          {areas()}
-        </div>
+        <p class="center-row"><a class="btn btn-ghost" href="{_tpl.GH_PLAYBOOKS}" target="_blank" rel="noreferrer">Browse the library on GitHub</a></p>
       </div>
     </section>
 
@@ -73,7 +59,6 @@ body=f'''  <main id="main" data-tpl-filter>
     </section>
   </main>
 '''
-import tpl as _tpl
-ITEMS={"@type":"ItemList","name":"AgentWorks premade agents","itemListElement":[{"@type":"ListItem","position":i+1,"name":t[3],"description":t[4]+' Goal: '+t[5]+'.'} for i,t in enumerate(_tpl.SMB+_tpl.ENG)]}
+ITEMS={"@type":"ItemList","name":"AgentWorks premade agents","numberOfItems":len(_tpl.ALL),"itemListElement":[{"@type":"ListItem","position":i+1,"name":t['name'],"description":t['purpose']} for i,t in enumerate(_tpl.ALL)]}
 TPL_LD={"@type":"CollectionPage","name":"AgentWorks Premade Agents","url":"https://agentworkshq.com/agents/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['agents/index.html']=head('AgentWorks Premade Agents - Ready-Made AI Teammates and Goals','Premade AI agents for business: invoice chasing, inbox triage, support, lead follow-up, Shopify orders and SEO, plus 23 engineering playbooks. Each has a goal.','/agents/',og='agentworks-agents-og.jpg',extra_ld=ld(TPL_LD,BC('Premade agents','/agents/'),ITEMS))+header('agents')+body+footer()
+pages['agents/index.html']=head('AgentWorks Premade Agents - Ready-Made AI Teammates and Goals',f'{_tpl.N_CREW + _tpl.N_GOALS} open-source premade AI agents: Crew teammates and goal-driven playbooks for sales, support, finance, Shopify, marketing, operations, product and engineering.','/agents/',og='agentworks-agents-og.jpg',extra_ld=ld(TPL_LD,BC('Premade agents','/agents/'),ITEMS))+header('agents')+body+footer()

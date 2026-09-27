@@ -38,7 +38,7 @@ Status as of 2026-09-24. The code evidence is in `mcp-agent-builder-go`.
 | Claim | Where | Today | Needed |
 |---|---|---|---|
 | Crew answers by **email**; "email inbox for every teammate" | home, pricing | Gmail is send-only (`gmail_feedback_routes.go`: "outbound-only notification channel") | Inbound email per teammate |
-| Business premade agents: Invoice Chaser, Failed Payment Recovery, Weekly Business Report, Inbox Triage, Support First Response, Review Responder, Lead Follow-up, Competitor Watch, Order Watchdog, Meeting Notes to Actions | home, `/agents/` | Only the engineering and growth playbooks exist (23). SEO Intelligence and AI Visibility are real. | Build each one as a playbook, or remove its card |
+| Business premade agents | home, `/agents/`, `/solutions/*` | Resolved 2026-09-27: the site now reads the real catalog (`scripts/launch/catalog.json`, synced from coding-agent-loop main by `sync_catalog.py`): 79 Crew agents + 64 Goal playbooks. Re-run the sync when the library changes. | Done |
 | Integrations strip: Stripe, Shopify, QuickBooks, HubSpot, Notion, Linear, PostHog | home | MCP and browser access can reach these, but they are not packaged | Tested connectors, or reword to "via MCP or browser" |
 | Fallback to another plan at a limit | home (bring your own AI) | Capacity waits pause and resume (PLAT-101). Switching between connected plans is designed but not implemented (`docs/design/multiple-provider-accounts.md`). | Connecting several provider accounts, with failover |
 | Pulse "morning digest" | home timeline | Pulse reports exist; no daily digest message | A daily digest delivered to Slack or WhatsApp |

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
+const CATALOG = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, 'launch', 'catalog.json'), 'utf8'));
+const CATALOG_TOTAL = CATALOG.crew.length + CATALOG.playbooks.length;
 const http = require('http');
 const path = require('path');
 const { spawnSync } = require('child_process');
@@ -112,7 +114,7 @@ const pageExpectations = [
     file: 'agents/index.html',
     route: '/agents/',
     title: 'AgentWorks Premade Agents - Ready-Made AI Teammates and Goals',
-    h1: 'Premade agents, ready to start today.',
+    h1: `Premade agents, ready to start today. ${CATALOG_TOTAL} of them.`,
     canonical: 'https://agentworkshq.com/agents/',
     ogImage: 'assets/og/agentworks-agents-og.jpg',
     allowTallSections: true

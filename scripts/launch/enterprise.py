@@ -1,18 +1,26 @@
 from uc_data import uc_nav_items
-AREAS=[
- ("Browser QA",8,"Agents that test your product like users do, keep evidence and repair their own tests.",
-  ["Critical journey validation","Release and PR quality gate","Authentication and session validation","Role and permission validation","Flaky-test detection and stabilization","Browser test self-healing","Scheduled regression and synthetic monitoring","Basic browser setup"]),
- ("Reliability operations",4,"From alert to verified recovery, with humans approving every consequential step.",
-  ["CI and deployment failure triage","Incident investigation and coordination","Governed remediation and recovery","Post-incident review and actions"]),
- ("Security engineering",1,"Authorized assessment through reviewed fixes to verified closure.",
-  ["Application security assessment and remediation"]),
- ("Performance engineering",2,"Measure pages, journeys and APIs against the budgets you set.",
-  ["Browser performance validation","API performance validation"]),
- ("FinOps",1,"Find cost anomalies and prove the savings after every change.",
-  ["Cost anomaly to verified savings"]),
- ("Growth & engineering intelligence",7,"Governed metrics for delivery, quality, funnels, retention, SEO and AI visibility.",
-  ["Engineering operations intelligence","Funnel and conversion intelligence","Activation and retention intelligence","SEO intelligence","AI visibility intelligence","Growth experimentation and follow-through","Growth data foundation"]),
-]
+import tpl as _tpl
+# Engineering playbook areas, generated from the product catalog (catalog.json).
+AREA_DESC={
+ "Browser QA":"Agents that test your product like users do, keep evidence and repair their own tests.",
+ "Reliability operations":"From alert to verified recovery, with humans approving every consequential step.",
+ "Engineering":"Incidents and performance regressions carried through to an owned, verified outcome.",
+ "QA":"Exact-build release gates with required journeys and flake investigation.",
+ "Security":"Validated findings and access exceptions through owned fixes to independent retests.",
+ "Security engineering":"Authorized assessment through reviewed fixes to verified closure.",
+ "Performance engineering":"Measure pages, journeys and APIs against the budgets you set.",
+ "FinOps":"Find cost anomalies and prove the savings after every change.",
+ "Engineering operations intelligence":"Governed team metrics reconciled into owned improvement reviews.",
+ "Growth analytics":"Governed metrics for funnels, retention, experiments, SEO and AI visibility.",
+}
+_ENG_GOALS=[t for t in _tpl.GOALS if t['team']=='eng' or t['area']=='Growth analytics']
+AREAS=[]
+for _area in AREA_DESC:
+    _items=[t['name'] for t in _ENG_GOALS if t['area']==_area]
+    if _items: AREAS.append((_area,len(_items),AREA_DESC[_area],_items))
+for _t in _ENG_GOALS:
+    if _t['area'] not in AREA_DESC: raise SystemExit(f"enterprise.py: add a description for playbook area {_t['area']!r}")
+N_ENG=len(_ENG_GOALS)
 def areas():
     out=[]
     for name,n,desc,items in AREAS:
@@ -62,7 +70,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">Playbooks</p>
-          <h2>23 engineering playbooks, ready to install.</h2>
+          <h2>{N_ENG} engineering playbooks, ready to install.</h2>
           <p class="lede">Each playbook sets up the goal, the tools, the evidence to keep and the questions agents should ask your team. We tune them to your stack and build new ones with you.</p>
         </div>
         <div class="areas">

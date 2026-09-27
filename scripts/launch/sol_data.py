@@ -1,5 +1,5 @@
 # Business use cases: shared by the header "Use cases" dropdown (partials.py) and the landing pages (solutions.py).
-# `agents` names must match premade agents in tpl.py; availability tags come from tpl.AVAILABLE.
+# `agents` names must match catalog.json (Crew agents or Goal playbooks); tpl.by_name fails the build otherwise.
 
 SOLUTIONS=[
  dict(slug='sales', nav='Sales & GTM', icon='<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
@@ -13,7 +13,7 @@ SOLUTIONS=[
   pains=[('Leads wait hours for a reply','By the time someone answers, the lead has booked a call with a competitor.'),
          ('Follow-ups fall through','The third and fourth touch never happens, so most of the pipeline goes quiet.'),
          ('Nobody knows what works','Subject lines, timing and messages change by feel, not by results.')],
-  agents=['Lead Follow-up','Competitor Watch','Weekly Business Report','Meeting Notes to Actions','Inbox Triage'],
+  agents=['Lead Intake & Qualifier','Sales Follow-up Coordinator','Account Researcher','Inbound Lead-to-Meeting Review','Pipeline Health to Owned Action'],
   connectors='Gmail, Slack, your CRM through MCP, and any website through its own browser.',
   faq=[('Will it send emails without me?','Not unless you allow it. By default every outbound email waits for your approval, and you can raise the limit once you trust it. The Docs guide "Approvals and autonomy" explains the four levels.'),
        ('Does it work with our CRM?','Yes, through MCP or the CRM\'s website in the agent\'s own browser. HubSpot, Notion and Airtable are common starting points.'),
@@ -29,7 +29,7 @@ SOLUTIONS=[
   pains=[('Orders get stuck quietly','Payment, fulfilment or shipping issues sit unnoticed until the customer complains.'),
          ('"Where is my order?" all day','The same questions arrive on email and WhatsApp, and each one takes you out of real work.'),
          ('Reviews go unanswered','Unhappy reviews stay public without a reply, and nobody links them back to the order.')],
-  agents=['Order Watchdog','Support First Response','Review Responder','Failed Payment Recovery','Weekly Business Report'],
+  agents=['Store Operations Coordinator','Returns & Refunds Coordinator','Checkout Recovery Coordinator','Order Exception to Resolution','Inventory Risk to Reviewed Replenishment'],
   connectors='Shopify, Gmail, WhatsApp and Slack, plus any supplier portal through its own browser.',
   faq=[('Can it change orders in Shopify?','Only what you grant. Reading orders is the default; updates, refunds and customer messages can each require your approval. The Docs guide "Set your first goal" shows how to frame these limits as rules.'),
        ('Does it work with my apps?','If an app has an API, an MCP server or a web page, an agent can use it.'),
@@ -45,7 +45,7 @@ SOLUTIONS=[
   pains=[('Customers wait too long','A slow first reply turns a simple question into an angry follow-up.'),
          ('The same answers, again','Your team rewrites the same explanation fifty times a week.'),
          ('Hand-offs lose context','When a case needs a human, they start from scratch.')],
-  agents=['Support First Response','Inbox Triage','Review Responder','Meeting Notes to Actions'],
+  agents=['Support Triage Assistant','Support Reply Drafter','Escalation Coordinator','Feedback & Review Analyst','Support Case to Reviewed Resolution'],
   connectors='Gmail, WhatsApp and Slack, your help docs, and your order or billing system through MCP.',
   faq=[('Will customers know it\'s an agent?','That\'s your call. Replies use your tone and signature, and you decide what it may send without review.'),
        ('What does it hand off?','Anything over your limits: refunds, legal or angry messages, and topics you mark as sensitive. See "Approvals and autonomy" in Docs for how limits work.'),
@@ -61,7 +61,7 @@ SOLUTIONS=[
   pains=[('Invoices go overdue','Nobody wants to send the awkward third reminder, so it doesn\'t get sent.'),
          ('Failed payments churn customers','A card expires and the customer is gone before anyone notices.'),
          ('Numbers arrive late','The weekly picture takes an afternoon of spreadsheets, so it rarely happens.')],
-  agents=['Invoice Chaser','Failed Payment Recovery','Weekly Business Report'],
+  agents=['Invoice Chasing','Failed Payment Recovery','Refund Review','Billing Operations Coordinator','Subscription Receivable to Verified Outcome'],
   connectors='Stripe and QuickBooks, Gmail for reminders, and Slack for the weekly report.',
   faq=[('Will it email my customers?','From your own mailbox, in your tone, and only after your approval until you tell it otherwise. Key accounts can get a softer template. The Docs guide "Approvals and autonomy" explains the four levels.'),
        ('Does it touch money?','No. It reads invoices and payment status and sends reminders; it never moves money.'),
@@ -77,11 +77,11 @@ SOLUTIONS=[
   pains=[('AI search is a blind spot','You don\'t know whether AI assistants recommend you or your competitors.'),
          ('SEO work never gets prioritised','Technical fixes and content gaps sit in a doc nobody opens.'),
          ('Drops go unexplained','Traffic or conversion moves and nobody knows which page or source caused it.')],
-  agents=['SEO Intelligence','AI Visibility','Competitor Watch','Weekly Business Report'],
+  agents=['Website Growth Starter','SEO Analyst','AI Visibility Analyst','Competitor Intelligence Analyst','SEO Intelligence'],
   connectors='Search Console, analytics through MCP, your CMS, and its own browser for AI assistants and competitor sites.',
   faq=[('Which AI assistants does it check?','ChatGPT, Perplexity, Gemini and Google AI Overviews, using a fixed set of questions your buyers ask.'),
        ('Does it publish content?','It writes page-level briefs and drafts. Publishing waits for your approval. See "Approvals and autonomy" in Docs for how approvals work.'),
-       ('Is this available today?','Yes. SEO Intelligence and AI Visibility are live playbooks today.')]),
+       ('Is this available today?','Yes. Every agent on this page is in the open-source library today, and each one links to its source.')]),
 ]
 
 def sol_nav_items():

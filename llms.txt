@@ -6,7 +6,7 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
 
 - [Homepage](https://agentworkshq.com/): Goal + metric agents with auto-improve, the three layers (workflows, crews, agents), connectors, premade agents and the three plans.
 - [Product](https://agentworkshq.com/product/): How goals, metrics, measurement, auto-improve and autonomy work, plus the three layers in depth: vendor-native agents with a sandbox, crews, and workflows with deterministic and agentic steps.
-- [Premade agents](https://agentworkshq.com/agents/): Ready-made business agents (invoice chasing, inbox triage, support, lead follow-up, Shopify orders, SEO, AI visibility) and 23 engineering playbooks, each with a measurable goal.
+- [Premade agents](https://agentworkshq.com/agents/): 143 open-source premade agents: 79 Crew agents (always-on teammates for sales, support, finance, Shopify, marketing, operations, product and engineering) and 64 Goal playbooks that run against a target. Each links to its source in the coding-agent-loop repo.
   - [Sales & GTM](https://agentworkshq.com/solutions/sales/): lead follow-up, competitor watch and pipeline reporting toward a booked-demos goal.
   - [Shopify stores](https://agentworkshq.com/solutions/shopify/): stuck orders, customer questions, reviews and failed payments.
   - [Customer support](https://agentworkshq.com/solutions/support/): fast first replies from docs and order history, sensitive cases handed off.

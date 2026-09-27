@@ -4,6 +4,7 @@ from partials import *
 from blocks import *
 OUT=os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 def tpl(mode): return subprocess.check_output([sys.executable,'tpl.py',mode],text=True).rstrip()
+import tpl as _T
 def fill(s, **kw):
     s=s.replace('{{SIGNUP}}',SIGNUP).replace('{{CAL}}',CAL).replace('{{GH}}',GH).replace('{{INSTALL}}',INSTALL)
     for k,v in kw.items(): s=s.replace('{{'+k+'}}',v)
@@ -21,7 +22,7 @@ SOFT={"@type":"SoftwareApplication","@id":"https://agentworkshq.com/#software","
 
 pages={}
 body=open('home.body.html').read()
-pages['index.html']=head('AgentWorks - Goal-Driven AI Agents for Business','AI agents for business that own a goal and a metric. They run the work daily, measure every run and improve until they hit the target. $99/month or open source.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),TIERS=tiers(),FAQ=faq(FAQ_HOME))+footer()
+pages['index.html']=head('AgentWorks - Goal-Driven AI Agents for Business','AI agents for business that own a goal and a metric. They run the work daily, measure every run and improve until they hit the target. $99/month or open source.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME))+footer()
 for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'usecases.py', 'solutions.py', 'legal.py']:
     exec(open(name).read())
 for path,content in pages.items():
