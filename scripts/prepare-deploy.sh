@@ -31,7 +31,8 @@ cp icon-512-maskable.png dist/
 mkdir -p dist/.well-known
 cp .well-known/mcp-client.json dist/.well-known/
 
-mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard}
+mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard,video}
+cp assets/video/agentworks-demo.mp4 assets/video/agentworks-demo-poster.jpg dist/assets/video/
 cp assets/brand/agentworks-logo.svg dist/assets/brand/
 cp -R assets/fonts/. dist/assets/fonts/
 mkdir -p dist/assets/docs/guides

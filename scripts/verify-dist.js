@@ -490,7 +490,8 @@ function assertDeployPayload() {
   }
 
   const sizeBytes = listFiles(dist).reduce((sum, file) => sum + fs.statSync(file).size, 0);
-  const maxBytes = 12 * 1024 * 1024;
+  // 16 MiB: includes the 60s product demo video (/assets/video, ~3.5 MB, preload="none" so it never adds page weight).
+  const maxBytes = 16 * 1024 * 1024;
   if (sizeBytes > maxBytes) fail(`dist payload too large: ${Math.round(sizeBytes / 1024)} KiB`);
 }
 

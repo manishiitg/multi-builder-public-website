@@ -29,8 +29,19 @@ body=f'''  <main id="main">
         <p class="lede">Most AI automation finishes a task and waits for the next prompt. AgentWorks gives an agent an outcome to own. It plans the work, runs it on schedule, measures every run and changes its own plan until the metric hits your target.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="/agents/">Browse premade agents</a>
+          <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="demo">
+      <div class="wrap">
+        <figure class="demo-video reveal">
+          <video controls preload="none" playsinline width="1920" height="1080" poster="/assets/video/agentworks-demo-poster.jpg" aria-label="AgentWorks 60-second demo: an agent working toward the goal of booking more sales demos">
+            <source src="/assets/video/agentworks-demo.mp4" type="video/mp4" />
+          </video>
+          <figcaption>60-second demo: an agent with the goal "Book more sales demos". Illustrative data.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -191,8 +202,9 @@ body=f'''  <main id="main">
     </section>
   </main>
 '''
+DEMO_VIDEO_LD={"@type":"VideoObject","name":"AgentWorks in 60 seconds: an agent that books more sales demos","description":"Give an AI agent a goal and a metric. AgentWorks plans the work, asks before anything reaches a customer, measures every run, keeps what works and keeps going until it hits the target. Illustrative data.","thumbnailUrl":"https://agentworkshq.com/assets/video/agentworks-demo-poster.jpg","contentUrl":"https://agentworkshq.com/assets/video/agentworks-demo.mp4","uploadDate":"2026-09-27","duration":"PT1M1S","transcript":"With AgentWorks, you give an agent a goal and a number, and it keeps working until it hits it. Here, the goal is simple: book more sales demos. The metric is demos booked per week. The target is five. AgentWorks turns that into a plan. Pull new signups, research each company, write a personal first email, and follow up with the ones who go quiet. Anything that reaches a customer can wait for you. A key account? It asks first. Approve it, change it, or skip it. After every run, it measures what moved. It keeps what works, and drops what doesn't. Replies went from six hours to ten minutes. The follow-up nobody answered is gone. Six weeks in, it's booking six demos a week. Target met. AgentWorks. Give an agent a goal, and watch the number move."}
 PROD_LD={"@type":"WebPage","name":"AgentWorks Product","url":"https://agentworkshq.com/product/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['product/index.html']=head('AgentWorks Product - Goals, Auto-improve and Crew','AI automation that measures itself: give an agent a goal and a metric, and it runs the work, tracks every run and improves its plan until it hits the target.','/product/',og='agentworks-product-og.jpg',extra_ld=ld(PROD_LD,BC('Product','/product/'),faq_ld(FAQ_PRODUCT)))+header('product')+body+footer()
+pages['product/index.html']=head('AgentWorks Product - Goals, Auto-improve and Crew','AI automation that measures itself: give an agent a goal and a metric, and it runs the work, tracks every run and improves its plan until it hits the target.','/product/',og='agentworks-product-og.jpg',extra_ld=ld(PROD_LD,BC('Product','/product/'),faq_ld(FAQ_PRODUCT),DEMO_VIDEO_LD))+header('product')+body+footer()
 
 nf_body=f'''  <main id="main">
     <section class="page-hero notfound">

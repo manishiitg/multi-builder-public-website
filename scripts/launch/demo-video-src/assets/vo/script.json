@@ -1,0 +1,9 @@
+[
+ {"id":"s1-hook","text":"Most AI tools finish a task, and wait for the next prompt. AgentWorks is different. You give an agent a goal, and a number. It keeps working until it hits it."},
+ {"id":"s2-goal","text":"Here, the goal is simple: book more sales demos. The metric is demos booked per week. The target is five."},
+ {"id":"s3-plan","text":"AgentWorks turns that into a plan. Pull new signups, research each company, write a personal first email, and follow up with the ones who go quiet."},
+ {"id":"s4-approve","text":"Anything that reaches a customer can wait for you. A key account? It asks first. Approve it, change it, or skip it."},
+ {"id":"s5-improve","text":"After every run, it measures what moved. It keeps what works, and drops what doesn't. Replies went from six hours to ten minutes. The follow-up nobody answered is gone."},
+ {"id":"s6-result","text":"Six weeks in, it's booking six demos a week. Target met."},
+ {"id":"s7-close","text":"AgentWorks. Give an agent a goal, and watch the number move."}
+]

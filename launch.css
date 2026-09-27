@@ -148,6 +148,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero .lede { margin: 0 auto; font-size: 18px; max-width: 620px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 36px 0 14px; }
 .hero-note { font-size: 14px; color: var(--muted); }
+.hero-watch { color: var(--text); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+.hero-watch:hover { color: var(--amber-text, #b45309); }
+.demo-video { margin: 0 auto; max-width: 1040px; }
+.demo-video video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; background: #0e0e12; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px rgba(15, 15, 20, 0.35); }
+.demo-video figcaption { margin-top: 12px; text-align: center; font-size: 14px; color: var(--muted); }
 
 /* Bring-your-own-AI row: plans -> teammates */
 .byo-row { display: flex; align-items: center; justify-content: center; gap: 22px; margin: 56px auto 0; flex-wrap: wrap; }
