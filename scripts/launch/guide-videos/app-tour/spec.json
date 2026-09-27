@@ -1,0 +1,23 @@
+{
+ "title": "A tour of the app",
+ "subtitle": "Where everything lives, in one minute",
+ "end_title": "That's the whole app.",
+ "end_next": "Next: give your first automation a goal",
+ "scenes": [
+  {"image":"b_switcher.webp","vo":"s1","demo_tag":true,
+   "zoom":{"scale":2.2,"x":0,"y":0,"at":0.05},
+   "rings":[{"box":[22,67,245,66],"at":0.3,"until":0.62,"pad":2},{"box":[22,139,245,74],"at":0.64,"pad":2}]},
+  {"image":"a_main.webp","vo":"s2","demo_tag":true,
+   "zoom":{"scale":2.2,"x":0,"y":0,"at":-1},
+   "rings":[{"box":[185,15,209,28],"at":0.3,"until":0.62,"pad":4},{"box":[392,17,24,24],"at":0.66,"pad":5}],
+   "clicks":[{"at_xy":[404,29],"at":0.82,"from":[300,200]}]},
+  {"image":"a_main.webp","vo":"s3","demo_tag":true,
+   "zoom":{"scale":2.4,"x":900,"y":0,"at":-1},
+   "rings":[{"box":[1245,17,24,24],"at":0.12,"until":0.38,"pad":5},{"box":[1277,15,28,28],"at":0.4,"until":0.74,"pad":4},{"box":[1313,15,28,28],"at":0.76,"pad":4}]},
+  {"image":"a_main.webp","vo":"s4","demo_tag":true,
+   "rings":[{"box":[4,106,712,690],"at":0.28,"until":0.6,"pad":0},{"box":[724,106,712,790],"at":0.62,"pad":0}]},
+  {"image":"a_main.webp","vo":"s5","demo_tag":true,
+   "zoom":{"scale":1.9,"x":700,"y":40,"at":0.02},
+   "rings":[{"box":[1030,62,195,34],"at":0.25,"until":0.62,"pad":3},{"box":[1287,62,150,34],"at":0.66,"pad":3}]}
+ ]
+}

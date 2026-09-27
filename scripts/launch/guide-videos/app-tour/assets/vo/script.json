@@ -1,0 +1,7 @@
+[
+ {"id":"s1","text":"Here's a quick tour. At the top left, you switch between AgentWorks, for automations that work toward a goal, and Crew, for your always-on AI teammates."},
+ {"id":"s2","text":"Next to it is the automation you're working in. Switch automations here, or press plus to create a new one."},
+ {"id":"s3","text":"On the right are Providers, for your AI plans. Activity, for every run and every decision waiting for you. And Schedules, for what runs when."},
+ {"id":"s4","text":"Each automation has two halves. On the left, you talk to the builder in plain words. On the right is its workspace, starting with the dashboard."},
+ {"id":"s5","text":"The toolbar switches the workspace. Auto-improve, decisions, activity, the plan, its browser and its automations. Setup holds its identity, integrations and playbooks."}
+]
