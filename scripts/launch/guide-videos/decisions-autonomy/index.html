@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Decisions and autonomy: AgentWorks guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url("assets/fonts/space-grotesk-latin.woff2") format("woff2"); font-weight: 300 700; font-style: normal; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+      :root { --bg: #fbfbf9; --card: #fff; --border: rgba(15,15,20,.09); --text: #0e0e12; --muted: #6c6c77; --amber: #f5a524; --amber-text: #b45309; --amber-soft: rgba(245,165,36,.14); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); font-family: "Space Grotesk", sans-serif; color: var(--text); }
+      #bg-glow { position: absolute; inset: 0; background: radial-gradient(1100px 600px at 50% 110%, rgba(245,165,36,.12), transparent 70%); }
+      .scene { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; }
+      .scene-app { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; height: 100%; padding-top: 30px; }
+      .kicker { font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber-text); }
+      .title { font-size: 84px; font-weight: 600; letter-spacing: -.03em; margin-top: 18px; text-align: center; }
+      .sub { font-size: 32px; color: var(--muted); margin-top: 16px; text-align: center; }
+      .win { position: relative; width: 1376px; height: 896px; border-radius: 22px; overflow: hidden; background: #0d0f14; box-shadow: 0 40px 90px -30px rgba(15,15,20,.45), 0 0 0 1px rgba(15,15,20,.1); }
+      .win .bar { position: absolute; top: 0; left: 0; right: 0; height: 36px; background: #1a1d25; display: flex; align-items: center; gap: 9px; padding-left: 16px; z-index: 2; }
+      .win .bar i { width: 12px; height: 12px; border-radius: 50%; background: #3a3e49; display: block; }
+      .win .view { position: absolute; top: 36px; left: 0; right: 0; bottom: 0; overflow: hidden; }
+      .win .cam { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; transform-origin: 0 0; }
+      .win .cam img { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; display: block; }
+      .ring { position: absolute; border: 4px solid var(--amber); border-radius: 12px; opacity: 0; }
+      .cursor { position: absolute; left: 0; top: 0; width: 30px; height: 30px; opacity: 0; z-index: 3; }
+      .cursor svg { width: 30px; height: 30px; display: block; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
+      .click { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid var(--amber); opacity: 0; z-index: 3; }
+      .demo-tag { position: absolute; right: 290px; top: 46px; font-family: "JetBrains Mono", monospace; font-size: 16px; letter-spacing: .06em; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; z-index: 3; }
+      #end-logo { width: 110px; height: 110px; }
+      #end-next { margin-top: 34px; font-family: "JetBrains Mono", monospace; font-size: 24px; color: var(--amber-text); padding: 12px 26px; border-radius: 999px; background: var(--amber-soft); }
+      #captions { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+      .cap { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 46px; pointer-events: none; }
+      .cap span { display: block; max-width: 1400px; background: rgba(14,14,18,.82); color: #fff; font-size: 34px; font-weight: 500; line-height: 1.3; padding: 12px 26px; border-radius: 14px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="48.08">
+      <div id="bg-glow"></div>
+      <audio id="vo-s1" src="assets/vo/s1.mp3" data-start="3.00" data-duration="6.84" data-track-index="20"></audio>
+      <audio id="vo-s2" src="assets/vo/s2.mp3" data-start="10.69" data-duration="8.61" data-track-index="20"></audio>
+      <audio id="vo-s3" src="assets/vo/s3.mp3" data-start="20.15" data-duration="6.14" data-track-index="20"></audio>
+      <audio id="vo-s4" src="assets/vo/s4.mp3" data-start="27.14" data-duration="6.72" data-track-index="20"></audio>
+      <audio id="vo-s5" src="assets/vo/s5.mp3" data-start="34.71" data-duration="9.72" data-track-index="20"></audio>
+      <section id="title" class="clip scene" data-start="0" data-duration="2.6" data-track-index="1"><div class="kicker">AgentWorks guide</div><div class="title" id="t-title">Decisions and autonomy</div><div class="sub" id="t-sub">Approve what matters, and turn it up as you trust it</div></section>
+      <section id="s1" class="clip scene-app" data-start="2.60" data-duration="7.69" data-track-index="1"><div class="win" id="s1-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s1-cam"><img src="assets/screens/a_dashboard.webp" alt="" /><div class="ring" id="s1-r0" style="left:73.542%;top:6.889%;width:2.917%;height:4.222%"></div><div class="cursor" id="s1-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s1-c0" style="left:75.000%;top:9.000%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s2" class="clip scene-app" data-start="10.29" data-duration="9.46" data-track-index="1"><div class="win" id="s2-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s2-cam"><img src="assets/screens/b_decisions.webp" alt="" /><div class="ring" id="s2-r0" style="left:1.944%;top:26.444%;width:98.264%;height:31.333%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s3" class="clip scene-app" data-start="19.75" data-duration="6.99" data-track-index="1"><div class="win" id="s3-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s3-cam"><img src="assets/screens/b_decisions.webp" alt="" /><div class="ring" id="s3-r0" style="left:2.847%;top:37.889%;width:47.014%;height:6.667%"></div><div class="ring" id="s3-r1" style="left:50.208%;top:37.889%;width:47.014%;height:6.667%"></div><div class="ring" id="s3-r2" style="left:2.847%;top:45.000%;width:47.014%;height:6.667%"></div><div class="ring" id="s3-r3" style="left:80.757%;top:52.200%;width:8.306%;height:4.667%"></div><div class="cursor" id="s3-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s3-c0" style="left:84.861%;top:54.556%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s4" class="clip scene-app" data-start="26.74" data-duration="7.57" data-track-index="1"><div class="win" id="s4-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s4-cam"><img src="assets/screens/c_autonomy.webp" alt="" /><div class="ring" id="s4-r0" style="left:1.042%;top:78.889%;width:97.986%;height:14.000%"></div><div class="cursor" id="s4-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s4-c0" style="left:3.819%;top:84.778%"></div><div class="click" id="s4-c1" style="left:34.306%;top:84.778%"></div><div class="click" id="s4-c2" style="left:66.458%;top:84.778%"></div><div class="click" id="s4-c3" style="left:97.083%;top:84.778%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s5" class="clip scene-app" data-start="34.31" data-duration="10.57" data-track-index="1"><div class="win" id="s5-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s5-cam"><img src="assets/screens/b_decisions.webp" alt="" /><div class="ring" id="s5-r0" style="left:1.944%;top:58.667%;width:98.264%;height:24.667%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="end" class="clip scene" data-start="44.88" data-duration="3.2" data-track-index="1"><img id="end-logo" src="assets/brand/agentworks-logo.svg" alt="AgentWorks" /><div class="title" style="font-size:60px">You stay in charge.</div><div id="end-next">Next: add a crew member</div></section>
+      <div id="captions">
+        <div class="clip cap" data-start="3.25" data-duration="2.19" data-track-index="30"><span>When an agent needs your call, it asks.</span></div>
+        <div class="clip cap" data-start="5.44" data-duration="4.05" data-track-index="30"><span>Decisions waiting for you are counted on this icon, in every automation.</span></div>
+        <div class="clip cap" data-start="10.94" data-duration="2.79" data-track-index="30"><span>Each decision says what it wants to do, and why.</span></div>
+        <div class="clip cap" data-start="13.73" data-duration="5.22" data-track-index="30"><span>Here, it wants to send the first email to a key account, and it shows you the exact draft.</span></div>
+        <div class="clip cap" data-start="20.40" data-duration="2.93" data-track-index="30"><span>Approve it, ask for changes, or don&#x27;t send it.</span></div>
+        <div class="clip cap" data-start="23.33" data-duration="2.61" data-track-index="30"><span>Not sure yet? Ask about it in chat first.</span></div>
+        <div class="clip cap" data-start="27.39" data-duration="2.90" data-track-index="30"><span>You also decide how much it does on its own.</span></div>
+        <div class="clip cap" data-start="30.29" data-duration="3.22" data-track-index="30"><span>Ask first, run steps, edit the workflow, or full.</span></div>
+        <div class="clip cap" data-start="34.96" data-duration="3.08" data-track-index="30"><span>Start with ask first, and turn it up as you trust it.</span></div>
+        <div class="clip cap" data-start="38.04" data-duration="6.04" data-track-index="30"><span>Your rules always hold. When a rule might be holding the goal back, it asks you, instead of breaking it.</span></div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#title > *", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.15 }, 0.2);
+      tl.to("#title > *", { opacity: 0, duration: 0.35 }, 2.20);
+      tl.fromTo("#s1-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 6.76);
+      tl.set("#s1-cur", { x: 860.0, y: 401.3 }, 2.60);
+      tl.to("#s1-cur", { opacity: 1, duration: 0.3 }, 3.20);
+      tl.to("#s1-cur", { x: 1032.0, y: 77.4, duration: 0.9, ease: "power2.inOut" }, 7.91);
+      tl.fromTo("#s1-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 8.81);
+      tl.fromTo("#s1-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.7, x: -963.2, y: 0.0, duration: 1.6, ease: "power2.inOut" }, 5.39);
+      tl.fromTo("#s1-win", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.65);
+      tl.to("#s1-win", { opacity: 0, duration: 0.35 }, 9.89);
+      tl.fromTo("#s2-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 11.72);
+      tl.fromTo("#s2-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.3, x: -24.8, y: -236.0, duration: 1.6, ease: "power2.inOut" }, 11.12);
+      tl.fromTo("#s2-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 10.31);
+      tl.fromTo("#s3-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 20.46);
+      tl.to("#s3-r0", { opacity: 0, duration: 0.3 }, 21.50);
+      tl.fromTo("#s3-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 21.50);
+      tl.to("#s3-r1", { opacity: 0, duration: 0.3 }, 22.48);
+      tl.fromTo("#s3-r2", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 22.48);
+      tl.to("#s3-r2", { opacity: 0, duration: 0.3 }, 23.53);
+      tl.fromTo("#s3-r3", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 23.83);
+      tl.set("#s3-cur", { x: 363.1, y: 353.6 }, 19.75);
+      tl.to("#s3-cur", { opacity: 1, duration: 0.3 }, 20.35);
+      tl.to("#s3-cur", { x: 1167.7, y: 469.2, duration: 0.9, ease: "power2.inOut" }, 24.16);
+      tl.fromTo("#s3-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 25.06);
+      tl.set("#s3-cam", { scale: 1.3, x: -24.8, y: -236.0 }, 19.75);
+      tl.to("#s3-win", { opacity: 0, duration: 0.35 }, 26.34);
+      tl.fromTo("#s4-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 28.15);
+      tl.set("#s4-cur", { x: 668.9, y: 611.6 }, 26.74);
+      tl.to("#s4-cur", { opacity: 1, duration: 0.3 }, 27.34);
+      tl.to("#s4-cur", { x: 52.6, y: 729.1, duration: 0.9, ease: "power2.inOut" }, 29.06);
+      tl.fromTo("#s4-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 29.96);
+      tl.to("#s4-cur", { x: 472.0, y: 729.1, duration: 0.9, ease: "power2.inOut" }, 30.14);
+      tl.fromTo("#s4-c1", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 31.04);
+      tl.to("#s4-cur", { x: 914.5, y: 729.1, duration: 0.9, ease: "power2.inOut" }, 31.21);
+      tl.fromTo("#s4-c2", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 32.11);
+      tl.to("#s4-cur", { x: 1335.9, y: 729.1, duration: 0.9, ease: "power2.inOut" }, 32.29);
+      tl.fromTo("#s4-c3", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }, 33.19);
+      tl.fromTo("#s4-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.5, x: 0.0, y: -430.0, duration: 1.6, ease: "power2.inOut" }, 27.27);
+      tl.to("#s4-win", { opacity: 0, duration: 0.35 }, 33.91);
+      tl.fromTo("#s4-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 26.76);
+      tl.fromTo("#s5-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 39.08);
+      tl.fromTo("#s5-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.3, x: -24.8, y: -258.0, duration: 1.6, ease: "power2.inOut" }, 37.63);
+      tl.to("#s5-win", { opacity: 0, duration: 0.35 }, 44.48);
+      tl.fromTo("#s5-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 34.33);
+      tl.fromTo("#end > *", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.18 }, 45.03);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

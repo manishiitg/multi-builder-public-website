@@ -11,6 +11,9 @@ for c in chars[:-1]:
     # nearest candidate, prefer longer pauses: score = distance - 1.5*length
     best=min((x for x in cands if x[0]>bounds[-1]+1),key=lambda x:abs(x[0]-exp)-1.5*x[1])
     bounds.append(best[0])
+import sys
+for arg in sys.argv[1:]:  # manual fixes: "<boundary index>=<seconds>", e.g. 4=30.3
+    k,v=arg.split('='); bounds[int(k)]=float(v)
 bounds.append(total); print([round(b,2) for b in bounds])
 durs={}
 def post(model,body):

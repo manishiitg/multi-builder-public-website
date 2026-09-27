@@ -122,7 +122,10 @@ def build(folder: Path):
             zy = min(max(zoom["y"], 0), 900 - 900 / s)
             k = 1376 / 1440
             tx, ty = -zx * k * s, -zy * k * s
-            tl.append(f'tl.fromTo("#{sid}-cam", {{ scale: 1, x: 0, y: 0 }}, {{ scale: {s}, x: {tx:.1f}, y: {ty:.1f}, duration: 1.6, ease: "power2.inOut" }}, {vo_start + zoom.get("at", 0.1) * d:.2f});')
+            if zoom.get("at", 0.1) < 0:  # start already zoomed (continues the previous scene's framing)
+                tl.append(f'tl.set("#{sid}-cam", {{ scale: {s}, x: {tx:.1f}, y: {ty:.1f} }}, {t:.2f});')
+            else:
+                tl.append(f'tl.fromTo("#{sid}-cam", {{ scale: 1, x: 0, y: 0 }}, {{ scale: {s}, x: {tx:.1f}, y: {ty:.1f}, duration: 1.6, ease: "power2.inOut" }}, {vo_start + zoom.get("at", 0.1) * d:.2f});')
         scenes.append(
             f'<section id="{sid}" class="clip scene-app" data-start="{t:.2f}" data-duration="{end - t:.2f}" data-track-index="1">'
             f'<div class="win" id="{sid}-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow>'
@@ -132,8 +135,12 @@ def build(folder: Path):
         )
         if i == 0:
             tl.append(f'tl.fromTo("#{sid}-win", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.7, ease: {E} }}, {t + 0.05:.2f});')
-        tl.append(f'tl.to("#{sid}-win", {{ opacity: 0, duration: 0.35 }}, {end - 0.4:.2f});')
-        if i > 0:
+        scenes_list = spec["scenes"]
+        same_next = i + 1 < len(scenes_list) and scenes_list[i + 1]["image"] == sc["image"]
+        same_prev = i > 0 and scenes_list[i - 1]["image"] == sc["image"]
+        if not same_next:  # same screen continues: hard cut, no dip
+            tl.append(f'tl.to("#{sid}-win", {{ opacity: 0, duration: 0.35 }}, {end - 0.4:.2f});')
+        if i > 0 and not same_prev:
             tl.append(f'tl.fromTo("#{sid}-win", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.4 }}, {t + 0.02:.2f});')
         # captions: sentences spread over the clip by length
         lines = sentences(script[vid])
