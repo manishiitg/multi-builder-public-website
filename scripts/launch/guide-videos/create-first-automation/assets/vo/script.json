@@ -1,0 +1,7 @@
+[
+ {"id":"s1","text":"To create an automation, press plus next to its name, give it a name, and save it."},
+ {"id":"s2","text":"A new automation starts with goal setup. It's optional, but it's what keeps AgentWorks working until the number moves."},
+ {"id":"s3","text":"It takes four steps: the goal, the plan, the metrics, and the dashboard. Choose Set the goal in chat, or start from a playbook."},
+ {"id":"s4","text":"The builder checks what you have, proposes a goal and a metric, and asks only what it needs, like where the number comes from, and what target you want."},
+ {"id":"s5","text":"Answer in plain words. Once the goal and its numbers are set, your dashboard shows progress, run after run."}
+]

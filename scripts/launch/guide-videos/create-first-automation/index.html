@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Create your first automation: AgentWorks guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url("assets/fonts/space-grotesk-latin.woff2") format("woff2"); font-weight: 300 700; font-style: normal; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+      :root { --bg: #fbfbf9; --card: #fff; --border: rgba(15,15,20,.09); --text: #0e0e12; --muted: #6c6c77; --amber: #f5a524; --amber-text: #b45309; --amber-soft: rgba(245,165,36,.14); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); font-family: "Space Grotesk", sans-serif; color: var(--text); }
+      #bg-glow { position: absolute; inset: 0; background: radial-gradient(1100px 600px at 50% 110%, rgba(245,165,36,.12), transparent 70%); }
+      .scene { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; }
+      .scene-app { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; height: 100%; padding-top: 30px; }
+      .kicker { font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber-text); }
+      .title { font-size: 84px; font-weight: 600; letter-spacing: -.03em; margin-top: 18px; text-align: center; }
+      .sub { font-size: 32px; color: var(--muted); margin-top: 16px; text-align: center; }
+      .win { position: relative; width: 1376px; height: 896px; border-radius: 22px; overflow: hidden; background: #0d0f14; box-shadow: 0 40px 90px -30px rgba(15,15,20,.45), 0 0 0 1px rgba(15,15,20,.1); }
+      .win .bar { position: absolute; top: 0; left: 0; right: 0; height: 36px; background: #1a1d25; display: flex; align-items: center; gap: 9px; padding-left: 16px; z-index: 2; }
+      .win .bar i { width: 12px; height: 12px; border-radius: 50%; background: #3a3e49; display: block; }
+      .win .view { position: absolute; top: 36px; left: 0; right: 0; bottom: 0; overflow: hidden; }
+      .win .cam { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; transform-origin: 0 0; }
+      .win .cam img { position: absolute; top: 0; left: 0; width: 1376px; height: 860px; display: block; }
+      .ring { position: absolute; border: 4px solid var(--amber); border-radius: 12px; opacity: 0; }
+      .cursor { position: absolute; left: 0; top: 0; width: 30px; height: 30px; opacity: 0; z-index: 3; }
+      .cursor svg { width: 30px; height: 30px; display: block; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
+      .click { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid var(--amber); opacity: 0; z-index: 3; }
+      .demo-tag { position: absolute; right: 290px; top: 46px; font-family: "JetBrains Mono", monospace; font-size: 16px; letter-spacing: .06em; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; z-index: 3; }
+      .card-wrap { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding-bottom: 90px; }
+      .card-img { display: block; max-width: 1300px; max-height: 860px; border-radius: 22px; box-shadow: 0 40px 90px -30px rgba(15,15,20,.35); }
+      #end-logo { width: 110px; height: 110px; }
+      #end-next { margin-top: 34px; font-family: "JetBrains Mono", monospace; font-size: 24px; color: var(--amber-text); padding: 12px 26px; border-radius: 999px; background: var(--amber-soft); }
+      #captions { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+      .cap { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 46px; pointer-events: none; }
+      .cap span { display: block; max-width: 1400px; background: rgba(14,14,18,.82); color: #fff; font-size: 34px; font-weight: 500; line-height: 1.3; padding: 12px 26px; border-radius: 14px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="47.62">
+      <div id="bg-glow"></div>
+      <audio id="vo-s1" src="assets/vo/s1.mp3" data-start="3.00" data-duration="5.3" data-track-index="20"></audio>
+      <audio id="vo-s2" src="assets/vo/s2.mp3" data-start="9.15" data-duration="7.26" data-track-index="20"></audio>
+      <audio id="vo-s3" src="assets/vo/s3.mp3" data-start="17.26" data-duration="8.72" data-track-index="20"></audio>
+      <audio id="vo-s4" src="assets/vo/s4.mp3" data-start="26.83" data-duration="9.11" data-track-index="20"></audio>
+      <audio id="vo-s5" src="assets/vo/s5.mp3" data-start="36.79" data-duration="7.18" data-track-index="20"></audio>
+      <section id="title" class="clip scene" data-start="0" data-duration="2.6" data-track-index="1"><div class="kicker">AgentWorks guide</div><div class="title" id="t-title">Create your first automation</div><div class="sub" id="t-sub">Name it, then give it a goal</div></section>
+      <section id="s1" class="clip scene-app" data-start="2.60" data-duration="6.15" data-track-index="1"><div class="win" id="s1-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s1-cam"><img src="assets/screens/a_add.webp" alt="" /><div class="ring" id="s1-r0" style="left:39.514%;top:48.700%;width:26.806%;height:4.889%"></div><div class="ring" id="s1-r1" style="left:53.653%;top:37.367%;width:9.264%;height:4.667%"></div><div class="cursor" id="s1-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s1-c0" style="left:58.264%;top:39.667%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s2" class="clip scene-app" data-start="8.75" data-duration="8.11" data-track-index="1"><div class="win" id="s2-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s2-cam"><img src="assets/screens/b_bar.webp" alt="" /><div class="ring" id="s2-r0" style="left:0.694%;top:12.667%;width:59.306%;height:17.111%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s3" class="clip scene-app" data-start="16.86" data-duration="9.57" data-track-index="1"><div class="win" id="s3-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s3-cam"><img src="assets/screens/b_bar.webp" alt="" /><div class="ring" id="s3-r0" style="left:5.417%;top:24.444%;width:30.833%;height:3.889%"></div><div class="ring" id="s3-r1" style="left:47.118%;top:17.033%;width:11.924%;height:4.667%"></div><div class="ring" id="s3-r2" style="left:37.271%;top:21.367%;width:11.729%;height:4.000%"></div><div class="cursor" id="s3-cur"><svg viewBox="0 0 24 24"><path d="M4 2l14 11-6.2 1 3.6 7.2-2.8 1.3-3.5-7.3L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div class="click" id="s3-c0" style="left:53.056%;top:19.333%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s4" class="clip scene-app" data-start="26.43" data-duration="9.96" data-track-index="1"><div class="win" id="s4-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow><div class="cam" id="s4-cam"><img src="assets/screens/c_reply.webp" alt="" /><div class="ring" id="s4-r0" style="left:0.833%;top:70.667%;width:59.583%;height:9.333%"></div><div class="ring" id="s4-r1" style="left:0.833%;top:80.667%;width:59.583%;height:6.222%"></div></div></div></div><div class="demo-tag">Demo data</div></section>
+      <section id="s5" class="clip scene" data-start="36.39" data-duration="8.03" data-track-index="1"><div class="card-wrap"><img class="card-img" id="s5-win" src="assets/screens/goal-progress.webp" alt="" /></div></section>
+      <section id="end" class="clip scene" data-start="44.42" data-duration="3.2" data-track-index="1"><img id="end-logo" src="assets/brand/agentworks-logo.svg" alt="AgentWorks" /><div class="title" style="font-size:60px">Your automation has a goal.</div><div id="end-next">Next: decisions and autonomy</div></section>
+      <div id="captions">
+        <div class="clip cap" data-start="3.25" data-duration="4.70" data-track-index="30"><span>To create an automation, press plus next to its name, give it a name, and save it.</span></div>
+        <div class="clip cap" data-start="9.40" data-duration="2.28" data-track-index="30"><span>A new automation starts with goal setup.</span></div>
+        <div class="clip cap" data-start="11.68" data-duration="4.38" data-track-index="30"><span>It&#x27;s optional, but it&#x27;s what keeps AgentWorks working until the number moves.</span></div>
+        <div class="clip cap" data-start="17.51" data-duration="4.64" data-track-index="30"><span>It takes four steps: the goal, the plan, the metrics, and the dashboard.</span></div>
+        <div class="clip cap" data-start="22.15" data-duration="3.48" data-track-index="30"><span>Choose Set the goal in chat, or start from a playbook.</span></div>
+        <div class="clip cap" data-start="27.08" data-duration="8.51" data-track-index="30"><span>The builder checks what you have, proposes a goal and a metric, and asks only what it needs, like where the number comes from, and what target you want.</span></div>
+        <div class="clip cap" data-start="37.04" data-duration="6.58" data-track-index="30"><span>Answer in plain words. Once the goal and its numbers are set, your dashboard shows progress, run after run.</span></div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#title > *", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.15 }, 0.2);
+      tl.to("#title > *", { opacity: 0, duration: 0.35 }, 2.20);
+      tl.fromTo("#s1-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 4.85);
+      tl.to("#s1-r0", { opacity: 0, duration: 0.3 }, 6.71);
+      tl.fromTo("#s1-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 6.82);
+      tl.set("#s1-cur", { x: 726.2, y: 439.6 }, 2.60);
+      tl.to("#s1-cur", { opacity: 1, duration: 0.3 }, 3.20);
+      tl.to("#s1-cur", { x: 801.7, y: 341.1, duration: 0.9, ease: "power2.inOut" }, 6.87);
+      tl.fromTo("#s1-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out", immediateRender: false }, 7.77);
+      tl.fromTo("#s1-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.6, x: -581.0, y: -397.5, duration: 1.6, ease: "power2.inOut" }, 3.11);
+      tl.fromTo("#s1-win", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.65);
+      tl.to("#s1-win", { opacity: 0, duration: 0.35 }, 8.35);
+      tl.fromTo("#s2-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 10.60);
+      tl.fromTo("#s2-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.55, x: 0.0, y: -133.3, duration: 1.6, ease: "power2.inOut" }, 9.30);
+      tl.fromTo("#s2-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 8.77);
+      tl.fromTo("#s3-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 17.70);
+      tl.to("#s3-r0", { opacity: 0, duration: 0.3 }, 21.79);
+      tl.fromTo("#s3-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 22.06);
+      tl.to("#s3-r1", { opacity: 0, duration: 0.3 }, 24.24);
+      tl.fromTo("#s3-r2", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 24.41);
+      tl.set("#s3-cur", { x: 382.2, y: 229.3 }, 16.86);
+      tl.to("#s3-cur", { opacity: 1, duration: 0.3 }, 17.46);
+      tl.to("#s3-cur", { x: 730.0, y: 166.3, duration: 0.9, ease: "power2.inOut" }, 22.46);
+      tl.fromTo("#s3-c0", { opacity: 0.9, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out", immediateRender: false }, 23.36);
+      tl.set("#s3-cam", { scale: 1.55, x: 0.0, y: -133.3 }, 16.86);
+      tl.to("#s3-win", { opacity: 0, duration: 0.35 }, 26.03);
+      tl.fromTo("#s4-r0", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 29.11);
+      tl.to("#s4-r0", { opacity: 0, duration: 0.3 }, 31.84);
+      tl.fromTo("#s4-r1", { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 32.11);
+      tl.fromTo("#s4-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.5, x: 0.0, y: -430.0, duration: 1.6, ease: "power2.inOut" }, 27.29);
+      tl.to("#s4-win", { opacity: 0, duration: 0.35 }, 35.99);
+      tl.fromTo("#s4-win", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 26.45);
+      tl.fromTo("#s5-win", { opacity: 0, y: 30, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 36.44);
+      tl.to("#s5-win", { scale: 1.04, duration: 6.83, ease: "none" }, 37.19);
+      tl.to("#s5-win", { opacity: 0, duration: 0.35 }, 44.02);
+      tl.fromTo("#end > *", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.18 }, 44.57);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

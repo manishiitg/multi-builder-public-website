@@ -1,0 +1,23 @@
+{
+ "title": "Create your first automation",
+ "subtitle": "Name it, then give it a goal",
+ "end_title": "Your automation has a goal.",
+ "end_next": "Next: decisions and autonomy",
+ "scenes": [
+  {"image":"a_add.webp","vo":"s1","demo_tag":true,
+   "zoom":{"scale":1.6,"x":380,"y":260,"at":0.02},
+   "rings":[{"box":[573,442.3,378,36],"at":0.35,"until":0.7,"pad":4},{"box":[777.6,341.3,123.4,32],"at":0.72,"pad":5}],
+   "clicks":[{"at_xy":[839,357],"at":0.9,"from":[760,460]}]},
+  {"image":"b_bar.webp","vo":"s2","demo_tag":true,
+   "zoom":{"scale":1.55,"x":0,"y":90,"at":0.02},
+   "rings":[{"box":[12,116,850,150],"at":0.2,"pad":2}]},
+  {"image":"b_bar.webp","vo":"s3","demo_tag":true,
+   "zoom":{"scale":1.55,"x":0,"y":90,"at":-1},
+   "rings":[{"box":[83,225,434,25],"at":0.05,"until":0.52,"pad":5},{"box":[683.5,158.3,161.7,32],"at":0.55,"until":0.8,"pad":5},{"box":[540.7,196.3,160.9,28],"at":0.82,"pad":4}],
+   "clicks":[{"at_xy":[764,174],"at":0.7,"from":[400,240]}]},
+  {"image":"c_reply.webp","vo":"s4","demo_tag":true,
+   "zoom":{"scale":1.5,"x":0,"y":560,"at":0.05},
+   "rings":[{"box":[16,640,850,76],"at":0.25,"until":0.55,"pad":4},{"box":[16,730,850,48],"at":0.58,"pad":4}]},
+  {"image":"goal-progress.webp","vo":"s5","style":"card"}
+ ]
+}
