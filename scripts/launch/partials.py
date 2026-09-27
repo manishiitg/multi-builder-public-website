@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch32'
+V='launch33'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -58,6 +58,18 @@ PRODUCT=[('/product/#goals','Goals','Give an AI agent a goal and a metric. It wo
          ('/product/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
          ('/product/#crew','Crew','Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.','crew'),
          ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect')]
+# One short line per menu item (the long navdesc stays for cards and tooltips).
+MENU_SHORT={
+ '/product/#goals':'A goal and a metric', '/product/#improve':'Gets better every run',
+ '/product/#crew':'Always-on AI teammates', '/#connectors':'Slack, WhatsApp, Gmail, MCP',
+ '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
+ '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
+ '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
+ '/enterprise/release-quality/':'AI QA for every release', '/enterprise/incident-response/':'First RCA in minutes',
+ '/enterprise/security-testing/':'AppSec to verified fix', '/enterprise/cloud-cost/':'Anomalies to savings',
+ '/enterprise/growth-analytics/':'Funnels, retention, SEO', '/enterprise/shared-ai-workspace/':'Shared plans, measured',
+ '/enterprise/expert-agents/':'Build once, ask anywhere', '/enterprise/mcp-gateway/':'Governed MCP access',
+}
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
         'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
@@ -69,7 +81,7 @@ def _drop(label, overview, groups, menu_id, current):
     def row(h,t,d,ic):
         tip=re.sub(r'<[^>]+>','',d).replace('"','&quot;')
         return (f'<a class="pm-item" href="{h}" title="{tip}"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span>'
-                f'<b>{t}</b></a>')
+                f'<span><b>{t}</b><small>{MENU_SHORT.get(h,"")}</small></span></a>')
     cols=''.join(f'<div class="pm-col">{f"<p class=pm-group>{g}</p>" if g else ""}{"".join(row(*it) for it in items)}</div>' for g,items in groups)
     oh,ot=overview
     wide=' pm-wide' if len(groups)>1 else ''
