@@ -553,6 +553,7 @@ const marketingRoutes = [
   { route: '/enterprise/cloud-cost/', changefreq: 'monthly', priority: '0.8' },
   { route: '/enterprise/growth-analytics/', changefreq: 'monthly', priority: '0.8' },
   { route: '/enterprise/shared-ai-workspace/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/enterprise/expert-agents/', changefreq: 'monthly', priority: '0.8' },
   { route: '/enterprise/mcp-gateway/', changefreq: 'monthly', priority: '0.6' },
   { route: '/product/', changefreq: 'monthly', priority: '0.9' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' },

@@ -20,6 +20,7 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
   - [Cloud cost](https://agentworkshq.com/enterprise/cloud-cost/): FinOps anomalies, reviewed IaC rightsizing and verified savings.
   - [Growth analytics](https://agentworkshq.com/enterprise/growth-analytics/): an AI growth analyst for funnels, retention, SEO and AI-search visibility.
   - [Shared AI workspace](https://agentworkshq.com/enterprise/shared-ai-workspace/): put the team's Claude Code, Codex, Cursor, Pi and Muse plans on one AgentWorks server as shared or private accounts; people use Crew agents in chat or the live terminal; usage and cost recorded by user, Crew, workflow and model.
+  - [Shared expert agents](https://agentworkshq.com/enterprise/expert-agents/): teams build specialist Crew agents (DevOps, RDS, product, security) and share them; engineers ask them from Claude Code, Codex, Cursor, ChatGPT or Claude via MCP (ask_crew, call_crew_function) or the agentworks CLI, with scoped tokens and per-caller conversations.
   - [MCP gateway](https://agentworkshq.com/enterprise/mcp-gateway/) (coming soon, private preview): one governed MCP endpoint for every AI client, with deny-by-default grants per group and tool, tool approval, PII masking, egress guards and an exportable audit log.
 - [Docs](https://agentworkshq.com/docs/): Two sections — Guides for business users and developer docs for building and self-hosting.
   - [Guides](https://agentworkshq.com/docs/guides/): Set your first goal, talk to your crew in Slack and WhatsApp, approvals and autonomy.

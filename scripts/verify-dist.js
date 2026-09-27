@@ -38,6 +38,7 @@ const requiredFiles = [
   'enterprise/cloud-cost/index.html',
   'enterprise/growth-analytics/index.html',
   'enterprise/shared-ai-workspace/index.html',
+  'enterprise/expert-agents/index.html',
   'enterprise/mcp-gateway/index.html',
   '_headers',
   '_redirects',
