@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch33'
+V='launch34'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -57,11 +57,12 @@ NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/product/#goals','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/product/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
          ('/product/#crew','Crew','Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.','crew'),
-         ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect')]
+         ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
+         ('/relays/','Relays <span class="tag tag-soon">Soon</span>','A fixed chain of agents you run from anywhere.','relay')]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/product/#goals':'A goal and a metric', '/product/#improve':'Gets better every run',
- '/product/#crew':'Always-on AI teammates', '/#connectors':'Slack, WhatsApp, Gmail, MCP',
+ '/product/#crew':'Always-on AI teammates', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -73,6 +74,7 @@ MENU_SHORT={
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
         'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+        'relay':'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/>',
         'connect':'<path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/>'}
 
 def _drop(label, overview, groups, menu_id, current):

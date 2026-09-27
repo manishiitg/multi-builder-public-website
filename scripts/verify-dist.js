@@ -40,6 +40,7 @@ const requiredFiles = [
   'enterprise/shared-ai-workspace/index.html',
   'enterprise/expert-agents/index.html',
   'enterprise/mcp-gateway/index.html',
+  'relays/index.html',
   '_headers',
   '_redirects',
   'robots.txt',

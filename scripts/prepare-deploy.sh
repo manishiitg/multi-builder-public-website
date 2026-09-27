@@ -116,6 +116,7 @@ cp -R refunds dist/refunds
 cp -R pricing dist/pricing
 cp -R enterprise dist/enterprise
 cp -R agents dist/agents
+cp -R relays dist/relays
 
 python3 scripts/render-site-footer.py
 

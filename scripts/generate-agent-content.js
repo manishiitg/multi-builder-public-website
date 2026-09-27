@@ -556,6 +556,7 @@ const marketingRoutes = [
   { route: '/enterprise/expert-agents/', changefreq: 'monthly', priority: '0.8' },
   { route: '/enterprise/mcp-gateway/', changefreq: 'monthly', priority: '0.6' },
   { route: '/product/', changefreq: 'monthly', priority: '0.9' },
+  { route: '/relays/', changefreq: 'monthly', priority: '0.6' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' },
   { route: '/docs/guides/', changefreq: 'weekly', priority: '0.75' },
   { route: '/docs/developers/', changefreq: 'weekly', priority: '0.75' }
