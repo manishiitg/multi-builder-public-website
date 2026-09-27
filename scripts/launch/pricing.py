@@ -7,19 +7,23 @@ ONB_CTA=(f'<p class="tpl-more center-row"><a class="btn btn-amber" href="{PAYPAL
 
 Y='<span class="yes" aria-label="Included">✓</span>'
 N='<span class="no" aria-label="Not included">—</span>'
+import tpl as _PB
+_PB_N=f"{_PB.N_CREW + _PB.N_GOALS}"
 ROWS=[
  ("Teammates & goals",None),
  ("Crew teammates",("Unlimited","Unlimited","Unlimited")),
  ("Goals with measured targets",(Y,Y,Y)),
  ("Auto-improvement toward your goals",(Y,Y,Y)),
- ("Premade business agents",("Rolling out","Rolling out","Rolling out")),
+ ("Premade Crew agents and Goal playbooks",(_PB_N,_PB_N,_PB_N)),
  ("Engineering playbooks",(Y,Y,Y)),
+ ("Relays: fixed agent chains behind an API",("Coming soon","Coming soon","Coming soon")),
  ("Custom playbooks built with you",(N,N,Y)),
  ("Channels & tools",None),
  ("Slack and WhatsApp",(Y,Y,Y)),
  ("Gmail updates and granted mailbox work",(Y,Y,Y)),
  ("Browser per teammate",("Self-run","Hosted","Your cloud")),
  ("MCP servers and API tools",(Y,Y,Y)),
+ ("Call Crew agents from MCP clients and the CLI",(Y,Y,Y)),
  ("Custom integrations",(N,N,Y)),
  ("Control & security",None),
  ("Approvals and autonomy limits",(Y,Y,Y)),
@@ -27,6 +31,8 @@ ROWS=[
  ("OS-enforced sandbox",(Y,Y,Y)),
  ("Run logs and cost per goal",(Y,Y,Y)),
  ("Roles and per-goal sharing",(Y,Y,Y)),
+ ("Shared AI plans, usage by person, Crew and model",(Y,Y,Y)),
+ ("MCP gateway: governed tool access and PII controls",(N,N,"Coming soon")),
  ("SSO (SAML / OIDC) and SCIM",(N,N,Y)),
  ("Audit log export",(N,N,Y)),
  ("Deployment & support",None),
