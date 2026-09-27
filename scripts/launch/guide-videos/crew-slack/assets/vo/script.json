@@ -1,0 +1,7 @@
+[
+ {"id":"s1","text":"To talk to a crew member in Slack, open their Integrations."},
+ {"id":"s2","text":"Choose Slack. We recommend giving them their own bot, so they answer only as themselves, in any channel they're invited to."},
+ {"id":"s3","text":"Create a Slack app for them. The exact steps and permissions are listed right here."},
+ {"id":"s4","text":"Paste its two tokens, then choose Save and test."},
+ {"id":"s5","text":"Now invite them to a channel, and mention them. They reply in the thread, and anything important waits for your approval, right there in Slack."}
+]

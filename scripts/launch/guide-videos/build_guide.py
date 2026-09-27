@@ -40,6 +40,8 @@ CSS = """
       .cursor svg { width: 30px; height: 30px; display: block; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
       .click { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid var(--amber); opacity: 0; z-index: 3; }
       .demo-tag { position: absolute; right: 290px; top: 46px; font-family: "JetBrains Mono", monospace; font-size: 16px; letter-spacing: .06em; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; z-index: 3; }
+      .card-wrap { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding-bottom: 90px; }
+      .card-img { display: block; max-width: 1300px; max-height: 860px; border-radius: 22px; box-shadow: 0 40px 90px -30px rgba(15,15,20,.35); }
       #end-logo { width: 110px; height: 110px; }
       #end-next { margin-top: 34px; font-family: "JetBrains Mono", monospace; font-size: 24px; color: var(--amber-text); padding: 12px 26px; border-radius: 999px; background: var(--amber-soft); }
       #captions { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
@@ -113,7 +115,7 @@ def build(folder: Path):
                 at = vo_start + c["at"] * d
                 tl.append(f'tl.to("#{sid}-cur", {{ x: {cx * K:.1f}, y: {cy * K:.1f}, duration: 0.9, ease: "power2.inOut" }}, {at - 0.9:.2f});')
                 layers.append(f'<div class="click" id="{sid}-c{k}" style="left:{pct(cx, 1440)};top:{pct(cy, 900)}"></div>')
-                tl.append(f'tl.fromTo("#{sid}-c{k}", {{ opacity: 0.9, scale: 0.4 }}, {{ opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out" }}, {at:.2f});')
+                tl.append(f'tl.fromTo("#{sid}-c{k}", {{ opacity: 0.9, scale: 0.4 }}, {{ opacity: 0, scale: 1.4, duration: 0.6, ease: "power2.out", immediateRender: false }}, {at:.2f});')
         zoom = sc.get("zoom")
         if zoom:
             s = zoom["scale"]
@@ -126,21 +128,33 @@ def build(folder: Path):
                 tl.append(f'tl.set("#{sid}-cam", {{ scale: {s}, x: {tx:.1f}, y: {ty:.1f} }}, {t:.2f});')
             else:
                 tl.append(f'tl.fromTo("#{sid}-cam", {{ scale: 1, x: 0, y: 0 }}, {{ scale: {s}, x: {tx:.1f}, y: {ty:.1f}, duration: 1.6, ease: "power2.inOut" }}, {vo_start + zoom.get("at", 0.1) * d:.2f});')
-        scenes.append(
+        if sc.get("style") == "card":
+            scenes.append(
+                f'<section id="{sid}" class="clip scene" data-start="{t:.2f}" data-duration="{end - t:.2f}" data-track-index="1">'
+                f'<div class="card-wrap"><img class="card-img" id="{sid}-win" src="assets/screens/{sc["image"]}" alt="" /></div></section>'
+            )
+            tl.append(f'tl.fromTo("#{sid}-win", {{ opacity: 0, y: 30, scale: 0.98 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.7, ease: {E} }}, {t + 0.05:.2f});')
+            tl.append(f'tl.to("#{sid}-win", {{ scale: 1.04, duration: {max(1.0, end - t - 1.2):.2f}, ease: "none" }}, {t + 0.8:.2f});')
+            tl.append(f'tl.to("#{sid}-win", {{ opacity: 0, duration: 0.35 }}, {end - 0.4:.2f});')
+        else:
+          scenes.append(
             f'<section id="{sid}" class="clip scene-app" data-start="{t:.2f}" data-duration="{end - t:.2f}" data-track-index="1">'
             f'<div class="win" id="{sid}-win"><div class="bar"><i></i><i></i><i></i></div><div class="view" data-layout-allow-overflow>'
             f'<div class="cam" id="{sid}-cam"><img src="assets/screens/{sc["image"]}" alt="" />{"".join(layers)}</div></div></div>'
             + ('<div class="demo-tag">Demo data</div>' if sc.get("demo_tag") else "")
             + "</section>"
         )
-        if i == 0:
+        is_card = sc.get("style") == "card"
+        if i == 0 and not is_card:
             tl.append(f'tl.fromTo("#{sid}-win", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.7, ease: {E} }}, {t + 0.05:.2f});')
         scenes_list = spec["scenes"]
         same_next = i + 1 < len(scenes_list) and scenes_list[i + 1]["image"] == sc["image"]
         same_prev = i > 0 and scenes_list[i - 1]["image"] == sc["image"]
-        if not same_next:  # same screen continues: hard cut, no dip
+        if is_card:
+            pass
+        elif not same_next:  # same screen continues: hard cut, no dip
             tl.append(f'tl.to("#{sid}-win", {{ opacity: 0, duration: 0.35 }}, {end - 0.4:.2f});')
-        if i > 0 and not same_prev:
+        if i > 0 and not same_prev and not is_card:
             tl.append(f'tl.fromTo("#{sid}-win", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.4 }}, {t + 0.02:.2f});')
         # captions: sentences spread over the clip by length
         lines = sentences(script[vid])

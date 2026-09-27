@@ -1,0 +1,153 @@
+{
+ "title": "Talk to your crew in Slack",
+ "subtitle": "Mention them, follow the thread, approve in place",
+ "end_title": "Your crew is in Slack.",
+ "end_next": "Next: talk to your crew on WhatsApp",
+ "scenes": [
+  {
+   "image": "a_ava.webp",
+   "vo": "s1",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.8,
+    "x": 640,
+    "y": 0,
+    "at": 0.05
+   },
+   "rings": [
+    {
+     "box": [
+      1397,
+      69,
+      28,
+      24
+     ],
+     "at": 0.35,
+     "pad": 6
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      1411,
+      81
+     ],
+     "at": 0.75,
+     "from": [
+      1100,
+      300
+     ]
+    }
+   ]
+  },
+  {
+   "image": "b_slack.webp",
+   "vo": "s2",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.9,
+    "x": 720,
+    "y": 40,
+    "at": 0.02
+   },
+   "rings": [
+    {
+     "box": [
+      866.9,
+      154,
+      55.4,
+      30
+     ],
+     "at": 0.12,
+     "until": 0.35,
+     "pad": 4
+    },
+    {
+     "box": [
+      754,
+      260,
+      320,
+      78
+     ],
+     "at": 0.4,
+     "pad": 3
+    }
+   ]
+  },
+  {
+   "image": "c_howto.webp",
+   "vo": "s3",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.9,
+    "x": 720,
+    "y": 330,
+    "at": 0.02
+   },
+   "rings": [
+    {
+     "box": [
+      754,
+      466,
+      652,
+      300
+     ],
+     "at": 0.25,
+     "pad": 3
+    }
+   ]
+  },
+  {
+   "image": "b_slack.webp",
+   "vo": "s4",
+   "demo_tag": true,
+   "zoom": {
+    "scale": 1.9,
+    "x": 720,
+    "y": 330,
+    "at": -1
+   },
+   "rings": [
+    {
+     "box": [
+      750,
+      570,
+      676,
+      138
+     ],
+     "at": 0.05,
+     "until": 0.5,
+     "pad": 2
+    },
+    {
+     "box": [
+      889.5,
+      712.5,
+      108.6,
+      36
+     ],
+     "at": 0.52,
+     "pad": 5
+    }
+   ],
+   "clicks": [
+    {
+     "at_xy": [
+      944,
+      730
+     ],
+     "at": 0.85,
+     "from": [
+      1100,
+      640
+     ]
+    }
+   ]
+  },
+  {
+   "image": "slack-thread.webp",
+   "vo": "s5",
+   "style": "card"
+  }
+ ]
+}
