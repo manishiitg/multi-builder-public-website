@@ -95,7 +95,7 @@ USECASES=[
   faq=[('Which analytics tools does it work with?','Product analytics, billing, CRM and search tools your team already uses, through APIs, MCP servers or its own browser.'),
        ('Does it make changes to the product?','No. It recommends and tracks actions in your tools; your team decides what ships.'),
        ('How is this different from a BI dashboard?','A dashboard shows the number. The agents own a goal: they investigate, propose, and check whether the change worked.')]),
- dict(slug='shared-ai-workspace', nav='Shared AI workspace', icon='<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
+ dict(slug='shared-ai-workspace', group='AI platform for teams', nav='Shared AI workspace', icon='<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
   navdesc='Your team\'s Claude, ChatGPT and Cursor plans, shared and measured.',
   title='AgentWorks for Teams - Share AI Coding Agent Subscriptions and Measure Usage',
   desc='Move scattered personal Claude Code, Codex and Cursor subscriptions onto one AgentWorks server. People use shared Crew agents in chat or the live terminal, and you see usage and cost by person, Crew, workflow and model.',
@@ -121,7 +121,7 @@ USECASES=[
        ('Can people still use their own plan?','Yes. Anyone can add a private account for their own work, next to the shared server account an admin manages.'),
        ('How is usage measured?','Every agent call is recorded with its user, Crew or workflow, provider and model, with token counts and cost. Subscription usage shows as a subscription-equivalent estimate, not as your bill.'),
        ('What does the terminal mode give power users?','The vendor\'s own CLI, such as Claude Code, Codex or Cursor, running live on the server in a sandbox. They get the full tool without it touching their laptop, and every run is logged.')]),
- dict(slug='expert-agents', nav='Shared expert agents', icon='<circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/>',
+ dict(slug='expert-agents', group='AI platform for teams', nav='Shared expert agents', icon='<circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/>',
   navdesc='Build a DevOps or product expert once; every engineer asks it from their own CLI.',
   title='AgentWorks for Teams - Build Expert AI Agents Once, Share Them Across Your Company',
   desc='Teams build specialist Crew agents, such as a DevOps, RDS or product expert, and share them across the company. Engineers ask them from Claude Code, Codex, Cursor, ChatGPT or Claude through MCP or the CLI.',
@@ -147,7 +147,7 @@ USECASES=[
        ('Can people see the agent\'s private data?','No. Callers get the agent\'s answers and the files its owners choose to share. Its chats with owners, its database and its settings stay private.'),
        ('Who controls access?','Admins issue scoped tokens per person and per agent. Revoking a token stops its calls immediately, and every call is recorded.'),
        ('Does every caller share one conversation?','No. Each caller gets their own continuing conversation with the agent, and the owners\' main chat stays separate.')]),
- dict(slug='mcp-gateway', soon=True, nav='MCP gateway', icon='<path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/>',
+ dict(slug='mcp-gateway', group='AI platform for teams', soon=True, nav='MCP gateway', icon='<path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/>',
   navdesc='One governed door to every MCP tool your company uses.',
   title='AgentWorks MCP Gateway - Govern Every MCP Tool Your AI Agents Use (Coming Soon)',
   desc='Coming soon: one MCP endpoint for every AI client in your company. Deny-by-default access per group and tool, approval for new tools, PII masking, egress guards and an exportable audit log.',
@@ -180,3 +180,10 @@ def uc_nav_items():
     soon=' <span class="tag tag-soon">Soon</span>'
     return [(f'/enterprise/{u["slug"]}/',u['nav']+(soon if u.get('soon') else ''),u['navdesc'],u['icon']) for u in USECASES]
 
+def uc_nav_groups():
+    """Enterprise menu columns: (label, nav items) in order of first appearance."""
+    items=dict(zip([u['slug'] for u in USECASES], uc_nav_items()))
+    out={}
+    for u in USECASES:
+        out.setdefault(u.get('group','Engineering goals'),[]).append(items[u['slug']])
+    return list(out.items())

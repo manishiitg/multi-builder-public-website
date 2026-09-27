@@ -1,3 +1,4 @@
+import re
 CAL_URL='https://calendly.com/manish-tryagentworks/intro'
 # Cloud is not live yet: early access goes through a call. Point this at the app when signup ships.
 SIGNUP=CAL_URL
@@ -8,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch31'
+V='launch32'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -62,16 +63,23 @@ _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><c
         'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
         'connect':'<path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/>'}
 
-def _drop(label, overview, items, menu_id, current):
-    rows=''.join(f'<a class="pm-item" href="{h}"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span><span><b>{t}</b><small>{d}</small></span></a>' for h,t,d,ic in items)
+def _drop(label, overview, groups, menu_id, current):
+    """Compact dropdown: icon + title per item (description kept as a tooltip), in one column
+    per group. `groups` is [(group label or None, [(href, title, desc, icon), ...]), ...]."""
+    def row(h,t,d,ic):
+        tip=re.sub(r'<[^>]+>','',d).replace('"','&quot;')
+        return (f'<a class="pm-item" href="{h}" title="{tip}"><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span>'
+                f'<b>{t}</b></a>')
+    cols=''.join(f'<div class="pm-col">{f"<p class=pm-group>{g}</p>" if g else ""}{"".join(row(*it) for it in items)}</div>' for g,items in groups)
     oh,ot=overview
+    wide=' pm-wide' if len(groups)>1 else ''
     return f'''        <div class="nav-drop{" is-current" if current else ""}" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="{menu_id}" data-drop-btn>{label} <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-          <div class="nav-panel" id="{menu_id}"><a class="pm-all" href="{oh}">{ot} <span aria-hidden="true">→</span></a>{rows}</div>
+          <div class="nav-panel{wide}" id="{menu_id}"><a class="pm-all" href="{oh}">{ot} <span aria-hidden="true">→</span></a><div class="pm-cols">{cols}</div></div>
         </div>'''
 
 def header(active=None):
-    from uc_data import uc_nav_items
+    from uc_data import uc_nav_items, uc_nav_groups
     from sol_data import sol_nav_items
     sol=sol_nav_items()
     prod=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT]
@@ -85,9 +93,9 @@ def header(active=None):
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
-{_drop('Product',('/product/','How AgentWorks works'),prod,'product-menu',active=='product')}
-{_drop('Use cases',('/agents/','All premade agents'),sol,'usecase-menu',active in ('solutions','agents'))}
-{_drop('Enterprise',('/enterprise/','Enterprise overview'),ent,'enterprise-menu',active=='enterprise')}
+{_drop('Product',('/product/','How AgentWorks works'),[(None,prod)],'product-menu',active=='product')}
+{_drop('Use cases',('/agents/','All premade agents'),[(None,sol)],'usecase-menu',active in ('solutions','agents'))}
+{_drop('Enterprise',('/enterprise/','Enterprise overview'),uc_nav_groups(),'enterprise-menu',active=='enterprise')}
 {links}
       </nav>
       <div class="header-actions">

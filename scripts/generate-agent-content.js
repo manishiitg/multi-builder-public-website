@@ -302,7 +302,7 @@ ${rawPath ? `<link rel="alternate" type="text/markdown" href="/docs-content/${ra
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=agentworks2">
 <link rel="stylesheet" href="/launch.css?v=${launchV}">
-<link rel="stylesheet" href="/site-header.css?v=1">
+<link rel="stylesheet" href="/site-header.css?v=2">
 <link rel="stylesheet" href="/docs.css?v=1">
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
