@@ -75,7 +75,7 @@ def _page(u):
           <li class="reveal"><h3>Approvals</h3><p>Anything that changes production or reaches people waits for approval by default.</p></li>
           <li class="reveal"><h3>Audit trail</h3><p>Every run, tool call, decision and cost is recorded per workflow.</p></li>
           <li class="reveal"><h3>Your models</h3><p>Your enterprise Claude, ChatGPT or Gemini agreements, or private endpoints.</p></li>
-          <li class="reveal"><h3>Scoped access</h3><p>Tools, folders and secrets are granted per workflow, inside an OS-enforced sandbox.</p></li>
+          <li class="reveal"><h3>Scoped access</h3><p>Tools, folders and secrets are granted per workflow, and every command agents run is OS-sandboxed.</p></li>
           <li class="reveal"><h3>SSO and roles</h3><p>Sign-in through your identity provider, with roles and per-workflow access.</p></li>
         </ul>
       </div>

@@ -5,7 +5,7 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
 ## Canonical Pages
 
 - [Homepage](https://agentworkshq.com/): Goal + metric agents with auto-improve, the three layers (workflows, crews, agents), connectors, premade agents and the three plans.
-- [Product](https://agentworkshq.com/product/): Overview of the platform (Goals, Crews, Workbench, Relays, MCP gateway) and the three layers: vendor-native agents in a sandbox, crews, and workflows, plus bring-your-own AI plan.
+- [Product](https://agentworkshq.com/product/): Overview of the platform (Goals, Crews, Workbench, Relays, MCP gateway) and the three layers: vendor-native agents with sandboxed commands, crews, and workflows, plus bring-your-own AI plan.
   - [Goals](https://agentworkshq.com/goals/): give an agent a goal and a metric; it plans, runs on schedule, measures every run and auto-improves its plan until it hits the target; autonomy levels and the workflow plan.
   - [Crews](https://agentworkshq.com/crews/): AI agents with skills, memory, tools and functions; talk to one in Slack or WhatsApp, or share it as an expert (DevOps, RDS, product) that anyone asks from Claude, ChatGPT, Cursor or the CLI through MCP.
   - [Workbench](https://agentworkshq.com/workbench/): put the team's Claude Code, Codex, Cursor, Pi and Muse plans on one AgentWorks server as shared or private accounts; people use Crew agents in chat or the live terminal; usage and cost recorded by user, Crew, workflow and model.

@@ -117,7 +117,7 @@ body=f'''  <main id="main">
           <li><div><b>Roles and per-workflow access</b><span>Admin, member, contributor and read-only roles, plus owner and reader access for every workflow.</span></div></li>
           <li><div><b>Approvals and autonomy limits</b><span>Outward actions and workflow changes ask first by default. Raise limits per goal.</span></div></li>
           <li><div><b>Encrypted secrets</b><span>AES-256-GCM vault, injected only at run time and never shown in chat or logs.</span></div></li>
-          <li><div><b>OS-enforced sandbox</b><span>Landlock on Linux and sandbox-exec on macOS restrict each agent to what you grant.</span></div></li>
+          <li><div><b>Sandboxed code execution</b><span>Landlock on Linux and sandbox-exec on macOS restrict every command an agent runs to what you grant, with a private /tmp and home folder per workflow or Crew.</span></div></li>
           <li><div><b>Complete audit trail</b><span>Every run, tool call, decision and cost is recorded and exportable to your SIEM.</span></div></li>
           <li><div><b>Your models, your contracts</b><span>Use your existing enterprise AI agreements or private endpoints. No token markup.</span></div></li>
         </ul>

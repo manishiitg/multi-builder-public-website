@@ -9,7 +9,7 @@
           <div class="eng-layer eng-goal"><span class="eng-tag">Your goal</span><b>Demos booked per week · target 5</b><small>AgentWorks plans, schedules, measures and improves</small></div>
           <div class="eng-arrow" aria-hidden="true"></div>
           <div class="eng-sandbox">
-            <span class="eng-fence">Sandbox · only the folders this workflow was granted</span>
+            <span class="eng-fence">Sandbox for every command · only the folders this workflow was granted</span>
             <div class="eng-layer eng-harness"><span class="eng-tag">Native agent in a live terminal</span>
               <ul class="eng-chips">
                 <li>{{LOGO:claude}}Claude Code</li><li>{{LOGO:openai}}Codex</li><li>{{LOGO:cursor}}Cursor</li><li><span class="mono-logo">P</span>Pi</li><li><span class="mono-logo">M</span>Muse</li>
@@ -26,7 +26,7 @@
         <ul class="control engine-points">
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></span><h3>The full agent, not just the model</h3><p>Claude Code, Codex, Cursor, Pi and Muse run as themselves in a live terminal session, with the planning and reasoning their makers built. That is also why they run on the subscription you already pay for.</p></li>
           <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Your tools, governed</h3><p>Every agent gets your MCP servers, AgentWorks' own tools, a shell and a browser, granted per workflow. Writes go through AgentWorks' tools, so every change is checked and logged.</p></li>
-          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Walled off from everything else</h3><p>An OS-enforced sandbox (Landlock on Linux, sandbox-exec on macOS) limits each agent to its workflow's folders, with separate read and write access. Your other files, other workflows and machine secrets stay out of reach.</p></li>
+          <li class="reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Sandboxed where it acts</h3><p>Every command and script an agent runs executes in an OS-enforced sandbox (Landlock on Linux, sandbox-exec on macOS), limited to its workflow's folders with separate read and write access, and with its own private /tmp and home folder.</p></li>
         </ul>
       </div>
     </section>
@@ -55,7 +55,7 @@
           </div>
         </div>
         <ul class="anatomy">
-          <li class="reveal"><b>Agent</b><span>Any of the five native agents from Layer 1, inside its sandbox.</span></li>
+          <li class="reveal"><b>Agent</b><span>Any of the five native agents from Layer 1, with every command it runs sandboxed.</span></li>
           <li class="reveal"><b>Skills</b><span>Picks from your shared skill library and writes its own as it learns the job.</span></li>
           <li class="reveal"><b>Memory</b><span>A written memory of your customers, preferences and decisions, plus one ongoing conversation that survives restarts.</span></li>
           <li class="reveal"><b>Workspace</b><span>Its own files, database and live dashboard.</span></li>

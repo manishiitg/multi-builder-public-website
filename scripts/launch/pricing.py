@@ -28,7 +28,7 @@ ROWS=[
  ("Control & security",None),
  ("Approvals and autonomy limits",(Y,Y,Y)),
  ("Encrypted secrets vault",(Y,Y,Y)),
- ("OS-enforced sandbox",(Y,Y,Y)),
+ ("Sandboxed code execution",(Y,Y,Y)),
  ("Run logs and cost per goal",(Y,Y,Y)),
  ("Roles and per-goal sharing",(Y,Y,Y)),
  ("Workbench: shared AI plans, usage by person, Crew and model",(Y,Y,Y)),

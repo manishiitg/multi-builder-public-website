@@ -97,10 +97,18 @@
         },
         {
           "@type": "Question",
+          "name": "Can one person's agent reach another person's files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not through the commands it runs. Every shell command and script gets its own private /tmp and runs in a Linux sandbox limited to the folders its workflow or Crew was granted, and it can't reach other people's agent terminals. Each workflow or Crew also has its own home folder, so git logins, SSH keys and CLI settings stay with it."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What does the terminal mode give power users?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The vendor's own CLI, such as Claude Code, Codex or Cursor, running live on the server in a sandbox. They get the full tool without it touching their laptop, and every run is logged."
+            "text": "The vendor's own CLI, such as Claude Code, Codex or Cursor, running live on the server, with every command it runs sandboxed. They get the full tool without it touching their laptop, and every run is logged."
           }
         }
       ]
@@ -204,7 +212,7 @@
           <p class="kicker">How it works</p>
           <h2>One server for every agent. <span class="dim">Chat or terminal, your choice.</span></h2>
         </div>
-        <ol class="loop reveal"><li><h3>Connect the plans once</h3><p>An admin connects your Claude, ChatGPT, Cursor and other plans on the server as shared accounts. Anyone can still add a private account for their own work.</p></li><li><h3>Give each team its Crew</h3><p>Set up shared Crew agents with the skills, memory and tools each team needs. People reach them in chat, Slack or WhatsApp.</p></li><li><h3>Chat or the live terminal</h3><p>Work in plain chat, or switch to the vendor&#x27;s own CLI running live in a terminal on the server, sandboxed to the folders it is granted.</p></li><li><h3>Measure and govern</h3><p>See recorded usage and cost by user, Crew, workflow and model. Roles, per-workflow access and a full run log keep it governed.</p></li></ol>
+        <ol class="loop reveal"><li><h3>Connect the plans once</h3><p>An admin connects your Claude, ChatGPT, Cursor and other plans on the server as shared accounts. Anyone can still add a private account for their own work.</p></li><li><h3>Give each team its Crew</h3><p>Set up shared Crew agents with the skills, memory and tools each team needs. People reach them in chat, Slack or WhatsApp.</p></li><li><h3>Chat or the live terminal</h3><p>Work in plain chat, or switch to the vendor&#x27;s own CLI running live in a terminal on the server. Every command it runs is sandboxed to the folders it is granted.</p></li><li><h3>Measure and govern</h3><p>See recorded usage and cost by user, Crew, workflow and model. Roles, per-workflow access and a full run log keep it governed.</p></li></ol>
       </div>
     </section>
 
@@ -215,7 +223,7 @@
           <h2>One server. <span class="dim">Every agent, every plan, every run.</span></h2>
           <p class="lede">What IT and engineering leaders get from day one, instead of subscriptions scattered across laptops.</p>
         </div>
-        <ul class="pb-list reveal"><li>Shared server accounts for Claude Code, Codex, Cursor, Pi and Muse</li><li>Private accounts for people who bring their own plan</li><li>Crew agents in chat, Slack, WhatsApp or the live terminal</li><li>Usage and cost by user, Crew, workflow, project and model</li><li>Roles, per-workflow access and SSO</li><li>An OS-enforced sandbox per agent, a secrets vault and a full run log</li></ul>
+        <ul class="pb-list reveal"><li>Shared server accounts for Claude Code, Codex, Cursor, Pi and Muse</li><li>Private accounts for people who bring their own plan</li><li>Crew agents in chat, Slack, WhatsApp or the live terminal</li><li>Usage and cost by user, Crew, workflow, project and model</li><li>Roles, per-workflow access and SSO</li><li>Sandboxed code execution per agent, a private /tmp and home folder for each workflow or Crew, a secrets vault and a full run log</li></ul>
       </div>
     </section>
 
@@ -230,7 +238,7 @@
           <li class="reveal"><h3>Approvals</h3><p>Anything that changes production or reaches people waits for approval by default.</p></li>
           <li class="reveal"><h3>Audit trail</h3><p>Every run, tool call, decision and cost is recorded per workflow.</p></li>
           <li class="reveal"><h3>Your models</h3><p>Your enterprise Claude, ChatGPT or Gemini agreements, or private endpoints.</p></li>
-          <li class="reveal"><h3>Scoped access</h3><p>Tools, folders and secrets are granted per workflow, inside an OS-enforced sandbox.</p></li>
+          <li class="reveal"><h3>Scoped access</h3><p>Tools, folders and secrets are granted per workflow, and every command agents run is OS-sandboxed.</p></li>
           <li class="reveal"><h3>SSO and roles</h3><p>Sign-in through your identity provider, with roles and per-workflow access.</p></li>
         </ul>
       </div>
@@ -246,7 +254,8 @@
           <details open><summary>Can we share one subscription across people?</summary><p>That depends on the plan. Team, business and enterprise plans and API keys are made for shared use; personal plans usually are not, so check each vendor&#x27;s terms. AgentWorks runs whichever accounts you connect.</p></details>
           <details><summary>Can people still use their own plan?</summary><p>Yes. Anyone can add a private account for their own work, next to the shared server account an admin manages.</p></details>
           <details><summary>How is usage measured?</summary><p>Every agent call is recorded with its user, Crew or workflow, provider and model, with token counts and cost. Subscription usage shows as a subscription-equivalent estimate, not as your bill.</p></details>
-          <details><summary>What does the terminal mode give power users?</summary><p>The vendor&#x27;s own CLI, such as Claude Code, Codex or Cursor, running live on the server in a sandbox. They get the full tool without it touching their laptop, and every run is logged.</p></details>
+          <details><summary>Can one person&#x27;s agent reach another person&#x27;s files?</summary><p>Not through the commands it runs. Every shell command and script gets its own private /tmp and runs in a Linux sandbox limited to the folders its workflow or Crew was granted, and it can&#x27;t reach other people&#x27;s agent terminals. Each workflow or Crew also has its own home folder, so git logins, SSH keys and CLI settings stay with it.</p></details>
+          <details><summary>What does the terminal mode give power users?</summary><p>The vendor&#x27;s own CLI, such as Claude Code, Codex or Cursor, running live on the server, with every command it runs sandboxed. They get the full tool without it touching their laptop, and every run is logged.</p></details>
         </div>
       </div>
     </section>
