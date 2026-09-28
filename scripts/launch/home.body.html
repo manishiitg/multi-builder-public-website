@@ -1,53 +1,50 @@
   <main id="main">
-    <section class="hero">
+    <section class="hero hero-jobs">
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="wrap">
-        <p class="kicker">AI agents for business</p>
-        <h1>AI agents that hit your goals. <span class="dim">And experts your whole team can ask.</span></h1>
-        <p class="lede">Give an agent a goal and a metric, and it keeps working until it hits the target. Share an expert, not just a skill: an agent with your team's skills and tools that anyone can ask from Claude or ChatGPT.</p>
+        <p class="kicker">AI agents for teams</p>
+        <h1>AI agents that <span class="nowrap">own the work.</span></h1>
+        <p class="lede">From a target to hit, to the expert your whole team asks.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{{SIGNUP}}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{{INSTALL}}" target="_blank" rel="noreferrer">Download free app</a>
         </div>
-        <p class="hero-note">Cloud comes with hand-held onboarding · The open-source app is free today · <a class="hero-watch" href="/product/#demo">Watch the 60-second demo</a></p>
-
-        <div class="pillars">
-          <a class="pillar" href="#goals"><span class="pillar-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>"Book 5 demos a week." It works until it gets there.</small></span></a>
-          <a class="pillar" href="#experts"><span class="pillar-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span><b>Expert Crews</b><small>Share an expert, not just a skill. Asked from Claude.</small></span></a>
-        </div>
-
-        <div class="byo-row" aria-label="Your AI plan powers your AI teammates">
-          <div class="byo-group">
-            <p>The AI plan you already pay for</p>
-            <ul>
-              <li class="chip">{{LOGO:claude}}Claude</li>
-              <li class="chip">{{LOGO:openai}}ChatGPT</li>
-              <li class="chip">{{LOGO:googlegemini}}Gemini</li>
-              <li class="chip">{{LOGO:cursor}}Cursor</li>
-              <li class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</li>
-            </ul>
-          </div>
-          <div class="byo-link" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
-          <div class="byo-group">
-            <p>Powers your AI teammates</p>
-            <ul>
-              <li class="chip"><span class="avatar avatar-ava" aria-hidden="true">A</span>Ava</li>
-              <li class="chip"><span class="avatar avatar-rio" aria-hidden="true">R</span>Rio</li>
-              <li class="chip"><span class="avatar avatar-sage" aria-hidden="true">S</span>Sage</li>
-            </ul>
-          </div>
-        </div>
+        <p class="hero-note">Runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for · Open source · <a class="hero-watch" href="/goals/#demo">Watch the 60-second demo</a></p>
       </div>
 
-      <figure class="hero-video">
-        <video autoplay muted loop playsinline preload="auto" width="1600" height="900" poster="/assets/hero/goal-loop-poster.jpg" aria-label="Example: an AI agent is asked to book 5 sales demos a week. It tries new approaches week by week, drops one that did not work, and goes from 1 to 6 demos a week, hitting the target." data-hero-video>
-          <source src="/assets/hero/goal-loop-mobile-900x1200.mp4" type="video/mp4" media="(max-width: 720px)">
-          <source src="/assets/hero/goal-loop-1600x900.webm" type="video/webm">
-          <source src="/assets/hero/goal-loop-1600x900.mp4" type="video/mp4">
-        </video>
-        <figcaption class="sr-only">Example goal: "Book more sales demos. I want 5 a week." Week 1: emails every new signup within a day, 1 a week. Week 3: replies within 10 minutes, 3 a week. Week 4: stops the third follow-up because nobody replied, dropped. Week 6: adds a two-line customer story to the first email, 6 a week, target hit.</figcaption>
-      </figure>
-      <p class="frame-caption"><b>An example goal.</b> You set the number. The agent keeps changing its approach, and keeps what works, until it gets there.</p>
+      <div class="wrap">
+        <div class="jobs" data-jobs>
+          <article class="job job-goal" aria-label="Example: a goal">
+            <p class="job-k"><span>01 · Give it a goal</span><em>Illustrative</em></p>
+            <h2>&ldquo;Book 5 sales demos a week.&rdquo;</h2>
+            <p class="job-sub">It works until it hits the number, and changes its approach along the way.</p>
+            <ol class="job-steps">
+              <li class="js-1"><span>Replies to new signups in 10 minutes</span><b class="ok">Kept</b></li>
+              <li class="js-2"><s>Third follow-up nobody answered</s><b class="drop">Dropped</b></li>
+              <li class="js-3"><span>Adds a customer story to the first email</span><b class="new">New</b></li>
+            </ol>
+            <div class="job-metric">
+              <div><small>Demos booked / week</small><strong><span data-count-to="6">6</span><i>target 5</i><span class="job-hit">Target hit</span></strong></div>
+              <div class="job-bars" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><i class="b5"></i><i class="b6"></i></div>
+            </div>
+            <a class="job-link" href="/goals/">How Goals work →</a>
+          </article>
+
+          <article class="job job-crew" aria-label="Example: an Expert Crew asked from Claude">
+            <p class="job-k"><span>02 · Share an expert</span><em>Illustrative</em></p>
+            <h2>Build it once. Anyone can ask it.</h2>
+            <p class="job-sub">Your runbooks, tools and memory in one agent, asked from the AI your team already uses.</p>
+            <div class="job-chat">
+              <p class="job-chat-top">{{LOGO:claude}}Claude</p>
+              <p class="job-q">@devops-expert why is checkout slow?</p>
+              <p class="job-tool"><b>devops-expert</b> · diagnose_service("checkout")<span>✓ metrics · ✓ last 3 deploys · ✓ your runbook</span></p>
+              <p class="job-a"><b>The 09:40 deploy added a database call per cart item.</b> Fix drafted for review.</p>
+            </div>
+            <p class="job-from">Also from ChatGPT, Cursor, Slack and the terminal</p>
+            <a class="job-link" href="/crews/">How Crews work →</a>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="strip" aria-label="Works with">
@@ -102,7 +99,7 @@
             </div>
           </div>
         </div>
-        <p class="tpl-more"><a class="btn btn-ghost" href="/product/#goals">How goals and auto-improve work</a><span class="muted">Example goal. Numbers are illustrative.</span></p>
+        <p class="tpl-more"><a class="btn btn-ghost" href="/goals/">How goals and auto-improve work</a><span class="muted">Example goal. Numbers are illustrative.</span></p>
       </div>
     </section>
 
@@ -151,7 +148,7 @@
             <p class="ask-msg them"><b>DevOps expert</b> p95 latency jumped after the 09:40 deploy of orders-service. The database read replica is 40 seconds behind, so reads fall back to the primary. Rolling back is the fastest fix. I've drafted the rollback for your approval.</p>
           </div>
         </div>
-        <p class="tpl-more"><a class="btn btn-ghost" href="/enterprise/expert-crews/">How Expert Crews work</a><span class="muted">Illustrative conversation. Next: publish an Expert Crew to your customers.</span></p>
+        <p class="tpl-more"><a class="btn btn-ghost" href="/crews/">How Expert Crews work</a><span class="muted">Illustrative conversation. Next: publish an Expert Crew to your customers.</span></p>
       </div>
     </section>
 
@@ -178,8 +175,8 @@
           <p class="lede">Workflows decide what to do and how to measure it. Crews are the specialists who do it. Agents are the engines underneath.</p>
         </div>
         <ol class="layer-stack reveal" aria-label="The three layers">
-          <li><a href="/product/#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>The plan: pipelines of deterministic and agentic steps, measured against a goal</small></a></li>
-          <li><a href="/product/#crew"><span>2</span><b>Crews</b><small>Specialists: an agent with skills, memory, a browser, channels and a schedule</small></a></li>
+          <li><a href="/goals/#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>The plan: pipelines of deterministic and agentic steps, measured against a goal</small></a></li>
+          <li><a href="/crews/#crew"><span>2</span><b>Crews</b><small>Specialists: an agent with skills, memory, a browser, channels and a schedule</small></a></li>
           <li><a href="/product/#engine-agent"><span>1</span><b>Agents</b><small>The engine: vendor-native coding agents, your tools, a sandbox</small></a></li>
         </ol>
         <p class="tpl-more center-row"><a class="btn btn-ghost" href="/product/#layers">See how it works</a></p>

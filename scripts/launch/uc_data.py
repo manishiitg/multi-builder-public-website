@@ -95,7 +95,7 @@ USECASES=[
   faq=[('Which analytics tools does it work with?','Product analytics, billing, CRM and search tools your team already uses, through APIs, MCP servers or its own browser.'),
        ('Does it make changes to the product?','No. It recommends and tracks actions in your tools; your team decides what ships.'),
        ('How is this different from a BI dashboard?','A dashboard shows the number. The agents own a goal: they investigate, propose, and check whether the change worked.')]),
- dict(slug='workbench', group='AI platform for teams', nav='Workbench', icon='<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
+ dict(slug='workbench', path='/workbench/', product=True, group='AI platform for teams', nav='Workbench', icon='<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
   navdesc='Your team\'s Claude, ChatGPT and Cursor plans, shared and measured.',
   title='AgentWorks Workbench - Share Your Team\'s AI Plans and Measure Usage',
   desc='Move scattered personal Claude Code, Codex and Cursor subscriptions onto one AgentWorks server. People use shared Crew agents in chat or the live terminal, and you see usage and cost by person, Crew, workflow and model.',
@@ -121,7 +121,7 @@ USECASES=[
        ('Can people still use their own plan?','Yes. Anyone can add a private account for their own work, next to the shared server account an admin manages.'),
        ('How is usage measured?','Every agent call is recorded with its user, Crew or workflow, provider and model, with token counts and cost. Subscription usage shows as a subscription-equivalent estimate, not as your bill.'),
        ('What does the terminal mode give power users?','The vendor\'s own CLI, such as Claude Code, Codex or Cursor, running live on the server in a sandbox. They get the full tool without it touching their laptop, and every run is logged.')]),
- dict(slug='expert-crews', group='AI platform for teams', nav='Expert Crews', icon='<circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/>',
+ dict(slug='expert-crews', path='/crews/', page=False, group='AI platform for teams', nav='Expert Crews', icon='<circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/>',
   navdesc='Build a DevOps or product expert once; every engineer asks it from their own CLI.',
   title='AgentWorks Expert Crews - Build Expert AI Agents Once, Share Them Across Your Company',
   desc='Teams build specialist Crew agents, such as a DevOps, RDS or product expert, and share them across the company. Engineers ask them from Claude Code, Codex, Cursor, ChatGPT or Claude through MCP or the CLI.',
@@ -176,9 +176,13 @@ USECASES=[
        ('Where does it run?','In your own cloud or data center, next to AgentWorks or on its own.')]),
 ]
 
+def uc_path(u):
+    # Product pages (Workbench, Crews) live at the top level; the rest are enterprise use cases.
+    return u.get('path', f'/enterprise/{u["slug"]}/')
+
 def uc_nav_items():
     soon=' <span class="tag tag-soon">Soon</span>'
-    return [(f'/enterprise/{u["slug"]}/',u['nav']+(soon if u.get('soon') else ''),u['navdesc'],u['icon']) for u in USECASES]
+    return [(uc_path(u),u['nav']+(soon if u.get('soon') else ''),u['navdesc'],u['icon']) for u in USECASES]
 
 def uc_nav_groups():
     """Enterprise menu columns: (label, nav items) in order of first appearance."""

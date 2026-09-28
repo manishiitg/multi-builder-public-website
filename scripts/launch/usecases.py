@@ -1,7 +1,7 @@
 # Enterprise use-case landing pages: /enterprise/<slug>/. Content maps to the real playbooks in coding-agent-loop/playbooks.
 import html as _h
 
-from uc_data import USECASES, uc_nav_items
+from uc_data import USECASES, uc_nav_items, uc_path
 
 def _page(u):
     e=_h.escape
@@ -9,7 +9,12 @@ def _page(u):
     steps=''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t,d in u['steps'])
     pbs=''.join(f'<li>{e(p)}</li>' for p in u['playbooks'])
     gname,gmetric,(gval,gsub)=u['goal']
-    others=''.join(f'<a class="uc-link" href="/enterprise/{o["slug"]}/"><b>{e(o["nav"])}</b><span>{e(o["navdesc"])}</span></a>' for o in USECASES if o is not u)
+    if u.get('product'):
+        others=''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{e(d)}</span></a>' for h,t,d in PRODUCT_PAGES if h!=uc_path(u))
+        more_k,more_h='Also in AgentWorks','The rest of the platform.'
+    else:
+        others=''.join(f'<a class="uc-link" href="{uc_path(o)}"><b>{e(o["nav"])}</b><span>{e(o["navdesc"])}</span></a>' for o in USECASES if o is not u)
+        more_k,more_h='More use cases','Other goals agents can own.'
     return f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
@@ -90,7 +95,7 @@ def _page(u):
 
     <section class="section">
       <div class="wrap">
-        <div class="section-head reveal"><p class="kicker">More use cases</p><h2>Other goals agents can own.</h2></div>
+        <div class="section-head reveal"><p class="kicker">{more_k}</p><h2>{more_h}</h2></div>
         <div class="uc-grid">{others}</div>
       </div>
     </section>
@@ -101,7 +106,7 @@ def _page(u):
         <p>{e(u.get('cta_p','A scoped pilot on one goal, in your environment, with the success metric agreed up front.'))}</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">{e(u.get('cta_label','Book a call'))}</a>
-          <a class="btn btn-ghost" href="/enterprise/">Enterprise overview</a>
+          <a class="btn btn-ghost" href="{'/product/' if u.get('product') else '/enterprise/'}">{'Product overview' if u.get('product') else 'Enterprise overview'}</a>
         </div>
       </div>
     </section>
@@ -109,7 +114,9 @@ def _page(u):
 '''
 
 for u in USECASES:
-    path=f'/enterprise/{u["slug"]}/'
+    if not u.get('page',True): continue
+    path=uc_path(u)
+    parent=('Product','/product/') if u.get('product') else ('Enterprise','/enterprise/')
     LD={"@type":"WebPage","name":u['title'],"url":"https://agentworkshq.com"+path,"isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-    BCL={"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgentWorks","item":"https://agentworkshq.com/"},{"@type":"ListItem","position":2,"name":"Enterprise","item":"https://agentworkshq.com/enterprise/"},{"@type":"ListItem","position":3,"name":u['nav'],"item":"https://agentworkshq.com"+path}]}
-    pages[f'enterprise/{u["slug"]}/index.html']=head(u['title'],u['desc'],path,og='agentworks-enterprise-og.jpg',extra_ld=ld(LD,BCL,faq_ld(u['faq'])))+header('enterprise')+_page(u)+footer()
+    BCL={"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgentWorks","item":"https://agentworkshq.com/"},{"@type":"ListItem","position":2,"name":parent[0],"item":"https://agentworkshq.com"+parent[1]},{"@type":"ListItem","position":3,"name":u['nav'],"item":"https://agentworkshq.com"+path}]}
+    pages[path.strip('/')+'/index.html']=head(u['title'],u['desc'],path,og='agentworks-product-og.jpg' if u.get('product') else 'agentworks-enterprise-og.jpg',extra_ld=ld(LD,BCL,faq_ld(u['faq'])))+header('product' if u.get('product') else 'enterprise')+_page(u)+footer()

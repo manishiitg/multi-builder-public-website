@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/coding-agent-loop'
 INSTALL=GH+'/releases/latest'
-V='launch38'
+V='launch39'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -54,25 +54,27 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
 '''
 
 NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
-PRODUCT=[('/product/#goals','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
-         ('/product/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
-         ('/product/#crew','Crew','Always-on teammates in Slack, WhatsApp, ChatGPT and Claude.','crew'),
-         ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
+PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
+         ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
+         ('/workbench/','Workbench','Your team\'s AI plans on one server, with usage by person.','bench'),
          ('/relays/','Relays <span class="tag tag-soon">Soon</span>','A fixed chain of agents you run from anywhere.','relay')]
-# Product menu columns: core product, then features for whole teams.
-PRODUCT_TEAMS=[('/enterprise/workbench/','Workbench','Your team\'s AI plans on one server, with usage by person.','bench'),
-               ('/enterprise/expert-crews/','Expert Crews','Experts build a Crew once; everyone asks it from their own tools.','experts')]
+# Product menu second column: what every product shares.
+PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
+               ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
+               ('/enterprise/mcp-gateway/','MCP gateway <span class="tag tag-soon">Soon</span>','One governed door to every MCP tool.','gateway')]
+# The dedicated product pages, for cross-links between them.
+PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
- '/product/#goals':'A goal and a metric', '/product/#improve':'Gets better every run',
- '/product/#crew':'Always-on AI teammates', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
+ '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
+ '/crews/':'Experts anyone can ask', '/workbench/':'Shared AI plans, measured', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
  '/enterprise/release-quality/':'AI QA for every release', '/enterprise/incident-response/':'First RCA in minutes',
  '/enterprise/security-testing/':'AppSec to verified fix', '/enterprise/cloud-cost/':'Anomalies to savings',
- '/enterprise/growth-analytics/':'Funnels, retention, SEO', '/enterprise/workbench/':'Shared AI plans, measured',
- '/enterprise/expert-crews/':'Build once, ask anywhere', '/enterprise/mcp-gateway/':'Governed MCP access',
+ '/enterprise/growth-analytics/':'Funnels, retention, SEO', 
+ '/enterprise/mcp-gateway/':'Governed MCP access',
 }
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
@@ -80,6 +82,7 @@ _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><c
         'relay':'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/>',
         'bench':'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
         'experts':'<circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/>',
+        'gateway':'<path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/>',
         'connect':'<path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/>'}
 
 def _drop(label, overview, groups, menu_id, current):
@@ -101,8 +104,8 @@ def header(active=None):
     from uc_data import uc_nav_items, uc_nav_groups
     from sol_data import sol_nav_items
     sol=sol_nav_items()
-    prod=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT if h!='/relays/']
-    teams=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT_TEAMS+[p for p in PRODUCT if p[0]=='/relays/']]
+    prod=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT]
+    teams=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT_TEAMS]
     ent=uc_nav_items()
     links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV)
     mprod='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in PRODUCT+PRODUCT_TEAMS)
@@ -113,7 +116,7 @@ def header(active=None):
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
-{_drop('Product',('/product/','How AgentWorks works'),[('Core',prod),('For teams',teams)],'product-menu',active=='product')}
+{_drop('Product',('/product/','How AgentWorks works'),[('Products',prod),('Built in',teams)],'product-menu',active=='product')}
 {_drop('Use cases',('/agents/','All premade agents'),[(None,sol)],'usecase-menu',active in ('solutions','agents'))}
 {_drop('Enterprise',('/enterprise/','Enterprise overview'),uc_nav_groups(),'enterprise-menu',active=='enterprise')}
 {links}
@@ -153,13 +156,12 @@ def footer():
           <h2 class="fh">Product</h2>
           <ul>
             <li><a href="/product/">Overview</a></li>
-            <li><a href="/product/#goals">Goals</a></li>
-            <li><a href="/product/#improve">Auto-improve</a></li>
-            <li><a href="/product/#crew">Crew</a></li>
-            <li><a href="/agents/">Premade agents</a></li>
-            <li><a href="/enterprise/workbench/">Workbench</a></li>
-            <li><a href="/enterprise/expert-crews/">Expert Crews</a></li>
+            <li><a href="/goals/">Goals</a></li>
+            <li><a href="/crews/">Crews</a></li>
+            <li><a href="/workbench/">Workbench</a></li>
             <li><a href="/relays/">Relays (soon)</a></li>
+            <li><a href="/goals/#improve">Auto-improve</a></li>
+            <li><a href="/agents/">Premade agents</a></li>
           </ul>
         </div>
         <div>

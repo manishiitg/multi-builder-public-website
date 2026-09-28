@@ -5,7 +5,10 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
 ## Canonical Pages
 
 - [Homepage](https://agentworkshq.com/): Goal + metric agents with auto-improve, the three layers (workflows, crews, agents), connectors, premade agents and the three plans.
-- [Product](https://agentworkshq.com/product/): How goals, metrics, measurement, auto-improve and autonomy work, plus the three layers in depth: vendor-native agents with a sandbox, crews, and workflows with deterministic and agentic steps.
+- [Product](https://agentworkshq.com/product/): Overview of the platform (Goals, Crews, Workbench, Relays, MCP gateway) and the three layers: vendor-native agents in a sandbox, crews, and workflows, plus bring-your-own AI plan.
+  - [Goals](https://agentworkshq.com/goals/): give an agent a goal and a metric; it plans, runs on schedule, measures every run and auto-improves its plan until it hits the target; autonomy levels and the workflow plan.
+  - [Crews](https://agentworkshq.com/crews/): AI agents with skills, memory, tools and functions; talk to one in Slack or WhatsApp, or share it as an expert (DevOps, RDS, product) that anyone asks from Claude, ChatGPT, Cursor or the CLI through MCP.
+  - [Workbench](https://agentworkshq.com/workbench/): put the team's Claude Code, Codex, Cursor, Pi and Muse plans on one AgentWorks server as shared or private accounts; people use Crew agents in chat or the live terminal; usage and cost recorded by user, Crew, workflow and model.
 - [Relays](https://agentworkshq.com/relays/) (coming soon): chain agent steps (system prompt + message), conditions and script steps into one fixed sequence, deploy it behind an API endpoint or webhook, and call it from a website, CRM or any system.
 - [Premade agents](https://agentworkshq.com/agents/): 143 open-source premade agents: 79 Crew agents (always-on teammates for sales, support, finance, Shopify, marketing, operations, product and engineering) and 64 Goal playbooks that run against a target. Each links to its source in the coding-agent-loop repo.
   - [Sales & GTM](https://agentworkshq.com/solutions/sales/): lead follow-up, competitor watch and pipeline reporting toward a booked-demos goal.
@@ -20,8 +23,6 @@ AgentWorks gives an AI agent a goal and a metric, and it keeps working until it 
   - [Security testing](https://agentworkshq.com/enterprise/security-testing/): authorized AppSec and role/tenant permission testing driven to verified closure.
   - [Cloud cost](https://agentworkshq.com/enterprise/cloud-cost/): FinOps anomalies, reviewed IaC rightsizing and verified savings.
   - [Growth analytics](https://agentworkshq.com/enterprise/growth-analytics/): an AI growth analyst for funnels, retention, SEO and AI-search visibility.
-  - [Workbench](https://agentworkshq.com/enterprise/workbench/): put the team's Claude Code, Codex, Cursor, Pi and Muse plans on one AgentWorks server as shared or private accounts; people use Crew agents in chat or the live terminal; usage and cost recorded by user, Crew, workflow and model.
-  - [Expert Crews](https://agentworkshq.com/enterprise/expert-crews/): teams build specialist Crew agents (DevOps, RDS, product, security) and share them; engineers ask them from Claude Code, Codex, Cursor, ChatGPT or Claude via MCP (ask_crew, call_crew_function) or the agentworks CLI, with scoped tokens and per-caller conversations.
   - [MCP gateway](https://agentworkshq.com/enterprise/mcp-gateway/) (coming soon, private preview): one governed MCP endpoint for every AI client, with deny-by-default grants per group and tool, tool approval, PII masking, egress guards and an exportable audit log.
 - [Docs](https://agentworkshq.com/docs/): Two sections — Guides for business users and developer docs for building and self-hosting.
   - [Guides](https://agentworkshq.com/docs/guides/): Set your first goal, talk to your crew in Slack and WhatsApp, approvals and autonomy.

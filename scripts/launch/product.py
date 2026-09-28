@@ -21,16 +21,29 @@ _LAYERS=open('product_layers.html').read()
 _LAYERS=_re.sub(r'\{\{LOGO:(\w+)\}\}',lambda m: logo(m.group(1)),_LAYERS)
 _LAYERS=_re.sub(r'\{\{TOOL:(\w+)\}\}',lambda m: tool(m.group(1)),_LAYERS)
 _LAYERS=_LAYERS.replace('{{SIGNUP}}',SIGNUP).replace('{{CAL}}',CAL)
+# The layers file holds four sections: engine, crew, layer-workflow and bring-your-own-AI.
+_SECS=['    <section'+x for x in _LAYERS.split('    <section')[1:]]
+LAYER={('byo' if 'id="' not in x.split('>')[0] else _re.search(r'id="([^"]+)"',x).group(1)):x.rstrip()+'\n' for x in _SECS}
+FAQ_OVERVIEW=[q for q in FAQ_PRODUCT if q[0].startswith(("What's the difference","Can I use it","Does it work"))]
+def _pcard(h,t,d): return f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>'
+PRODUCT_CARDS=''.join(_pcard(h,t,d) for h,t,d in PRODUCT_PAGES)
 body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Product</p>
-        <h1>One goal. One metric. <span class="dim">An agent that doesn't stop at done.</span></h1>
-        <p class="lede">Most AI automation finishes a task and waits for the next prompt. AgentWorks gives an agent an outcome to own. It plans the work, runs it on schedule, measures every run and changes its own plan until the metric hits your target.</p>
+        <h1>One platform. <span class="dim">Agents that own the work.</span></h1>
+        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Workbench puts everyone's AI plans in one place. All of it runs on the AI plan you already pay for.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="products">
+      <div class="wrap">
+        <div class="uc-grid">{PRODUCT_CARDS}</div>
+        <p class="muted center-row">For enterprise, coming soon: the <a href="/enterprise/mcp-gateway/">MCP gateway</a>, one governed door to every MCP tool.</p>
       </div>
     </section>
 
@@ -45,17 +58,6 @@ body=f'''  <main id="main">
       </div>
     </section>
 
-    <section class="section-tight">
-      <div class="wrap">
-        <ol class="loop reveal">
-          <li><h2>Set the goal</h2><p>An outcome in plain words, the metric that proves it, and the target.</p></li>
-          <li><h2>Run</h2><p>Agents plan the steps, connect your tools and run on schedule.</p></li>
-          <li><h2>Measure</h2><p>Every run records what it did and what it moved.</p></li>
-          <li><h2>Auto-improve</h2><p>It fixes what broke, drops what didn't work and tries what's next.</p></li>
-        </ol>
-      </div>
-    </section>
-
     <section class="section" id="layers">
       <div class="wrap">
         <div class="section-head center reveal">
@@ -63,121 +65,14 @@ body=f'''  <main id="main">
           <h2>Three layers, <span class="dim">built to run for months.</span></h2>
         </div>
         <ol class="layer-stack reveal" aria-label="The three layers">
-          <li><a href="#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>Pipelines of deterministic and agentic steps, learnings and a knowledge base, measured against a goal</small></a></li>
-          <li><a href="#crew"><span>2</span><b>Crews</b><small>An agent with skills, memory, a browser, Slack and WhatsApp, triggers, and calls to other crews</small></a></li>
+          <li><a href="/goals/#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>Pipelines of deterministic and agentic steps, learnings and a knowledge base, measured against a goal</small></a></li>
+          <li><a href="/crews/#crew"><span>2</span><b>Crews</b><small>An agent with skills, memory, a browser, Slack and WhatsApp, triggers, and calls to other crews</small></a></li>
           <li><a href="#engine-agent"><span>1</span><b>Agents</b><small>Vendor-native Claude Code, Codex, Cursor, Pi and Muse in live terminals, with your MCP tools, inside a sandbox</small></a></li>
         </ol>
       </div>
     </section>
 
-    <section class="section" id="goals">
-      <div class="wrap">
-        <div class="feature">
-          <div class="reveal">
-            <p class="kicker">Goals</p>
-            <h2>Say what you want. <span class="dim">Pick the number that proves it.</span></h2>
-            <p class="lede">A goal is the outcome, a primary metric with a target, a few supporting metrics, and the rules that must stay true while the agent works. Describe it in chat and AgentWorks sets it up with you.</p>
-            <ul class="points">
-              <li><span><b>One primary metric.</b> The number that decides whether the goal is met.</span></li>
-              <li><span><b>Supporting metrics.</b> The signals that explain why it moved, like reply time or open rate.</span></li>
-              <li><span><b>What must stay true.</b> Guardrails the agent can't trade away, like "never email the same person twice a day".</span></li>
-            </ul>
-          </div>
-          <div class="goal-spec reveal" aria-label="Example goal">
-            <p class="goal-spec-label">What we're working toward</p>
-            <p class="goal-spec-title">Turn more inbound signups into booked demos.</p>
-            <div class="goal-spec-metric">
-              <div><small>Primary metric</small><b>Demos booked per week</b></div>
-              <div class="goal-spec-num"><strong>6</strong><span>target 5</span></div>
-            </div>
-            <div class="bar"><i class="w-100"></i></div>
-            <div class="spec-list">
-              <p><small>Supporting</small>First reply time · Reply rate · Show-up rate</p>
-              <p><small>Must stay true</small>Max 2 emails per person a week · Never promise pricing</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="measure">
-      <div class="wrap">
-        <div class="feature flip">
-          <div class="reveal">
-            <p class="kicker">Measure</p>
-            <h2>Progress, not activity. <span class="dim">And never a made-up number.</span></h2>
-            <p class="lede">Every run leaves evidence: what it did, what it cost, and what the metric did next. If a number is missing or out of date, the goal says so instead of guessing.</p>
-            <ul class="points">
-              <li><span><b>Trend, not a snapshot.</b> Every measurement is dated, so you see the direction.</span></li>
-              <li><span><b>Stale data flagged.</b> "Measurement stale" beats a confident wrong number.</span></li>
-              <li><span><b>Cost per goal.</b> What each goal costs to run, per run and per model.</span></li>
-            </ul>
-          </div>
-          <div class="explainer reveal" aria-hidden="true">
-            <p class="explainer-title"><span>Goals</span><span>3 active</span></p>
-            <div class="goal-card"><p class="goal-top"><span class="tag tag-ok">Target met</span><span>target 5</span></p><p class="goal-name">Demos booked per week</p><p class="goal-nums"><strong>6</strong><span>from 1</span></p><div class="bar"><i class="w-100"></i></div></div>
-            <div class="goal-card"><p class="goal-top"><span class="tag tag-goal">Tracking</span><span>target under 5%</span></p><p class="goal-name">Overdue invoices</p><p class="goal-nums"><strong>8.9%</strong><span>from 14%</span></p><div class="bar"><i class="w-62"></i></div></div>
-            <div class="goal-card"><p class="goal-top"><span class="tag">Measurement stale</span><span>last seen 3 days ago</span></p><p class="goal-name">Organic clicks per week</p><p class="goal-nums"><strong>—</strong><span>asking you for access</span></p><div class="bar"><i class="w-0"></i></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="improve">
-      <div class="wrap">
-        <div class="feature">
-          <div class="reveal">
-            <p class="kicker">Auto-improve</p>
-            <h2>It finds what would move the goal. <span class="dim">Then it does it.</span></h2>
-            <p class="lede">After runs, AgentWorks reviews the evidence against your goal. It repairs broken steps, drops ideas that didn't work, does the work nobody was doing, and comes back later to check whether it helped.</p>
-            <ul class="points">
-              <li><span><b>Fixes.</b> A step failed or a login expired: it repairs it and re-runs.</span></li>
-              <li><span><b>Did for you.</b> Each change says what it should move and when it will check.</span></li>
-              <li><span><b>Focus areas.</b> Tell it where to look first. Your goals and rules always win.</span></li>
-              <li><span><b>Challenges your rules.</b> If a rule is costing the goal, it asks. The rule stays until you answer.</span></li>
-            </ul>
-          </div>
-          <div class="explainer reveal" aria-hidden="true">
-            <p class="explainer-title"><span>Did for you</span><span>Demo bookings · this week</span></p>
-            <div class="did"><p><b>Replies were going out 6 hours late.</b> Now answers new signups within 10 minutes.</p><p class="did-meta"><span class="tag tag-goal">Should move: demos booked</span><span class="tag">Check in 7 days</span></p></div>
-            <div class="did"><p><b>The third follow-up never got a reply.</b> 40 sent, 0 answers, so it was dropped.</p><p class="did-meta"><span class="tag">Dropped</span></p></div>
-            <div class="did"><p><b>Is the 2-emails-a-week limit costing bookings?</b> Half the no-shows asked for a reminder.</p><p class="did-meta"><span class="tag tag-wait">Needs your answer</span></p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="autonomy">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Autonomy</p>
-          <h2>You decide how far it goes. <span class="dim">Turn it up as you trust it.</span></h2>
-          <p class="lede">Set it per goal. Anything that reaches a customer can always require your approval, whatever the level.</p>
-        </div>
-        <ol class="pilot four">
-          {autonomy_levels()}
-        </ol>
-      </div>
-    </section>
-
-{_LAYERS}
-    <section class="section" id="more">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">More ways to use it</p>
-          <h2>Beyond one team's goals. <span class="dim">Agents for the whole company.</span></h2>
-          <p class="lede">The same engine gives every team Workbench for shared AI plans, Expert Crews that anyone can ask, and Relays you can run from any system.</p>
-        </div>
-        <div class="uc-grid">
-          <a class="uc-link" href="/enterprise/expert-crews/"><b>Expert Crews</b><span>Teams build a DevOps, database or product expert as a Crew and share it. Engineers ask it from Claude Code, Codex, Cursor or ChatGPT through MCP or the CLI.</span></a>
-          <a class="uc-link" href="/enterprise/workbench/"><b>Workbench</b><span>Put the team's Claude, ChatGPT and Cursor plans on one server as shared or private accounts, and see usage and cost by person, Crew and model.</span></a>
-          <a class="uc-link" href="/relays/"><b>Relays <span class="tag tag-soon">Soon</span></b><span>Chain agent steps, conditions and scripts into one fixed sequence, and call it from your website, CRM or any system through an API or webhook.</span></a>
-          <a class="uc-link" href="/enterprise/mcp-gateway/"><b>MCP gateway <span class="tag tag-soon">Soon</span></b><span>One governed door to every MCP tool: grants per group and tool, tool approval, PII masking and a full audit log.</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="stack">
+{LAYER["engine"]}{LAYER["byo"]}    <section class="section" id="stack">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">Under the hood</p>
@@ -201,15 +96,15 @@ body=f'''  <main id="main">
           <h2 class="h2">How it works, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
-          {faq(FAQ_PRODUCT)}
+          {faq(FAQ_OVERVIEW)}
         </div>
       </div>
     </section>
 
     <section class="cta">
       <div class="wrap">
-        <h2>Pick one goal. <span class="dim">Watch the number move.</span></h2>
-        <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
+        <h2>Start with one goal or one expert. <span class="dim">We'll set it up with you.</span></h2>
+        <p>Start from a premade agent or describe your own. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{INSTALL}" target="_blank" rel="noreferrer">Download free app</a>
@@ -220,7 +115,7 @@ body=f'''  <main id="main">
 '''
 DEMO_VIDEO_LD={"@type":"VideoObject","name":"AgentWorks in 60 seconds: an agent that books more sales demos","description":"Give an AI agent a goal and a metric. AgentWorks plans the work, asks before anything reaches a customer, measures every run, keeps what works and keeps going until it hits the target. Illustrative data.","thumbnailUrl":"https://agentworkshq.com/assets/video/agentworks-demo-poster.jpg","contentUrl":"https://agentworkshq.com/assets/video/agentworks-demo.mp4","uploadDate":"2026-09-27","duration":"PT1M1S","transcript":"With AgentWorks, you give an agent a goal and a number, and it keeps working until it hits it. Here, the goal is simple: book more sales demos. The metric is demos booked per week. The target is five. AgentWorks turns that into a plan. Pull new signups, research each company, write a personal first email, and follow up with the ones who go quiet. Anything that reaches a customer can wait for you. A key account? It asks first. Approve it, change it, or skip it. After every run, it measures what moved. It keeps what works, and drops what doesn't. Replies went from six hours to ten minutes. The follow-up nobody answered is gone. Six weeks in, it's booking six demos a week. Target met. AgentWorks. Give an agent a goal, and watch the number move."}
 PROD_LD={"@type":"WebPage","name":"AgentWorks Product","url":"https://agentworkshq.com/product/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['product/index.html']=head('AgentWorks Product - Goals, Auto-improve and Crew','AI automation that measures itself: give an agent a goal and a metric, and it runs the work, tracks every run and improves its plan until it hits the target.','/product/',og='agentworks-product-og.jpg',extra_ld=ld(PROD_LD,BC('Product','/product/'),faq_ld(FAQ_PRODUCT),DEMO_VIDEO_LD))+header('product')+body+footer()
+pages['product/index.html']=head('AgentWorks Product - Goals, Crews, Workbench and Relays','One platform for AI agents that own the work: Goals that chase a number, Crews your team can ask, Workbench for shared AI plans, and Relays, all on the AI plan you already pay for.','/product/',og='agentworks-product-og.jpg',extra_ld=ld(PROD_LD,BC('Product','/product/'),faq_ld(FAQ_OVERVIEW),DEMO_VIDEO_LD))+header('product')+body+footer()
 
 nf_body=f'''  <main id="main">
     <section class="page-hero notfound">

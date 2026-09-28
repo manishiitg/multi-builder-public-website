@@ -37,8 +37,9 @@ const requiredFiles = [
   'enterprise/security-testing/index.html',
   'enterprise/cloud-cost/index.html',
   'enterprise/growth-analytics/index.html',
-  'enterprise/workbench/index.html',
-  'enterprise/expert-crews/index.html',
+  'goals/index.html',
+  'crews/index.html',
+  'workbench/index.html',
   'enterprise/mcp-gateway/index.html',
   'relays/index.html',
   '_headers',
@@ -88,7 +89,7 @@ const pageExpectations = [
     file: 'index.html',
     route: '/index.html',
     title: 'AgentWorks - AI Agents That Hit Your Goals, and Experts Your Team Can Ask',
-    h1: 'AI agents that hit your goals. And experts your whole team can ask.',
+    h1: 'AI agents that own the work.',
     canonical: 'https://agentworkshq.com/',
     ogImage: 'assets/og/agentworks-home-og.jpg',
     allowTallSections: true
@@ -147,9 +148,29 @@ const pageExpectations = [
     name: 'product',
     file: 'product/index.html',
     route: '/product/',
-    title: 'AgentWorks Product - Goals, Auto-improve and Crew',
-    h1: "One goal. One metric. An agent that doesn't stop at done.",
+    title: 'AgentWorks Product - Goals, Crews, Workbench and Relays',
+    h1: 'One platform. Agents that own the work.',
     canonical: 'https://agentworkshq.com/product/',
+    ogImage: 'assets/og/agentworks-product-og.jpg',
+    allowTallSections: true
+  },
+  {
+    name: 'goals',
+    file: 'goals/index.html',
+    route: '/goals/',
+    title: 'AgentWorks Goals - AI Agents That Work Until They Hit Your Number',
+    h1: "One goal. One metric. An agent that doesn't stop at done.",
+    canonical: 'https://agentworkshq.com/goals/',
+    ogImage: 'assets/og/agentworks-product-og.jpg',
+    allowTallSections: true
+  },
+  {
+    name: 'crews',
+    file: 'crews/index.html',
+    route: '/crews/',
+    title: 'AgentWorks Crews - Build an Expert AI Agent Once, Share It With Your Team',
+    h1: 'Build an expert once. Your whole team can ask it.',
+    canonical: 'https://agentworkshq.com/crews/',
     ogImage: 'assets/og/agentworks-product-og.jpg',
     allowTallSections: true
   },
@@ -401,7 +422,7 @@ function assertDeployPayload() {
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/', '/docs/developers/', '/docs/guides/first-goal/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+  for (const route of ['/', '/product/', '/goals/', '/crews/', '/workbench/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/', '/docs/developers/', '/docs/guides/first-goal/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
   for (const route of ['/docs/workflow/evaluation_system/', '/docs/workflow/pulse_consolidation/', '/docs/workflow/org_dashboard_design/']) {

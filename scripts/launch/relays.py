@@ -62,8 +62,8 @@ body=f'''  <main id="main">
         </div>
         <ul class="control">
           <li class="reveal"><h3>Relays <span class="tag tag-soon">Soon</span></h3><p>A fixed chain you call from outside. Same steps every time, predictable cost, an answer back in seconds or minutes.</p></li>
-          <li class="reveal"><h3><a href="/product/#goals">Workflows with a goal</a></h3><p>Own an outcome like "5 demos a week". Plan, run on schedule, measure and improve the plan until the number moves.</p></li>
-          <li class="reveal"><h3><a href="/product/#crew">Crew</a></h3><p>Always-on teammates you talk to in chat, Slack or WhatsApp, with memory, skills and their own tools.</p></li>
+          <li class="reveal"><h3><a href="/goals/">Workflows with a goal</a></h3><p>Own an outcome like "5 demos a week". Plan, run on schedule, measure and improve the plan until the number moves.</p></li>
+          <li class="reveal"><h3><a href="/crews/">Crew</a></h3><p>Always-on teammates you talk to in chat, Slack or WhatsApp, with memory, skills and their own tools.</p></li>
         </ul>
       </div>
     </section>

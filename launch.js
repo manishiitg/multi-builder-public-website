@@ -74,6 +74,22 @@
     heroVideo.pause();
   }
 
+  // Hero jobs: play the two example cards once; the counter follows the bars.
+  var jobs = document.querySelector('[data-jobs]');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (jobs && !reduce) {
+    jobs.classList.add('anim');
+    var num = jobs.querySelector('[data-count-to]');
+    var steps = [1, 2, 3, 3, 4, 6];
+    if (num) num.textContent = '0';
+    requestAnimationFrame(function () {
+      jobs.classList.add('play');
+      steps.forEach(function (n, i) {
+        setTimeout(function () { if (num) num.textContent = String(n); }, 500 + i * 400);
+      });
+    });
+  }
+
   // Reveal on scroll.
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {

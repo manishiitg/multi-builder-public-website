@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AgentWorks for Release Quality - AI QA and Self-Healing Tests</title>
-  <meta name="description" content="AI agents that test critical user journeys, repair broken browser tests and gate every release with an auditable pass, fail or needs-review decision.">
+  <title>AgentWorks Goals - AI Agents That Work Until They Hit Your Number</title>
+  <meta name="description" content="Give an AI agent a goal and a metric. AgentWorks plans the work, runs it on schedule, measures every run and improves its own plan until the number hits your target.">
   <meta name="theme-color" content="#fbfbf9">
   <meta name="color-scheme" content="light">
   <meta name="application-name" content="AgentWorks">
-  <meta property="og:title" content="AgentWorks for Release Quality - AI QA and Self-Healing Tests">
-  <meta property="og:description" content="AI agents that test critical user journeys, repair broken browser tests and gate every release with an auditable pass, fail or needs-review decision.">
-  <meta property="og:url" content="https://agentworkshq.com/enterprise/release-quality/">
+  <meta property="og:title" content="AgentWorks Goals - AI Agents That Work Until They Hit Your Number">
+  <meta property="og:description" content="Give an AI agent a goal and a metric. AgentWorks plans the work, runs it on schedule, measures every run and improves its own plan until the number hits your target.">
+  <meta property="og:url" content="https://agentworkshq.com/goals/">
   <meta property="og:site_name" content="AgentWorks">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://agentworkshq.com/assets/og/agentworks-enterprise-og.jpg">
+  <meta property="og:image" content="https://agentworkshq.com/assets/og/agentworks-product-og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AgentWorks for Release Quality - AI QA and Self-Healing Tests">
-  <meta name="twitter:description" content="AI agents that test critical user journeys, repair broken browser tests and gate every release with an auditable pass, fail or needs-review decision.">
-  <meta name="twitter:image" content="https://agentworkshq.com/assets/og/agentworks-enterprise-og.jpg">
+  <meta name="twitter:title" content="AgentWorks Goals - AI Agents That Work Until They Hit Your Number">
+  <meta name="twitter:description" content="Give an AI agent a goal and a metric. AgentWorks plans the work, runs it on schedule, measures every run and improves its own plan until the number hits your target.">
+  <meta name="twitter:image" content="https://agentworkshq.com/assets/og/agentworks-product-og.jpg">
   <meta name="twitter:creator" content="@manish_iitg">
-  <link rel="canonical" href="https://agentworkshq.com/enterprise/release-quality/">
+  <link rel="canonical" href="https://agentworkshq.com/goals/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="/assets/brand/agentworks-logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
@@ -39,8 +39,8 @@
   "@graph": [
     {
       "@type": "WebPage",
-      "name": "AgentWorks for Release Quality - AI QA and Self-Healing Tests",
-      "url": "https://agentworkshq.com/enterprise/release-quality/",
+      "name": "AgentWorks Goals",
+      "url": "https://agentworkshq.com/goals/",
       "isPartOf": {
         "@id": "https://agentworkshq.com/#website"
       }
@@ -57,14 +57,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Enterprise",
-          "item": "https://agentworkshq.com/enterprise/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Release quality",
-          "item": "https://agentworkshq.com/enterprise/release-quality/"
+          "name": "Goals",
+          "item": "https://agentworkshq.com/goals/"
         }
       ]
     },
@@ -73,29 +67,63 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Does it replace our test framework?",
+          "name": "What makes a good goal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Agents write and run Playwright tests in your repository and keep them as normal code your team can read and change."
+            "text": "One outcome you care about and one number that proves it, with a target. \"Book 5 demos a week\" works. \"Do more marketing\" doesn't, because nothing can tell whether it happened."
           }
         },
         {
           "@type": "Question",
-          "name": "Can it change tests without review?",
+          "name": "What if the metric can't be measured automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only test-only repairs are proposed, and they wait for review by default. Production code is never touched by the QA agents."
+            "text": "AgentWorks says so. A missing or stale measurement is flagged on the goal instead of guessed, and the agent asks you how to get the number."
           }
         },
         {
           "@type": "Question",
-          "name": "What if a failure is a real bug?",
+          "name": "Can it change my workflow without asking?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It becomes a finding with video, logs and steps to reproduce, and the release gate reports it as a fail."
+            "text": "Only if you let it. At the default autonomy level it runs steps on its own and asks before posting, sending or editing the workflow. You can move it up or down at any time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use it from ChatGPT or Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. AgentWorks includes an MCP server. Connect it to ChatGPT, Claude, Cowork or any MCP client to check goals, read reports and start runs from that chat. Hosted AI apps connect to your AgentWorks server with a sign-in link."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work with the tools I already use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Agents use MCP servers, APIs and their own browser, so anything you can do in a web app, they can do too, with credentials kept in the vault."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between a Goal and a Crew?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Goal owns an outcome and keeps working on its own schedule. A Crew is an expert you or your team ask for help, in Slack, WhatsApp or from Claude and ChatGPT. Goals can hand steps to Crews."
           }
         }
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "name": "AgentWorks in 60 seconds: an agent that books more sales demos",
+      "description": "Give an AI agent a goal and a metric. AgentWorks plans the work, asks before anything reaches a customer, measures every run, keeps what works and keeps going until it hits the target. Illustrative data.",
+      "thumbnailUrl": "https://agentworkshq.com/assets/video/agentworks-demo-poster.jpg",
+      "contentUrl": "https://agentworkshq.com/assets/video/agentworks-demo.mp4",
+      "uploadDate": "2026-09-27",
+      "duration": "PT1M1S",
+      "transcript": "With AgentWorks, you give an agent a goal and a number, and it keeps working until it hits it. Here, the goal is simple: book more sales demos. The metric is demos booked per week. The target is five. AgentWorks turns that into a plan. Pull new signups, research each company, write a personal first email, and follow up with the ones who go quiet. Anything that reaches a customer can wait for you. A key account? It asks first. Approve it, change it, or skip it. After every run, it measures what moved. It keeps what works, and drops what doesn't. Replies went from six hours to ten minutes. The follow-up nobody answered is gone. Six weeks in, it's booking six demos a week. Target met. AgentWorks. Give an agent a goal, and watch the number move."
     }
   ]
 }
@@ -107,7 +135,7 @@
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
-        <div class="nav-drop" data-drop>
+        <div class="nav-drop is-current" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="product-menu" data-drop-btn>Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="nav-panel pm-wide" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Products</p><a class="pm-item" href="/goals/" title="Give an AI agent a goal and a metric. It works until it hits the target."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>A goal and a metric</small></span></a><a class="pm-item" href="/crews/" title="Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/workbench/" title="Your team's AI plans on one server, with usage by person."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span><span><b>Workbench</b><small>Shared AI plans, measured</small></span></a><a class="pm-item" href="/relays/" title="A fixed chain of agents you run from anywhere."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg></span><span><b>Relays <span class="tag tag-soon">Soon</span></b><small>Agent chains, run anywhere</small></span></a></div><div class="pm-col"><p class=pm-group>Built in</p><a class="pm-item" href="/goals/#improve" title="It measures every run and changes its own plan."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Auto-improve</b><small>Gets better every run</small></span></a><a class="pm-item" href="/#connectors" title="Slack, WhatsApp, Gmail and MCP, both ways."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg></span><span><b>Connectors</b><small>Slack, WhatsApp, Gmail, MCP</small></span></a><a class="pm-item" href="/enterprise/mcp-gateway/" title="One governed door to every MCP tool."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>MCP gateway <span class="tag tag-soon">Soon</span></b><small>Governed MCP access</small></span></a></div></div></div>
         </div>
@@ -115,7 +143,7 @@
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="usecase-menu" data-drop-btn>Use cases <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="nav-panel" id="usecase-menu"><a class="pm-all" href="/agents/">All premade agents <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><a class="pm-item" href="/solutions/sales/" title="Follow up every lead and book more demos."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Sales & GTM</b><small>Follow up every lead</small></span></a><a class="pm-item" href="/solutions/shopify/" title="Stuck orders, reviews and support, handled."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span><span><b>Shopify stores</b><small>Orders, returns, stock</small></span></a><a class="pm-item" href="/solutions/support/" title="Fast first replies, sensitive ones handed to you."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><span><b>Customer support</b><small>Fast, safe first replies</small></span></a><a class="pm-item" href="/solutions/finance/" title="Chase invoices, recover payments, weekly numbers."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M9 12h6M9 16h4M9 8h3"/></svg></span><span><b>Finance & billing</b><small>Invoices and payments</small></span></a><a class="pm-item" href="/solutions/marketing/" title="SEO, AI search visibility and conversion."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Marketing & growth</b><small>SEO and AI search</small></span></a><a class="pm-item" href="/enterprise/" title="QA, incidents, security and cloud cost."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Engineering teams</b><small>QA, incidents, security</small></span></a></div></div></div>
         </div>
-        <div class="nav-drop is-current" data-drop>
+        <div class="nav-drop" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="enterprise-menu" data-drop-btn>Enterprise <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="nav-panel pm-wide" id="enterprise-menu"><a class="pm-all" href="/enterprise/">Enterprise overview <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Engineering goals</p><a class="pm-item" href="/enterprise/release-quality/" title="AI QA that writes, runs and repairs your browser tests."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span><b>Release quality</b><small>AI QA for every release</small></span></a><a class="pm-item" href="/enterprise/incident-response/" title="First RCA before the war room fills up."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg></span><span><b>Incident response</b><small>First RCA in minutes</small></span></a><a class="pm-item" href="/enterprise/security-testing/" title="Authorized AppSec and permission testing, driven to closure."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><span><b>Security testing</b><small>AppSec to verified fix</small></span></a><a class="pm-item" href="/enterprise/cloud-cost/" title="Find cost anomalies and prove the savings."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/></svg></span><span><b>Cloud cost</b><small>Anomalies to savings</small></span></a><a class="pm-item" href="/enterprise/growth-analytics/" title="An AI growth analyst for funnels, retention and search."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Growth analytics</b><small>Funnels, retention, SEO</small></span></a></div><div class="pm-col"><p class=pm-group>AI platform for teams</p><a class="pm-item" href="/workbench/" title="Your team's Claude, ChatGPT and Cursor plans, shared and measured."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span><span><b>Workbench</b><small>Shared AI plans, measured</small></span></a><a class="pm-item" href="/crews/" title="Build a DevOps or product expert once; every engineer asks it from their own CLI."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/></svg></span><span><b>Expert Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/enterprise/mcp-gateway/" title="One governed door to every MCP tool your company uses."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>MCP gateway <span class="tag tag-soon">Soon</span></b><small>Governed MCP access</small></span></a></div></div></div>
         </div>
@@ -163,68 +191,192 @@
     </div>
   </header>
   <main id="main">
-    <section class="page-hero left">
+    <section class="page-hero">
       <div class="wrap">
-        <p class="kicker">Enterprise · Release quality</p>
-        <h1>No release ships without a QA decision. <span class="dim">AI agents own the tests.</span></h1>
-        <p class="lede">Your team ships faster with AI, so QA is now the bottleneck. AgentWorks agents run your critical journeys on every change, repair tests that broke for the wrong reasons, and publish a decision you can audit.</p>
+        <p class="kicker">Goals</p>
+        <h1>One goal. One metric. <span class="dim">An agent that doesn't stop at done.</span></h1>
+        <p class="lede">Most AI automation finishes a task and waits for the next prompt. AgentWorks gives an agent an outcome to own. It plans the work, runs it on schedule, measures every run and changes its own plan until the metric hits your target.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="#playbooks">See the playbooks</a>
+          <a class="btn btn-amber" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
+          <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="demo">
+      <div class="wrap">
+        <figure class="demo-video reveal">
+          <video controls preload="none" playsinline width="1920" height="1080" poster="/assets/video/agentworks-demo-poster.jpg" aria-label="AgentWorks 60-second demo: an agent working toward the goal of booking more sales demos">
+            <source src="/assets/video/agentworks-demo.mp4" type="video/mp4" />
+          </video>
+          <figcaption>60-second demo: an agent with the goal "Book more sales demos". Illustrative data.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section-tight">
-      <div class="wrap split">
-        <ul class="pain"><li class="reveal"><span class="num">01</span><div><b>Tests break for the wrong reasons</b><span>Selectors change, flaky timing, test data drift. The team starts ignoring red builds.</span></div></li><li class="reveal"><span class="num">02</span><div><b>Critical journeys aren&#x27;t covered</b><span>Signup, checkout, permissions: the flows that hurt most are tested least.</span></div></li><li class="reveal"><span class="num">03</span><div><b>Nobody can say why a release shipped</b><span>There is no record of which suites ran against which build.</span></div></li></ul>
-        <div class="goal-spec reveal" aria-label="Example goal">
-          <p class="goal-spec-label">Example goal</p>
-          <p class="goal-spec-title">Every release has a recorded QA decision</p>
-          <div class="goal-spec-metric">
-            <div><small>Primary metric</small><b>Releases gated</b></div>
-            <div class="goal-spec-num"><strong>100%</strong></div>
+      <div class="wrap">
+        <ol class="loop reveal">
+          <li><h2>Set the goal</h2><p>An outcome in plain words, the metric that proves it, and the target.</p></li>
+          <li><h2>Run</h2><p>Agents plan the steps, connect your tools and run on schedule.</p></li>
+          <li><h2>Measure</h2><p>Every run records what it did and what it moved.</p></li>
+          <li><h2>Auto-improve</h2><p>It fixes what broke, drops what didn't work and tries what's next.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="layers">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="kicker">Under the hood</p>
+          <h2>Three layers, <span class="dim">built to run for months.</span></h2>
+        </div>
+        <ol class="layer-stack reveal" aria-label="The three layers">
+          <li><a href="#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>Pipelines of deterministic and agentic steps, learnings and a knowledge base, measured against a goal</small></a></li>
+          <li><a href="#crew"><span>2</span><b>Crews</b><small>An agent with skills, memory, a browser, Slack and WhatsApp, triggers, and calls to other crews</small></a></li>
+          <li><a href="#engine-agent"><span>1</span><b>Agents</b><small>Vendor-native Claude Code, Codex, Cursor, Pi and Muse in live terminals, with your MCP tools, inside a sandbox</small></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="goals">
+      <div class="wrap">
+        <div class="feature">
+          <div class="reveal">
+            <p class="kicker">Goals</p>
+            <h2>Say what you want. <span class="dim">Pick the number that proves it.</span></h2>
+            <p class="lede">A goal is the outcome, a primary metric with a target, a few supporting metrics, and the rules that must stay true while the agent works. Describe it in chat and AgentWorks sets it up with you.</p>
+            <ul class="points">
+              <li><span><b>One primary metric.</b> The number that decides whether the goal is met.</span></li>
+              <li><span><b>Supporting metrics.</b> The signals that explain why it moved, like reply time or open rate.</span></li>
+              <li><span><b>What must stay true.</b> Guardrails the agent can't trade away, like "never email the same person twice a day".</span></li>
+            </ul>
           </div>
-          <p class="muted">of releases, target 100%. Illustrative numbers.</p>
+          <div class="goal-spec reveal" aria-label="Example goal">
+            <p class="goal-spec-label">What we're working toward</p>
+            <p class="goal-spec-title">Turn more inbound signups into booked demos.</p>
+            <div class="goal-spec-metric">
+              <div><small>Primary metric</small><b>Demos booked per week</b></div>
+              <div class="goal-spec-num"><strong>6</strong><span>target 5</span></div>
+            </div>
+            <div class="bar"><i class="w-100"></i></div>
+            <div class="spec-list">
+              <p><small>Supporting</small>First reply time · Reply rate · Show-up rate</p>
+              <p><small>Must stay true</small>Max 2 emails per person a week · Never promise pricing</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="measure">
+      <div class="wrap">
+        <div class="feature flip">
+          <div class="reveal">
+            <p class="kicker">Measure</p>
+            <h2>Progress, not activity. <span class="dim">And never a made-up number.</span></h2>
+            <p class="lede">Every run leaves evidence: what it did, what it cost, and what the metric did next. If a number is missing or out of date, the goal says so instead of guessing.</p>
+            <ul class="points">
+              <li><span><b>Trend, not a snapshot.</b> Every measurement is dated, so you see the direction.</span></li>
+              <li><span><b>Stale data flagged.</b> "Measurement stale" beats a confident wrong number.</span></li>
+              <li><span><b>Cost per goal.</b> What each goal costs to run, per run and per model.</span></li>
+            </ul>
+          </div>
+          <div class="explainer reveal" aria-hidden="true">
+            <p class="explainer-title"><span>Goals</span><span>3 active</span></p>
+            <div class="goal-card"><p class="goal-top"><span class="tag tag-ok">Target met</span><span>target 5</span></p><p class="goal-name">Demos booked per week</p><p class="goal-nums"><strong>6</strong><span>from 1</span></p><div class="bar"><i class="w-100"></i></div></div>
+            <div class="goal-card"><p class="goal-top"><span class="tag tag-goal">Tracking</span><span>target under 5%</span></p><p class="goal-name">Overdue invoices</p><p class="goal-nums"><strong>8.9%</strong><span>from 14%</span></p><div class="bar"><i class="w-62"></i></div></div>
+            <div class="goal-card"><p class="goal-top"><span class="tag">Measurement stale</span><span>last seen 3 days ago</span></p><p class="goal-name">Organic clicks per week</p><p class="goal-nums"><strong>—</strong><span>asking you for access</span></p><div class="bar"><i class="w-0"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="improve">
+      <div class="wrap">
+        <div class="feature">
+          <div class="reveal">
+            <p class="kicker">Auto-improve</p>
+            <h2>It finds what would move the goal. <span class="dim">Then it does it.</span></h2>
+            <p class="lede">After runs, AgentWorks reviews the evidence against your goal. It repairs broken steps, drops ideas that didn't work, does the work nobody was doing, and comes back later to check whether it helped.</p>
+            <ul class="points">
+              <li><span><b>Fixes.</b> A step failed or a login expired: it repairs it and re-runs.</span></li>
+              <li><span><b>Did for you.</b> Each change says what it should move and when it will check.</span></li>
+              <li><span><b>Focus areas.</b> Tell it where to look first. Your goals and rules always win.</span></li>
+              <li><span><b>Challenges your rules.</b> If a rule is costing the goal, it asks. The rule stays until you answer.</span></li>
+            </ul>
+          </div>
+          <div class="explainer reveal" aria-hidden="true">
+            <p class="explainer-title"><span>Did for you</span><span>Demo bookings · this week</span></p>
+            <div class="did"><p><b>Replies were going out 6 hours late.</b> Now answers new signups within 10 minutes.</p><p class="did-meta"><span class="tag tag-goal">Should move: demos booked</span><span class="tag">Check in 7 days</span></p></div>
+            <div class="did"><p><b>The third follow-up never got a reply.</b> 40 sent, 0 answers, so it was dropped.</p><p class="did-meta"><span class="tag">Dropped</span></p></div>
+            <div class="did"><p><b>Is the 2-emails-a-week limit costing bookings?</b> Half the no-shows asked for a reminder.</p><p class="did-meta"><span class="tag tag-wait">Needs your answer</span></p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="autonomy">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">How it works</p>
-          <h2>Agents own the goal. <span class="dim">You own the approvals.</span></h2>
+          <p class="kicker">Autonomy</p>
+          <h2>You decide how far it goes. <span class="dim">Turn it up as you trust it.</span></h2>
+          <p class="lede">Set it per goal. Anything that reaches a customer can always require your approval, whatever the level.</p>
         </div>
-        <ol class="loop reveal"><li><h3>Map the journeys</h3><p>Agents set up the browser once, save verified locators, and turn your critical journeys into tests.</p></li><li><h3>Gate every change</h3><p>Each PR or build is bound to the suites it needs, with video, console and network evidence kept per attempt.</p></li><li><h3>Repair, don&#x27;t ignore</h3><p>When a test fails, agents classify the cause. Test-only breakages get a reviewed repair; real bugs become findings.</p></li><li><h3>Decide and record</h3><p>A pass, fail or needs-review decision is published with links to every run behind it.</p></li></ol>
+        <ol class="pilot four">
+          <li class="reveal"><small>Level 1</small><h3>Ask first</h3><p>Proposes every step and waits for your yes. Good for week one.</p></li>
+          <li class="reveal"><small>Level 2</small><h3>Run steps</h3><p>Runs the workflow on its own. Asks before anything goes out or the workflow changes.</p></li>
+          <li class="reveal"><small>Level 3</small><h3>Edit workflow</h3><p>Also rewrites its own steps when the evidence says a change will move the goal.</p></li>
+          <li class="reveal"><small>Level 4</small><h3>Full</h3><p>Runs, changes and ships within the rules you set. You review the log, not each step.</p></li>
+        </ol>
       </div>
     </section>
 
-    <section class="section" id="playbooks">
-      <div class="wrap split">
-        <div class="reveal">
-          <p class="kicker">Playbooks</p>
-          <h2>Ready to install. <span class="dim">Tuned to your stack.</span></h2>
-          <p class="lede">Each playbook sets up the goal, the tools, the evidence to keep and the questions agents should ask your team. They are open source and versioned, and we tune them to your environment during the pilot.</p>
-        </div>
-        <ul class="pb-list reveal"><li>Basic Browser Setup</li><li>Critical Journey Validation</li><li>Release and PR Quality Gate</li><li>Browser Test Self-Healing</li><li>Flaky-Test Detection and Stabilization</li><li>Authentication and Session Validation</li><li>Scheduled Regression and Synthetic Monitoring</li><li>Browser Performance Validation</li></ul>
-      </div>
-    </section>
-
-    <section class="section">
+    <section class="section" id="layer-workflow">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Built for your security review</p>
-          <h2>Runs in your cloud. <span class="dim">Every action on the record.</span></h2>
+          <p class="kicker">Layer 3 · Workflows &amp; goals</p>
+          <h2>A full plan, not a prompt. <span class="dim">Code where it should be, agents where it matters.</span></h2>
+          <p class="lede">A workflow is the whole operation written down: pipelines of steps, some fixed and deterministic, some handed to an agent or a crew, all measured against one goal. Each run adds to what it knows.</p>
         </div>
-        <ul class="control">
-          <li class="reveal"><h3>Self-hosted</h3><p>Deployed in your cloud account or data center. Evidence stays in your environment.</p></li>
-          <li class="reveal"><h3>Approvals</h3><p>Anything that changes production or reaches people waits for approval by default.</p></li>
-          <li class="reveal"><h3>Audit trail</h3><p>Every run, tool call, decision and cost is recorded per workflow.</p></li>
-          <li class="reveal"><h3>Your models</h3><p>Your enterprise Claude, ChatGPT or Gemini agreements, or private endpoints.</p></li>
-          <li class="reveal"><h3>Scoped access</h3><p>Tools, folders and secrets are granted per workflow, inside an OS-enforced sandbox.</p></li>
-          <li class="reveal"><h3>SSO and roles</h3><p>Sign-in through your identity provider, with roles and per-workflow access.</p></li>
+        <div class="plan reveal" aria-label="Example workflow plan">
+          <div class="plan-head"><b>Book more sales demos</b><span class="tag tag-goal">Goal: 5 demos a week</span></div>
+          <div class="pipe">
+            <p class="pipe-name">Pipeline · New signups</p>
+            <ol>
+              <li class="st det"><small>Deterministic</small><b>Pull new signups</b><em>saved script</em></li>
+              <li class="st agent"><small>Agent</small><b>Research each company</b><em>Claude Code</em></li>
+              <li class="st det"><small>Deterministic</small><b>Route by company size</b><em>rule, no model</em></li>
+              <li class="st crew"><small>Crew</small><b>Sage writes the email</b><em>crew step</em></li>
+              <li class="st human"><small>Approval</small><b>You approve the send</b><em>human step</em></li>
+            </ol>
+          </div>
+          <div class="pipe">
+            <p class="pipe-name">Pipeline · Follow-ups</p>
+            <ol>
+              <li class="st det"><small>Deterministic</small><b>Find quiet signups</b><em>saved script</em></li>
+              <li class="st agent"><small>Agent</small><b>Draft the check-in</b><em>Codex</em></li>
+              <li class="st det"><small>Deterministic</small><b>Log to the goal</b><em>metric update</em></li>
+            </ol>
+          </div>
+          <div class="plan-foot"><span><i class="lg det"></i>Deterministic</span><span><i class="lg agent"></i>Agent</span><span><i class="lg crew"></i>Crew</span><span><i class="lg human"></i>Human approval</span></div>
+        </div>
+        <ul class="control engine-points">
+          <li class="reveal"><h3>Deterministic where it should be</h3><p>Routing is plain code that reads a file, never a model guessing. Steps that repeat can save a script that runs first next time, so a solved problem stays solved and costs nothing.</p></li>
+          <li class="reveal"><h3>Agentic where it matters</h3><p>Research, judgment and writing go to an agent step or to a crew, with the right model for each step and a human approval wherever you want one.</p></li>
+          <li class="reveal"><h3>Learnings &amp; knowledge base</h3><p>Every run writes what it learned into a shared skill, and each workflow keeps a knowledge base that other workflows can read. Run fifty knows what run one had to discover.</p></li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Start from a playbook</p>
+          <h2>64 Goal playbooks, <span class="dim">ready to install.</span></h2>
+          <p class="lede">Sales follow-up, invoice chasing, support replies, SEO, store operations and more. Each sets up the goal, the metric, the tools and the approvals, and you tune it to your business.</p>
+        </div>
+        <p class="center-row"><a class="btn btn-ghost" href="/agents/">Browse Goal playbooks</a></p>
       </div>
     </section>
 
@@ -232,30 +384,26 @@
       <div class="wrap faq-grid">
         <div class="reveal">
           <p class="kicker">FAQ</p>
-          <h2 class="h2">Questions, <span class="dim">answered.</span></h2>
+          <h2 class="h2">How it works, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
-          <details open><summary>Does it replace our test framework?</summary><p>No. Agents write and run Playwright tests in your repository and keep them as normal code your team can read and change.</p></details>
-          <details><summary>Can it change tests without review?</summary><p>Only test-only repairs are proposed, and they wait for review by default. Production code is never touched by the QA agents.</p></details>
-          <details><summary>What if a failure is a real bug?</summary><p>It becomes a finding with video, logs and steps to reproduce, and the release gate reports it as a fail.</p></details>
+          <details open><summary>What makes a good goal?</summary><p>One outcome you care about and one number that proves it, with a target. &quot;Book 5 demos a week&quot; works. &quot;Do more marketing&quot; doesn&#x27;t, because nothing can tell whether it happened.</p></details>
+          <details><summary>What if the metric can&#x27;t be measured automatically?</summary><p>AgentWorks says so. A missing or stale measurement is flagged on the goal instead of guessed, and the agent asks you how to get the number.</p></details>
+          <details><summary>Can it change my workflow without asking?</summary><p>Only if you let it. At the default autonomy level it runs steps on its own and asks before posting, sending or editing the workflow. You can move it up or down at any time.</p></details>
+          <details><summary>Can I use it from ChatGPT or Claude?</summary><p>Yes. AgentWorks includes an MCP server. Connect it to ChatGPT, Claude, Cowork or any MCP client to check goals, read reports and start runs from that chat. Hosted AI apps connect to your AgentWorks server with a sign-in link.</p></details>
+          <details><summary>Does it work with the tools I already use?</summary><p>Yes. Agents use MCP servers, APIs and their own browser, so anything you can do in a web app, they can do too, with credentials kept in the vault.</p></details>
+          <details><summary>What&#x27;s the difference between a Goal and a Crew?</summary><p>A Goal owns an outcome and keeps working on its own schedule. A Crew is an expert you or your team ask for help, in Slack, WhatsApp or from Claude and ChatGPT. Goals can hand steps to Crews.</p></details>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal"><p class="kicker">More use cases</p><h2>Other goals agents can own.</h2></div>
-        <div class="uc-grid"><a class="uc-link" href="/enterprise/incident-response/"><b>Incident response</b><span>First RCA before the war room fills up.</span></a><a class="uc-link" href="/enterprise/security-testing/"><b>Security testing</b><span>Authorized AppSec and permission testing, driven to closure.</span></a><a class="uc-link" href="/enterprise/cloud-cost/"><b>Cloud cost</b><span>Find cost anomalies and prove the savings.</span></a><a class="uc-link" href="/enterprise/growth-analytics/"><b>Growth analytics</b><span>An AI growth analyst for funnels, retention and search.</span></a><a class="uc-link" href="/workbench/"><b>Workbench</b><span>Your team&#x27;s Claude, ChatGPT and Cursor plans, shared and measured.</span></a><a class="uc-link" href="/crews/"><b>Expert Crews</b><span>Build a DevOps or product expert once; every engineer asks it from their own CLI.</span></a><a class="uc-link" href="/enterprise/mcp-gateway/"><b>MCP gateway</b><span>One governed door to every MCP tool your company uses.</span></a></div>
       </div>
     </section>
 
     <section class="cta">
       <div class="wrap">
-        <h2>Pick the goal. <span class="dim">We&#x27;ll prove it in four weeks.</span></h2>
-        <p>A scoped pilot on one goal, in your environment, with the success metric agreed up front.</p>
+        <h2>Pick one goal. <span class="dim">Watch the number move.</span></h2>
+        <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="/enterprise/">Enterprise overview</a>
+          <a class="btn btn-ghost" href="https://github.com/manishiitg/coding-agent-loop/releases/latest" target="_blank" rel="noreferrer">Download free app</a>
         </div>
       </div>
     </section>
