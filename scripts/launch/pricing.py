@@ -31,6 +31,7 @@ ROWS=[
  ("Sandboxed code execution",(Y,Y,Y)),
  ("Run logs and cost per goal",(Y,Y,Y)),
  ("Roles and per-goal sharing",(Y,Y,Y)),
+ ("Code: shared coding plans, cost and usage by person, private workspaces",(Y,Y,Y)),
  ("Workbench: shared AI plans, usage by person, Crew and model",(Y,Y,Y)),
  ("MCP gateway: governed tool access and PII controls",(N,N,"Coming soon")),
  ("SSO (SAML / OIDC) and SCIM",(N,N,Y)),

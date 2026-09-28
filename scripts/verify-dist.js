@@ -40,6 +40,7 @@ const requiredFiles = [
   'goals/index.html',
   'crews/index.html',
   'workbench/index.html',
+  'code/index.html',
   'download/index.html',
   'enterprise/mcp-gateway/index.html',
   'relays/index.html',
@@ -149,7 +150,7 @@ const pageExpectations = [
     name: 'product',
     file: 'product/index.html',
     route: '/product/',
-    title: 'AgentWorks Product - Goals, Crews, Workbench and Relays',
+    title: 'AgentWorks Product - Goals, Crews, Code, Workbench and Relays',
     h1: 'One platform. Agents that own the work.',
     canonical: 'https://agentworkshq.com/product/',
     ogImage: 'assets/og/agentworks-product-og.jpg',
@@ -423,7 +424,7 @@ function assertDeployPayload() {
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/goals/', '/crews/', '/workbench/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/', '/docs/developers/', '/docs/guides/first-goal/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+  for (const route of ['/', '/product/', '/goals/', '/crews/', '/code/', '/workbench/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/', '/docs/developers/', '/docs/guides/first-goal/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
   for (const route of ['/docs/workflow/evaluation_system/', '/docs/workflow/pulse_consolidation/', '/docs/workflow/org_dashboard_design/']) {

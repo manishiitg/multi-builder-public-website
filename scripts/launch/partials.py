@@ -56,6 +56,7 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
 NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
+         ('/code/','Code','Your team\'s coding plans in one place: shared without handing out logins, with cost and usage tracked centrally.','code'),
          ('/workbench/','Workbench','Your team\'s AI plans on one server, with usage by person.','bench'),
          ('/relays/','Relays <span class="tag tag-soon">Soon</span>','A fixed chain of agents you run from anywhere.','relay')]
 # Product menu second column: what every product shares.
@@ -67,7 +68,7 @@ PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/workbench/':'Shared AI plans, measured', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
+ '/crews/':'Experts anyone can ask', '/code/':'Shared coding plans, tracked', '/workbench/':'Shared AI plans, measured', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -83,6 +84,7 @@ _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><c
         'bench':'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
         'experts':'<circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/>',
         'gateway':'<path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/>',
+        'code':'<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>',
         'connect':'<path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/>'}
 
 def _drop(label, overview, groups, menu_id, current):
@@ -158,6 +160,7 @@ def footer():
             <li><a href="/product/">Overview</a></li>
             <li><a href="/goals/">Goals</a></li>
             <li><a href="/crews/">Crews</a></li>
+            <li><a href="/code/">Code</a></li>
             <li><a href="/workbench/">Workbench</a></li>
             <li><a href="/relays/">Relays (soon)</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>

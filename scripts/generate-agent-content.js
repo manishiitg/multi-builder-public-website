@@ -556,6 +556,7 @@ const marketingRoutes = [
   { route: '/product/', changefreq: 'monthly', priority: '0.9' },
   { route: '/goals/', changefreq: 'monthly', priority: '0.9' },
   { route: '/crews/', changefreq: 'monthly', priority: '0.9' },
+  { route: '/code/', changefreq: 'monthly', priority: '0.8' },
   { route: '/workbench/', changefreq: 'monthly', priority: '0.8' },
   { route: '/download/', changefreq: 'monthly', priority: '0.8' },
   { route: '/relays/', changefreq: 'monthly', priority: '0.6' },
