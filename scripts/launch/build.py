@@ -22,8 +22,8 @@ SOFT={"@type":"SoftwareApplication","@id":"https://agentworkshq.com/#software","
 
 pages={}
 body=open('home.body.html').read()
-pages['index.html']=head('AgentWorks - AI Agents That Hit Your Goals, and Experts Your Team Can Ask','AI agents that own a goal and a metric and keep working until they hit it, plus Expert Crews: build an expert once and everyone asks it from Claude, ChatGPT or their own tools. Open source or $99/month.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME))+footer()
-for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'relays.py', 'usecases.py', 'solutions.py', 'legal.py']:
+pages['index.html']=head('AgentWorks - AI Agents That Hit Your Goals, and Experts Your Team Can Ask','AI agents that own a goal and a metric and keep working until they hit it, plus Expert Crews: build an expert once and everyone asks it from Claude, ChatGPT or their own tools. Open source or $99/month.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME),SCRIPTED=scripted_section())+footer()
+for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'download.py', 'relays.py', 'usecases.py', 'solutions.py', 'legal.py']:
     exec(open(name).read())
 for path,content in pages.items():
     import os

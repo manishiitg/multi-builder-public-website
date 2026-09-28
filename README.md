@@ -29,7 +29,7 @@ Still intentionally pending:
 - recapture any remaining product screenshots that contain legacy app branding
 - publish the repository migration as the next evidence-backed build-in-public update
 
-The canonical source, install, and release URLs now use `https://github.com/manishiitg/coding-agent-loop`. The former GitHub URL redirects for compatibility and must not be reused as a new repository name.
+The canonical source, install, and release URLs now use `https://github.com/manishiitg/agentworks`. The former GitHub URL redirects for compatibility and must not be reused as a new repository name.
 
 Some internal website file names still use `runloop_site.js` / `runloop.css`. Treat those as implementation filenames, not public branding. Current Homepage and Product page assets use real AgentWorks-branded captures without website-added brand overlays. Older unused assets may still show Runloop and should not be restored to public routes.
 

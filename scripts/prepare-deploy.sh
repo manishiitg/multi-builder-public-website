@@ -120,6 +120,7 @@ cp -R relays dist/relays
 cp -R goals dist/goals
 cp -R crews dist/crews
 cp -R workbench dist/workbench
+cp -R download dist/download
 
 python3 scripts/render-site-footer.py
 

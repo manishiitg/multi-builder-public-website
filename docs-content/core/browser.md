@@ -21,13 +21,13 @@ The workflow manifest stores the mode under
 On macOS, install the default launcher on port `9222` with:
 
 ```bash
-curl -fsSL 'https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/scripts/install-chrome-cdp-macOS.sh' | bash
+curl -fsSL 'https://raw.githubusercontent.com/manishiitg/agentworks/main/scripts/install-chrome-cdp-macOS.sh' | bash
 ```
 
 Install another independent launcher/profile by passing a port:
 
 ```bash
-curl -fsSL 'https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/scripts/install-chrome-cdp-macOS.sh' | bash -s -- --port 9333
+curl -fsSL 'https://raw.githubusercontent.com/manishiitg/agentworks/main/scripts/install-chrome-cdp-macOS.sh' | bash -s -- --port 9333
 ```
 
 Each CDP profile must use its own port and `--user-data-dir`. The usual port is

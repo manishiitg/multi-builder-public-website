@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch39">
+  <link rel="stylesheet" href="/launch.css?v=launch40">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,7 +44,7 @@
       "url": "https://agentworkshq.com/",
       "logo": "https://agentworkshq.com/assets/brand/agentworks-logo.svg",
       "sameAs": [
-        "https://github.com/manishiitg/coding-agent-loop",
+        "https://github.com/manishiitg/agentworks",
         "https://x.com/manish_iitg",
         "https://in.linkedin.com/in/manishiitg"
       ]
@@ -63,7 +63,7 @@
       "operatingSystem": "Web, macOS, Linux",
       "description": "AI teammates that own a goal: Crew teammates you message in Slack or WhatsApp, and Goals that run, measure and improve until they hit a target.",
       "url": "https://agentworkshq.com/",
-      "codeRepository": "https://github.com/manishiitg/coding-agent-loop",
+      "codeRepository": "https://github.com/manishiitg/agentworks",
       "offers": [
         {
           "@type": "Offer",
@@ -89,6 +89,14 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does every step use AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Work that should run the same way every time, like pulling data, calling an API or applying a change, runs as a scripted step: plain code with no AI, whose output is checked before the workflow moves on. Agents take the steps that need judgment, and rules like \"over $200 needs approval\" are decided in code."
+          }
+        },
         {
           "@type": "Question",
           "name": "Do I need to know how to code?",
@@ -165,7 +173,7 @@
         <a href="/docs/">Docs</a>
       </nav>
       <div class="header-actions">
-        <a class="link" href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="link" href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn btn-primary btn-sm" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
@@ -200,7 +208,7 @@
       <a class="sub" href="/enterprise/mcp-gateway/">MCP gateway <span class="tag tag-soon">Soon</span></a>
       <a href="/pricing/">Pricing</a>
       <a href="/docs/">Docs</a>
-      <a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">GitHub</a>
       <a class="btn btn-primary" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
     </div>
   </header>
@@ -213,7 +221,7 @@
         <p class="lede">From a target to hit, to the expert your whole team asks.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="https://github.com/manishiitg/coding-agent-loop/releases/latest" target="_blank" rel="noreferrer">Download free app</a>
+          <a class="btn btn-ghost" href="/download/">Download free app</a>
         </div>
         <p class="hero-note">Runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for · Open source · <a class="hero-watch" href="/goals/#demo">Watch the 60-second demo</a></p>
       </div>
@@ -358,6 +366,35 @@
       </div>
     </section>
 
+    <section class="section" id="scripted">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Scripted where it counts</p>
+          <h2>Not everything should be agentic. <span class="dim">Script what's known. Use agents for judgment.</span></h2>
+          <p class="lede">Pulling data, calling an API or applying a change should happen the same way every time. AgentWorks runs that work as scripted steps: plain code with no AI in the loop, checked before the workflow moves on. Agents take the steps that need judgment, and the two hand off through files and data, not chat.</p>
+        </div>
+        <div class="plan reveal" aria-label="Example: a workflow that mixes scripted and agent steps">
+          <div class="plan-head"><b>Refund review</b><span class="tag">Illustrative</span></div>
+          <div class="pipe">
+            <p class="pipe-name">Runs every morning</p>
+            <ol>
+              <li class="st det"><small>Script</small><b>Pull yesterday's refund requests</b><em>API call, no AI</em></li>
+              <li class="st agent"><small>Agent</small><b>Check each against the order</b><em>judgment</em></li>
+              <li class="st cond"><small>Rule</small><b>Over $200?</b><em>decided in code</em></li>
+              <li class="st human"><small>Approval</small><b>You approve the big ones</b><em>human step</em></li>
+              <li class="st det"><small>Script</small><b>Issue the refunds</b><em>same way every time</em></li>
+            </ol>
+          </div>
+          <div class="plan-foot"><span><i class="lg det"></i>Script: code, no AI</span><span><i class="lg agent"></i>Agent</span><span><i class="lg cond"></i>Rule in code</span><span><i class="lg human"></i>Human approval</span></div>
+        </div>
+        <ul class="control engine-points">
+          <li class="reveal"><h3>Same result every time</h3><p>A scripted step runs as code and must exit cleanly and pass its output check before the next step starts. If it fails, the run stops and says why, instead of guessing.</p></li>
+          <li class="reveal"><h3>Cheaper and faster</h3><p>No model tokens for work that doesn't need thinking. Agents spend your AI plan only where judgment moves the result.</p></li>
+          <li class="reveal"><h3>Written for you, readable by you</h3><p>Describe the step and the Builder writes the script and tests it before it runs. The code is yours to read, review and change, and every run is logged.</p></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section" id="why">
       <div class="wrap">
         <div class="section-head reveal">
@@ -436,35 +473,35 @@
             <h3>Invoice Chasing</h3>
             <p>Find genuinely overdue customer invoices, suppress duplicate contact, and prepare a policy-safe follow-up for owner review.</p>
             <p class="tpl-goal"><span>Role</span>Overdue invoice review and follow-up capability for a Billing Operations Crew</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance" target="_blank" rel="noreferrer">Source</a></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance" target="_blank" rel="noreferrer">Source</a></div>
           </article>
           <article class="tpl" data-cat="sales">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="tpl-cat">Sales</span></div>
             <h3>Sales Follow-up Coordinator</h3>
             <p>Prepare reviewed follow-up or a no-contact decision for qualified inbound leads and trial accounts, then track only provider-backed outcomes.</p>
             <p class="tpl-goal"><span>Role</span>Human-reviewed B2B lead follow-up coordinator</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales" target="_blank" rel="noreferrer">Source</a></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales" target="_blank" rel="noreferrer">Source</a></div>
           </article>
           <article class="tpl" data-cat="customers">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><span class="tpl-cat">Customer support</span></div>
             <h3>Support Reply Drafter</h3>
             <p>Draft accurate, customer-safe replies from current approved help content and case facts while exposing unknowns and escalation triggers.</p>
             <p class="tpl-goal"><span>Role</span>Grounded support response and knowledge assistant</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-support" target="_blank" rel="noreferrer">Source</a></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-support" target="_blank" rel="noreferrer">Source</a></div>
           </article>
           <article class="tpl" data-cat="growth">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="tpl-cat">Website growth</span></div>
             <h3>Website Growth Starter</h3>
             <p>Audit the business website, find evidence-backed opportunities for relevant traffic, and guide a measurable 30-day growth plan.</p>
             <p class="tpl-goal"><span>Role</span>Website growth strategist for this business</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth" target="_blank" rel="noreferrer">Source</a></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth" target="_blank" rel="noreferrer">Source</a></div>
           </article>
           <article class="tpl" data-cat="shopify">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span><span class="tpl-cat">Shopify</span></div>
             <h3>Store Operations Coordinator</h3>
             <p>Investigate order, inventory, and fulfillment exceptions across store and delivery tools, then prepare an owner-safe resolution queue.</p>
             <p class="tpl-goal"><span>Role</span>Shopify order and fulfillment operations coordinator</p>
-            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify" target="_blank" rel="noreferrer">Source</a></div>
+            <div class="tpl-foot"><span class="tag tag-crew">Crew</span><a class="tpl-src" href="https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify" target="_blank" rel="noreferrer">Source</a></div>
           </article>
           <article class="tpl tpl-create" data-cat="sales growth customers finance ops product shopify eng">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="tpl-cat">Your own</span></div>
@@ -501,7 +538,7 @@
               <li>MIT license, community support</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-ghost btn-block" href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">Get it on GitHub</a>
+              <a class="btn btn-ghost btn-block" href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">Get it on GitHub</a>
               <small>macOS app or self-hosted Linux</small>
             </div>
           </article>
@@ -555,7 +592,8 @@
           <p class="muted">Something else? <a href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book 30 minutes with us.</a></p>
         </div>
         <div class="faq">
-          <details open><summary>Do I need to know how to code?</summary><p>No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks.</p></details>
+          <details open><summary>Does every step use AI?</summary><p>No. Work that should run the same way every time, like pulling data, calling an API or applying a change, runs as a scripted step: plain code with no AI, whose output is checked before the workflow moves on. Agents take the steps that need judgment, and rules like &quot;over $200 needs approval&quot; are decided in code.</p></details>
+          <details><summary>Do I need to know how to code?</summary><p>No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks.</p></details>
           <details><summary>What&#x27;s the difference between Crew and Goals?</summary><p>A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like &quot;every lead contacted within an hour&quot;, and keeps running, measuring and improving on its own until it hits it. Teammates often work on goals.</p></details>
           <details><summary>Which AI plans can I use?</summary><p>Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor&#x27;s own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers.</p></details>
           <details><summary>How do I get Cloud?</summary><p>Subscribe with PayPal on the pricing page, or book a short call first. Within one business day of subscribing we email you to set up your first goal together: we connect your tools, agree the metric and check in through your first month. Cancel anytime.</p></details>
@@ -571,7 +609,7 @@
         <p>Book a call, and we'll set up your first goal with you: your tools, your AI plan, your metric. Hand-held from day one.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="https://github.com/manishiitg/coding-agent-loop/releases/latest" target="_blank" rel="noreferrer">Download free app</a>
+          <a class="btn btn-ghost" href="/download/">Download free app</a>
         </div>
       </div>
     </section>
@@ -601,14 +639,14 @@
             <li><a href="/pricing/">Pricing</a></li>
             <li><a href="/pricing/#onboarding">Cloud onboarding</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
-            <li><a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">Open source</a></li>
+            <li><a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>
         </div>
         <div>
           <h2 class="fh">Resources</h2>
           <ul>
             <li><a href="/docs/">Docs</a></li>
-                        <li><a href="https://github.com/manishiitg/coding-agent-loop/releases/latest" target="_blank" rel="noreferrer">Download</a></li>
+                        <li><a href="/download/">Download</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
           </ul>
         </div>
@@ -627,7 +665,7 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch39"></script>
+  <script src="/launch.js?v=launch40"></script>
   <script src="/analytics.js?v=1"></script>
 </body>
 </html>

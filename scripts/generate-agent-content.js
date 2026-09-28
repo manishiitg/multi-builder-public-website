@@ -10,7 +10,7 @@ const dist = path.join(root, 'dist');
 const docsRoot = path.join(dist, 'docs-content');
 const guidesRoot = path.join(root, 'docs-guides');
 const siteOrigin = 'https://agentworkshq.com';
-const repoUrl = 'https://github.com/manishiitg/coding-agent-loop';
+const repoUrl = 'https://github.com/manishiitg/agentworks';
 const buildDate = new Date().toISOString().slice(0, 10);
 const launchV = /V='([^']+)'/.exec(fs.readFileSync(path.join(__dirname, 'launch', 'partials.py'), 'utf8'))[1];
 
@@ -508,8 +508,8 @@ const llmsFull = [
   '# AgentWorks: Complete Product and Documentation Context',
   '',
   'Canonical website: https://agentworkshq.com/',
-  'Open-source repository: https://github.com/manishiitg/coding-agent-loop',
-  'Latest release: https://github.com/manishiitg/coding-agent-loop/releases/latest',
+  'Open-source repository: https://github.com/manishiitg/agentworks',
+  'Latest release: https://github.com/manishiitg/agentworks/releases/latest',
   '',
   'AgentWorks gives an AI agent a goal and a metric, and it keeps working until it hits the target. It manages goals and metrics, schedules, model and CLI routing, browser and MCP tools, secrets, evidence, costs, human approvals, reports, reusable skills, and auto-improvement of the workflow.',
   '',
@@ -557,6 +557,7 @@ const marketingRoutes = [
   { route: '/goals/', changefreq: 'monthly', priority: '0.9' },
   { route: '/crews/', changefreq: 'monthly', priority: '0.9' },
   { route: '/workbench/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/download/', changefreq: 'monthly', priority: '0.8' },
   { route: '/relays/', changefreq: 'monthly', priority: '0.6' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' },
   { route: '/docs/guides/', changefreq: 'weekly', priority: '0.75' },

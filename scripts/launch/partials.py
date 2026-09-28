@@ -7,9 +7,9 @@ LOGIN=None
 # the "Book a call" flow. Setting it switches the Cloud card, onboarding, FAQ, legal copy and offer JSON-LD.
 PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8U224306ST2761520NK4MBQA'
 CAL=CAL_URL
-GH='https://github.com/manishiitg/coding-agent-loop'
-INSTALL=GH+'/releases/latest'
-V='launch39'
+GH='https://github.com/manishiitg/agentworks'
+INSTALL='/download/'
+V='launch40'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -177,7 +177,7 @@ def footer():
           <h2 class="fh">Resources</h2>
           <ul>
             <li><a href="/docs/">Docs</a></li>
-                        <li><a href="{INSTALL}" target="_blank" rel="noreferrer">Download</a></li>
+                        <li><a href="{INSTALL}">Download</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
           </ul>
         </div>

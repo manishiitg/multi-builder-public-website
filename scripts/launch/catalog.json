@@ -8,7 +8,7 @@
    "purpose": "Turn an authorized new-customer handoff into an owned milestone plan and a source-linked blocker queue.",
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-success"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-success"
   },
   {
    "id": "product-adoption-analyst",
@@ -17,7 +17,7 @@
    "purpose": "Verify customer first value, released-feature adoption, or one trial account’s bounded product use without inferring purchase intent.",
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-success"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-success"
   },
   {
    "id": "lifecycle-analyst",
@@ -26,7 +26,7 @@
    "purpose": "Compare mature signup cohorts under one activation and retention policy, exposing denominators, censoring and coverage before an owner decision.",
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-success"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-success"
   },
   {
    "id": "customer-health-coordinator",
@@ -35,7 +35,7 @@
    "purpose": "Combine first-value progress, support history, and renewal timing into a sourced account review and owner action.",
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-success"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-success"
   },
   {
    "id": "renewal-coordinator",
@@ -44,7 +44,7 @@
    "purpose": "Verify one customer contract, notice deadline, billing state and health evidence, then prepare an owned renewal decision without changing terms or contacting the customer.",
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-success"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-success"
   },
   {
    "id": "support-triage-assistant",
@@ -53,7 +53,7 @@
    "purpose": "Turn authorized inbound support cases into deduplicated, policy-prioritized owner queues with source-linked next actions.",
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-support"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-support"
   },
   {
    "id": "support-reply-drafter",
@@ -62,7 +62,7 @@
    "purpose": "Draft accurate, customer-safe replies from current approved help content and case facts while exposing unknowns and escalation triggers.",
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-support"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-support"
   },
   {
    "id": "escalation-coordinator",
@@ -71,7 +71,7 @@
    "purpose": "Keep a high-impact case and its handoff current across Support, Engineering, Billing, and Customer Success with owned decisions and closure evidence.",
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-support"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-support"
   },
   {
    "id": "feedback-review-analyst",
@@ -80,7 +80,7 @@
    "purpose": "Turn authorized support feedback and public reviews into sourced themes, product owner decisions, and reviewed response drafts.",
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-support"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-support"
   },
   {
    "id": "support-knowledge-curator",
@@ -89,7 +89,7 @@
    "purpose": "Find repeated unresolved questions and stale help content, draft a sourced article update and verify whether the approved update helps.",
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/customer-support"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/customer-support"
   },
   {
    "id": "incident-investigator",
@@ -98,7 +98,7 @@
    "purpose": "Connect alerts, telemetry, deploys, and owner updates into an evidence-linked incident timeline and next-action queue.",
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/engineering"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/engineering"
   },
   {
    "id": "engineering-delivery-coordinator",
@@ -107,7 +107,7 @@
    "purpose": "Trace blocked work across issues, PRs, CI, and deployments; chase the next owner decision and verify release state.",
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/engineering"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/engineering"
   },
   {
    "id": "engineering-operations-analyst",
@@ -116,7 +116,7 @@
    "purpose": "Reconcile authorized delivery, quality or reliability records into reproducible team metrics and bounded improvement questions.",
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/engineering"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/engineering"
   },
   {
    "id": "performance-investigator",
@@ -125,7 +125,7 @@
    "purpose": "Compare a reported regression with traces, measurements, and recent changes to produce a reproducible diagnosis and owner action.",
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/engineering"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/engineering"
   },
   {
    "id": "cloud-cost-analyst",
@@ -134,7 +134,7 @@
    "purpose": "Explain cloud cost changes across billing and usage systems, route ownership, and prepare risk-checked savings decisions.",
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/engineering"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/engineering"
   },
   {
    "id": "post-incident-reviewer",
@@ -143,7 +143,7 @@
    "purpose": "Reconstruct a stabilized incident from frozen evidence, separate observed impact from hypotheses, and propose owner-reviewable improvements.",
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/engineering"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/engineering"
   },
   {
    "id": "improvement-follow-through-coordinator",
@@ -152,7 +152,7 @@
    "purpose": "Turn owner-approved incident actions into an exact register, reconcile work-item receipts, and verify the intended control rather than issue status alone.",
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/engineering"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/engineering"
   },
   {
    "id": "finance-analyst",
@@ -161,7 +161,7 @@
    "purpose": "Analyze authorized finance records, explain revenue and expense changes, and prepare sourced finance briefs with transparent calculations.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "tax-export",
@@ -170,7 +170,7 @@
    "purpose": "Organize authorized transaction records into a traceable export for review by the business and its tax professional.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "billing-operations-coordinator",
@@ -179,7 +179,7 @@
    "purpose": "Review overdue invoices, failed payments, customer refund requests, and disputes; prepare source-linked next actions and customer-safe drafts for approval.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "revenue-close-analyst",
@@ -188,7 +188,7 @@
    "purpose": "Reconcile subscription billing, credits, payments, and ledger records into a reviewable close memo with unresolved differences.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "spend-payables-coordinator",
@@ -197,7 +197,7 @@
    "purpose": "Review proposed purchases, bills and spend against current vendor records, budgets, duplicates and approval policy without executing them.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "invoice-chasing",
@@ -206,7 +206,7 @@
    "purpose": "Find genuinely overdue customer invoices, suppress duplicate contact, and prepare a policy-safe follow-up for owner review.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "failed-payment-recovery",
@@ -215,7 +215,7 @@
    "purpose": "Explain a failed subscription payment, identify the current retry and customer-contact state, and propose one safe next step.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "refund-review",
@@ -224,7 +224,7 @@
    "purpose": "Reconcile a customer refund request to its original payment and previous refunds, then prepare an exact amount and policy decision for an approver.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "dispute-review",
@@ -233,7 +233,7 @@
    "purpose": "Keep one payment dispute’s current deadline, reason, evidence gaps, and responsible owner reviewable without silently submitting evidence.",
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/finance"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/finance"
   },
   {
    "id": "gtm-strategy-analyst",
@@ -242,7 +242,7 @@
    "purpose": "Turn the offer, buyer evidence, market, and constraints into a sourced launch brief with a testable pipeline goal.",
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/gtm"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/gtm"
   },
   {
    "id": "launch-coordinator",
@@ -251,7 +251,7 @@
    "purpose": "Keep approved launch assets, channel actions, owners, dates, dependencies, and observed lead signals in one source-linked ledger.",
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/gtm"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/gtm"
   },
   {
    "id": "revenue-operations-analyst",
@@ -260,7 +260,7 @@
    "purpose": "Reconcile campaign, form, lead, account and opportunity records under one stage and attribution policy for a shared GTM owner decision.",
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/gtm"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/gtm"
   },
   {
    "id": "sales-enablement-coordinator",
@@ -269,7 +269,7 @@
    "purpose": "Prepare current, buyer-specific seller guidance from approved product claims, customer proof and objections without inventing promises.",
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/gtm"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/gtm"
   },
   {
    "id": "pricing-packaging-analyst",
@@ -278,7 +278,7 @@
    "purpose": "Compare current plan entitlements, buyer evidence, unit economics and sales exceptions to prepare a reviewed package or price decision.",
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/gtm"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/gtm"
   },
   {
    "id": "competitor-intelligence-analyst",
@@ -287,7 +287,7 @@
    "purpose": "Track a bounded competitor set for sourced changes that matter to a named offer, buyer, and decision owner.",
    "area": "Marketing",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/marketing"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/marketing"
   },
   {
    "id": "campaign-performance-analyst",
@@ -296,7 +296,7 @@
    "purpose": "Explain a bounded campaign’s spend, delivery, qualified response, and conversion changes from source records with comparable definitions.",
    "area": "Marketing",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/marketing"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/marketing"
   },
   {
    "id": "funnel-analyst",
@@ -305,7 +305,7 @@
    "purpose": "Reconcile an authorized signup-to-paid cohort across event and billing sources, then identify a bounded drop-off for owner review.",
    "area": "Marketing",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/marketing"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/marketing"
   },
   {
    "id": "growth-experiment-planner",
@@ -314,7 +314,7 @@
    "purpose": "Turn one evidence-backed growth question into a bounded experiment with a decision rule, owner, safety limit, and measurement plan.",
    "area": "Marketing",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/marketing"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/marketing"
   },
   {
    "id": "experiment-run-coordinator",
@@ -323,7 +323,7 @@
    "purpose": "Carry one approved experiment design through exact launch-state checks, provider receipts and rollback ownership without treating a proposal as permission.",
    "area": "Marketing",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/marketing"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/marketing"
   },
   {
    "id": "growth-outcome-analyst",
@@ -332,7 +332,7 @@
    "purpose": "Reconcile an actual launched experiment with its frozen metric, assignment and observation window, then report measured or inconclusive outcomes for owner review.",
    "area": "Marketing",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/marketing"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/marketing"
   },
   {
    "id": "chief-of-staff",
@@ -341,7 +341,7 @@
    "purpose": "Turn authorized team goals, project status, and decisions into a sourced operator brief with accountable next actions.",
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/operations"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/operations"
   },
   {
    "id": "meeting-actions-coordinator",
@@ -350,7 +350,7 @@
    "purpose": "Extract owner-reviewed decisions and action items from authorized notes into a traceable register without silently assigning work.",
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/operations"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/operations"
   },
   {
    "id": "project-status-reporter",
@@ -359,7 +359,7 @@
    "purpose": "Reconcile project milestones, task state, and owner updates into a sourced status report with decisions and blockers.",
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/operations"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/operations"
   },
   {
    "id": "order-operations-coordinator",
@@ -368,7 +368,7 @@
    "purpose": "Investigate authorized order, fulfillment, carrier, and customer-service records into a prioritized owner action queue.",
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/operations"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/operations"
   },
   {
    "id": "vendor-researcher",
@@ -377,7 +377,7 @@
    "purpose": "Compare a bounded vendor set against owner-approved requirements, evidence, costs, and risks to prepare a reviewable shortlist.",
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/operations"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/operations"
   },
   {
    "id": "document-intake-assistant",
@@ -386,7 +386,7 @@
    "purpose": "Extract customer-defined fields from authorized incoming documents, validate them against source pages and rules, and route uncertain values for review.",
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/operations"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/operations"
   },
   {
    "id": "product-feedback-coordinator",
@@ -395,7 +395,7 @@
    "purpose": "Review a bounded customer feedback theme or released-feature adoption observation against current product evidence and owner criteria, then prepare a traceable decision.",
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/product"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/product"
   },
   {
    "id": "product-discovery-researcher",
@@ -404,7 +404,7 @@
    "purpose": "Turn authorized interviews, support cases and product observations into a bounded opportunity brief with uncertainty and a next research question.",
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/product"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/product"
   },
   {
    "id": "roadmap-prioritization-analyst",
@@ -413,7 +413,7 @@
    "purpose": "Compare candidate product opportunities against agreed goals, evidence, dependencies and capacity for a transparent owner decision.",
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/product"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/product"
   },
   {
    "id": "product-requirements-coordinator",
@@ -422,7 +422,7 @@
    "purpose": "Turn an accepted product problem into a reviewable scope, behavior and acceptance contract for Design, Engineering and QA.",
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/product"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/product"
   },
   {
    "id": "product-release-coordinator",
@@ -431,7 +431,7 @@
    "purpose": "Coordinate approved product scope, customer-facing claims, support readiness and adoption measurement for one exact release.",
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/product"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/product"
   },
   {
    "id": "browser-journey-qa-analyst",
@@ -440,7 +440,7 @@
    "purpose": "Run approved user journeys against an exact build, investigate failures, and return durable evidence and reproduction steps.",
    "area": "QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/qa"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/qa"
   },
   {
    "id": "flaky-test-investigator",
@@ -449,7 +449,7 @@
    "purpose": "Separate inconsistent application behavior from test or environment instability and prepare a reviewed stabilization decision.",
    "area": "QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/qa"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/qa"
   },
   {
    "id": "release-quality-assistant",
@@ -458,7 +458,7 @@
    "purpose": "Join exact change and build identity to required QA suites, classify missing evidence, and prepare an auditable gate decision for the release owner.",
    "area": "QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/qa"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/qa"
   },
   {
    "id": "lead-intake-qualifier",
@@ -467,7 +467,7 @@
    "purpose": "Turn an authorized inbound enquiry into a deduplicated, evidence-linked qualification brief and owner decision.",
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales"
   },
   {
    "id": "account-researcher",
@@ -476,7 +476,7 @@
    "purpose": "Prepare a short, sourced account brief that helps a seller understand an approved prospect without fabricating buyer intent.",
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales"
   },
   {
    "id": "sales-followup-coordinator",
@@ -485,7 +485,7 @@
    "purpose": "Prepare reviewed follow-up or a no-contact decision for qualified inbound leads and trial accounts, then track only provider-backed outcomes.",
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales"
   },
   {
    "id": "sales-call-briefing",
@@ -494,7 +494,7 @@
    "purpose": "Prepare an exact-meeting brief from approved CRM and account context, separating verified facts from discovery questions.",
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales"
   },
   {
    "id": "proposal-drafter",
@@ -503,7 +503,7 @@
    "purpose": "Turn documented discovery and current approved offer/pricing rules into a scoped, unsent proposal with explicit gaps and approval owners.",
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales"
   },
   {
    "id": "pipeline-analyst",
@@ -512,7 +512,7 @@
    "purpose": "Explain real pipeline movement and stale deals from comparable CRM snapshots without presenting guesses as a forecast.",
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales"
   },
   {
    "id": "deal-follow-through-coordinator",
@@ -521,7 +521,7 @@
    "purpose": "Turn a sourced opportunity into an owned next-step decision or a verified signed-deal handoff without silently changing CRM or contacting a customer.",
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/sales"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/sales"
   },
   {
    "id": "security-findings-analyst",
@@ -530,7 +530,7 @@
    "purpose": "Validate in-scope scanner or reported findings against the actual asset, classify risk with evidence, and prepare owner-reviewed remediation criteria.",
    "area": "Security",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/security"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/security"
   },
   {
    "id": "access-review-analyst",
@@ -539,7 +539,7 @@
    "purpose": "Compare approved permission policy with observed UI and server behavior using authorized actors, isolated fixtures, and exact matrix evidence.",
    "area": "Security",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/security"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/security"
   },
   {
    "id": "security-remediation-coordinator",
@@ -548,7 +548,7 @@
    "purpose": "Track one approved finding through owner assignment, reviewed change, deployment, independent retest, and evidence-backed closure.",
    "area": "Security",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/security"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/security"
   },
   {
    "id": "store-operations-coordinator",
@@ -557,7 +557,7 @@
    "purpose": "Investigate order, inventory, and fulfillment exceptions across store and delivery tools, then prepare an owner-safe resolution queue.",
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify"
   },
   {
    "id": "returns-refunds-coordinator",
@@ -566,7 +566,7 @@
    "purpose": "Review return and refund requests against order, payment, delivery, and policy records; prepare a safe decision and customer draft.",
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify"
   },
   {
    "id": "catalog-merchandising-analyst",
@@ -575,7 +575,7 @@
    "purpose": "Find product and variant data gaps that affect discovery and purchase, then prepare an evidence-backed merchant review queue.",
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify"
   },
   {
    "id": "shopify-growth-analyst",
@@ -584,7 +584,7 @@
    "purpose": "Connect storefront, traffic, product, and checkout evidence to reviewable growth actions for a specific Shopify store.",
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify"
   },
   {
    "id": "payment-operations-investigator",
@@ -593,7 +593,7 @@
    "purpose": "Investigate authorized, pending, failed, captured, voided, and refunded order transactions, then prepare an owner-safe payment exception queue.",
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify"
   },
   {
    "id": "checkout-recovery-coordinator",
@@ -602,7 +602,7 @@
    "purpose": "Review a specific abandoned checkout against current order, consent, suppression, and prior-message evidence before proposing an unsent recovery message.",
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify"
   },
   {
    "id": "replenishment-planner",
@@ -611,7 +611,7 @@
    "purpose": "Turn a variant and location stock risk into a supplier-aware quantity and cost proposal for procurement owner review.",
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/shopify"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/shopify"
   },
   {
    "id": "website-growth-starter",
@@ -620,7 +620,7 @@
    "purpose": "Audit the business website, find evidence-backed opportunities for relevant traffic, and guide a measurable 30-day growth plan.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "seo-analyst",
@@ -629,7 +629,7 @@
    "purpose": "Find and prioritize observable crawl, indexability, metadata, internal-link, and page-experience issues.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "search-opportunity-mapper",
@@ -638,7 +638,7 @@
    "purpose": "Map target buyers’ questions and search intent to existing pages and evidence-backed content gaps.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "content-brief-writer",
@@ -647,7 +647,7 @@
    "purpose": "Turn an approved search or buyer opportunity into a useful page brief with claims, sources, internal links, and a success signal.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "content-page-builder",
@@ -656,7 +656,7 @@
    "purpose": "Draft a useful, source-grounded website page from an approved brief without publishing it automatically.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "website-publishing-coordinator",
@@ -665,7 +665,7 @@
    "purpose": "Carry an approved page draft through a separately authorized publication route and verify the exact live page before recording a shipped change.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "search-console-optimizer",
@@ -674,7 +674,7 @@
    "purpose": "Find page/query opportunities in authorized Search Console data and propose bounded page improvements.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "traffic-engagement-analyst",
@@ -683,7 +683,7 @@
    "purpose": "Explain relevant visitor, landing-page, and conversion changes from authorized analytics data.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "ai-visibility-analyst",
@@ -692,7 +692,7 @@
    "purpose": "Test approved buyer questions across selected answer engines and report brand/citation gaps with repeatable evidence.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "landing-page-optimizer",
@@ -701,7 +701,7 @@
    "purpose": "Inspect one visitor journey and propose a bounded page revision or test grounded in evidence.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   },
   {
    "id": "content-distribution-coordinator",
@@ -710,7 +710,7 @@
    "purpose": "Find relevant channels and prepare reviewable distribution and outreach drafts for a published asset.",
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/crew-agents/website-growth"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents/website-growth"
   }
  ],
  "playbooks": [
@@ -721,7 +721,7 @@
    "order": 2,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/authentication-session-validation"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/authentication-session-validation"
   },
   {
    "id": "basic-browser-setup",
@@ -730,7 +730,7 @@
    "order": 1,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/basic-browser-setup"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/basic-browser-setup"
   },
   {
    "id": "browser-test-self-healing",
@@ -739,7 +739,7 @@
    "order": 6,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/browser-test-self-healing"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/browser-test-self-healing"
   },
   {
    "id": "critical-journey-validation",
@@ -748,7 +748,7 @@
    "order": 4,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/critical-journey-validation"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/critical-journey-validation"
   },
   {
    "id": "flaky-test-detection-stabilization",
@@ -757,7 +757,7 @@
    "order": 5,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/flaky-test-detection-stabilization"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/flaky-test-detection-stabilization"
   },
   {
    "id": "release-pr-quality-gate",
@@ -766,7 +766,7 @@
    "order": 8,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/release-pr-quality-gate"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/release-pr-quality-gate"
   },
   {
    "id": "role-permission-validation",
@@ -775,7 +775,7 @@
    "order": 3,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/role-permission-validation"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/role-permission-validation"
   },
   {
    "id": "scheduled-regression-synthetic-monitoring",
@@ -784,7 +784,7 @@
    "order": 7,
    "area": "Browser QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/browser-qa/scheduled-regression-synthetic-monitoring"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/browser-qa/scheduled-regression-synthetic-monitoring"
   },
   {
    "id": "new-customer-to-first-value",
@@ -793,7 +793,7 @@
    "order": 1,
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/customer-success/new-customer-to-first-value"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/customer-success/new-customer-to-first-value"
   },
   {
    "id": "renewal-risk-to-owned-decision",
@@ -802,7 +802,7 @@
    "order": 3,
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/customer-success/renewal-risk-to-owned-decision"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/customer-success/renewal-risk-to-owned-decision"
   },
   {
    "id": "signed-deal-to-onboarding-handoff",
@@ -811,7 +811,7 @@
    "order": 2,
    "area": "Customer success",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/customer-success/signed-deal-to-onboarding-handoff"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/customer-success/signed-deal-to-onboarding-handoff"
   },
   {
    "id": "case-pattern-to-knowledge-review",
@@ -820,7 +820,7 @@
    "order": 2,
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/customer-support/case-pattern-to-knowledge-review"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/customer-support/case-pattern-to-knowledge-review"
   },
   {
    "id": "support-case-to-reviewed-resolution",
@@ -829,7 +829,7 @@
    "order": 1,
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/customer-support/support-case-to-reviewed-resolution"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/customer-support/support-case-to-reviewed-resolution"
   },
   {
    "id": "verified-knowledge-to-case-reply",
@@ -838,7 +838,7 @@
    "order": 3,
    "area": "Customer support",
    "team": "customers",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/customer-support/verified-knowledge-to-case-reply"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/customer-support/verified-knowledge-to-case-reply"
   },
   {
    "id": "engineering-operations-intelligence",
@@ -847,7 +847,7 @@
    "order": 1,
    "area": "Engineering operations intelligence",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/engineering-operations-intelligence/engineering-operations-intelligence"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/engineering-operations-intelligence/engineering-operations-intelligence"
   },
   {
    "id": "incident-to-verified-recovery",
@@ -856,7 +856,7 @@
    "order": 1,
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/engineering/incident-to-verified-recovery"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/engineering/incident-to-verified-recovery"
   },
   {
    "id": "performance-regression-to-owned-change",
@@ -865,7 +865,7 @@
    "order": 2,
    "area": "Engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/engineering/performance-regression-to-owned-change"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/engineering/performance-regression-to-owned-change"
   },
   {
    "id": "dispute-to-reconciled-outcome",
@@ -874,7 +874,7 @@
    "order": 5,
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/finance/dispute-to-reconciled-outcome"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/finance/dispute-to-reconciled-outcome"
   },
   {
    "id": "finance-operations-review",
@@ -883,7 +883,7 @@
    "order": 1,
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/finance/finance-operations-review"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/finance/finance-operations-review"
   },
   {
    "id": "invoice-intake-to-reviewed-payable",
@@ -892,7 +892,7 @@
    "order": 2,
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/finance/invoice-intake-to-reviewed-payable"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/finance/invoice-intake-to-reviewed-payable"
   },
   {
    "id": "refund-request-to-reconciled-outcome",
@@ -901,7 +901,7 @@
    "order": 3,
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/finance/refund-request-to-reconciled-outcome"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/finance/refund-request-to-reconciled-outcome"
   },
   {
    "id": "subscription-receivable-to-verified-outcome",
@@ -910,7 +910,7 @@
    "order": 4,
    "area": "Finance",
    "team": "finance",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/finance/subscription-receivable-to-verified-outcome"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/finance/subscription-receivable-to-verified-outcome"
   },
   {
    "id": "cost-anomaly-to-verified-savings",
@@ -919,7 +919,7 @@
    "order": 1,
    "area": "FinOps",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/finops/cost-anomaly-to-verified-savings"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/finops/cost-anomaly-to-verified-savings"
   },
   {
    "id": "activation-retention-intelligence",
@@ -928,7 +928,7 @@
    "order": 3,
    "area": "Growth analytics",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/growth-analytics/activation-retention-intelligence"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/growth-analytics/activation-retention-intelligence"
   },
   {
    "id": "ai-visibility-intelligence",
@@ -937,7 +937,7 @@
    "order": 6,
    "area": "Growth analytics",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/growth-analytics/ai-visibility-intelligence"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/growth-analytics/ai-visibility-intelligence"
   },
   {
    "id": "funnel-conversion-intelligence",
@@ -946,7 +946,7 @@
    "order": 2,
    "area": "Growth analytics",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/growth-analytics/funnel-conversion-intelligence"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/growth-analytics/funnel-conversion-intelligence"
   },
   {
    "id": "growth-data-foundation",
@@ -955,7 +955,7 @@
    "order": 1,
    "area": "Growth analytics",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/growth-analytics/growth-data-foundation"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/growth-analytics/growth-data-foundation"
   },
   {
    "id": "growth-experimentation-follow-through",
@@ -964,7 +964,7 @@
    "order": 4,
    "area": "Growth analytics",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/growth-analytics/growth-experimentation-follow-through"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/growth-analytics/growth-experimentation-follow-through"
   },
   {
    "id": "seo-intelligence",
@@ -973,7 +973,7 @@
    "order": 5,
    "area": "Growth analytics",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/growth-analytics/seo-intelligence"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/growth-analytics/seo-intelligence"
   },
   {
    "id": "accepted-offer-to-launch-readiness",
@@ -982,7 +982,7 @@
    "order": 4,
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/gtm/accepted-offer-to-launch-readiness"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/gtm/accepted-offer-to-launch-readiness"
   },
   {
    "id": "launch-signal-to-pipeline-review",
@@ -991,7 +991,7 @@
    "order": 3,
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/gtm/launch-signal-to-pipeline-review"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/gtm/launch-signal-to-pipeline-review"
   },
   {
    "id": "launch-to-qualified-pipeline",
@@ -1000,7 +1000,7 @@
    "order": 1,
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/gtm/launch-to-qualified-pipeline"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/gtm/launch-to-qualified-pipeline"
   },
   {
    "id": "offer-to-seller-readiness",
@@ -1009,7 +1009,7 @@
    "order": 2,
    "area": "GTM",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/gtm/offer-to-seller-readiness"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/gtm/offer-to-seller-readiness"
   },
   {
    "id": "campaign-signal-to-reviewed-experiment",
@@ -1018,7 +1018,7 @@
    "order": 1,
    "area": "Marketing",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/marketing/campaign-signal-to-reviewed-experiment"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/marketing/campaign-signal-to-reviewed-experiment"
   },
   {
    "id": "meeting-decision-to-owned-follow-through",
@@ -1027,7 +1027,7 @@
    "order": 1,
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/operations/meeting-decision-to-owned-follow-through"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/operations/meeting-decision-to-owned-follow-through"
   },
   {
    "id": "order-exception-to-reviewed-update",
@@ -1036,7 +1036,7 @@
    "order": 3,
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/operations/order-exception-to-reviewed-update"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/operations/order-exception-to-reviewed-update"
   },
   {
    "id": "vendor-evaluation-to-purchase-decision",
@@ -1045,7 +1045,7 @@
    "order": 2,
    "area": "Operations",
    "team": "ops",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/operations/vendor-evaluation-to-purchase-decision"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/operations/vendor-evaluation-to-purchase-decision"
   },
   {
    "id": "api-performance-validation",
@@ -1054,7 +1054,7 @@
    "order": 2,
    "area": "Performance engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/performance-engineering/api-performance-validation"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/performance-engineering/api-performance-validation"
   },
   {
    "id": "browser-performance-validation",
@@ -1063,7 +1063,7 @@
    "order": 1,
    "area": "Performance engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/performance-engineering/browser-performance-validation"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/performance-engineering/browser-performance-validation"
   },
   {
    "id": "approved-requirement-to-release-readiness",
@@ -1072,7 +1072,7 @@
    "order": 4,
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/product/approved-requirement-to-release-readiness"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/product/approved-requirement-to-release-readiness"
   },
   {
    "id": "feedback-theme-to-product-decision",
@@ -1081,7 +1081,7 @@
    "order": 1,
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/product/feedback-theme-to-product-decision"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/product/feedback-theme-to-product-decision"
   },
   {
    "id": "opportunity-to-reviewed-requirements",
@@ -1090,7 +1090,7 @@
    "order": 3,
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/product/opportunity-to-reviewed-requirements"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/product/opportunity-to-reviewed-requirements"
   },
   {
    "id": "release-to-observed-adoption",
@@ -1099,7 +1099,7 @@
    "order": 5,
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/product/release-to-observed-adoption"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/product/release-to-observed-adoption"
   },
   {
    "id": "released-feature-to-adoption-decision",
@@ -1108,7 +1108,7 @@
    "order": 2,
    "area": "Product",
    "team": "product",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/product/released-feature-to-adoption-decision"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/product/released-feature-to-adoption-decision"
   },
   {
    "id": "release-candidate-to-reviewed-gate",
@@ -1117,7 +1117,7 @@
    "order": 1,
    "area": "QA",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/qa/release-candidate-to-reviewed-gate"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/qa/release-candidate-to-reviewed-gate"
   },
   {
    "id": "ci-deployment-failure-triage",
@@ -1126,7 +1126,7 @@
    "order": 1,
    "area": "Reliability operations",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/reliability-operations/ci-deployment-failure-triage"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/reliability-operations/ci-deployment-failure-triage"
   },
   {
    "id": "governed-remediation-recovery",
@@ -1135,7 +1135,7 @@
    "order": 3,
    "area": "Reliability operations",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/reliability-operations/governed-remediation-recovery"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/reliability-operations/governed-remediation-recovery"
   },
   {
    "id": "incident-investigation-coordination",
@@ -1144,7 +1144,7 @@
    "order": 2,
    "area": "Reliability operations",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/reliability-operations/incident-investigation-coordination"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/reliability-operations/incident-investigation-coordination"
   },
   {
    "id": "post-incident-review-actions",
@@ -1153,7 +1153,7 @@
    "order": 4,
    "area": "Reliability operations",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/reliability-operations/post-incident-review-actions"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/reliability-operations/post-incident-review-actions"
   },
   {
    "id": "discovery-to-reviewed-proposal",
@@ -1162,7 +1162,7 @@
    "order": 2,
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/sales/discovery-to-reviewed-proposal"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/sales/discovery-to-reviewed-proposal"
   },
   {
    "id": "inbound-lead-to-meeting-review",
@@ -1171,7 +1171,7 @@
    "order": 1,
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/sales/inbound-lead-to-meeting-review"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/sales/inbound-lead-to-meeting-review"
   },
   {
    "id": "pipeline-health-to-owned-action",
@@ -1180,7 +1180,7 @@
    "order": 3,
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/sales/pipeline-health-to-owned-action"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/sales/pipeline-health-to-owned-action"
   },
   {
    "id": "trial-account-to-reviewed-sales-assist",
@@ -1189,7 +1189,7 @@
    "order": 4,
    "area": "Sales",
    "team": "sales",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/sales/trial-account-to-reviewed-sales-assist"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/sales/trial-account-to-reviewed-sales-assist"
   },
   {
    "id": "application-security-assessment-remediation",
@@ -1198,7 +1198,7 @@
    "order": 1,
    "area": "Security engineering",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/security-engineering/application-security"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/security-engineering/application-security"
   },
   {
    "id": "access-exception-to-verified-fix",
@@ -1207,7 +1207,7 @@
    "order": 2,
    "area": "Security",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/security/access-exception-to-verified-fix"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/security/access-exception-to-verified-fix"
   },
   {
    "id": "finding-to-verified-remediation",
@@ -1216,7 +1216,7 @@
    "order": 1,
    "area": "Security",
    "team": "eng",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/security/finding-to-verified-remediation"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/security/finding-to-verified-remediation"
   },
   {
    "id": "checkout-signal-to-reviewed-recovery",
@@ -1225,7 +1225,7 @@
    "order": 6,
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/shopify/checkout-signal-to-reviewed-recovery"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/shopify/checkout-signal-to-reviewed-recovery"
   },
   {
    "id": "inventory-availability-to-owner-action",
@@ -1234,7 +1234,7 @@
    "order": 3,
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/shopify/inventory-availability-to-owner-action"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/shopify/inventory-availability-to-owner-action"
   },
   {
    "id": "inventory-risk-to-reviewed-replenishment",
@@ -1243,7 +1243,7 @@
    "order": 7,
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/shopify/inventory-risk-to-reviewed-replenishment"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/shopify/inventory-risk-to-reviewed-replenishment"
   },
   {
    "id": "order-exception-to-resolution",
@@ -1252,7 +1252,7 @@
    "order": 1,
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/shopify/order-exception-to-resolution"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/shopify/order-exception-to-resolution"
   },
   {
    "id": "payment-exception-to-order-decision",
@@ -1261,7 +1261,7 @@
    "order": 4,
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/shopify/payment-exception-to-order-decision"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/shopify/payment-exception-to-order-decision"
   },
   {
    "id": "product-launch-readiness-to-go-no-go",
@@ -1270,7 +1270,7 @@
    "order": 5,
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/shopify/product-launch-readiness-to-go-no-go"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/shopify/product-launch-readiness-to-go-no-go"
   },
   {
    "id": "storefront-opportunity-to-verified-change",
@@ -1279,7 +1279,7 @@
    "order": 2,
    "area": "Shopify",
    "team": "shopify",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/shopify/storefront-opportunity-to-verified-change"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/shopify/storefront-opportunity-to-verified-change"
   },
   {
    "id": "website-growth-loop",
@@ -1288,7 +1288,7 @@
    "order": 1,
    "area": "Website growth",
    "team": "growth",
-   "source": "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks/agentic-engineering-platform/website-growth/website-growth-loop"
+   "source": "https://github.com/manishiitg/agentworks/tree/main/playbooks/agentic-engineering-platform/website-growth/website-growth-loop"
   }
  ]
 }

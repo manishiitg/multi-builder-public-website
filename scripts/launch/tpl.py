@@ -8,7 +8,7 @@ CREW = [dict(x, kind="crew") for x in CATALOG["crew"]]
 GOALS = [dict(x, kind="goal") for x in sorted(CATALOG["playbooks"], key=lambda p: (p["area"], p["order"]))]
 ALL = CREW + GOALS
 N_CREW, N_GOALS = len(CREW), len(GOALS)
-GH_PLAYBOOKS = "https://github.com/manishiitg/coding-agent-loop/tree/main/playbooks"
+GH_PLAYBOOKS = "https://github.com/manishiitg/agentworks/tree/main/playbooks"
 
 # Filter tabs on /agents/, in page order.
 TEAMS = [

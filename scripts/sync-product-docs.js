@@ -64,7 +64,7 @@ function scrubPulse(text) {
   }).join('');
 }
 
-const repoBlob = 'https://github.com/manishiitg/coding-agent-loop/blob/main';
+const repoBlob = 'https://github.com/manishiitg/agentworks/blob/main';
 
 function scrubSourcePaths(text) {
   // Repo-escape links keep working by pointing at the public repo, with the
@@ -79,7 +79,7 @@ function scrubSourcePaths(text) {
   // GitHub links above) are never rewritten.
   out = out.split(/(https?:\/\/\S+)/g).map((part, i) => {
     if (i % 2 === 1) return part;
-    return part.replace(/(?:coding-agent-loop\/)?((?:agent_go|frontend|mcpagent)\/[\w.%-]+(?:\/[\w.%-]+)*)\/?/g, (match, repoPath) => {
+    return part.replace(/(?:(?:coding-agent-loop|agentworks)\/)?((?:agent_go|frontend|mcpagent)\/[\w.%-]+(?:\/[\w.%-]+)*)\/?/g, (match, repoPath) => {
       const segments = repoPath.split('/').filter(Boolean);
       return segments[segments.length - 1];
     });
@@ -210,7 +210,7 @@ function scrubPublicMarkdown(content, docPath) {
   // Align install copy with the site: macOS app or self-hosted Linux.
   if (docPath === 'getting-started/README' && !out.includes('deployment docs')) {
     out = out.split('for manual installation artifacts.').join(
-      'for manual installation artifacts. Prefer to self-host on Linux? See the [deployment docs](https://github.com/manishiitg/coding-agent-loop/tree/main/deploy).'
+      'for manual installation artifacts. Prefer to self-host on Linux? See the [deployment docs](https://github.com/manishiitg/agentworks/tree/main/deploy).'
     );
   }
 

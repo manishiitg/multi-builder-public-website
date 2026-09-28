@@ -12,7 +12,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[2] / "mcp-agent-builder-go"
 REF = "origin/main"
-GH_TREE = "https://github.com/manishiitg/coding-agent-loop/tree/main/"
+GH_TREE = "https://github.com/manishiitg/agentworks/tree/main/"
 
 # Product catalog folders -> website teams (the /agents/ filter tabs).
 TEAM_OF = {

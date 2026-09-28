@@ -5,10 +5,10 @@ AgentWorks runs coding agents, model providers, browsers, and MCP tools as repea
 ## 1. Install the macOS App
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/manishiitg/agentworks/main/install.sh | bash
 ```
 
-The installer downloads the latest release, installs the app, installs the local MCP bridge, clears the macOS quarantine flag, and launches AgentWorks. See the [latest release](https://github.com/manishiitg/coding-agent-loop/releases/latest) for manual installation artifacts. Prefer to self-host on Linux? See the [deployment docs](https://github.com/manishiitg/coding-agent-loop/tree/main/deploy).
+The installer downloads the latest release, installs the app, installs the local MCP bridge, clears the macOS quarantine flag, and launches AgentWorks. See the [latest release](https://github.com/manishiitg/agentworks/releases/latest) for manual installation artifacts. Prefer to self-host on Linux? See the [deployment docs](https://github.com/manishiitg/agentworks/tree/main/deploy).
 
 ## 2. Complete First-Launch Setup
 

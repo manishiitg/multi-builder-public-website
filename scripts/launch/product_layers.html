@@ -79,9 +79,9 @@
           <div class="pipe">
             <p class="pipe-name">Pipeline · New signups</p>
             <ol>
-              <li class="st det"><small>Deterministic</small><b>Pull new signups</b><em>saved script</em></li>
+              <li class="st det"><small>Script</small><b>Pull new signups</b><em>saved script</em></li>
               <li class="st agent"><small>Agent</small><b>Research each company</b><em>Claude Code</em></li>
-              <li class="st det"><small>Deterministic</small><b>Route by company size</b><em>rule, no model</em></li>
+              <li class="st det"><small>Script</small><b>Route by company size</b><em>rule, no model</em></li>
               <li class="st crew"><small>Crew</small><b>Sage writes the email</b><em>crew step</em></li>
               <li class="st human"><small>Approval</small><b>You approve the send</b><em>human step</em></li>
             </ol>
@@ -89,15 +89,15 @@
           <div class="pipe">
             <p class="pipe-name">Pipeline · Follow-ups</p>
             <ol>
-              <li class="st det"><small>Deterministic</small><b>Find quiet signups</b><em>saved script</em></li>
+              <li class="st det"><small>Script</small><b>Find quiet signups</b><em>saved script</em></li>
               <li class="st agent"><small>Agent</small><b>Draft the check-in</b><em>Codex</em></li>
-              <li class="st det"><small>Deterministic</small><b>Log to the goal</b><em>metric update</em></li>
+              <li class="st det"><small>Script</small><b>Log to the goal</b><em>metric update</em></li>
             </ol>
           </div>
-          <div class="plan-foot"><span><i class="lg det"></i>Deterministic</span><span><i class="lg agent"></i>Agent</span><span><i class="lg crew"></i>Crew</span><span><i class="lg human"></i>Human approval</span></div>
+          <div class="plan-foot"><span><i class="lg det"></i>Script: code, no AI</span><span><i class="lg agent"></i>Agent</span><span><i class="lg crew"></i>Crew</span><span><i class="lg human"></i>Human approval</span></div>
         </div>
         <ul class="control engine-points">
-          <li class="reveal"><h3>Deterministic where it should be</h3><p>Routing is plain code that reads a file, never a model guessing. Steps that repeat can save a script that runs first next time, so a solved problem stays solved and costs nothing.</p></li>
+          <li class="reveal"><h3>Scripted where it counts</h3><p>Fetching data, calling APIs and applying changes run as scripted steps: plain code with no AI, which must exit cleanly and pass an output check before the next step starts. Routing is a rule in code, never a model guessing.</p></li>
           <li class="reveal"><h3>Agentic where it matters</h3><p>Research, judgment and writing go to an agent step or to a crew, with the right model for each step and a human approval wherever you want one.</p></li>
           <li class="reveal"><h3>Learnings &amp; knowledge base</h3><p>Every run writes what it learned into a shared skill, and each workflow keeps a knowledge base that other workflows can read. Run fifty knows what run one had to discover.</p></li>
         </ul>

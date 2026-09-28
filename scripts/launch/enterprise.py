@@ -139,6 +139,7 @@ body=f'''  <main id="main">
       </div>
     </section>
 
+{scripted_section()}
     <section class="section">
       <div class="wrap">
         <div class="section-head reveal">

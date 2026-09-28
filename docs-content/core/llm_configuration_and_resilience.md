@@ -148,9 +148,9 @@ Execution agents now select models from a fixed priority chain: step override, s
 
 | Component | File Path | Key Functions |
 |-----------|-----------|---------------|
-| **Retry Logic** | [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isRetryAfterValidationFailure` calculation (lines 1221-1228), retry loop (line 1152) |
-| **LLM Selection** | [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go) | `selectExecutionLLM()` - LLM selection logic (lines 228-270) |
-| **Validation Check** | [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isValidationFailure()` function (lines 46-54) |
+| **Retry Logic** | [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isRetryAfterValidationFailure` calculation (lines 1221-1228), retry loop (line 1152) |
+| **LLM Selection** | [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go) | `selectExecutionLLM()` - LLM selection logic (lines 228-270) |
+| **Validation Check** | [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) | `isValidationFailure()` function (lines 46-54) |
 
 ### 🔄 Flow Sequence
 
@@ -170,7 +170,7 @@ graph TD
 
 ### Attempt Sequence
 
-Source: [view on GitHub](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
+Source: [view on GitHub](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
 
 **Priority Order** (checked in this sequence):
 1. **Step execution LLM** - Used when `agent_configs.execution_llm` is set for the step.
@@ -193,7 +193,7 @@ Source: [view on GitHub](https://github.com/manishiitg/coding-agent-loop/blob/ma
 
 #### Validation Status Handling
 
-Source: [view on GitHub](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go#L46)
+Source: [view on GitHub](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go#L46)
 
 **Retry Decision**: Uses `IsSuccessCriteriaMet` from validation response
 - If `IsSuccessCriteriaMet == true`: Stop retry, step passes
@@ -210,7 +210,7 @@ Source: [view on GitHub](https://github.com/manishiitg/coding-agent-loop/blob/ma
 
 #### Key Logic
 
-Source: [view on GitHub](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go)
+Source: [view on GitHub](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go)
 
 ```go
 // Validation failure check
@@ -218,7 +218,7 @@ isRetryAfterValidationFailure := isValidationFailure(previousValidationResponse)
     (retryAttempt > 1 || (hasLoop(step) && loopIterationCount > 1))
 ```
 
-Source: [view on GitHub](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
+Source: [view on GitHub](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go)
 
 ```go
 if stepConfig.ExecutionLLM != nil {
@@ -234,7 +234,7 @@ if stepConfig.ExecutionLLM != nil {
 
 #### Conditions
 
-Source: [view on GitHub](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go#L131)
+Source: [view on GitHub](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_agent_factory.go#L131)
 
 | Condition | Purpose | Effect | Notes |
 |-----------|---------|--------|-------|
@@ -302,9 +302,9 @@ Loop Iteration 2: Selected execution model → SUCCESS
 ## 📖 Related Documentation
 
 - [Workflow Docs](../workflow/README.md) - Overall execution system
-- [Controller Execution](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) - Retry logic implementation
+- [Controller Execution](https://github.com/manishiitg/agentworks/blob/main/agent_go/pkg/orchestrator/agents/workflow/step_based_workflow/controller_execution.go) - Retry logic implementation
 - [Model Metadata](https://github.com/manishiitg/multi-llm-provider-go/blob/main/llmtypes/model_metadata.go) - Pricing, context, capabilities
-- [LLM Store](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/stores/useLLMStore.ts) - State management
+- [LLM Store](https://github.com/manishiitg/agentworks/blob/main/frontend/src/stores/useLLMStore.ts) - State management
 
 ## Retry behavior
 

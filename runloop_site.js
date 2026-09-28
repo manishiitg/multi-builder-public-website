@@ -9,7 +9,7 @@ const PRODUCT_ASSET_BASE = 'assets/product/';
 const productAsset = name => `${PRODUCT_ASSET_BASE}${name}`;
 const SALES_CALL_URL = 'https://calendly.com/manish-tryagentworks/intro';
 const SIGNUP_URL = SALES_CALL_URL;
-const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/install.sh | bash';
+const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/manishiitg/agentworks/main/install.sh | bash';
 
 const PRODUCT_ASSETS = {
   productWorkspace: productAsset('agentworks-product-workspace.png'),
@@ -319,7 +319,7 @@ function marketingPath(page) {
   const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
   if (page === 'home') return isLocal ? '/index.html' : '/';
   if (page === 'usecases') return '/agents/';
-  if (page === 'updates') return 'https://github.com/manishiitg/coding-agent-loop/releases';
+  if (page === 'updates') return 'https://github.com/manishiitg/agentworks/releases';
   if (page === 'how') return '/product/';
   if (page === 'docs') return '/docs/';
   if (page === 'notfound') return '/404.html';
@@ -379,7 +379,7 @@ function MarketingNav({ current = 'home' }) {
         )
       ),
       h('div', { className: 'mk-nav-actions' },
-        h('a', { href: 'https://github.com/manishiitg/coding-agent-loop', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
+        h('a', { href: 'https://github.com/manishiitg/agentworks', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
         h('a', { className: 'mk-btn mk-btn-small', href: SIGNUP_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call')
       )
     )
@@ -417,8 +417,8 @@ function InstallCommandCard({
 }) {
   const [copied, setCopied] = React.useState(false);
   const actionLinks = links || [
-    ['Latest release', 'https://github.com/manishiitg/coding-agent-loop/releases/latest'],
-    ['GitHub', 'https://github.com/manishiitg/coding-agent-loop'],
+    ['Latest release', 'https://github.com/manishiitg/agentworks/releases/latest'],
+    ['GitHub', 'https://github.com/manishiitg/agentworks'],
     ['Reference map', marketingHash('docs', 'reference-map')]
   ];
 
@@ -806,7 +806,7 @@ function GetStartedCTA() {
       title: 'Install the Mac app.',
       description: 'Start with one repeated task, one workflow goal, visible evidence, Pulse, and one improvement that can compound.',
       action: 'Latest release',
-      href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest',
+      href: 'https://github.com/manishiitg/agentworks/releases/latest',
       secondary: 'Install docs',
       secondaryHref: marketingHash('docs', 'install'),
       proof: ['Mac app', 'MCP bridge', 'local workspace']
@@ -816,7 +816,7 @@ function GetStartedCTA() {
       title: 'Inspect and extend the runtime.',
       description: 'Read the implementation docs, connect MCP servers, add model providers, and adapt workflow skills.',
       action: 'View source',
-      href: 'https://github.com/manishiitg/coding-agent-loop',
+      href: 'https://github.com/manishiitg/agentworks',
       secondary: 'Reference map',
       secondaryHref: marketingHash('docs', 'reference-map'),
       proof: ['open source', 'Go runtime', 'workflow docs']
@@ -828,7 +828,7 @@ function GetStartedCTA() {
       action: 'Book architecture call',
       href: SALES_CALL_URL,
       secondary: 'Deployment docs',
-      secondaryHref: 'https://github.com/manishiitg/coding-agent-loop/tree/main/deploy',
+      secondaryHref: 'https://github.com/manishiitg/agentworks/tree/main/deploy',
       proof: ['dedicated server', 'Kubernetes', 'Azure VM']
     }
   ];
@@ -845,7 +845,7 @@ function GetStartedCTA() {
         h('h2', null, 'Start with one workflow. Scale when the loop proves itself.'),
         h('p', null, 'Install locally, connect one agent worker, run with proof, then decide whether to extend the runtime or move it onto shared infrastructure.'),
         h('div', { className: 'mk-hero-actions' },
-          h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
+          h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
           h('a', { className: 'mk-btn mk-btn-secondary', href: marketingPath('docs') }, 'Read docs'),
           h('a', { className: 'mk-text-link', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call')
         )
@@ -894,7 +894,7 @@ function CompactHomeCTA() {
         h('p', null, 'Install the Mac app, connect the agent tools you already use, and run the first workflow with visible evidence.')
       ),
       h('div', { className: 'mk-home-simple-cta-actions' },
-        h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
+        h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
         h('a', { className: 'mk-btn mk-btn-secondary', href: marketingPath('docs') }, 'Read docs'),
         h('a', { className: 'mk-text-link', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call')
       )
@@ -919,8 +919,8 @@ function TrustSection({ items }) {
           h('p', null, 'AgentWorks is built around the same reality as production agent work: credentials, browser sessions, files, costs, reports, and approvals have to stay visible whether the workflow runs locally or on a managed server.')
         ),
         h('div', { className: 'mk-v29-deploy-actions' },
-          h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release'),
-          h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/coding-agent-loop/tree/main/deploy', target: '_blank', rel: 'noreferrer' }, 'Deploy docs')
+          h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release'),
+          h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/agentworks/tree/main/deploy', target: '_blank', rel: 'noreferrer' }, 'Deploy docs')
         )
       ),
       h('div', { className: 'mk-v29-deploy-grid' },
@@ -1061,8 +1061,8 @@ function DeveloperQuickstartBand() {
         className: 'mk-doc-start-command mk-v40-command-card',
         actionsClassName: 'mk-doc-command-actions mk-v40-command-actions',
         links: [
-          ['Latest release', 'https://github.com/manishiitg/coding-agent-loop/releases/latest'],
-          ['Source repo', 'https://github.com/manishiitg/coding-agent-loop'],
+          ['Latest release', 'https://github.com/manishiitg/agentworks/releases/latest'],
+          ['Source repo', 'https://github.com/manishiitg/agentworks'],
           ['Docs', marketingPath('docs')]
         ]
       }),
@@ -1084,12 +1084,12 @@ function PublicProofStrip() {
     {
       title: 'Open-source runtime',
       label: 'GitHub',
-      href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest'
+      href: 'https://github.com/manishiitg/agentworks/releases/latest'
     },
     {
       title: 'Mac app install',
       label: 'Release',
-      href: 'https://github.com/manishiitg/coding-agent-loop'
+      href: 'https://github.com/manishiitg/agentworks'
     },
     {
       title: 'Local + server workspaces',
@@ -1776,25 +1776,25 @@ function AgentWorksHome() {
       title: 'Open-source release path',
       description: 'Install from public releases, inspect the runtime, and trace product behavior back to the repository.',
       evidence: 'release artifacts + install script',
-      href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest'
+      href: 'https://github.com/manishiitg/agentworks/releases/latest'
     },
     {
       title: 'Scoped credential model',
       description: 'Use global, user, and workflow secrets with runtime injection instead of leaving credentials in prompts or chat history.',
       evidence: 'AES-256-GCM + selected secrets',
-      href: 'https://github.com/manishiitg/coding-agent-loop/blob/main/docs/core/secrets.md'
+      href: 'https://github.com/manishiitg/agentworks/blob/main/docs/core/secrets.md'
     },
     {
       title: 'Server deployment options',
       description: 'Move shared agent execution to your own environment when client work or team workflows need a controlled server.',
       evidence: 'dedicated VM + Azure + Kubernetes',
-      href: 'https://github.com/manishiitg/coding-agent-loop/tree/main/deploy'
+      href: 'https://github.com/manishiitg/agentworks/tree/main/deploy'
     },
     {
       title: 'Evidence after every run',
       description: 'Keep cost, reports, screenshots, browser state, logs, skills, and artifacts connected to the workflow after execution.',
       evidence: 'reports + Pulse + artifacts',
-      href: 'https://github.com/manishiitg/coding-agent-loop/blob/main/docs/workflow/self_improvement_and_reporting.md'
+      href: 'https://github.com/manishiitg/agentworks/blob/main/docs/workflow/self_improvement_and_reporting.md'
     }
   ];
   const homeTourItems = [tourItems[0], tourItems[1], tourItems[2], tourItems[5]];
@@ -1811,7 +1811,7 @@ function AgentWorksHome() {
               'AgentWorks is the control plane for Claude Code, Codex CLI, Cursor, browser agents, and MCP workflows.'
             ),
             h('div', { className: 'mk-hero-actions' },
-              h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
+              h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
               h('a', { className: 'mk-btn mk-btn-secondary', href: marketingPath('docs') }, 'Read docs'),
               h('a', { className: 'mk-text-link', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call')
             ),
@@ -1930,7 +1930,7 @@ function UseCasesPage() {
               'Run sales, marketing, support, finance, operations, engineering, and IT workflows with shared goals, evidence, human judgment, and continuous improvement.'
             ),
             h('div', { className: 'mk-hero-actions' },
-              h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
+              h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
               h('a', { className: 'mk-btn mk-btn-secondary', href: marketingPath('docs') }, 'Read docs'),
               h('a', { className: 'mk-text-link', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call')
             ),
@@ -2025,8 +2025,8 @@ function UseCasesPage() {
 }
 
 
-const DOCS_SOURCE_ROOT = 'https://github.com/manishiitg/coding-agent-loop/blob/main/docs';
-const DOCS_REPO_ROOT = 'https://github.com/manishiitg/coding-agent-loop/blob/main';
+const DOCS_SOURCE_ROOT = 'https://github.com/manishiitg/agentworks/blob/main/docs';
+const DOCS_REPO_ROOT = 'https://github.com/manishiitg/agentworks/blob/main';
 
 function docsArticleHref(docPath, hash = '') {
   const encodedPath = String(docPath).split('/').map(part => encodeURIComponent(part)).join('/');
@@ -2081,7 +2081,7 @@ function resolveDocsLink(currentDoc, rawValue, isImage = false) {
     return `/docs-content/${resolved.slice(5)}${hash}`;
   }
   if (isImage) {
-    return `https://raw.githubusercontent.com/manishiitg/coding-agent-loop/main/${resolved}${hash}`;
+    return `https://raw.githubusercontent.com/manishiitg/agentworks/main/${resolved}${hash}`;
   }
   return `${DOCS_REPO_ROOT}/${resolved}${hash}`;
 }
@@ -2362,7 +2362,7 @@ function DocsPage() {
         h('nav', { 'aria-label': 'Docs sections' },
           docLinks.map(link => h('a', { key: link[0], href: link[1] }, link[0]))
         ),
-        h('a', { className: 'mk-doc-github', href: 'https://github.com/manishiitg/coding-agent-loop/tree/main/docs', target: '_blank', rel: 'noreferrer' }, 'Browse source')
+        h('a', { className: 'mk-doc-github', href: 'https://github.com/manishiitg/agentworks/tree/main/docs', target: '_blank', rel: 'noreferrer' }, 'Browse source')
       ),
       h('article', { className: 'mk-doc-content' },
         h('section', { id: 'overview', className: 'mk-doc-hero mk-doc-minimal-hero' },
@@ -2391,8 +2391,8 @@ function DocsPage() {
             label: 'install.sh',
             className: 'mk-doc-command-minimal',
             links: [
-              ['Latest release', 'https://github.com/manishiitg/coding-agent-loop/releases/latest'],
-              ['GitHub', 'https://github.com/manishiitg/coding-agent-loop']
+              ['Latest release', 'https://github.com/manishiitg/agentworks/releases/latest'],
+              ['GitHub', 'https://github.com/manishiitg/agentworks']
             ]
           })
         ),
@@ -2424,7 +2424,7 @@ function UpdatesPage() {
   const latest = {
     version: 'v1.25.95',
     date: 'July 5, 2026',
-    url: 'https://github.com/manishiitg/coding-agent-loop/releases/tag/v1.25.95',
+    url: 'https://github.com/manishiitg/agentworks/releases/tag/v1.25.95',
     artifacts: ['AgentWorks-1.25.95-arm64.dmg', 'AgentWorks-1.25.95-arm64-mac.zip', 'latest-mac.yml']
   };
   const highlights = [
@@ -2489,7 +2489,7 @@ function UpdatesPage() {
             ),
             h('div', { className: 'mk-hero-actions' },
               h('a', { className: 'mk-btn', href: latest.url, target: '_blank', rel: 'noreferrer' }, 'Open latest release'),
-              h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/coding-agent-loop/commits/main', target: '_blank', rel: 'noreferrer' }, 'View commits'),
+              h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/agentworks/commits/main', target: '_blank', rel: 'noreferrer' }, 'View commits'),
               h('a', { className: 'mk-text-link', href: marketingPath('docs') }, 'Read docs')
             )
           ),
@@ -2579,9 +2579,9 @@ function UpdatesPage() {
             h('p', null, 'This site explains the product story. GitHub has code, releases, install notes, and deploy docs.')
           ),
           h('div', null,
-            h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release'),
-            h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/coding-agent-loop', target: '_blank', rel: 'noreferrer' }, 'Source repo'),
-            h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/coding-agent-loop/tree/main/deploy', target: '_blank', rel: 'noreferrer' }, 'Deployment docs')
+            h('a', { className: 'mk-btn', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release'),
+            h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/agentworks', target: '_blank', rel: 'noreferrer' }, 'Source repo'),
+            h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/agentworks/tree/main/deploy', target: '_blank', rel: 'noreferrer' }, 'Deployment docs')
           )
         )
       )
@@ -2742,7 +2742,7 @@ function HowPage() {
           h('div', { className: 'mk-hero-actions' },
             h('a', { className: 'mk-btn', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call'),
             h('a', { className: 'mk-btn mk-btn-secondary', href: marketingHash('how', 'operating-loop') }, 'See the operating loop'),
-            h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac')
+            h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac')
           ),
           h('div', { className: 'mk-product-v2-hero-notes', 'aria-label': 'Product scope' },
             h('span', null, 'Recurring business work'),
@@ -2916,7 +2916,7 @@ function HowPage() {
           h('p', null, 'Bring the outcome, the workers, and the tools you already use. We will map the operating record, human review points, and the path to improvement.'),
           h('div', { className: 'mk-product-v2-closing-actions' },
             h('a', { className: 'mk-btn', href: SALES_CALL_URL, target: '_blank', rel: 'noreferrer' }, 'Book a call'),
-            h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
+            h('a', { className: 'mk-btn mk-btn-secondary', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Install for Mac'),
             h('a', { className: 'mk-text-link', href: marketingPath('docs') }, 'Read the docs')
           )
         )
@@ -2946,8 +2946,8 @@ function MarketingFooter() {
       ),
       h('div', null,
         h('strong', null, 'Open source'),
-        h('a', { href: 'https://github.com/manishiitg/coding-agent-loop', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
-        h('a', { href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release'),
+        h('a', { href: 'https://github.com/manishiitg/agentworks', target: '_blank', rel: 'noreferrer' }, 'GitHub'),
+        h('a', { href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release'),
         h('a', { href: 'https://modelcontextprotocol.io/docs/getting-started/intro', target: '_blank', rel: 'noreferrer' }, 'MCP')
       ),
       h('div', null,
@@ -2975,7 +2975,7 @@ function NotFoundPage() {
             h('div', { className: 'mk-hero-actions' },
               h('a', { className: 'mk-btn', href: marketingPath('home') }, 'Go home'),
               h('a', { className: 'mk-btn mk-btn-secondary', href: marketingPath('docs') }, 'Open docs'),
-              h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/coding-agent-loop/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release')
+              h('a', { className: 'mk-text-link', href: 'https://github.com/manishiitg/agentworks/releases/latest', target: '_blank', rel: 'noreferrer' }, 'Latest release')
             )
           ),
           h('div', { className: 'mk-notfound-panel', 'aria-label': 'AgentWorks route status' },

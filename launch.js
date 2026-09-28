@@ -90,6 +90,19 @@
     });
   }
 
+  // Copy buttons: data-copy="<id of the element whose text to copy>".
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = document.getElementById(btn.getAttribute('data-copy'));
+      if (!src || !navigator.clipboard) return;
+      navigator.clipboard.writeText(src.textContent.trim()).then(function () {
+        var label = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = label; }, 1600);
+      });
+    });
+  });
+
   // Reveal on scroll.
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {

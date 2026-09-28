@@ -40,6 +40,7 @@ const requiredFiles = [
   'goals/index.html',
   'crews/index.html',
   'workbench/index.html',
+  'download/index.html',
   'enterprise/mcp-gateway/index.html',
   'relays/index.html',
   '_headers',
@@ -403,7 +404,7 @@ function assertDeployPayload() {
   const redirects = readDist('_redirects');
   if (!redirects.includes('/automations/:slug/ /product/ 301')) fail('legacy automation redirect missing');
   if (!redirects.includes('/how/ /product/ 301')) fail('legacy product redirect missing');
-  if (!redirects.includes('/deploy/ https://github.com/manishiitg/coding-agent-loop/tree/main/deploy 301')) fail('deployment docs redirect missing');
+  if (!redirects.includes('/deploy/ https://github.com/manishiitg/agentworks/tree/main/deploy 301')) fail('deployment docs redirect missing');
   if (!redirects.includes('/wireframes.html / 301')) fail('wireframes redirect missing');
 
   const robots = readDist('robots.txt');

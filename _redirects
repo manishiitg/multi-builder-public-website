@@ -1,3 +1,5 @@
+/install.sh https://raw.githubusercontent.com/manishiitg/agentworks/main/install.sh 302
+/download /download/ 301
 /automations/ /product/ 301
 /automations /product/ 301
 /use-cases/ /agents/ 301
@@ -6,10 +8,10 @@
 /how /product/ 301
 /how.html /product/ 301
 /product /product/ 301
-/deploy/ https://github.com/manishiitg/coding-agent-loop/tree/main/deploy 301
-/deploy https://github.com/manishiitg/coding-agent-loop/tree/main/deploy 301
-/updates/ https://github.com/manishiitg/coding-agent-loop/releases 301
-/updates https://github.com/manishiitg/coding-agent-loop/releases 301
+/deploy/ https://github.com/manishiitg/agentworks/tree/main/deploy 301
+/deploy https://github.com/manishiitg/agentworks/tree/main/deploy 301
+/updates/ https://github.com/manishiitg/agentworks/releases 301
+/updates https://github.com/manishiitg/agentworks/releases 301
 /docs/ /docs/index.html 200
 /docs /docs/index.html 200
 /workforce.html / 301

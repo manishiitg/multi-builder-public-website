@@ -24,7 +24,7 @@ _LAYERS=_LAYERS.replace('{{SIGNUP}}',SIGNUP).replace('{{CAL}}',CAL)
 # The layers file holds four sections: engine, crew, layer-workflow and bring-your-own-AI.
 _SECS=['    <section'+x for x in _LAYERS.split('    <section')[1:]]
 LAYER={('byo' if 'id="' not in x.split('>')[0] else _re.search(r'id="([^"]+)"',x).group(1)):x.rstrip()+'\n' for x in _SECS}
-FAQ_OVERVIEW=[q for q in FAQ_PRODUCT if q[0].startswith(("What's the difference","Can I use it","Does it work"))]
+FAQ_OVERVIEW=[FAQ_HOME[0]]+[q for q in FAQ_PRODUCT if q[0].startswith(("What's the difference","Can I use it","Does it work"))]
 def _pcard(h,t,d): return f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>'
 PRODUCT_CARDS=''.join(_pcard(h,t,d) for h,t,d in PRODUCT_PAGES)
 body=f'''  <main id="main">
@@ -58,6 +58,7 @@ body=f'''  <main id="main">
       </div>
     </section>
 
+{scripted_section()}
     <section class="section" id="layers">
       <div class="wrap">
         <div class="section-head center reveal">
@@ -107,7 +108,7 @@ body=f'''  <main id="main">
         <p>Start from a premade agent or describe your own. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="{INSTALL}" target="_blank" rel="noreferrer">Download free app</a>
+          <a class="btn btn-ghost" href="{INSTALL}">Download free app</a>
         </div>
       </div>
     </section>

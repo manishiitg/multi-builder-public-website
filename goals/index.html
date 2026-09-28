@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch39">
+  <link rel="stylesheet" href="/launch.css?v=launch40">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,6 +65,14 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does every step use AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Work that should run the same way every time, like pulling data, calling an API or applying a change, runs as a scripted step: plain code with no AI, whose output is checked before the workflow moves on. Agents take the steps that need judgment, and rules like \"over $200 needs approval\" are decided in code."
+          }
+        },
         {
           "@type": "Question",
           "name": "What makes a good goal?",
@@ -151,7 +159,7 @@
         <a href="/docs/">Docs</a>
       </nav>
       <div class="header-actions">
-        <a class="link" href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="link" href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn btn-primary btn-sm" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
@@ -186,7 +194,7 @@
       <a class="sub" href="/enterprise/mcp-gateway/">MCP gateway <span class="tag tag-soon">Soon</span></a>
       <a href="/pricing/">Pricing</a>
       <a href="/docs/">Docs</a>
-      <a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">GitHub</a>
       <a class="btn btn-primary" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
     </div>
   </header>
@@ -344,9 +352,9 @@
           <div class="pipe">
             <p class="pipe-name">Pipeline · New signups</p>
             <ol>
-              <li class="st det"><small>Deterministic</small><b>Pull new signups</b><em>saved script</em></li>
+              <li class="st det"><small>Script</small><b>Pull new signups</b><em>saved script</em></li>
               <li class="st agent"><small>Agent</small><b>Research each company</b><em>Claude Code</em></li>
-              <li class="st det"><small>Deterministic</small><b>Route by company size</b><em>rule, no model</em></li>
+              <li class="st det"><small>Script</small><b>Route by company size</b><em>rule, no model</em></li>
               <li class="st crew"><small>Crew</small><b>Sage writes the email</b><em>crew step</em></li>
               <li class="st human"><small>Approval</small><b>You approve the send</b><em>human step</em></li>
             </ol>
@@ -354,15 +362,15 @@
           <div class="pipe">
             <p class="pipe-name">Pipeline · Follow-ups</p>
             <ol>
-              <li class="st det"><small>Deterministic</small><b>Find quiet signups</b><em>saved script</em></li>
+              <li class="st det"><small>Script</small><b>Find quiet signups</b><em>saved script</em></li>
               <li class="st agent"><small>Agent</small><b>Draft the check-in</b><em>Codex</em></li>
-              <li class="st det"><small>Deterministic</small><b>Log to the goal</b><em>metric update</em></li>
+              <li class="st det"><small>Script</small><b>Log to the goal</b><em>metric update</em></li>
             </ol>
           </div>
-          <div class="plan-foot"><span><i class="lg det"></i>Deterministic</span><span><i class="lg agent"></i>Agent</span><span><i class="lg crew"></i>Crew</span><span><i class="lg human"></i>Human approval</span></div>
+          <div class="plan-foot"><span><i class="lg det"></i>Script: code, no AI</span><span><i class="lg agent"></i>Agent</span><span><i class="lg crew"></i>Crew</span><span><i class="lg human"></i>Human approval</span></div>
         </div>
         <ul class="control engine-points">
-          <li class="reveal"><h3>Deterministic where it should be</h3><p>Routing is plain code that reads a file, never a model guessing. Steps that repeat can save a script that runs first next time, so a solved problem stays solved and costs nothing.</p></li>
+          <li class="reveal"><h3>Scripted where it counts</h3><p>Fetching data, calling APIs and applying changes run as scripted steps: plain code with no AI, which must exit cleanly and pass an output check before the next step starts. Routing is a rule in code, never a model guessing.</p></li>
           <li class="reveal"><h3>Agentic where it matters</h3><p>Research, judgment and writing go to an agent step or to a crew, with the right model for each step and a human approval wherever you want one.</p></li>
           <li class="reveal"><h3>Learnings &amp; knowledge base</h3><p>Every run writes what it learned into a shared skill, and each workflow keeps a knowledge base that other workflows can read. Run fifty knows what run one had to discover.</p></li>
         </ul>
@@ -387,7 +395,8 @@
           <h2 class="h2">How it works, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
-          <details open><summary>What makes a good goal?</summary><p>One outcome you care about and one number that proves it, with a target. &quot;Book 5 demos a week&quot; works. &quot;Do more marketing&quot; doesn&#x27;t, because nothing can tell whether it happened.</p></details>
+          <details open><summary>Does every step use AI?</summary><p>No. Work that should run the same way every time, like pulling data, calling an API or applying a change, runs as a scripted step: plain code with no AI, whose output is checked before the workflow moves on. Agents take the steps that need judgment, and rules like &quot;over $200 needs approval&quot; are decided in code.</p></details>
+          <details><summary>What makes a good goal?</summary><p>One outcome you care about and one number that proves it, with a target. &quot;Book 5 demos a week&quot; works. &quot;Do more marketing&quot; doesn&#x27;t, because nothing can tell whether it happened.</p></details>
           <details><summary>What if the metric can&#x27;t be measured automatically?</summary><p>AgentWorks says so. A missing or stale measurement is flagged on the goal instead of guessed, and the agent asks you how to get the number.</p></details>
           <details><summary>Can it change my workflow without asking?</summary><p>Only if you let it. At the default autonomy level it runs steps on its own and asks before posting, sending or editing the workflow. You can move it up or down at any time.</p></details>
           <details><summary>Can I use it from ChatGPT or Claude?</summary><p>Yes. AgentWorks includes an MCP server. Connect it to ChatGPT, Claude, Cowork or any MCP client to check goals, read reports and start runs from that chat. Hosted AI apps connect to your AgentWorks server with a sign-in link.</p></details>
@@ -403,7 +412,7 @@
         <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="https://github.com/manishiitg/coding-agent-loop/releases/latest" target="_blank" rel="noreferrer">Download free app</a>
+          <a class="btn btn-ghost" href="/download/">Download free app</a>
         </div>
       </div>
     </section>
@@ -433,14 +442,14 @@
             <li><a href="/pricing/">Pricing</a></li>
             <li><a href="/pricing/#onboarding">Cloud onboarding</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
-            <li><a href="https://github.com/manishiitg/coding-agent-loop" target="_blank" rel="noreferrer">Open source</a></li>
+            <li><a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>
         </div>
         <div>
           <h2 class="fh">Resources</h2>
           <ul>
             <li><a href="/docs/">Docs</a></li>
-                        <li><a href="https://github.com/manishiitg/coding-agent-loop/releases/latest" target="_blank" rel="noreferrer">Download</a></li>
+                        <li><a href="/download/">Download</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
           </ul>
         </div>
@@ -459,7 +468,7 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch39"></script>
+  <script src="/launch.js?v=launch40"></script>
   <script src="/analytics.js?v=1"></script>
 </body>
 </html>

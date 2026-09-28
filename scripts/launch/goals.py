@@ -1,5 +1,5 @@
 # /goals/: the Goals product in depth (goal, metric, measure, auto-improve, autonomy, the plan).
-FAQ_GOALS=[q for q in FAQ_PRODUCT if not q[0].startswith("What's the difference")]+[
+FAQ_GOALS=[FAQ_HOME[0]]+[q for q in FAQ_PRODUCT if not q[0].startswith("What's the difference")]+[
  ("What's the difference between a Goal and a Crew?","A Goal owns an outcome and keeps working on its own schedule. A Crew is an expert you or your team ask for help, in Slack, WhatsApp or from Claude and ChatGPT. Goals can hand steps to Crews."),
 ]
 goals_body=f'''  <main id="main">
@@ -171,7 +171,7 @@ goals_body=f'''  <main id="main">
         <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="{INSTALL}" target="_blank" rel="noreferrer">Download free app</a>
+          <a class="btn btn-ghost" href="{INSTALL}">Download free app</a>
         </div>
       </div>
     </section>

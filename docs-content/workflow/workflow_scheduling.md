@@ -23,7 +23,7 @@ Each workflow manifest can define zero or more schedules:
 
 - `Workflow/<name>/workflow.json`
 
-Current manifest schedule fields are defined in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/workflow_manifest.go):
+Current manifest schedule fields are defined in [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/cmd/server/workflow_manifest.go):
 
 - `id`
 - `name`
@@ -62,7 +62,7 @@ Global scheduler pause and execution flags are persisted in:
 
 - `config/scheduler.json`
 
-Current fields are defined in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler_config_store.go):
+Current fields are defined in [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/cmd/server/scheduler_config_store.go):
 
 - `globally_paused`
 - `paused_at`
@@ -89,7 +89,7 @@ Schedule run history is persisted per workflow in:
 
 - `Workflow/<name>/schedule-runs.json`
 
-Entries are defined in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/schedule_runs.go):
+Entries are defined in [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/cmd/server/schedule_runs.go):
 
 - `id`
 - `schedule_id`
@@ -110,7 +110,7 @@ schedule stores outside `Workflow/` retain their separate 200-entry cap.
 
 ## Runtime Model
 
-The scheduler service is implemented in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go).
+The scheduler service is implemented in [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/cmd/server/scheduler.go).
 
 On startup it:
 
@@ -199,7 +199,7 @@ If:
 
 then the scheduler tries to auto-generate the final report after the workshop message sequence completes.
 
-That flow lives in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler.go#L684).
+That flow lives in [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/cmd/server/scheduler.go#L684).
 
 One nuance in current code:
 
@@ -210,7 +210,7 @@ So report auto-generation for workshop schedules is coupled to the resolved run-
 
 ## APIs
 
-Scheduler APIs are registered in [source](https://github.com/manishiitg/coding-agent-loop/blob/main/agent_go/cmd/server/scheduler_routes.go):
+Scheduler APIs are registered in [source](https://github.com/manishiitg/agentworks/blob/main/agent_go/cmd/server/scheduler_routes.go):
 
 - `GET /api/scheduler/config`
 - `PUT /api/scheduler/config`
@@ -293,9 +293,9 @@ parent's cadence settings, the quiet rule and per-check status at
 
 The current frontend scheduling surfaces are:
 
-- [SchedulePresetPopup.tsx](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/components/SchedulePresetPopup.tsx)
-- [WorkflowScheduleRunsPanel.tsx](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/components/scheduler/WorkflowScheduleRunsPanel.tsx)
-- [scheduler.ts](https://github.com/manishiitg/coding-agent-loop/blob/main/frontend/src/api/scheduler.ts)
+- [SchedulePresetPopup.tsx](https://github.com/manishiitg/agentworks/blob/main/frontend/src/components/SchedulePresetPopup.tsx)
+- [WorkflowScheduleRunsPanel.tsx](https://github.com/manishiitg/agentworks/blob/main/frontend/src/components/scheduler/WorkflowScheduleRunsPanel.tsx)
+- [scheduler.ts](https://github.com/manishiitg/agentworks/blob/main/frontend/src/api/scheduler.ts)
 
 The UI supports:
 
