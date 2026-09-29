@@ -13,7 +13,7 @@ code_body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Code</p>
         <h1>Every employee wants coding agents. <span class="dim">Bring them to one place.</span></h1>
-        <p class="lede">Today each person runs Claude Code, Codex or Cursor on their own laptop and their own plan, and the company can't see what it costs, who uses how much, or what the agents actually produced. With Code, everyone codes on your AgentWorks server, on the plans you already pay for, and you see cost, usage and output in one place.</p>
+        <p class="lede">Today each person runs Claude Code, Codex or Cursor on their own laptop and their own plan, and the company can't see what it costs, who uses how much, or what the agents actually produced. With Code, everyone codes on your AgentWorks server, on the plans you already pay for, and you review cost, usage and output in one place. People can reach their Code from Slack or WhatsApp when they're away from the desk.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#see">What you see</a>
@@ -48,7 +48,7 @@ code_body=f'''  <main id="main">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">What the company sees</p>
-          <h2>Cost, usage and output. <span class="dim">For every person, in one place.</span></h2>
+          <h2>One place to review costs. <span class="dim">And usage and output, for every person.</span></h2>
           <p class="lede">Work in a Code is private from colleagues and reviewable by the company. Everyone sees that stated plainly in the product.</p>
         </div>
         <ul class="control">
@@ -72,6 +72,24 @@ code_body=f'''  <main id="main">
           <li><h3>Track it centrally</h3><p>Cost and tokens per account, per person and per Code, workflow or Crew, plus a live check of each plan's own usage limit.</p></li>
           <li><h3>Stay accountable</h3><p>Runs on a shared account act as, and bill to, its owner. Owners see who used their account and where. Admins see everything.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section" id="on-the-go">
+      <div class="wrap">
+        <div class="goal-pair">
+          <div class="section-head reveal">
+            <p class="kicker">On the go</p>
+            <h2>Every Code can connect to Slack and WhatsApp. <span class="dim">Keep working from your phone.</span></h2>
+            <p class="lede">Connect a Code to a Slack direct message or a one-to-one WhatsApp chat. Ask for a fix, check a test run or get a summary without opening a laptop. The same Code, the same files, the same cost tracking.</p>
+          </div>
+          <div class="explainer reveal" aria-label="Example: a Code in WhatsApp">
+            <p class="explainer-title"><span>WhatsApp</span><span>checkout-service</span></p>
+            <p class="ask-msg you">Did the retry change pass the tests?</p>
+            <p class="ask-msg them"><b>Yes</b> All 48 tests pass after the retry change. Want a short summary for Rio?</p>
+            <p class="ask-msg you">Yes, send it to me here.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -120,8 +138,7 @@ code_body=f'''  <main id="main">
         </div>
         <ul class="control">
           <li class="reveal"><h3>MCP servers</h3><p>Use the servers your admin selects for the Code, plus your own remote MCP servers. Your logins and API keys are stored encrypted, switched on per Code, and never usable by anyone else. Calls to private or internal network addresses are blocked.</p></li>
-          <li class="reveal"><h3>Gmail</h3><p>A Google account you connect in a Code is kept in that Code's own credential store, used only in your chats and never shared across the server.</p></li>
-          <li class="reveal"><h3>Slack and WhatsApp</h3><p>Talk to your Code from a Slack direct message or a one-to-one WhatsApp chat.</p></li>
+          <li class="reveal"><h3>Google, GitHub and more</h3><p>Add a known MCP server, such as Google Workspace or GitHub, as your own and sign in with your account. Personal secrets you add reach only your Code's chats.</p></li>
         </ul>
         <div class="connect-row center-row" aria-label="Coding agents a Code can run on">
           <span class="chip">{logo("claude")}Claude Code</span>
