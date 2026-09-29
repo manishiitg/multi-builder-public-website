@@ -95,8 +95,8 @@ USECASES=[
   faq=[('Which analytics tools does it work with?','Product analytics, billing, CRM and search tools your team already uses, through APIs, MCP servers or its own browser.'),
        ('Does it make changes to the product?','No. It recommends and tracks actions in your tools; your team decides what ships.'),
        ('How is this different from a BI dashboard?','A dashboard shows the number. The agents own a goal: they investigate, propose, and check whether the change worked.')]),
- dict(slug='workbench', path='/workbench/', product=True, group='AI platform for teams', nav='Workbench', icon='<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
-  navdesc='Your team\'s Claude, ChatGPT and Cursor plans, shared and measured.',
+ dict(slug='workbench', path='/code/', page=False, group='AI platform for teams', nav='Code', icon='<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>',
+  navdesc='Coding agents for every employee, with cost and usage in one place.',
   title='AgentWorks Workbench - Share Your Team\'s AI Plans and Measure Usage',
   desc='Move scattered personal Claude Code, Codex and Cursor subscriptions onto one AgentWorks server. People use shared Crew agents in chat or the live terminal, and you see usage and cost by person, Crew, workflow and model.',
   kicker='Workbench',
@@ -178,7 +178,7 @@ USECASES=[
 ]
 
 def uc_path(u):
-    # Product pages (Workbench, Crews) live at the top level; the rest are enterprise use cases.
+    # Product pages (Code, Crews) live at the top level; the rest are enterprise use cases.
     return u.get('path', f'/enterprise/{u["slug"]}/')
 
 def uc_nav_items():

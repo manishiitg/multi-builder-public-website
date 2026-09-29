@@ -142,6 +142,7 @@ code_body=f'''  <main id="main">
         </div>
         <ul class="control">
           <li class="reveal"><h3>Admins see the whole picture</h3><p>Every account, every person's usage, and which Codes, workflows and Crews it went to.</p></li>
+          <li class="reveal"><h3>Same accounts for Crews</h3><p>The plans you bring also power your Crews, in chat, Slack, WhatsApp or the live terminal. For Enterprise, sign-in goes through your SSO, with roles and per-workflow access.</p></li>
           <li class="reveal"><h3>Owners see their account</h3><p>Whoever shares an account sees who used it and where, and can stop sharing at any time.</p></li>
           <li class="reveal"><h3>Code reviewers</h3><p>Admins, and people an admin names as Code reviewers, can read any Code's chats, files and costs. Read-only, and every view goes in the audit log. AI assistants can do the same review over the AgentWorks MCP connection with a dedicated <code>code:review</code> token.</p></li>
         </ul>

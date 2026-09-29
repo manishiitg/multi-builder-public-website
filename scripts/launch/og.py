@@ -16,7 +16,7 @@ ART={
 'loop':'''<div class="art grid4"><div><s>01</s><b>Set the goal</b></div><div><s>02</s><b>Run</b></div><div><s>03</s><b>Measure</b></div><div><s>04</s><b>Auto-improve</b></div></div>''',
 'agents':'''<div class="art list"><p><b>Invoice Chasing</b><span>Finance</span></p><p><b>Sales Follow-up</b><span>Sales</span></p><p><b>Support Reply Drafter</b><span>Support</span></p><p><b>Store Operations</b><span>Shopify</span></p></div>''',
 'tiers':'''<div class="art list"><p><b>Open source</b><span>$0</span></p><p class="hl"><b>Cloud</b><span>$99 / month</span></p><p><b>Enterprise</b><span>Custom</span></p></div>''',
-'eng':'''<div class="art list"><p><b>Browser QA</b><span>8 playbooks</span></p><p><b>Reliability</b><span>4 playbooks</span></p><p><b>Expert Crews</b><span>MCP &middot; CLI</span></p><p><b>Workbench</b><span>Usage by team</span></p></div>''',
+'eng':'''<div class="art list"><p><b>Browser QA</b><span>8 playbooks</span></p><p><b>Reliability</b><span>4 playbooks</span></p><p><b>Expert Crews</b><span>MCP &middot; CLI</span></p><p><b>Code</b><span>Usage by team</span></p></div>''',
 'none':'',
 }
 CSS=open(os.path.join(ROOT,'assets','fonts','fonts.css')).read().replace('url("','url("file://'+os.path.join(ROOT,'assets','fonts')+'/')

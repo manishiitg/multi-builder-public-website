@@ -57,7 +57,6 @@ NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
          ('/code/','Code','Your team\'s coding plans in one place: shared without handing out logins, with cost and usage tracked centrally.','code'),
-         ('/workbench/','Workbench','Your team\'s AI plans on one server, with usage by person.','bench'),
          ('/relays/','Relays <span class="tag tag-soon">Soon</span>','A fixed chain of agents you run from anywhere.','relay')]
 # Product menu second column: what every product shares.
 PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
@@ -68,7 +67,7 @@ PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/code/':'Shared coding plans, tracked', '/workbench/':'Shared AI plans, measured', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
+ '/crews/':'Experts anyone can ask', '/code/':'Shared coding plans, tracked', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -161,7 +160,6 @@ def footer():
             <li><a href="/goals/">Goals</a></li>
             <li><a href="/crews/">Crews</a></li>
             <li><a href="/code/">Code</a></li>
-            <li><a href="/workbench/">Workbench</a></li>
             <li><a href="/relays/">Relays (soon)</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>
             <li><a href="/agents/">Premade agents</a></li>
