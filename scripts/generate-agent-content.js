@@ -103,7 +103,8 @@ const guidesNav = [
     { slug: 'share-workflow', label: 'Share a workflow', blurb: 'Owners, editors, readers — share a workflow and know what each level can do.' }
   ] },
   { group: 'Automate', pages: [
-    { slug: 'publish-relay', label: 'Publish your first Relay', blurb: 'Describe a task, test the draft, and publish a versioned API.' }
+    { slug: 'publish-relay', label: 'Publish your first Relay', blurb: 'Describe a task, test the draft, and publish a versioned API.' },
+    { slug: 'incoming-gmail', label: 'Give your project an email address', blurb: 'Email a Crew, workflow, or Code and continue the chat by reply.' }
   ] },
   { group: 'Coming soon', soon: true, pages: [
     { slug: 'intro-2-minutes', label: 'What AgentWorks does in 2 minutes', blurb: 'The two-minute tour of goals, crews, and Auto-improve.' },
