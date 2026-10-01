@@ -16,7 +16,7 @@ crews_body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Crews</p>
         <h1>Build an expert once. <span class="dim">Your whole team can ask it.</span></h1>
-        <p class="lede">A Crew is an AI agent with your team's skills, tools and memory. Talk to it in Slack or WhatsApp like a teammate, or share it as an expert anyone can ask from Claude, ChatGPT, Cursor or the terminal.</p>
+        <p class="lede">A Crew is an AI agent with your team's skills, tools and memory. Talk to it in Slack or WhatsApp like a teammate, or share it as an expert anyone can ask from Claude, ChatGPT, Cursor, the terminal, or your own agents.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#share">How sharing works</a>
@@ -75,7 +75,7 @@ crews_body=f'''  <main id="main">
         </div>
         <ul class="control">
           <li class="reveal"><h3>A teammate in chat</h3><p>Hand it a job in Slack or WhatsApp. It keeps one ongoing conversation, runs on schedules, uses its own browser and reports back when it's done.</p></li>
-          <li class="reveal"><h3>An expert anyone can ask</h3><p>Share it with your team. People ask it from Claude, ChatGPT, Cursor, Claude Code or Codex through MCP, or with <code>agentworks crews ask</code>. Each person gets their own conversation.</p></li>
+          <li class="reveal"><h3>An expert anyone can ask</h3><p>Share it with your team. People ask it from Claude, ChatGPT, Cursor, Claude Code or Codex through MCP, with <code>agentworks crews ask</code>, or from your own deployed agents — anything that speaks MCP can ask it. Each person gets their own conversation.</p></li>
           <li class="reveal"><h3>A specialist for your Goals</h3><p>A <a href="/goals/">Goal</a> can hand a step to a Crew, like "write the first email", and Crews can call each other when a job needs a different specialist.</p></li>
         </ul>
         <div class="connect-row center-row" aria-label="Where you can reach a Crew">
@@ -152,4 +152,4 @@ crews_body=f'''  <main id="main">
   </main>
 '''
 CREWS_LD={"@type":"WebPage","name":"AgentWorks Crews","url":"https://agentworkshq.com/crews/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['crews/index.html']=head('AgentWorks Crews - Build an Expert AI Agent Once, Share It With Your Team','Crews are AI agents with your skills, tools and memory. Talk to one in Slack or WhatsApp, or share it as an expert anyone asks from Claude, ChatGPT, Cursor or the terminal.','/crews/',og='agentworks-product-og.jpg',extra_ld=ld(CREWS_LD,BC('Crews','/crews/'),faq_ld(FAQ_CREWS)))+header('product')+crews_body+footer()
+pages['crews/index.html']=head('AgentWorks Crews - Build an Expert AI Agent Once, Share It With Your Team','Crews are AI agents with your skills, tools and memory. Talk to one in Slack or WhatsApp, or share it as an expert anyone asks from Claude, ChatGPT, Cursor, the terminal, or their own agents.','/crews/',og='agentworks-product-og.jpg',extra_ld=ld(CREWS_LD,BC('Crews','/crews/'),faq_ld(FAQ_CREWS)))+header('product')+crews_body+footer()

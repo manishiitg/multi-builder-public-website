@@ -57,7 +57,7 @@ NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
          ('/code/','Code','Your team\'s coding plans in one place: shared without handing out logins, with cost and usage tracked centrally.','code'),
-         ('/relays/','Relays <span class="tag tag-soon">Soon</span>','A fixed chain of agents you run from anywhere.','relay')]
+         ('/relays/','Relays','A fixed chain of agents you run from anywhere.','relay')]
 # Product menu second column: what every product shares.
 PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
                ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
@@ -160,7 +160,7 @@ def footer():
             <li><a href="/goals/">Goals</a></li>
             <li><a href="/crews/">Crews</a></li>
             <li><a href="/code/">Code</a></li>
-            <li><a href="/relays/">Relays (soon)</a></li>
+            <li><a href="/relays/">Relays</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>
             <li><a href="/agents/">Premade agents</a></li>
           </ul>

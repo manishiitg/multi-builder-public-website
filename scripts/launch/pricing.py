@@ -16,7 +16,7 @@ ROWS=[
  ("Auto-improvement toward your goals",(Y,Y,Y)),
  ("Premade Crew agents and Goal playbooks",(_PB_N,_PB_N,_PB_N)),
  ("Engineering playbooks",(Y,Y,Y)),
- ("Relays: fixed agent chains behind an API",("Coming soon","Coming soon","Coming soon")),
+ ("Relays: fixed agent chains behind an API",(Y,Y,Y)),
  ("Custom playbooks built with you",(N,N,Y)),
  ("Channels & tools",None),
  ("Slack and WhatsApp",(Y,Y,Y)),

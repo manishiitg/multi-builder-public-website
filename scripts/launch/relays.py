@@ -1,6 +1,6 @@
-# Relays (coming soon): a fixed chain of agents you design once and run from anywhere.
+# Relays: a fixed chain of agents you design once and run from anywhere.
 FAQ_RELAYS=[
- ("When are Relays available?","They are in private preview. Book a call to get early access and tell us the chain you want to run first."),
+ ("How do I publish a new version?","Edit the draft in the Relay Builder and publish. Each publish freezes a numbered version behind the same endpoint, so callers can pin a version or follow the latest."),
  ("How is a Relay different from a Workflow?","A Workflow owns a goal: it plans, measures and changes its own steps until the metric moves. A Relay is fixed. It runs the same steps in the same order every time, which is what you want behind a website form or another system."),
  ("What can a step be?","An agent step with its own system prompt and message, a condition that decides which step runs next, or a script step for exact work like formatting data or calling an API. Steps pass their output to the next one."),
  ("How do other systems run a Relay?","Each deployed Relay gets a trigger: an authenticated API endpoint or webhook. Your website, CRM, backend or no-code tool sends the input and gets the result back, or a callback when it finishes."),
@@ -10,11 +10,11 @@ FAQ_RELAYS=[
 body=f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
-        <p class="kicker">Relays · Coming soon</p>
+        <p class="kicker">Relays</p>
         <h1>A fixed relay of agents. <span class="dim">Run it from anywhere.</span></h1>
         <p class="lede">Some jobs don't need an agent that plans. They need the same few steps, done well, every time: read the enquiry, decide what it is, look something up, write the reply. Relays let you chain agents, decisions and small scripts into one simple sequence, then call it from your website, your CRM or any other system.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Get early access</a>
+          <a class="btn btn-primary" href="/docs/relay/">Read the Relay docs</a>
           <a class="btn btn-ghost" href="#how">See how it works</a>
         </div>
       </div>
@@ -61,7 +61,7 @@ body=f'''  <main id="main">
           <h2>Three ways to put agents to work.</h2>
         </div>
         <ul class="control">
-          <li class="reveal"><h3>Relays <span class="tag tag-soon">Soon</span></h3><p>A fixed chain you call from outside. Same steps every time, predictable cost, an answer back in seconds or minutes.</p></li>
+          <li class="reveal"><h3>Relays</h3><p>A fixed chain you call from outside. Same steps every time, predictable cost, an answer back in seconds or minutes.</p></li>
           <li class="reveal"><h3><a href="/goals/">Workflows with a goal</a></h3><p>Own an outcome like "5 demos a week". Plan, run on schedule, measure and improve the plan until the number moves.</p></li>
           <li class="reveal"><h3><a href="/crews/">Crew</a></h3><p>Always-on teammates you talk to in chat, Slack or WhatsApp, with memory, skills and their own tools.</p></li>
         </ul>
@@ -109,5 +109,5 @@ body=f'''  <main id="main">
     </section>
   </main>
 '''
-RELAYS_LD={"@type":"WebPage","name":"AgentWorks Relays (coming soon)","url":"https://agentworkshq.com/relays/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['relays/index.html']=head('AgentWorks Relays - Chain AI Agents and Run Them From Anywhere (Coming Soon)','Coming soon: chain agent steps, conditions and scripts into one fixed Relay, then call it from your website, CRM or any system through an API endpoint or webhook.','/relays/',extra_ld=ld(RELAYS_LD,BC('Relays','/relays/'),faq_ld(FAQ_RELAYS)))+header('product')+body+footer()
+RELAYS_LD={"@type":"WebPage","name":"AgentWorks Relays","url":"https://agentworkshq.com/relays/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
+pages['relays/index.html']=head('AgentWorks Relays - Chain AI Agents and Run Them From Anywhere','Chain agent steps, conditions and scripts into one fixed Relay, then call it from your website, CRM or any system through an API endpoint or webhook.','/relays/',extra_ld=ld(RELAYS_LD,BC('Relays','/relays/'),faq_ld(FAQ_RELAYS)))+header('product')+body+footer()
