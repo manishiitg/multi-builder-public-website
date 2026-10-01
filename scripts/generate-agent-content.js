@@ -52,6 +52,16 @@ const devNav = [
     { path: 'workflow/step_config_format_specification', label: 'Step config format' },
     { path: 'workflow/tool_filtering_system', label: 'Tool filtering' }
   ] },
+  { group: 'Relays', pages: [
+    { path: 'relay/README', label: 'Relays overview' }
+  ] },
+  { group: 'Security', pages: [
+    { path: 'security/README', label: 'Security overview' },
+    { path: 'security/per_user_linux_accounts', label: 'Per-user Linux accounts' },
+    { path: 'security/provider_credentials', label: 'Provider credentials' },
+    { path: 'security/sharing', label: 'Sharing and slots' },
+    { path: 'security/secrets', label: 'Managing secrets' }
+  ] },
   { group: 'Overview', pages: [
     { path: 'README', label: 'Documentation overview' }
   ] }
@@ -76,6 +86,7 @@ const titleOverrides = {
   'multiagent/README': 'Crews and multi-agent',
   'workflow/README': 'Workflows overview',
   'getting-started/README': 'Install AgentWorks',
+  'security/README': 'Security overview',
   'core/mcp_bridge_layer': 'MCP bridge',
   'workflow/cost_and_log_measurement': 'Cost and log measurement',
   'workflow/step_config_format_specification': 'Step config format'
@@ -87,6 +98,12 @@ const guidesNav = [
     { slug: 'slack', label: 'Talk to your crew in Slack', blurb: 'Mention the crew, follow the thread, approve from Slack.' },
     { slug: 'whatsapp', label: 'Talk to your crew on WhatsApp', blurb: 'Pair once with a QR code, approve from your phone.' },
     { slug: 'approvals-autonomy', label: 'Approvals and autonomy', blurb: 'What asks first, and the four autonomy levels.' }
+  ] },
+  { group: 'Work together', pages: [
+    { slug: 'share-workflow', label: 'Share a workflow', blurb: 'Owners, editors, readers — share a workflow and know what each level can do.' }
+  ] },
+  { group: 'Automate', pages: [
+    { slug: 'publish-relay', label: 'Publish your first Relay', blurb: 'Describe a task, test the draft, and publish a versioned API.' }
   ] },
   { group: 'Coming soon', soon: true, pages: [
     { slug: 'intro-2-minutes', label: 'What AgentWorks does in 2 minutes', blurb: 'The two-minute tour of goals, crews, and Auto-improve.' },
@@ -226,17 +243,19 @@ function withImageDimensions(html) {
   });
 }
 
-function sidebarHtml(nav, currentRoute, section) {
-  const switchHtml = `<div class="docs-switch"><a href="/docs/guides/"${section === 'guides' ? ' aria-current="page"' : ''}>Guides</a><a href="/docs/developers/"${section === 'developers' ? ' aria-current="page"' : ''}>Developers</a></div>`;
-  const groups = nav.map(({ group, soon, pages }) => {
-    const items = pages.map(page => {
+function sidebarHtml(nav, currentRoute) {
+  const groups = nav.map(entry => {
+    if (entry.sectionTitle) {
+      return `<p class="docs-nav-section">${escapeHtml(entry.sectionTitle)}</p>`;
+    }
+    const items = entry.pages.map(page => {
       const current = page.route === currentRoute ? ' aria-current="page"' : '';
-      const cls = soon ? ' class="soon"' : '';
+      const cls = entry.soon ? ' class="soon"' : '';
       return `<li${cls}><a href="${page.route}"${current}>${escapeHtml(page.label)}</a></li>`;
     }).join('');
-    return `<div class="docs-nav-group"><p>${escapeHtml(group)}</p><ul>${items}</ul></div>`;
+    return `<div class="docs-nav-group"><p>${escapeHtml(entry.group)}</p><ul>${items}</ul></div>`;
   }).join('');
-  return `${switchHtml}<nav aria-label="Docs section">${groups}</nav>`;
+  return `<nav aria-label="Docs">${groups}</nav>`;
 }
 
 function tocHtml(toc) {
@@ -379,7 +398,26 @@ for (const entry of devNav) {
 for (const entry of devNav) {
   for (const page of entry.pages) page.route = publicRoutes.get(page.path);
 }
-const devSidebarFor = route => sidebarHtml(devNav, route, 'developers');
+// Guides live in this repo (docs-guides/*.md); raw copies ship under docs-content/guides/.
+// Built before any page renders so the one menu below has every route.
+const guideOrder = [];
+for (const entry of guidesNav) {
+  for (const page of entry.pages) {
+    const source = path.join(guidesRoot, `${page.slug}.md`);
+    if (!fs.existsSync(source)) throw new Error(`Guide missing: ${source}`);
+    const markdown = fs.readFileSync(source, 'utf8');
+    const route = `/docs/guides/${page.slug}/`;
+    const rawPath = `guides/${page.slug}`;
+    const title = (/^#\s+(.+)$/m.exec(markdown)?.[1] || page.label).replace(/[`*_]/g, '').trim();
+    fs.mkdirSync(path.join(docsRoot, 'guides'), { recursive: true });
+    fs.writeFileSync(path.join(docsRoot, `${rawPath}.md`), markdown.replace(/\r\n/g, '\n'));
+    page.route = route;
+    guideOrder.push({ ...page, route, title, description: plainDescription(markdown, title), markdown, soon: !!entry.soon });
+  }
+}
+// One menu for all docs: guides first, developer pages below it.
+const docsNav = [{ sectionTitle: 'Guides' }, ...guidesNav, { sectionTitle: 'Developers' }, ...devNav];
+const docsSidebarFor = route => sidebarHtml(docsNav, route);
 for (let i = 0; i < devOrder.length; i++) {
   const page = devOrder[i];
   const doc = renderedDocs.find(rendered => rendered.route === page.route);
@@ -398,30 +436,13 @@ for (let i = 0; i < devOrder.length; i++) {
       { name: 'Developers', route: '/docs/developers/' },
       { name: page.title, route: page.route }
     ],
-    sidebar: devSidebarFor(page.route),
+    sidebar: docsSidebarFor(page.route),
     toc: tocHtml(toc),
     articleHtml: withImageDimensions(html),
     prevNext: prevNextHtml(devOrder[i - 1] || null, devOrder[i + 1] || null)
   }));
 }
 
-// Guides live in this repo (docs-guides/*.md); raw copies ship under docs-content/guides/.
-const guideOrder = [];
-for (const entry of guidesNav) {
-  for (const page of entry.pages) {
-    const source = path.join(guidesRoot, `${page.slug}.md`);
-    if (!fs.existsSync(source)) throw new Error(`Guide missing: ${source}`);
-    const markdown = fs.readFileSync(source, 'utf8');
-    const route = `/docs/guides/${page.slug}/`;
-    const rawPath = `guides/${page.slug}`;
-    const title = (/^#\s+(.+)$/m.exec(markdown)?.[1] || page.label).replace(/[`*_]/g, '').trim();
-    fs.mkdirSync(path.join(docsRoot, 'guides'), { recursive: true });
-    fs.writeFileSync(path.join(docsRoot, `${rawPath}.md`), markdown.replace(/\r\n/g, '\n'));
-    page.route = route;
-    guideOrder.push({ ...page, route, title, description: plainDescription(markdown, title), markdown, soon: !!entry.soon });
-  }
-}
-const guideSidebarFor = route => sidebarHtml(guidesNav, route, 'guides');
 const renderedGuides = [];
 for (let i = 0; i < guideOrder.length; i++) {
   const page = guideOrder[i];
@@ -441,7 +462,7 @@ for (let i = 0; i < guideOrder.length; i++) {
       { name: 'Guides', route: '/docs/guides/' },
       { name: page.title, route: page.route }
     ],
-    sidebar: guideSidebarFor(page.route),
+    sidebar: docsSidebarFor(page.route),
     toc: tocHtml(toc),
     articleHtml: withImageDimensions(html),
     prevNext: prevNextHtml(guideOrder[i - 1] || null, guideOrder[i + 1] || null)
@@ -469,7 +490,7 @@ function sectionHome({ title, description, route, kicker, intro, nav, crumbs }) 
     rawPath: null,
     kicker,
     crumbs,
-    sidebar: route === '/docs/developers/' ? devSidebarFor(route) : guideSidebarFor(route),
+    sidebar: docsSidebarFor(route),
     toc: tocHtml(toc),
     articleHtml,
     prevNext: ''

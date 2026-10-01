@@ -55,7 +55,7 @@ The backend struct lives in [source](https://github.com/manishiitg/agentworks/bl
       },
       "auto_improve_llm": {
         "provider": "anthropic",
-        "model_id": "claude-sonnet-5"
+        "model_id": "claude-sonnet-5-5"
       },
       "tiered_config": {
         "tier_1": {

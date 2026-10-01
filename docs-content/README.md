@@ -12,6 +12,8 @@ Start with the operator journey, then use the subsystem references when you need
 - [Workflow](workflow/README.md): workflow authoring, execution, scheduling, monitoring, Auto-improve, and Auto Improve.
 - [Organization and Agents](multiagent/README.md): delegation, Org Auto-improve, shared memory, and agent-to-agent coordination.
 - [Core](core/README.md): providers, MCP, browser sessions, connectors, secrets, security, and shared runtime services.
+- [Security](security/README.md): the security model, per-user Linux accounts, and provider credentials.
+- [Relays](relay/README.md): versioned agent chains you run from anywhere — builder flow, releases, and the runs API.
 
 `docs/bugs/` is an incident archive — see its index, which groups the 2026-08-01/02 investigations into how the agent-facing tool and permission contract actually behaves. `docs/refactor/` records implementation migrations — see its index, where status distinguishes a shipped design from one still being built. Neither folder is the recommended entry point for operators, but the bugs index is the fastest way to understand why an agent is told one thing and the runtime does another.
 
@@ -21,12 +23,12 @@ Start with the operator journey, then use the subsystem references when you need
 - Slack connections: per-workflow Slack apps, ownership, and the multi-listener runtime.
 - Bot connectors architecture: shared lifecycle, routing, and code-review findings.
 - [Bot connector system](core/bot_connector_system.md): sessions, channels, and event flow.
-- [QA: Slack bot connectors](https://github.com/manishiitg/agentworks/issues/201): per-workflow apps, mention guard sign-off.
-- [QA: WhatsApp bot connector](https://github.com/manishiitg/agentworks/issues/202): route switching, account management sign-off.
+- [QA: Slack bot connectors](https://github.com/manishiitg/coding-agent-loop/issues/201): per-workflow apps, mention guard sign-off.
+- [QA: WhatsApp bot connector](https://github.com/manishiitg/coding-agent-loop/issues/202): route switching, account management sign-off.
 
-Manual checklists live in issues, never in `docs/` — browse all QA rounds [here](https://github.com/manishiitg/agentworks/issues?q=is%3Aissue+QA).
+Manual checklists live in issues, never in `docs/` — browse all QA rounds [here](https://github.com/manishiitg/coding-agent-loop/issues?q=is%3Aissue+QA).
 
-This folder also mirrors to the [GitHub wiki](https://github.com/manishiitg/agentworks/wiki) on every push to `main` — edit here, never there.
+This folder also mirrors to the [GitHub wiki](https://github.com/manishiitg/coding-agent-loop/wiki) on every push to `main` — edit here, never there.
 
 ## Placement Rules
 
@@ -50,6 +52,7 @@ this is the complete map.
 - Auto-improve review visibility
 - Workflow improvement through Auto-improve
 - Reusable report data and widgets
+- Live report data from scripts (`window.report.run`)
 - Secrets
 - Setup Consolidation
 - Workspace UI Design Guidelines
@@ -125,7 +128,7 @@ this is the complete map.
 
 ### Getting Started ([index](getting-started/README.md))
 
-- AgentWorks CLI and MCP
+- Connect an AI agent with MCP
 - [Build Your First Workflow](getting-started/first-workflow.md)
 - Testing workflow changes alongside a running AgentWorks
 
@@ -154,6 +157,17 @@ this is the complete map.
 - mcpagent public API simplification
 - Native streaming speech-to-text
 - Design: Live-attach terminal transport (replace snapshot/replay mirror)
+
+### Relays ([index](relay/README.md))
+
+- [Relays overview](relay/README.md)
+
+### Security ([index](security/README.md))
+
+- [Per-user Linux accounts](security/per_user_linux_accounts.md)
+- [Provider credentials](security/provider_credentials.md)
+- [Sharing and slots](security/sharing.md)
+- [Managing secrets](security/secrets.md)
 
 ### Workflow ([index](workflow/README.md))
 

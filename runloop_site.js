@@ -2197,6 +2197,7 @@ function DocsArticlePage({ docPath }) {
     ['MCP bridge', docsArticleHref('core/mcp_bridge_layer')],
     ['Browser sessions', docsArticleHref('core/browser')],
     ['Secrets', docsArticleHref('core/secrets')],
+    ['Security', docsArticleHref('security/README')],
     ['Organization and agents', docsArticleHref('multiagent/README')]
   ];
   const category = docPath.includes('/') ? docPath.split('/')[0].replace('-', ' ') : 'overview';

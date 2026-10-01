@@ -62,6 +62,36 @@
       "section": "multiagent"
     },
     {
+      "path": "relay/README",
+      "title": "Relays",
+      "section": "relay"
+    },
+    {
+      "path": "security/README",
+      "title": "Security",
+      "section": "security"
+    },
+    {
+      "path": "security/per_user_linux_accounts",
+      "title": "Per-user Linux accounts",
+      "section": "security"
+    },
+    {
+      "path": "security/provider_credentials",
+      "title": "Provider credentials",
+      "section": "security"
+    },
+    {
+      "path": "security/secrets",
+      "title": "Managing secrets",
+      "section": "security"
+    },
+    {
+      "path": "security/sharing",
+      "title": "Sharing and slots",
+      "section": "security"
+    },
+    {
       "path": "workflow/README",
       "title": "Workflow Docs",
       "section": "workflow"
