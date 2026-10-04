@@ -24,7 +24,7 @@ Your workflows start private — only you can see them. Sharing one adds people 
 No — sharing is per workflow. They see only the ones you shared with them.
 
 **Can they use my AI logins?**
-They run with the accounts available to *them* — shared team logins, or their own. Your private logins are never handed to someone else's run.
+They run with the accounts available to *them* — shared team logins, or their own. Logins you keep in your own store are never handed to someone else's run — but a connection you add to the workflow itself belongs to that place: everyone with access uses it, in chats and runs alike.
 
 **What about Code and Crews?**
 Code is always private to its owner and can't be shared. Crews share like workflows: readers can ask, editors can change.
