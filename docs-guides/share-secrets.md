@@ -35,4 +35,4 @@ Project secrets are yours alone. Platform secrets are Vault values shared with y
 **Does this cover MCP tools too?**
 Yes — the same Access screen governs which groups may use each MCP server and tool. One door, every call checked and recorded.
 
-*Need help? [Book a call](https://calendly.com/manish-tryagentworks/intro) and we'll set up shared secrets with you.*
+*Need help? [Book a call](https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu) and we'll set up shared secrets with you.*

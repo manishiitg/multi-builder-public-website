@@ -44,4 +44,4 @@ No. Rules you set on the goal ("key accounts always need approval") hold at ever
 **Who approved what?**
 Every approval and rejection is recorded on the run — what was asked, what you decided, and when. Open any run to see its decision trail.
 
-*Need help? [Book a call](https://calendly.com/manish-tryagentworks/intro) and we'll set sensible levels for each goal with you.*
+*Need help? [Book a call](https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu) and we'll set sensible levels for each goal with you.*

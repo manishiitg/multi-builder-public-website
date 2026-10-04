@@ -1,5 +1,5 @@
 import re
-CAL_URL='https://calendly.com/manish-tryagentworks/intro'
+CAL_URL='https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu'
 # Cloud is not live yet: early access goes through a call. Point this at the app when signup ships.
 SIGNUP=CAL_URL
 LOGIN=None
@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch42'
+V='launch43'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path

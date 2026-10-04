@@ -35,4 +35,4 @@ Say so in the goal setup. The crew will tell you what is missing — usually acc
 **Do I need a premade agent first?**
 No. A goal works on its own. If a premade agent fits your task, install it and point it at the same goal — it will adopt your metric, target, and rules.
 
-*Need help? [Book a call](https://calendly.com/manish-tryagentworks/intro) and we'll set up your first goal with you.*
+*Need help? [Book a call](https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu) and we'll set up your first goal with you.*

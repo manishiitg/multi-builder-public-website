@@ -31,4 +31,4 @@ Only with your approval at the default level. Outward-facing sends always ask fi
 **What if I lose my phone?**
 Remove the session in Integrations → WhatsApp. The crew keeps your goals and history; pair the new phone with a fresh QR code and carry on.
 
-*Need help? [Book a call](https://calendly.com/manish-tryagentworks/intro) and we'll pair WhatsApp with you.*
+*Need help? [Book a call](https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu) and we'll pair WhatsApp with you.*

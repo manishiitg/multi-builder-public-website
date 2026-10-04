@@ -7,7 +7,7 @@ const BRAND_ASSETS = {
 };
 const PRODUCT_ASSET_BASE = 'assets/product/';
 const productAsset = name => `${PRODUCT_ASSET_BASE}${name}`;
-const SALES_CALL_URL = 'https://calendly.com/manish-tryagentworks/intro';
+const SALES_CALL_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu';
 const SIGNUP_URL = SALES_CALL_URL;
 const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/manishiitg/agentworks/main/install.sh | bash';
 

@@ -34,4 +34,4 @@ Anything the goal allows: research, drafts, file updates, tool actions, and send
 **Two of us share a channel. Whose job is it?**
 Whoever mentioned the crew. Each thread is one job with its own history, so teammates can run separate jobs in the same channel without interference.
 
-*Need help? [Book a call](https://calendly.com/manish-tryagentworks/intro) and we'll connect Slack with you.*
+*Need help? [Book a call](https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu) and we'll connect Slack with you.*
