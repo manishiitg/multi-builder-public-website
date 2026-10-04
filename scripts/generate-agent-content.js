@@ -100,7 +100,8 @@ const guidesNav = [
     { slug: 'approvals-autonomy', label: 'Approvals and autonomy', blurb: 'What asks first, and the four autonomy levels.' }
   ] },
   { group: 'Work together', pages: [
-    { slug: 'share-workflow', label: 'Share a workflow', blurb: 'Owners, editors, readers — share a workflow and know what each level can do.' }
+    { slug: 'share-workflow', label: 'Share a workflow', blurb: 'Owners, editors, readers — share a workflow and know what each level can do.' },
+    { slug: 'share-secrets', label: 'Share secrets safely', blurb: 'One API key in Vault, usable by every agent — seen by nobody.' }
   ] },
   { group: 'Automate', pages: [
     { slug: 'publish-relay', label: 'Publish your first Relay', blurb: 'Describe a task, test the draft, and publish a versioned API.' },
