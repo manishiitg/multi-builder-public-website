@@ -1,6 +1,6 @@
 # AgentWorks
 
-AgentWorks gives an AI agent a goal and a metric, and it keeps working until it hits the target. It plans the work, runs it on schedule, measures every run and changes its own plan (auto-improve) until the metric moves. Crew teammates are always-on agents you talk to in Slack, WhatsApp or the app. It runs on the Claude, ChatGPT, Gemini or Cursor plan the customer already pays for, and is offered as MIT open source (free, self-hosted), Cloud ($99/month, hosted, unlimited teammates and goals; with hand-held onboarding, starting with a call) and Enterprise (self-hosted agentic engineering operations with SSO, audit and SLA).
+AgentWorks builds the systems that turn cheaper AI intelligence into work that gets done. Its products: Goals (an agent owns a goal and a metric and keeps working until it hits the target, with auto-improve), Crews (expert agents your whole team can ask, in Slack, WhatsApp, Claude, ChatGPT or Cursor), Code (a private AI workspace for every employee, on your server and the plans you already pay for, with cost, usage and output visible to the company), Vault (one governed door to every MCP tool and shared secret) and Relays (fixed agent flows you call from any system). It runs on the Claude, ChatGPT, Gemini or Cursor plan the customer already pays for. Open source, Goals hosted for $99 a month, or everything in your own cloud.
 
 ## Canonical Pages
 

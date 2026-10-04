@@ -32,7 +32,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Product</p>
         <h1>One platform. <span class="dim">Agents that own the work.</span></h1>
-        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Code brings your team's coding plans to one place, shared and tracked. Vault governs every MCP tool and shared secret. All of it runs on the AI plan you already pay for.</p>
+        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Code gives every employee a private AI workspace on your server, with cost and output visible to the company. Vault governs every MCP tool and shared secret. All of it runs on the AI plan you already pay for.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
@@ -115,7 +115,7 @@ body=f'''  <main id="main">
 '''
 DEMO_VIDEO_LD={"@type":"VideoObject","name":"AgentWorks in 60 seconds: an agent that books more sales demos","description":"Give an AI agent a goal and a metric. AgentWorks plans the work, asks before anything reaches a customer, measures every run, keeps what works and keeps going until it hits the target. Illustrative data.","thumbnailUrl":"https://agentworkshq.com/assets/video/agentworks-demo-poster.jpg","contentUrl":"https://agentworkshq.com/assets/video/agentworks-demo.mp4","uploadDate":"2026-09-27","duration":"PT1M1S","transcript":"With AgentWorks, you give an agent a goal and a number, and it keeps working until it hits it. Here, the goal is simple: book more sales demos. The metric is demos booked per week. The target is five. AgentWorks turns that into a plan. Pull new signups, research each company, write a personal first email, and follow up with the ones who go quiet. Anything that reaches a customer can wait for you. A key account? It asks first. Approve it, change it, or skip it. After every run, it measures what moved. It keeps what works, and drops what doesn't. Replies went from six hours to ten minutes. The follow-up nobody answered is gone. Six weeks in, it's booking six demos a week. Target met. AgentWorks. Give an agent a goal, and watch the number move."}
 PROD_LD={"@type":"WebPage","name":"AgentWorks Product","url":"https://agentworkshq.com/product/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['product/index.html']=head('AgentWorks Product - Goals, Crews, Code and Relays','One platform for AI agents that own the work: Goals that chase a number, Crews your team can ask, Code for shared coding plans, and Relays, all on the AI plan you already pay for.','/product/',og='agentworks-product-og.jpg',extra_ld=ld(PROD_LD,BC('Product','/product/'),faq_ld(FAQ_OVERVIEW),DEMO_VIDEO_LD))+header('product')+body+footer()
+pages['product/index.html']=head('AgentWorks Product - Goals, Crews, Code and Relays','One platform for AI agents that own the work: Goals that chase a number, Crews your team can ask, Code for a private AI workspace per employee, and Relays, all on the AI plan you already pay for.','/product/',og='agentworks-product-og.jpg',extra_ld=ld(PROD_LD,BC('Product','/product/'),faq_ld(FAQ_OVERVIEW),DEMO_VIDEO_LD))+header('product')+body+footer()
 
 nf_body=f'''  <main id="main">
     <section class="page-hero notfound">
