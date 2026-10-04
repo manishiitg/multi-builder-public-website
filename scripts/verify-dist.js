@@ -41,7 +41,7 @@ const requiredFiles = [
   'crews/index.html',
   'code/index.html',
   'download/index.html',
-  'enterprise/mcp-gateway/index.html',
+  'vault/index.html',
   'relays/index.html',
   '_headers',
   '_redirects',

@@ -574,7 +574,7 @@ const marketingRoutes = [
   { route: '/enterprise/security-testing/', changefreq: 'monthly', priority: '0.8' },
   { route: '/enterprise/cloud-cost/', changefreq: 'monthly', priority: '0.8' },
   { route: '/enterprise/growth-analytics/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/enterprise/mcp-gateway/', changefreq: 'monthly', priority: '0.6' },
+  { route: '/vault/', changefreq: 'monthly', priority: '0.8' },
   { route: '/product/', changefreq: 'monthly', priority: '0.9' },
   { route: '/goals/', changefreq: 'monthly', priority: '0.9' },
   { route: '/crews/', changefreq: 'monthly', priority: '0.9' },

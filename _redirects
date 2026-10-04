@@ -1,3 +1,6 @@
+/enterprise/mcp-gateway/ /vault/ 301
+/enterprise/mcp-gateway /vault/ 301
+/vault /vault/ 301
 /install.sh https://raw.githubusercontent.com/manishiitg/agentworks/main/install.sh 302
 /download /download/ 301
 /automations/ /product/ 301

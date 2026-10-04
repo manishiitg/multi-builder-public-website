@@ -32,7 +32,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Product</p>
         <h1>One platform. <span class="dim">Agents that own the work.</span></h1>
-        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Code brings your team's coding plans to one place, shared and tracked. All of it runs on the AI plan you already pay for.</p>
+        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Code brings your team's coding plans to one place, shared and tracked. Vault governs every MCP tool and shared secret. All of it runs on the AI plan you already pay for.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
@@ -43,7 +43,6 @@ body=f'''  <main id="main">
     <section class="section-tight" id="products">
       <div class="wrap">
         <div class="uc-grid">{PRODUCT_CARDS}</div>
-        <p class="muted center-row">For enterprise, coming soon: the <a href="/enterprise/mcp-gateway/">MCP gateway</a>, one governed door to every MCP tool.</p>
       </div>
     </section>
 

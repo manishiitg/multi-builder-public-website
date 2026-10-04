@@ -940,12 +940,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 720px) { .dl-card { padding: 20px 16px; } .dl-cmd { align-items: flex-start; } .dl-cmd code { font-size: 13px; white-space: normal; overflow-wrap: anywhere; } }
 
 /* Hero: the product row */
-.prodrow { list-style: none; margin: 40px auto 0; padding: 0; max-width: 1080px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: left; }
+.prodrow { list-style: none; margin: 40px auto 0; padding: 0; max-width: 1080px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; text-align: left; }
 .prodrow a { display: block; height: 100%; box-sizing: border-box; padding: 16px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line-2); color: var(--text); text-decoration: none; transition: border-color .15s ease, box-shadow .15s ease; }
 .prodrow a:hover { border-color: var(--amber); box-shadow: var(--shadow-lg); }
 .prodrow small { display: flex; align-items: center; gap: 8px; min-height: 22px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--amber-text); margin-bottom: 6px; }
 .prodrow b { display: block; font-size: 17px; letter-spacing: -.02em; margin-bottom: 4px; }
 .prodrow span { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
 .prodrow i { font-style: normal; text-transform: none; letter-spacing: 0; }
-@media (max-width: 900px) { .prodrow { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1000px) { .prodrow { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px) { .prodrow { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .prodrow { grid-template-columns: 1fr; } }

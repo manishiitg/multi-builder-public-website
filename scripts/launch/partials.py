@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch41'
+V='launch42'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -57,11 +57,11 @@ NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
          ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
          ('/code/','Code','Your team\'s coding plans in one place: shared without handing out logins, with cost and usage tracked centrally.','code'),
+         ('/vault/','Vault','One governed door to every MCP tool and shared secret.','gateway'),
          ('/relays/','Relays','A fixed chain of agents you run from anywhere.','relay')]
 # Product menu second column: what every product shares.
 PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
-               ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
-               ('/enterprise/mcp-gateway/','MCP gateway <span class="tag tag-soon">Soon</span>','One governed door to every MCP tool.','gateway')]
+               ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect')]
 # The dedicated product pages, for cross-links between them.
 PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
@@ -74,7 +74,7 @@ MENU_SHORT={
  '/enterprise/release-quality/':'AI QA for every release', '/enterprise/incident-response/':'First RCA in minutes',
  '/enterprise/security-testing/':'AppSec to verified fix', '/enterprise/cloud-cost/':'Anomalies to savings',
  '/enterprise/growth-analytics/':'Funnels, retention, SEO', 
- '/enterprise/mcp-gateway/':'Governed MCP access',
+ '/vault/':'Governed MCP access',
 }
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',

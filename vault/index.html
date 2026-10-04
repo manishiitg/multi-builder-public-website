@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AgentWorks MCP Gateway - Govern Every MCP Tool Your AI Agents Use (Coming Soon)</title>
-  <meta name="description" content="Coming soon: one MCP endpoint for every AI client in your company. Deny-by-default access per group and tool, approval for new tools, PII masking, egress guards and an exportable audit log.">
+  <title>AgentWorks Vault - Govern Every MCP Tool and Shared Secret Your AI Agents Use</title>
+  <meta name="description" content="Vault is one MCP endpoint for every AI client in your company. Admins connect servers once, grant tools and secrets by group, and every call is checked against policy and recorded in an audit log.">
   <meta name="theme-color" content="#fbfbf9">
   <meta name="color-scheme" content="light">
   <meta name="application-name" content="AgentWorks">
-  <meta property="og:title" content="AgentWorks MCP Gateway - Govern Every MCP Tool Your AI Agents Use (Coming Soon)">
-  <meta property="og:description" content="Coming soon: one MCP endpoint for every AI client in your company. Deny-by-default access per group and tool, approval for new tools, PII masking, egress guards and an exportable audit log.">
-  <meta property="og:url" content="https://agentworkshq.com/enterprise/mcp-gateway/">
+  <meta property="og:title" content="AgentWorks Vault - Govern Every MCP Tool and Shared Secret Your AI Agents Use">
+  <meta property="og:description" content="Vault is one MCP endpoint for every AI client in your company. Admins connect servers once, grant tools and secrets by group, and every call is checked against policy and recorded in an audit log.">
+  <meta property="og:url" content="https://agentworkshq.com/vault/">
   <meta property="og:site_name" content="AgentWorks">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://agentworkshq.com/assets/og/agentworks-enterprise-og.jpg">
+  <meta property="og:image" content="https://agentworkshq.com/assets/og/agentworks-product-og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AgentWorks MCP Gateway - Govern Every MCP Tool Your AI Agents Use (Coming Soon)">
-  <meta name="twitter:description" content="Coming soon: one MCP endpoint for every AI client in your company. Deny-by-default access per group and tool, approval for new tools, PII masking, egress guards and an exportable audit log.">
-  <meta name="twitter:image" content="https://agentworkshq.com/assets/og/agentworks-enterprise-og.jpg">
+  <meta name="twitter:title" content="AgentWorks Vault - Govern Every MCP Tool and Shared Secret Your AI Agents Use">
+  <meta name="twitter:description" content="Vault is one MCP endpoint for every AI client in your company. Admins connect servers once, grant tools and secrets by group, and every call is checked against policy and recorded in an audit log.">
+  <meta name="twitter:image" content="https://agentworkshq.com/assets/og/agentworks-product-og.jpg">
   <meta name="twitter:creator" content="@manish_iitg">
-  <link rel="canonical" href="https://agentworkshq.com/enterprise/mcp-gateway/">
+  <link rel="canonical" href="https://agentworkshq.com/vault/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="/assets/brand/agentworks-logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
@@ -39,8 +39,8 @@
   "@graph": [
     {
       "@type": "WebPage",
-      "name": "AgentWorks MCP Gateway - Govern Every MCP Tool Your AI Agents Use (Coming Soon)",
-      "url": "https://agentworkshq.com/enterprise/mcp-gateway/",
+      "name": "AgentWorks Vault - Govern Every MCP Tool and Shared Secret Your AI Agents Use",
+      "url": "https://agentworkshq.com/vault/",
       "isPartOf": {
         "@id": "https://agentworkshq.com/#website"
       }
@@ -57,14 +57,14 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Enterprise",
-          "item": "https://agentworkshq.com/enterprise/"
+          "name": "Product",
+          "item": "https://agentworkshq.com/product/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "MCP gateway",
-          "item": "https://agentworkshq.com/enterprise/mcp-gateway/"
+          "name": "Vault",
+          "item": "https://agentworkshq.com/vault/"
         }
       ]
     },
@@ -73,10 +73,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "When is it available?",
+          "name": "Is Vault available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It is in private preview with design partners now. Book a call to join, and we will tell you the release date as soon as it is set."
+            "text": "It is in early access. Book a call and we will set it up with you."
           }
         },
         {
@@ -84,15 +84,23 @@
           "name": "Which MCP clients work with it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Any client that can connect to a remote MCP server, such as Claude, ChatGPT, Cursor and AgentWorks crews. Clients sign in with OAuth."
+            "text": "Any client that can connect to a remote MCP server, such as Claude, ChatGPT, Cursor and AgentWorks agents. People sign in with the company account, and a client can be disconnected at any time."
           }
         },
         {
           "@type": "Question",
-          "name": "Does it use AI to find sensitive data?",
+          "name": "Does connecting a server give people access?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. PII rules are deterministic and bounded, so results are predictable. Matching values are masked, blocked, or held for a person to review."
+            "text": "No. Access is deny by default. A server's tools reach people only through the groups an admin grants them, and new or changed tool definitions wait for review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a rule limit what a tool is asked to do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, for the values a tool exposes as inputs, using exact values or full-string patterns. For things like free-form queries or opaque IDs, also use a narrowly scoped credential upstream."
           }
         },
         {
@@ -100,7 +108,7 @@
           "name": "Where does it run?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In your own cloud or data center, next to AgentWorks or on its own."
+            "text": "On your AgentWorks server, in your own cloud or data center."
           }
         }
       ]
@@ -115,7 +123,7 @@
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
-        <div class="nav-drop" data-drop>
+        <div class="nav-drop is-current" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="product-menu" data-drop-btn>Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="nav-panel pm-wide" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Products</p><a class="pm-item" href="/goals/" title="Give an AI agent a goal and a metric. It works until it hits the target."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>A goal and a metric</small></span></a><a class="pm-item" href="/crews/" title="Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/code/" title="Your team's coding plans in one place: shared without handing out logins, with cost and usage tracked centrally."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Code</b><small>Shared coding plans, tracked</small></span></a><a class="pm-item" href="/relays/" title="A fixed chain of agents you run from anywhere."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg></span><span><b>Relays</b><small>Agent chains, run anywhere</small></span></a></div><div class="pm-col"><p class=pm-group>Built in</p><a class="pm-item" href="/goals/#improve" title="It measures every run and changes its own plan."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Auto-improve</b><small>Gets better every run</small></span></a><a class="pm-item" href="/#connectors" title="Slack, WhatsApp, Gmail and MCP, both ways."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg></span><span><b>Connectors</b><small>Slack, WhatsApp, Gmail, MCP</small></span></a><a class="pm-item" href="/enterprise/mcp-gateway/" title="One governed door to every MCP tool."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>MCP gateway <span class="tag tag-soon">Soon</span></b><small>Governed MCP access</small></span></a></div></div></div>
         </div>
@@ -123,9 +131,9 @@
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="usecase-menu" data-drop-btn>Use cases <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="nav-panel" id="usecase-menu"><a class="pm-all" href="/agents/">All premade agents <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><a class="pm-item" href="/solutions/sales/" title="Follow up every lead and book more demos."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Sales & GTM</b><small>Follow up every lead</small></span></a><a class="pm-item" href="/solutions/shopify/" title="Stuck orders, reviews and support, handled."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span><span><b>Shopify stores</b><small>Orders, returns, stock</small></span></a><a class="pm-item" href="/solutions/support/" title="Fast first replies, sensitive ones handed to you."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><span><b>Customer support</b><small>Fast, safe first replies</small></span></a><a class="pm-item" href="/solutions/finance/" title="Chase invoices, recover payments, weekly numbers."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M9 12h6M9 16h4M9 8h3"/></svg></span><span><b>Finance & billing</b><small>Invoices and payments</small></span></a><a class="pm-item" href="/solutions/marketing/" title="SEO, AI search visibility and conversion."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Marketing & growth</b><small>SEO and AI search</small></span></a><a class="pm-item" href="/enterprise/" title="QA, incidents, security and cloud cost."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Engineering teams</b><small>QA, incidents, security</small></span></a></div></div></div>
         </div>
-        <div class="nav-drop is-current" data-drop>
+        <div class="nav-drop" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="enterprise-menu" data-drop-btn>Enterprise <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-          <div class="nav-panel pm-wide" id="enterprise-menu"><a class="pm-all" href="/enterprise/">Enterprise overview <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Engineering goals</p><a class="pm-item" href="/enterprise/release-quality/" title="AI QA that writes, runs and repairs your browser tests."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span><b>Release quality</b><small>AI QA for every release</small></span></a><a class="pm-item" href="/enterprise/incident-response/" title="First RCA before the war room fills up."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg></span><span><b>Incident response</b><small>First RCA in minutes</small></span></a><a class="pm-item" href="/enterprise/security-testing/" title="Authorized AppSec and permission testing, driven to closure."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><span><b>Security testing</b><small>AppSec to verified fix</small></span></a><a class="pm-item" href="/enterprise/cloud-cost/" title="Find cost anomalies and prove the savings."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/></svg></span><span><b>Cloud cost</b><small>Anomalies to savings</small></span></a><a class="pm-item" href="/enterprise/growth-analytics/" title="An AI growth analyst for funnels, retention and search."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Growth analytics</b><small>Funnels, retention, SEO</small></span></a></div><div class="pm-col"><p class=pm-group>AI platform for teams</p><a class="pm-item" href="/code/" title="Coding agents for every employee, with cost and usage in one place."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Code</b><small>Shared coding plans, tracked</small></span></a><a class="pm-item" href="/crews/" title="Build a DevOps or product expert once; every engineer asks it from their own CLI."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/></svg></span><span><b>Expert Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/enterprise/mcp-gateway/" title="One governed door to every MCP tool your company uses."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>MCP gateway <span class="tag tag-soon">Soon</span></b><small>Governed MCP access</small></span></a></div></div></div>
+          <div class="nav-panel pm-wide" id="enterprise-menu"><a class="pm-all" href="/enterprise/">Enterprise overview <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Engineering goals</p><a class="pm-item" href="/enterprise/release-quality/" title="AI QA that writes, runs and repairs your browser tests."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span><b>Release quality</b><small>AI QA for every release</small></span></a><a class="pm-item" href="/enterprise/incident-response/" title="First RCA before the war room fills up."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg></span><span><b>Incident response</b><small>First RCA in minutes</small></span></a><a class="pm-item" href="/enterprise/security-testing/" title="Authorized AppSec and permission testing, driven to closure."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><span><b>Security testing</b><small>AppSec to verified fix</small></span></a><a class="pm-item" href="/enterprise/cloud-cost/" title="Find cost anomalies and prove the savings."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/></svg></span><span><b>Cloud cost</b><small>Anomalies to savings</small></span></a><a class="pm-item" href="/enterprise/growth-analytics/" title="An AI growth analyst for funnels, retention and search."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Growth analytics</b><small>Funnels, retention, SEO</small></span></a></div><div class="pm-col"><p class=pm-group>AI platform for teams</p><a class="pm-item" href="/code/" title="Coding agents for every employee, with cost and usage in one place."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Code</b><small>Shared coding plans, tracked</small></span></a><a class="pm-item" href="/crews/" title="Build a DevOps or product expert once; every engineer asks it from their own CLI."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/></svg></span><span><b>Expert Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/vault/" title="One governed door to every MCP tool and shared secret your company uses."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>Vault</b><small></small></span></a></div></div></div>
         </div>
         <a href="/pricing/">Pricing</a>
         <a href="/docs/">Docs</a>
@@ -163,7 +171,7 @@
       <a class="sub" href="/enterprise/growth-analytics/">Growth analytics</a>
       <a class="sub" href="/code/">Code</a>
       <a class="sub" href="/crews/">Expert Crews</a>
-      <a class="sub" href="/enterprise/mcp-gateway/">MCP gateway <span class="tag tag-soon">Soon</span></a>
+      <a class="sub" href="/vault/">Vault</a>
       <a href="/pricing/">Pricing</a>
       <a href="/docs/">Docs</a>
       <a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">GitHub</a>
@@ -173,9 +181,9 @@
   <main id="main">
     <section class="page-hero left">
       <div class="wrap">
-        <p class="kicker">Enterprise · MCP gateway · Coming soon</p>
-        <h1>One door to every MCP tool. <span class="dim">Every call allowed, checked and logged.</span></h1>
-        <p class="lede">People are plugging MCP servers into Claude, ChatGPT, Cursor and their own agents, each with its own tokens and no oversight. The AgentWorks MCP Gateway gives your company one MCP endpoint: admins connect servers once, every client signs in, and each tool call is checked against policy and recorded.</p>
+        <p class="kicker">Vault · Early access</p>
+        <h1>One door to every MCP tool. <span class="dim">Every call checked and recorded.</span></h1>
+        <p class="lede">People plug MCP servers into Claude, ChatGPT, Cursor and their own agents, each with its own tokens and no oversight. Vault gives your company one governed MCP endpoint: admins connect servers once, people sign in with the company account, and every tool call is checked against the groups and rules you set.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Get early access</a>
           <a class="btn btn-ghost" href="#playbooks">See what it includes</a>
@@ -185,7 +193,7 @@
 
     <section class="section-tight">
       <div class="wrap split">
-        <ul class="pain"><li class="reveal"><span class="num">01</span><div><b>MCP tokens live on every laptop</b><span>Each person connects servers with their own keys, so access can&#x27;t be reviewed or revoked in one place.</span></div></li><li class="reveal"><span class="num">02</span><div><b>Anyone can call any tool</b><span>There is no way to say which team may use which server, let alone which individual tool.</span></div></li><li class="reveal"><span class="num">03</span><div><b>Sensitive data flows out unseen</b><span>Customer data can leave through tool arguments and results with no masking and no record.</span></div></li></ul>
+        <ul class="pain"><li class="reveal"><span class="num">01</span><div><b>MCP tokens live on every laptop</b><span>Each person connects servers with their own keys, so access can&#x27;t be reviewed or revoked in one place.</span></div></li><li class="reveal"><span class="num">02</span><div><b>Anyone can call any tool</b><span>There is no way to say which team may use which server, let alone which individual tool or what it may be asked to do.</span></div></li><li class="reveal"><span class="num">03</span><div><b>Shared secrets get pasted around</b><span>API keys and passwords travel through chats and files, with no record of who can use them.</span></div></li></ul>
         <div class="goal-spec reveal" aria-label="Example goal">
           <p class="goal-spec-label">Example goal</p>
           <p class="goal-spec-title">Every MCP tool call governed</p>
@@ -193,7 +201,7 @@
             <div><small>Primary metric</small><b>Tool calls with a grant and an audit record</b></div>
             <div class="goal-spec-num"><strong>100%</strong></div>
           </div>
-          <p class="muted">of calls through the gateway, target 100%. Illustrative numbers.</p>
+          <p class="muted">of calls through Vault, target 100%. Illustrative numbers.</p>
         </div>
       </div>
     </section>
@@ -204,7 +212,7 @@
           <p class="kicker">How it works</p>
           <h2>Connect once. <span class="dim">Govern every call.</span></h2>
         </div>
-        <ol class="loop reveal"><li><h3>Connect servers once</h3><p>Admins add upstream MCP servers to the gateway, from a catalog or by pasting their config.</p></li><li><h3>Grant by group</h3><p>Access is deny by default. Grant a group a whole server or single tools; services use group API keys.</p></li><li><h3>Approve and inspect</h3><p>New tools and changed tool versions wait for approval. PII rules mask, block or send sensitive values to review.</p></li><li><h3>Audit everything</h3><p>Every call is logged with who, which tool and what happened, with usage history and CSV or JSON export.</p></li></ol>
+        <ol class="loop reveal"><li><h3>Connect servers once</h3><p>An admin connects an MCP server with OAuth or a custom setup and approves its tool definitions. Connecting a server gives nobody access.</p></li><li><h3>Grant by group</h3><p>Access is deny by default. Give a group individual tools or whole servers, and add rules on a tool&#x27;s inputs, with exact values or patterns.</p></li><li><h3>Share secrets without showing them</h3><p>Let a group use a shared secret without anyone seeing its value.</p></li><li><h3>Everything is recorded</h3><p>Each call is checked again against the current groups and rules, and logged with the person and the AI client that made it.</p></li></ol>
       </div>
     </section>
 
@@ -213,9 +221,9 @@
         <div class="reveal">
           <p class="kicker">What it includes</p>
           <h2>Built for your security review. <span class="dim">From day one.</span></h2>
-          <p class="lede">In private preview with design partners. Book a call to join and shape the first release.</p>
+          <p class="lede">Vault is in early access. Book a call to see it and shape what comes next.</p>
         </div>
-        <ul class="pb-list reveal"><li>One MCP endpoint for Claude, ChatGPT, Cursor and AgentWorks crews</li><li>OAuth sign-in for MCP clients, group API keys for services</li><li>Deny-by-default grants per group, server or single tool</li><li>Approval for new tools and changed tool versions</li><li>PII masking, blocking and a human review queue</li><li>Egress guards against private-network calls</li><li>Audit log and usage history with CSV and JSON export</li><li>Admin console for users, groups, servers and rules</li></ul>
+        <ul class="pb-list reveal"><li>One MCP endpoint for Claude, ChatGPT, Cursor and AgentWorks agents</li><li>Sign-in with your company account, and each AI client&#x27;s access can be revoked</li><li>Deny-by-default grants per group, server or single tool</li><li>Rules on tool inputs: exact values or full-string patterns</li><li>New or changed tool definitions are held for review</li><li>Shared secrets granted to groups without revealing their value</li><li>An audit log of every call, with the person and AI client</li><li>A chat assistant that sets up access and explains each change</li></ul>
       </div>
     </section>
 
@@ -243,28 +251,29 @@
           <h2 class="h2">Questions, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
-          <details open><summary>When is it available?</summary><p>It is in private preview with design partners now. Book a call to join, and we will tell you the release date as soon as it is set.</p></details>
-          <details><summary>Which MCP clients work with it?</summary><p>Any client that can connect to a remote MCP server, such as Claude, ChatGPT, Cursor and AgentWorks crews. Clients sign in with OAuth.</p></details>
-          <details><summary>Does it use AI to find sensitive data?</summary><p>No. PII rules are deterministic and bounded, so results are predictable. Matching values are masked, blocked, or held for a person to review.</p></details>
-          <details><summary>Where does it run?</summary><p>In your own cloud or data center, next to AgentWorks or on its own.</p></details>
+          <details open><summary>Is Vault available?</summary><p>It is in early access. Book a call and we will set it up with you.</p></details>
+          <details><summary>Which MCP clients work with it?</summary><p>Any client that can connect to a remote MCP server, such as Claude, ChatGPT, Cursor and AgentWorks agents. People sign in with the company account, and a client can be disconnected at any time.</p></details>
+          <details><summary>Does connecting a server give people access?</summary><p>No. Access is deny by default. A server&#x27;s tools reach people only through the groups an admin grants them, and new or changed tool definitions wait for review.</p></details>
+          <details><summary>Can a rule limit what a tool is asked to do?</summary><p>Yes, for the values a tool exposes as inputs, using exact values or full-string patterns. For things like free-form queries or opaque IDs, also use a narrowly scoped credential upstream.</p></details>
+          <details><summary>Where does it run?</summary><p>On your AgentWorks server, in your own cloud or data center.</p></details>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <div class="section-head reveal"><p class="kicker">More use cases</p><h2>Other goals agents can own.</h2></div>
-        <div class="uc-grid"><a class="uc-link" href="/enterprise/release-quality/"><b>Release quality</b><span>AI QA that writes, runs and repairs your browser tests.</span></a><a class="uc-link" href="/enterprise/incident-response/"><b>Incident response</b><span>First RCA before the war room fills up.</span></a><a class="uc-link" href="/enterprise/security-testing/"><b>Security testing</b><span>Authorized AppSec and permission testing, driven to closure.</span></a><a class="uc-link" href="/enterprise/cloud-cost/"><b>Cloud cost</b><span>Find cost anomalies and prove the savings.</span></a><a class="uc-link" href="/enterprise/growth-analytics/"><b>Growth analytics</b><span>An AI growth analyst for funnels, retention and search.</span></a><a class="uc-link" href="/code/"><b>Code</b><span>Coding agents for every employee, with cost and usage in one place.</span></a><a class="uc-link" href="/crews/"><b>Expert Crews</b><span>Build a DevOps or product expert once; every engineer asks it from their own CLI.</span></a></div>
+        <div class="section-head reveal"><p class="kicker">Also in AgentWorks</p><h2>The rest of the platform.</h2></div>
+        <div class="uc-grid"><a class="uc-link" href="/goals/"><b>Goals</b><span>Give an AI agent a goal and a metric. It works until it hits the target.</span></a><a class="uc-link" href="/crews/"><b>Crews</b><span>Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.</span></a><a class="uc-link" href="/code/"><b>Code</b><span>Your team&#x27;s coding plans in one place: shared without handing out logins, with cost and usage tracked centrally.</span></a><a class="uc-link" href="/relays/"><b>Relays</b><span>A fixed chain of agents you run from anywhere.</span></a></div>
       </div>
     </section>
 
     <section class="cta">
       <div class="wrap">
         <h2>Govern MCP before it sprawls. <span class="dim">Join the early access.</span></h2>
-        <p>We are onboarding a small group of design partners. Tell us which MCP servers and clients you use, and we will set up the gateway with you.</p>
+        <p>Tell us which MCP servers and AI clients your teams use, and we will set up Vault with you.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="https://calendly.com/manish-tryagentworks/intro" target="_blank" rel="noreferrer">Get early access</a>
-          <a class="btn btn-ghost" href="/enterprise/">Enterprise overview</a>
+          <a class="btn btn-ghost" href="/product/">Product overview</a>
         </div>
       </div>
     </section>
