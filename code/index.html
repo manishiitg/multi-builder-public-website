@@ -94,7 +94,7 @@
           "name": "Can someone using my shared account see my login?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not through the app. But while agents run with their built-in tools on, a run on a shared account can read that account's login files on the server. Confining the coding agents is planned. Until then, share an account only with people and Crews you trust."
+            "text": "Not through the app, and runs can't reach it either: every coding run is confined to its own workspace and files, so it cannot read another account's login files on the server. Still, share an account only with people and Crews you trust."
           }
         },
         {
@@ -363,7 +363,7 @@
           <details open><summary>Which coding plans can we bring?</summary><p>Claude Code, Codex, Cursor, Muse and Pi. Connect an account by browser login (Claude Code, Codex, Cursor, Muse) or by API key. The login stays on the server.</p></details>
           <details><summary>Who pays when someone uses a shared account?</summary><p>The account&#x27;s owner. Runs on a shared account act as that owner and use their plan, and the owner can see who used it and where.</p></details>
           <details><summary>Can we see how much of a plan is left?</summary><p>Yes. Each account has a live usage check that reads the coding CLI&#x27;s own usage or status, so you see the limit the vendor reports.</p></details>
-          <details><summary>Can someone using my shared account see my login?</summary><p>Not through the app. But while agents run with their built-in tools on, a run on a shared account can read that account&#x27;s login files on the server. Confining the coding agents is planned. Until then, share an account only with people and Crews you trust.</p></details>
+          <details><summary>Can someone using my shared account see my login?</summary><p>Not through the app, and runs can&#x27;t reach it either: every coding run is confined to its own workspace and files, so it cannot read another account&#x27;s login files on the server. Still, share an account only with people and Crews you trust.</p></details>
           <details><summary>Is there a terminal?</summary><p>No. There is no standalone terminal or shell. You ask the agent, and it runs the commands for you, each one in its own sandbox.</p></details>
           <details><summary>Who can see my Code?</summary><p>Only you. A Code can&#x27;t be shared with other people. Admins and anyone an admin names as a Code reviewer can also read its chats, files and costs, read-only, and every view is recorded. The Code tells you this in its settings.</p></details>
           <details><summary>How is it isolated?</summary><p>Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent&#x27;s own files are protected. The sandbox covers commands. Some coding agents&#x27; built-in read tools aren&#x27;t sandboxed yet, so treat a Code as private to people, not sealed off from the server.</p></details>
