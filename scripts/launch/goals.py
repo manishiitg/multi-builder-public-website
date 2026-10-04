@@ -7,7 +7,7 @@ goals_body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Goals</p>
         <h1>One goal. One metric. <span class="dim">An agent that doesn't stop at done.</span></h1>
-        <p class="lede">Most AI automation finishes a task and waits for the next prompt. AgentWorks gives an agent an outcome to own. It plans the work, runs it on schedule, measures every run and changes its own plan until the metric hits your target.</p>
+        <p class="lede">Most AI automation finishes a task and waits for the next prompt. Goals gives an agent an outcome to own. It plans the work, runs it on schedule, measures every run and changes its own plan until the metric hits your target.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
@@ -178,4 +178,4 @@ goals_body=f'''  <main id="main">
   </main>
 '''
 GOALS_LD={"@type":"WebPage","name":"AgentWorks Goals","url":"https://agentworkshq.com/goals/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['goals/index.html']=head('AgentWorks Goals - AI Agents That Work Until They Hit Your Number','Give an AI agent a goal and a metric. AgentWorks plans the work, runs it on schedule, measures every run and improves its own plan until the number hits your target.','/goals/',og='agentworks-product-og.jpg',extra_ld=ld(GOALS_LD,BC('Goals','/goals/'),faq_ld(FAQ_GOALS),DEMO_VIDEO_LD))+header('product')+goals_body+footer()
+pages['goals/index.html']=head('AgentWorks Goals - AI Agents That Work Until They Hit Your Number','Give an AI agent a goal and a metric. Goals plans the work, runs it on schedule, measures every run and improves its own plan until the number hits your target.','/goals/',og='agentworks-product-og.jpg',extra_ld=ld(GOALS_LD,BC('Goals','/goals/'),faq_ld(FAQ_GOALS),DEMO_VIDEO_LD))+header('product')+goals_body+footer()

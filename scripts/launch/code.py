@@ -1,12 +1,13 @@
 # /code/: Code: bring the team's coding plans to one server, share them and track cost; each person codes in a private workspace. Facts from the product team (2026-09-28).
 FAQ_CODE=[
- ("Which coding plans can we bring?","Claude Code, Codex, Cursor, Muse and Pi. Connect an account by browser login (Claude Code, Codex, Cursor, Muse) or by API key. It's stored encrypted on the server, and nobody sees the credential."),
+ ("Which coding plans can we bring?","Claude Code, Codex, Cursor, Muse and Pi. Connect an account by browser login (Claude Code, Codex, Cursor, Muse) or by API key. The login stays on the server."),
  ("Who pays when someone uses a shared account?","The account's owner. Runs on a shared account act as that owner and use their plan, and the owner can see who used it and where."),
  ("Can we see how much of a plan is left?","Yes. Each account has a live usage check that reads the coding CLI's own usage or status, so you see the limit the vendor reports."),
+ ("Can someone using my shared account see my login?","Not through the app. But while agents run with their built-in tools on, a run on a shared account can read that account's login files on the server. Confining the coding agents is planned. Until then, share an account only with people and Crews you trust."),
  ("Is there a terminal?","No. There is no standalone terminal or shell. You ask the agent, and it runs the commands for you, each one in its own sandbox."),
- ("Who can see my Code?","You, and the people you share it with. Admins and anyone an admin names as a Code reviewer can also read its chats, files and costs, read-only, and every view is recorded. The Code itself tells you this."),
+ ("Who can see my Code?","Only you. A Code can't be shared with other people. Admins and anyone an admin names as a Code reviewer can also read its chats, files and costs, read-only, and every view is recorded. The Code tells you this in its settings."),
  ("How is it isolated?","Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent's own files are protected. The sandbox covers commands. Some coding agents' built-in read tools aren't sandboxed yet, so treat a Code as private to people, not sealed off from the server."),
- ("Can other workflows or Crews use my Code?","No. A Code can call your Crews and workflows, but nothing can call into a Code."),
+ ("Can other people or agents use my Code?","No. Other people can't be added to it, and other people's agents and tools can't call into it. Your Code can call your own Crews and workflows."),
 ]
 code_body=f'''  <main id="main">
     <section class="page-hero">
@@ -49,7 +50,7 @@ code_body=f'''  <main id="main">
         <div class="section-head reveal">
           <p class="kicker">What the company sees</p>
           <h2>One place to review costs. <span class="dim">And usage and output, for every person.</span></h2>
-          <p class="lede">Work in a Code is private from colleagues and reviewable by the company. Everyone sees that stated plainly in the product.</p>
+          <p class="lede">Work in a Code is private from colleagues and reviewable by the company. The Code says so in its settings.</p>
         </div>
         <ul class="control">
           <li class="reveal"><h3>Cost</h3><p>Cost and tokens per person, per Code and per provider account, so AI spend is a number, not a guess.</p></li>
@@ -67,7 +68,7 @@ code_body=f'''  <main id="main">
           <p class="lede">Connect each account once. Decide who can use it. See where every token went.</p>
         </div>
         <ol class="loop reveal">
-          <li><h3>Connect once</h3><p>Add Claude Code, Codex, Cursor or Muse by browser login, or any of them by API key. Credentials are stored encrypted on the server, and nobody sees them.</p></li>
+          <li><h3>Connect once</h3><p>Add Claude Code, Codex, Cursor or Muse by browser login, or any of them by API key. The login stays on the server.</p></li>
           <li><h3>Share without the login</h3><p>Keep an account private, or share it with chosen people, workflows or Crews. Admins decide who can use the server's own accounts and set the default models.</p></li>
           <li><h3>Track it centrally</h3><p>Cost and tokens per account, per person and per Code, workflow or Crew, plus a live check of each plan's own usage limit.</p></li>
           <li><h3>Stay accountable</h3><p>Runs on a shared account act as, and bill to, its owner. Owners see who used their account and where. Admins see everything.</p></li>
@@ -103,11 +104,10 @@ code_body=f'''  <main id="main">
             <p class="ask-msg them"><b>Done</b> Retries with backoff on 5xx and timeouts, capped at 3. All 48 tests pass. The change is in webhook.ts and its test file.</p>
           </div>
           <div class="explainer reveal" aria-label="Who can see this Code">
-            <p class="explainer-title"><span>Who has access</span><span>Only the owner shares</span></p>
-            <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Owner</small></div><span class="tag tag-run">Co-owner</span></div>
-            <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Rio<small>Reviews the changes</small></div><span class="tag">Editor</span></div>
-            <div class="row"><span class="avatar avatar-sage">S</span><div class="grow">Sage<small>Follows along</small></div><span class="tag">Viewer</span></div>
-            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Code reviewer<small>Read-only, every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
+            <p class="explainer-title"><span>Who can see this Code</span><span>Private to its owner</span></p>
+            <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Owner · files, chats, agent</small></div><span class="tag tag-run">Owner</span></div>
+            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or Code reviewer<small>Read-only, every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
+            <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Everyone else<small>No access</small></div><span class="tag">None</span></div>
           </div>
         </div>
       </div>
@@ -123,8 +123,8 @@ code_body=f'''  <main id="main">
           <li class="reveal"><h3>The coding agent you like</h3><p>Claude Code, Codex, Cursor, Muse or Pi, on a shared account or your own.</p></li>
           <li class="reveal"><h3>Sandboxed commands</h3><p>The agent runs every command for you inside a Linux Landlock sandbox with its own private /tmp. Its own files are protected. There's no open shell on the server.</p></li>
           <li class="reveal"><h3>Private by default</h3><p>A new Code is yours alone. Skills you add stay in it.</p></li>
-          <li class="reveal"><h3>Share with the right people</h3><p>Add someone as viewer, editor or co-owner. Only the owner shares, and removing someone takes effect at once.</p></li>
-          <li class="reveal"><h3>Uses your Crews and workflows</h3><p>Your agent can ask a Crew or run a workflow. Nothing can call into a Code.</p></li>
+          <li class="reveal"><h3>Yours alone</h3><p>A Code can't be shared with other people. Your files, chats and credentials stay with you. Admins and Code reviewers can review it read-only, and every view is recorded.</p></li>
+          <li class="reveal"><h3>Uses your Crews and workflows</h3><p>Your agent can ask your Crews or run your workflows. Other people's agents and tools can't call into your Code.</p></li>
           <li class="reveal"><h3>Cost you can see</h3><p>Tokens and cost tracked per Code, per person and per AI account.</p></li>
         </ul>
       </div>
@@ -137,8 +137,8 @@ code_body=f'''  <main id="main">
           <h2>Connect your own tools. <span class="dim">They stay yours.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><h3>MCP servers</h3><p>Use the servers your admin selects for the Code, plus your own remote MCP servers. Your logins and API keys are stored encrypted, switched on per Code, and never usable by anyone else. Calls to private or internal network addresses are blocked.</p></li>
-          <li class="reveal"><h3>Google, GitHub and more</h3><p>Add a known MCP server, such as Google Workspace or GitHub, as your own and sign in with your account. Personal secrets you add reach only your Code's chats.</p></li>
+          <li class="reveal"><h3>Connect your own MCP servers</h3><p>Pick from dozens of remote servers, such as Google Workspace, GitHub and Slack, and sign in with your own account. A connection is personal: switched on per Code, used only in your own chats, and never usable by anyone else in the Code. Calls to private or internal network addresses are blocked. Google, GitHub, Slack and a few others need an OAuth app, either your own or one your admin sets up on the server.</p></li>
+          <li class="reveal"><h3>Personal secrets</h3><p>Secrets you add are visible only to you and reach only your own chats, as environment variables and as API keys for your MCP servers. Personal connections and secrets are stored encrypted.</p></li>
         </ul>
         <div class="connect-row center-row" aria-label="Coding agents a Code can run on">
           <span class="chip">{logo("claude")}Claude Code</span>

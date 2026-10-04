@@ -90,7 +90,7 @@ const pageExpectations = [
     file: 'index.html',
     route: '/index.html',
     title: 'AgentWorks - AI Agents That Hit Your Goals, and Experts Your Team Can Ask',
-    h1: 'AI agents that own the work.',
+    h1: 'AI agents for every team.',
     canonical: 'https://agentworkshq.com/',
     ogImage: 'assets/og/agentworks-home-og.jpg',
     allowTallSections: true
