@@ -11,19 +11,19 @@ import tpl as _PB
 _PB_N=f"{_PB.N_CREW + _PB.N_GOALS}"
 ROWS=[
  ("Teammates & goals",None),
- ("Crew teammates",("Unlimited","Unlimited","Unlimited")),
+ ("Crew teammates",("Unlimited",N,"Unlimited")),
  ("Goals with measured targets",(Y,Y,Y)),
  ("Auto-improvement toward your goals",(Y,Y,Y)),
- ("Premade Crew agents and Goal playbooks",(_PB_N,_PB_N,_PB_N)),
+ ("Premade Crew agents and Goal playbooks",(_PB_N,f"{_PB.N_GOALS} Goal playbooks",_PB_N)),
  ("Engineering playbooks",(Y,Y,Y)),
- ("Relays: fixed agent chains behind an API",(Y,Y,Y)),
+ ("Relays: fixed agent chains behind an API",(Y,N,Y)),
  ("Custom playbooks built with you",(N,N,Y)),
  ("Channels & tools",None),
  ("Slack and WhatsApp",(Y,Y,Y)),
  ("Gmail updates and granted mailbox work",(Y,Y,Y)),
- ("Browser per teammate",("Self-run","Hosted","Your cloud")),
+ ("Browser per teammate or goal",("Self-run","Hosted","Your cloud")),
  ("MCP servers and API tools",(Y,Y,Y)),
- ("Expert Crews: call shared Crews from MCP clients and the CLI",(Y,Y,Y)),
+ ("Expert Crews: call shared Crews from MCP clients and the CLI",(Y,N,Y)),
  ("Custom integrations",(N,N,Y)),
  ("Control & security",None),
  ("Approvals and autonomy limits",(Y,Y,Y)),
@@ -31,7 +31,7 @@ ROWS=[
  ("Sandboxed code execution",(Y,Y,Y)),
  ("Run logs and cost per goal",(Y,Y,Y)),
  ("Roles and per-goal sharing",(Y,Y,Y)),
- ("Code: shared coding plans, cost and usage by person, private workspaces",(Y,Y,Y)),
+ ("Code: shared coding plans, cost and usage by person, private workspaces",(Y,N,Y)),
  ("Vault: governed MCP access, shared secrets and audit",(N,N,"Early access")),
  ("SSO (SAML / OIDC) and SCIM",(N,N,Y)),
  ("Audit log export",(N,N,Y)),
@@ -51,7 +51,8 @@ def compare():
     return '\n        '.join(out)
 
 FAQ_PRICING=[
- ("What does the $99 cover?","Your hosted workspace, unlimited Crew teammates and goals, a browser for every teammate, every premade agent, onboarding for your first goal, and priority support."),
+ ("What does the $99 cover?","Goals, hosted for you: unlimited goals with measured targets, auto-improvement, every premade Goal playbook, a browser for each goal, onboarding for your first goal, and priority email support. Crews, Code, Vault and Relays are part of Enterprise."),
+ ("What's in Enterprise?","Everything: Goals, Crews, Code, Vault and Relays, deployed in your own cloud, with SSO, audit logs, custom integrations and dedicated support."),
  ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
  ("Which AI plan should I use?","Light use works on a $20 plan. If teammates run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
  ("Is there a free trial?","The open-source edition is free forever. Cloud comes with a 7-day money-back guarantee: if it's not for you, cancel in the first week and we refund you in full."),
@@ -65,7 +66,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Pricing</p>
         <h1>One engine. Three ways to run it.</h1>
-        <p class="lede">Self-host it free, let us run it for $99 a month, or deploy it in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
+        <p class="lede">Self-host it free, let us run Goals for you for $99 a month, or deploy everything in your own cloud. Every plan runs on the AI subscription you already pay for.</p>
         {GUARANTEE}
       </div>
     </section>

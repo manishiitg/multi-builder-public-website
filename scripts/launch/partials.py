@@ -151,7 +151,7 @@ def footer():
       <div class="footer-grid">
         <div>
           <a class="brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
-          <p class="blurb">AI agents that keep working until they hit your goal. Open source, hosted for $99 a month, or in your own cloud.</p>
+          <p class="blurb">AI agents that keep working until they hit your goal. Open source, Goals hosted for $99 a month, or everything in your own cloud.</p>
         </div>
         <div>
           <h2 class="fh">Product</h2>

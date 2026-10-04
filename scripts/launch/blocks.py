@@ -31,11 +31,12 @@ def tiers(heading='h3'):
             <span class="tier-badge">Hand-held onboarding</span>
             <p class="tier-name">Cloud</p>
             <p class="tier-price"><strong>$99</strong><span>/ month</span></p>
-            <p class="tier-desc">Everything in open source, hosted and set up for you. Nothing to install.</p>
+            <p class="tier-desc">Goals, hosted and set up for you. Nothing to install.</p>
             <ul class="tier-list">
-              <li class="head">Everything in Open source, plus</li>
-              <li>Unlimited Crew teammates and Goals</li>
-              <li>Hosted workspace with a browser per teammate</li>
+              <li class="head">Goals, hosted for you</li>
+              <li>Unlimited Goals with measured targets</li>
+              <li>Auto-improvement and all premade Goal playbooks</li>
+              <li>Hosted workspace with a browser per goal</li>
               <li>Gmail updates and mailbox work you grant</li>
               <li>Hand-held onboarding: we set up your first goal with you</li>
               <li>Invite your team with roles</li>
@@ -51,6 +52,7 @@ def tiers(heading='h3'):
             <p class="tier-desc">Agentic engineering operations, deployed in your cloud with the controls your security team needs.</p>
             <ul class="tier-list">
               <li class="head">Everything in Cloud, plus</li>
+              <li>Crews, Code, Vault and Relays</li>
               <li>Self-hosted in your VPC or private cloud</li>
               <li>SSO (SAML / OIDC) and SCIM</li>
               <li>Audit logs and per-workflow permissions</li>
