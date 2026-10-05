@@ -35,4 +35,4 @@ Open Recent email activity on the project. Every delivery shows its state and re
 The run was interrupted — for example a restart mid-send. Look at the saved chat and your Sent folder before resending: replaying a half-run email can repeat real side effects. Failed sends are never retried automatically.
 
 **Can I filter which emails get processed?**
-Not yet — per-address filters (subject or body keywords, attachments, new threads only) are planned. They will only ever narrow what gets processed, and filtered-out mail will stay visible in Recent activity with its reason.
+Yes — ask the Builder. Filters only ever narrow what gets processed: a sender allowlist (exact addresses or whole `@domains`), subject or body keywords (every phrase must match, or match-any-of lists), attachments required or excluded, new threads only, and an opt-in for automated notifications from your allowed senders. Filtered-out mail stays visible in Recent email activity with its reason, and clearing filters never replays skipped mail.

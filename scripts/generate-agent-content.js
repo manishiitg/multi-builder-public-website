@@ -38,7 +38,6 @@ const devNav = [
     { path: 'workflow/workflow_scheduling', label: 'Schedules' },
     { path: 'workflow/workflow_monitoring', label: 'Monitoring' },
     { path: 'workflow/cost_and_log_measurement', label: 'Cost & logs' },
-    { path: 'workflow/browser_automation', label: 'Browser automation' },
     { path: 'workflow/tiered_llm_allocation', label: 'Model tiers' }
   ] },
   { group: 'Connect', pages: [
@@ -97,6 +96,7 @@ const guidesNav = [
     { slug: 'first-goal', label: 'Set your first goal', blurb: 'Outcome, metric, target, and rules — your first running goal.' },
     { slug: 'slack', label: 'Talk to your crew in Slack', blurb: 'Mention the crew, follow the thread, approve from Slack.' },
     { slug: 'whatsapp', label: 'Talk to your crew on WhatsApp', blurb: 'Pair once with a QR code, approve from your phone.' },
+    { slug: 'share-browser', label: 'Let your agent use a browser', blurb: 'Its own managed window, or tabs from your Chrome or Edge.' },
     { slug: 'approvals-autonomy', label: 'Approvals and autonomy', blurb: 'What asks first, and the four autonomy levels.' }
   ] },
   { group: 'Work together', pages: [
@@ -105,12 +105,12 @@ const guidesNav = [
   ] },
   { group: 'Automate', pages: [
     { slug: 'publish-relay', label: 'Publish your first Relay', blurb: 'Describe a task, test the draft, and publish a versioned API.' },
-    { slug: 'incoming-gmail', label: 'Give your project an email address', blurb: 'Email a Crew, workflow, or Code and continue the chat by reply.' }
+    { slug: 'incoming-gmail', label: 'Give your project an email address', blurb: 'Email a Crew, workflow, or Code and continue the chat by reply.' },
+    { slug: 'gmail', label: 'Connect Gmail and control what it sends', blurb: 'Connect your mailbox, grant read or send, and approve every send.' }
   ] },
   { group: 'Coming soon', soon: true, pages: [
     { slug: 'intro-2-minutes', label: 'What AgentWorks does in 2 minutes', blurb: 'The two-minute tour of goals, crews, and Auto-improve.' },
     { slug: 'premade-agent', label: 'Install a premade agent', blurb: 'Pick an agent, install it, point it at your goal.' },
-    { slug: 'gmail', label: 'Connect Gmail and control what it sends', blurb: 'Mailbox connection plus per-goal sending limits.' },
     { slug: 'progress-report', label: 'Read progress and “Did for you”', blurb: 'Reports, evidence, and what each status asks of you.' },
     { slug: 'invite-teammates', label: 'Invite teammates', blurb: 'Add people, split jobs, share approvals.' },
     { slug: 'ai-plan', label: 'Connect your AI plan', blurb: 'Run on the Claude, ChatGPT, Gemini, or Cursor plan you pay for.' },

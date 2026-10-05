@@ -31,4 +31,10 @@ Only with your approval at the default level. Outward-facing sends always ask fi
 **What if I lose my phone?**
 Remove the session in Integrations → WhatsApp. The crew keeps your goals and history; pair the new phone with a fresh QR code and carry on.
 
+**How do I end a chat and start fresh?**
+WhatsApp has no threads, so say it in words: `done`, `new session`, or `stop` ends the current chat. Anything after that starts clean.
+
+**What words approve or reject?**
+`approve`, `yes`, `go`, `lgtm` and friends approve; `reject`, `no`, `stop`, `cancel` and friends reject. Anything else you write is feedback the crew works with.
+
 *Need help? [Book a call](https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu) and we'll pair WhatsApp with you.*

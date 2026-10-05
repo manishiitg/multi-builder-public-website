@@ -34,4 +34,10 @@ Anything the goal allows: research, drafts, file updates, tool actions, and send
 **Two of us share a channel. Whose job is it?**
 Whoever mentioned the crew. Each thread is one job with its own history, so teammates can run separate jobs in the same channel without interference.
 
+**What words approve or reject?**
+`approve`, `yes`, `go`, `lgtm` and friends approve; `reject`, `no`, `stop`, `cancel` and friends reject. Anything else you write is feedback the crew works with — "use the shorter template" just steers it.
+
+**Can different channels have different setups?**
+Yes. Each channel gets its own route to the workflow, with its own setup and permissions. Invite the bot per channel and configure what it may do there; reads stay scoped to the channel's route.
+
 *Need help? [Book a call](https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu) and we'll connect Slack with you.*
