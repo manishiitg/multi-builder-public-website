@@ -20,7 +20,6 @@
     "security/secrets",
     "workflow/README",
     "workflow/auto_improvement_framework",
-    "workflow/browser_automation",
     "workflow/cost_and_log_measurement",
     "workflow/human_feedback_system",
     "workflow/learning_architecture",

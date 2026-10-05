@@ -47,7 +47,6 @@ this is the complete map.
 - Channel connectors
 - Google CLI authentication and agent terminals
 - Header Consolidation
-- Live browser in workflows
 - Outcome goals and measurable progress
 - Auto-improve review visibility
 - Workflow improvement through Auto-improve
@@ -80,7 +79,7 @@ this is the complete map.
 - Azure AI Foundry & Responses API Integration
 - [Bot Connector System](core/bot_connector_system.md)
 - Bot Connectors: Architecture, Configuration, and Review
-- [Browser Automation](core/browser.md)
+- [Browser: ownership, automation, live control and teaching](core/browser.md)
 - Coding CLI turn signals
 - Native agent tools
 - Coding CLI updates
@@ -174,7 +173,7 @@ this is the complete map.
 - Workflow API triggers
 - [Auto-Improvement Framework](workflow/auto_improvement_framework.md)
 - Backup, History & Versions Consolidation
-- [Browser Automation in Workflows](workflow/browser_automation.md)
+- [Browser workflow authoring](core/browser.md#workflow-authoring)
 - [Cost And Log Measurement](workflow/cost_and_log_measurement.md)
 - Crew workflow step
 - Deterministic Routing (route-by-file)

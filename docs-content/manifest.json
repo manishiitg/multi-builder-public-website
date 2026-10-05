@@ -18,7 +18,7 @@
     },
     {
       "path": "core/browser",
-      "title": "Browser Automation",
+      "title": "Browser: ownership, automation, live control and teaching",
       "section": "core"
     },
     {
@@ -99,11 +99,6 @@
     {
       "path": "workflow/auto_improvement_framework",
       "title": "Auto-Improvement Framework",
-      "section": "workflow"
-    },
-    {
-      "path": "workflow/browser_automation",
-      "title": "Browser Automation in Workflows",
       "section": "workflow"
     },
     {

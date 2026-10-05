@@ -1,5 +1,8 @@
 /enterprise/mcp-gateway/ /vault/ 301
 /enterprise/mcp-gateway /vault/ 301
+/docs/workflow/browser_automation/ /docs/core/browser/ 301
+/docs/workflow/browser_automation /docs/core/browser/ 301
+/docs-content/workflow/browser_automation.md /docs/core/browser/ 301
 /vault /vault/ 301
 /install.sh https://raw.githubusercontent.com/manishiitg/agentworks/main/install.sh 302
 /download /download/ 301
