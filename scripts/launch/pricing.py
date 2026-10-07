@@ -32,6 +32,7 @@ ROWS=[
  ("Run logs and cost per goal",(Y,Y,Y)),
  ("Roles and per-goal sharing",(Y,Y,Y)),
  ("Code: a private AI workspace per employee, shared plans, cost and usage by person",(Y,N,Y)),
+ ("Brain: shared company knowledge for every agent, with folder access and history",(Y,N,Y)),
  ("Vault: governed MCP access, shared secrets and audit",(N,N,"Early access")),
  ("SSO (SAML / OIDC) and SCIM",(N,N,Y)),
  ("Audit log export",(N,N,Y)),

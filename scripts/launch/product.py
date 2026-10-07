@@ -32,7 +32,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Product</p>
         <h1>One platform. <span class="dim">Agents that own the work.</span></h1>
-        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Code gives every employee a private AI workspace on your server, with cost and output visible to the company. Vault governs every MCP tool and shared secret. All of it runs on the AI plan you already pay for.</p>
+        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Code gives every employee a private AI workspace on your server, with cost and output visible to the company. Brain is the shared knowledge every agent reads. Vault governs every MCP tool and shared secret. All of it runs on the AI plan you already pay for.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
@@ -42,7 +42,7 @@ body=f'''  <main id="main">
 
     <section class="section-tight" id="products">
       <div class="wrap">
-        <div class="uc-grid">{PRODUCT_CARDS}</div>
+        <div class="uc-grid six">{PRODUCT_CARDS}</div>
       </div>
     </section>
 
