@@ -1,7 +1,7 @@
 # Legal pages: /privacy/, /terms/, /refunds/. Plain-language drafts; have them reviewed before taking payments.
-COMPANY='Excellence Technosoft Pvt Ltd'
+COMPANY='XTECH'
 CONTACT='manish@agentworkshq.com'
-UPDATED='26 September 2026'
+UPDATED='7 October 2026'
 from partials import PAYPAL_SUBSCRIBE
 BILLING_DATA=('payments are processed by PayPal. We receive your name, email and payment status, never your card or bank details.' if PAYPAL_SUBSCRIBE
   else 'payments are handled by our payment provider, which acts as merchant of record. We do not store card numbers.')
@@ -30,7 +30,7 @@ def _legal(title, intro, sections):
 '''
 
 PRIVACY=[
- ('Who we are', f'<p>AgentWorks is operated by {COMPANY}, a company registered in India ("we", "us"). This policy explains what personal data we handle when you visit agentworkshq.com, book a call with us, or use AgentWorks Cloud or Enterprise. Questions: <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>'),
+ ('Who we are', f'<p>AgentWorks is operated by {COMPANY}, a partnership firm registered in India ("we", "us"). This policy explains what personal data we handle when you visit agentworkshq.com, book a call with us, or use AgentWorks Cloud or Enterprise. Questions: <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>'),
  ('The website', '<p>The website does not use advertising or tracking cookies and has no sign-up forms. To understand which pages are useful, we use PostHog (hosted in the US) and Cloudflare Web Analytics in cookieless mode: they record page views, clicks and general information such as browser, device, country and the page that referred you. Nothing is stored on your device, we do not record your screen, and we do not identify you. Visits are counted with a hash that changes daily, so we cannot follow you across days or sites. Our hosting provider processes standard request data (such as IP address and browser type) to serve and protect the site.</p>'),
  ('Booking a call', '<p>When you book a call, you do it through the appointment booking in Google Calendar, and Google receives the details you enter (such as your name and email) under its own privacy policy. We use those details only to prepare for and follow up on the call.</p>'),
  ('The open-source app', '<p>If you run the open-source AgentWorks app on your own computer or server, your workspace, files, secrets and conversations stay on your machine. We do not receive them.</p>'),
@@ -83,7 +83,7 @@ PRIVACY,TERMS,REFUNDS=_fill(PRIVACY),_fill(TERMS),_fill(REFUNDS)
 
 for slug,title,intro,sections,desc in [
  ('privacy','Privacy Policy','What personal data AgentWorks handles, why, and your choices.',PRIVACY,'How AgentWorks handles personal data on the website, in the open-source app and in AgentWorks Cloud and Enterprise.'),
- ('terms','Terms of Service','The terms for using AgentWorks Cloud and other hosted AgentWorks services.',TERMS,'Terms of Service for AgentWorks Cloud and hosted AgentWorks services, operated by Excellence Technosoft Pvt Ltd.'),
+ ('terms','Terms of Service','The terms for using AgentWorks Cloud and other hosted AgentWorks services.',TERMS,'Terms of Service for AgentWorks Cloud and hosted AgentWorks services, operated by XTECH.'),
  ('refunds','Refund Policy','A 7-day money-back guarantee, and how cancellation works after that.',REFUNDS,'AgentWorks Cloud refund policy: 7-day money-back guarantee, cancel anytime, access until the end of the paid period.'),
 ]:
     path=f'/{slug}/'
