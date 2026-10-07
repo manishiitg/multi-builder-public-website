@@ -17,7 +17,7 @@ SOLUTIONS=[
   connectors='Gmail, Slack, your CRM through MCP, and any website through its own browser.',
   faq=[('Will it send emails without me?','Not unless you allow it. By default every outbound email waits for your approval, and you can raise the limit once you trust it. The Docs guide "Approvals and autonomy" explains the four levels.'),
        ('Does it work with our CRM?','Yes, through MCP or the CRM\'s website in the agent\'s own browser. HubSpot, Notion and Airtable are common starting points.'),
-       ('How is this different from a sales sequencer?','A sequencer sends what you wrote on a schedule. AgentWorks owns the goal: it measures bookings, drops what doesn\'t work and tries what might.')]),
+       ('How is this different from a sales sequencer?','A sequencer sends what you wrote on a schedule. AgentWorks works toward a goal: it measures bookings, drops what doesn\'t work and tries what might.')]),
  dict(slug='shopify', nav='Shopify stores', icon='<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
   navdesc='Stuck orders, reviews and support, handled.',
   title='AI Agents for Shopify Stores - Orders, Support and Reviews | AgentWorks',
@@ -85,6 +85,6 @@ SOLUTIONS=[
 ]
 
 def sol_nav_items():
-    items=[(f'/solutions/{u["slug"]}/',u['nav'],u['navdesc'],u['icon']) for u in SOLUTIONS]
+    items=[('/ecommerce/','E-commerce operations','Support, refunds and orders, set up and run for you.','<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>')]+[(f'/solutions/{u["slug"]}/',u['nav'],u['navdesc'],u['icon']) for u in SOLUTIONS]
     items.append(('/enterprise/','Engineering teams','QA, incidents, security and cloud cost.','<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>'))
     return items

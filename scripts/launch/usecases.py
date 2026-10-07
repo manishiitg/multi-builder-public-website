@@ -13,7 +13,7 @@ def _page(u):
         others=''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{e(d)}</span></a>' for h,t,d in PRODUCT_PAGES if h!=uc_path(u))
         more_k,more_h='Also in AgentWorks','The rest of the platform.'
     else:
-        others=''.join(f'<a class="uc-link" href="{uc_path(o)}"><b>{e(o["nav"])}</b><span>{e(o["navdesc"])}</span></a>' for o in USECASES if o is not u)
+        others=''.join(f'<a class="uc-link" href="{uc_path(o)}"><b>{e(o["nav"])}</b><span>{e(o["navdesc"])}</span></a>' for o in USECASES if o is not u and not o.get('nav_hidden'))
         more_k,more_h='More use cases','Other goals agents can own.'
     return f'''  <main id="main">
     <section class="page-hero left">
@@ -47,7 +47,7 @@ def _page(u):
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">How it works</p>
-          <h2>{e(u.get('how_h2','Agents own the goal.'))} <span class="dim">{e(u.get('how_h2dim','You own the approvals.'))}</span></h2>
+          <h2>{e(u.get('how_h2','Agents do the work.'))} <span class="dim">{e(u.get('how_h2dim','You own the goal and the approvals.'))}</span></h2>
         </div>
         <ol class="loop reveal">{steps}</ol>
       </div>

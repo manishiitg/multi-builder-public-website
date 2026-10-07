@@ -94,7 +94,7 @@ USECASES=[
   playbooks=['Growth Data Foundation','Funnel and Conversion Intelligence','Activation and Retention Intelligence','Growth Experimentation and Follow-Through','SEO Intelligence','AI Visibility Intelligence'],
   faq=[('Which analytics tools does it work with?','Product analytics, billing, CRM and search tools your team already uses, through APIs, MCP servers or its own browser.'),
        ('Does it make changes to the product?','No. It recommends and tracks actions in your tools; your team decides what ships.'),
-       ('How is this different from a BI dashboard?','A dashboard shows the number. The agents own a goal: they investigate, propose, and check whether the change worked.')]),
+       ('How is this different from a BI dashboard?','A dashboard shows the number. The agents work toward a goal: they investigate, propose, and check whether the change worked.')]),
  dict(slug='workbench', path='/code/', page=False, group='AI platform for teams', nav='Code', icon='<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>',
   navdesc='An AI workspace for every employee, with cost and usage visible to the company.',
   title='AgentWorks Workbench - Share Your Team\'s AI Plans and Measure Usage',
@@ -176,6 +176,37 @@ USECASES=[
        ('Does connecting a server give people access?','No. Access is deny by default. A server\'s tools reach people only through the groups an admin grants them, and new or changed tool definitions wait for review.'),
        ('Can a rule limit what a tool is asked to do?','Yes, for the values a tool exposes as inputs, using exact values or full-string patterns. For things like free-form queries or opaque IDs, also use a narrowly scoped credential upstream.'),
        ('Where does it run?','On your AgentWorks server, in your own cloud or data center.')]),
+ dict(slug='ecommerce', path='/ecommerce/', product=True, nav_hidden=True, nav='E-commerce operations', icon='<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
+  navdesc='Support, refunds and orders, set up and run for you.',
+  title='AgentWorks for E-commerce - AI Operations, Set Up and Run for You',
+  desc='AgentWorks sets up AI agents on your own tools and runs them with you for e-commerce operations: support, refunds, order follow-up and reconciliation. Pick one queue and start with a four-week pilot in your own cloud.',
+  kicker='E-commerce · AI operations',
+  h1='Make your e-commerce operations agentic.', h1dim='With your team in control.',
+  lede='Support, returns, order follow-up and reconciliation take a big team and still fall behind as you grow. Our team deploys AI agents inside your processes, customized to your company and your own tools, one queue at a time. They track the goal, measure every run and improve the next, and your people approve what matters. We start with a four-week pilot in your own cloud.',
+  cta_label='Book a pilot call',
+  goal=('Take over the refund queue','Refund requests prepared within a day',('1 day','example target for the work agents control. Your overall refund time also depends on banks and carriers')),
+  pains=[('Support never catches up','Order status, refund and "where is my parcel" questions pile up on WhatsApp and email, and first replies slow down as you grow.'),
+         ('Orders fail after they are placed','Cash-on-delivery orders get refused, deliveries fail and payments get stuck, and each one needs someone to chase it.'),
+         ('Your numbers sit in five tools','Orders, payments, shipping and refunds live in different systems, so reconciling them is a weekly scramble.')],
+  how_h2='Pick one queue.', how_h2dim='We run it with you.',
+  steps=[('Choose the queue','We agree one defined piece of work, such as refund requests, first replies or order follow-ups, what handled well means, and how much of it we take on.'),
+         ('Connect your tools','Agents connect to your store, support inbox and payment and shipping tools, with access you control and can revoke.'),
+         ('Four-week pilot','Agents work the queue and prepare the replies, refunds and follow-ups. Anything that reaches a customer or moves money waits for your approval.'),
+         ('Review and keep going','Every month we review the work: how much was handled, how often your team approved it unchanged, and how your own numbers moved alongside. We fix what is not working and widen the scope.')],
+  list_kicker='What a pilot covers', list_h2='Real queues, measured.', list_h2dim='Starting with one.',
+  list_lede='We start with the queue that costs you the most. Examples of what agents take on, each measured by the work done and its quality.',
+  list_cta='See what it covers',
+  playbooks=['Drafting first replies to order, delivery and refund questions from your own policies','Spotting cash-on-delivery orders at risk and preparing the confirmation and follow-up','Preparing refunds and returns, with approval before any money moves','Chasing stuck orders and failed payments, and recording what happened','Weekly reconciliation of orders, payments and refunds','A weekly report: work handled, how much was approved unchanged, and how your own numbers moved'],
+  cta_h2='Pick one queue.', cta_h2dim='Start with a four-week pilot.',
+  cta_p='Tell us the queue that costs you the most and we will scope a pilot on it: the work we take over, what handled well means, and the tools. Pricing is custom and based on that scope.',
+  faq=[('Who does the work?','Our team sets up the agents, connects your tools and runs a monthly review with you. Your team approves anything customer-facing or involving money until you are comfortable.'),
+       ('Is the deployment customized for us?','Yes. Every deployment is set up around your company: your cloud account, your tools, your approval rules and who on your team can see and change what. It is not a one-size-fits-all install.'),
+       ('Where does it run?','In your own cloud account, so your customer and order data stay in your environment.'),
+       ('Which tools does it connect to?','Your store, support inbox, payment and shipping tools, through MCP, APIs and a browser, using access you grant. We confirm each integration on the scoping call.'),
+       ('How is it priced?','Custom, based on the scope. We start with a fixed-fee four-week pilot, then a monthly fee for running and improving it. It is not tied to a promised result.'),
+       ('Do you guarantee the metric?','No. We commit to taking over a defined queue and reporting how much work was handled and how good it was. Your business numbers, like refund time, also depend on things agents do not control, such as banks and carriers, so we track them next to the work and review the link with you.'),
+       ('Does it replace my team?','It takes the repetitive queue so your team can focus on the cases that need a person. A person approves anything that affects money or a customer until you decide otherwise.')]),
+
 ]
 
 def uc_path(u):
@@ -184,12 +215,13 @@ def uc_path(u):
 
 def uc_nav_items():
     soon=' <span class="tag tag-soon">Soon</span>'
-    return [(uc_path(u),u['nav']+(soon if u.get('soon') else ''),u['navdesc'],u['icon']) for u in USECASES]
+    return [(uc_path(u),u['nav']+(soon if u.get('soon') else ''),u['navdesc'],u['icon']) for u in USECASES if not u.get('nav_hidden')]
 
 def uc_nav_groups():
     """Enterprise menu columns: (label, nav items) in order of first appearance."""
-    items=dict(zip([u['slug'] for u in USECASES], uc_nav_items()))
+    items=dict(zip([u['slug'] for u in USECASES if not u.get('nav_hidden')], uc_nav_items()))
     out={}
     for u in USECASES:
+        if u.get('nav_hidden'): continue
         out.setdefault(u.get('group','Engineering goals'),[]).append(items[u['slug']])
     return list(out.items())

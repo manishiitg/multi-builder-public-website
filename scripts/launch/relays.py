@@ -1,7 +1,7 @@
 # Relays: a fixed chain of agents you design once and run from anywhere.
 FAQ_RELAYS=[
  ("How do I publish a new version?","Edit the draft in the Relay Builder and publish. Each publish freezes a numbered version behind the same endpoint, so callers can pin a version or follow the latest."),
- ("How is a Relay different from a Workflow?","A Workflow owns a goal: it plans, measures and changes its own steps until the metric moves. A Relay is fixed. It runs the same steps in the same order every time, which is what you want behind a website form or another system."),
+ ("How is a Relay different from a Workflow?","A Workflow works toward a goal: it plans, measures and adjusts its own steps, and shows whether the metric moves. A Relay is fixed. It runs the same steps in the same order every time, which is what you want behind a website form or another system."),
  ("What can a step be?","An agent step with its own system prompt and message, a condition that decides which step runs next, or a script step for exact work like formatting data or calling an API. Steps pass their output to the next one."),
  ("How do other systems run a Relay?","Each deployed Relay gets a trigger: an authenticated API endpoint or webhook. Your website, CRM, backend or no-code tool sends the input and gets the result back, or a callback when it finishes."),
  ("Which models run the agent steps?","The same AI plans you connect to AgentWorks, such as Claude, ChatGPT, Gemini or Cursor. You can choose a different one per step."),
@@ -62,7 +62,7 @@ body=f'''  <main id="main">
         </div>
         <ul class="control">
           <li class="reveal"><h3>Relays</h3><p>A fixed chain you call from outside. Same steps every time, predictable cost, an answer back in seconds or minutes.</p></li>
-          <li class="reveal"><h3><a href="/goals/">Workflows with a goal</a></h3><p>Own an outcome like "5 demos a week". Plan, run on schedule, measure and improve the plan until the number moves.</p></li>
+          <li class="reveal"><h3><a href="/goals/">Workflows with a goal</a></h3><p>Work toward an outcome like "5 demos a week". Plan, run on schedule, measure, and adjust the plan as the number moves.</p></li>
           <li class="reveal"><h3><a href="/crews/">Crew</a></h3><p>Always-on teammates you talk to in chat, Slack or WhatsApp, with memory, skills and their own tools.</p></li>
         </ul>
       </div>

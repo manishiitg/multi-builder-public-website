@@ -950,3 +950,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 1000px) { .prodrow { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 720px) { .prodrow { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .prodrow { grid-template-columns: 1fr; } }
+
+.prodrow.teams { grid-template-columns: repeat(3, 1fr); }
+.prodrow.teams b { font-size: 16px; }
+@media (max-width: 1000px) { .prodrow.teams { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .prodrow.teams { grid-template-columns: 1fr; } }
+
+.prodrow.dev { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px) { .prodrow.dev { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .prodrow.dev { grid-template-columns: 1fr; } }
+#developers .section-head { margin-bottom: 24px; }
+
+.hero-sub { margin-top: 10px; font-size: 14px; color: var(--muted); }
+.hero-sub a { color: var(--text); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+.hero-sub a:hover { color: var(--amber-text); }

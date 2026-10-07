@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch44'
+V='launch53'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -54,7 +54,7 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
 '''
 
 NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
-PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works until it hits the target.','goal'),
+PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works toward the target and measures every run.','goal'),
          ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
          ('/code/','Code','A private AI workspace for every employee, on your server, with cost and output visible to the company.','code'),
          ('/brain/','Brain','Shared company knowledge: write it once and every agent reads it.','brain'),
@@ -68,7 +68,7 @@ PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
+ '/crews/':'Experts anyone can ask', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Run for you, one metric first', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -153,7 +153,7 @@ def footer():
       <div class="footer-grid">
         <div>
           <a class="brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
-          <p class="blurb">AI agents that keep working until they hit your goal. Open source, Goals hosted for $99 a month, or everything in your own cloud.</p>
+          <p class="blurb">AI agents that work inside your process and measure the result. Open source, Goals hosted for $99 a month, or everything in your own cloud.</p>
         </div>
         <div>
           <h2 class="fh">Product</h2>

@@ -99,7 +99,7 @@ body=f'''  <main id="main">
         <ul class="versus">
           <li class="reveal"><small>Developer portals</small><h3>Catalog and self-service</h3><p>Great for knowing what you run. Engineers still do the work behind every action.</p></li>
           <li class="reveal"><small>Workflow builders</small><h3>You draw every step</h3><p>Good for fixed flows. When the flow breaks or the goal moves, someone rebuilds it.</p></li>
-          <li class="us reveal"><small>AgentWorks</small><h3>Agents that own a goal</h3><p>Set the outcome and the metric. Agents do the work, measure it and improve the plan, under your approvals and audit.</p></li>
+          <li class="us reveal"><small>AgentWorks</small><h3>Agents that work toward a goal</h3><p>Set the outcome and the metric. Agents do their part of the work, measure it and adjust the plan, under your approvals and audit.</p></li>
         </ul>
       </div>
     </section>

@@ -4,7 +4,7 @@ ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..
 _CAT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'catalog.json')))
 N_AGENTS=len(_CAT['crew'])+len(_CAT['playbooks'])
 CARDS=[
- ('agentworks-home-og.jpg','Give an AI agent a goal and a metric.','It keeps working until it hits the target.','story'),
+ ('agentworks-home-og.jpg','Give an AI agent a goal and a metric.','It works toward the target and measures every run.','story'),
  ('agentworks-product-og.jpg','One goal. One metric.','An agent that doesn’t stop at done.','loop'),
  ('agentworks-agents-og.jpg',f'{N_AGENTS} premade agents,','ready to start today.','agents'),
  ('agentworks-pricing-og.jpg','Open source. $99 Cloud.','Enterprise in your own cloud.','tiers'),
@@ -12,7 +12,7 @@ CARDS=[
  ('agentworks-404-og.jpg','This page isn’t here.','Your goals still are.','none'),
 ]
 ART={
-'story':'''<div class="art card"><p class="ask">"Book more sales demos. <b>I want 5 a week.</b>"</p><p class="big">1 <i>&rarr;</i> 6</p><p class="sub">demos booked a week &middot; target hit</p><svg viewBox="0 0 320 110" preserveAspectRatio="none"><line x1="0" y1="24" x2="320" y2="24" stroke="#10b981" stroke-width="2" stroke-dasharray="4 6"/><polyline points="0,100 53,100 107,70 160,74 213,46 267,8 320,14" fill="none" stroke="#f5a524" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>''',
+'story':'''<div class="art card"><p class="ask">"Book more sales demos. <b>I want 5 a week.</b>"</p><p class="big">1 <i>&rarr;</i> 6</p><p class="sub">demos booked a week &middot; on track</p><svg viewBox="0 0 320 110" preserveAspectRatio="none"><line x1="0" y1="24" x2="320" y2="24" stroke="#10b981" stroke-width="2" stroke-dasharray="4 6"/><polyline points="0,100 53,100 107,70 160,74 213,46 267,8 320,14" fill="none" stroke="#f5a524" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>''',
 'loop':'''<div class="art grid4"><div><s>01</s><b>Set the goal</b></div><div><s>02</s><b>Run</b></div><div><s>03</s><b>Measure</b></div><div><s>04</s><b>Auto-improve</b></div></div>''',
 'agents':'''<div class="art list"><p><b>Invoice Chasing</b><span>Finance</span></p><p><b>Sales Follow-up</b><span>Sales</span></p><p><b>Support Reply Drafter</b><span>Support</span></p><p><b>Store Operations</b><span>Shopify</span></p></div>''',
 'tiers':'''<div class="art list"><p><b>Open source</b><span>$0</span></p><p class="hl"><b>Cloud</b><span>$99 / month</span></p><p><b>Enterprise</b><span>Custom</span></p></div>''',
