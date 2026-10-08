@@ -101,7 +101,7 @@ const guidesNav = [
   ] },
   { group: 'Work together', pages: [
     { slug: 'share-workflow', label: 'Share a workflow', blurb: 'Owners, editors, readers — share a workflow and know what each level can do.' },
-    { slug: 'share-secrets', label: 'Share secrets safely', blurb: 'One API key in Vault, usable by every agent — seen by nobody.' }
+    { slug: 'share-secrets', label: 'Share secrets safely', blurb: 'One API key in Vault that your team\'s agents can use, without pasting it around.' }
   ] },
   { group: 'Automate', pages: [
     { slug: 'publish-relay', label: 'Publish your first Relay', blurb: 'Describe a task, test the draft, and publish a versioned API.' },
@@ -114,7 +114,7 @@ const guidesNav = [
     { slug: 'progress-report', label: 'Read progress and “Did for you”', blurb: 'Reports, evidence, and what each status asks of you.' },
     { slug: 'invite-teammates', label: 'Invite teammates', blurb: 'Add people, split jobs, share approvals.' },
     { slug: 'ai-plan', label: 'Connect your AI plan', blurb: 'Run on the Claude, ChatGPT, Gemini, or Cursor plan you pay for.' },
-    { slug: 'billing', label: 'Billing and cancelling', blurb: 'Cloud billing, the guarantee, and cancelling.' }
+    { slug: 'billing', label: 'How billing works', blurb: 'How a custom deployment is billed.' }
   ] }
 ];
 

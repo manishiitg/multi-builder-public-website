@@ -1,4 +1,4 @@
-# Billing and cancelling
+# How a custom deployment is billed
 
 **Coming soon.** How a custom deployment is billed: the one-time setup fee, the monthly fee, what each covers, and how to change or end it. Open source stays free forever.
 
