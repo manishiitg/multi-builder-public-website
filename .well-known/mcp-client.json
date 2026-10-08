@@ -9,7 +9,8 @@
     "https://video.realtrainingsys.com/api/oauth/callback",
     "https://confida.agentworkshq.com/api/oauth/callback",
     "https://agents.excellencetechnologies.in/api/oauth/callback",
-    "https://trader.tectonicmarkets.com/api/oauth/callback"
+    "https://trader.tectonicmarkets.com/api/oauth/callback",
+    "https://agents.citymall.live/api/oauth/callback"
   ],
   "grant_types": [
     "authorization_code"

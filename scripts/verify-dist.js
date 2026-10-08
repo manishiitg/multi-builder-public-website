@@ -386,7 +386,9 @@ function assertDeployPayload() {
     'http://127.0.0.1:45678/api/oauth/callback',
     'https://video.realtrainingsys.com/api/oauth/callback',
     'https://confida.agentworkshq.com/api/oauth/callback',
-    'https://trader.tectonicmarkets.com/api/oauth/callback'
+    'https://trader.tectonicmarkets.com/api/oauth/callback',
+    'https://agents.excellencetechnologies.in/api/oauth/callback',
+    'https://agents.citymall.live/api/oauth/callback'
   ]) {
     if (!clientMetadata.redirect_uris?.includes(redirectUri)) fail(`CIMD redirect URI missing: ${redirectUri}`);
   }
