@@ -177,7 +177,7 @@ USECASES=[
        ('Can a rule limit what a tool is asked to do?','Yes, for the values a tool exposes as inputs, using exact values or full-string patterns. For things like free-form queries or opaque IDs, also use a narrowly scoped credential upstream.'),
        ('Where does it run?','On your AgentWorks server, in your own cloud or data center.')]),
  dict(slug='ecommerce', path='/ecommerce/', product=True, nav_hidden=True, nav='E-commerce operations', icon='<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
-  navdesc='Support, refunds and orders, set up and run for you.',
+  navdesc='Agentic operations, with your team in control.',
   title='AgentWorks for E-commerce - AI Operations, Set Up and Run for You',
   desc='AgentWorks sets up AI agents on your own tools and runs them with you for e-commerce operations: support, refunds, order follow-up and reconciliation. Pick one queue and start with a four-week pilot in your own cloud.',
   kicker='E-commerce · AI operations',

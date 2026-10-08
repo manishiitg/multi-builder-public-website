@@ -85,6 +85,6 @@ SOLUTIONS=[
 ]
 
 def sol_nav_items():
-    items=[('/ecommerce/','E-commerce operations','Support, refunds and orders, set up and run for you.','<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>')]+[(f'/solutions/{u["slug"]}/',u['nav'],u['navdesc'],u['icon']) for u in SOLUTIONS]
-    items.append(('/enterprise/','Engineering teams','QA, incidents, security and cloud cost.','<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>'))
+    items=[('/ecommerce/','E-commerce operations','Agentic operations, with your team in control.','<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>')]+[(f'/solutions/{u["slug"]}/',u['nav'],u['navdesc'],u['icon']) for u in SOLUTIONS]
+    items.append(('/enterprise/','Engineering ops','QA, incidents, DevOps and cloud cost.','<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>'))
     return items
