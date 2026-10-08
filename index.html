@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch56">
+  <link rel="stylesheet" href="/launch.css?v=launch58">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -570,16 +570,17 @@
       <div class="wrap">
         <div class="section-head center reveal">
           <p class="kicker">Pricing</p>
-          <h2>One engine. <span class="dim">Three ways to run it.</span></h2>
-          <p class="lede">Self-host it free, let us run Goals for you for $99 a month, or deploy everything in your own cloud.</p>
+          <h2>Free to run yourself. <span class="dim">Customized for your company.</span></h2>
+          <p class="lede">Self-host the whole platform free, or we customize and deploy it in your own cloud, set up for your processes.</p>
         </div>
-        <div class="tiers">
+        <div class="tiers two">
           <article class="tier reveal">
             <p class="tier-name">Open source</p>
             <p class="tier-price"><strong>$0</strong><span>forever</span></p>
-            <p class="tier-desc">Run the whole engine yourself, on your Mac or your own Linux server.</p>
+            <p class="tier-desc">Run the whole platform yourself, on your Mac or your own Linux server.</p>
             <ul class="tier-list">
-              <li>Crew teammates and Goals</li>
+              <li>Goals, Crews and Relays</li>
+              <li>Brain and Code</li>
               <li>Auto-improvement toward your goals</li>
               <li>All premade agents and playbooks</li>
               <li>Slack and WhatsApp channels</li>
@@ -591,47 +592,33 @@
               <small>macOS app or self-hosted Linux</small>
             </div>
           </article>
-          <article class="tier tier-featured reveal">
-            <span class="tier-badge">Hand-held onboarding</span>
-            <p class="tier-name">Cloud</p>
-            <p class="tier-price"><strong>$99</strong><span>/ month</span></p>
-            <p class="tier-desc">Goals, hosted and set up for you. Nothing to install.</p>
-            <ul class="tier-list">
-              <li class="head">Goals, hosted for you</li>
-              <li>Unlimited Goals with measured targets</li>
-              <li>Auto-improvement and all premade Goal playbooks</li>
-              <li>Hosted workspace with a browser per goal</li>
-              <li>Gmail updates and mailbox work you grant</li>
-              <li>Hand-held onboarding: we set up your first goal with you</li>
-              <li>Invite your team with roles</li>
-              <li>Priority email support</li>
-            </ul>
-            <div class="tier-foot">
-              <a class="btn btn-amber btn-block" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8U224306ST2761520NK4MBQA" target="_blank" rel="noreferrer">Subscribe with PayPal</a>
-              <small>Cancel anytime · 7-day money-back guarantee · <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">or book a call first</a></small>
-            </div>
-          </article>
-          <article class="tier reveal">
-            <p class="tier-name">Enterprise</p>
+          <article class="tier tier-featured reveal" id="custom">
+            <span class="tier-badge">Set up with you</span>
+            <p class="tier-name">Custom deployment</p>
             <p class="tier-price"><strong>Custom</strong></p>
-            <p class="tier-desc">Agentic engineering operations, deployed in your cloud with the controls your security team needs.</p>
+            <p class="tier-desc">Everything, customized for your company and deployed in your own cloud, with the controls your IT and security teams need.</p>
             <ul class="tier-list">
-              <li class="head">Everything in Cloud, plus</li>
-              <li>Crews, Code, Vault and Relays</li>
-              <li>Self-hosted in your VPC or private cloud</li>
-              <li>SSO (SAML / OIDC) and SCIM</li>
-              <li>Audit logs and per-workflow permissions</li>
-              <li>Engineering playbooks and custom playbooks</li>
+              <li class="head">Everything in open source, plus</li>
+              <li>Vault (early access): governed tool access, shared secrets and audit</li>
               <li>Customized deployment and integrations built with you</li>
+              <li>Agents set up for your processes and approval rules</li>
+              <li>Self-hosted in your VPC or private cloud</li>
+              <li>SSO (SAML / OIDC), SCIM and audit log export</li>
               <li>Dedicated support and SLA</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-ghost btn-block" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Talk to us</a>
-              <small>Starts with a scoped pilot</small>
+              <a class="btn btn-amber btn-block" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Book a call</a>
+              <small>One-time setup fee, then a monthly fee · scoped on a call</small>
             </div>
           </article>
         </div>
-        <p class="tpl-more"><a class="btn btn-ghost" href="/pricing/">Compare plans</a><a class="btn btn-ghost" href="/pricing/#onboarding">How onboarding works</a><span class="muted">Cloud comes with hand-held onboarding.</span></p>
+        <div class="cloud-strip reveal" id="cloud">
+          <div><p class="tier-name">Just want Goals hosted?</p><p class="muted">Cloud: Goals hosted for you, with your first goal set up together. Nothing to install.</p></div>
+          <div class="cloud-strip-price"><strong>$99</strong><span>/ month</span></div>
+          <div class="cloud-strip-cta"><a class="btn btn-ghost" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8U224306ST2761520NK4MBQA" target="_blank" rel="noreferrer">Subscribe with PayPal</a>
+              <small>Cancel anytime · 7-day money-back guarantee · <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">or book a call first</a></small></div>
+        </div>
+        <p class="tpl-more"><a class="btn btn-ghost" href="/pricing/">Compare plans</a><a class="btn btn-ghost" href="/pricing/#onboarding">How a custom deployment works</a></p>
       </div>
     </section>
 
@@ -670,7 +657,7 @@
       <div class="footer-grid">
         <div>
           <a class="brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
-          <p class="blurb">AI agents that work inside your process and measure the result. Open source, Goals hosted for $99 a month, or everything in your own cloud.</p>
+          <p class="blurb">AI agents that work inside your process and measure the result. Free and open source, or customized and deployed in your own cloud.</p>
         </div>
         <div>
           <h2 class="fh">Product</h2>
@@ -690,7 +677,7 @@
           <h2 class="fh">Plans</h2>
           <ul>
             <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="/pricing/#onboarding">Cloud onboarding</a></li>
+            <li><a href="/pricing/#onboarding">Custom deployment</a></li>
             <li><a href="/enterprise/">Enterprise</a></li>
             <li><a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">Open source</a></li>
           </ul>
@@ -718,7 +705,7 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch56"></script>
+  <script src="/launch.js?v=launch58"></script>
   <script src="/analytics.js?v=1"></script>
 </body>
 </html>

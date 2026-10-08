@@ -9,13 +9,14 @@ def _cloud_cta():
             '              <small>Starts with a call · 7-day money-back guarantee</small>')
 
 def tiers(heading='h3'):
-    return f'''<div class="tiers">
+    return f'''<div class="tiers two">
           <article class="tier reveal">
             <p class="tier-name">Open source</p>
             <p class="tier-price"><strong>$0</strong><span>forever</span></p>
-            <p class="tier-desc">Run the whole engine yourself, on your Mac or your own Linux server.</p>
+            <p class="tier-desc">Run the whole platform yourself, on your Mac or your own Linux server.</p>
             <ul class="tier-list">
-              <li>Crew teammates and Goals</li>
+              <li>Goals, Crews and Relays</li>
+              <li>Brain and Code</li>
               <li>Auto-improvement toward your goals</li>
               <li>All premade agents and playbooks</li>
               <li>Slack and WhatsApp channels</li>
@@ -27,44 +28,30 @@ def tiers(heading='h3'):
               <small>macOS app or self-hosted Linux</small>
             </div>
           </article>
-          <article class="tier tier-featured reveal">
-            <span class="tier-badge">Hand-held onboarding</span>
-            <p class="tier-name">Cloud</p>
-            <p class="tier-price"><strong>$99</strong><span>/ month</span></p>
-            <p class="tier-desc">Goals, hosted and set up for you. Nothing to install.</p>
-            <ul class="tier-list">
-              <li class="head">Goals, hosted for you</li>
-              <li>Unlimited Goals with measured targets</li>
-              <li>Auto-improvement and all premade Goal playbooks</li>
-              <li>Hosted workspace with a browser per goal</li>
-              <li>Gmail updates and mailbox work you grant</li>
-              <li>Hand-held onboarding: we set up your first goal with you</li>
-              <li>Invite your team with roles</li>
-              <li>Priority email support</li>
-            </ul>
-            <div class="tier-foot">
-              {_cloud_cta()}
-            </div>
-          </article>
-          <article class="tier reveal">
-            <p class="tier-name">Enterprise</p>
+          <article class="tier tier-featured reveal" id="custom">
+            <span class="tier-badge">Set up with you</span>
+            <p class="tier-name">Custom deployment</p>
             <p class="tier-price"><strong>Custom</strong></p>
-            <p class="tier-desc">Agentic engineering operations, deployed in your cloud with the controls your security team needs.</p>
+            <p class="tier-desc">Everything, customized for your company and deployed in your own cloud, with the controls your IT and security teams need.</p>
             <ul class="tier-list">
-              <li class="head">Everything in Cloud, plus</li>
-              <li>Crews, Code, Vault and Relays</li>
-              <li>Self-hosted in your VPC or private cloud</li>
-              <li>SSO (SAML / OIDC) and SCIM</li>
-              <li>Audit logs and per-workflow permissions</li>
-              <li>Engineering playbooks and custom playbooks</li>
+              <li class="head">Everything in open source, plus</li>
+              <li>Vault (early access): governed tool access, shared secrets and audit</li>
               <li>Customized deployment and integrations built with you</li>
+              <li>Agents set up for your processes and approval rules</li>
+              <li>Self-hosted in your VPC or private cloud</li>
+              <li>SSO (SAML / OIDC), SCIM and audit log export</li>
               <li>Dedicated support and SLA</li>
             </ul>
             <div class="tier-foot">
-              <a class="btn btn-ghost btn-block" href="{CAL}" target="_blank" rel="noreferrer">Talk to us</a>
-              <small>Starts with a scoped pilot</small>
+              <a class="btn btn-amber btn-block" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
+              <small>One-time setup fee, then a monthly fee · scoped on a call</small>
             </div>
           </article>
+        </div>
+        <div class="cloud-strip reveal" id="cloud">
+          <div><p class="tier-name">Just want Goals hosted?</p><p class="muted">Cloud: Goals hosted for you, with your first goal set up together. Nothing to install.</p></div>
+          <div class="cloud-strip-price"><strong>$99</strong><span>/ month</span></div>
+          <div class="cloud-strip-cta">{_cloud_cta().replace("btn btn-amber btn-block","btn btn-ghost")}</div>
         </div>'''
 
 FAQ_HOME=[

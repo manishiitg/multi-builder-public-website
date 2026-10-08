@@ -101,8 +101,8 @@ const pageExpectations = [
     name: 'pricing',
     file: 'pricing/index.html',
     route: '/pricing/',
-    title: 'AgentWorks Pricing - Open Source, $99 Cloud, Enterprise',
-    h1: 'One engine. Three ways to run it.',
+    title: 'AgentWorks Pricing - Open Source or Custom Deployment',
+    h1: 'Free to run yourself. Customized for your company.',
     canonical: 'https://agentworkshq.com/pricing/',
     ogImage: 'assets/og/agentworks-pricing-og.jpg',
     allowTallSections: true

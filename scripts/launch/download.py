@@ -35,9 +35,9 @@ download_body=f'''  <main id="main">
           <h2>Not on an Apple Silicon Mac? <span class="dim">You still have options.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><h3>AgentWorks Cloud</h3><p>Goals, hosted for you at $99 a month, with hand-held onboarding. Works from any computer with a browser.</p><p><a href="/pricing/">See Cloud</a></p></li>
           <li class="reveal"><h3>Your own Linux server</h3><p>Run it on a server you control with the rootless deployer, and open it from any browser.</p><p><a href="{GH}/blob/main/deploy/README.md" target="_blank" rel="noreferrer">Self-hosting guide</a></p></li>
-          <li class="reveal"><h3>Enterprise</h3><p>Deployed in your cloud or data center, with SSO, roles and support.</p><p><a href="/enterprise/">Enterprise</a></p></li>
+          <li class="reveal"><h3>Custom deployment</h3><p>Customized for your company and deployed in your cloud, with SSO, roles and support.</p><p><a href="/pricing/#custom">See custom deployment</a></p></li>
+          <li class="reveal"><h3>Goals, hosted</h3><p>Just want Goals without installing anything? Cloud hosts it for you at $99 a month.</p><p><a href="/pricing/#cloud">See Cloud</a></p></li>
         </ul>
       </div>
     </section>
@@ -57,7 +57,7 @@ download_body=f'''  <main id="main">
     <section class="cta">
       <div class="wrap">
         <h2>Rather not set it up yourself? <span class="dim">We'll do it with you.</span></h2>
-        <p>Cloud comes with hand-held onboarding: we set up your first goal together on a call.</p>
+        <p>We customize and deploy AgentWorks for your company: your cloud, your tools, your approval rules.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="/pricing/">See pricing</a>
