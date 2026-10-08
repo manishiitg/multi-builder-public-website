@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch58'
+V='launch59'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path

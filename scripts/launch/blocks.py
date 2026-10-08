@@ -1,13 +1,6 @@
 from partials import *
 import html as H
 
-def _cloud_cta():
-    if PAYPAL_SUBSCRIBE:
-        return (f'<a class="btn btn-amber btn-block" href="{PAYPAL_SUBSCRIBE}" target="_blank" rel="noreferrer">Subscribe with PayPal</a>\n'
-                f'              <small>Cancel anytime · 7-day money-back guarantee · <a href="{CAL}" target="_blank" rel="noreferrer">or book a call first</a></small>')
-    return (f'<a class="btn btn-amber btn-block" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>\n'
-            '              <small>Starts with a call · 7-day money-back guarantee</small>')
-
 def tiers(heading='h3'):
     return f'''<div class="tiers two">
           <article class="tier reveal">
@@ -47,11 +40,6 @@ def tiers(heading='h3'):
               <small>One-time setup fee, then a monthly fee · scoped on a call</small>
             </div>
           </article>
-        </div>
-        <div class="cloud-strip reveal" id="cloud">
-          <div><p class="tier-name">Just want Goals hosted?</p><p class="muted">Cloud: Goals hosted for you, with your first goal set up together. Nothing to install.</p></div>
-          <div class="cloud-strip-price"><strong>$99</strong><span>/ month</span></div>
-          <div class="cloud-strip-cta">{_cloud_cta().replace("btn btn-amber btn-block","btn btn-ghost")}</div>
         </div>'''
 
 FAQ_HOME=[
@@ -59,7 +47,7 @@ FAQ_HOME=[
  ("Do I need to know how to code?","No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks."),
  ("What's the difference between Crew and Goals?","A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and adjusting toward it. Teammates often work on goals."),
  ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."),
- ("How do I get Cloud?",("Subscribe with PayPal on the pricing page, or book a short call first. Within one business day of subscribing we email you to set up your first goal together: we connect your tools, agree the metric and check in through your first month. Cancel anytime." if PAYPAL_SUBSCRIBE else "Book a short call. We onboard teams by hand: we set up your first goal with you, connect your tools, and check in through your first month. The open-source app is free to download today.")),
+ ("How do I get started?","Download the free open-source app and run it yourself, or book a short call and we'll scope a custom deployment for your company: which process to start with, which tools it touches and where it runs."),
  ("Can people use a Crew from Claude or ChatGPT?","Yes. Share a Crew and people ask it from Claude, ChatGPT, Cursor, Claude Code, Codex or the agentworks CLI, through MCP. Each person gets their own conversation, and the Crew's private chats and data stay private."),
  ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
 ]
