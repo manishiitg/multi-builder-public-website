@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch55'
+V='launch56'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -56,10 +56,12 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
 NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works toward the target and measures every run.','goal'),
          ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
-         ('/code/','Code','A private AI workspace for every employee, on your server, with cost and output visible to the company.','code'),
+         ('/relays/','Relays','A fixed chain of agents you run from anywhere.','relay'),
          ('/brain/','Brain','Shared company knowledge: write it once and every agent reads it.','brain'),
          ('/vault/','Vault','One governed door to every MCP tool and shared secret.','gateway'),
-         ('/relays/','Relays','A fixed chain of agents you run from anywhere.','relay')]
+         ('/code/','Code','A private AI workspace for every employee, on your server, with cost and output visible to the company.','code')]
+# Two audiences: the first three do the work for teams, the last three give IT and leadership control.
+PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[3:])]
 # Product menu second column: what every product shares.
 PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
                ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect')]
@@ -97,7 +99,7 @@ def _drop(label, overview, groups, menu_id, current):
                 f'<span><b>{t}</b><small>{MENU_SHORT.get(h,"")}</small></span></a>')
     cols=''.join(f'<div class="pm-col">{f"<p class=pm-group>{g}</p>" if g else ""}{"".join(row(*it) for it in items)}</div>' for g,items in groups)
     oh,ot=overview
-    wide=' pm-wide' if len(groups)>1 else ''
+    wide=(' pm-wide pm-3' if len(groups)>2 else ' pm-wide') if len(groups)>1 else ''
     return f'''        <div class="nav-drop{" is-current" if current else ""}" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="{menu_id}" data-drop-btn>{label} <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="nav-panel{wide}" id="{menu_id}"><a class="pm-all" href="{oh}">{ot} <span aria-hidden="true">→</span></a><div class="pm-cols">{cols}</div></div>
@@ -119,7 +121,7 @@ def header(active=None):
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
-{_drop('Product',('/product/','How AgentWorks works'),[('Products',prod),('Built in',teams)],'product-menu',active=='product')}
+{_drop('Product',('/product/','How AgentWorks works'),[('For your teams',prod[:3]),('For IT and leadership',prod[3:]),('Built in',teams)],'product-menu',active=='product')}
 {_drop('Use cases',('/agents/','All premade agents'),[(None,sol)],'usecase-menu',active in ('solutions','agents'))}
 {_drop('Enterprise',('/enterprise/','Enterprise overview'),uc_nav_groups(),'enterprise-menu',active=='enterprise')}
 {links}
@@ -161,9 +163,10 @@ def footer():
             <li><a href="/product/">Overview</a></li>
             <li><a href="/goals/">Goals</a></li>
             <li><a href="/crews/">Crews</a></li>
-            <li><a href="/code/">Code</a></li>
-            <li><a href="/brain/">Brain</a></li>
             <li><a href="/relays/">Relays</a></li>
+            <li><a href="/brain/">Brain</a></li>
+            <li><a href="/vault/">Vault</a></li>
+            <li><a href="/code/">Code</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>
             <li><a href="/agents/">Premade agents</a></li>
           </ul>

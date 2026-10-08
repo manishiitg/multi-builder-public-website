@@ -27,12 +27,13 @@ LAYER={('byo' if 'id="' not in x.split('>')[0] else _re.search(r'id="([^"]+)"',x
 FAQ_OVERVIEW=[FAQ_HOME[0]]+[q for q in FAQ_PRODUCT if q[0].startswith(("What's the difference","Can I use it","Does it work"))]
 def _pcard(h,t,d): return f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>'
 PRODUCT_CARDS=''.join(_pcard(h,t,d) for h,t,d in PRODUCT_PAGES)
+_GROUP_CARDS=[(g,''.join(_pcard(h,t,d) for h,t,d,i in items)) for g,items in PRODUCT_GROUPS]
 body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Product</p>
         <h1>One platform. <span class="dim">Agents inside your process.</span></h1>
-        <p class="lede">Goals chase a number you set. Crews turn your team's know-how into experts anyone can ask. Code gives every employee a private AI workspace on your server, with cost and output visible to the company. Brain is the shared knowledge every agent reads. Vault governs every MCP tool and shared secret. All of it runs on the AI plan you already pay for.</p>
+        <p class="lede">For your teams: Goals work toward a number you set and measure every run, Crews turn your team's know-how into experts anyone can ask, and Relays run fixed steps the same way every time. For IT and leadership: Brain is the shared knowledge every agent reads, Vault governs every MCP tool and shared secret, and Code gives every employee a private AI workspace with cost and usage visible to the company. All of it runs on the AI plan you already pay for.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
@@ -42,7 +43,8 @@ body=f'''  <main id="main">
 
     <section class="section-tight" id="products">
       <div class="wrap">
-        <div class="uc-grid six">{PRODUCT_CARDS}</div>
+        <div class="prodgroup"><p class="prodgroup-h"><b>{_GROUP_CARDS[0][0]}</b><span>Get the work done.</span></p><div class="uc-grid six">{_GROUP_CARDS[0][1]}</div></div>
+        <div class="prodgroup"><p class="prodgroup-h"><b>{_GROUP_CARDS[1][0]}</b><span>Stay in control.</span></p><div class="uc-grid six">{_GROUP_CARDS[1][1]}</div></div>
       </div>
     </section>
 

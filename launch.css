@@ -968,3 +968,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .deploy-note { max-width: 640px; margin: 32px auto 0; text-align: center; font-size: 15px; line-height: 1.55; color: var(--muted); }
 .deploy-note a { color: var(--text); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .deploy-note a:hover { color: var(--amber-text); }
+
+.nav-panel.pm-3 { width: 760px; }
+.prodgroup { max-width: 1080px; margin: 36px auto 0; }
+.prodgroup + .prodgroup { margin-top: 28px; }
+.prodgroup .prodrow { margin-top: 12px; }
+.prodgroup-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin: 0; text-align: left; }
+.prodgroup-h b { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--amber-text); }
+.prodgroup-h span { font-size: 14px; color: var(--muted); }
