@@ -58,7 +58,7 @@ def _page(u):
         <div class="reveal">
           <p class="kicker">{e(u.get('list_kicker','Playbooks'))}</p>
           <h2>{e(u.get('list_h2','Ready to install.'))} <span class="dim">{e(u.get('list_h2dim','Tuned to your stack.'))}</span></h2>
-          <p class="lede">{e(u.get('list_lede','Each playbook sets up the goal, the tools, the evidence to keep and the questions agents should ask your team. They are open source and versioned, and we tune them to your environment during the pilot.'))}</p>
+          <p class="lede">{e(u.get('list_lede','Each playbook sets up the goal, the tools, the evidence to keep and the questions agents should ask your team. Their source is public and versioned, and we tune them to your environment during the pilot.'))}</p>
         </div>
         <ul class="pb-list reveal">{pbs}</ul>
       </div>

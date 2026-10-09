@@ -14,7 +14,7 @@ body=f'''  <main id="main" data-tpl-filter>
       <div class="wrap">
         <p class="kicker">Premade agents</p>
         <h1>Premade agents, ready to start today. <span class="dim">{_tpl.N_CREW + _tpl.N_GOALS} of them.</span></h1>
-        <p class="lede">{_tpl.N_CREW} Crew agents you talk to in chat, Slack or WhatsApp, and {_tpl.N_GOALS} Goal playbooks that run on their own against a target. Pick one in the app, or ask the Builder to install any of them by name. Each ships with its setup steps, the tools it needs and guardrails that ask before anything reaches a customer. Open source: read, fork or extend any of them.</p>
+        <p class="lede">{_tpl.N_CREW} Crew agents you talk to in chat, Slack or WhatsApp, and {_tpl.N_GOALS} Goal playbooks that run on their own against a target. Pick one in the app, or ask the Builder to install any of them by name. Each ships with its setup steps, the tools it needs and guardrails that ask before anything reaches a customer. The source is public: read any of them, and modify them locally for development and testing.</p>
         <label class="search"><span class="sr-only">Search agents</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <input type="search" placeholder="Search: invoices, refunds, Shopify, SEO, incidents…" data-tpl-search>
@@ -37,7 +37,7 @@ body=f'''  <main id="main" data-tpl-filter>
     <section class="section">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Open source library</p>
+          <p class="kicker">Agent library</p>
           <h2>Read every agent before you install it.</h2>
           <p class="lede">Each Crew agent and Goal playbook is a versioned, plain-Markdown skill package with its setup checks, required tools and the evidence it keeps. Fork one, or write your own from the template.</p>
         </div>
@@ -61,4 +61,4 @@ body=f'''  <main id="main" data-tpl-filter>
 '''
 ITEMS={"@type":"ItemList","name":"AgentWorks premade agents","numberOfItems":len(_tpl.ALL),"itemListElement":[{"@type":"ListItem","position":i+1,"name":t['name'],"description":t['purpose']} for i,t in enumerate(_tpl.ALL)]}
 TPL_LD={"@type":"CollectionPage","name":"AgentWorks Premade Agents","url":"https://agentworkshq.com/agents/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['agents/index.html']=head('AgentWorks Premade Agents - Ready-Made AI Teammates and Goals',f'{_tpl.N_CREW + _tpl.N_GOALS} open-source premade AI agents: Crew teammates and goal-driven playbooks for sales, support, finance, Shopify, marketing, operations, product and engineering.','/agents/',og='agentworks-agents-og.jpg',extra_ld=ld(TPL_LD,BC('Premade agents','/agents/'),ITEMS))+header('agents')+body+footer()
+pages['agents/index.html']=head('AgentWorks Premade Agents - Ready-Made AI Teammates and Goals',f'{_tpl.N_CREW + _tpl.N_GOALS} premade AI agents: Crew teammates and goal-driven playbooks for sales, support, finance, Shopify, marketing, operations, product and engineering.','/agents/',og='agentworks-agents-og.jpg',extra_ld=ld(TPL_LD,BC('Premade agents','/agents/'),ITEMS))+header('agents')+body+footer()

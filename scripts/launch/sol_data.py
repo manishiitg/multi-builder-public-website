@@ -81,7 +81,7 @@ SOLUTIONS=[
   connectors='Search Console, analytics through MCP, your CMS, and its own browser for AI assistants and competitor sites.',
   faq=[('Which AI assistants does it check?','ChatGPT, Perplexity, Gemini and Google AI Overviews, using a fixed set of questions your buyers ask.'),
        ('Does it publish content?','It writes page-level briefs and drafts. Publishing waits for your approval. See "Approvals and autonomy" in Docs for how approvals work.'),
-       ('Is this available today?','Yes. Every agent on this page is in the open-source library today, and each one links to its source.')]),
+       ('Is this available today?','Yes. Every agent on this page is in the agent library today, and each one links to its source.')]),
 ]
 
 def sol_nav_items():

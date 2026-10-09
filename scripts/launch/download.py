@@ -12,7 +12,7 @@ download_body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Download</p>
-        <h1>Get AgentWorks. <span class="dim">Free and open source.</span></h1>
+        <h1>Get AgentWorks. <span class="dim">Free for developers.</span></h1>
         <p class="lede">The desktop app for Apple Silicon Macs. Paste one line into Terminal and it installs, opens, and keeps itself up to date.</p>
       </div>
     </section>
@@ -66,4 +66,4 @@ download_body=f'''  <main id="main">
   </main>
 '''
 DL_LD={"@type":"WebPage","name":"Download AgentWorks","url":"https://agentworkshq.com/download/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['download/index.html']=head('Download AgentWorks - Free Desktop App for Apple Silicon Macs','Install the free, open-source AgentWorks app on an Apple Silicon Mac with one Terminal command. It installs, opens and updates itself. Or run it on your own Linux server, or get a custom deployment.','/download/',extra_ld=ld(DL_LD,BC('Download','/download/'),faq_ld(FAQ_DOWNLOAD)))+header()+download_body+footer()
+pages['download/index.html']=head('Download AgentWorks - Free Desktop App for Apple Silicon Macs','Install the free AgentWorks app on an Apple Silicon Mac with one Terminal command. It installs, opens and updates itself. Or run it on your own Linux server, or get a custom deployment.','/download/',extra_ld=ld(DL_LD,BC('Download','/download/'),faq_ld(FAQ_DOWNLOAD)))+header()+download_body+footer()

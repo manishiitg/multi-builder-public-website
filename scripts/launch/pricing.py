@@ -35,7 +35,7 @@ ROWS=[
  ("Support",("Community","Dedicated + SLA")),
 ]
 def compare():
-    out=['<div class="compare-wrap"><table class="compare"><caption class="sr-only">Plan comparison</caption><thead><tr><th scope="col">Feature</th><th scope="col">Open source</th><th scope="col">Custom deployment</th></tr></thead><tbody>']
+    out=['<div class="compare-wrap"><table class="compare"><caption class="sr-only">Plan comparison</caption><thead><tr><th scope="col">Feature</th><th scope="col">Free for developers</th><th scope="col">Custom deployment</th></tr></thead><tbody>']
     for label,vals in ROWS:
         if vals is None:
             out.append(f'<tr class="grp"><th scope="rowgroup" colspan="3">{label}</th></tr>'); continue
@@ -47,18 +47,19 @@ def compare():
 FAQ_PRICING=[
  ("How is a custom deployment priced?","A one-time setup fee for customizing and deploying it for your company, then a monthly fee for the platform, updates, support and ongoing changes. We scope both on a call, based on the processes, tools and where it runs."),
  ("What's included in a custom deployment?","Everything: Goals, Crews, Relays, Brain, Vault and Code, deployed in your own cloud, set up for your processes, with SSO, audit logs, custom integrations and dedicated support."),
- ("Is the open-source version really the full platform?","Yes. It's the same engine under the MIT license, free to self-host on a Mac or your own Linux server. A custom deployment adds Vault, enterprise sign-in and our team setting it up and supporting it."),
+ ("Is the free version the full platform?","Yes. It's the same engine under the Business Source License 1.1, free to read, modify and run locally for personal, development, testing, evaluation, education and research use. A custom deployment adds Vault, enterprise sign-in, a commercial license for your business, and our team setting it up and supporting it. Each version converts to the Apache License 2.0 after three years."),
+ ("Can my company use the free version?","To try it out and evaluate it, yes. Using it in the operation of your business, or offering it to others, needs a commercial license from us, which is included in a custom deployment."),
  ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
  ("Which AI plan should I use?","Light use works on a $20 plan. If agents run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
- ("Can I move from open source to a custom deployment?","Yes. It's the same engine, so goals, agents and playbooks move across."),
+ ("Can I move from the free version to a custom deployment?","Yes. It's the same engine, so goals, agents and playbooks move across."),
 ]
 
 body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Pricing</p>
-        <h1>Free to run yourself. <span class="dim">Customized for your company.</span></h1>
-        <p class="lede">The whole platform is open source and free to self-host. When you want it set up for your processes, in your own cloud, with your tools and approval rules, we customize and deploy it with you. Every plan runs on the AI subscription you already pay for.</p>
+        <h1>Free for developers. <span class="dim">Licensed and customized for your company.</span></h1>
+        <p class="lede">The whole platform is free for developers to read, modify and run locally. When your company wants to use it in its operations, we customize and deploy it with you, in your own cloud, with your tools and approval rules, under a commercial license. Every plan runs on the AI subscription you already pay for.</p>
       </div>
     </section>
 
@@ -80,7 +81,7 @@ body=f'''  <main id="main">
           <li class="reveal"><small>Step 2 · Setup</small><h3>We customize and deploy</h3><p>We deploy in your cloud, connect your tools, load your company knowledge into Brain, set access and approval rules, and build the first agents with your team.</p></li>
           <li class="reveal"><small>Step 3 · Every month</small><h3>It runs, we improve it</h3><p>Your team uses it day to day. We review what the agents did with you, fix what isn't working and add the next process.</p></li>
         </ol>
-        <p class="tpl-more center-row"><a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a><a class="btn btn-ghost" href="{GH}" target="_blank" rel="noreferrer">Or self-host it free</a></p>
+        <p class="tpl-more center-row"><a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a><a class="btn btn-ghost" href="{GH}" target="_blank" rel="noreferrer">Or try it free</a></p>
       </div>
     </section>
 
@@ -110,8 +111,8 @@ body=f'''  <main id="main">
     <section class="cta">
       <div class="wrap">
         <div>
-          <h2>Start free. <span class="dim">Customize when you're ready.</span></h2>
-          <p>Self-host the open-source platform today, or book a call and we'll scope a deployment around your company.</p>
+          <h2>Start free. <span class="dim">License and customize when you're ready.</span></h2>
+          <p>Try the platform locally today, or book a call and we'll scope a deployment around your company.</p>
           <div class="cta-actions">
             <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
             <a class="btn btn-ghost" href="{GH}" target="_blank" rel="noreferrer">Get it on GitHub</a>
@@ -123,4 +124,4 @@ body=f'''  <main id="main">
 '''
 PRICE_LD={"@type":"WebPage","name":"AgentWorks Pricing","url":"https://agentworkshq.com/pricing/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
 BC=lambda name,path: {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgentWorks","item":"https://agentworkshq.com/"},{"@type":"ListItem","position":2,"name":name,"item":"https://agentworkshq.com"+path}]}
-pages['pricing/index.html']=head('AgentWorks Pricing - Open Source or Custom Deployment','AgentWorks is free and open source to self-host, or customized and deployed in your own cloud for your company, with a setup fee and a monthly fee. Runs on your own AI plan.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()
+pages['pricing/index.html']=head('AgentWorks Pricing - Free for Developers or Custom Deployment','AgentWorks is free for developers to read, modify and run locally, or customized and deployed in your own cloud for your company, with a setup fee and a monthly fee. Runs on your own AI plan.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()

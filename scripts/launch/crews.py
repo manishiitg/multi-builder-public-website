@@ -106,7 +106,7 @@ crews_body=f'''  <main id="main">
         <div class="reveal">
           <p class="kicker">What teams build first</p>
           <h2>A library of experts. <span class="dim">Owned by the teams who know best.</span></h2>
-          <p class="lede">The owning team keeps improving each one, while everyone else just asks. Or start from one of {_T.N_CREW} open-source premade Crew agents for sales, support, finance and operations.</p>
+          <p class="lede">The owning team keeps improving each one, while everyone else just asks. Or start from one of {_T.N_CREW} premade Crew agents for sales, support, finance and operations.</p>
           <p><a class="btn btn-ghost" href="/agents/">Browse premade Crew agents</a></p>
         </div>
         <ul class="pb-list reveal">{_examples}</ul>

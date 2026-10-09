@@ -33,7 +33,7 @@ FAQ_ENT=[
  ("Which models can we use?","Your enterprise Claude, ChatGPT or Gemini agreements, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Pi can also reach OpenRouter and other providers. You choose the agent and model per step."),
  ("How is this different from an internal developer portal?","A portal catalogs services and gives engineers self-service actions. AgentWorks gives agents a goal, such as release quality, incident response or security backlog, and has them do the work, measure the result and improve, with approvals and audit."),
  ("How is this different from a workflow builder?","In a builder, you draw every step. In AgentWorks you set the outcome and the metric, start from a playbook, and AgentWorks keeps improving the plan against evidence from each run."),
- ("Is it open source?","Yes. The engine is MIT-licensed, so your security team can read every line. Enterprise adds SSO, SCIM, audit export, custom playbooks, deployment support and an SLA."),
+ ("Is the source available?","Yes. The source is public under the Business Source License 1.1, so your security team can read every line. A commercial license for your company is included in an Enterprise deployment. Enterprise adds SSO, SCIM, audit export, custom playbooks, deployment support and an SLA."),
  ("How long does a pilot take?","About four weeks: one week to pick the goal and connect systems, then three weeks of supervised runs against agreed success metrics."),
 ]
 
@@ -109,7 +109,7 @@ body=f'''  <main id="main">
         <div class="section-head reveal">
           <p class="kicker">Security &amp; control</p>
           <h2>Built for your security review.</h2>
-          <p class="lede">Open source, self-hosted and governed. Your CISO can read every line and every log.</p>
+          <p class="lede">Source-available, self-hosted and governed. Your CISO can read every line and every log.</p>
         </div>
         <ul class="checklist">
           <li><div><b>Self-hosted deployment</b><span>Your VPC, private cloud or data center. Nothing leaves your network unless you allow it.</span></div></li>

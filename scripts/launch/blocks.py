@@ -4,9 +4,9 @@ import html as H
 def tiers(heading='h3'):
     return f'''<div class="tiers two">
           <article class="tier reveal">
-            <p class="tier-name">Open source</p>
+            <p class="tier-name">Free for developers</p>
             <p class="tier-price"><strong>$0</strong><span>forever</span></p>
-            <p class="tier-desc">Run the whole platform yourself, on your Mac or your own Linux server.</p>
+            <p class="tier-desc">Read the code, modify it and run it locally. Free for personal, development, testing, evaluation, education and research use.</p>
             <ul class="tier-list">
               <li>Goals, Crews and Relays</li>
               <li>Brain and Code</li>
@@ -14,11 +14,11 @@ def tiers(heading='h3'):
               <li>All premade agents and playbooks</li>
               <li>Slack and WhatsApp channels</li>
               <li>Secrets vault, sandbox, run logs</li>
-              <li>MIT license, community support</li>
+              <li>Business Source License 1.1, community support</li>
             </ul>
             <div class="tier-foot">
               <a class="btn btn-ghost btn-block" href="{GH}" target="_blank" rel="noreferrer">Get it on GitHub</a>
-              <small>macOS app or self-hosted Linux</small>
+              <small>macOS app or Linux · not for business use</small>
             </div>
           </article>
           <article class="tier tier-featured reveal" id="custom">
@@ -27,7 +27,8 @@ def tiers(heading='h3'):
             <p class="tier-price"><strong>Custom</strong></p>
             <p class="tier-desc">Everything, customized for your company and deployed in your own cloud, with the controls your IT and security teams need.</p>
             <ul class="tier-list">
-              <li class="head">Everything in open source, plus</li>
+              <li class="head">Everything in the free plan, plus</li>
+              <li>A commercial license for use in your business operations</li>
               <li>Vault (early access): governed tool access, shared secrets and audit</li>
               <li>Customized deployment and integrations built with you</li>
               <li>Agents set up for your processes and approval rules</li>
@@ -47,7 +48,7 @@ FAQ_HOME=[
  ("Do I need to know how to code?","No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks."),
  ("What's the difference between Crew and Goals?","A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and adjusting toward it. Teammates often work on goals."),
  ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."),
- ("How do I get started?","Download the free open-source app and run it yourself, or book a short call and we'll scope a custom deployment for your company: which process to start with, which tools it touches and where it runs."),
+ ("How do I get started?","Download the free app and try it yourself (free for personal, development, testing, evaluation, education and research use), or book a short call and we'll scope a custom deployment for your company: which process to start with, which tools it touches and where it runs."),
  ("Can people use a Crew from Claude or ChatGPT?","Yes. Share a Crew and people ask it from Claude, ChatGPT, Cursor, Claude Code, Codex or the agentworks CLI, through MCP. Each person gets their own conversation, and the Crew's private chats and data stay private."),
  ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
 ]
