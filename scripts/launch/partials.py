@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch60'
+V='launch61'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -191,6 +191,7 @@ def footer():
         <div>
           <h2 class="fh">Company</h2>
           <ul>
+            <li><a href="/about/">About</a></li>
             <li><a href="{CAL}" target="_blank" rel="noreferrer">Book a call</a></li>
             <li><a href="https://x.com/manish_iitg" target="_blank" rel="noreferrer">X / Twitter</a></li>
             <li><a href="https://in.linkedin.com/in/manishiitg" target="_blank" rel="noreferrer">LinkedIn</a></li>
@@ -198,7 +199,7 @@ def footer():
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 XTECH · AgentWorks is open source under the MIT license. · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refunds/">Refunds</a></p>
+        <p>© 2026 XTECH, India · AgentWorks is a product of XTECH and is open source under the MIT license. · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refunds/">Refunds</a></p>
         <p>Runs on the AI plan you already pay for.</p>
       </div>
     </div>

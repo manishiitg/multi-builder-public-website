@@ -21,6 +21,7 @@ AgentWorks builds the systems that turn cheaper AI intelligence into work that g
   - [Marketing & growth](https://agentworkshq.com/solutions/marketing/): SEO intelligence, AI-search visibility and competitor watch.
 - [Download](https://agentworkshq.com/download/): install the free open-source desktop app on an Apple Silicon Mac with `curl -fsSL https://agentworkshq.com/install.sh | bash`; or self-host on Linux, or get a custom deployment.
 - [Pricing](https://agentworkshq.com/pricing/): Two main options: open source ($0, the whole platform, self-hosted) and custom deployment (a one-time setup fee plus a monthly fee, scoped on a call; everything, customized for the company and deployed in its own cloud, with Vault, SSO and dedicated support).
+- [About](https://agentworkshq.com/about/): AgentWorks is a product of XTECH, a partnership firm in India founded in December 2025; founder Manish Prakash; open-source platform plus customized deployments for companies.
 - [Enterprise](https://agentworkshq.com/enterprise/): Agentic engineering operations for QA, reliability, security, performance and cloud cost, deployed in the customer's cloud, sold as a four-week pilot.
   - [Release quality](https://agentworkshq.com/enterprise/release-quality/): AI QA, self-healing browser tests and release gates.
   - [Incident response](https://agentworkshq.com/enterprise/incident-response/): CI triage, evidence-backed RCA, approved remediation and follow-ups.

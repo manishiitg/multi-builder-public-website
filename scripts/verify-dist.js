@@ -40,6 +40,7 @@ const requiredFiles = [
   'goals/index.html',
   'crews/index.html',
   'code/index.html',
+  'about/index.html',
   'ecommerce/index.html',
   'brain/index.html',
   'download/index.html',

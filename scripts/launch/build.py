@@ -17,13 +17,13 @@ def fill(s, **kw):
 def ld(*nodes):
     graph=[json.loads(n) if isinstance(n,str) else n for n in nodes]
     return '  <script type="application/ld+json">\n'+json.dumps({"@context":"https://schema.org","@graph":graph},ensure_ascii=False,indent=2)+'\n  </script>\n'
-ORG={"@type":"Organization","@id":"https://agentworkshq.com/#organization","name":"AgentWorks","url":"https://agentworkshq.com/","logo":"https://agentworkshq.com/assets/brand/agentworks-logo.svg","sameAs":[GH,"https://x.com/manish_iitg","https://in.linkedin.com/in/manishiitg"]}
+ORG={"@type":"Organization","@id":"https://agentworkshq.com/#organization","name":"AgentWorks","legalName":"XTECH","description":"AgentWorks is a product of XTECH, a partnership firm in India.","foundingDate":"2025-12","address":{"@type":"PostalAddress","addressCountry":"IN"},"founder":{"@type":"Person","name":"Manish Prakash","sameAs":"https://in.linkedin.com/in/manishiitg"},"email":"manish@agentworkshq.com","url":"https://agentworkshq.com/","logo":"https://agentworkshq.com/assets/brand/agentworks-logo.svg","sameAs":[GH,"https://x.com/manish_iitg","https://in.linkedin.com/in/manishiitg"]}
 SOFT={"@type":"SoftwareApplication","@id":"https://agentworkshq.com/#software","name":"AgentWorks","applicationCategory":"BusinessApplication","operatingSystem":"Web, macOS, Linux","description":"AI teammates that work toward a goal: Crew teammates you message in Slack or WhatsApp, and Goals that run, measure and adjust toward a target.","url":"https://agentworkshq.com/","codeRepository":GH,"offers":[{"@type":"Offer","name":"Open source","price":"0","priceCurrency":"USD"}]}
 
 pages={}
 body=open('home.body.html').read()
 pages['index.html']=head('AgentWorks - Agentic Processes With Your People in Control','AgentWorks puts AI agents inside your processes to track goals, measure every run and improve the next one, with your people approving what matters. For product and business teams.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME),SCRIPTED=scripted_section())+footer()
-for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'code.py', 'brain.py', 'download.py', 'relays.py', 'usecases.py', 'solutions.py', 'legal.py']:
+for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'code.py', 'brain.py', 'download.py', 'about.py', 'relays.py', 'usecases.py', 'solutions.py', 'legal.py']:
     exec(open(name).read())
 for path,content in pages.items():
     import os
