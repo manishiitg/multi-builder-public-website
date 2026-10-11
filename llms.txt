@@ -49,6 +49,8 @@ AgentWorks builds the systems that turn cheaper AI intelligence into work that g
 
 ## Important Product Links
 
+- [Free agent tools catalog](https://manishiitg.github.io/free-agent-tools/): Sourced free API tiers, trial credits and a read-only discovery MCP.
+
 - [Latest macOS release](https://github.com/manishiitg/agentworks/releases/latest): Current public release and installer artifacts.
 - [Source repository](https://github.com/manishiitg/agentworks): Source repository for the AgentWorks desktop/runtime project.
 - [Repository docs](https://github.com/manishiitg/agentworks/tree/main/docs): Full implementation and workflow documentation.
