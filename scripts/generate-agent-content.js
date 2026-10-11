@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+// Website docs are user Guides only; developer docs live on GitHub
+// (https://github.com/manishiitg/agentworks/tree/main/docs). This script
+// renders docs-guides/*.md to /docs/guides/<slug>/, the Guides home to
+// /docs/, raw guide Markdown to /docs-guides/*.md, plus sitemap.xml and
+// llms-full.txt. Retired developer routes 301 to GitHub via _redirects.
 const fs = require('fs');
 const path = require('path');
 const { Marked } = require('../assets/vendor/marked-18.0.6/marked.umd.js');
@@ -7,89 +12,13 @@ const root = path.resolve(__dirname, '..');
 const siteHeader = fs.readFileSync(path.join(__dirname, 'launch', 'site-header.fragment.html'), 'utf8');
 const siteFooter = fs.readFileSync(path.join(__dirname, 'site-footer.fragment.html'), 'utf8');
 const dist = path.join(root, 'dist');
-const docsRoot = path.join(dist, 'docs-content');
 const guidesRoot = path.join(root, 'docs-guides');
+const guidesDist = path.join(dist, 'docs-guides');
 const siteOrigin = 'https://agentworkshq.com';
 const repoUrl = 'https://github.com/manishiitg/agentworks';
+const devDocsUrl = `${repoUrl}/tree/main/docs`;
 const buildDate = new Date().toISOString().slice(0, 10);
 const launchV = /V='([^']+)'/.exec(fs.readFileSync(path.join(__dirname, 'launch', 'partials.py'), 'utf8'))[1];
-
-// Developer docs: sidebar groups with short labels. Every allowlisted doc must appear once.
-const devNav = [
-  { group: 'Get started', pages: [
-    { path: 'getting-started/README', label: 'Install' },
-    { path: 'getting-started/first-workflow', label: 'Your first workflow' },
-    { path: 'core/README', label: 'Core concepts' }
-  ] },
-  { group: 'Goals & Auto-improve', pages: [
-    { path: 'workflow/self_improvement_and_reporting', label: 'Auto-improve and reporting' },
-    { path: 'workflow/auto_improvement_framework', label: 'Auto-improve framework' },
-    { path: 'workflow/human_feedback_system', label: 'Human approvals & feedback' },
-    { path: 'workflow/learning_architecture', label: 'Learning & knowledge' }
-  ] },
-  { group: 'Crew & memory', pages: [
-    { path: 'core/bot_connector_system', label: 'Chat connectors' },
-    { path: 'core/skills', label: 'Skills' },
-    { path: 'multiagent/agent_memory_system', label: 'Agent memory' },
-    { path: 'multiagent/README', label: 'Crews & multi-agent' }
-  ] },
-  { group: 'Workflows', pages: [
-    { path: 'workflow/README', label: 'Workflows overview' },
-    { path: 'workflow/workflow_scheduling', label: 'Schedules' },
-    { path: 'workflow/workflow_monitoring', label: 'Monitoring' },
-    { path: 'workflow/cost_and_log_measurement', label: 'Cost & logs' },
-    { path: 'workflow/tiered_llm_allocation', label: 'Model tiers' }
-  ] },
-  { group: 'Connect', pages: [
-    { path: 'core/llm_configuration_and_resilience', label: 'AI plans & model routing' },
-    { path: 'core/mcp_bridge_layer', label: 'MCP bridge' },
-    { path: 'core/browser', label: 'Browser' },
-    { path: 'core/secrets', label: 'Secrets' }
-  ] },
-  { group: 'Reference', pages: [
-    { path: 'workflow/workflow_manifest_architecture', label: 'Workflow manifest' },
-    { path: 'workflow/step_config_format_specification', label: 'Step config format' },
-    { path: 'workflow/tool_filtering_system', label: 'Tool filtering' }
-  ] },
-  { group: 'Relays', pages: [
-    { path: 'relay/README', label: 'Relays overview' }
-  ] },
-  { group: 'Security', pages: [
-    { path: 'security/README', label: 'Security overview' },
-    { path: 'security/per_user_linux_accounts', label: 'Per-user Linux accounts' },
-    { path: 'security/provider_credentials', label: 'Provider credentials' },
-    { path: 'security/sharing', label: 'Sharing and slots' },
-    { path: 'security/secrets', label: 'Managing secrets' }
-  ] },
-  { group: 'Overview', pages: [
-    { path: 'README', label: 'Documentation overview' }
-  ] }
-];
-
-// Curated card blurbs where the source's first paragraph is meaningless out of context.
-const blurbOverrides = {
-  'getting-started/README': 'Install the macOS app or self-host on Linux, then complete first-launch setup.',
-  'workflow/auto_improvement_framework': 'Bounded self-improvement: run evidence, maintenance, strategic review, and audit trail.',
-  'workflow/human_feedback_system': 'How workflows ask humans for input: approvals, choices, and blocking questions.',
-  'workflow/workflow_scheduling': 'Cron and cadence schedules, quiet hours, and per-run timing rules.',
-  'workflow/workflow_manifest_architecture': 'The workflow.json format: goals, schedules, steps, and how the backend discovers them.',
-  'workflow/learning_architecture': 'How runs turn into reusable skills, learnings, and knowledge for future runs.',
-  'workflow/workflow_monitoring': 'Run evidence, status, and health: what to look at when a workflow misbehaves.',
-  'workflow/cost_and_log_measurement': 'How token usage, run cost, and logs are measured and stored.'
-};
-
-// Friendlier page titles where the source heading is bland or has emoji.
-const titleOverrides = {
-  README: 'Documentation overview',
-  'core/README': 'Core concepts',
-  'multiagent/README': 'Crews and multi-agent',
-  'workflow/README': 'Workflows overview',
-  'getting-started/README': 'Install AgentWorks',
-  'security/README': 'Security overview',
-  'core/mcp_bridge_layer': 'MCP bridge',
-  'workflow/cost_and_log_measurement': 'Cost and log measurement',
-  'workflow/step_config_format_specification': 'Step config format'
-};
 
 const guidesNav = [
   { group: 'Start here', pages: [
@@ -131,9 +60,16 @@ function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'section';
 }
 
-function routeFor(docPath) {
-  if (docPath === 'README') return '/docs/overview/';
-  return `/docs/${docPath.replace(/\/README$/, '')}/`;
+function extractFrontMatter(markdown) {
+  if (!markdown.startsWith('---\n')) return { meta: {}, body: markdown };
+  const end = markdown.indexOf('\n---', 4);
+  if (end === -1) return { meta: {}, body: markdown };
+  const meta = {};
+  for (const line of markdown.slice(4, end).split('\n')) {
+    const match = /^([A-Za-z0-9_-]+):\s*(.+)$/.exec(line.trim());
+    if (match) meta[match[1]] = match[2].trim();
+  }
+  return { meta, body: markdown.slice(end + 4).replace(/^\n+/, '') };
 }
 
 function plainDescription(markdown, title) {
@@ -245,11 +181,18 @@ function withImageDimensions(html) {
   });
 }
 
+function videoFigure(slug, title) {
+  const missing = [`assets/video/guides/${slug}.mp4`, `assets/video/guides/${slug}-poster.jpg`]
+    .filter(asset => !fs.existsSync(path.join(root, asset)));
+  if (missing.length) {
+    console.warn(`generate-agent-content: video missing for ${slug}: ${missing.join(', ')}`);
+    return '';
+  }
+  return `<figure class="guide-video demo-video"><video controls preload="none" playsinline width="1920" height="1080" poster="/assets/video/guides/${slug}-poster.jpg" aria-label="Watch: ${escapeHtml(title)}"><source src="/assets/video/guides/${slug}.mp4" type="video/mp4"></video><figcaption>Watch: ${escapeHtml(title)} (about 1 min)</figcaption></figure>`;
+}
+
 function sidebarHtml(nav, currentRoute) {
   const groups = nav.map(entry => {
-    if (entry.sectionTitle) {
-      return `<p class="docs-nav-section">${escapeHtml(entry.sectionTitle)}</p>`;
-    }
     const items = entry.pages.map(page => {
       const current = page.route === currentRoute ? ' aria-current="page"' : '';
       const cls = entry.soon ? ' class="soon"' : '';
@@ -257,7 +200,7 @@ function sidebarHtml(nav, currentRoute) {
     }).join('');
     return `<div class="docs-nav-group"><p>${escapeHtml(entry.group)}</p><ul>${items}</ul></div>`;
   }).join('');
-  return `<nav aria-label="Docs">${groups}</nav>`;
+  return `<nav aria-label="Docs">${groups}<p class="docs-dev-link">Building or self-hosting? <a href="${devDocsUrl}">Developer docs on GitHub</a></p></nav>`;
 }
 
 function tocHtml(toc) {
@@ -317,14 +260,14 @@ function pageTemplate({ title, description, route, rawPath, kicker, crumbs, side
 <meta name="twitter:description" content="${escapeHtml(description)}">
 <meta name="twitter:image" content="${siteOrigin}/assets/og/agentworks-docs-og.jpg">
 <link rel="canonical" href="${canonical}">
-${rawPath ? `<link rel="alternate" type="text/markdown" href="/docs-content/${rawPath}.md" title="Raw Markdown">` : ''}
+${rawPath ? `<link rel="alternate" type="text/markdown" href="/docs-guides/${rawPath}.md" title="Raw Markdown">` : ''}
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=agentworks2">
 <link rel="stylesheet" href="/launch.css?v=${launchV}">
 <link rel="stylesheet" href="/site-header.css?v=3">
-<link rel="stylesheet" href="/docs.css?v=1">
+<link rel="stylesheet" href="/docs.css?v=2">
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
 <body>
@@ -338,7 +281,7 @@ ${siteHeader}
       <p class="docs-kicker">${escapeHtml(kicker)}</p>
       <h1>${escapeHtml(title)}</h1>
       ${articleHtml}
-      ${rawPath ? `<aside class="docs-source"><strong>Machine-readable source:</strong> <a href="/docs-content/${rawPath}.md">Open raw Markdown</a></aside>` : ''}
+      ${rawPath ? `<aside class="docs-source"><strong>Machine-readable source:</strong> <a href="/docs-guides/${rawPath}.md">Open raw Markdown</a></aside>` : ''}
       ${prevNext}
     </article>
     ${toc}
@@ -368,121 +311,68 @@ function sitemapXml(routes) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows}\n</urlset>\n`;
 }
 
-const manifest = JSON.parse(fs.readFileSync(path.join(docsRoot, 'manifest.json'), 'utf8'));
-const configured = JSON.parse(fs.readFileSync(path.join(root, 'public-docs.json'), 'utf8')).documents;
-const manifestByPath = new Map(manifest.documents.map(doc => [doc.path, doc]));
-const publicRoutes = new Map(configured.map(docPath => [docPath, routeFor(docPath)]));
-
-// Every allowlisted doc must have exactly one nav slot.
-const navPaths = devNav.flatMap(entry => entry.pages.map(page => page.path));
-const missingNav = configured.filter(docPath => !navPaths.includes(docPath));
-const extraNav = navPaths.filter(docPath => !configured.includes(docPath));
-if (missingNav.length || extraNav.length) {
-  throw new Error(`Developer nav mismatch (missing: ${missingNav.join(', ') || 'none'}; extra: ${extraNav.join(', ') || 'none'})`);
-}
-
-const renderedDocs = [];
-const devOrder = [];
-for (const entry of devNav) {
-  for (const page of entry.pages) {
-    const doc = manifestByPath.get(page.path);
-    if (!doc) throw new Error(`Public documentation entry missing from manifest: ${page.path}`);
-    const markdownFile = path.join(docsRoot, `${page.path}.md`);
-    if (!fs.existsSync(markdownFile)) throw new Error(`Public documentation file missing: ${markdownFile}`);
-    const markdown = fs.readFileSync(markdownFile, 'utf8');
-    const route = publicRoutes.get(page.path);
-    const title = titleOverrides[page.path] || doc.title;
-    devOrder.push({ ...page, route, title, description: plainDescription(markdown, title) });
-    renderedDocs.push({ ...doc, route, title, markdown });
-  }
-}
-
-for (const entry of devNav) {
-  for (const page of entry.pages) page.route = publicRoutes.get(page.path);
-}
-// Guides live in this repo (docs-guides/*.md); raw copies ship under docs-content/guides/.
-// Built before any page renders so the one menu below has every route.
+// Guides live in this repo (docs-guides/*.md); raw copies ship under docs-guides/.
 const guideOrder = [];
 for (const entry of guidesNav) {
   for (const page of entry.pages) {
     const source = path.join(guidesRoot, `${page.slug}.md`);
     if (!fs.existsSync(source)) throw new Error(`Guide missing: ${source}`);
-    const markdown = fs.readFileSync(source, 'utf8');
+    const { meta, body } = extractFrontMatter(fs.readFileSync(source, 'utf8'));
     const route = `/docs/guides/${page.slug}/`;
-    const rawPath = `guides/${page.slug}`;
-    const title = (/^#\s+(.+)$/m.exec(markdown)?.[1] || page.label).replace(/[`*_]/g, '').trim();
-    fs.mkdirSync(path.join(docsRoot, 'guides'), { recursive: true });
-    fs.writeFileSync(path.join(docsRoot, `${rawPath}.md`), markdown.replace(/\r\n/g, '\n'));
+    const title = (/^#\s+(.+)$/m.exec(body)?.[1] || page.label).replace(/[`*_]/g, '').trim();
+    fs.mkdirSync(guidesDist, { recursive: true });
+    fs.writeFileSync(path.join(guidesDist, `${page.slug}.md`), body.replace(/\r\n/g, '\n'));
     page.route = route;
-    guideOrder.push({ ...page, route, title, description: plainDescription(markdown, title), markdown, soon: !!entry.soon });
+    guideOrder.push({ ...page, route, title, video: meta.video || null, description: plainDescription(body, title), markdown: body, soon: !!entry.soon });
   }
 }
-// One menu for all docs: guides first, developer pages below it.
-const docsNav = [{ sectionTitle: 'Guides' }, ...guidesNav, { sectionTitle: 'Developers' }, ...devNav];
-const docsSidebarFor = route => sidebarHtml(docsNav, route);
-for (let i = 0; i < devOrder.length; i++) {
-  const page = devOrder[i];
-  const doc = renderedDocs.find(rendered => rendered.route === page.route);
-  const { html, toc } = renderMarkdown(doc.markdown, doc.path, publicRoutes);
-  const output = path.join(dist, page.route, 'index.html');
-  fs.mkdirSync(path.dirname(output), { recursive: true });
-  fs.writeFileSync(output, pageTemplate({
-    title: page.title,
-    description: page.description,
-    route: page.route,
-    rawPath: doc.path,
-    kicker: 'Developers',
-    crumbs: [
-      { name: 'AgentWorks', route: '/' },
-      { name: 'Docs', route: '/docs/' },
-      { name: 'Developers', route: '/docs/developers/' },
-      { name: page.title, route: page.route }
-    ],
-    sidebar: docsSidebarFor(page.route),
-    toc: tocHtml(toc),
-    articleHtml: withImageDimensions(html),
-    prevNext: prevNextHtml(devOrder[i - 1] || null, devOrder[i + 1] || null)
-  }));
-}
+const docsSidebarFor = route => sidebarHtml(guidesNav, route);
 
 const renderedGuides = [];
 for (let i = 0; i < guideOrder.length; i++) {
   const page = guideOrder[i];
   const guideRoutes = new Map(guideOrder.map(guide => [guide.slug, guide.route]));
   const { html, toc } = renderMarkdown(page.markdown, page.slug, guideRoutes);
+  let articleHtml = withImageDimensions(html);
+  if (page.video) {
+    const figure = videoFigure(page.video, page.title);
+    if (figure) {
+      const introEnd = articleHtml.indexOf('</p>');
+      articleHtml = introEnd === -1 ? figure + articleHtml : articleHtml.slice(0, introEnd + 4) + figure + articleHtml.slice(introEnd + 4);
+    }
+  }
   const output = path.join(dist, page.route, 'index.html');
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, pageTemplate({
     title: page.title,
     description: page.description,
     route: page.route,
-    rawPath: `guides/${page.slug}`,
+    rawPath: page.slug,
     kicker: 'Guides',
     crumbs: [
       { name: 'AgentWorks', route: '/' },
       { name: 'Docs', route: '/docs/' },
-      { name: 'Guides', route: '/docs/guides/' },
       { name: page.title, route: page.route }
     ],
     sidebar: docsSidebarFor(page.route),
     toc: tocHtml(toc),
-    articleHtml: withImageDimensions(html),
+    articleHtml,
     prevNext: prevNextHtml(guideOrder[i - 1] || null, guideOrder[i + 1] || null)
   }));
   if (!page.soon) renderedGuides.push(page);
 }
 
-function sectionHome({ title, description, route, kicker, intro, nav, crumbs }) {
+function sectionHome({ title, description, route, kicker, intro, nav, crumbs, devLink }) {
   const groups = nav.map(({ group, soon, pages }) => {
     const items = pages.map(page => {
-      const meta = (route === '/docs/developers/' ? devOrder : guideOrder).find(item => item.route === page.route);
-      const blurb = truncateWords(page.blurb || blurbOverrides[page.path] || meta?.description || '', 120);
+      const meta = guideOrder.find(item => item.route === page.route);
+      const blurb = truncateWords(page.blurb || meta?.description || '', 120);
       return `<li${soon ? ' class="soon"' : ''}><a href="${page.route}"><b>${escapeHtml(page.label)}</b><span>${escapeHtml(blurb)}</span></a></li>`;
     }).join('');
     return `<section class="docs-section-group"><h2 id="${slugify(group)}">${escapeHtml(group)}</h2><ul>${items}</ul></section>`;
   }).join('');
   const toc = nav.map(({ group }) => ({ level: 2, text: group, id: slugify(group) }));
-  const articleHtml = `<p class="docs-section-lede">${escapeHtml(intro)}</p><div class="docs-sections">${groups}</div>`;
+  const articleHtml = `<p class="docs-section-lede">${escapeHtml(intro)}</p><div class="docs-sections">${groups}</div>${devLink ? `<p class="docs-dev-home">Building on or self-hosting AgentWorks? <a href="${devDocsUrl}">Developer docs are on GitHub →</a></p>` : ''}`;
   const output = path.join(dist, route, 'index.html');
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, pageTemplate({
@@ -500,30 +390,16 @@ function sectionHome({ title, description, route, kicker, intro, nav, crumbs }) 
 }
 
 sectionHome({
-  title: 'Building and self-hosting',
-  description: 'Developer documentation for AgentWorks: install the app or self-host on Linux, build workflows, connect models and tools, and run goals with auto-improve.',
-  route: '/docs/developers/',
-  kicker: 'Developers',
-  intro: 'Install, build, connect, and self-host. Start with Install, or jump to the reference for manifests, step config, and tool filtering.',
-  nav: devNav,
-  crumbs: [
-    { name: 'AgentWorks', route: '/' },
-    { name: 'Docs', route: '/docs/' },
-    { name: 'Developers', route: '/docs/developers/' }
-  ]
-});
-
-sectionHome({
-  title: 'Using AgentWorks',
-  description: 'Plain-language guides for business users: set your first goal, talk to your crew in Slack and WhatsApp, and master approvals and autonomy.',
-  route: '/docs/guides/',
+  title: 'AgentWorks guides',
+  description: 'Task-based AgentWorks guides for business users: run goals, talk to your crew in Slack and WhatsApp, share work safely, and publish Relays.',
+  route: '/docs/',
   kicker: 'Guides',
   intro: 'Task-based guides for founders, sales leads, store owners, and support leads. No code, no jargon — just outcomes.',
   nav: guidesNav,
+  devLink: true,
   crumbs: [
     { name: 'AgentWorks', route: '/' },
-    { name: 'Docs', route: '/docs/' },
-    { name: 'Guides', route: '/docs/guides/' }
+    { name: 'Docs', route: '/docs/' }
   ]
 });
 
@@ -534,22 +410,15 @@ const llmsFull = [
   'Open-source repository: https://github.com/manishiitg/agentworks',
   'Latest release: https://github.com/manishiitg/agentworks/releases/latest',
   '',
+  'Developer docs (install, architecture, workflow manifest, MCP, providers, security, self-hosting): https://github.com/manishiitg/agentworks/tree/main/docs',
+  '',
   'AgentWorks gives an AI agent a goal and a metric, and it keeps working until it hits the target. It manages goals and metrics, schedules, model and CLI routing, browser and MCP tools, secrets, evidence, costs, human approvals, reports, reusable skills, and auto-improvement of the workflow.',
   '',
-  ...renderedDocs.flatMap(doc => [
-    `## ${doc.title}`,
-    '',
-    `Canonical HTML: ${siteOrigin}${doc.route}`,
-    `Raw Markdown: ${siteOrigin}/docs-content/${doc.path}.md`,
-    '',
-    doc.markdown.trim(),
-    ''
-  ]),
   ...renderedGuides.flatMap(guide => [
     `## ${guide.title}`,
     '',
     `Canonical HTML: ${siteOrigin}${guide.route}`,
-    `Raw Markdown: ${siteOrigin}/docs-content/guides/${guide.slug}.md`,
+    `Raw Markdown: ${siteOrigin}/docs-guides/${guide.slug}.md`,
     '',
     guide.markdown.trim(),
     ''
@@ -586,14 +455,9 @@ const marketingRoutes = [
   { route: '/brain/', changefreq: 'monthly', priority: '0.8' },
   { route: '/download/', changefreq: 'monthly', priority: '0.8' },
   { route: '/relays/', changefreq: 'monthly', priority: '0.6' },
-  { route: '/docs/', changefreq: 'weekly', priority: '0.8' },
-  { route: '/docs/guides/', changefreq: 'weekly', priority: '0.75' },
-  { route: '/docs/developers/', changefreq: 'weekly', priority: '0.75' }
+  { route: '/docs/', changefreq: 'weekly', priority: '0.8' }
 ];
-const docRoutes = [
-  ...renderedDocs.map(doc => ({ route: doc.route, changefreq: 'monthly', priority: '0.65' })),
-  ...renderedGuides.map(guide => ({ route: guide.route, changefreq: 'monthly', priority: '0.7' }))
-];
+const docRoutes = renderedGuides.map(guide => ({ route: guide.route, changefreq: 'monthly', priority: '0.7' }));
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemapXml([...marketingRoutes, ...docRoutes]));
 
-console.log(`generate-agent-content: rendered ${renderedDocs.length} developer pages, ${guideOrder.length} guides (${renderedGuides.length} in sitemap)`);
+console.log(`generate-agent-content: rendered ${guideOrder.length} guides (${renderedGuides.length} in sitemap)`);

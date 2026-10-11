@@ -1,3 +1,7 @@
+---
+video: crew-whatsapp
+---
+
 # Talk to your crew on WhatsApp
 
 **What you'll do:** pair WhatsApp once with a QR code, then message your crew like a colleague and approve work from your phone.

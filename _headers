@@ -55,7 +55,7 @@
 /docs/*
   Cache-Control: public, max-age=0, must-revalidate
 
-/docs-content/*
+/docs-guides/*
   Cache-Control: public, max-age=300, must-revalidate
 
 /template.html
@@ -121,9 +121,6 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /docs.css
-  Cache-Control: public, max-age=31536000, immutable
-
-/docs-redirect.js
   Cache-Control: public, max-age=31536000, immutable
 
 /assets/*

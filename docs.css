@@ -733,3 +733,36 @@
   .sec-flow { flex-direction: column; }
   .sec-arrow { align-self: center; transform: rotate(90deg); }
 }
+
+.docs-dev-link {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.docs-dev-home {
+  margin-top: 28px;
+  padding: 14px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.guide-video {
+  margin: 24px 0;
+}
+
+.guide-video video {
+  height: auto;
+}
+
+.guide-video figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}

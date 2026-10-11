@@ -1,3 +1,7 @@
+---
+video: crew-slack
+---
+
 # Talk to your crew in Slack
 
 **What you'll do:** mention your crew in a channel, get the answer in a thread, and approve work without leaving Slack.

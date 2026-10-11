@@ -3,8 +3,7 @@
 
 Reads footer() from scripts/launch/partials.py (no edits there) and writes
 scripts/site-footer.fragment.html, which generate-agent-content.js injects
-into every generated docs page. Also refreshes docs/index.html (header from
-the launch fragment, footer from footer()) between its markers.
+into every generated docs page.
 
 Re-run in prepare-deploy.sh so the header/footer (and the launch.js cache
 key V) never drift from the marketing pages, and commit the result.
@@ -26,6 +25,9 @@ print('wrote scripts/site-footer.fragment.html')
 
 header_frag = open(os.path.join(HERE, 'launch', 'site-header.fragment.html')).read()
 page_path = os.path.join(ROOT, 'docs', 'index.html')
+if not os.path.exists(page_path):
+    print('docs/index.html is generated; nothing else to refresh')
+    sys.exit(0)
 page = open(page_path).read()
 if '%%SITE_HEADER%%' in page:
     page = page.replace(

@@ -184,6 +184,7 @@ def footer():
           <h2 class="fh">Resources</h2>
           <ul>
             <li><a href="/docs/">Docs</a></li>
+            <li><a href="{GH}/tree/main/docs" target="_blank" rel="noreferrer">Developer docs (GitHub)</a></li>
                         <li><a href="{INSTALL}">Download</a></li>
             <li><a href="/free-tools/">Free agent tools</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>

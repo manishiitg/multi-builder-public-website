@@ -13,7 +13,7 @@ AgentWorks builds the systems that turn cheaper AI intelligence into work that g
   - [Brain](https://agentworkshq.com/brain/): one shared place for the company's skills, notes, facts and sources, in nested folders with Reader, Editor and Owner roles per folder; read and written by Crews, Code, Goals and any MCP client such as Claude Code; every entry has a version history you can roll back, optional Git backup to a private repo, a /organize command that merges duplicates, and company skills published once and fetched by clients. Text search only, no semantic search.
   - [Vault](https://agentworkshq.com/vault/) (early access): one governed MCP endpoint for every AI client; admins connect servers once, grant tools and shared secrets to groups (deny by default), add rules on tool inputs, review new or changed tool definitions, sign in with the company account, and keep an audit log of every call.
 - [Relays](https://agentworkshq.com/relays/): chain agent steps (system prompt + message), conditions and script steps into one fixed sequence, deploy it behind an API endpoint or webhook, and call it from a website, CRM or any system.
-- [Premade agents](https://agentworkshq.com/agents/): 143 premade agents with public source: 79 Crew agents (always-on teammates for sales, support, finance, Shopify, marketing, operations, product and engineering) and 64 Goal playbooks that run against a target. Each links to its source in the coding-agent-loop repo.
+- [Premade agents](https://agentworkshq.com/agents/): 143 premade agents with public source: 79 Crew agents (always-on teammates for sales, support, finance, Shopify, marketing, operations, product and engineering) and 64 Goal playbooks that run against a target. Each links to its source in the agentworks repo.
   - [Sales & GTM](https://agentworkshq.com/solutions/sales/): lead follow-up, competitor watch and pipeline reporting toward a booked-demos goal.
   - [Shopify stores](https://agentworkshq.com/solutions/shopify/): stuck orders, customer questions, reviews and failed payments.
   - [Customer support](https://agentworkshq.com/solutions/support/): fast first replies from docs and order history, sensitive cases handed off.
@@ -28,24 +28,20 @@ AgentWorks builds the systems that turn cheaper AI intelligence into work that g
   - [Security testing](https://agentworkshq.com/enterprise/security-testing/): authorized AppSec and role/tenant permission testing driven to verified closure.
   - [Cloud cost](https://agentworkshq.com/enterprise/cloud-cost/): FinOps anomalies, reviewed IaC rightsizing and verified savings.
   - [Growth analytics](https://agentworkshq.com/enterprise/growth-analytics/): an AI growth analyst for funnels, retention, SEO and AI-search visibility.
-- [Docs](https://agentworkshq.com/docs/): Two sections — Guides for business users and developer docs for building and self-hosting.
-  - [Guides](https://agentworkshq.com/docs/guides/): Set your first goal, talk to your crew in Slack and WhatsApp, approvals and autonomy.
-  - [Developers](https://agentworkshq.com/docs/developers/): Install, first workflow, auto-improve, connectors, and reference docs.
+- [Docs](https://agentworkshq.com/docs/): Plain-language guides for business users.
+  - [Set your first goal](https://agentworkshq.com/docs/guides/first-goal/): Outcome, metric, target, and rules.
+  - [Talk to your crew in Slack](https://agentworkshq.com/docs/guides/slack/): Mentions, threads, and approvals from Slack.
+  - [Talk to your crew on WhatsApp](https://agentworkshq.com/docs/guides/whatsapp/): QR pairing, status, and approvals from chat.
+  - [Approvals and autonomy](https://agentworkshq.com/docs/guides/approvals-autonomy/): The four autonomy levels and approval flow.
+  - [Developer docs on GitHub](https://github.com/manishiitg/agentworks/tree/main/docs): Install, architecture, manifests, MCP, security, self-hosting.
 
 ## Machine-Readable Sources
 
-- [Complete AgentWorks context](https://agentworkshq.com/llms-full.txt): Product context plus curated public documentation in one text file.
-- [Documentation manifest](https://agentworkshq.com/docs-content/manifest.json): Structured index of the available raw Markdown documents.
+- [Complete AgentWorks context](https://agentworkshq.com/llms-full.txt): Product context plus the user guides in one text file.
 - [Set your first goal](https://agentworkshq.com/docs/guides/first-goal/): Outcome, metric, target, and rules for business users.
 - [Talk to your crew in Slack](https://agentworkshq.com/docs/guides/slack/): Mentions, threads, and approvals from Slack.
 - [Talk to your crew on WhatsApp](https://agentworkshq.com/docs/guides/whatsapp/): QR pairing, status, and approvals from chat.
 - [Approvals and autonomy](https://agentworkshq.com/docs/guides/approvals-autonomy/): The four autonomy levels and approval flow.
-- [Documentation overview](https://agentworkshq.com/docs/overview/): Static HTML documentation overview.
-- [Install AgentWorks](https://agentworkshq.com/docs/getting-started/): macOS app install and self-hosted Linux pointers.
-- [Build your first workflow](https://agentworkshq.com/docs/getting-started/first-workflow/): Crawlable setup guide with a raw Markdown alternate.
-- [Auto Improve](https://agentworkshq.com/docs/workflow/auto_improvement_framework/): Technical design for bounded workflow improvement.
-- [Auto-improve and reporting](https://agentworkshq.com/docs/workflow/self_improvement_and_reporting/): Evidence, reporting, and the improvement loop.
-- [Raw documentation README](https://agentworkshq.com/docs-content/README.md): Canonical Markdown entry point.
 
 ## Important Product Links
 
@@ -71,5 +67,5 @@ AgentWorks builds the systems that turn cheaper AI intelligence into work that g
 - Use the Product page to explain goals, metrics, auto-improve and autonomy.
 - Use the Premade agents page for concrete use cases and their goal metrics.
 - Use the Pricing page for plans and what each includes.
-- Use the Docs page for install, security, deployment, and product architecture details.
+- Use the Docs page for user guides; use the GitHub repository docs for install, security, deployment, and product architecture details.
 - Use the GitHub repository for implementation details and release artifacts.

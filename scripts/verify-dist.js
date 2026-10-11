@@ -15,7 +15,6 @@ const requiredFiles = [
   'product/index.html',
   'docs/index.html',
   'docs.css',
-  'docs-redirect.js',
   'launch.css',
   'launch.js',
   'analytics.js',
@@ -73,25 +72,32 @@ const requiredFiles = [
   'assets/docs/guides/whatsapp-pair.webp',
   'assets/docs/guides/autonomy-levels.webp',
   'assets/docs/guides/approval-decision.webp',
-  'docs-content/manifest.json',
-  'docs-content/getting-started/README.md',
-  'docs-content/getting-started/first-workflow.md',
-  'docs-content/guides/first-goal.md',
-  'docs/overview/index.html',
-  'docs/getting-started/index.html',
-  'docs/getting-started/first-workflow/index.html',
-  'docs/workflow/auto_improvement_framework/index.html',
-  'docs/workflow/self_improvement_and_reporting/index.html',
-  'docs/guides/index.html',
+  'docs-guides/first-goal.md',
+  'docs-guides/slack.md',
+  'docs-guides/whatsapp.md',
+  'docs-guides/approvals-autonomy.md',
   'docs/guides/first-goal/index.html',
   'docs/guides/slack/index.html',
   'docs/guides/whatsapp/index.html',
   'docs/guides/approvals-autonomy/index.html',
-  'docs/developers/index.html',
   'assets/fonts/fonts.css',
   'assets/og/agentworks-home-og.jpg',
   'assets/og/agentworks-docs-og.jpg',
-  'assets/og/agentworks-404-og.jpg'
+  'assets/og/agentworks-404-og.jpg',
+  'assets/video/guides/connect-ai-provider.mp4',
+  'assets/video/guides/connect-ai-provider-poster.jpg',
+  'assets/video/guides/app-tour.mp4',
+  'assets/video/guides/app-tour-poster.jpg',
+  'assets/video/guides/create-first-automation.mp4',
+  'assets/video/guides/create-first-automation-poster.jpg',
+  'assets/video/guides/decisions-autonomy.mp4',
+  'assets/video/guides/decisions-autonomy-poster.jpg',
+  'assets/video/guides/add-crew-member.mp4',
+  'assets/video/guides/add-crew-member-poster.jpg',
+  'assets/video/guides/crew-slack.mp4',
+  'assets/video/guides/crew-slack-poster.jpg',
+  'assets/video/guides/crew-whatsapp.mp4',
+  'assets/video/guides/crew-whatsapp-poster.jpg'
 ];
 const pageExpectations = [
   {
@@ -198,8 +204,8 @@ const pageExpectations = [
     name: 'docs',
     file: 'docs/index.html',
     route: '/docs/',
-    title: 'AgentWorks Docs - Guides for Users, Docs for Developers',
-    h1: 'What brings you to the docs?',
+    title: 'AgentWorks guides - AgentWorks Docs',
+    h1: 'AgentWorks guides',
     canonical: 'https://agentworkshq.com/docs/',
     ogImage: 'assets/og/agentworks-docs-og.jpg',
     allowTallSections: true
@@ -428,6 +434,18 @@ function assertDeployPayload() {
   if (!redirects.includes('/how/ /product/ 301')) fail('legacy product redirect missing');
   if (!redirects.includes('/deploy/ https://github.com/manishiitg/agentworks/tree/main/deploy 301')) fail('deployment docs redirect missing');
   if (!redirects.includes('/wireframes.html / 301')) fail('wireframes redirect missing');
+  for (const rule of [
+    '/docs/guides/ /docs/ 301',
+    '/docs/developers/ https://github.com/manishiitg/agentworks/tree/main/docs 301',
+    '/docs/overview/ https://github.com/manishiitg/agentworks/tree/main/docs 301',
+    '/docs/core/ https://github.com/manishiitg/agentworks/tree/main/docs/core 301',
+    '/docs/core/:slug/ https://github.com/manishiitg/agentworks/blob/main/docs/core/:slug.md 301',
+    '/docs/workflow/:slug/ https://github.com/manishiitg/agentworks/blob/main/docs/workflow/:slug.md 301',
+    '/docs-content/guides/* /docs-guides/:splat 301',
+    '/docs-content/* https://github.com/manishiitg/agentworks/tree/main/docs 301'
+  ]) {
+    if (!redirects.includes(rule)) fail(`docs redirect missing: ${rule}`);
+  }
 
   const robots = readDist('robots.txt');
   for (const pathRule of ['/template.html', '/wireframes.html']) {
@@ -435,51 +453,45 @@ function assertDeployPayload() {
   }
 
   const llms = readDist('llms.txt');
-  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/docs/guides/') || !llms.includes('https://agentworkshq.com/docs/developers/') || !llms.includes('https://agentworkshq.com/product/') || !llms.includes('https://agentworkshq.com/agents/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
+  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/docs/guides/first-goal/') || !llms.includes('https://github.com/manishiitg/agentworks/tree/main/docs') || !llms.includes('https://agentworkshq.com/product/') || !llms.includes('https://agentworkshq.com/agents/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
     fail('llms.txt missing canonical AgentWorks content');
   }
+  if (llms.includes('/docs/developers/') || llms.includes('/docs-content/')) fail('llms.txt links a retired docs route');
 
   const llmsFull = readDist('llms-full.txt');
-  for (const phrase of ['Complete Product and Documentation Context', 'Auto-Improvement Framework', 'Build Your First Workflow', 'Set your first goal']) {
+  for (const phrase of ['Complete Product and Documentation Context', 'Set your first goal', 'Talk to your crew in Slack', 'tree/main/docs']) {
     if (!llmsFull.includes(phrase)) fail(`llms-full.txt missing ${phrase}`);
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/goals/', '/crews/', '/code/', '/brain/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/', '/docs/developers/', '/docs/guides/first-goal/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/']) {
+  for (const route of ['/', '/product/', '/goals/', '/crews/', '/code/', '/brain/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/first-goal/', '/docs/guides/slack/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
-  for (const route of ['/docs/workflow/evaluation_system/', '/docs/workflow/pulse_consolidation/', '/docs/workflow/org_dashboard_design/']) {
-    if (sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap leaks dropped doc ${route}`);
+  for (const route of ['/docs/guides/', '/docs/developers/', '/docs/overview/', '/docs/core/', '/docs/core/browser/', '/docs/workflow/', '/docs/multiagent/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/', '/docs/relay/', '/docs/security/']) {
+    if (sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap leaks retired doc ${route}`);
   }
 
   const docsHome = readDist('docs/index.html');
-  if (!/<h1>What brings you to the docs\?<\/h1>/.test(docsHome)) fail('docs/index.html lacks the router headline');
-  for (const needle of ['href="/docs/guides/"', 'href="/docs/developers/"', 'src="/docs-redirect.js']) {
+  if (!/<h1>AgentWorks guides<\/h1>/.test(docsHome)) fail('docs/index.html lacks the guides headline');
+  for (const needle of ['href="/docs/guides/first-goal/"', 'https://github.com/manishiitg/agentworks/tree/main/docs', 'class="docs-dev-home"', 'class="docs-dev-link"']) {
     if (!docsHome.includes(needle)) fail(`docs/index.html missing ${needle}`);
   }
 
-  for (const file of ['docs/overview/index.html', 'docs/getting-started/index.html', 'docs/getting-started/first-workflow/index.html', 'docs/workflow/auto_improvement_framework/index.html', 'docs/workflow/self_improvement_and_reporting/index.html', 'docs/guides/first-goal/index.html', 'docs/guides/slack/index.html']) {
+  for (const file of ['docs/guides/first-goal/index.html', 'docs/guides/slack/index.html', 'docs/guides/whatsapp/index.html', 'docs/guides/approvals-autonomy/index.html']) {
     const html = readDist(file);
     if (!html.includes('rel="alternate" type="text/markdown"') || !html.includes('BreadcrumbList') || !/<h1>[^<]+<\/h1>/.test(html) || !html.includes('class="docs-side"') || !html.includes('On this page') || !html.includes('/analytics.js')) {
       fail(`${file} lacks static documentation chrome`);
     }
   }
-  for (const file of ['docs/guides/index.html', 'docs/developers/index.html']) {
+  for (const file of ['docs/index.html']) {
     const html = readDist(file);
     if (!html.includes('BreadcrumbList') || !/<h1>[^<]+<\/h1>/.test(html) || !html.includes('class="docs-side"')) {
       fail(`${file} lacks section-home chrome`);
     }
   }
 
-  // Internal docs must never ship: manifest ⊆ allowlist, no internal trees.
-  const publicDocs = new Set(JSON.parse(fs.readFileSync(path.join(root, 'public-docs.json'), 'utf8')).documents);
-  const shippedManifest = JSON.parse(readDist('docs-content/manifest.json'));
-  for (const doc of shippedManifest.documents) {
-    if (!publicDocs.has(doc.path)) fail(`manifest leaks non-allowlisted doc: ${doc.path}`);
-  }
-  for (const dir of ['bugs', 'refactor', 'design', 'audits', 'plans']) {
-    if (fs.existsSync(path.join(dist, 'docs-content', dir))) fail(`internal docs shipped: docs-content/${dir}/`);
-  }
+  // Website docs are Guides only: the retired product-docs tree must not ship.
+  if (fs.existsSync(path.join(dist, 'docs-content'))) fail('retired docs-content/ shipped in dist');
 
   // The public name is Auto-improve: no "pulse" anywhere in text payloads.
   const textFiles = files.filter(file => /\.(html|css|js|md|txt|xml|json|webmanifest)$/.test(file));
@@ -496,14 +508,14 @@ function assertDeployPayload() {
   }
 
   // No retired product names or displayed source paths in public docs.
-  const docsTextFiles = textFiles.filter(file => file.startsWith('docs-content/') || file.startsWith('docs/'));
+  const docsTextFiles = textFiles.filter(file => file.startsWith('docs-guides/') || file.startsWith('docs/'));
   for (const file of docsTextFiles) {
     const content = fs.readFileSync(path.join(dist, file), 'utf8');
     if (/runloop/i.test(content)) fail(`retired name in dist/${file}`);
     if (/coding agent loop/i.test(content)) fail(`retired name in dist/${file}`);
     if (/real exploit/i.test(content)) fail(`internal Browser note in dist/${file}`);
   }
-  for (const file of textFiles.filter(file => file.startsWith('docs-content/') && file.endsWith('.md'))) {
+  for (const file of textFiles.filter(file => file.startsWith('docs-guides/') && file.endsWith('.md'))) {
     const lines = fs.readFileSync(path.join(dist, file), 'utf8').split('\n');
     for (const line of lines) {
       if (line.includes('agent_go/') && !line.includes('blob/main/agent_go/')) {
@@ -513,7 +525,7 @@ function assertDeployPayload() {
   }
 
   // No source file names in visible docs text (link targets exempt).
-  for (const file of textFiles.filter(file => file.startsWith('docs-content/') && file.endsWith('.md'))) {
+  for (const file of textFiles.filter(file => file.startsWith('docs-guides/') && file.endsWith('.md'))) {
     const parts = fs.readFileSync(path.join(dist, file), 'utf8').split(/(https?:\/\/\S+)/g);
     for (let i = 0; i < parts.length; i += 2) {
       if (/\.go\b/.test(parts[i])) fail(`source file name in dist/${file}`);
@@ -525,7 +537,7 @@ function assertDeployPayload() {
   }
 
   // Coming-soon cards use the badge, not a title suffix.
-  const guidesHome = readDist('docs/guides/index.html');
+  const guidesHome = readDist('docs/index.html');
   if (guidesHome.includes('(Coming soon)')) fail('coming-soon suffix duplicated in card titles');
   if (!guidesHome.includes('class="soon"')) fail('coming-soon badges missing');
 
@@ -535,13 +547,23 @@ function assertDeployPayload() {
   if (!siteFooter.includes('/privacy/') || !siteFooter.includes('/terms/') || !siteFooter.includes('/refunds/')) {
     fail('marketing footer lost its policy links');
   }
-  for (const file of ['docs/index.html', 'docs/guides/index.html', 'docs/developers/index.html', 'docs/guides/first-goal/index.html', 'docs/getting-started/first-workflow/index.html']) {
+  for (const file of ['docs/index.html', 'docs/guides/first-goal/index.html', 'docs/guides/slack/index.html', 'docs/guides/whatsapp/index.html']) {
     if (footerOf(readDist(file)) !== siteFooter) fail(`${file} footer differs from the site footer`);
   }
 
+  // Guide videos render only when the files ship; a missing file warns, not fails.
+  for (const file of fs.readdirSync(path.join(root, 'docs-guides')).filter(name => name.endsWith('.md'))) {
+    const front = fs.readFileSync(path.join(root, 'docs-guides', file), 'utf8');
+    const video = /^video:\s*(\S+)/m.exec(front)?.[1];
+    if (video && !fs.existsSync(path.join(dist, `assets/video/guides/${video}.mp4`))) {
+      console.warn(`verify-dist warning: guide video missing in dist: ${video}`);
+    }
+  }
+
   const sizeBytes = listFiles(dist).reduce((sum, file) => sum + fs.statSync(file).size, 0);
-  // 16 MiB: includes the 60s product demo video (/assets/video, ~3.5 MB, preload="none" so it never adds page weight).
-  const maxBytes = 16 * 1024 * 1024;
+  // 40 MiB: includes the product demo plus the guide walkthrough videos
+  // (/assets/video/guides, ~13 MB total, preload="none" so they never add page weight).
+  const maxBytes = 40 * 1024 * 1024;
   if (sizeBytes > maxBytes) fail(`dist payload too large: ${Math.round(sizeBytes / 1024)} KiB`);
 }
 
@@ -660,7 +682,10 @@ async function assertRenderedPages() {
             height: Math.round(el.getBoundingClientRect().height),
             text: (el.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 80)
           }))
-          .filter(section => section.height > 0 && section.height > innerHeight * 1.15)
+          // The shared site footer stacks its columns on mobile and is
+          // legitimately taller than the viewport; its height is governed by
+          // the single footer fragment, not by page content.
+          .filter(section => section.height > 0 && section.height > innerHeight * 1.15 && !section.className.includes('site-footer'))
       }));
       await page.close();
       const label = `${expected.name} ${viewport.name}`;
@@ -688,9 +713,9 @@ async function assertRenderedPages() {
       }
     }
     const docsArticleRoutes = [
-      { route: '/docs/getting-started/first-workflow/', h1: 'Build Your First Workflow', name: 'dev article' },
-      { route: '/docs/guides/slack/', h1: 'Talk to your crew in Slack', name: 'guide article' },
-      { route: '/docs/developers/', h1: 'Building and self-hosting', name: 'developers home' }
+      { route: '/docs/guides/first-goal/', h1: 'Set your first goal', name: 'guide first-goal' },
+      { route: '/docs/guides/slack/', h1: 'Talk to your crew in Slack', name: 'guide slack' },
+      { route: '/docs/guides/whatsapp/', h1: 'Talk to your crew on WhatsApp', name: 'guide whatsapp' }
     ];
     for (const viewport of docsReaderViewports) {
       for (const article of docsArticleRoutes) {
@@ -708,6 +733,25 @@ async function assertRenderedPages() {
           { waitUntil: 'networkidle' }
         );
         if (articleResponse?.status() !== 200) fail(`docs ${article.name} ${viewport.name} returned ${articleResponse?.status()}`);
+        // Guide images are loading="lazy": scroll through like a reader and stay
+        // at the bottom until they load (scrolling straight back cancels
+        // in-flight lazy fetches, so the media check would see them unload).
+        await articlePage.evaluate(async () => {
+          await new Promise(resolve => {
+            let y = 0;
+            const step = () => {
+              y += 600;
+              window.scrollTo(0, y);
+              if (y < document.body.scrollHeight) setTimeout(step, 40);
+              else resolve();
+            };
+            step();
+          });
+        });
+        await articlePage.waitForFunction(
+          () => [...document.querySelectorAll('.docs-article img')].every(el => el.complete && el.naturalWidth > 0),
+          { timeout: 10000 }
+        ).catch(() => {});
         const articleMetrics = await articlePage.evaluate(() => ({
           title: document.title,
           h1: document.querySelector('.docs-article h1')?.textContent || '',
@@ -738,13 +782,13 @@ async function assertRenderedPages() {
         if (consoleErrors.length) fail(`${articleLabel} console errors:\n${consoleErrors.join('\n')}`);
         if (failedRequests.length) fail(`${articleLabel} failed requests:\n${failedRequests.join('\n')}`);
       }
-      // Legacy ?doc= reader URLs redirect to the static article.
+      // Legacy ?doc= reader URLs land on the Guides home (no redirect JS ships).
       const redirectPage = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
       await redirectPage.goto(`http://127.0.0.1:${port}/docs/?doc=getting-started%2Ffirst-workflow`, { waitUntil: 'networkidle' });
       const redirectUrl = new URL(redirectPage.url());
       await redirectPage.close();
-      if (redirectUrl.pathname !== '/docs/getting-started/first-workflow/') {
-        fail(`docs redirect ${viewport.name} landed on ${redirectUrl.pathname}`);
+      if (redirectUrl.pathname !== '/docs/') {
+        fail(`docs legacy URL ${viewport.name} landed on ${redirectUrl.pathname}`);
       }
     }
     // No horizontal scroll at 390px on any docs page.
@@ -766,6 +810,11 @@ async function assertRenderedPages() {
     const leakResponse = await leakPage.goto(`http://127.0.0.1:${port}/docs-content/bugs/uvx_cache_bloat_latest_versions.md`, { waitUntil: 'networkidle' });
     await leakPage.close();
     if (leakResponse?.status() !== 404) fail(`internal doc returned ${leakResponse?.status()}, want 404`);
+    // Retired developer routes have no file in dist (production serves the _redirects 301s).
+    const retiredPage = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    const retiredResponse = await retiredPage.goto(`http://127.0.0.1:${port}/docs/developers/`, { waitUntil: 'networkidle' });
+    await retiredPage.close();
+    if (retiredResponse?.status() !== 404) fail(`retired developers home returned ${retiredResponse?.status()}, want 404`);
     const missingPage = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     const missingResponse = await missingPage.goto(`http://127.0.0.1:${port}/missing-runloop-page`, { waitUntil: 'networkidle' });
     if (missingResponse?.status() !== 404) fail(`missing route returned ${missingResponse?.status()}`);
@@ -786,8 +835,6 @@ async function assertRenderedPages() {
 
 async function main() {
   run(process.execPath, ['--check', 'runloop_site.js']);
-  run(process.execPath, ['--check', 'docs-redirect.js']);
-  run(process.execPath, ['--check', 'scripts/sync-product-docs.js']);
   run(process.execPath, ['--check', 'scripts/generate-agent-content.js']);
   run('bash', ['scripts/prepare-deploy.sh']);
   assertDeployPayload();

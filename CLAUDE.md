@@ -13,8 +13,8 @@ index.html          Landing page entry
 404.html            Branded not-found entry
 use-cases/index.html Sales-friendly use-case and fit-guide entry
 how.html            How-it-works entry
-docs/index.html     Docs front door and embedded Markdown reader
-docs-content/       Generated snapshot of product Markdown documentation
+docs-guides/        Guide sources (this repo); rendered to /docs/guides/<slug>/ with raws under /docs-guides/
+(dist/docs/index.html is the generated Guides home; developer docs live on GitHub)
 wireframes.html     Lo-fi review wireframes (legacy/internal, not a public production route)
 
 runloop.css         Shared production styles for index/how/docs
@@ -88,11 +88,11 @@ Production URL: https://multi-builder-public.netlify.app
 ## Local dev
 
 ```bash
-node scripts/sync-product-docs.js
-python3 -m http.server 8765
+bash scripts/prepare-deploy.sh
+python3 -m http.server 8765 --directory dist
 ```
 
-Changes to `runloop_site.js` or `runloop.css` show on reload. Bump the query cache key in `404.html`, `use-cases/index.html`, `updates/index.html`, `how.html`, and `docs/index.html` when changing either production asset.
+Changes to `runloop_site.js` or `runloop.css` show on reload. Bump the query cache key in `404.html`, `use-cases/index.html`, `updates/index.html`, and `how.html` when changing either production asset. Generated docs pages bump `/docs.css` in `scripts/generate-agent-content.js` instead.
 Run `bash scripts/prepare-deploy.sh` when you need to inspect the exact publish payload locally.
 Run `node scripts/verify-dist.js` before deploy handoff. It rebuilds `dist/`, checks payload hygiene/metadata/local assets, and renders Home, Use Cases, Updates, Product, Docs, and the embedded Docs reader in Chrome through Playwright.
 

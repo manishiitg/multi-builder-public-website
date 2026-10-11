@@ -4,7 +4,6 @@ set -euo pipefail
 rm -rf dist
 mkdir -p dist
 
-node scripts/sync-product-docs.js --if-available
 python3 scripts/sync-free-tools.py --if-available
 python3 scripts/render-free-tools.py
 
@@ -16,7 +15,6 @@ cp analytics.js dist/
 cp site-header.css dist/
 cp site-header.js dist/
 cp docs.css dist/
-cp docs-redirect.js dist/
 cp _headers dist/
 cp _redirects dist/
 cp _routes.json dist/
@@ -36,6 +34,10 @@ cp .well-known/mcp-client.json dist/.well-known/
 
 mkdir -p dist/assets/{brand,fonts,hero,og,product,storyboard,video}
 cp assets/video/agentworks-demo.mp4 assets/video/agentworks-demo-poster.jpg dist/assets/video/
+if [ -d assets/video/guides ]; then
+  mkdir -p dist/assets/video/guides
+  cp -R assets/video/guides/. dist/assets/video/guides/
+fi
 cp assets/brand/agentworks-logo.svg dist/assets/brand/
 cp -R assets/fonts/. dist/assets/fonts/
 mkdir -p dist/assets/docs/guides
@@ -109,8 +111,7 @@ storyboard_assets=(
 for asset in "${storyboard_assets[@]}"; do
   cp "assets/storyboard/${asset}" dist/assets/storyboard/
 done
-cp -R docs dist/docs
-cp -R docs-content dist/docs-content
+mkdir -p dist/docs
 cp -R product dist/product
 cp -R solutions dist/solutions
 cp -R privacy dist/privacy

@@ -1,3 +1,7 @@
+---
+video: decisions-autonomy
+---
+
 # Approvals and autonomy
 
 **What you'll do:** learn what asks for your approval by default, how to approve or redirect it, and how to give a goal more freedom when it earns it.

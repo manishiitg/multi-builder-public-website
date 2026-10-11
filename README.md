@@ -40,9 +40,9 @@ Some internal website file names still use `runloop_site.js` / `runloop.css`. Tr
 | `/` | `index.html` | Approved AgentWorks homepage |
 | `/use-cases/` | `use-cases/index.html` | Sales-friendly use-case and fit guide |
 | `/how/` | `how.html`, deployed as `how/index.html` | Product narrative: define, connect, evaluate, and improve recurring business workflows |
-| `/docs/` | `docs/index.html` | Docs front door and embedded Markdown reader |
-| `/docs/<document>/` | generated from selected `docs-content/**/*.md` files | Crawlable technical documentation |
-| `/docs-content/<document>.md` | synchronized Markdown | Raw documentation for people and agents |
+| `/docs/` | generated from `docs-guides/` | Guides home (user guides only; developer docs live on GitHub) |
+| `/docs/guides/<slug>/` | generated from `docs-guides/*.md` | Crawlable user guides |
+| `/docs-guides/<slug>.md` | generated raw copies | Raw guide Markdown for people and agents |
 | `/llms.txt` and `/llms-full.txt` | generated discovery surfaces | Concise and full AI-readable product context |
 | `/.well-known/mcp-client.json` | `.well-known/mcp-client.json` | Public OAuth Client ID Metadata Document for AgentWorks MCP authorization |
 | missing routes | `404.html` | Branded not-found page with links back to current surfaces |
@@ -54,8 +54,8 @@ Legacy Claude Design pages such as `template.html` and `wireframes.html` remain 
 Any static server works. Easiest:
 
 ```bash
-node scripts/sync-product-docs.js
-python3 -m http.server 8765
+bash scripts/prepare-deploy.sh
+python3 -m http.server 8765 --directory dist
 # open http://localhost:8765
 ```
 
@@ -87,14 +87,14 @@ It rebuilds `dist/`, checks required files, metadata, static agent-readable cont
 
 - Root homepage: `index.html`, `workforce.css`, and `workforce.js`
 - Secondary pages use vendored React 18 production UMD files from `assets/vendor/react-18.3.1/`
-- Docs use vendored Marked and DOMPurify, with `scripts/sync-product-docs.js` snapshotting Markdown from the sibling product repository into `docs-content/`
+- Docs are generated from `docs-guides/*.md` (vendored Marked) with raw copies under `/docs-guides/`
 - Shared runtime: `runloop_site.js` with plain `React.createElement` calls
 - Shared production CSS: `runloop.css`
 - Approved secondary-route visual layer: `secondary.css`
 - Local fonts: `assets/fonts/fonts.css`
 - Cloudflare Pages headers: `_headers` sets CSP, no-sniffing, cache policy, and local-first script/style/font loading
 - AI discovery: `llms.txt` provides a concise canonical map; generated `llms-full.txt` includes the curated public documentation corpus
-- Static documentation: `scripts/generate-agent-content.js` creates crawlable HTML routes, JSON-LD, breadcrumbs, and the generated sitemap from `public-docs.json`
+- Static documentation: `scripts/generate-agent-content.js` creates crawlable guide routes, JSON-LD, breadcrumbs, and the generated sitemap from `docs-guides/`; retired developer routes 301 to GitHub via `_redirects`
 - Web metadata: `site.webmanifest`, icons, theme color, and color-scheme tags support browser install/display polish
 - Production build: `scripts/prepare-deploy.sh` creates the Cloudflare Pages payload in `dist/`
 - Quality gate: `scripts/verify-dist.js` checks the generated deploy payload and rendered routes
