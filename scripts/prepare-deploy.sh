@@ -5,6 +5,7 @@ rm -rf dist
 mkdir -p dist
 
 node scripts/sync-product-docs.js --if-available
+python3 scripts/sync-free-tools.py --if-available
 
 cp index.html dist/
 cp 404.html dist/
@@ -17,6 +18,7 @@ cp docs.css dist/
 cp docs-redirect.js dist/
 cp _headers dist/
 cp _redirects dist/
+cp _routes.json dist/
 cp robots.txt dist/
 cp llms.txt dist/
 cp sitemap.xml dist/
@@ -125,6 +127,7 @@ cp -R ecommerce dist/ecommerce
 cp -R brain dist/brain
 cp -R vault dist/vault
 cp -R download dist/download
+cp -R free-tools dist/free-tools
 
 python3 scripts/render-site-footer.py
 

@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/free-tools/catalog.json", "/free-tools/catalog.csv"],
+  "exclude": []
+}

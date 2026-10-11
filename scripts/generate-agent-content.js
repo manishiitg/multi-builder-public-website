@@ -559,6 +559,7 @@ fs.writeFileSync(path.join(dist, 'llms-full.txt'), `${llmsFull.trim()}\n`);
 
 const marketingRoutes = [
   { route: '/', changefreq: 'weekly', priority: '1.0' },
+  { route: '/free-tools/', changefreq: 'weekly', priority: '0.7' },
   { route: '/pricing/', changefreq: 'monthly', priority: '0.9' },
   { route: '/privacy/', changefreq: 'yearly', priority: '0.3' },
   { route: '/terms/', changefreq: 'yearly', priority: '0.3' },
