@@ -45,6 +45,7 @@ const requiredFiles = [
   'download/index.html',
   'vault/index.html',
   'relays/index.html',
+  'bullpen/index.html',
   '_headers',
   '_redirects',
   '_routes.json',

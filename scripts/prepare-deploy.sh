@@ -121,6 +121,7 @@ cp -R pricing dist/pricing
 cp -R enterprise dist/enterprise
 cp -R agents dist/agents
 cp -R relays dist/relays
+cp -R bullpen dist/bullpen
 cp -R goals dist/goals
 cp -R crews dist/crews
 cp -R code dist/code

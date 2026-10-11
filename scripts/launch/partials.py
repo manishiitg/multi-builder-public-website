@@ -64,13 +64,14 @@ PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works towa
 PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[3:])]
 # Product menu second column: what every product shares.
 PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
-               ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect')]
+               ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
+               ('/bullpen/','Bullpen','One room for your team and every agent they run.','bullpen')]
 # The dedicated product pages, for cross-links between them.
 PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere',
+ '/crews/':'Experts anyone can ask', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere', '/bullpen/':'A room for team and agents',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -88,6 +89,7 @@ _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><c
         'brain':'<path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/>',
         'gateway':'<path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/>',
         'code':'<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>',
+        'bullpen':'<circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0M11.5 19a4.5 4.5 0 0 1 9 0"/>',
         'connect':'<path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/>'}
 
 def _drop(label, overview, groups, menu_id, current):
@@ -167,6 +169,7 @@ def footer():
             <li><a href="/brain/">Brain</a></li>
             <li><a href="/vault/">Vault</a></li>
             <li><a href="/code/">Code</a></li>
+            <li><a href="/bullpen/">Bullpen</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>
             <li><a href="/agents/">Premade agents</a></li>
           </ul>
