@@ -36,3 +36,6 @@ open(os.path.join(OUT,'scripts','launch','site-header.fragment.html'),'w').write
 _dp=os.path.join(OUT,'docs','index.html'); _d=open(_dp).read()
 _d=re.sub(r'<!-- site-header:start -->.*?<!-- site-header:end -->','<!-- site-header:start -->\n'+_frag+'<!-- site-header:end -->',_d,flags=re.S)
 open(_dp,'w').write(_d); print('wrote docs/index.html header')
+
+# Keep the catalog on the shared marketing layout whenever navigation changes.
+subprocess.check_call([sys.executable, os.path.join(OUT, 'scripts', 'render-free-tools.py')])

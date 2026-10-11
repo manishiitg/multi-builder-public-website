@@ -6,6 +6,7 @@ mkdir -p dist
 
 node scripts/sync-product-docs.js --if-available
 python3 scripts/sync-free-tools.py --if-available
+python3 scripts/render-free-tools.py
 
 cp index.html dist/
 cp 404.html dist/

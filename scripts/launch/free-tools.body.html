@@ -1,0 +1,59 @@
+  <main id="main" class="free-tools">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="kicker">Free agent tools</p>
+        <h1>Build more.<br><span class="dim">Start with what’s free.</span></h1>
+        <p class="lede">Discover APIs and credits for your next agent. Find the allowance, the conditions and the official source in one place.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#directory">Explore the catalog</a>
+          <a class="btn btn-ghost" href="https://github.com/manishiitg/free-agent-tools#use-the-discovery-mcp">Use with MCP ↗</a>
+        </div>
+        <p class="catalog-summary"><strong id="provider-count">—</strong> providers <span aria-hidden="true">·</span> <strong id="category-count">—</strong> categories <span aria-hidden="true">·</span> Reviewed <span id="snapshot-date">—</span></p>
+      </div>
+    </section>
+    <div class="wrap catalog-wrap">
+      <div class="notice"><span class="tag tag-goal">Offer guide</span><p>Free tiers, one-time trials and conditional grants are labeled separately. Offers can change; check the official source and eligibility before signing up.</p></div>
+    <section class="directory" id="directory" aria-label="Provider directory">
+      <aside class="filters">
+        <h2>Explore by capability</h2>
+        <div id="categories" class="categories" role="group" aria-label="Category filters"></div>
+        <label for="category-mobile" class="mobile-label">Capability</label>
+        <select id="category-mobile" class="mobile-category"><option value="">All capabilities</option></select>
+        <div class="filter-group">
+          <label for="offer">Offer type</label>
+          <select id="offer">
+            <option value="">All offers</option><option value="recurring">Recurring free tier</option>
+            <option value="trial">One-time trial / credits</option><option value="grant">Conditional grant</option>
+            <option value="open_source">Open source</option><option value="unconfirmed">Needs confirmation</option><option value="paid">Paid API</option>
+          </select>
+          <label class="check"><input id="free-only" type="checkbox"> Free offers only</label>
+          <label class="check"><input id="mcp-only" type="checkbox"> Documented MCP</label>
+          <label class="check"><input id="verified-only" type="checkbox"> Recently verified</label>
+          <button class="reset" id="reset" type="button">Reset filters</button>
+        </div>
+        <p class="filter-note">“Free offers” includes trials and grants. Unknown allowances are excluded.</p>
+        <div class="downloads"><a href="catalog.json">Download JSON ↗</a><a href="catalog.csv">Download CSV ↗</a></div>
+      </aside>
+      <div class="results">
+        <label class="sr-only" for="search">Search tools or capabilities</label>
+        <div class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search tools or capabilities…" autocomplete="off"><kbd aria-hidden="true">/</kbd></div>
+        <div class="results-heading"><h2 id="result-title">All capabilities</h2><p id="result-count" role="status" aria-live="polite">Loading catalog…</p></div>
+        <div id="providers" class="providers"></div>
+        <div class="pagination" id="pagination"><button type="button" id="previous">← Previous</button><span id="page-number"></span><button type="button" id="next">Next →</button></div>
+        <noscript><p>This directory needs JavaScript for filtering. The <a href="https://github.com/manishiitg/free-agent-tools#catalog">GitHub catalog</a> lists every provider without JavaScript.</p></noscript>
+      </div>
+    </section>
+    </div>
+    <section class="cta">
+      <div class="wrap">
+        <p class="kicker">For your local agents</p>
+        <h2>Let your agent discover the options.</h2>
+        <p>Search this catalog through a read-only MCP. Get allowances, conditions and setup links alongside each provider’s review date.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://github.com/manishiitg/free-agent-tools#use-the-discovery-mcp">MCP setup guide ↗</a>
+          <a class="btn btn-ghost" href="https://github.com/manishiitg/free-agent-tools">Browse the source ↗</a>
+        </div>
+        <p class="maintenance-note">Source checks run every week. <a href="https://github.com/manishiitg/free-agent-tools/blob/main/CONTRIBUTING.md">Suggest a correction</a> · <a href="https://github.com/manishiitg/free-agent-tools/actions/workflows/review.yml">Maintenance reports</a></p>
+      </div>
+    </section>
+  </main>

@@ -73,7 +73,7 @@ npx wrangler@latest pages deploy dist --project-name agentworks --branch main
 
 ## Verify
 
-The public free API catalog lives at `/free-tools/`. Its UI is synchronized from `manishiitg/free-agent-tools` by `scripts/sync-free-tools.py`, with a committed copy for offline builds. The two Pages Functions serve current JSON and CSV from the same reviewed public source with a five-minute cache; no provider credentials are used. `_routes.json` limits Functions to those two endpoints. The source repository runs schema, browser, MCP and weekly evidence checks; it has no separate GitHub Pages site.
+The public free API catalog lives at `/free-tools/`. HQ owns its layout and styling: `scripts/render-free-tools.py` renders `scripts/launch/free-tools.body.html` using the same header, footer, fonts and tokens as the marketing pages. `scripts/sync-free-tools.py` imports only catalog data, exports and search behavior from `manishiitg/free-agent-tools`, preserving the native design during updates. Committed copies support offline builds. The two Pages Functions serve current JSON and CSV from the same reviewed public source with a five-minute cache; no provider credentials are used. `_routes.json` limits Functions to those two endpoints. The source repository runs schema, browser, MCP and weekly evidence checks; it has no separate GitHub Pages site.
 
 Run the production-payload verifier before deploying:
 

@@ -95,6 +95,16 @@ const requiredFiles = [
 ];
 const pageExpectations = [
   {
+    name: 'free-tools',
+    file: 'free-tools/index.html',
+    route: '/free-tools/',
+    title: 'Free Agent Tools - APIs, Credits and MCPs | AgentWorks',
+    h1: 'Build more.Start with what’s free.',
+    canonical: 'https://agentworkshq.com/free-tools/',
+    ogImage: 'assets/og/agentworks-home-og.jpg',
+    allowTallSections: true
+  },
+  {
     name: 'home',
     file: 'index.html',
     route: '/index.html',
