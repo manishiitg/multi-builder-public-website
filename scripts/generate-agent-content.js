@@ -456,6 +456,7 @@ const marketingRoutes = [
   { route: '/download/', changefreq: 'monthly', priority: '0.8' },
   { route: '/relays/', changefreq: 'monthly', priority: '0.6' },
   { route: '/bullpen/', changefreq: 'monthly', priority: '0.6' },
+  { route: '/llm-gateway/', changefreq: 'monthly', priority: '0.6' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' }
 ];
 const docRoutes = renderedGuides.map(guide => ({ route: guide.route, changefreq: 'monthly', priority: '0.7' }));

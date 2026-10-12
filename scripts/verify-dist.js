@@ -46,6 +46,7 @@ const requiredFiles = [
   'vault/index.html',
   'relays/index.html',
   'bullpen/index.html',
+  'llm-gateway/index.html',
   '_headers',
   '_redirects',
   '_routes.json',

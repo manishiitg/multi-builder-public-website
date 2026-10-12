@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch70'
+V='launch71'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -59,6 +59,7 @@ PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works towa
          ('/relays/','Relays','A fixed chain of agents you run from anywhere.','relay'),
          ('/brain/','Brain','Shared company knowledge: write it once and every agent reads it.','brain'),
          ('/vault/','Vault','One governed door to every MCP tool and shared secret.','gateway'),
+         ('/llm-gateway/','LLM Gateway','One endpoint for every AI model, with access and cost per person.','llmgw'),
          ('/code/','Code','A private AI workspace for every employee, on your server, with cost and output visible to the company.','code')]
 # Two audiences: the first three do the work for teams, the last three give IT and leadership control.
 PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[3:])]
@@ -71,7 +72,7 @@ PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere', '/bullpen/':'A room for team and agents',
+ '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere', '/bullpen/':'A room for team and agents',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -89,6 +90,7 @@ _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><c
         'brain':'<path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/>',
         'gateway':'<path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/>',
         'code':'<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>',
+        'llmgw':'<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/>',
         'bullpen':'<circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0M11.5 19a4.5 4.5 0 0 1 9 0"/>',
         'connect':'<path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/>'}
 
@@ -168,6 +170,7 @@ def footer():
             <li><a href="/relays/">Relays</a></li>
             <li><a href="/brain/">Brain</a></li>
             <li><a href="/vault/">Vault</a></li>
+            <li><a href="/llm-gateway/">LLM Gateway</a></li>
             <li><a href="/code/">Code</a></li>
             <li><a href="/bullpen/">Bullpen</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>
