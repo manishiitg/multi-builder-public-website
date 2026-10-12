@@ -978,4 +978,29 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .prodgroup-h span { font-size: 14px; color: var(--muted); }
 
 .tiers.two { grid-template-columns: repeat(2, 1fr); max-width: 920px; margin: 0 auto; }
-@media (max-width: 760px) { .tiers.two { grid-template-columns: 1fr; } 
+@media (max-width: 760px) { .tiers.two { grid-template-columns: 1fr; } }
+
+/* Bullpen network diagram */
+.net { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; display: grid; justify-items: center; gap: 0; }
+.net .explainer-title { width: 100%; }
+.net-goal { margin-top: 10px; padding: 10px 16px; border-radius: 999px; background: var(--amber-soft); color: var(--amber-text); font-size: 14.5px; font-weight: 600; }
+.net-goal::after { content: ""; display: block; }
+.net-orch { margin-top: 14px; display: flex; gap: 12px; align-items: center; padding: 14px 20px; border-radius: 14px; background: var(--surface); border: 2px solid var(--amber); font-weight: 600; text-align: left; }
+.net-orch small, .net-node small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.net-bar { width: 2px; height: 28px; background: var(--line-2); }
+.net-nodes { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; width: 100%; padding-top: 28px; }
+.net-nodes::before { content: ""; position: absolute; top: 0; left: 12.5%; right: 12.5%; height: 2px; background: var(--line-2); }
+.net-node { position: relative; display: grid; justify-items: center; gap: 2px; padding: 16px 12px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; }
+.net-node::before { content: ""; position: absolute; top: -28px; left: 50%; width: 2px; height: 28px; background: var(--line-2); }
+.net-node b { margin-top: 8px; font-size: 14.5px; }
+.net-node em { margin-top: 6px; font-style: normal; font-size: 13.5px; color: var(--text-2); }
+.net-foot { margin: 18px 0 0; font-size: 14px; color: var(--muted); text-align: center; }
+.loop-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 860px) {
+  .net-nodes { grid-template-columns: 1fr 1fr; }
+  .net-nodes::before, .net-node::before { display: none; }
+  .net-nodes { padding-top: 0; }
+  .loop-3 { grid-template-columns: 1fr; }
+  .loop-3 li { border-right: 0; border-bottom: 1px solid var(--line); }
+  .loop-3 li:last-child { border-bottom: 0; }
+}
