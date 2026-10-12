@@ -1068,3 +1068,4 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .hub-note { text-align: center; margin: 18px 0 0; }
 .chip img { width: 16px; height: 16px; }
+@media (max-width: 720px) { #why .uc-grid { grid-template-columns: 1fr 1fr; gap: 8px; } #why .uc-link { padding: 14px; } #why .uc-link span { font-size: 13px; } }
