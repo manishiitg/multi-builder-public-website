@@ -68,37 +68,37 @@ body=f'''  <main id="main">
           <h2>What teams do with it. <span class="dim">Illustrative examples.</span></h2>
         </div>
         <ul class="ucx-grid">
-          <li class="uc reveal">
+          <li class="ucx reveal">
             <h3>Second opinion</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span></p>
             <p class="ask-msg you">Review my change before I open the PR.</p>
             <p class="ask-msg them">Two issues found. Fixes attached.</p>
           </li>
-          <li class="uc reveal">
+          <li class="ucx reveal">
             <h3>Past a usage limit</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span></p>
             <p class="ask-msg you">I hit my limit. Take over the refactor from step 3.</p>
             <p class="ask-msg them">Picked it up. Continuing.</p>
           </li>
-          <li class="uc reveal">
+          <li class="ucx reveal">
             <h3>Support to engineering</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic">{_ic('crew')}</span>Support Crew</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span></p>
             <p class="ask-msg you">Customers say checkout fails with a coupon.</p>
             <p class="ask-msg them">Reproduced it. Fix is ready for review.</p>
           </li>
-          <li class="uc reveal">
+          <li class="ucx reveal">
             <h3>Workflow needs a fix</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic">{_ic('goal')}</span>Weekly report</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span></p>
             <p class="ask-msg you">The sales numbers look wrong. Check the query.</p>
             <p class="ask-msg them">Fixed the join. Rerun when ready.</p>
           </li>
-          <li class="uc reveal">
+          <li class="ucx reveal">
             <h3>Ask a teammate's agent</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("cursor")}</span>Your Cursor</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Teammate's Claude Code</span></p>
             <p class="ask-msg you">How did you set up the staging deploy, and why?</p>
             <p class="ask-msg them">Here is the script and the reason.</p>
           </li>
-          <li class="uc reveal">
+          <li class="ucx reveal">
             <h3>Split a big job</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who uc-many"><span class="net-ic">{logo("openai")}</span><span class="net-ic">{logo("cursor")}</span><span class="net-ic"><span class="mono-logo">M</span></span>3 agents</span></p>
             <p class="ask-msg you">Backend to Codex, UI to Cursor, docs to Muse.</p>

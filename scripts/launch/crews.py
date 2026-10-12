@@ -2,7 +2,11 @@
 from uc_data import USECASES as _UC
 _XC=next(u for u in _UC if u['slug']=='expert-crews')
 import html as _hc
-_share_steps=''.join(f'<li><h3>{_hc.escape(t)}</h3><p>{_hc.escape(d)}</p></li>' for t,d in _XC['steps'])
+_share_steps=''.join(f'<li><h3>{t}</h3><p>{d}</p></li>' for t,d in [
+ ('Experts build it','The team that knows the subject sets up the Crew.'),
+ ('Offer clear asks','Free-text questions, or typed functions like <code>diagnose_service(name)</code>.'),
+ ('Share it','Give people access with scoped tokens.'),
+ ('Ask from any tool','Claude, ChatGPT, Cursor, Codex or the terminal.')])
 _examples=''.join(f'<li>{_hc.escape(p)}</li>' for p in _XC['playbooks'])
 FAQ_CREWS=[
  ("What is a Crew, exactly?","An AI agent set up as a long-lived specialist: one of the native agents (Claude Code, Codex, Cursor, Pi or Muse) with its own skills, memory, connected tools, browser and workspace. It keeps working on the same job and remembers what it learned."),
@@ -70,13 +74,18 @@ crews_body=f'''  <main id="main">
     <section class="section" id="ways">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Three ways to use a Crew</p>
-          <h2>One Crew. <span class="dim">Wherever the work is.</span></h2>
+          <p class="kicker">Use cases</p>
+          <h2>One Crew. <span class="dim">Wherever the work is. Illustrative examples.</span></h2>
         </div>
-        <ul class="control">
-          <li class="reveal"><h3>A teammate in chat</h3><p>Hand it a job in Slack or WhatsApp. It keeps one ongoing conversation, runs on schedules, uses its own browser and reports back when it's done.</p></li>
-          <li class="reveal"><h3>An expert anyone can ask</h3><p>Share it with your team. People ask it from Claude, ChatGPT, Cursor, Claude Code or Codex through MCP, with <code>agentworks crews ask</code>, or from your own deployed agents — anything that speaks MCP can ask it. Each person gets their own conversation.</p></li>
-          <li class="reveal"><h3>A specialist for your Goals</h3><p>A <a href="/goals/">Goal</a> can hand a step to a Crew, like "write the first email", and Crews can call each other when a job needs a different specialist.</p></li>
+        <ul class="ucx-grid">
+{chr(10).join([
+ uc_chat("A teammate in Slack",("user","Support lead"),("slack","Support Crew"),"Summarise today's angry tickets.","Five tickets, three about late refunds. Replies are drafted for you."),
+ uc_chat("An expert on WhatsApp",("user","Founder"),("whatsapp","Finance Crew"),"Who hasn't paid this month?","Four customers. Reminders are ready for your OK."),
+ uc_chat("Asked from Cursor",("cursor","Developer"),("crew","API Crew"),"How do I call the billing API safely?","Use an idempotency key. Example attached.",via="Called <b>api-crew · ask</b> through AgentWorks"),
+ uc_chat("From the terminal",("term","agentworks crews ask"),("crew","Legal Crew"),"Is clause 7 in this contract OK?","It conflicts with our standard terms. Suggested edit attached."),
+ uc_chat("Inside a Goal",("goal","Sales goal"),("crew","Writer Crew"),"Write the first email for this lead.","Draft ready, in your tone."),
+ uc_chat("Crew to Crew",("crew","Support Crew"),("crew","DevOps Crew"),"Is checkout down?","Slow since the 09:40 deploy. Rollback in progress."),
+ ])}
         </ul>
         <div class="connect-row center-row" aria-label="Where you can reach a Crew">
           <span class="chip">{tool("slack")}Slack</span>
@@ -98,32 +107,7 @@ crews_body=f'''  <main id="main">
           <h2>Built once by the experts. <span class="dim">Used by everyone.</span></h2>
         </div>
         <ol class="loop reveal">{_share_steps}</ol>
-      </div>
-    </section>
-
-    <section class="section" id="examples">
-      <div class="wrap split">
-        <div class="reveal">
-          <p class="kicker">What teams build first</p>
-          <h2>A library of experts. <span class="dim">Owned by the teams who know best.</span></h2>
-          <p class="lede">The owning team keeps improving each one, while everyone else just asks. Or start from one of {_T.N_CREW} premade Crew agents for sales, support, finance and operations.</p>
-          <p><a class="btn btn-ghost" href="/agents/">Browse premade Crew agents</a></p>
-        </div>
-        <ul class="pb-list reveal">{_examples}</ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Control</p>
-          <h2>Shared, not exposed. <span class="dim">Every call on the record.</span></h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Scoped access</h3><p>Admins issue tokens per person and per Crew. Revoking one stops its calls immediately.</p></li>
-          <li class="reveal"><h3>Private by default</h3><p>Callers get answers and the files owners choose to share, never the Crew's owner chats, database or settings.</p></li>
-          <li class="reveal"><h3>Every call logged</h3><p>Who asked, what the Crew did, which tools it used and what it cost.</p></li>
-        </ul>
+        {uc_pills(['Scoped access per person and Crew','Owner chats stay private','Every call logged'])}
       </div>
     </section>
 

@@ -3,57 +3,18 @@ import html as _h
 
 from uc_data import USECASES, uc_nav_items, uc_path
 
-def _page(u):
+_USES={'mcp-gateway':lambda: uc_section([
+ uc_pipe("Allowed call",("claude","Claude"),[("det","github · create_issue"),("ok","Engineering may use it")],"Call made and recorded"),
+ uc_pipe("Blocked tool",("cursor","Cursor"),[("det","database · run_query"),("no","Not granted to Marketing")],"Refused and recorded"),
+ uc_pipe("Rule on inputs",("openai","ChatGPT"),[("det","jira · create_ticket, project FIN"),("cond","Rule: project must be SUP"),("no","Input not allowed")],"Refused, with the reason"),
+ uc_pipe("Shared secret",("crew","Support Crew"),[("det","Needs the payments API key"),("ok","Support may use the secret"),("ok","Value never shown")],"Refund looked up, key stayed hidden"),
+ uc_pipe("New tool appears",("vault","Server update"),[("det","Server adds delete_repo"),("cond","Held for admin review")],"Nobody can call it until approved"),
+ uc_pipe("Access removed",("user","Admin"),[("det","Removes a person from a group"),("no","Next call checked again")],"Their access ends"),
+], h2='Every call goes through one door.', dim='Illustrative examples.')}
+
+def _tail(u,pbs):
     e=_h.escape
-    pains=''.join(f'<li class="reveal"><span class="num">0{i+1}</span><div><b>{e(t)}</b><span>{e(d)}</span></div></li>' for i,(t,d) in enumerate(u['pains']))
-    steps=''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t,d in u['steps'])
-    pbs=''.join(f'<li>{e(p)}</li>' for p in u['playbooks'])
-    gname,gmetric,(gval,gsub)=u['goal']
-    if u.get('product'):
-        others=''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{e(d)}</span></a>' for h,t,d in PRODUCT_PAGES if h!=uc_path(u))
-        more_k,more_h='Also in AgentWorks','The rest of the platform.'
-    else:
-        others=''.join(f'<a class="uc-link" href="{uc_path(o)}"><b>{e(o["nav"])}</b><span>{e(o["navdesc"])}</span></a>' for o in USECASES if o is not u and not o.get('nav_hidden'))
-        more_k,more_h='More use cases','Other goals agents can own.'
-    return f'''  <main id="main">
-    <section class="page-hero left">
-      <div class="wrap">
-        <p class="kicker">{e(u['kicker'])}</p>
-        <h1>{e(u['h1'])} <span class="dim">{e(u['h1dim'])}</span></h1>
-        <p class="lede">{e(u['lede'])}</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">{e(u.get('cta_label','Book a call'))}</a>
-          <a class="btn btn-ghost" href="#playbooks">{e(u.get('list_cta','See the playbooks'))}</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="wrap split">
-        <ul class="pain">{pains}</ul>
-        <div class="goal-spec reveal" aria-label="Example goal">
-          <p class="goal-spec-label">Example goal</p>
-          <p class="goal-spec-title">{e(gname)}</p>
-          <div class="goal-spec-metric">
-            <div><small>Primary metric</small><b>{e(gmetric)}</b></div>
-            <div class="goal-spec-num"><strong>{e(gval)}</strong></div>
-          </div>
-          <p class="muted">{e(gsub)}. Illustrative numbers.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">How it works</p>
-          <h2>{e(u.get('how_h2','Agents do the work.'))} <span class="dim">{e(u.get('how_h2dim','You own the goal and the approvals.'))}</span></h2>
-        </div>
-        <ol class="loop reveal">{steps}</ol>
-      </div>
-    </section>
-
-    <section class="section" id="playbooks">
+    return f'''    <section class="section" id="playbooks">
       <div class="wrap split">
         <div class="reveal">
           <p class="kicker">{e(u.get('list_kicker','Playbooks'))}</p>
@@ -80,6 +41,62 @@ def _page(u):
         </ul>
       </div>
     </section>
+'''
+
+def uc_pills_section(items):
+    return '    <section class="section-tight">\n      <div class="wrap">\n        '+uc_pills(items)+'\n      </div>\n    </section>\n'
+
+def _page(u):
+    e=_h.escape
+    pains=''.join(f'<li class="reveal"><span class="num">0{i+1}</span><div><b>{e(t)}</b><span>{e(d)}</span></div></li>' for i,(t,d) in enumerate(u['pains']))
+    steps=''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t,d in u['steps'])
+    pbs=''.join(f'<li>{e(p)}</li>' for p in u['playbooks'])
+    gname,gmetric,(gval,gsub)=u['goal']
+    if u.get('product'):
+        others=''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{e(d)}</span></a>' for h,t,d in PRODUCT_PAGES if h!=uc_path(u))
+        more_k,more_h='Also in AgentWorks','The rest of the platform.'
+    else:
+        others=''.join(f'<a class="uc-link" href="{uc_path(o)}"><b>{e(o["nav"])}</b><span>{e(o["navdesc"])}</span></a>' for o in USECASES if o is not u and not o.get('nav_hidden'))
+        more_k,more_h='More use cases','Other goals agents can own.'
+    return f'''  <main id="main">
+    <section class="page-hero left">
+      <div class="wrap">
+        <p class="kicker">{e(u['kicker'])}</p>
+        <h1>{e(u['h1'])} <span class="dim">{e(u['h1dim'])}</span></h1>
+        <p class="lede">{e(u['lede'])}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">{e(u.get('cta_label','Book a call'))}</a>
+          <a class="btn btn-ghost" href="{'#uses' if u['slug'] in _USES else '#playbooks'}">{'See use cases' if u['slug'] in _USES else e(u.get('list_cta','See the playbooks'))}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="wrap split">
+        <ul class="pain">{pains}</ul>
+        <div class="goal-spec reveal" aria-label="Example goal">
+          <p class="goal-spec-label">Example goal</p>
+          <p class="goal-spec-title">{e(gname)}</p>
+          <div class="goal-spec-metric">
+            <div><small>Primary metric</small><b>{e(gmetric)}</b></div>
+            <div class="goal-spec-num"><strong>{e(gval)}</strong></div>
+          </div>
+          <p class="muted">{e(gsub)}. Illustrative numbers.</p>
+        </div>
+      </div>
+    </section>
+
+{_USES[u['slug']]() if u['slug'] in _USES else ''}    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">How it works</p>
+          <h2>{e(u.get('how_h2','Agents do the work.'))} <span class="dim">{e(u.get('how_h2dim','You own the goal and the approvals.'))}</span></h2>
+        </div>
+        <ol class="loop reveal">{steps}</ol>
+      </div>
+    </section>
+
+{_tail(u,pbs) if u['slug'] not in _USES else uc_pills_section(['Deny by default','Runs on your server','Every call recorded'])}
 
     <section class="section">
       <div class="wrap faq-grid">

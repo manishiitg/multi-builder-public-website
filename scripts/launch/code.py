@@ -17,7 +17,7 @@ code_body=f'''  <main id="main">
         <p class="lede">Today each person runs Claude Code, Codex or Cursor on their own laptop and their own plan, and the company can't see what it costs, who uses how much, or what the agents actually produced. With Code, everyone codes on your AgentWorks server, on the plans you already pay for, and you review cost, usage and output in one place. People can reach their Code from Slack or WhatsApp when they're away from the desk.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="#see">What you see</a>
+          <a class="btn btn-ghost" href="#uses">See use cases</a>
         </div>
       </div>
     </section>
@@ -45,52 +45,17 @@ code_body=f'''  <main id="main">
       </div>
     </section>
 
-    <section class="section" id="see">
+{uc_section([
+ uc_chat("Code from your phone",("whatsapp","WhatsApp"),("code","checkout-service"),"Did the retry change pass the tests?","Yes, all 48 pass. Want a summary?"),
+ uc_chat("Share one plan",("user","Rio"),("claude","Ava's shared Claude Max"),"Fix the flaky webhook test.","Fixed. It ran on Ava's plan, and she can see it was you."),
+ uc_chat("See where spend went",("user","Admin"),("code","Usage"),"Who used the most this week?","Rio, on checkout-service, through Ava's account."),
+ uc_chat("Review the week",("claude","Manager's Claude"),("code","Code review"),"What did the team ship this week?","Checkout retries, a CSV export and two bug fixes.",via="Read-only over MCP · every view recorded"),
+ uc_chat("Check a plan's limit",("user","Account owner"),("code","Accounts"),"How much of my plan is left?","38% of this week's limit used.",via="Live usage check from the coding CLI"),
+ uc_chat("Use your Crews",("code","Your Code"),("crew","DevOps Crew"),"Is staging healthy before I deploy?","Yes. All checks are green."),
+], h2='One server for every coding agent.', dim='Illustrative examples.')}
+    <section class="section-tight">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">What the company sees</p>
-          <h2>One place to review costs. <span class="dim">And usage and output, for every person.</span></h2>
-          <p class="lede">Work in a Code is private from colleagues and reviewable by the company. The Code says so in its settings.</p>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Cost</h3><p>Cost and tokens per person, per Code and per provider account, so AI spend is a number, not a guess.</p></li>
-          <li class="reveal"><h3>Usage</h3><p>A live usage and quota check for every account. Account owners see who used their account and where. Admins see everything.</p></li>
-          <li class="reveal"><h3>Actual output</h3><p>Admins and named Code reviewers can open any Code's chats, files and costs, read-only, with every view audited. AI assistants can do the same over MCP, for example to summarise a team's week.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="plans">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">One place for every coding plan</p>
-          <h2>Share the plans you already pay for. <span class="dim">Instead of a seat for every person.</span></h2>
-          <p class="lede">Connect each account once. Decide who can use it. See where every token went.</p>
-        </div>
-        <ol class="loop reveal">
-          <li><h3>Connect once</h3><p>Add Claude Code, Codex, Cursor or Muse by browser login, or any of them by API key. The login stays on the server.</p></li>
-          <li><h3>Share without the login</h3><p>Keep an account private, or share it with chosen people, workflows or Crews. Admins decide who can use the server's own accounts and set the default models.</p></li>
-          <li><h3>Track it centrally</h3><p>Cost and tokens per account, per person and per Code, workflow or Crew, plus a live check of each plan's own usage limit.</p></li>
-          <li><h3>Stay accountable</h3><p>Runs on a shared account act as, and bill to, its owner. Owners see who used their account and where. Admins see everything.</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section" id="on-the-go">
-      <div class="wrap">
-        <div class="goal-pair">
-          <div class="section-head reveal">
-            <p class="kicker">On the go</p>
-            <h2>Every Code can connect to Slack and WhatsApp. <span class="dim">Keep working from your phone.</span></h2>
-            <p class="lede">Connect a Code to a Slack direct message or a one-to-one WhatsApp chat. Ask for a fix, check a test run or get a summary without opening a laptop. The same Code, the same files, the same cost tracking.</p>
-          </div>
-          <div class="explainer reveal" aria-label="Example: a Code in WhatsApp">
-            <p class="explainer-title"><span>WhatsApp</span><span>checkout-service</span></p>
-            <p class="ask-msg you">Did the retry change pass the tests?</p>
-            <p class="ask-msg them"><b>Yes</b> All 48 tests pass after the retry change. Want a short summary for Rio?</p>
-            <p class="ask-msg you">Yes, send it to me here.</p>
-          </div>
-        </div>
+        {uc_pills(['Each Code is private to its owner','Admins review read-only, every view recorded','Every command sandboxed','Cost per person, Code and plan'])}
       </div>
     </section>
 
@@ -113,32 +78,15 @@ code_body=f'''  <main id="main">
       </div>
     </section>
 
-    <section class="section" id="inside">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">A private workspace for everyone</p>
-          <h2>Each person gets a Code. <span class="dim">Their files, their agent.</span></h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>The coding agent you like</h3><p>Claude Code, Codex, Cursor, Muse or Pi, on a shared account or your own.</p></li>
-          <li class="reveal"><h3>Sandboxed commands</h3><p>The agent runs every command for you inside a Linux Landlock sandbox with its own private /tmp. Its own files are protected. There's no open shell on the server.</p></li>
-          <li class="reveal"><h3>Private by default</h3><p>A new Code is yours alone. Skills you add stay in it.</p></li>
-          <li class="reveal"><h3>Yours alone</h3><p>A Code can't be shared with other people. Your files, chats and credentials stay with you. Admins and Code reviewers can review it read-only, and every view is recorded.</p></li>
-          <li class="reveal"><h3>Uses your Crews and workflows</h3><p>Your agent can ask your Crews or run your workflows. Other people's agents and tools can't call into your Code.</p></li>
-          <li class="reveal"><h3>Cost you can see</h3><p>Tokens and cost tracked per Code, per person and per AI account.</p></li>
-        </ul>
-      </div>
-    </section>
-
     <section class="section" id="connect">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">Connections</p>
           <h2>Connect your own tools. <span class="dim">They stay yours.</span></h2>
         </div>
-        <ul class="control">
-          <li class="reveal"><h3>Connect your own MCP servers</h3><p>Pick from dozens of remote servers, such as Google Workspace, GitHub and Slack, and sign in with your own account. A connection is personal: switched on per Code, used only in your own chats, and never usable by anyone else in the Code. Calls to private or internal network addresses are blocked. Google, GitHub, Slack and a few others need an OAuth app, either your own or one your admin sets up on the server.</p></li>
-          <li class="reveal"><h3>Personal secrets</h3><p>Secrets you add are visible only to you and reach only your own chats, as environment variables and as API keys for your MCP servers. Personal connections and secrets are stored encrypted.</p></li>
+        <ul class="control two">
+          <li class="reveal"><h3>Your own MCP servers</h3><p>Sign in to GitHub, Slack, Google Workspace and more with your own account. Only your chats can use them.</p></li>
+          <li class="reveal"><h3>Personal secrets</h3><p>Stored encrypted, visible only to you, used only in your chats.</p></li>
         </ul>
         <div class="connect-row center-row" aria-label="Coding agents a Code can run on">
           <span class="chip">{logo("claude")}Claude Code</span>
@@ -147,22 +95,6 @@ code_body=f'''  <main id="main">
           <span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span>
           <span class="chip"><span class="mono-logo" aria-hidden="true">P</span>Pi</span>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="review">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">For teams</p>
-          <h2>Private to people. <span class="dim">Open to review.</span></h2>
-          <p class="lede">A Code is private, not hidden. The people responsible for the server can review it, and the Code says so up front.</p>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Admins see the whole picture</h3><p>Every account, every person's usage, and which Codes, workflows and Crews it went to.</p></li>
-          <li class="reveal"><h3>Same accounts for Crews</h3><p>The plans you bring also power your Crews, in chat, Slack, WhatsApp or the live terminal. For Enterprise, sign-in goes through your SSO, with roles and per-workflow access.</p></li>
-          <li class="reveal"><h3>Owners see their account</h3><p>Whoever shares an account sees who used it and where, and can stop sharing at any time.</p></li>
-          <li class="reveal"><h3>Code reviewers</h3><p>Admins, and people an admin names as Code reviewers, can read any Code's chats, files and costs. Read-only, and every view goes in the audit log. AI assistants can do the same review over the AgentWorks MCP connection with a dedicated <code>code:review</code> token.</p></li>
-        </ul>
       </div>
     </section>
 

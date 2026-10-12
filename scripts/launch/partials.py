@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch69'
+V='launch70'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -240,3 +240,72 @@ def shot(num, title, want, caption=''):
         rel='/'+os.path.relpath(f,_ROOT)
         return f'<figure class="shot reveal"><img src="{rel}" alt="{title}: {caption or want}" width="{w}" height="{h}" loading="lazy">{cap}</figure>'
     return f'<figure class="shot reveal"><div class="shot-slot"><div><b>Screenshot {num}: {title}</b><span>{want}</span></div></div>{cap}</figure>'
+
+
+# Illustrated use-case cards (product pages). Each card is a small picture of one job, not a paragraph.
+UC_IC={'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+       'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+       'brain':'<path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/>',
+       'code':'<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>',
+       'relay':'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/>',
+       'vault':'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+       'user':'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+       'web':'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+       'mail':'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+       'term':'<path d="m5 8 4 4-4 4M12 16h7"/>'}
+
+def uc_ic(name):
+    """Icon tile: a brand logo (claude/openai/cursor), a tool logo (slack/whatsapp/...), 'M' for Muse, or a UC_IC line icon."""
+    if name in ('claude','openai','cursor','googlegemini'): inner=logo(name)
+    elif name=='muse': inner='<span class="mono-logo">M</span>'
+    elif name in UC_IC: inner='<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+UC_IC[name]+'</svg>'
+    else: inner=tool(name)
+    return f'<span class="net-ic">{inner}</span>'
+
+def uc_who(ic, name): return f'<span class="uc-who">{uc_ic(ic)}{name}</span>'
+
+def uc_chat(title, frm, to, ask, reply, via=''):
+    """frm/to are (icon, label). Ask bubble, optional tool line, reply bubble."""
+    v=f'\n            <p class="ask-tool">{via}</p>' if via else ''
+    return f'''          <li class="ucx reveal">
+            <h3>{title}</h3>
+            <p class="uc-route">{uc_who(*frm)}<span class="uc-arr" aria-hidden="true">→</span>{uc_who(*to)}</p>
+            <p class="ask-msg you">{ask}</p>{v}
+            <p class="ask-msg them">{reply}</p>
+          </li>'''
+
+def uc_goal(title, team, metric, now, was, bar, did, tag='Tracking'):
+    """A goal card: team, metric, before → now, progress bar, one thing the agent did."""
+    t='tag-ok' if tag=='Target met' else 'tag-goal'
+    return f'''          <li class="ucx reveal">
+            <h3>{title}</h3>
+            <p class="uc-route">{uc_who('goal',team)}</p>
+            <div class="goal-card"><p class="goal-top"><span class="tag {t}">{tag}</span></p><p class="goal-name">{metric}</p><p class="goal-nums"><strong>{now}</strong><span>from {was}</span></p><div class="bar"><i class="{bar}"></i></div></div>
+            <p class="uc-did"><b>Agent did:</b> {did}</p>
+          </li>'''
+
+def uc_pipe(title, trigger, steps, result):
+    """trigger is (icon, label); steps are (kind, label) with kind agent|cond|det|ok|no; result is the outcome line."""
+    lis=''.join(f'<li class="uc-st {k}">{l}</li>' for k,l in steps)
+    return f'''          <li class="ucx reveal">
+            <h3>{title}</h3>
+            <p class="uc-route">{uc_who(*trigger)}</p>
+            <ol class="uc-steps">{lis}</ol>
+            <p class="uc-out">{result}</p>
+          </li>'''
+
+def uc_section(cards, kicker='Use cases', h2='What teams do with it.', dim='Illustrative examples.', sid='uses'):
+    return f'''    <section class="section" id="{sid}">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">{kicker}</p>
+          <h2>{h2} <span class="dim">{dim}</span></h2>
+        </div>
+        <ul class="ucx-grid">
+{chr(10).join(cards)}
+        </ul>
+      </div>
+    </section>
+'''
+
+def uc_pills(items): return '<p class="uc-rules reveal">'+''.join(f'<span>{i}</span>' for i in items)+'</p>'

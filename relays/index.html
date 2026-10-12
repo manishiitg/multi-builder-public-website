@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
-  <link rel="stylesheet" href="/launch.css?v=launch69">
+  <link rel="stylesheet" href="/launch.css?v=launch70">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -214,44 +214,61 @@
           <h2>Design it once. <span class="dim">Call it from anything.</span></h2>
         </div>
         <ol class="loop reveal">
-          <li><h2>Chain the steps</h2><p>Add agent steps, each with its own system prompt, message and model. Add conditions for decisions, and script steps where exact code is better.</p></li>
-          <li><h2>Test with real input</h2><p>Run it on sample inputs and see every step's output before anything goes live.</p></li>
-          <li><h2>Deploy a trigger</h2><p>Each Relay gets an authenticated API endpoint or webhook, versioned so a change never breaks callers.</p></li>
-          <li><h2>Run it anywhere</h2><p>Your website, CRM, backend or no-code tool calls it. Every run is logged with its inputs, outputs and cost.</p></li>
+          <li><h2>Chain the steps</h2><p>Agent steps, conditions and small scripts.</p></li>
+          <li><h2>Test with real input</h2><p>See every step's output on sample input.</p></li>
+          <li><h2>Deploy a trigger</h2><p>Get a versioned API endpoint or webhook.</p></li>
+          <li><h2>Run it anywhere</h2><p>Call it from your site, CRM or backend. Every run is logged.</p></li>
         </ol>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="uses">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Where Relays fit</p>
-          <h2>Three ways to put agents to work.</h2>
+          <p class="kicker">Use cases</p>
+          <h2>Same steps, every time. <span class="dim">Illustrative examples.</span></h2>
         </div>
-        <ul class="control">
-          <li class="reveal"><h3>Relays</h3><p>A fixed chain you call from outside. Same steps every time, predictable cost, an answer back in seconds or minutes.</p></li>
-          <li class="reveal"><h3><a href="/goals/">Workflows with a goal</a></h3><p>Work toward an outcome like "5 demos a week". Plan, run on schedule, measure, and adjust the plan as the number moves.</p></li>
-          <li class="reveal"><h3><a href="/crews/">Crew</a></h3><p>Always-on teammates you talk to in chat, Slack or WhatsApp, with memory, skills and their own tools.</p></li>
+        <ul class="ucx-grid">
+          <li class="ucx reveal">
+            <h3>Website enquiry</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>Contact form</span></p>
+            <ol class="uc-steps"><li class="uc-st agent">Classify: sales, support or partner</li><li class="uc-st det">Look up the company in your CRM</li><li class="uc-st agent">Draft the reply in your tone</li></ol>
+            <p class="uc-out">Reply sent, lead logged</p>
+          </li>
+          <li class="ucx reveal">
+            <h3>Support triage</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>New ticket</span></p>
+            <ol class="uc-steps"><li class="uc-st agent">Summarise the problem</li><li class="uc-st agent">Find the answer in your help docs</li><li class="uc-st cond">Found an answer?</li></ol>
+            <p class="uc-out">Answered, or routed to a person</p>
+          </li>
+          <li class="ucx reveal">
+            <h3>Invoice intake</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>Invoice by email</span></p>
+            <ol class="uc-steps"><li class="uc-st agent">Extract supplier, amount and due date</li><li class="uc-st det">Check the totals add up</li><li class="uc-st cond">Anything off?</li></ol>
+            <p class="uc-out">Booked, or flagged for review</p>
+          </li>
+          <li class="ucx reveal">
+            <h3>Content check</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>New blog draft</span></p>
+            <ol class="uc-steps"><li class="uc-st agent">Check it against your style guide</li><li class="uc-st agent">Check every claim has a source</li></ol>
+            <p class="uc-out">Approved, or edits suggested</p>
+          </li>
+          <li class="ucx reveal">
+            <h3>Order exception</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" fill="#7AB55C" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"/></svg></span>Store webhook</span></p>
+            <ol class="uc-steps"><li class="uc-st agent">Decide what went wrong</li><li class="uc-st det">Update the order</li></ol>
+            <p class="uc-out">Customer update prepared</p>
+          </li>
+          <li class="ucx reveal">
+            <h3>Call notes to CRM</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>Call transcript</span></p>
+            <ol class="uc-steps"><li class="uc-st agent">Summarise and pull next steps</li><li class="uc-st det">Write them to the CRM</li></ol>
+            <p class="uc-out">Notes and follow-ups logged</p>
+          </li>
         </ul>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Ideas</p>
-          <h2>Relays teams are asking for.</h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Website enquiry to qualified reply</h3><p>Classify, enrich from your CRM, draft a reply, and log the lead.</p></li>
-          <li class="reveal"><h3>Support ticket triage</h3><p>Summarize, find the answer in your help docs, and route what it can't answer.</p></li>
-          <li class="reveal"><h3>Document intake</h3><p>Extract fields from an invoice or form, validate them with a script, and flag what needs a person.</p></li>
-          <li class="reveal"><h3>Content checks</h3><p>Check a draft against your style and claims rules before it's published.</p></li>
-          <li class="reveal"><h3>Order exceptions</h3><p>Read the order, decide the case, and prepare the customer update.</p></li>
-          <li class="reveal"><h3>Your own chain</h3><p>Any few steps you repeat today, turned into one call.</p></li>
-        </ul>
-      </div>
-    </section>
 
     <section class="section">
       <div class="wrap faq-grid">
@@ -337,7 +354,7 @@
       </div>
     </div>
   </footer>
-  <script src="/launch.js?v=launch69"></script>
+  <script src="/launch.js?v=launch70"></script>
   <script src="/analytics.js?v=1"></script>
 </body>
 </html>

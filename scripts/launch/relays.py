@@ -46,44 +46,22 @@ body=f'''  <main id="main">
           <h2>Design it once. <span class="dim">Call it from anything.</span></h2>
         </div>
         <ol class="loop reveal">
-          <li><h2>Chain the steps</h2><p>Add agent steps, each with its own system prompt, message and model. Add conditions for decisions, and script steps where exact code is better.</p></li>
-          <li><h2>Test with real input</h2><p>Run it on sample inputs and see every step's output before anything goes live.</p></li>
-          <li><h2>Deploy a trigger</h2><p>Each Relay gets an authenticated API endpoint or webhook, versioned so a change never breaks callers.</p></li>
-          <li><h2>Run it anywhere</h2><p>Your website, CRM, backend or no-code tool calls it. Every run is logged with its inputs, outputs and cost.</p></li>
+          <li><h2>Chain the steps</h2><p>Agent steps, conditions and small scripts.</p></li>
+          <li><h2>Test with real input</h2><p>See every step's output on sample input.</p></li>
+          <li><h2>Deploy a trigger</h2><p>Get a versioned API endpoint or webhook.</p></li>
+          <li><h2>Run it anywhere</h2><p>Call it from your site, CRM or backend. Every run is logged.</p></li>
         </ol>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Where Relays fit</p>
-          <h2>Three ways to put agents to work.</h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Relays</h3><p>A fixed chain you call from outside. Same steps every time, predictable cost, an answer back in seconds or minutes.</p></li>
-          <li class="reveal"><h3><a href="/goals/">Workflows with a goal</a></h3><p>Work toward an outcome like "5 demos a week". Plan, run on schedule, measure, and adjust the plan as the number moves.</p></li>
-          <li class="reveal"><h3><a href="/crews/">Crew</a></h3><p>Always-on teammates you talk to in chat, Slack or WhatsApp, with memory, skills and their own tools.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Ideas</p>
-          <h2>Relays teams are asking for.</h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Website enquiry to qualified reply</h3><p>Classify, enrich from your CRM, draft a reply, and log the lead.</p></li>
-          <li class="reveal"><h3>Support ticket triage</h3><p>Summarize, find the answer in your help docs, and route what it can't answer.</p></li>
-          <li class="reveal"><h3>Document intake</h3><p>Extract fields from an invoice or form, validate them with a script, and flag what needs a person.</p></li>
-          <li class="reveal"><h3>Content checks</h3><p>Check a draft against your style and claims rules before it's published.</p></li>
-          <li class="reveal"><h3>Order exceptions</h3><p>Read the order, decide the case, and prepare the customer update.</p></li>
-          <li class="reveal"><h3>Your own chain</h3><p>Any few steps you repeat today, turned into one call.</p></li>
-        </ul>
-      </div>
-    </section>
+{uc_section([
+ uc_pipe("Website enquiry",("web","Contact form"),[("agent","Classify: sales, support or partner"),("det","Look up the company in your CRM"),("agent","Draft the reply in your tone")],"Reply sent, lead logged"),
+ uc_pipe("Support triage",("mail","New ticket"),[("agent","Summarise the problem"),("agent","Find the answer in your help docs"),("cond","Found an answer?")],"Answered, or routed to a person"),
+ uc_pipe("Invoice intake",("mail","Invoice by email"),[("agent","Extract supplier, amount and due date"),("det","Check the totals add up"),("cond","Anything off?")],"Booked, or flagged for review"),
+ uc_pipe("Content check",("web","New blog draft"),[("agent","Check it against your style guide"),("agent","Check every claim has a source")],"Approved, or edits suggested"),
+ uc_pipe("Order exception",("shopify","Store webhook"),[("agent","Decide what went wrong"),("det","Update the order")],"Customer update prepared"),
+ uc_pipe("Call notes to CRM",("user","Call transcript"),[("agent","Summarise and pull next steps"),("det","Write them to the CRM")],"Notes and follow-ups logged"),
+], h2='Same steps, every time.', dim='Illustrative examples.')}
 
     <section class="section">
       <div class="wrap faq-grid">

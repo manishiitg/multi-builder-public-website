@@ -18,7 +18,7 @@ brain_body=f'''  <main id="main">
         <p class="lede">Today each agent starts from zero, and the know-how sits in heads, chat threads and copies on laptops. Brain is one shared place for your company's skills, notes and facts. Write it once, give folders to the people and agents who need them, and every Crew, Code workspace, Goal and MCP client reads the same thing.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="#problems">What it solves</a>
+          <a class="btn btn-ghost" href="#uses">See use cases</a>
         </div>
       </div>
     </section>
@@ -44,22 +44,14 @@ brain_body=f'''  <main id="main">
       </div>
     </section>
 
-    <section class="section" id="problems">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">What it solves</p>
-          <h2>Know-how that stays put. <span class="dim">Agents that start from scratch.</span></h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Every chat starts empty</h3><p>People paste the same context into every conversation. In Brain it is written once and every agent reads it.</p></li>
-          <li class="reveal"><h3>The same facts, copied everywhere</h3><p>Notes about the company and its people end up duplicated across workflows, Crews and laptops, and drift apart. Brain keeps one copy.</p></li>
-          <li class="reveal"><h3>Skills copied between laptops</h3><p>A skill shared as a file goes stale in every copy. Publish it to Brain once, and clients fetch the current version.</p></li>
-          <li class="reveal"><h3>Knowledge in heads and threads</h3><p>Decisions and runbooks live in a few people's memory or a Slack thread. Brain gives them a home your agents can search.</p></li>
-          <li class="reveal"><h3>No control over who sees what</h3><p>Access is set per folder with Reader, Editor and Owner roles, and an agent only reaches what the person it runs as can.</p></li>
-          <li class="reveal"><h3>It piles up and gets messy</h3><p>One command, <code>/organize</code>, merges duplicates and tidies folders by products, teams or entities, and every move is reported.</p></li>
-        </ul>
-      </div>
-    </section>
+{uc_section([
+ uc_chat("Onboarding",("claude","New hire's Claude Code"),("brain","Brain"),"How do I run the app locally?","Clone, copy the sample env file, run make dev. Ask for VPN first.",via="Read <b>Engineering / Onboarding / local-setup</b>"),
+ uc_chat("Support answers",("crew","Support Crew"),("brain","Brain"),"Can this customer get a refund after 40 days?","No. The policy is 30 days. Offer store credit instead.",via="Read <b>Support / Policies / refunds</b>"),
+ uc_chat("Sales facts",("goal","Sales goal"),("brain","Brain"),"Which plan includes SSO?","Enterprise. Don't quote a price; book a call.",via="Read <b>Sales / Facts / plans</b>"),
+ uc_chat("Agents save what they learn",("code","Your Code"),("brain","Brain"),"Remember: staging needs the VPN.","Saved to Engineering / Notes, with your name on it.",via="Wrote <b>Engineering / Notes / staging-access</b>"),
+ uc_chat("One skill for everyone",("cursor","Cursor"),("brain","Brain"),"Get the release checklist skill.","Installed version 3 from Engineering / Skills.",via="Fetched <b>release-checklist</b> · version 3"),
+ uc_chat("Keep it tidy",("user","You"),("brain","Brain"),"/organize","Merged duplicate notes and grouped them by team. Every move is listed."),
+], h2='Write it once.', dim='Every agent reads it. Illustrative examples.')}
 
     <section class="section" id="how">
       <div class="wrap">
@@ -68,26 +60,11 @@ brain_body=f'''  <main id="main">
           <h2>Folders, roles and one connection. <span class="dim">Used by every agent.</span></h2>
         </div>
         <ol class="loop reveal">
-          <li><h3>Organize in folders</h3><p>Skills, notes, facts and sources live as Markdown entries in nested folders. You choose the structure, and agents can tidy it.</p></li>
-          <li><h3>Grant by folder</h3><p>Give people and agents Reader, Editor or Owner on a folder. Access carries down into the folders inside it.</p></li>
-          <li><h3>Connect your agents</h3><p>Crews, Code and Goals use Brain directly. Claude Code and other MCP clients connect to the same Brain. Each project picks off, read only, read and write, or chosen folders.</p></li>
-          <li><h3>Keep it safe</h3><p>Every entry has a history you can roll back, and you can back it up to a private Git repository.</p></li>
+          <li><h3>Organize in folders</h3><p>Skills, notes, facts and sources, as Markdown in nested folders.</p></li>
+          <li><h3>Grant by folder</h3><p>Reader, Editor or Owner, per folder.</p></li>
+          <li><h3>Connect your agents</h3><p>Crews, Code, Goals and any MCP client read the same Brain.</p></li>
+          <li><h3>Keep it safe</h3><p>History on every entry, and backup to your own Git repository.</p></li>
         </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Company skills</p>
-          <h2>Publish a skill once. <span class="dim">Everyone gets the current version.</span></h2>
-          <p class="lede">Skills are shared today as files people copy into their own AI. In Brain, a skill is an entry with a version and an author. Anyone with access to its folder can use it from their own agent, and the agent says which version it followed. Skills that include scripts need a folder Owner to publish them.</p>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>One source</h3><p>Update the skill in Brain and every agent that uses it gets the change.</p></li>
-          <li class="reveal"><h3>Versioned</h3><p>Each publish makes a new version, with the author and date recorded.</p></li>
-          <li class="reveal"><h3>Works from your own tools</h3><p>An MCP client such as Claude Code fetches a skill and installs it in its own skills folder.</p></li>
-        </ul>
       </div>
     </section>
 
