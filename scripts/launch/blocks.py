@@ -1,44 +1,45 @@
 from partials import *
 import html as H
 
+import tpl as _TT
+_GOAL_PB=_TT.N_GOALS
 def tiers(heading='h3'):
     return f'''<div class="tiers two">
-          <article class="tier reveal">
-            <p class="tier-name">Free for developers</p>
-            <p class="tier-price"><strong>$0</strong><span>forever</span></p>
-            <p class="tier-desc">Read the code, modify it and run it locally. Free for personal, development, testing, evaluation, education and research use.</p>
-            <ul class="tier-list">
-              <li>Goals, Crews and Relays</li>
-              <li>Brain and Code</li>
-              <li>Auto-improvement toward your goals</li>
-              <li>All premade agents and playbooks</li>
-              <li>Slack and WhatsApp channels</li>
-              <li>Secrets vault, sandbox, run logs</li>
-              <li>Business Source License 1.1, community support</li>
-            </ul>
-            <div class="tier-foot">
-              <a class="btn btn-ghost btn-block" href="{GH}" target="_blank" rel="noreferrer">Get it on GitHub</a>
-              <small>macOS app or Linux · not for business use</small>
-            </div>
-          </article>
           <article class="tier tier-featured reveal" id="custom">
             <span class="tier-badge">Set up with you</span>
-            <p class="tier-name">Custom deployment</p>
+            <p class="tier-name">Enterprise</p>
             <p class="tier-price"><strong>Custom</strong></p>
-            <p class="tier-desc">Everything, customized for your company and deployed in your own cloud, with the controls your IT and security teams need.</p>
+            <p class="tier-desc">Every product, customized for your company and deployed in your own cloud, with the controls your IT and security teams need.</p>
             <ul class="tier-list">
-              <li class="head">Everything in the free plan, plus</li>
-              <li>A commercial license for use in your business operations</li>
-              <li>Vault (early access): governed tool access, shared secrets and audit</li>
+              <li class="head">Every product, including</li>
+              <li>Goals, Crews, Relays, Brain and Code</li>
+              <li>Bullpen and Vault (early access), LLM Gateway (coming soon)</li>
+              <li>All premade Crew agents</li>
               <li>Customized deployment and integrations built with you</li>
-              <li>Agents set up for your processes and approval rules</li>
               <li>Self-hosted in your VPC or private cloud</li>
               <li>SSO (SAML / OIDC), SCIM and audit log export</li>
-              <li>Dedicated support and SLA</li>
+              <li>A commercial license, dedicated support and SLA</li>
             </ul>
             <div class="tier-foot">
               <a class="btn btn-amber btn-block" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
               <small>One-time setup fee, then a monthly fee · scoped on a call</small>
+            </div>
+          </article>
+          <article class="tier reveal">
+            <p class="tier-name">Goals only</p>
+            <p class="tier-price"><strong>Self-serve</strong></p>
+            <p class="tier-desc">Want to try it first? Set up one agent with a goal and a metric yourself.</p>
+            <ul class="tier-list">
+              <li>Goals with measured targets</li>
+              <li>Auto-improvement toward your goals</li>
+              <li>{_GOAL_PB} premade Goal playbooks</li>
+              <li>Approvals and autonomy limits</li>
+              <li>Secrets vault, sandbox, run logs and cost per goal</li>
+              <li>Runs on the AI plan you already pay for</li>
+            </ul>
+            <div class="tier-foot">
+              <a class="btn btn-ghost btn-block" href="{INSTALL}">Download the app</a>
+              <small>macOS app or Linux</small>
             </div>
           </article>
         </div>'''
@@ -48,7 +49,7 @@ FAQ_HOME=[
  ("Do I need to know how to code?","No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks."),
  ("What's the difference between Crew and Goals?","A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and adjusting toward it. Teammates often work on goals."),
  ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi, Muse and Antigravity. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."),
- ("How do I get started?","Download the free app and try it yourself (free for personal, development, testing, evaluation, education and research use), or book a short call and we'll scope a custom deployment for your company: which process to start with, which tools it touches and where it runs."),
+ ("How do I get started?","Download the app and set up your first Goal yourself, or book a short call and we'll scope a custom deployment for your company: which process to start with, which tools it touches and where it runs."),
  ("Can people use a Crew from Claude or ChatGPT?","Yes. Share a Crew and people ask it from Claude, ChatGPT, Cursor, Claude Code, Codex or the agentworks CLI, through MCP. Each person gets their own conversation, and the Crew's private chats and data stay private."),
  ("Do my people have to switch AI tools?","No. People keep Claude Code, Codex, Cursor, ChatGPT or whatever they already use. AgentWorks connects those tools to your company's agents, knowledge and rules."),
  ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),

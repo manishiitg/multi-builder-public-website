@@ -10,7 +10,7 @@ FAQ_RELAYS=[
 body=f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
-        <p class="kicker">Relays</p>
+        <p class="kicker">Relays <span class="tag">Enterprise</span></p>
         <h1>A fixed relay of agents. <span class="dim">Run it from anywhere.</span></h1>
         <p class="lede">Some jobs don't need an agent that plans. They need the same few steps, done well, every time: read the enquiry, decide what it is, look something up, write the reply. Relays let you chain agents, decisions and small scripts into one simple sequence, then call it from your website, your CRM or any other system.</p>
         <div class="hero-actions">

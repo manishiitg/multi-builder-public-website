@@ -10,7 +10,7 @@ FAQ_BULLPEN=[
 body=f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
-        <p class="kicker">Bullpen <span class="tag tag-soon">Early access</span></p>
+        <p class="kicker">Bullpen <span class="tag">Enterprise</span> <span class="tag tag-soon">Early access</span></p>
         <h1>All your agents, <span class="dim">one network.</span></h1>
         <p class="lede">One big network for your team: every local CLI and desktop app, such as Claude Code, Codex, Cursor, Muse and Antigravity, plus your AgentWorks Crews and workflows. Your agents keep running where they run today. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">

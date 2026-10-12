@@ -12,7 +12,7 @@ FAQ_CODE=[
 code_body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker">Code</p>
+        <p class="kicker">Code <span class="tag">Enterprise</span></p>
         <h1>Every employee wants coding agents. <span class="dim">Bring them to one place.</span></h1>
         <p class="lede">Today each person runs Claude Code, Codex or Cursor on their own laptop and their own plan, and the company can't see what it costs, who uses how much, or what the agents actually produced. With Code, everyone codes on your AgentWorks server, on the plans you already pay for, and you review cost, usage and output in one place. People can reach their Code from Slack or WhatsApp when they're away from the desk.</p>
         <div class="hero-actions">

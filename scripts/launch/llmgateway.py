@@ -12,7 +12,7 @@ _mrow=lambda ic,name,who,tag,cls='': f'<div class="row"><span class="net-ic">{ic
 body=f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
-        <p class="kicker">LLM Gateway <span class="tag tag-soon">Coming soon</span></p>
+        <p class="kicker">LLM Gateway <span class="tag">Enterprise</span> <span class="tag tag-soon">Coming soon</span></p>
         <h1>One endpoint for every model. <span class="dim">Every call checked and costed.</span></h1>
         <p class="lede">Give every person and internal app one way to call AI models. You choose who can use which model, and see the cost of every call by person and by model.</p>
         <div class="hero-actions">

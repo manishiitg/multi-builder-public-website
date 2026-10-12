@@ -126,8 +126,8 @@ const pageExpectations = [
     name: 'pricing',
     file: 'pricing/index.html',
     route: '/pricing/',
-    title: 'AgentWorks Pricing - Free for Developers or Custom Deployment',
-    h1: 'Free for developers. Licensed and customized for your company.',
+    title: 'AgentWorks Pricing - Enterprise Deployment, or Try Goals Yourself',
+    h1: 'Built for your company. Customized and deployed with you.',
     canonical: 'https://agentworkshq.com/pricing/',
     ogImage: 'assets/og/agentworks-pricing-og.jpg',
     allowTallSections: true

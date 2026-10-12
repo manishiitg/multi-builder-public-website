@@ -18,7 +18,7 @@ FAQ_CREWS=[
 crews_body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker">Crews</p>
+        <p class="kicker">Crews <span class="tag">Enterprise</span></p>
         <h1>Build an expert once. <span class="dim">Your whole team can ask it.</span></h1>
         <p class="lede">A Crew is an AI agent with your team's skills, tools and memory. Talk to it in Slack or WhatsApp like a teammate, or share it as an expert anyone can ask from Claude, ChatGPT, Cursor, the terminal, or your own agents.</p>
         <div class="hero-actions">
@@ -129,7 +129,7 @@ crews_body=f'''  <main id="main">
         <p>We build your first Crew with the team that owns the knowledge, then connect it to the tools your people already use.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="{INSTALL}">Download free app</a>
+          <a class="btn btn-ghost" href="/pricing/">See plans</a>
         </div>
       </div>
     </section>

@@ -131,7 +131,7 @@ goals_body=f'''  <main id="main">
         <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="{INSTALL}">Download free app</a>
+          <a class="btn btn-ghost" href="{INSTALL}">Download the app</a>
         </div>
       </div>
     </section>

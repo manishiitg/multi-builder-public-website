@@ -13,7 +13,7 @@ FAQ_BRAIN=[
 brain_body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker">Brain</p>
+        <p class="kicker">Brain <span class="tag">Enterprise</span></p>
         <h1>What your team knows, <span class="dim">every agent knows.</span></h1>
         <p class="lede">Today each agent starts from zero, and the know-how sits in heads, chat threads and copies on laptops. Brain is one shared place for your company's skills, notes and facts. Write it once, give folders to the people and agents who need them, and every Crew, Code workspace, Goal and MCP client reads the same thing.</p>
         <div class="hero-actions">

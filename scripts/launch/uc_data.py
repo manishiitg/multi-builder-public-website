@@ -152,7 +152,7 @@ USECASES=[
   navdesc='One governed door to every MCP tool and shared secret your company uses.',
   title='AgentWorks Vault - Govern Every MCP Tool and Shared Secret Your AI Agents Use',
   desc='Vault is one MCP endpoint for every AI client in your company. Admins connect servers once, grant tools and secrets by group, and every call is checked against policy and recorded in an audit log.',
-  kicker='Vault · Early access',
+  kicker='Vault · Enterprise · Early access',
   h1='One door to every MCP tool.', h1dim='Every call checked and recorded.',
   lede='People plug MCP servers into Claude, ChatGPT, Cursor and their own agents, each with its own tokens and no oversight. Vault gives your company one governed MCP endpoint: admins connect servers once, people sign in with the company account, and every tool call is checked against the groups and rules you set.',
   cta_label='Get early access',
