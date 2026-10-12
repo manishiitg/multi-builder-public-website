@@ -67,7 +67,7 @@ body=f'''  <main id="main">
           <p class="kicker">Use cases</p>
           <h2>What teams do with it. <span class="dim">Illustrative examples.</span></h2>
         </div>
-        <ul class="uc-grid">
+        <ul class="ucx-grid">
           <li class="uc reveal">
             <h3>Second opinion</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span></p>
