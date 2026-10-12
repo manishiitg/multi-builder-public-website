@@ -1,6 +1,6 @@
 # /code/: Code: bring the team's coding plans to one server, share them and track cost; each person codes in a private workspace. Facts from the product team (2026-09-28).
 FAQ_CODE=[
- ("Which coding plans can we bring?","Claude Code, Codex, Cursor, Muse and Pi. Connect an account by browser login (Claude Code, Codex, Cursor, Muse) or by API key. The login stays on the server."),
+ ("Which coding plans can we bring?","Claude Code, Codex, Cursor, Muse, Pi and Antigravity. Connect an account by browser login (Claude Code, Codex, Cursor, Muse) or by API key. The login stays on the server."),
  ("Who pays when someone uses a shared account?","The account's owner. Runs on a shared account act as that owner and use their plan, and the owner can see who used it and where."),
  ("Can we see how much of a plan is left?","Yes. Each account has a live usage check that reads the coding CLI's own usage or status, so you see the limit the vendor reports."),
  ("Can someone using my shared account see my login?","Not through the app, and runs can't reach it either: every coding run is confined to its own workspace and files, so it cannot read another account's login files on the server. Still, share an account only with people and Crews you trust."),
@@ -94,6 +94,7 @@ code_body=f'''  <main id="main">
           <span class="chip">{logo("cursor")}Cursor</span>
           <span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span>
           <span class="chip"><span class="mono-logo" aria-hidden="true">P</span>Pi</span>
+          <span class="chip"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" />Antigravity</span>
         </div>
       </div>
     </section>
@@ -123,4 +124,4 @@ code_body=f'''  <main id="main">
   </main>
 '''
 CODE_LD={"@type":"WebPage","name":"AgentWorks Code","url":"https://agentworkshq.com/code/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['code/index.html']=head('AgentWorks Code - Coding Agents for Every Employee, With Cost and Usage in One Place','Everyone codes with Claude Code, Codex, Cursor, Muse or Pi on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues.','/code/',og='agentworks-product-og.jpg',extra_ld=ld(CODE_LD,BC('Code','/code/'),faq_ld(FAQ_CODE)))+header('product')+code_body+footer()
+pages['code/index.html']=head('AgentWorks Code - Coding Agents for Every Employee, With Cost and Usage in One Place','Everyone codes with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues.','/code/',og='agentworks-product-og.jpg',extra_ld=ld(CODE_LD,BC('Code','/code/'),faq_ld(FAQ_CODE)))+header('product')+code_body+footer()
