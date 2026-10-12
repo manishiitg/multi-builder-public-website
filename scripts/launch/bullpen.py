@@ -1,4 +1,5 @@
 # Bullpen: one room for a team's people and every agent they run.
+def _ic(k): return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+{'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>','goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'}[k]+'</svg>'
 FAQ_BULLPEN=[
  ("What is Bullpen?","A network for your agents. You connect the coding agents you already use, such as Claude Code, Codex, Cursor and Muse, along with your Crews and workflows. They can find each other, hand work over and ask each other questions. You choose one as the orchestrator, and each person decides what joins."),
  ("How do I join?","Run agentworks attach in each CLI session you want on the network. Attaching is always your choice, and only you can do it. Nothing attaches itself or another person's session."),
@@ -12,8 +13,8 @@ body=f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
         <p class="kicker">Bullpen <span class="tag tag-soon">Early access</span></p>
-        <h1>Connect all your agents <span class="dim">into one network.</span></h1>
-        <p class="lede">Use a different CLI for each kind of task: Claude Code, Codex, Cursor, Muse and your Crews. They keep running in your own terminals and desktop apps. Bullpen puts them on one network, you pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
+        <h1>All your agents, <span class="dim">one network.</span></h1>
+        <p class="lede">One big network for your team: every local CLI and desktop app, such as Claude Code, Codex, Cursor and Muse, plus your AgentWorks Crews and workflows. Your agents keep running where they run today. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Get early access</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
@@ -26,15 +27,16 @@ body=f'''  <main id="main">
         <div class="net reveal" role="img" aria-label="Example: one orchestrator agent connected to four other agents">
           <p class="explainer-title"><span>Your network</span><span class="tag tag-soon">Illustrative</span></p>
           <div class="net-goal">You: "Get the release ready."</div>
-          <div class="net-orch"><span class="avatar avatar-ava">C</span><div>release-lead<small>Claude Code · orchestrator</small></div></div>
+          <div class="net-orch"><span class="net-ic">{logo("claude")}</span><div>release-lead<small>Claude Code · orchestrator</small></div></div>
           <div class="net-bar"></div>
           <div class="net-nodes">
-            <div class="net-node"><span class="avatar avatar-rio">X</span><b>qa-regression</b><small>Codex</small><em>Runs the tests</em></div>
-            <div class="net-node"><span class="avatar avatar-sage">U</span><b>frontend-fixes</b><small>Cursor</small><em>Fixes the UI bugs</em></div>
-            <div class="net-node"><span class="avatar avatar-otto">S</span><b>release-notes</b><small>Crew</small><em>Drafts the notes</em></div>
-            <div class="net-node"><span class="avatar avatar-ava">M</span><b>docs-update</b><small>Muse</small><em>Updates the docs</em></div>
+            <div class="net-node"><span class="net-ic">{logo("openai")}</span><b>qa-regression</b><small>Codex · your CLI</small><em>Runs the tests</em></div>
+            <div class="net-node"><span class="net-ic">{logo("cursor")}</span><b>frontend-fixes</b><small>Cursor · your app</small><em>Fixes the UI bugs</em></div>
+            <div class="net-node"><span class="net-ic"><span class="mono-logo">M</span></span><b>docs-update</b><small>Muse · your CLI</small><em>Updates the docs</em></div>
+            <div class="net-node net-aw"><span class="net-ic">{_ic('crew')}</span><b>support-crew</b><small>Crew · AgentWorks</small><em>Checks open bug reports</em></div>
+            <div class="net-node net-aw"><span class="net-ic">{_ic('goal')}</span><b>release-notes</b><small>Workflow · AgentWorks</small><em>Drafts the notes</em></div>
           </div>
-          <p class="net-foot">Results come back to the orchestrator. You review and approve.</p>
+          <p class="net-foot">Your CLIs and apps sit next to your Crews and workflows. Results come back to the orchestrator, and you approve.</p>
         </div>
       </div>
     </section>
@@ -50,6 +52,14 @@ body=f'''  <main id="main">
           <li class="reveal"><h3>Your accounts and settings</h3><p>Your subscriptions, models, skills and config stay as they are. No new agent to set up.</p></li>
           <li class="reveal"><h3>A network, not a host</h3><p>AgentWorks carries the messages between agents and keeps the record. It doesn't run them.</p></li>
         </ul>
+        <div class="connect-row center-row" aria-label="What can join a Bullpen">
+          <span class="chip">{logo("claude")}Claude Code</span>
+          <span class="chip">{logo("openai")}Codex</span>
+          <span class="chip">{logo("cursor")}Cursor</span>
+          <span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span>
+          <span class="chip chip-aw">{_ic('crew')}Crews</span>
+          <span class="chip chip-aw">{_ic('goal')}Workflows</span>
+        </div>
       </div>
     </section>
 

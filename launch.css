@@ -1004,3 +1004,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .loop-3 li { border-right: 0; border-bottom: 1px solid var(--line); }
   .loop-3 li:last-child { border-bottom: 0; }
 }
+.net-ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--line); color: var(--amber-text); }
+.net-ic svg { width: 18px; height: 18px; }
+.net-ic .mono-logo { width: 18px; height: 18px; }
+.net-nodes { grid-template-columns: repeat(5, 1fr); }
+.net-nodes::before { left: 10%; right: 10%; }
+.net-aw { border-color: var(--amber); border-style: dashed; }
+.chip-aw svg { color: var(--amber-text); }
+@media (max-width: 860px) { .net-nodes { grid-template-columns: 1fr 1fr; } }
