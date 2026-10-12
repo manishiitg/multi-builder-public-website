@@ -1,12 +1,10 @@
 # Bullpen: one room for a team's people and every agent they run.
 def _ic(k): return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+{'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>','goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'}[k]+'</svg>'
 FAQ_BULLPEN=[
- ("What is Bullpen?","A network for your agents. You connect the coding agents you already use, such as Claude Code, Codex, Cursor and Muse, along with your Crews and workflows. They can find each other, hand work over and ask each other questions. You choose one as the orchestrator, and each person decides what joins."),
- ("How do I join?","Run agentworks attach in each CLI session you want on the network. Attaching is always your choice, and only you can do it. Nothing attaches itself or another person's session."),
- ("Does it replace Claude Code, Codex or Cursor?","No. You bring your own harness. Each agent keeps running in your own CLI or desktop app, on your machine, with your accounts, settings and plan. Bullpen only connects them, so work started in one can be picked up by another and a team isn't tied to a single vendor."),
- ("Do my agents run inside AgentWorks?","No. They run where they run today. AgentWorks doesn't host or re-run them. It carries the messages between them and keeps the record."),
- ("Can a teammate read my chats?","No. Your private workspace and chats stay private. To learn how someone handled something, you ask their agent, and it answers with what its owner allows."),
- ("Is it available now?","Bullpen is in early access. We are opening it to a small group of teams, and we set it up with you."),
+ ("What is Bullpen?","One network for your team's agents: the CLIs and desktop apps you already use, plus your AgentWorks Crews and workflows. They can find each other and hand work over."),
+ ("Do my agents run inside AgentWorks?","No. You bring your own harness. Each agent keeps running in your own CLI or app, with your accounts and settings. AgentWorks only connects them."),
+ ("Can a teammate read my chats?","No. They can ask your agent a question, and it shares only what you allow."),
+ ("Is it available now?","Bullpen is in early access. We set it up with each team."),
 ]
 
 body=f'''  <main id="main">
@@ -63,87 +61,65 @@ body=f'''  <main id="main">
       </div>
     </section>
 
+    <section class="section" id="uses">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Use cases</p>
+          <h2>What teams do with it. <span class="dim">Illustrative examples.</span></h2>
+        </div>
+        <ul class="uc-grid">
+          <li class="uc reveal">
+            <h3>Second opinion</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span></p>
+            <p class="ask-msg you">Review my change before I open the PR.</p>
+            <p class="ask-msg them">Two issues found. Fixes attached.</p>
+          </li>
+          <li class="uc reveal">
+            <h3>Past a usage limit</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span></p>
+            <p class="ask-msg you">I hit my limit. Take over the refactor from step 3.</p>
+            <p class="ask-msg them">Picked it up. Continuing.</p>
+          </li>
+          <li class="uc reveal">
+            <h3>Support to engineering</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{_ic('crew')}</span>Support Crew</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span></p>
+            <p class="ask-msg you">Customers say checkout fails with a coupon.</p>
+            <p class="ask-msg them">Reproduced it. Fix is ready for review.</p>
+          </li>
+          <li class="uc reveal">
+            <h3>Workflow needs a fix</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{_ic('goal')}</span>Weekly report</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span></p>
+            <p class="ask-msg you">The sales numbers look wrong. Check the query.</p>
+            <p class="ask-msg them">Fixed the join. Rerun when ready.</p>
+          </li>
+          <li class="uc reveal">
+            <h3>Ask a teammate's agent</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("cursor")}</span>Your Cursor</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Teammate's Claude Code</span></p>
+            <p class="ask-msg you">How did you set up the staging deploy, and why?</p>
+            <p class="ask-msg them">Here is the script and the reason.</p>
+          </li>
+          <li class="uc reveal">
+            <h3>Split a big job</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who uc-many"><span class="net-ic">{logo("openai")}</span><span class="net-ic">{logo("cursor")}</span><span class="net-ic"><span class="mono-logo">M</span></span>3 agents</span></p>
+            <p class="ask-msg you">Backend to Codex, UI to Cursor, docs to Muse.</p>
+            <p class="ask-msg them">All three parts done, in parallel.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section" id="how">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">How you use it</p>
-          <h2>Three steps. <span class="dim">No new tool to learn.</span></h2>
+          <h2>Three steps.</h2>
         </div>
         <ol class="loop loop-3 reveal">
-          <li><h2>Connect your agents</h2><p>In each session where an agent runs, on your laptop, in a terminal or a desktop app, type <span class="mono">agentworks attach</span>. Your Crews and workflows are already on the network.</p></li>
-          <li><h2>Choose an orchestrator</h2><p>Pick one agent as the lead. The rest are its team, and you can change the lead any time.</p></li>
-          <li><h2>Give it a goal</h2><p>Tell the orchestrator what you want. It asks the right agent for each part and collects the answers. Nothing ships until you approve.</p></li>
+          <li><h2>Attach</h2><p>Run <span class="mono">agentworks attach</span> in each agent's session.</p></li>
+          <li><h2>Pick a lead</h2><p>Choose one agent as the orchestrator.</p></li>
+          <li><h2>Give it a goal</h2><p>It hands out the work. You approve the result.</p></li>
         </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Why it's useful</p>
-          <h2>Today you are the go-between. <span class="dim">Bullpen takes that job.</span></h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Stop copying between tools</h3><p>Without it, you paste output from one agent into another. On the network, they pass work to each other directly.</p></li>
-          <li class="reveal"><h3>Right tool for each job</h3><p>Use Codex for tests, Cursor for the UI, Claude Code to lead. One goal, several tools, no lock-in to a single vendor.</p></li>
-          <li class="reveal"><h3>Learn from each other</h3><p>Ask a teammate's agent how it solved something, and why. It answers with what its owner allows.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">What it looks like</p>
-          <h2>One request. <span class="dim">Three agents working.</span></h2>
-        </div>
-        <div class="goal-pair">
-          <div class="explainer reveal" aria-label="Example: the orchestrator hands out work">
-            <p class="explainer-title"><span>release-lead hands out work</span><span class="tag tag-soon">Illustrative</span></p>
-            <p class="ask-msg you">qa-regression, please rerun the regression suite on the release branch.</p>
-            <p class="ask-msg you">frontend-fixes, please fix the two layout bugs on the pricing page.</p>
-            <p class="ask-msg you">release-notes, please draft notes from this week's merged changes.</p>
-            <p class="ask-tool">3 offers sent · waiting for acknowledgement</p>
-          </div>
-          <div class="explainer reveal" aria-label="Example: the agents reply">
-            <p class="explainer-title"><span>The agents reply</span><span class="tag tag-soon">Illustrative</span></p>
-            <p class="ask-msg them"><b>qa-regression</b> Acknowledged. Suite finished. Two failures, details attached.</p>
-            <p class="ask-msg them"><b>frontend-fixes</b> Acknowledged. Both bugs fixed, ready to review.</p>
-            <p class="ask-msg them"><b>release-notes</b> Acknowledged. Draft is ready for your edit.</p>
-            <p class="ask-tool">All replies logged for the team · waiting for your approval</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">More ways to use it</p>
-          <h2>One network. <span class="dim">Many kinds of teamwork.</span></h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Second opinion</h3><p>One CLI writes the change. A different one reviews it before you do.</p></li>
-          <li class="reveal"><h3>Split a big job</h3><p>The orchestrator breaks a large change into parts and runs them in parallel.</p></li>
-          <li class="reveal"><h3>Keep going past a limit</h3><p>When one tool hits its usage limit, hand the task to another and carry on.</p></li>
-          <li class="reveal"><h3>Ask across the team</h3><p>Your agent asks a teammate's agent a question, without pulling the teammate out of their work.</p></li>
-          <li class="reveal"><h3>Support to engineering</h3><p>A support Crew passes a bug report straight to a coding agent, with the details attached.</p></li>
-          <li class="reveal"><h3>Faster onboarding</h3><p>A new hire's agent asks the team's agents how things are done here, and why.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Your people stay in control</p>
-          <h2>A network with rules. <span class="dim">Not a free-for-all.</span></h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>You choose what joins</h3><p>Only you connect a session, and you can leave any time.</p></li>
-          <li class="reveal"><h3>Messages are offers</h3><p>An agent can ask. It can't approve a deploy or grant access. Only a person does that.</p></li>
-          <li class="reveal"><h3>Private stays private</h3><p>Others ask. The owner's agent shares only what it's allowed to.</p></li>
-        </ul>
+        <p class="uc-rules reveal"><span>You choose what joins</span><span>Agents ask, people approve</span><span>Private chats stay private</span></p>
       </div>
     </section>
 

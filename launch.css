@@ -1012,3 +1012,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .net-aw { border-color: var(--amber); border-style: dashed; }
 .chip-aw svg { color: var(--amber-text); }
 @media (max-width: 860px) { .net-nodes { grid-template-columns: 1fr 1fr; } }
+.uc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.uc { border: 1px solid var(--line-2); border-radius: var(--radius-lg); background: linear-gradient(180deg, var(--surface), var(--bg-2)); padding: 20px; display: grid; gap: 10px; align-content: start; }
+.uc h3 { font-size: 17px; margin: 0; letter-spacing: -0.015em; }
+.uc-route { margin: 0 0 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13.5px; color: var(--text-2); }
+.uc-who { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; }
+.uc-who .net-ic { width: 26px; height: 26px; border-radius: 8px; }
+.uc-who .net-ic svg { width: 15px; height: 15px; }
+.uc-many .net-ic + .net-ic { margin-left: -12px; }
+.uc-arr { color: var(--muted); }
+.uc .ask-msg { font-size: 14px; padding: 10px 12px; }
+.uc-rules { margin: 20px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.uc-rules span { padding: 6px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13.5px; color: var(--text-2); }
+@media (max-width: 960px) { .uc-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .uc-grid { grid-template-columns: 1fr; } }
