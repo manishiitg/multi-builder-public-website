@@ -1067,3 +1067,4 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hub-link span { top: 50%; left: 12px; transform: translateY(-50%); }
 }
 .hub-note { text-align: center; margin: 18px 0 0; }
+.chip img { width: 16px; height: 16px; }

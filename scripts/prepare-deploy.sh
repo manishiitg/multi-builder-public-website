@@ -39,6 +39,8 @@ if [ -d assets/video/guides ]; then
   cp -R assets/video/guides/. dist/assets/video/guides/
 fi
 cp assets/brand/agentworks-logo.svg dist/assets/brand/
+mkdir -p dist/assets/brand/ai
+cp assets/brand/ai/antigravity.svg dist/assets/brand/ai/
 cp -R assets/fonts/. dist/assets/fonts/
 mkdir -p dist/assets/docs/guides
 cp assets/docs/guides/*.webp dist/assets/docs/guides/

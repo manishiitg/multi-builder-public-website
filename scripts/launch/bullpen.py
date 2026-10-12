@@ -12,7 +12,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Bullpen <span class="tag tag-soon">Early access</span></p>
         <h1>All your agents, <span class="dim">one network.</span></h1>
-        <p class="lede">One big network for your team: every local CLI and desktop app, such as Claude Code, Codex, Cursor and Muse, plus your AgentWorks Crews and workflows. Your agents keep running where they run today. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
+        <p class="lede">One big network for your team: every local CLI and desktop app, such as Claude Code, Codex, Cursor, Muse and Antigravity, plus your AgentWorks Crews and workflows. Your agents keep running where they run today. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Get early access</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
@@ -55,6 +55,7 @@ body=f'''  <main id="main">
           <span class="chip">{logo("openai")}Codex</span>
           <span class="chip">{logo("cursor")}Cursor</span>
           <span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span>
+          <span class="chip"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" />Antigravity</span>
           <span class="chip chip-aw">{_ic('crew')}Crews</span>
           <span class="chip chip-aw">{_ic('goal')}Workflows</span>
         </div>
