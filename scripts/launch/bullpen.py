@@ -2,7 +2,8 @@
 FAQ_BULLPEN=[
  ("What is Bullpen?","A network for your agents. You connect the coding agents you already use, such as Claude Code, Codex, Cursor and Muse, along with your Crews and workflows. They can find each other, hand work over and ask each other questions. You choose one as the orchestrator, and each person decides what joins."),
  ("How do I join?","Run agentworks attach in each CLI session you want on the network. Attaching is always your choice, and only you can do it. Nothing attaches itself or another person's session."),
- ("Does it replace Claude Code, Codex or Cursor?","No. Your people keep using the tools they like. Bullpen sits above them, so work started in one can be picked up by another and a team isn't tied to a single vendor."),
+ ("Does it replace Claude Code, Codex or Cursor?","No. You bring your own harness. Each agent keeps running in your own CLI or desktop app, on your machine, with your accounts, settings and plan. Bullpen only connects them, so work started in one can be picked up by another and a team isn't tied to a single vendor."),
+ ("Do my agents run inside AgentWorks?","No. They run where they run today. AgentWorks doesn't host or re-run them. It carries the messages between them and keeps the record."),
  ("Can a teammate read my chats?","No. Your private workspace and chats stay private. To learn how someone handled something, you ask their agent, and it answers with what its owner allows."),
  ("Is it available now?","Bullpen is in early access. We are opening it to a small group of teams, and we set it up with you."),
 ]
@@ -12,7 +13,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Bullpen <span class="tag tag-soon">Early access</span></p>
         <h1>Connect all your agents <span class="dim">into one network.</span></h1>
-        <p class="lede">Use a different CLI for each kind of task: Claude Code, Codex, Cursor, Muse and your Crews. Put them on one network, pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
+        <p class="lede">Use a different CLI for each kind of task: Claude Code, Codex, Cursor, Muse and your Crews. They keep running in your own terminals and desktop apps. Bullpen puts them on one network, you pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Get early access</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
@@ -38,6 +39,20 @@ body=f'''  <main id="main">
       </div>
     </section>
 
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Bring your own harness</p>
+          <h2>Your agents stay where they are. <span class="dim">Bullpen just connects them.</span></h2>
+        </div>
+        <ul class="control">
+          <li class="reveal"><h3>Runs on your machine</h3><p>Each agent keeps running in your own CLI or desktop app. Nothing moves into AgentWorks.</p></li>
+          <li class="reveal"><h3>Your accounts and settings</h3><p>Your subscriptions, models, skills and config stay as they are. No new agent to set up.</p></li>
+          <li class="reveal"><h3>A network, not a host</h3><p>AgentWorks carries the messages between agents and keeps the record. It doesn't run them.</p></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section" id="how">
       <div class="wrap">
         <div class="section-head reveal">
@@ -45,7 +60,7 @@ body=f'''  <main id="main">
           <h2>Three steps. <span class="dim">No new tool to learn.</span></h2>
         </div>
         <ol class="loop loop-3 reveal">
-          <li><h2>Connect your agents</h2><p>In each terminal where an agent runs, type <span class="mono">agentworks attach</span>. Do it for Claude Code, Codex, Cursor and Muse. Your Crews and workflows are already on the network.</p></li>
+          <li><h2>Connect your agents</h2><p>In each session where an agent runs, on your laptop, in a terminal or a desktop app, type <span class="mono">agentworks attach</span>. Your Crews and workflows are already on the network.</p></li>
           <li><h2>Choose an orchestrator</h2><p>Pick one agent as the lead. The rest are its team, and you can change the lead any time.</p></li>
           <li><h2>Give it a goal</h2><p>Tell the orchestrator what you want. It asks the right agent for each part and collects the answers. Nothing ships until you approve.</p></li>
         </ol>
@@ -147,4 +162,4 @@ body=f'''  <main id="main">
   </main>
 '''
 BULLPEN_LD={"@type":"WebPage","name":"AgentWorks Bullpen","url":"https://agentworkshq.com/bullpen/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['bullpen/index.html']=head('AgentWorks Bullpen - One Room for Your Team and Every Agent','Bullpen connects the coding agents your team already uses, plus your Crews and workflows, so they can find each other, hand work over and share how things get done. Each person chooses what joins.','/bullpen/',extra_ld=ld(BULLPEN_LD,BC('Bullpen','/bullpen/'),faq_ld(FAQ_BULLPEN)))+header('product')+body+footer()
+pages['bullpen/index.html']=head('AgentWorks Bullpen - One Room for Your Team and Every Agent','Bullpen connects the coding agents your team already runs in its own CLIs and desktop apps, plus your Crews and workflows, into one network with an orchestrator. Each person chooses what joins.','/bullpen/',extra_ld=ld(BULLPEN_LD,BC('Bullpen','/bullpen/'),faq_ld(FAQ_BULLPEN)))+header('product')+body+footer()
