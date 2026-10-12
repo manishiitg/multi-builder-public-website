@@ -50,6 +50,7 @@ FAQ_HOME=[
  ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi and Muse. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."),
  ("How do I get started?","Download the free app and try it yourself (free for personal, development, testing, evaluation, education and research use), or book a short call and we'll scope a custom deployment for your company: which process to start with, which tools it touches and where it runs."),
  ("Can people use a Crew from Claude or ChatGPT?","Yes. Share a Crew and people ask it from Claude, ChatGPT, Cursor, Claude Code, Codex or the agentworks CLI, through MCP. Each person gets their own conversation, and the Crew's private chats and data stay private."),
+ ("Do my people have to switch AI tools?","No. People keep Claude Code, Codex, Cursor, ChatGPT or whatever they already use. AgentWorks connects those tools to your company's agents, knowledge and rules."),
  ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
 ]
 def faq(items, heading=None):

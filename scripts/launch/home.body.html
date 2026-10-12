@@ -2,9 +2,9 @@
     <section class="hero hero-jobs">
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="wrap">
-        <p class="kicker">For product and business teams</p>
+        <p class="kicker">For your teams and IT</p>
         <h1>Make your processes agentic. <span class="dim">Keep your people in control.</span></h1>
-        <p class="lede">AI agents work inside your process to track the goal, measure every run and improve the next one. Your team approves what matters.</p>
+        <p class="lede">AI agents work inside your process to track the goal, measure every run and improve the next one. One layer connects them with the AI tools your people already use. Your team approves what matters.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{{SIGNUP}}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{{INSTALL}}">Download free app</a>
@@ -114,14 +114,14 @@
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">Developers welcome</p>
-          <h2>Keep your own tools. <span class="dim">Everything connects over MCP.</span></h2>
+          <h2>Work from your own terminal. <span class="dim">Everything connects over MCP.</span></h2>
           <p class="lede">Everything above is reachable from the Claude Code, Codex or Cursor you already use, through MCP and the <code>agentworks</code> command line. Your team's shared layer, from your own laptop.</p>
         </div>
         <ul class="prodrow dev reveal" aria-label="What developers can do over MCP">
+          <li><a href="/bullpen/"><small>Bullpen</small><b>Message other agents</b><span>Run <code>agentworks attach</code> and your agent can hand work to other agents and Crews.</span></a></li>
           <li><a href="/crews/"><small>Crews</small><b>Ask a shared expert</b><span>Call a teammate's Crew from your own terminal, in your own conversation with it.</span></a></li>
           <li><a href="/brain/"><small>Brain</small><b>Read and write shared knowledge</b><span>Search company notes and skills, and save what you learn for the next agent.</span></a></li>
           <li><a href="/vault/"><small>Vault</small><b>One governed MCP endpoint</b><span>Connect once and get only the tools and secrets your group has been granted.</span></a></li>
-          <li><a href="/goals/"><small>Goals and Relays</small><b>Start and watch runs</b><span>Run workflows and Relays, and check their status, without leaving your editor.</span></a></li>
         </ul>
       </div>
     </section>
@@ -133,13 +133,15 @@
           <h2>Intelligence is getting cheaper. <span class="dim">Can we actually achieve more with it?</span></h2>
           <p class="lede">It's a different kind of intelligence. It doesn't tire, it works in parallel, and it keeps getting better, but it still needs a goal, the right tools, memory and someone accountable. Whether we get more done, in our work and in our lives, depends on what we build around it. Each AgentWorks product is a different answer.</p>
         </div>
-        <div class="uc-grid six reveal">
+        <div class="uc-grid reveal">
           <a class="uc-link" href="/goals/"><b>Goals</b><span>Can an agent keep working toward an outcome, and show you whether the number moves?</span></a>
           <a class="uc-link" href="/crews/"><b>Crews</b><span>Can one person's expertise be there for everyone who needs it?</span></a>
           <a class="uc-link" href="/code/"><b>Code</b><span>Can every employee have their own AI workspace, while the company sees cost and output?</span></a>
           <a class="uc-link" href="/brain/"><b>Brain</b><span>Can what one person knows be there for every agent?</span></a>
           <a class="uc-link" href="/vault/"><b>Vault</b><span>Can agents be trusted with our tools and secrets?</span></a>
           <a class="uc-link" href="/relays/"><b>Relays</b><span>Can some work run the same dependable way every time?</span></a>
+          <a class="uc-link" href="/bullpen/"><b>Bullpen</b><span>Can every agent work together, whatever tool runs it?</span></a>
+          <a class="uc-link" href="/llm-gateway/"><b>LLM Gateway</b><span>Can we see who uses which model, and what it costs?</span></a>
         </div>
         <p class="why-close reveal"><b>AgentWorks is how we find out.</b> We build the systems that turn cheaper intelligence into work that actually gets done.</p>
       </div>
@@ -202,72 +204,7 @@
       </div>
     </section>
 
-    <section class="section" id="experts">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Expert Crews</p>
-          <h2>A skill tells an AI how. <span class="dim">An Expert Crew does it.</span></h2>
-          <p class="lede">People already share skills: instructions you copy into your own AI. An Expert Crew shares the whole expert instead. An agent, its skills, its connected tools and a few clear functions, set up once by the team that knows the subject, and asked by anyone from Claude, ChatGPT or Cursor.</p>
-        </div>
-        <div class="equation reveal" aria-label="What an Expert Crew is made of">
-          <div class="eq-part"><small>Agent</small><b>Does the work</b><span>Claude Code, Codex or Cursor</span></div>
-          <i aria-hidden="true">+</i>
-          <div class="eq-part"><small>Skills</small><b>Knows how</b><span>Your runbooks and how-tos</span></div>
-          <i aria-hidden="true">+</i>
-          <div class="eq-part"><small>Integrations</small><b>Can check</b><span>Dashboards, database, Slack</span></div>
-          <i aria-hidden="true">+</i>
-          <div class="eq-part"><small>Functions</small><b>Clear asks</b><span><code>diagnose_service(name)</code></span></div>
-          <i aria-hidden="true">=</i>
-          <div class="eq-part eq-result"><small>Expert Crew</small><b>DevOps expert</b><span>Shared with your team</span></div>
-        </div>
-        <div class="goal-pair">
-          <div class="goal-spec reveal" aria-label="A shared skill compared with an Expert Crew">
-            <p class="goal-spec-label">Why not just share a skill?</p>
-            <table class="vs">
-              <thead><tr><th></th><th>Shared skill</th><th>Expert Crew</th></tr></thead>
-              <tbody>
-                <tr><th>Copies</th><td>Everyone installs their own</td><td>One live expert, asked by all</td></tr>
-                <tr><th>Updates</th><td>Goes stale on each laptop</td><td>Owners update once, for everyone</td></tr>
-                <tr><th>Your systems</th><td>Instructions only</td><td>Connected tools it can check</td></tr>
-                <tr><th>Memory</th><td>Forgets between chats</td><td>Keeps your team's knowledge</td></tr>
-                <tr><th>Control</th><td>Each person's own access</td><td>Scoped access, every call logged</td></tr>
-              </tbody>
-            </table>
-            <ul class="ask-from" aria-label="Ask it from">
-              <li class="chip">{{LOGO:claude}}Claude</li>
-              <li class="chip">{{LOGO:openai}}ChatGPT</li>
-              <li class="chip">{{LOGO:cursor}}Cursor</li>
-              <li class="chip"><span class="mono-logo" aria-hidden="true">&gt;_</span>CLI</li>
-            </ul>
-          </div>
-          <div class="explainer ask-demo reveal" aria-hidden="true">
-            <p class="explainer-title"><span>In Claude</span><span>Asking the DevOps expert</span></p>
-            <p class="ask-msg you">Why is the orders API slow in eu-west since this morning?</p>
-            <p class="ask-tool">Called <b>devops-expert · diagnose_service</b> through AgentWorks</p>
-            <p class="ask-msg them"><b>DevOps expert</b> p95 latency jumped after the 09:40 deploy of orders-service. The database read replica is 40 seconds behind, so reads fall back to the primary. Rolling back is the fastest fix. I've drafted the rollback for your approval.</p>
-          </div>
-        </div>
-        <p class="tpl-more"><a class="btn btn-ghost" href="/crews/">How Expert Crews work</a><span class="muted">Illustrative conversation. Next: publish an Expert Crew to your customers.</span></p>
-      </div>
-    </section>
-
 {{SCRIPTED}}
-    <section class="section" id="layers">
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <p class="kicker">Under the hood</p>
-          <h2>Three layers, <span class="dim">built to run for months.</span></h2>
-          <p class="lede">Workflows decide what to do and how to measure it. Crews are the specialists who do it. Agents are the engines underneath.</p>
-        </div>
-        <ol class="layer-stack reveal" aria-label="The three layers">
-          <li><a href="/goals/#layer-workflow"><span>3</span><b>Workflows &amp; goals</b><small>The plan: pipelines of deterministic and agentic steps, measured against a goal</small></a></li>
-          <li><a href="/crews/#crew"><span>2</span><b>Crews</b><small>Specialists: an agent with skills, memory, a browser, channels and a schedule</small></a></li>
-          <li><a href="/product/#engine-agent"><span>1</span><b>Agents</b><small>The engine: vendor-native coding agents, your tools, sandboxed commands</small></a></li>
-        </ol>
-        <p class="tpl-more center-row"><a class="btn btn-ghost" href="/product/#layers">See how it works</a></p>
-      </div>
-    </section>
-
     <section class="section" id="connectors">
       <div class="wrap">
         <div class="section-head reveal">
@@ -352,8 +289,8 @@
 
     <section class="cta">
       <div class="wrap">
-        <h2>Hire your first AI teammate <span class="dim">today.</span></h2>
-        <p>Book a call, and we'll scope a deployment around your company: your processes, your tools, your approval rules.</p>
+        <h2>Bring every agent under one layer. <span class="dim">Start with one process.</span></h2>
+        <p>Book a call, and we'll set up AgentWorks around your company: your processes, your people's AI tools, your approval rules.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{{SIGNUP}}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{{INSTALL}}">Download free app</a>

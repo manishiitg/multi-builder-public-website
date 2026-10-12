@@ -22,7 +22,7 @@ SOFT={"@type":"SoftwareApplication","@id":"https://agentworkshq.com/#software","
 
 pages={}
 body=open('home.body.html').read()
-pages['index.html']=head('AgentWorks - Agentic Processes With Your People in Control','AgentWorks puts AI agents inside your processes to track goals, measure every run and improve the next one, with your people approving what matters. For product and business teams.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME),SCRIPTED=scripted_section())+footer()
+pages['index.html']=head('AgentWorks - Agentic Processes With Your People in Control','AgentWorks puts AI agents inside your processes and connects them with the AI tools your people already use: one layer for every agent, with your people approving what matters.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME),SCRIPTED=scripted_section())+footer()
 for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'code.py', 'brain.py', 'download.py', 'about.py', 'relays.py', 'bullpen.py', 'llmgateway.py', 'usecases.py', 'solutions.py', 'legal.py']:
     exec(open(name).read())
 for path,content in pages.items():
