@@ -1069,3 +1069,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hub-note { text-align: center; margin: 18px 0 0; }
 .chip img { width: 16px; height: 16px; }
 @media (max-width: 720px) { #why .uc-grid { grid-template-columns: 1fr 1fr; gap: 8px; } #why .uc-link { padding: 14px; } #why .uc-link span { font-size: 13px; } }
+
+/* Code: ready workspace */
+.ws { display: grid; grid-template-columns: 340px 1fr; border: 1px solid var(--line-2); border-radius: var(--radius-lg); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-lg); }
+.ws-side { padding: 20px; border-right: 1px solid var(--line); background: var(--bg-2); display: grid; gap: 8px; align-content: start; }
+.ws-h { margin: 0 0 4px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; }
+.ws-list { display: grid; gap: 6px; }
+.ws-list p { margin: 0; display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 13.5px; }
+.ws-list p svg { width: 16px; height: 16px; }
+.ws-list p .tag, .ws-list p .mono { margin-left: auto; font-size: 11.5px; }
+.ws-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex: none; }
+.ws-chat { padding: 20px; display: grid; gap: 10px; align-content: start; }
+.ws-modes { margin-top: 16px; }
+@media (max-width: 860px) { .ws { grid-template-columns: 1fr; } .ws-side { border-right: 0; border-bottom: 1px solid var(--line); } }

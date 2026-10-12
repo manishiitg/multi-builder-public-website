@@ -13,12 +13,50 @@ code_body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Code <span class="tag">Enterprise</span></p>
-        <h1>Every employee wants coding agents. <span class="dim">Bring them to one place.</span></h1>
-        <p class="lede">Today each person runs Claude Code, Codex or Cursor on their own laptop and their own plan, and the company can't see what it costs, who uses how much, or what the agents actually produced. With Code, everyone codes on your AgentWorks server, on the plans you already pay for, and you review cost, usage and output in one place. People can reach their Code from Slack or WhatsApp when they're away from the desk.</p>
+        <h1>An AI workspace for every employee. <span class="dim">Everything ready on day one.</span></h1>
+        <p class="lede">Each person gets a private workspace where they work with AI agents through chat. Coding agents, skills, MCP tools, a browser and secrets come ready, so people start in minutes instead of setting things up. The company sees cost, usage and output in one place.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="#uses">See use cases</a>
+          <a class="btn btn-ghost" href="#workspace">See the workspace</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="workspace">
+      <div class="wrap">
+        <div class="ws reveal" aria-label="Example: a Code workspace with everything ready">
+          <div class="ws-side">
+            <p class="ws-h">Ready in your workspace <span class="tag tag-soon">Illustrative</span></p>
+            <p class="hub-sub">Coding agents</p>
+            <div class="hub-chips"><span class="chip">{logo("claude")}Claude Code</span><span class="chip">{logo("openai")}Codex</span><span class="chip">{logo("cursor")}Cursor</span><span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span><span class="chip"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" />Antigravity</span></div>
+            <p class="hub-sub">MCP tools</p>
+            <div class="ws-list">
+              <p>{tool("github")}GitHub<span class="tag tag-run">Connected</span></p>
+              <p>{tool("slack")}Slack<span class="tag tag-run">Connected</span></p>
+              <p>{tool("googledrive")}Google Drive<span class="tag">One-click connect</span></p>
+            </div>
+            <p class="hub-sub">Skills</p>
+            <div class="ws-list"><p><span class="ws-dot"></span>release-checklist<span class="tag">Company · v3</span></p><p><span class="ws-dot"></span>browser-tasks<span class="tag">Built in</span></p></div>
+            <p class="hub-sub">Secrets</p>
+            <div class="ws-list"><p><span class="ws-dot"></span>STRIPE_API_KEY<span class="mono">••••••</span></p></div>
+            <p class="hub-sub">Also ready</p>
+            <div class="hub-chips"><span class="chip">Browser</span><span class="chip">Files</span><span class="chip">Terminal</span><span class="chip">{tool("whatsapp")}WhatsApp</span></div>
+          </div>
+          <div class="ws-chat">
+            <p class="explainer-title"><span>checkout-service · chat</span><span>Claude Code</span></p>
+            <p class="ask-msg you">Open an issue for the failing refund test and fix it.</p>
+            <p class="ask-tool">Used <b>github · create_issue</b> · ran the tests in the sandbox</p>
+            <p class="ask-msg them"><b>Done</b> Issue opened. The refund test failed on a rounding bug; fixed it and all tests pass.</p>
+            <p class="ask-msg you">Check the refund in Stripe too.</p>
+            <p class="ask-tool">Used secret <b>STRIPE_API_KEY</b> · value never shown</p>
+            <p class="ask-msg them"><b>Checked</b> The test refund went through with the right amount.</p>
+          </div>
+        </div>
+        <ul class="ucx-grid ws-modes">
+          <li class="ucx reveal"><h3>Dev</h3><p class="uc-did">For engineers: code, terminal and tests, with the coding agent you like.</p></li>
+          <li class="ucx reveal"><h3>Cowork</h3><p class="uc-did">For business users: a dashboard, browser tasks, automations and memory. No code screens.</p></li>
+          <li class="ucx reveal"><h3>Local</h3><p class="uc-did">Work on files on your own computer, with the same agents and tools.</p></li>
+        </ul>
       </div>
     </section>
 
@@ -124,4 +162,4 @@ code_body=f'''  <main id="main">
   </main>
 '''
 CODE_LD={"@type":"WebPage","name":"AgentWorks Code","url":"https://agentworkshq.com/code/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['code/index.html']=head('AgentWorks Code - Coding Agents for Every Employee, With Cost and Usage in One Place','Everyone codes with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues.','/code/',og='agentworks-product-og.jpg',extra_ld=ld(CODE_LD,BC('Code','/code/'),faq_ld(FAQ_CODE)))+header('product')+code_body+footer()
+pages['code/index.html']=head('AgentWorks Code - A Ready AI Workspace for Every Employee','A private workspace where each person works with AI agents through chat, with coding agents, skills, MCP tools, a browser and secrets ready on day one. Everyone works with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues.','/code/',og='agentworks-product-og.jpg',extra_ld=ld(CODE_LD,BC('Code','/code/'),faq_ld(FAQ_CODE)))+header('product')+code_body+footer()
