@@ -1082,3 +1082,43 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .ws-chat { padding: 20px; display: grid; gap: 10px; align-content: start; }
 .ws-modes { margin-top: 16px; }
 @media (max-width: 860px) { .ws { grid-template-columns: 1fr; } .ws-side { border-right: 0; border-bottom: 1px solid var(--line); } }
+
+/* Home: how work moves (a request through people and agents) */
+.flow-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+.flow-h { display: flex; flex-direction: column; gap: 2px; margin: 0 0 16px 76px; }
+.flow-h b { font-size: 18px; }
+.flow-h span { font-size: 14px; color: var(--muted); }
+.flow { list-style: none; margin: 0; padding: 0; position: relative; }
+.flow::before { content: ""; position: absolute; left: 70px; top: 10px; bottom: 10px; width: 2px; background: var(--line-2); }
+.flow-st { display: grid; grid-template-columns: 56px 1fr; gap: 28px; align-items: start; margin-bottom: 14px; position: relative; }
+.flow-st::after { content: ""; position: absolute; left: 65px; top: 18px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--muted); }
+.flow-st.agent::after { border-color: var(--amber); background: var(--amber-soft); }
+.flow-t { font-size: 13px; font-weight: 600; color: var(--muted); text-align: right; padding-top: 14px; }
+.flow-card { background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; padding: 14px 16px; }
+.flow-st.agent .flow-card { border-style: dashed; border-color: var(--amber); }
+.flow-who { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; }
+.flow-who > span:nth-child(2) { display: flex; flex-direction: column; line-height: 1.25; }
+.flow-who b { font-size: 15px; }
+.flow-who small { font-size: 12.5px; color: var(--muted); }
+.flow-tag { margin-left: auto; font-style: normal; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--surface-3); color: var(--text-2); white-space: nowrap; }
+.flow-st.agent .flow-tag { background: var(--amber-soft); color: var(--amber-text); }
+.flow-ag { background: var(--amber-soft); color: var(--amber-text); }
+.flow-ag svg { width: 16px; height: 16px; }
+.flow-msg { margin: 0; font-size: 15px; color: var(--text-2); }
+.flow-ok { color: #15803d; }
+.flow-foot { margin: 18px 0 0; font-size: 14px; color: var(--muted); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.flow-roles-h { text-align: center; margin: 64px 0 20px; font-size: 22px; }
+.flow-roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.flow-roles li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.flow-roles b { font-size: 15px; }
+.flow-roles span { font-size: 14px; color: var(--muted); }
+@media (max-width: 980px) { .flow-pair { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 760px) {
+  .flow-h { margin-left: 30px; }
+  .flow::before { left: 8px; }
+  .flow-st { grid-template-columns: 1fr; gap: 4px; padding-left: 30px; }
+  .flow-st::after { left: 3px; top: 4px; }
+  .flow-t { text-align: left; padding-top: 0; }
+  .flow-roles { grid-template-columns: 1fr; }
+}
+@media (min-width: 761px) and (max-width: 980px) { .flow-roles { grid-template-columns: repeat(2, 1fr); } }

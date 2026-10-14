@@ -33,53 +33,56 @@
           <article class="job job-crew" aria-label="Example: an Expert Crew asked from Claude">
             <p class="job-k"><span>02 · Share an expert</span><em>Illustrative</em></p>
             <h2>Build it once. Anyone can ask it.</h2>
-            <p class="job-sub">Your know-how, tools and memory in one agent, asked from the AI your team already uses.</p>
+            <p class="job-sub">Your know-how, tools and memory in one agent. Anyone asks it from Slack, WhatsApp or the AI they already use.</p>
             <div class="job-chat">
-              <p class="job-chat-top">{{LOGO:claude}}Claude</p>
-              <p class="job-q">@product-analyst what are customers asking for most this month?</p>
-              <p class="job-tool"><b>product-analyst</b> · summarize_feedback("onboarding")<span>✓ support tickets · ✓ call notes · ✓ your roadmap</span></p>
-              <p class="job-a"><b>Faster setup is the top request.</b> Two of the themes are already on your roadmap; one is not. Ranked list drafted for review.</p>
-            </div>
-            <p class="job-from">Also from ChatGPT, Cursor, Slack and the terminal</p>
+              <p class="job-chat-top"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Slack · #sales</p>
+              <p class="job-q">@pricing-expert can we give a 200-seat client 15% off?</p>
+              <p class="job-tool"><b>pricing-expert</b> · checked<span>✓ pricing policy · ✓ past deals · ✓ CRM</span></p>
+              <p class="job-a"><b>Yes. Up to 18% is allowed above 100 seats.</b> Quote drafted. It goes to your manager for approval before it is sent.</p>
+            <p class="job-from">Also from WhatsApp, ChatGPT, Claude and Cursor</p>
             <a class="job-link" href="/crews/">How Crews work →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section-tight" id="layer">
+    <section class="section-tight" id="flow">
       <div class="wrap">
         <div class="section-head center reveal">
-          <p class="kicker">One layer</p>
-          <h2>One layer for every agent in your company. <span class="dim">Your people keep their own AI.</span></h2>
-          <p class="lede">The tools your people already use and the agents your company runs share one network, one memory, one set of rules and one record.</p>
+          <p class="kicker">How work moves</p>
+          <h2>Your teams, a normal week. <span class="dim">Agents do the busywork. People make the calls.</span></h2>
+          <p class="lede">How product and business teams at a growing Indian company work with AgentWorks. Everyone stays in Slack, WhatsApp and the tools they already use.</p>
         </div>
-        <div class="hub reveal" aria-label="AgentWorks connects your people's AI tools and your company's agents">
-          <div class="hub-side">
-            <p class="hub-h">Your people's AI</p>
-            <p class="hub-sub">CLIs and desktop apps</p>
-            <div class="hub-chips"><span class="chip">{{LOGO:claude}}Claude Code</span><span class="chip">{{LOGO:openai}}Codex</span><span class="chip">{{LOGO:cursor}}Cursor</span><span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span><span class="chip"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" />Antigravity</span></div>
-            <p class="hub-sub">Web chats</p>
-            <div class="hub-chips"><span class="chip">{{LOGO:openai}}ChatGPT</span><span class="chip">{{LOGO:claude}}Claude</span><span class="chip">{{LOGO:googlegemini}}Gemini</span></div>
-            <p class="hub-foot">Join with <span class="mono">agentworks attach</span> or MCP</p>
+        <div class="flow-pair">
+          <div class="flow-col reveal">
+            <p class="flow-h"><b>Product team</b><span>A metric drops. Find out why, fix it.</span></p>
+            <ol class="flow" aria-label="Example: a product team finds and fixes a checkout drop">
+            <li class="flow-st person"><span class="flow-t">Mon 10:00</span><div class="flow-card"><p class="flow-who"><span class="avatar avatar-rio">A</span><span><b>Ananya</b><small>Product manager · in Slack</small></span><i class="flow-tag">Asks</i></p><p class="flow-msg">&ldquo;Why did UPI checkout drop this week?&rdquo;</p></div></li>
+            <li class="flow-st agent"><span class="flow-t">10:04</span><div class="flow-card"><p class="flow-who"><span class="avatar flow-ag"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Product analyst</b><small>Agent · reads Mixpanel and tickets</small></span><i class="flow-tag">Does the work</i></p><p class="flow-msg">The drop started after Tuesday&rsquo;s Android release. Most complaints mention the OTP screen.</p></div></li>
+            <li class="flow-st person"><span class="flow-t">10:30</span><div class="flow-card"><p class="flow-who"><span class="avatar avatar-sage">R</span><span><b>Rohit</b><small>Engineering lead · in Jira</small></span><i class="flow-tag">Decides</i></p><p class="flow-msg">Reads the evidence, gives the fix to his coding agent, reviews the change, taps <b class="flow-ok">Approve</b>.</p></div></li>
+            <li class="flow-st person"><span class="flow-t">Wed</span><div class="flow-card"><p class="flow-who"><span class="avatar avatar-rio">A</span><span><b>Ananya</b><small>Product dashboard</small></span><i class="flow-tag">Sees it</i></p><p class="flow-msg">Checkout is back to normal. Release notes drafted for her to send.</p></div></li>
+            </ol>
           </div>
-          <div class="hub-link" aria-hidden="true"><span>attach · MCP</span></div>
-          <div class="hub-core">
-            <p class="hub-h"><img src="/assets/brand/agentworks-logo.svg" alt="" width="20" height="20" />AgentWorks</p>
-            <a class="hub-row" href="/bullpen/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 11l10-4M7 13l10 4"/></svg></span><span><b>One network</b><small>Agents find each other and hand work over · Bullpen</small></span></a>
-            <a class="hub-row" href="/brain/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg></span><span><b>One memory</b><small>The same company knowledge · Brain</small></span></a>
-            <a class="hub-row" href="/vault/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span><b>One set of rules</b><small>Tools, secrets and models · Vault, LLM Gateway</small></span></a>
-            <a class="hub-row" href="/code/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><span><b>One record</b><small>Every call, who made it and what it cost</small></span></a>
-          </div>
-          <div class="hub-link" aria-hidden="true"><span>built in</span></div>
-          <div class="hub-side">
-            <p class="hub-h">Your company's agents</p>
-            <a class="hub-row" href="/goals/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>Work toward a number</small></span></a>
-            <a class="hub-row" href="/crews/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crews</b><small>Experts anyone can ask</small></span></a>
-            <a class="hub-row" href="/relays/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg></span><span><b>Relays</b><small>The same steps every time</small></span></a>
+          <div class="flow-col reveal">
+            <p class="flow-h"><b>Business team</b><span>Get overdue payments in.</span></p>
+            <ol class="flow" aria-label="Example: a finance team collects overdue payments">
+            <li class="flow-st person"><span class="flow-t">1st</span><div class="flow-card"><p class="flow-who"><span class="avatar avatar-otto">K</span><span><b>Kavya</b><small>Head of Finance · sets a goal</small></span><i class="flow-tag">Asks</i></p><p class="flow-msg">&ldquo;Collect ₹40 lakh of overdue payments this month.&rdquo;</p></div></li>
+            <li class="flow-st agent"><span class="flow-t">Daily</span><div class="flow-card"><p class="flow-who"><span class="avatar flow-ag"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Collections agent</b><small>Agent · reads Zoho Books</small></span><i class="flow-tag">Does the work</i></p><p class="flow-msg">Drafts a WhatsApp reminder for each customer, in English or Hindi, with the invoice attached.</p></div></li>
+            <li class="flow-st person"><span class="flow-t">Daily</span><div class="flow-card"><p class="flow-who"><span class="avatar avatar-sage">V</span><span><b>Vikram</b><small>Key accounts · on WhatsApp</small></span><i class="flow-tag">Decides</i></p><p class="flow-msg">Reminders to his top clients come to him first. He edits one, taps <b class="flow-ok">Approve</b>.</p></div></li>
+            <li class="flow-st person"><span class="flow-t">Month end</span><div class="flow-card"><p class="flow-who"><span class="avatar avatar-otto">K</span><span><b>Kavya</b><small>Finance dashboard</small></span><i class="flow-tag">Sees it</i></p><p class="flow-msg">Money collected against the ₹40 lakh target, which reminders got paid, and who approved each one.</p></div></li>
+            </ol>
           </div>
         </div>
-        <p class="muted hub-note">Messages into ChatGPT chats and LLM Gateway are coming soon.</p>
+        <p class="flow-foot reveal"><span class="tag tag-soon">Illustrative</span> Every step is recorded: who asked, what the agent did, who approved.</p>
+        <h3 class="flow-roles-h reveal">Every team works this way.</h3>
+        <ul class="flow-roles">
+          <li class="reveal"><b>Product</b><span>Ask why a number moved and get the evidence, not a guess.</span></li>
+          <li class="reveal"><b>Sales</b><span>Follow-ups go out on time and the CRM stays current. Reps keep the conversations.</span></li>
+          <li class="reveal"><b>Finance</b><span>Reminders and approvals arrive on WhatsApp with the invoice attached.</span></li>
+          <li class="reveal"><b>Support</b><span>Agents draft replies. Your team approves before anything goes out.</span></li>
+          <li class="reveal"><b>IT</b><span>Decide which tools and data agents can use, and see every call they make.</span></li>
+          <li class="reveal"><b>Leadership</b><span>See the number move, what moved it, and what it cost.</span></li>
+        </ul>
       </div>
     </section>
 
@@ -107,22 +110,6 @@
         </ul>
         </div>
         <p class="deploy-note">Every deployment is customized for your company: your cloud, your tools, your approval rules. <a href="{{CAL}}" target="_blank" rel="noreferrer">Book a call</a></p>
-      </div>
-    </section>
-
-    <section class="section-tight" id="developers">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Developers welcome</p>
-          <h2>Work from your own terminal. <span class="dim">Everything connects over MCP.</span></h2>
-          <p class="lede">Everything above is reachable from the Claude Code, Codex or Cursor you already use, through MCP and the <code>agentworks</code> command line. Your team's shared layer, from your own laptop.</p>
-        </div>
-        <ul class="prodrow dev reveal" aria-label="What developers can do over MCP">
-          <li><a href="/bullpen/"><small>Bullpen</small><b>Message other agents</b><span>Run <code>agentworks attach</code> and your agent can hand work to other agents and Crews.</span></a></li>
-          <li><a href="/crews/"><small>Crews</small><b>Ask a shared expert</b><span>Call a teammate's Crew from your own terminal, in your own conversation with it.</span></a></li>
-          <li><a href="/brain/"><small>Brain</small><b>Read and write shared knowledge</b><span>Search company notes and skills, and save what you learn for the next agent.</span></a></li>
-          <li><a href="/vault/"><small>Vault</small><b>One governed MCP endpoint</b><span>Connect once and get only the tools and secrets your group has been granted.</span></a></li>
-        </ul>
       </div>
     </section>
 
@@ -236,6 +223,58 @@
           </article>
         </div>
         <p class="conn-more">Plus its own browser for any web app, webhooks from any system, and schedules. <a href="/docs/">See all integrations in the docs →</a></p>
+      </div>
+    </section>
+
+    <section class="section-tight" id="layer">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="kicker">One layer</p>
+          <h2>One layer for every agent in your company. <span class="dim">Your people keep their own AI.</span></h2>
+          <p class="lede">The tools your people already use and the agents your company runs share one network, one memory, one set of rules and one record.</p>
+        </div>
+        <div class="hub reveal" aria-label="AgentWorks connects your people's AI tools and your company's agents">
+          <div class="hub-side">
+            <p class="hub-h">Your people's AI</p>
+            <p class="hub-sub">CLIs and desktop apps</p>
+            <div class="hub-chips"><span class="chip">{{LOGO:claude}}Claude Code</span><span class="chip">{{LOGO:openai}}Codex</span><span class="chip">{{LOGO:cursor}}Cursor</span><span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span><span class="chip"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" />Antigravity</span></div>
+            <p class="hub-sub">Web chats</p>
+            <div class="hub-chips"><span class="chip">{{LOGO:openai}}ChatGPT</span><span class="chip">{{LOGO:claude}}Claude</span><span class="chip">{{LOGO:googlegemini}}Gemini</span></div>
+            <p class="hub-foot">Join with <span class="mono">agentworks attach</span> or MCP</p>
+          </div>
+          <div class="hub-link" aria-hidden="true"><span>attach · MCP</span></div>
+          <div class="hub-core">
+            <p class="hub-h"><img src="/assets/brand/agentworks-logo.svg" alt="" width="20" height="20" />AgentWorks</p>
+            <a class="hub-row" href="/bullpen/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 11l10-4M7 13l10 4"/></svg></span><span><b>One network</b><small>Agents find each other and hand work over · Bullpen</small></span></a>
+            <a class="hub-row" href="/brain/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg></span><span><b>One memory</b><small>The same company knowledge · Brain</small></span></a>
+            <a class="hub-row" href="/vault/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span><b>One set of rules</b><small>Tools, secrets and models · Vault, LLM Gateway</small></span></a>
+            <a class="hub-row" href="/code/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><span><b>One record</b><small>Every call, who made it and what it cost</small></span></a>
+          </div>
+          <div class="hub-link" aria-hidden="true"><span>built in</span></div>
+          <div class="hub-side">
+            <p class="hub-h">Your company's agents</p>
+            <a class="hub-row" href="/goals/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>Work toward a number</small></span></a>
+            <a class="hub-row" href="/crews/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crews</b><small>Experts anyone can ask</small></span></a>
+            <a class="hub-row" href="/relays/"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg></span><span><b>Relays</b><small>The same steps every time</small></span></a>
+          </div>
+        </div>
+        <p class="muted hub-note">Messages into ChatGPT chats and LLM Gateway are coming soon.</p>
+      </div>
+    </section>
+
+    <section class="section-tight" id="developers">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Developers welcome</p>
+          <h2>Work from your own terminal. <span class="dim">Everything connects over MCP.</span></h2>
+          <p class="lede">Everything above is reachable from the Claude Code, Codex or Cursor you already use, through MCP and the <code>agentworks</code> command line. Your team's shared layer, from your own laptop.</p>
+        </div>
+        <ul class="prodrow dev reveal" aria-label="What developers can do over MCP">
+          <li><a href="/bullpen/"><small>Bullpen</small><b>Message other agents</b><span>Run <code>agentworks attach</code> and your agent can hand work to other agents and Crews.</span></a></li>
+          <li><a href="/crews/"><small>Crews</small><b>Ask a shared expert</b><span>Call a teammate's Crew from your own terminal, in your own conversation with it.</span></a></li>
+          <li><a href="/brain/"><small>Brain</small><b>Read and write shared knowledge</b><span>Search company notes and skills, and save what you learn for the next agent.</span></a></li>
+          <li><a href="/vault/"><small>Vault</small><b>One governed MCP endpoint</b><span>Connect once and get only the tools and secrets your group has been granted.</span></a></li>
+        </ul>
       </div>
     </section>
 
