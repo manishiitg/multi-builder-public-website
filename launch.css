@@ -1122,3 +1122,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .flow-roles { grid-template-columns: 1fr; }
 }
 @media (min-width: 761px) and (max-width: 980px) { .flow-roles { grid-template-columns: repeat(2, 1fr); } }
+
+/* Home: from your laptop to your team */
+.online-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+.online-col { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+.online-col.after { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-soft); }
+.online-h { margin: 0 0 12px; font-weight: 600; font-size: 16px; }
+.online-col.before .online-h { color: var(--muted); }
+.online-col.after .online-h { color: var(--green-text); }
+.online-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.online-col li { position: relative; padding-left: 26px; font-size: 15px; line-height: 1.45; }
+.online-col li::before { position: absolute; left: 0; top: 0; width: 18px; text-align: center; font-weight: 700; }
+.online-col.before li { color: var(--muted); }
+.online-col.before li::before { content: "\00d7"; }
+.online-col.after li::before { content: "\2713"; color: var(--green-text); }
+.online-steps { list-style: none; counter-reset: os; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.online-steps li { counter-increment: os; display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 14px; background: var(--amber-soft); }
+.online-steps li::before { content: counter(os); font-weight: 700; color: var(--amber-text); font-size: 13px; }
+.online-steps b { font-size: 15px; }
+.online-steps span { font-size: 14px; color: var(--muted); }
+@media (max-width: 860px) { .online-pair, .online-steps { grid-template-columns: 1fr; } }

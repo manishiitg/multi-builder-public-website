@@ -116,8 +116,8 @@ const pageExpectations = [
     name: 'home',
     file: 'index.html',
     route: '/index.html',
-    title: 'AgentWorks - Agentic Processes With Your People in Control',
-    h1: 'Make your processes agentic. Keep your people in control.',
+    title: 'AgentWorks - Bring Your AI Agents and Workflows to Your Team',
+    h1: 'You built it with AI. Now give it to your team.',
     canonical: 'https://agentworkshq.com/',
     ogImage: 'assets/og/agentworks-home-og.jpg',
     allowTallSections: true
