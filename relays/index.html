@@ -86,7 +86,23 @@
           "name": "What can a step be?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An agent step with its own system prompt and message, a condition that decides which step runs next, or a script step for exact work like formatting data or calling an API. Steps pass their output to the next one."
+            "text": "An agent step with its own system prompt and message, a classifier that sorts the input into the categories you name, a condition that decides which step runs next, or a script step for exact work like formatting data or calling an API. Steps pass their output to the next one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does a Relay send a request the right way?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add a classifier step. You list the categories, such as billing, support or sales, with a line on what belongs in each, and the Relay sends each request to that category's branch. The diagram shows which way every run went."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who can run a Relay I share?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anyone you share it with opens its dashboard and can ask it questions or run the published version. Only you change the steps."
           }
         },
         {
@@ -181,7 +197,7 @@
       <div class="wrap">
         <p class="kicker">Relays <span class="tag">Enterprise</span></p>
         <h1>A fixed relay of agents. <span class="dim">Run it from anywhere.</span></h1>
-        <p class="lede">Some jobs don't need an agent that plans. They need the same few steps, done well, every time: read the enquiry, decide what it is, look something up, write the reply. Relays let you chain agents, decisions and small scripts into one simple sequence, then call it from your website, your CRM or any other system.</p>
+        <p class="lede">Some jobs don't need an agent that plans. They need the same few steps, done well, every time: read the enquiry, decide what it is, look something up, write the reply. Relays let you chain agents, decisions and small scripts into one simple sequence, then call it from your website, your CRM or any other system. Share it, and your team runs it from its dashboard.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/docs/guides/publish-relay/">Read the Relay guide</a>
           <a class="btn btn-ghost" href="#how">See how it works</a>
@@ -196,14 +212,13 @@
           <div class="pipe">
             <p class="pipe-name">Trigger · Contact form on your website</p>
             <ol>
-              <li class="st agent"><small>Agent</small><b>Classify the enquiry</b><em>sales, support or partner</em></li>
-              <li class="st cond"><small>Condition</small><b>Is it a sales lead?</b><em>yes → next · no → support relay</em></li>
+              <li class="st cond"><small>Classifier</small><b>Sort the enquiry</b><em>sales → next · support or partner → their own agent</em></li>
               <li class="st det"><small>Script</small><b>Look up the company</b><em>CRM API call</em></li>
               <li class="st agent"><small>Agent</small><b>Draft the reply</b><em>your tone, with pricing</em></li>
               <li class="st det"><small>Script</small><b>Send to your CRM</b><em>returns the result</em></li>
             </ol>
           </div>
-          <div class="plan-foot"><span><i class="lg agent"></i>Agent step: system prompt + message</span><span><i class="lg cond"></i>Condition</span><span><i class="lg det"></i>Script step</span></div>
+          <div class="plan-foot"><span><i class="lg agent"></i>Agent step: system prompt + message</span><span><i class="lg cond"></i>Classifier or condition: picks the next step</span><span><i class="lg det"></i>Script step</span></div>
         </div>
       </div>
     </section>
@@ -215,10 +230,10 @@
           <h2>Design it once. <span class="dim">Call it from anything.</span></h2>
         </div>
         <ol class="loop reveal">
-          <li><h2>Chain the steps</h2><p>Agent steps, conditions and small scripts.</p></li>
-          <li><h2>Test with real input</h2><p>See every step's output on sample input.</p></li>
+          <li><h2>Chain the steps</h2><p>Agent steps, classifiers, conditions and small scripts.</p></li>
+          <li><h2>Test with real input</h2><p>See every step's output, and the exact path each run took on the diagram.</p></li>
           <li><h2>Deploy a trigger</h2><p>Get a versioned API endpoint or webhook.</p></li>
-          <li><h2>Run it anywhere</h2><p>Call it from your site, CRM or backend. Every run is logged.</p></li>
+          <li><h2>Run it anywhere</h2><p>Call it from your site, CRM or backend, or share its dashboard with your team. Every run is logged.</p></li>
         </ol>
       </div>
     </section>
@@ -233,13 +248,13 @@
           <li class="ucx reveal">
             <h3>Website enquiry</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>Contact form</span></p>
-            <ol class="uc-steps"><li class="uc-st agent">Classify: sales, support or partner</li><li class="uc-st det">Look up the company in your CRM</li><li class="uc-st agent">Draft the reply in your tone</li></ol>
+            <ol class="uc-steps"><li class="uc-st cond">Classifier: sales, support or partner</li><li class="uc-st det">Look up the company in your CRM</li><li class="uc-st agent">Draft the reply in your tone</li></ol>
             <p class="uc-out">Reply sent, lead logged</p>
           </li>
           <li class="ucx reveal">
             <h3>Support triage</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>New ticket</span></p>
-            <ol class="uc-steps"><li class="uc-st agent">Summarise the problem</li><li class="uc-st agent">Find the answer in your help docs</li><li class="uc-st cond">Found an answer?</li></ol>
+            <ol class="uc-steps"><li class="uc-st cond">Classifier: billing, bug, account or other</li><li class="uc-st agent">That area's agent finds the answer in your help docs</li><li class="uc-st cond">Found an answer?</li></ol>
             <p class="uc-out">Answered, or routed to a person</p>
           </li>
           <li class="ucx reveal">
@@ -280,7 +295,9 @@
         <div class="faq">
           <details open><summary>How do I publish a new version?</summary><p>Edit the draft in the Relay Builder and publish. Each publish freezes a numbered version behind the same endpoint, so callers can pin a version or follow the latest.</p></details>
           <details><summary>How is a Relay different from a Workflow?</summary><p>A Workflow works toward a goal: it plans, measures and adjusts its own steps, and shows whether the metric moves. A Relay is fixed. It runs the same steps in the same order every time, which is what you want behind a website form or another system.</p></details>
-          <details><summary>What can a step be?</summary><p>An agent step with its own system prompt and message, a condition that decides which step runs next, or a script step for exact work like formatting data or calling an API. Steps pass their output to the next one.</p></details>
+          <details><summary>What can a step be?</summary><p>An agent step with its own system prompt and message, a classifier that sorts the input into the categories you name, a condition that decides which step runs next, or a script step for exact work like formatting data or calling an API. Steps pass their output to the next one.</p></details>
+          <details><summary>How does a Relay send a request the right way?</summary><p>Add a classifier step. You list the categories, such as billing, support or sales, with a line on what belongs in each, and the Relay sends each request to that category&#x27;s branch. The diagram shows which way every run went.</p></details>
+          <details><summary>Who can run a Relay I share?</summary><p>Anyone you share it with opens its dashboard and can ask it questions or run the published version. Only you change the steps.</p></details>
           <details><summary>How do other systems run a Relay?</summary><p>Each deployed Relay gets a trigger: an authenticated API endpoint or webhook. Your website, CRM, backend or no-code tool sends the input and gets the result back, or a callback when it finishes.</p></details>
           <details><summary>Which models run the agent steps?</summary><p>The same AI plans you connect to AgentWorks, such as Claude, ChatGPT, Gemini or Cursor. You can choose a different one per step.</p></details>
         </div>
