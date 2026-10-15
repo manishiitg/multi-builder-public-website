@@ -1,22 +1,22 @@
-# Relays: a fixed chain of agents you design once and run from anywhere.
+# Flows: a fixed chain of agents you design once and run from anywhere.
 FAQ_RELAYS=[
- ("How do I publish a new version?","Edit the draft in the Relay Builder and publish. Each publish freezes a numbered version behind the same endpoint, so callers can pin a version or follow the latest."),
- ("How is a Relay different from a Workflow?","A Workflow works toward a goal: it plans, measures and adjusts its own steps, and shows whether the metric moves. A Relay is fixed. It runs the same steps in the same order every time, which is what you want behind a website form or another system."),
+ ("How do I publish a new version?","Edit the draft in the Flow Builder and publish. Each publish freezes a numbered version behind the same endpoint, so callers can pin a version or follow the latest."),
+ ("How is a Flow different from a Goal?","A Goal works toward a number: it plans, measures and adjusts its own steps, and shows whether the metric moves. A Flow is fixed. It runs the same steps in the same order every time, which is what you want behind a website form or another system."),
  ("What can a step be?","An agent step with its own system prompt and message, a classifier that sorts the input into the categories you name, a condition that decides which step runs next, or a script step for exact work like formatting data or calling an API. Steps pass their output to the next one."),
- ("How does a Relay send a request the right way?","Add a classifier step. You list the categories, such as billing, support or sales, with a line on what belongs in each, and the Relay sends each request to that category's branch. The diagram shows which way every run went."),
- ("Who can run a Relay I share?","Anyone you share it with opens its dashboard and can ask it questions or run the published version. Only you change the steps."),
- ("How do other systems run a Relay?","Each deployed Relay gets a trigger: an authenticated API endpoint or webhook. Your website, CRM, backend or no-code tool sends the input and gets the result back, or a callback when it finishes."),
+ ("How does a Flow send a request the right way?","Add a classifier step. You list the categories, such as billing, support or sales, with a line on what belongs in each, and the Flow sends each request to that category's branch. The diagram shows which way every run went."),
+ ("Who can run a Flow I share?","Anyone you share it with opens its dashboard and can ask it questions or run the published version. Only you change the steps."),
+ ("How do other systems run a Flow?","Each deployed Flow gets a trigger: an authenticated API endpoint or webhook. Your website, CRM, backend or no-code tool sends the input and gets the result back, or a callback when it finishes."),
  ("Which models run the agent steps?","The same AI plans you connect to AgentWorks, such as Claude, ChatGPT, Gemini or Cursor. You can choose a different one per step."),
 ]
 
 body=f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
-        <p class="kicker">Relays <span class="tag">Enterprise</span></p>
-        <h1>A fixed relay of agents. <span class="dim">Run it from anywhere.</span></h1>
-        <p class="lede">Some jobs don't need an agent that plans. They need the same few steps, done well, every time: read the enquiry, decide what it is, look something up, write the reply. Relays let you chain agents, decisions and small scripts into one simple sequence, then call it from your website, your CRM or any other system. Share it, and your team runs it from its dashboard.</p>
+        <p class="kicker">Flows <span class="tag">Enterprise</span></p>
+        <h1>The same steps, every time. <span class="dim">Run them from anywhere.</span></h1>
+        <p class="lede">Some jobs don't need an agent that plans. They need the same few steps, done well, every time: read the enquiry, decide what it is, look something up, write the reply. Flows let you chain agents, decisions and small scripts into one simple sequence, then call it from your website, your CRM or any other system. Share it, and your team runs it from its dashboard.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/docs/guides/publish-relay/">Read the Relay guide</a>
+          <a class="btn btn-primary" href="/docs/guides/publish-relay/">Read the Flow guide</a>
           <a class="btn btn-ghost" href="#how">See how it works</a>
         </div>
       </div>
@@ -24,7 +24,7 @@ body=f'''  <main id="main">
 
     <section class="section-tight">
       <div class="wrap">
-        <div class="plan reveal" aria-label="Example relay">
+        <div class="plan reveal" aria-label="Example flow">
           <div class="plan-head"><b>Website enquiry → qualified reply</b><span class="tag tag-soon">Example</span></div>
           <div class="pipe">
             <p class="pipe-name">Trigger · Contact form on your website</p>
@@ -79,7 +79,7 @@ body=f'''  <main id="main">
     <section class="cta">
       <div class="wrap">
         <h2>Have a chain in mind? <span class="dim">Build it with us first.</span></h2>
-        <p>We are opening Relays to a small group of early users. Tell us the steps you repeat, and we will set up your first Relay with you.</p>
+        <p>We are opening Flows to a small group of early users. Tell us the steps you repeat, and we will set up your first Flow with you.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Get early access</a>
           <a class="btn btn-ghost" href="/product/">How AgentWorks works</a>
@@ -88,5 +88,5 @@ body=f'''  <main id="main">
     </section>
   </main>
 '''
-RELAYS_LD={"@type":"WebPage","name":"AgentWorks Relays","url":"https://agentworkshq.com/relays/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['relays/index.html']=head('AgentWorks Relays - Chain AI Agents and Run Them From Anywhere','Chain agent steps, conditions and scripts into one fixed Relay, then call it from your website, CRM or any system through an API endpoint or webhook.','/relays/',extra_ld=ld(RELAYS_LD,BC('Relays','/relays/'),faq_ld(FAQ_RELAYS)))+header('product')+body+footer()
+RELAYS_LD={"@type":"WebPage","name":"AgentWorks Flows","url":"https://agentworkshq.com/flows/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
+pages['flows/index.html']=head('AgentWorks Flows - Chain AI Agents and Run Them From Anywhere','Chain agent steps, conditions and scripts into one fixed Flow, then call it from your website, CRM or any system through an API endpoint or webhook.','/flows/',extra_ld=ld(RELAYS_LD,BC('Flows','/flows/'),faq_ld(FAQ_RELAYS)))+header('product')+body+footer()

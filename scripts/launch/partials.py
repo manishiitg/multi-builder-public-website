@@ -56,7 +56,7 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
 NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
 PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works toward the target and measures every run.','goal'),
          ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
-         ('/relays/','Relays','A fixed chain of agents you run from anywhere.','relay'),
+         ('/flows/','Flows','A fixed chain of agents you run from anywhere.','relay'),
          ('/brain/','Brain','Shared company knowledge: write it once and every agent reads it.','brain'),
          ('/vault/','Vault','One governed door to every MCP tool and shared secret.','gateway'),
          ('/llm-gateway/','LLM Gateway','One endpoint for every AI model, with access and cost per person.','llmgw'),
@@ -72,7 +72,7 @@ PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/relays/':'Agent chains, run anywhere', '/bullpen/':'A room for team and agents',
+ '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/flows/':'Agent chains, run anywhere', '/bullpen/':'A room for team and agents',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -167,7 +167,7 @@ def footer():
             <li><a href="/product/">Overview</a></li>
             <li><a href="/goals/">Goals</a></li>
             <li><a href="/crews/">Crews</a></li>
-            <li><a href="/relays/">Relays</a></li>
+            <li><a href="/flows/">Flows</a></li>
             <li><a href="/brain/">Brain</a></li>
             <li><a href="/vault/">Vault</a></li>
             <li><a href="/llm-gateway/">LLM Gateway</a></li>

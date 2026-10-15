@@ -12,7 +12,7 @@ ROWS=[
  ("Run logs and cost per goal",(Y,Y)),
  ("Products for the whole company",None),
  ("Crews: expert agents your team asks, with premade Crew agents",(N,Y)),
- ("Relays: fixed agent chains behind an API",(N,Y)),
+ ("Flows: fixed agent chains behind an API",(N,Y)),
  ("Brain: shared company knowledge for every agent",(N,Y)),
  ("Code: a private AI workspace per employee, with cost and usage by person",(N,Y)),
  ("Bullpen: every agent on one network",(N,"Early access")),
@@ -41,7 +41,7 @@ def compare():
 FAQ_PRICING=[
  ("What can I use without a call?","Goals. Download the app, connect your AI plan and set up your first Goal yourself. Every other product comes with an Enterprise deployment."),
  ("How is Enterprise priced?","A one-time setup fee for customizing and deploying it for your company, then a monthly fee for the platform, updates, support and ongoing changes. We scope both on a call, based on the processes, tools and where it runs."),
- ("What's included in Enterprise?","Everything: Goals, Crews, Relays, Brain, Code, Bullpen, Vault and, when it ships, LLM Gateway, deployed in your own cloud, set up for your processes, with SSO, audit logs, custom integrations and dedicated support."),
+ ("What's included in Enterprise?","Everything: Goals, Crews, Flows, Brain, Code, Bullpen, Vault and, when it ships, LLM Gateway, deployed in your own cloud, set up for your processes, with SSO, audit logs, custom integrations and dedicated support."),
  ("Is the source code available?","Yes. The source is public under the Business Source License 1.1. Using it in the operation of your business, or offering it to others, needs a commercial license from us, which is included in Enterprise. Each version converts to the Apache License 2.0 after three years."),
  ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
  ("Which AI plan should I use?","Light use works on a $20 plan. If agents run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
@@ -118,4 +118,4 @@ body=f'''  <main id="main">
 '''
 PRICE_LD={"@type":"WebPage","name":"AgentWorks Pricing","url":"https://agentworkshq.com/pricing/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
 BC=lambda name,path: {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgentWorks","item":"https://agentworkshq.com/"},{"@type":"ListItem","position":2,"name":name,"item":"https://agentworkshq.com"+path}]}
-pages['pricing/index.html']=head('AgentWorks Pricing - Enterprise Deployment, or Try Goals Yourself','AgentWorks is an Enterprise deployment: Goals, Crews, Relays, Brain, Code, Bullpen and Vault, customized and deployed in your own cloud with a setup fee and a monthly fee. Goals is also self-serve. Runs on your own AI plan.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()
+pages['pricing/index.html']=head('AgentWorks Pricing - Enterprise Deployment, or Try Goals Yourself','AgentWorks is an Enterprise deployment: Goals, Crews, Flows, Brain, Code, Bullpen and Vault, customized and deployed in your own cloud with a setup fee and a monthly fee. Goals is also self-serve. Runs on your own AI plan.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()

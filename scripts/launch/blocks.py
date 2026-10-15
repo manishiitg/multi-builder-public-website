@@ -12,7 +12,7 @@ def tiers(heading='h3'):
             <p class="tier-desc">Every product, customized for your company and deployed in your own cloud, with the controls your IT and security teams need.</p>
             <ul class="tier-list">
               <li class="head">Every product, including</li>
-              <li>Goals, Crews, Relays, Brain and Code</li>
+              <li>Goals, Crews, Flows, Brain and Code</li>
               <li>Bullpen and Vault (early access), LLM Gateway (coming soon)</li>
               <li>All premade Crew agents</li>
               <li>Customized deployment and integrations built with you</li>

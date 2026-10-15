@@ -122,7 +122,7 @@ cp -R refunds dist/refunds
 cp -R pricing dist/pricing
 cp -R enterprise dist/enterprise
 cp -R agents dist/agents
-cp -R relays dist/relays
+cp -R flows dist/flows
 cp -R bullpen dist/bullpen
 cp -R llm-gateway dist/llm-gateway
 cp -R goals dist/goals
