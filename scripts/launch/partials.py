@@ -66,13 +66,13 @@ PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[
 # Product menu second column: what every product shares.
 PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
                ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
-               ('/bullpen/','Bullpen','One room for your team and every agent they run.','bullpen')]
+               ('/agentbridge/','AgentBridge','Connects your team and every agent they run.','bullpen')]
 # The dedicated product pages, for cross-links between them.
 PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/flows/':'Agent chains, run anywhere', '/bullpen/':'A room for team and agents',
+ '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/flows/':'Agent chains, run anywhere', '/agentbridge/':'A room for team and agents',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -172,7 +172,7 @@ def footer():
             <li><a href="/vault/">Vault</a></li>
             <li><a href="/llm-gateway/">LLM Gateway</a></li>
             <li><a href="/code/">Code</a></li>
-            <li><a href="/bullpen/">Bullpen</a></li>
+            <li><a href="/agentbridge/">AgentBridge</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>
             <li><a href="/agents/">Premade agents</a></li>
           </ul>

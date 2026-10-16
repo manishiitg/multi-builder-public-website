@@ -460,7 +460,7 @@ const marketingRoutes = [
   { route: '/brain/', changefreq: 'monthly', priority: '0.8' },
   { route: '/download/', changefreq: 'monthly', priority: '0.8' },
   { route: '/flows/', changefreq: 'monthly', priority: '0.6' },
-  { route: '/bullpen/', changefreq: 'monthly', priority: '0.6' },
+  { route: '/agentbridge/', changefreq: 'monthly', priority: '0.6' },
   { route: '/llm-gateway/', changefreq: 'monthly', priority: '0.6' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' }
 ];

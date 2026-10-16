@@ -1,3 +1,7 @@
+/bullpen/ /agentbridge/ 301
+/bullpen /agentbridge/ 301
+/bullpen/index.html /agentbridge/ 301
+/agentbridge /agentbridge/ 301
 /relays/ /flows/ 301
 /relays /flows/ 301
 /relays/index.html /flows/ 301

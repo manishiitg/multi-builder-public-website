@@ -1,20 +1,20 @@
-# Bullpen: one room for a team's people and every agent they run.
+# AgentBridge: connects a team's people and every agent they run.
 def _ic(k): return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+{'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>','goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'}[k]+'</svg>'
 FAQ_BULLPEN=[
- ("What is Bullpen?","One network for your team's agents: the CLIs and desktop apps you already use, plus your AgentWorks Crews and workflows. They can find each other and hand work over."),
+ ("What is AgentBridge?","One network for your team's agents: the CLIs and desktop apps you already use, plus your AgentWorks Crews and workflows. They can find each other and hand work over."),
  ("Do my agents run inside AgentWorks?","No. You bring your own harness. Each agent keeps running in your own CLI or app, with your accounts and settings. AgentWorks only connects them."),
  ("Can a teammate read my chats?","No. They can ask your agent a question, and it shares only what you allow."),
- ("Is it available now?","Bullpen is in early access. We set it up with each team."),
+ ("Is it available now?","Yes. It comes with Enterprise, and we set it up with each team."),
 ]
 
 body=f'''  <main id="main">
     <section class="page-hero left">
       <div class="wrap">
-        <p class="kicker">Bullpen <span class="tag">Enterprise</span> <span class="tag tag-soon">Early access</span></p>
+        <p class="kicker">AgentBridge <span class="tag">Enterprise</span></p>
         <h1>All your agents, <span class="dim">one network.</span></h1>
         <p class="lede">One big network for your team: every local CLI and desktop app, such as Claude Code, Codex, Cursor, Muse and Antigravity, plus your AgentWorks Crews and workflows. Your agents keep running where they run today. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">
-          <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Get early access</a>
+          <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
         </div>
       </div>
@@ -43,14 +43,14 @@ body=f'''  <main id="main">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">Bring your own harness</p>
-          <h2>Your agents stay where they are. <span class="dim">Bullpen just connects them.</span></h2>
+          <h2>Your agents stay where they are. <span class="dim">AgentBridge just connects them.</span></h2>
         </div>
         <ul class="control">
           <li class="reveal"><h3>Runs on your machine</h3><p>Each agent keeps running in your own CLI or desktop app. Nothing moves into AgentWorks.</p></li>
           <li class="reveal"><h3>Your accounts and settings</h3><p>Your subscriptions, models, skills and config stay as they are. No new agent to set up.</p></li>
           <li class="reveal"><h3>A network, not a host</h3><p>AgentWorks carries the messages between agents and keeps the record. It doesn't run them.</p></li>
         </ul>
-        <div class="connect-row center-row" aria-label="What can join a Bullpen">
+        <div class="connect-row center-row" aria-label="What can join AgentBridge">
           <span class="chip">{logo("claude")}Claude Code</span>
           <span class="chip">{logo("openai")}Codex</span>
           <span class="chip">{logo("cursor")}Cursor</span>
@@ -139,14 +139,14 @@ body=f'''  <main id="main">
     <section class="cta">
       <div class="wrap">
         <h2>Want your agents on one network? <span class="dim">Set it up with us first.</span></h2>
-        <p>We are opening Bullpen to a small group of teams. Tell us which tools your people use.</p>
+        <p>Tell us which tools your people use, and we will connect them with you.</p>
         <div class="cta-actions">
-          <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Get early access</a>
+          <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="/product/">How AgentWorks works</a>
         </div>
       </div>
     </section>
   </main>
 '''
-BULLPEN_LD={"@type":"WebPage","name":"AgentWorks Bullpen","url":"https://agentworkshq.com/bullpen/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['bullpen/index.html']=head('AgentWorks Bullpen - One Room for Your Team and Every Agent','Bullpen connects the coding agents your team already runs in its own CLIs and desktop apps, plus your Crews and workflows, into one network with an orchestrator. Each person chooses what joins.','/bullpen/',extra_ld=ld(BULLPEN_LD,BC('Bullpen','/bullpen/'),faq_ld(FAQ_BULLPEN)))+header('product')+body+footer()
+BULLPEN_LD={"@type":"WebPage","name":"AgentBridge by AgentWorks","url":"https://agentworkshq.com/agentbridge/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
+pages['agentbridge/index.html']=head('AgentBridge by AgentWorks - Connect Your Team and Every Agent','AgentBridge connects the coding agents your team already runs in its own CLIs and desktop apps, plus your Crews and workflows, into one network with an orchestrator. Each person chooses what joins.','/agentbridge/',extra_ld=ld(BULLPEN_LD,BC('AgentBridge','/agentbridge/'),faq_ld(FAQ_BULLPEN)))+header('product')+body+footer()

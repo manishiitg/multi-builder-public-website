@@ -13,7 +13,7 @@ def tiers(heading='h3'):
             <ul class="tier-list">
               <li class="head">Every product, including</li>
               <li>Goals, Crews, Flows, Brain and Code</li>
-              <li>Bullpen and Vault (early access), LLM Gateway (coming soon)</li>
+              <li>AgentBridge and Vault, LLM Gateway (coming soon)</li>
               <li>All premade Crew agents</li>
               <li>Customized deployment and integrations built with you</li>
               <li>Self-hosted in your VPC or private cloud</li>
