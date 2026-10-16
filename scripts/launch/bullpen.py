@@ -1,7 +1,7 @@
 # AgentBridge: connects a team's people and every agent they run.
 def _ic(k): return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+{'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>','goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'}[k]+'</svg>'
 FAQ_BULLPEN=[
- ("What is AgentBridge?","One network for your team's agents: the CLIs and desktop apps you already use, plus your AgentWorks Crews and workflows. They can find each other and hand work over."),
+ ("What is AgentBridge?","One network for the coding agents your team already runs in its own CLIs and desktop apps. They find each other and hand work over, and any of them can ask your Crews over MCP."),
  ("Do my agents run inside AgentWorks?","No. You bring your own harness. Each agent keeps running in your own CLI or app, with your accounts and settings. AgentWorks only connects them."),
  ("Can a teammate read my chats?","No. They can ask your agent a question, and it shares only what you allow."),
  ("Is it available now?","Yes. It comes with Enterprise, and we set it up with each team."),
@@ -12,7 +12,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">AgentBridge <span class="tag">Enterprise</span></p>
         <h1>All your agents, <span class="dim">one network.</span></h1>
-        <p class="lede">One big network for your team: every local CLI and desktop app, such as Claude Code, Codex, Cursor, Muse and Antigravity, plus your AgentWorks Crews and workflows. Your agents keep running where they run today. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
+        <p class="lede">One big network for your team's coding agents: every local CLI and desktop app, such as Claude Code, Codex, Cursor, Muse and Antigravity. Your agents keep running where they run today, and any of them can ask your Crews over MCP. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
@@ -31,10 +31,10 @@ body=f'''  <main id="main">
             <div class="net-node"><span class="net-ic">{logo("openai")}</span><b>qa-regression</b><small>Codex · your CLI</small><em>Runs the tests</em></div>
             <div class="net-node"><span class="net-ic">{logo("cursor")}</span><b>frontend-fixes</b><small>Cursor · your app</small><em>Fixes the UI bugs</em></div>
             <div class="net-node"><span class="net-ic"><span class="mono-logo">M</span></span><b>docs-update</b><small>Muse · your CLI</small><em>Updates the docs</em></div>
-            <div class="net-node net-aw"><span class="net-ic">{_ic('crew')}</span><b>support-crew</b><small>Crew · AgentWorks</small><em>Checks open bug reports</em></div>
-            <div class="net-node net-aw"><span class="net-ic">{_ic('goal')}</span><b>release-notes</b><small>Workflow · AgentWorks</small><em>Drafts the notes</em></div>
+            <div class="net-node"><span class="net-ic"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" /></span><b>release-check</b><small>Antigravity · your app</small><em>Checks the build</em></div>
+            <div class="net-node net-aw"><span class="net-ic">{_ic('crew')}</span><b>support-crew</b><small>Crew · asked over MCP</small><em>Lists open bug reports</em></div>
           </div>
-          <p class="net-foot">Your CLIs and apps sit next to your Crews and workflows. Results come back to the orchestrator, and you approve.</p>
+          <p class="net-foot">Your CLIs and apps hand work to each other and ask your Crews over MCP. Results come back to the orchestrator, and you approve.</p>
         </div>
       </div>
     </section>
@@ -56,8 +56,6 @@ body=f'''  <main id="main">
           <span class="chip">{logo("cursor")}Cursor</span>
           <span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span>
           <span class="chip"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" />Antigravity</span>
-          <span class="chip chip-aw">{_ic('crew')}Crews</span>
-          <span class="chip chip-aw">{_ic('goal')}Workflows</span>
         </div>
       </div>
     </section>
@@ -82,16 +80,16 @@ body=f'''  <main id="main">
             <p class="ask-msg them">Picked it up. Continuing.</p>
           </li>
           <li class="ucx reveal">
-            <h3>Support to engineering</h3>
-            <p class="uc-route"><span class="uc-who"><span class="net-ic">{_ic('crew')}</span>Support Crew</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span></p>
-            <p class="ask-msg you">Customers say checkout fails with a coupon.</p>
-            <p class="ask-msg them">Reproduced it. Fix is ready for review.</p>
+            <h3>Ask a Crew</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{_ic('crew')}</span>Support Crew</span></p>
+            <p class="ask-msg you">Any open bug reports about checkout?</p>
+            <p class="ask-msg them">Three, all with a coupon applied.</p>
           </li>
           <li class="ucx reveal">
-            <h3>Workflow needs a fix</h3>
-            <p class="uc-route"><span class="uc-who"><span class="net-ic">{_ic('goal')}</span>Weekly report</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{logo("openai")}</span>Codex</span></p>
-            <p class="ask-msg you">The sales numbers look wrong. Check the query.</p>
-            <p class="ask-msg them">Fixed the join. Rerun when ready.</p>
+            <h3>Tests for a new screen</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("cursor")}</span>Cursor</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" /></span>Antigravity</span></p>
+            <p class="ask-msg you">Write the tests for the new checkout screen.</p>
+            <p class="ask-msg them">Tests added. All passing.</p>
           </li>
           <li class="ucx reveal">
             <h3>Ask a teammate's agent</h3>
@@ -149,4 +147,4 @@ body=f'''  <main id="main">
   </main>
 '''
 BULLPEN_LD={"@type":"WebPage","name":"AgentBridge by AgentWorks","url":"https://agentworkshq.com/agentbridge/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['agentbridge/index.html']=head('AgentBridge by AgentWorks - Connect Your Team and Every Agent','AgentBridge connects the coding agents your team already runs in its own CLIs and desktop apps, plus your Crews and workflows, into one network with an orchestrator. Each person chooses what joins.','/agentbridge/',extra_ld=ld(BULLPEN_LD,BC('AgentBridge','/agentbridge/'),faq_ld(FAQ_BULLPEN)))+header('product')+body+footer()
+pages['agentbridge/index.html']=head('AgentBridge by AgentWorks - Connect Your Team and Every Agent','AgentBridge connects the coding agents your team already runs in its own CLIs and desktop apps into one network with an orchestrator, and lets them ask your Crews. Each person chooses what joins.','/agentbridge/',extra_ld=ld(BULLPEN_LD,BC('AgentBridge','/agentbridge/'),faq_ld(FAQ_BULLPEN)))+header('product')+body+footer()
