@@ -75,6 +75,8 @@ const requiredFiles = [
   'assets/docs/guides/autonomy-levels.webp',
   'assets/docs/guides/approval-decision.webp',
   'docs-guides/first-goal.md',
+  'docs-guides/connect-agentbridge.md',
+  'docs/guides/connect-agentbridge/index.html',
   'docs-guides/slack.md',
   'docs-guides/whatsapp.md',
   'docs-guides/approvals-autonomy.md',
@@ -715,6 +717,7 @@ async function assertRenderedPages() {
       }
     }
     const docsArticleRoutes = [
+      { route: '/docs/guides/connect-agentbridge/', h1: 'Connect your AI app to AgentWorks', name: 'guide connect-agentbridge' },
       { route: '/docs/guides/first-goal/', h1: 'Set your first goal', name: 'guide first-goal' },
       { route: '/docs/guides/slack/', h1: 'Talk to your crew in Slack', name: 'guide slack' },
       { route: '/docs/guides/whatsapp/', h1: 'Talk to your crew on WhatsApp', name: 'guide whatsapp' }

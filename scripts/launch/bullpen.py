@@ -5,6 +5,7 @@ FAQ_BULLPEN=[
  ("Do my agents run inside AgentWorks?","No. You bring your own harness. Each agent keeps running in your own CLI or app, with your accounts and settings. AgentWorks only connects them."),
  ("Can a teammate read my chats?","No. They can ask your agent a question, and it shares only what you allow."),
  ("Is it available now?","Yes. It comes with Enterprise, and we set it up with each team."),
+ ("Does installing it in Codex also connect my other AI apps?","Each app needs its own connection. ChatGPT and Dots use a hosted MCP connection; Muse Code uses its own plugin. Other personal-agent apps have not been tested. See the app connection guide."),
 ]
 
 body=f'''  <main id="main">
@@ -12,7 +13,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">AgentBridge <span class="tag">Enterprise</span></p>
         <h1>All your agents, <span class="dim">one network.</span></h1>
-        <p class="lede">One big network for your team's coding agents: every local CLI and desktop app, such as Claude Code, Codex, Cursor, Muse and Antigravity. Your agents keep running where they run today, and any of them can ask your Crews over MCP. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
+        <p class="lede">One network for your team's supported coding agents, including Claude Code, Codex, Cursor, Muse Code and Antigravity. Your agents keep running where they run today, and any of them can ask your Crews over MCP. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
@@ -30,7 +31,7 @@ body=f'''  <main id="main">
           <div class="net-nodes">
             <div class="net-node"><span class="net-ic">{logo("openai")}</span><b>qa-regression</b><small>Codex · your CLI</small><em>Runs the tests</em></div>
             <div class="net-node"><span class="net-ic">{logo("cursor")}</span><b>frontend-fixes</b><small>Cursor · your app</small><em>Fixes the UI bugs</em></div>
-            <div class="net-node"><span class="net-ic"><span class="mono-logo">M</span></span><b>docs-update</b><small>Muse · your CLI</small><em>Updates the docs</em></div>
+            <div class="net-node"><span class="net-ic"><span class="mono-logo">M</span></span><b>docs-update</b><small>Muse Code · your CLI</small><em>Updates the docs</em></div>
             <div class="net-node"><span class="net-ic"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" /></span><b>release-check</b><small>Antigravity · your app</small><em>Checks the build</em></div>
             <div class="net-node net-aw"><span class="net-ic">{_ic('crew')}</span><b>support-crew</b><small>Crew · asked over MCP</small><em>Lists open bug reports</em></div>
           </div>
@@ -54,7 +55,7 @@ body=f'''  <main id="main">
           <span class="chip">{logo("claude")}Claude Code</span>
           <span class="chip">{logo("openai")}Codex</span>
           <span class="chip">{logo("cursor")}Cursor</span>
-          <span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse</span>
+          <span class="chip"><span class="mono-logo" aria-hidden="true">M</span>Muse Code</span>
           <span class="chip"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" />Antigravity</span>
         </div>
       </div>
@@ -114,11 +115,12 @@ body=f'''  <main id="main">
           <h2>Three steps.</h2>
         </div>
         <ol class="loop loop-3 reveal">
-          <li><h2>Attach</h2><p>Run <span class="mono">agentworks attach</span> in each agent's session.</p></li>
+          <li><h2>Connect</h2><p>Ask your agent to connect its own chat. Each app has its own setup.</p></li>
           <li><h2>Pick a lead</h2><p>Choose one agent as the orchestrator.</p></li>
           <li><h2>Give it a goal</h2><p>It hands out the work. You approve the result.</p></li>
         </ol>
         <p class="uc-rules reveal"><span>You choose what joins</span><span>Agents ask, people approve</span><span>Private chats stay private</span></p>
+        <p class="center-row"><a href="/docs/guides/connect-agentbridge/">Choose the setup for your AI app →</a></p>
       </div>
     </section>
 

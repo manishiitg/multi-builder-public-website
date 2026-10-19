@@ -29,6 +29,7 @@ const guidesNav = [
     { slug: 'approvals-autonomy', label: 'Approvals and autonomy', blurb: 'What asks first, and the four autonomy levels.' }
   ] },
   { group: 'Work together', pages: [
+    { slug: 'connect-agentbridge', label: 'Connect your AI app', blurb: 'Connect a coding chat, or add hosted tools to ChatGPT.' },
     { slug: 'share-workflow', label: 'Share a workflow', blurb: 'Owners, editors, readers — share a workflow and know what each level can do.' },
     { slug: 'share-secrets', label: 'Share secrets safely', blurb: 'One API key in Vault that your team\'s agents can use, without pasting it around.' }
   ] },
