@@ -10,7 +10,9 @@ Start in the app where you want to work: add AgentWorks as a connector using you
 
 | Where you chat | Connection to use | What to check |
 |---|---|---|
+| Claude Code | The AgentWorks Claude Code plugin | Review its hooks and connect the intended coding chat. |
 | Codex on your computer | AgentWorks CLI and Codex setup | Connect the intended coding chat. |
+| Cursor | The AgentWorks Cursor plugin | Review its hooks and connect the intended coding chat. |
 | ChatGPT or a Dot | Hosted AgentWorks MCP connection in ChatGPT | Sign in and make its tools available to that conversation. Local Codex setup does not add this connection. |
 | Muse Code | The AgentWorks Muse Code plugin on the computer running Muse Code | Update the CLI first, review the plugin, restart, then connect the intended chat. |
 
