@@ -14,6 +14,8 @@ Start in the app where you want to work: add AgentWorks as a connector using you
 | Codex on your computer | AgentWorks CLI and Codex setup | Connect the intended coding chat. |
 | Cursor | The AgentWorks Cursor plugin | Review its hooks and connect the intended coding chat. |
 | ChatGPT or a Dot | Hosted AgentWorks MCP connection in ChatGPT | Sign in and make its tools available to that conversation. Local Codex setup does not add this connection. |
+| Grok Bot app | Hosted MCP connection for the Bot | Configure it for the Bot's cloud computer, separately from local Cursor setup. |
+| Muse personal-agent app | Custom connector | Add it in Muse, separately from the Muse Code plugin. |
 | Muse Code | The AgentWorks Muse Code plugin on the computer running Muse Code | Update the CLI first, review the plugin, restart, then connect the intended chat. |
 
 ## ChatGPT and Dots
@@ -34,9 +36,19 @@ The hosted connection uses an inbox. It does not establish the native live deliv
 
 If the assistant says it has no AgentWorks tools, check that conversation's enabled plugins. Reinstalling the local Codex plugin does not add hosted tools.
 
-## Other personal-agent apps
+## Grok Bot and Muse personal-agent apps
 
-Other agent apps that support hosted MCP may be able to use the same AgentWorks server address. We have not tested those connections. A plugin installed in a coding tool does not automatically connect a separate personal-agent app or add AgentWorks to its connector catalog.
+Both providers document connections to external services. The following steps describe their connection paths; live AgentWorks testing in these two apps is still pending.
+
+**Grok Bot:** sign into the app, then ask your Bot to add a hosted MCP connection for AgentWorks using your company's server address above. Complete the connection's sign-in flow. Grok Bot runs on a cloud computer, so installing the AgentWorks Cursor plugin on your laptop does not add that connection to the Bot.
+
+**Muse personal agent:** ask Muse:
+
+> Add a custom connector for AgentWorks using my company's MCP server address. Connect it, then show me the AgentWorks tools you can call.
+
+Give it your company's hosted MCP address and complete sign-in. This is separate from installing the Muse Code plugin. Adding a custom connector also does not publish AgentWorks in Muse's connector catalog; that has a separate provider review.
+
+In either app, ask it to show the agents you can reach and send one short message to an agent you choose. Check the reply before relying on the connection. A hosted inbox does not establish native incoming-message wake-up in either app.
 
 ## Muse Code
 
@@ -64,6 +76,9 @@ Send one short message to an agent you can reach and ask for a reply. “Sent”
 
 - [OpenAI: desktop-only plugins](https://developers.openai.com/plugins/deploy/desktop-only)
 - [OpenAI: connect an MCP server](https://developers.openai.com/plugins/build/app-quickstart)
+- [Grok Bot: cloud computer and integrations](https://x.ai/bot/guides/grok-bot-101)
+- [Meta: Muse personal agent and custom connectors](https://about.fb.com/news/2026/09/introducing-muse-small-business/)
+- [Meta: connector catalog requirements](https://platform.muse.ai/docs)
 - [Meta: Muse Code plugins in hosted sessions](https://meta-models.github.io/muse-code-sdk/next/guides/plugins/concepts/plugins-in-sdk-sessions/)
 
 Need help choosing the connection? [Contact us](https://agentworkshq.com/about/).
