@@ -2,6 +2,7 @@
 import html as _h
 
 from uc_data import USECASES, uc_nav_items, uc_path
+from tpl import by_name as _catalog_by_name
 
 _USES={'mcp-gateway':lambda: uc_section([
  uc_pipe("Allowed call",("claude","Claude"),[("det","github · create_issue"),("ok","Engineering may use it")],"Call made and recorded"),
@@ -50,7 +51,10 @@ def _page(u):
     e=_h.escape
     pains=''.join(f'<li class="reveal"><span class="num">0{i+1}</span><div><b>{e(t)}</b><span>{e(d)}</span></div></li>' for i,(t,d) in enumerate(u['pains']))
     steps=''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t,d in u['steps'])
-    pbs=''.join(f'<li>{e(p)}</li>' for p in u['playbooks'])
+    pbs=''.join(
+        f'<li><a href="{e(_catalog_by_name(p)["source"])}" target="_blank" rel="noreferrer">{e(p)}</a></li>'
+        if u['slug']=='release-quality' else f'<li>{e(p)}</li>'
+        for p in u['playbooks'])
     gname,gmetric,(gval,gsub)=u['goal']
     if u.get('product'):
         others=''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{e(d)}</span></a>' for h,t,d in PRODUCT_PAGES if h!=uc_path(u))
