@@ -173,7 +173,7 @@ body=f'''  <main id="main">
           <p>Tell us where engineering time is leaking. We'll bring the playbook and the success metric to the first call.</p>
           <div class="cta-actions">
             <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
-            <a class="btn btn-ghost" href="/agents/#engineering">See the playbooks</a>
+            <a class="btn btn-ghost" href="/agents/#team-eng">See the playbooks</a>
           </div>
         </div>
       </div>
