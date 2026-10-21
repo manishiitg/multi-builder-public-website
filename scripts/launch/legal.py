@@ -65,11 +65,8 @@ TERMS=[
 ]
 
 REFUNDS=[
- ('7-day money-back guarantee', f'<p>If AgentWorks Cloud is not right for you, cancel within 7 days of your first payment and we will refund that payment in full, no questions asked. Email <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>'),
- ('After the first 7 days', '<p>You can cancel at any time. Your subscription stops renewing and you keep access until the end of the period you have paid for. We do not give partial refunds for unused time, except where the law requires it or we have failed to provide the service.</p>'),
+ ('Your agreement', f'<p>AgentWorks is provided under an agreement with each customer. Refunds, cancellation and termination follow the terms in that agreement. Questions: <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>'),
  ('Your AI plan', '<p>Your AI subscription or API usage (for example with Anthropic, OpenAI, Google or Cursor) is billed by that provider, not by us, so refunds for it are handled under their policy.</p>'),
- ('Enterprise', '<p>Enterprise pilots and contracts follow the refund and termination terms in your agreement.</p>'),
- ('How refunds are paid', '<p>Refunds go back to the original payment method {REFUND_VIA}, usually within 5 to 10 business days depending on your bank.</p>'),
 ]
 
 _TOK={'{BILLING_DATA}':BILLING_DATA,'{BILLING_VIA}':BILLING_VIA,'{REFUND_VIA}':REFUND_VIA}
@@ -84,7 +81,7 @@ PRIVACY,TERMS,REFUNDS=_fill(PRIVACY),_fill(TERMS),_fill(REFUNDS)
 for slug,title,intro,sections,desc in [
  ('privacy','Privacy Policy','What personal data AgentWorks handles, why, and your choices.',PRIVACY,'How AgentWorks handles personal data on the website, in the AgentWorks app and in custom deployments.'),
  ('terms','Terms of Service','The terms for using AgentWorks Cloud and other hosted AgentWorks services.',TERMS,'Terms of Service for AgentWorks Cloud and hosted AgentWorks services, operated by XTECH.'),
- ('refunds','Refund Policy','A 7-day money-back guarantee, and how cancellation works after that.',REFUNDS,'AgentWorks Cloud refund policy: 7-day money-back guarantee, cancel anytime, access until the end of the paid period.'),
+ ('refunds','Refund Policy','How refunds and cancellation work.',REFUNDS,'AgentWorks refund policy: refunds, cancellation and termination follow your agreement; AI provider usage is billed by the provider.'),
 ]:
     path=f'/{slug}/'
     LD={"@type":"WebPage","name":f"AgentWorks {title}","url":"https://agentworkshq.com"+path,"isPartOf":{"@id":"https://agentworkshq.com/#website"}}

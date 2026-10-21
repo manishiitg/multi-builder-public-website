@@ -203,7 +203,7 @@ USECASES=[
        ('Is the deployment customized for us?','Yes. Every deployment is set up around your company: your cloud account, your tools, your approval rules and who on your team can see and change what. It is not a one-size-fits-all install.'),
        ('Where does it run?','In your own cloud account, so your customer and order data stay in your environment.'),
        ('Which tools does it connect to?','Your store, support inbox, payment and shipping tools, through MCP, APIs and a browser, using access you grant. We confirm each integration on the scoping call.'),
-       ('How is it priced?','Custom, based on the scope. We start with a fixed-fee four-week pilot, then a monthly fee for running and improving it. It is not tied to a promised result.'),
+       ('How is it priced?','Custom, based on the scope. Book a call and we scope it with you. It is not tied to a promised result.'),
        ('Do you guarantee the metric?','No. We commit to taking over a defined queue and reporting how much work was handled and how good it was. Your business numbers, like refund time, also depend on things agents do not control, such as banks and carriers, so we track them next to the work and review the link with you.'),
        ('Does it replace my team?','It takes the repetitive queue so your team can focus on the cases that need a person. A person approves anything that affects money or a customer until you decide otherwise.')]),
 
