@@ -1,3 +1,6 @@
+# Open AgentBridge network installers (owner 2026-10-21). /install.sh stays the desktop app installer (Download page).
+/network/install.sh https://network.agentworkshq.com/api/downloads/cli/install-agentworks.sh 302
+/network/install.ps1 https://network.agentworkshq.com/api/downloads/cli/install-agentworks.ps1 302
 /bullpen/ /agentbridge/ 301
 /bullpen /agentbridge/ 301
 /bullpen/index.html /agentbridge/ 301
