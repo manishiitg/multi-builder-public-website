@@ -46,6 +46,7 @@ const requiredFiles = [
   'vault/index.html',
   'flows/index.html',
   'agentbridge/index.html',
+  'network/index.html',
   'llm-gateway/index.html',
   '_headers',
   '_redirects',

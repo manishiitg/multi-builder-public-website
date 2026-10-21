@@ -124,6 +124,7 @@ cp -R enterprise dist/enterprise
 cp -R agents dist/agents
 cp -R flows dist/flows
 cp -R agentbridge dist/agentbridge
+cp -R network dist/network
 cp -R llm-gateway dist/llm-gateway
 cp -R goals dist/goals
 cp -R crews dist/crews
