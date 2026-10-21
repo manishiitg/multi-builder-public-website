@@ -30,11 +30,11 @@ def _legal(title, intro, sections):
 '''
 
 PRIVACY=[
- ('Who we are', f'<p>AgentWorks is operated by {COMPANY}, a partnership firm registered in India ("we", "us"). This policy explains what personal data we handle when you visit agentworkshq.com, book a call with us, or use AgentWorks Cloud or Enterprise. Questions: <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>'),
+ ('Who we are', f'<p>AgentWorks is operated by {COMPANY}, a partnership firm registered in India ("we", "us"). This policy explains what personal data we handle when you visit agentworkshq.com, book a call with us, or use AgentWorks. Questions: <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>'),
  ('The website', '<p>The website does not use advertising or tracking cookies and has no sign-up forms. To understand which pages are useful, we use PostHog (hosted in the US) and Cloudflare Web Analytics in cookieless mode: they record page views, clicks and general information such as browser, device, country and the page that referred you. Nothing is stored on your device, we do not record your screen, and we do not identify you. Visits are counted with a hash that changes daily, so we cannot follow you across days or sites. Our hosting provider processes standard request data (such as IP address and browser type) to serve and protect the site.</p>'),
  ('Booking a call', '<p>When you book a call, you do it through the appointment booking in Google Calendar, and Google receives the details you enter (such as your name and email) under its own privacy policy. We use those details only to prepare for and follow up on the call.</p>'),
  ('The AgentWorks app', '<p>If you run the AgentWorks app on your own computer or server, your workspace, files, secrets and conversations stay on your machine. We do not receive them.</p>'),
- ('AgentWorks Cloud and Enterprise', '''<p>When we host or operate AgentWorks for you, we process:</p>
+ ('Hosted AgentWorks', '''<p>When we host or operate AgentWorks for you, we process:</p>
 <ul><li><b>Account data:</b> names, email addresses and roles of the people you invite.</li>
 <li><b>Workspace data:</b> the goals, workflows, files, memory, logs and connected-tool data your agents work with. You own this data. We process it only to provide the service to you, as your processor.</li>
 <li><b>Billing data:</b> {BILLING_DATA}</li></ul>
@@ -48,15 +48,15 @@ PRIVACY=[
 ]
 
 TERMS=[
- ('Agreement', f'<p>These terms are an agreement between you (or the organization you represent) and {COMPANY}, India ("we", "us"), for AgentWorks Cloud and any other hosted AgentWorks service. By using the service you accept them. Enterprise customers may have a separate written agreement, which takes precedence where it differs.</p>'),
+ ('Agreement', f'<p>These terms are an agreement between you (or the organization you represent) and {COMPANY}, India ("we", "us"), for AgentWorks services that we host or operate for you. By using the service you accept them. Enterprise customers may have a separate written agreement, which takes precedence where it differs.</p>'),
  ('The source code', '<p>The AgentWorks source code is licensed under the Business Source License 1.1 for versions first published on or after 2026-10-09; earlier versions remain under the license they were released with. Your use of the source code on your own machines is governed by that license, not by these terms.</p>'),
- ('The service', '<p>AgentWorks Cloud lets you set goals and run AI agents, crews and workflows that work toward them using your connected tools and your own AI plan. We onboard Cloud customers by hand and may change or improve features over time. We will not remove a core feature you are paying for without reasonable notice.</p>'),
+ ('The service', '<p>AgentWorks lets you set goals and run AI agents, crews and workflows that work toward them using your connected tools and your own AI plan. We onboard customers by hand and may change or improve features over time. We will not remove a core feature you are paying for without reasonable notice.</p>'),
  ('Your account', '<p>You are responsible for the accounts you create, for keeping credentials safe, and for what happens under your workspace. Tell us promptly if you suspect unauthorized access.</p>'),
  ('Your AI plan and connected tools', '<p>Agents run on AI subscriptions and API keys you provide, and act through tools you connect (such as Slack, WhatsApp, Gmail, MCP servers or websites). Those providers bill you directly and their terms apply to your use of them. You are responsible for having the right to connect them and to let agents act in them.</p>'),
  ('Agent actions and approvals', '<p>AI agents can make mistakes. You choose how much each agent or workflow may do on its own, and outward actions such as sending messages ask for your approval by default. You are responsible for reviewing outputs and for actions you approve or allow agents to take automatically.</p>'),
  ('Acceptable use', '<p>You must not use the service to break the law, infringe others\' rights, send spam, access systems without authorization, run security tests against targets you are not authorized to test, or harm the service or other customers. We may suspend a workspace that puts the service or others at risk, and will tell you why.</p>'),
  ('Your data', '<p>You own the data in your workspace. You give us permission to process it only to provide and support the service for you. Our <a href="/privacy/">Privacy Policy</a> explains how we handle it. You can export your data at any time while your account is active.</p>'),
- ('Fees and billing', '<p>Cloud costs the price shown on our <a href="/pricing/">pricing page</a> at the time you subscribe, billed monthly in advance {BILLING_VIA}. Prices can change with at least 30 days\' notice before your next billing period. Refunds are covered by our <a href="/refunds/">Refund Policy</a>.</p>'),
+ ('Fees and billing', '<p>Fees, if any, are set in your agreement with us. Prices can change with at least 30 days\' notice before your next billing period, unless your agreement says otherwise. Refunds are covered by our <a href="/refunds/">Refund Policy</a>.</p>'),
  ('Cancellation and termination', '<p>You can cancel at any time and keep access until the end of the paid period. We may terminate for material breach of these terms if it is not fixed within 14 days of notice. After termination, you can export your data for 30 days, after which we delete it.</p>'),
  ('Warranties', '<p>We provide the service with reasonable skill and care. Beyond that, and to the extent the law allows, the service is provided "as is", without warranties that it will be uninterrupted, error-free or that agent outputs will be accurate or achieve a particular result.</p>'),
  ('Liability', '<p>To the extent the law allows, neither side is liable for indirect or consequential losses, lost profits or lost data, and our total liability under these terms is limited to the fees you paid us in the 12 months before the claim. Nothing limits liability that cannot be limited by law.</p>'),
@@ -80,7 +80,7 @@ PRIVACY,TERMS,REFUNDS=_fill(PRIVACY),_fill(TERMS),_fill(REFUNDS)
 
 for slug,title,intro,sections,desc in [
  ('privacy','Privacy Policy','What personal data AgentWorks handles, why, and your choices.',PRIVACY,'How AgentWorks handles personal data on the website, in the AgentWorks app and in custom deployments.'),
- ('terms','Terms of Service','The terms for using AgentWorks Cloud and other hosted AgentWorks services.',TERMS,'Terms of Service for AgentWorks Cloud and hosted AgentWorks services, operated by XTECH.'),
+ ('terms','Terms of Service','The terms for using AgentWorks services that we host or operate for you.',TERMS,'Terms of Service for hosted AgentWorks services, operated by XTECH.'),
  ('refunds','Refund Policy','How refunds and cancellation work.',REFUNDS,'AgentWorks refund policy: refunds, cancellation and termination follow your agreement; AI provider usage is billed by the provider.'),
 ]:
     path=f'/{slug}/'
