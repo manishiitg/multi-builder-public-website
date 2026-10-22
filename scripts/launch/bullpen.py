@@ -19,6 +19,7 @@ body=f'''  <main id="main">
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
+          <a class="btn btn-ghost" href="/network/">Free for individuals</a>
         </div>
       </div>
     </section>
@@ -145,6 +146,7 @@ body=f'''  <main id="main">
         <div class="cta-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="/product/">How AgentWorks works</a>
+          <a class="btn btn-ghost" href="/network/">Try the free network</a>
         </div>
       </div>
     </section>
