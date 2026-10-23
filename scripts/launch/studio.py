@@ -6,9 +6,9 @@ FAQ_CODE=[
  ("Can someone using my shared account see my login?","Not through the app, and runs can't reach it either: every coding run is confined to its own workspace and files, so it cannot read another account's login files on the server. Still, share an account only with people and Crews you trust."),
  ("Is there a terminal?","No. There is no standalone terminal or shell. You ask the agent, and it runs the commands for you, each one in its own sandbox."),
  ("What can my team audit when using Claude Code?","In AgentWorks Studio, admins and assigned reviewers can read a person's chats, files and costs without changing them; every review view is recorded. The company can review cost, usage and output centrally. This describes review of the AgentWorks workspace, not a promise of a complete event log from the native coding CLI."),
- ("Who can see my workspace?","Only you. A workspace can't be shared with other people; what you share is a Crew built in it. Admins and anyone an admin names as a reviewer can also read its chats, files and costs, read-only, and every view is recorded. The workspace tells you this in its settings."),
+ ("Who can see my workspace?","Only you, until you add co-owners. A workspace starts private; the owner can add co-owners to work on it together, and anyone else uses what you share from it, such as a Crew. Admins and anyone an admin names as a reviewer can also read its chats, files and costs, read-only, and every view is recorded. The workspace tells you this in its settings."),
  ("How is it isolated?","Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent's own files are protected. The sandbox covers commands. Some coding agents' built-in read tools aren't sandboxed yet, so treat a workspace as private to people, not sealed off from the server."),
- ("Can other people or agents use my workspace?","No. Other people can't be added to it, and other people's agents and tools can't call into it. Your workspace can call your own Crews and workflows."),
+ ("Can other people or agents use my workspace?","People you add as co-owners can work in it with you, each in their own chat. Other people use what you share from it, such as a Crew, through its dashboard or from their own AI apps. Your workspace can call your own Crews and workflows."),
 ]
 code_body=f'''  <main id="main">
     <section class="page-hero">
@@ -96,7 +96,7 @@ code_body=f'''  <main id="main">
           <li class="ucx reveal"><h3>Your tools</h3><p class="uc-did">MCP tools, Slack, Gmail and Google apps, connected once and used from chat.</p></li>
           <li class="ucx reveal"><h3>Other agents</h3><p class="uc-did">Reach agents on the AgentBridge network and the coding agents running on people's own computers.</p></li>
           <li class="ucx reveal"><h3>Your other AI apps</h3><p class="uc-did">Use what you build from ChatGPT, Claude and Cursor over MCP.</p></li>
-          <li class="ucx reveal"><h3>Handover</h3><p class="uc-did">Pass work to a colleague, add a co-owner, or share what you built as a Crew.</p></li>
+          <li class="ucx reveal"><h3>Work together</h3><p class="uc-did">Run a project in one workspace: add co-owners who each work in their own chat, hand work to a colleague, or share what you built as a Crew.</p></li>
         </ul>
       </div>
     </section>
@@ -145,7 +145,7 @@ code_body=f'''  <main id="main">
 ], h2='One server for every coding agent.', dim='Illustrative examples.')}
     <section class="section-tight">
       <div class="wrap">
-        {uc_pills(['Each workspace is private to its owner','Admins review read-only, every view recorded','Every command sandboxed','Cost per person, workspace and plan'])}
+        {uc_pills(['Private until you add co-owners','Admins review read-only, every view recorded','Every command sandboxed','Cost per person, workspace and plan'])}
       </div>
     </section>
 
@@ -159,10 +159,10 @@ code_body=f'''  <main id="main">
             <p class="ask-msg them"><b>Done</b> Retries with backoff on 5xx and timeouts, capped at 3. All 48 tests pass. The change is in webhook.ts and its test file.</p>
           </div>
           <div class="explainer reveal" aria-label="Who can see this workspace">
-            <p class="explainer-title"><span>Who can see this workspace</span><span>Private to its owner</span></p>
+            <p class="explainer-title"><span>Who can see this workspace</span><span>Private until you add co-owners</span></p>
             <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Owner · files, chats, agent</small></div><span class="tag tag-run">Owner</span></div>
             <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or reviewer<small>Read-only, every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
-            <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Everyone else<small>No access</small></div><span class="tag">None</span></div>
+            <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Everyone else<small>Uses what you share, such as a Crew</small></div><span class="tag">Shared</span></div>
           </div>
         </div>
       </div>
