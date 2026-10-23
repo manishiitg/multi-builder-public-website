@@ -73,6 +73,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "How does AI permission testing across roles and tenants work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AgentWorks turns a permission matrix across roles, ownership and tenants into tests that run every release. Scope, targets and rules of engagement are approved before testing. Findings are reviewed for severity, fixes go through approval, and each issue is re-tested before it is closed."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is this a penetration test?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -240,7 +248,8 @@
           <h2 class="h2">Questions, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
-          <details open><summary>Is this a penetration test?</summary><p>It runs authorized, scoped assessments continuously. It complements, and does not replace, an independent pentest where you need one for compliance.</p></details>
+          <details open><summary>How does AI permission testing across roles and tenants work?</summary><p>AgentWorks turns a permission matrix across roles, ownership and tenants into tests that run every release. Scope, targets and rules of engagement are approved before testing. Findings are reviewed for severity, fixes go through approval, and each issue is re-tested before it is closed.</p></details>
+          <details><summary>Is this a penetration test?</summary><p>It runs authorized, scoped assessments continuously. It complements, and does not replace, an independent pentest where you need one for compliance.</p></details>
           <details><summary>Where does sensitive evidence go?</summary><p>Evidence stays in your environment with restricted access. Nothing leaves unless you configure it to.</p></details>
           <details><summary>Can it push fixes itself?</summary><p>Fixes are proposed and reviewed first. Delivery follows your normal approval path.</p></details>
         </div>
