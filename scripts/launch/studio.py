@@ -6,7 +6,7 @@ FAQ_CODE=[
  ("Can someone using my shared account see my login?","Not through the app, and runs can't reach it either: every coding run is confined to its own workspace and files, so it cannot read another account's login files on the server. Still, share an account only with people and Crews you trust."),
  ("Is there a terminal?","No. There is no standalone terminal or shell. You ask the agent, and it runs the commands for you, each one in its own sandbox."),
  ("What can my team audit when using Claude Code?","In AgentWorks Studio, admins and assigned reviewers can read a person's chats, files and costs without changing them; every review view is recorded. The company can review cost, usage and output centrally. This describes review of the AgentWorks workspace, not a promise of a complete event log from the native coding CLI."),
- ("Who can see my workspace?","Only you, until you add co-owners. A workspace starts private; the owner can add co-owners to work on it together, and anyone else uses what you share from it, such as a Crew. Admins and anyone an admin names as a reviewer can also read its chats, files and costs, read-only, and every view is recorded. The workspace tells you this in its settings."),
+ ("Who can see my workspace?","Only you, until you add co-owners. A workspace starts private; the owner can add co-owners to work on it together, and anyone else uses what you share from it, such as a Crew. Admins and anyone an admin names as a reviewer can also read its chats, files and costs without changing anything, and every view is recorded. The workspace tells you this in its settings."),
  ("How is it isolated?","Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent's own files are protected. The sandbox covers commands. Some coding agents' built-in read tools aren't sandboxed yet, so treat a workspace as private to people, not sealed off from the server."),
  ("Can other people or agents use my workspace?","People you add as co-owners can work in it with you, each in their own chat. Other people use what you share from it, such as a Crew, through its dashboard or from their own AI apps. Your workspace can call your own Crews and workflows."),
 ]
@@ -96,7 +96,7 @@ code_body=f'''  <main id="main">
           <li class="ucx reveal"><h3>Your tools</h3><p class="uc-did">MCP tools, Slack, Gmail and Google apps, connected once and used from chat.</p></li>
           <li class="ucx reveal"><h3>Other agents</h3><p class="uc-did">Reach agents on the AgentBridge network and the coding agents running on people's own computers.</p></li>
           <li class="ucx reveal"><h3>Your other AI apps</h3><p class="uc-did">Use what you build from ChatGPT, Claude and Cursor over MCP.</p></li>
-          <li class="ucx reveal"><h3>Work together</h3><p class="uc-did">Run a project in one workspace: add co-owners who each work in their own chat, hand work to a colleague, or share what you built as a Crew.</p></li>
+          <li class="ucx reveal"><h3>Work together</h3><p class="uc-did">Run a project in one workspace: add co-owners who each work in their own chat, let others use what you built, or hand work to a colleague.</p></li>
         </ul>
       </div>
     </section>
@@ -139,13 +139,13 @@ code_body=f'''  <main id="main">
  uc_chat("Work from your phone",("whatsapp","WhatsApp"),("code","checkout-service"),"Did the retry change pass the tests?","Yes, all 48 pass. Want a summary?"),
  uc_chat("Share one plan",("user","Rio"),("claude","Ava's shared Claude Max"),"Fix the flaky webhook test.","Fixed. It ran on Ava's plan, and she can see it was you."),
  uc_chat("See where spend went",("user","Admin"),("code","Usage"),"Who used the most this week?","Rio, on checkout-service, through Ava's account."),
- uc_chat("Review the week",("claude","Manager's Claude"),("code","Review"),"What did the team ship this week?","Checkout retries, a CSV export and two bug fixes.",via="Read-only over MCP · every view recorded"),
+ uc_chat("Review the week",("claude","Manager's Claude"),("code","Review"),"What did the team ship this week?","Checkout retries, a CSV export and two bug fixes.",via="Review over MCP · every view recorded"),
  uc_chat("Check a plan's limit",("user","Account owner"),("code","Accounts"),"How much of my plan is left?","38% of this week's limit used.",via="Live usage check from the coding CLI"),
  uc_chat("Use your Crews",("code","Your workspace"),("crew","DevOps Crew"),"Is staging healthy before I deploy?","Yes. All checks are green."),
 ], h2='One server for every coding agent.', dim='Illustrative examples.')}
     <section class="section-tight">
       <div class="wrap">
-        {uc_pills(['Private until you add co-owners','Admins review read-only, every view recorded','Every command sandboxed','Cost per person, workspace and plan'])}
+        {uc_pills(['Private until you add co-owners','Admins can review, every view recorded','Every command sandboxed','Cost per person, workspace and plan'])}
       </div>
     </section>
 
@@ -161,7 +161,7 @@ code_body=f'''  <main id="main">
           <div class="explainer reveal" aria-label="Who can see this workspace">
             <p class="explainer-title"><span>Who can see this workspace</span><span>Private until you add co-owners</span></p>
             <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Owner · files, chats, agent</small></div><span class="tag tag-run">Owner</span></div>
-            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or reviewer<small>Read-only, every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
+            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or reviewer<small>Can read, never change · every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
             <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Everyone else<small>Uses what you share, such as a Crew</small></div><span class="tag">Shared</span></div>
           </div>
         </div>
