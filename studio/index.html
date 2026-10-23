@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AgentWorks Code - A Ready AI Workspace for Every Employee</title>
-  <meta name="description" content="A private workspace where each person works with AI agents through chat, with coding agents, skills, MCP tools, a browser and secrets ready on day one. Everyone works with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues.">
+  <title>AgentWorks Studio - The Online Workspace to Build and Share AI Agents</title>
+  <meta name="description" content="A private workspace where each person works with AI agents through chat, with coding agents, skills, MCP tools, a browser and secrets ready on day one. Everyone works with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues. Build an agent here, then share it as a Crew.">
   <meta name="theme-color" content="#fbfbf9">
   <meta name="color-scheme" content="light">
   <meta name="application-name" content="AgentWorks">
-  <meta property="og:title" content="AgentWorks Code - A Ready AI Workspace for Every Employee">
-  <meta property="og:description" content="A private workspace where each person works with AI agents through chat, with coding agents, skills, MCP tools, a browser and secrets ready on day one. Everyone works with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues.">
-  <meta property="og:url" content="https://agentworkshq.com/code/">
+  <meta property="og:title" content="AgentWorks Studio - The Online Workspace to Build and Share AI Agents">
+  <meta property="og:description" content="A private workspace where each person works with AI agents through chat, with coding agents, skills, MCP tools, a browser and secrets ready on day one. Everyone works with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues. Build an agent here, then share it as a Crew.">
+  <meta property="og:url" content="https://agentworkshq.com/studio/">
   <meta property="og:site_name" content="AgentWorks">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
@@ -18,11 +18,11 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AgentWorks Code - A Ready AI Workspace for Every Employee">
-  <meta name="twitter:description" content="A private workspace where each person works with AI agents through chat, with coding agents, skills, MCP tools, a browser and secrets ready on day one. Everyone works with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues.">
+  <meta name="twitter:title" content="AgentWorks Studio - The Online Workspace to Build and Share AI Agents">
+  <meta name="twitter:description" content="A private workspace where each person works with AI agents through chat, with coding agents, skills, MCP tools, a browser and secrets ready on day one. Everyone works with Claude Code, Codex, Cursor, Muse, Pi or Antigravity on your AgentWorks server, on the plans you already pay for. See cost, usage and output per person in one place, share accounts without handing out logins, and keep each workspace private from colleagues. Build an agent here, then share it as a Crew.">
   <meta name="twitter:image" content="https://agentworkshq.com/assets/og/agentworks-product-og.jpg">
   <meta name="twitter:creator" content="@manish_iitg">
-  <link rel="canonical" href="https://agentworkshq.com/code/">
+  <link rel="canonical" href="https://agentworkshq.com/studio/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="/assets/brand/agentworks-logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
@@ -39,8 +39,8 @@
   "@graph": [
     {
       "@type": "WebPage",
-      "name": "AgentWorks Code",
-      "url": "https://agentworkshq.com/code/",
+      "name": "AgentWorks Studio",
+      "url": "https://agentworkshq.com/studio/",
       "isPartOf": {
         "@id": "https://agentworkshq.com/#website"
       }
@@ -57,8 +57,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Code",
-          "item": "https://agentworkshq.com/code/"
+          "name": "Studio",
+          "item": "https://agentworkshq.com/studio/"
         }
       ]
     },
@@ -110,15 +110,15 @@
           "name": "What can my team audit when using Claude Code?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In AgentWorks Code, admins and assigned Code reviewers can read a person's chats, files and costs without changing them; every review view is recorded. The company can review cost, usage and output centrally. This describes review of the AgentWorks workspace, not a promise of a complete event log from the native coding CLI."
+            "text": "In AgentWorks Studio, admins and assigned reviewers can read a person's chats, files and costs without changing them; every review view is recorded. The company can review cost, usage and output centrally. This describes review of the AgentWorks workspace, not a promise of a complete event log from the native coding CLI."
           }
         },
         {
           "@type": "Question",
-          "name": "Who can see my Code?",
+          "name": "Who can see my workspace?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only you. A Code can't be shared with other people. Admins and anyone an admin names as a Code reviewer can also read its chats, files and costs, read-only, and every view is recorded. The Code tells you this in its settings."
+            "text": "Only you. A workspace can't be shared with other people; what you share is a Crew built in it. Admins and anyone an admin names as a reviewer can also read its chats, files and costs, read-only, and every view is recorded. The workspace tells you this in its settings."
           }
         },
         {
@@ -126,15 +126,15 @@
           "name": "How is it isolated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent's own files are protected. The sandbox covers commands. Some coding agents' built-in read tools aren't sandboxed yet, so treat a Code as private to people, not sealed off from the server."
+            "text": "Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent's own files are protected. The sandbox covers commands. Some coding agents' built-in read tools aren't sandboxed yet, so treat a workspace as private to people, not sealed off from the server."
           }
         },
         {
           "@type": "Question",
-          "name": "Can other people or agents use my Code?",
+          "name": "Can other people or agents use my workspace?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Other people can't be added to it, and other people's agents and tools can't call into it. Your Code can call your own Crews and workflows."
+            "text": "No. Other people can't be added to it, and other people's agents and tools can't call into it. Your workspace can call your own Crews and workflows."
           }
         }
       ]
@@ -151,7 +151,7 @@
       <nav class="nav" aria-label="Primary">
         <div class="nav-drop is-current" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="product-menu" data-drop-btn>Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-          <div class="nav-panel pm-wide pm-3" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>For your teams</p><a class="pm-item" href="/goals/" title="Give an AI agent a goal and a metric. It works toward the target and measures every run."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>A goal and a metric</small></span></a><a class="pm-item" href="/crews/" title="Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/flows/" title="A fixed chain of agents you run from anywhere."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg></span><span><b>Flows</b><small>Agent chains, run anywhere</small></span></a></div><div class="pm-col"><p class=pm-group>For IT and leadership</p><a class="pm-item" href="/brain/" title="Shared company knowledge: write it once and every agent reads it."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg></span><span><b>Brain</b><small>Shared knowledge for every agent</small></span></a><a class="pm-item" href="/vault/" title="One governed door to every MCP tool and shared secret."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>Vault</b><small>Governed MCP access</small></span></a><a class="pm-item" href="/llm-gateway/" title="One endpoint for every AI model, with access and cost per person."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/></svg></span><span><b>LLM Gateway</b><small>Model access and cost</small></span></a><a class="pm-item" href="/code/" title="A private AI workspace for every employee, on your server, with cost and output visible to the company."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Code</b><small>An AI workspace for every employee</small></span></a></div><div class="pm-col"><p class=pm-group>Built in</p><a class="pm-item" href="/goals/#improve" title="It measures every run and changes its own plan."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Auto-improve</b><small>Gets better every run</small></span></a><a class="pm-item" href="/#connectors" title="Slack, WhatsApp, Gmail and MCP, both ways."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg></span><span><b>Connectors</b><small>Slack, WhatsApp, Gmail, MCP</small></span></a><a class="pm-item" href="/agentbridge/" title="Connects your team and every agent they run."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0M11.5 19a4.5 4.5 0 0 1 9 0"/></svg></span><span><b>AgentBridge</b><small>A room for team and agents</small></span></a></div></div></div>
+          <div class="nav-panel pm-wide pm-3" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>For your teams</p><a class="pm-item" href="/goals/" title="Give an AI agent a goal and a metric. It works toward the target and measures every run."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>A goal and a metric</small></span></a><a class="pm-item" href="/crews/" title="Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/flows/" title="A fixed chain of agents you run from anywhere."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg></span><span><b>Flows</b><small>Agent chains, run anywhere</small></span></a></div><div class="pm-col"><p class=pm-group>For IT and leadership</p><a class="pm-item" href="/brain/" title="Shared company knowledge: write it once and every agent reads it."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg></span><span><b>Brain</b><small>Shared knowledge for every agent</small></span></a><a class="pm-item" href="/vault/" title="One governed door to every MCP tool and shared secret."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>Vault</b><small>Governed MCP access</small></span></a><a class="pm-item" href="/llm-gateway/" title="One endpoint for every AI model, with access and cost per person."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/></svg></span><span><b>LLM Gateway</b><small>Model access and cost</small></span></a><a class="pm-item" href="/studio/" title="The online workspace where you build agents and Crews, with skills, tools and integrations ready on day one."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Studio</b><small>Where you build agents and Crews</small></span></a></div><div class="pm-col"><p class=pm-group>Built in</p><a class="pm-item" href="/goals/#improve" title="It measures every run and changes its own plan."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Auto-improve</b><small>Gets better every run</small></span></a><a class="pm-item" href="/#connectors" title="Slack, WhatsApp, Gmail and MCP, both ways."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg></span><span><b>Connectors</b><small>Slack, WhatsApp, Gmail, MCP</small></span></a><a class="pm-item" href="/agentbridge/" title="Connects your team and every agent they run."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0M11.5 19a4.5 4.5 0 0 1 9 0"/></svg></span><span><b>AgentBridge</b><small>A room for team and agents</small></span></a></div></div></div>
         </div>
         <div class="nav-drop" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="usecase-menu" data-drop-btn>Use cases <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
@@ -159,7 +159,7 @@
         </div>
         <div class="nav-drop" data-drop>
           <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="enterprise-menu" data-drop-btn>Enterprise <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-          <div class="nav-panel pm-wide" id="enterprise-menu"><a class="pm-all" href="/enterprise/">Enterprise overview <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Engineering goals</p><a class="pm-item" href="/enterprise/release-quality/" title="AI QA that writes, runs and repairs your browser tests."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span><b>Release quality</b><small>AI QA for every release</small></span></a><a class="pm-item" href="/enterprise/incident-response/" title="First RCA before the war room fills up."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg></span><span><b>Incident response</b><small>First RCA in minutes</small></span></a><a class="pm-item" href="/enterprise/security-testing/" title="Authorized AppSec and permission testing, driven to closure."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><span><b>Security testing</b><small>AppSec to verified fix</small></span></a><a class="pm-item" href="/enterprise/cloud-cost/" title="Find cost anomalies and prove the savings."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/></svg></span><span><b>Cloud cost</b><small>Anomalies to savings</small></span></a><a class="pm-item" href="/enterprise/growth-analytics/" title="An AI growth analyst for funnels, retention and search."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Growth analytics</b><small>Funnels, retention, SEO</small></span></a></div><div class="pm-col"><p class=pm-group>AI platform for teams</p><a class="pm-item" href="/code/" title="An AI workspace for every employee, with cost and usage visible to the company."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Code</b><small>An AI workspace for every employee</small></span></a><a class="pm-item" href="/crews/" title="Build a DevOps or product expert once; every engineer asks it from their own CLI."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/></svg></span><span><b>Expert Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/vault/" title="One governed door to every MCP tool and shared secret your company uses."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>Vault</b><small>Governed MCP access</small></span></a></div></div></div>
+          <div class="nav-panel pm-wide" id="enterprise-menu"><a class="pm-all" href="/enterprise/">Enterprise overview <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Engineering goals</p><a class="pm-item" href="/enterprise/release-quality/" title="AI QA that writes, runs and repairs your browser tests."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span><b>Release quality</b><small>AI QA for every release</small></span></a><a class="pm-item" href="/enterprise/incident-response/" title="First RCA before the war room fills up."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg></span><span><b>Incident response</b><small>First RCA in minutes</small></span></a><a class="pm-item" href="/enterprise/security-testing/" title="Authorized AppSec and permission testing, driven to closure."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><span><b>Security testing</b><small>AppSec to verified fix</small></span></a><a class="pm-item" href="/enterprise/cloud-cost/" title="Find cost anomalies and prove the savings."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/></svg></span><span><b>Cloud cost</b><small>Anomalies to savings</small></span></a><a class="pm-item" href="/enterprise/growth-analytics/" title="An AI growth analyst for funnels, retention and search."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Growth analytics</b><small>Funnels, retention, SEO</small></span></a></div><div class="pm-col"><p class=pm-group>AI platform for teams</p><a class="pm-item" href="/studio/" title="An AI workspace for every employee, with cost and usage visible to the company."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Studio</b><small>Where you build agents and Crews</small></span></a><a class="pm-item" href="/crews/" title="Build a DevOps or product expert once; every engineer asks it from their own CLI."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/></svg></span><span><b>Expert Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/vault/" title="One governed door to every MCP tool and shared secret your company uses."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>Vault</b><small>Governed MCP access</small></span></a></div></div></div>
         </div>
         <a href="/pricing/">Pricing</a>
         <a href="/docs/">Docs</a>
@@ -179,7 +179,7 @@
       <a class="sub" href="/brain/">Brain</a>
       <a class="sub" href="/vault/">Vault</a>
       <a class="sub" href="/llm-gateway/">LLM Gateway</a>
-      <a class="sub" href="/code/">Code</a>
+      <a class="sub" href="/studio/">Studio</a>
       <a class="sub" href="/goals/#improve">Auto-improve</a>
       <a class="sub" href="/#connectors">Connectors</a>
       <a class="sub" href="/agentbridge/">AgentBridge</a>
@@ -199,7 +199,7 @@
       <a class="sub" href="/enterprise/security-testing/">Security testing</a>
       <a class="sub" href="/enterprise/cloud-cost/">Cloud cost</a>
       <a class="sub" href="/enterprise/growth-analytics/">Growth analytics</a>
-      <a class="sub" href="/code/">Code</a>
+      <a class="sub" href="/studio/">Studio</a>
       <a class="sub" href="/crews/">Expert Crews</a>
       <a class="sub" href="/vault/">Vault</a>
       <a href="/pricing/">Pricing</a>
@@ -211,8 +211,8 @@
   <main id="main">
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker">Code <span class="tag">Enterprise</span></p>
-        <h1>An AI workspace for every employee. <span class="dim">Everything ready on day one.</span></h1>
+        <p class="kicker">Studio <span class="tag">Enterprise</span></p>
+        <h1>Your online AI workspace. <span class="dim">Build agents here, share them as Crews.</span></h1>
         <p class="lede">Each person gets a private workspace where they work with AI agents through chat. Coding agents, skills, MCP tools, a browser and secrets come ready, so people start in minutes instead of setting things up. The company sees cost, usage and output in one place.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Book a call</a>
@@ -223,7 +223,7 @@
 
     <section class="section-tight" id="workspace">
       <div class="wrap">
-        <div class="ws reveal" aria-label="Example: a Code workspace with everything ready">
+        <div class="ws reveal" aria-label="Example: a Studio workspace with everything ready">
           <div class="ws-side">
             <p class="ws-h">Ready in your workspace <span class="tag tag-soon">Illustrative</span></p>
             <p class="hub-sub">Coding agents</p>
@@ -267,11 +267,11 @@
             <div class="plans">
               <div class="plan-row"><svg aria-hidden="true" fill="#D97757" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg><b>Claude Max · Ava</b><small>Shared with 4 people and 2 Crews · 38% of weekly limit used</small><span class="tag tag-run">Shared</span></div>
               <div class="plan-row"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg><b>Codex · team key</b><small>Server account · admins choose who can use it</small><span class="tag">Server</span></div>
-              <div class="plan-row"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg><b>Cursor · Rio</b><small>Only Rio's own Codes</small><span class="tag">Private</span></div>
+              <div class="plan-row"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg><b>Cursor · Rio</b><small>Only Rio's own workspaces</small><span class="tag">Private</span></div>
             </div>
           </div>
           <div class="explainer reveal" aria-label="Example: usage by person and project">
-            <p class="explainer-title"><span>Usage this week</span><span>By person and Code</span></p>
+            <p class="explainer-title"><span>Usage this week</span><span>By person and workspace</span></p>
             <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Rio · checkout-service<small>Claude Max · Ava's account</small></div><span class="mono">1.2M tokens</span></div>
             <div class="row"><span class="avatar avatar-sage">S</span><div class="grow">Sage · data-pipeline<small>Codex · team key</small></div><span class="mono">640K tokens</span></div>
             <div class="row"><span class="avatar avatar-otto">O</span><div class="grow">Release notes Crew<small>Claude Max · Ava's account</small></div><span class="mono">210K tokens</span></div>
@@ -279,6 +279,25 @@
           </div>
         </div>
         <p class="muted center-row">Illustrative example.</p>
+      </div>
+    </section>
+
+    <section class="section-tight" id="starters">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Start here</p>
+          <h2>One workspace, <span class="dim">many jobs.</span></h2>
+        </div>
+        <ul class="ucx-grid ws-modes">
+          <li class="ucx reveal"><h3>Software helper</h3><p class="uc-did">Build and fix software with the coding agent you like, files and a terminal.</p></li>
+          <li class="ucx reveal"><h3>Research and documents</h3><p class="uc-did">Research a topic, prepare a brief or organize a set of documents.</p></li>
+          <li class="ucx reveal"><h3>Personal assistant</h3><p class="uc-did">Plan the week, prepare a daily briefing and follow up on tasks.</p></li>
+          <li class="ucx reveal"><h3>Team expert</h3><p class="uc-did">One job for your team, such as invoices or support questions, using your instructions and files.</p></li>
+          <li class="ucx reveal"><h3>Automation</h3><p class="uc-did">Repeatable work on a schedule, an event or a webhook, with skills and reusable functions.</p></li>
+          <li class="ucx reveal"><h3>Company knowledge</h3><p class="uc-did">Find answers in your company Brain and suggest how to improve it.</p></li>
+          <li class="ucx reveal"><h3>Chief of Staff</h3><p class="uc-did">Coordinate your Crews and workflows, follow up on blockers and prepare status summaries.</p></li>
+        </ul>
+        <p class="muted center-row">Build it in Studio. <a href="/crews/">Share it as a Crew</a> so anyone on your team can ask it.</p>
       </div>
     </section>
 
@@ -290,7 +309,7 @@
         </div>
         <ul class="ucx-grid">
           <li class="ucx reveal">
-            <h3>Code from your phone</h3>
+            <h3>Work from your phone</h3>
             <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" fill="#25D366" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>WhatsApp</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span>checkout-service</span></p>
             <p class="ask-msg you">Did the retry change pass the tests?</p>
             <p class="ask-msg them">Yes, all 48 pass. Want a summary?</p>
@@ -309,7 +328,7 @@
           </li>
           <li class="ucx reveal">
             <h3>Review the week</h3>
-            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" fill="#D97757" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span>Manager's Claude</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span>Code review</span></p>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" fill="#D97757" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span>Manager's Claude</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span>Review</span></p>
             <p class="ask-msg you">What did the team ship this week?</p>
             <p class="ask-tool">Read-only over MCP · every view recorded</p>
             <p class="ask-msg them">Checkout retries, a CSV export and two bug fixes.</p>
@@ -323,7 +342,7 @@
           </li>
           <li class="ucx reveal">
             <h3>Use your Crews</h3>
-            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span>Your Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>DevOps Crew</span></p>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span>Your workspace</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>DevOps Crew</span></p>
             <p class="ask-msg you">Is staging healthy before I deploy?</p>
             <p class="ask-msg them">Yes. All checks are green.</p>
           </li>
@@ -333,23 +352,23 @@
 
     <section class="section-tight">
       <div class="wrap">
-        <p class="uc-rules reveal"><span>Each Code is private to its owner</span><span>Admins review read-only, every view recorded</span><span>Every command sandboxed</span><span>Cost per person, Code and plan</span></p>
+        <p class="uc-rules reveal"><span>Each workspace is private to its owner</span><span>Admins review read-only, every view recorded</span><span>Every command sandboxed</span><span>Cost per person, workspace and plan</span></p>
       </div>
     </section>
 
     <section class="section-tight">
       <div class="wrap">
         <div class="goal-pair">
-          <div class="explainer reveal" aria-label="Example Code workspace">
+          <div class="explainer reveal" aria-label="Example Studio workspace">
             <p class="explainer-title"><span>checkout-service</span><span>Private · Claude Code</span></p>
             <p class="ask-msg you">Add retries to the payment webhook handler, then run the tests.</p>
             <p class="ask-tool">Ran <b>npm test</b> in the sandbox · 2 failures, fixed, re-ran</p>
             <p class="ask-msg them"><b>Done</b> Retries with backoff on 5xx and timeouts, capped at 3. All 48 tests pass. The change is in webhook.ts and its test file.</p>
           </div>
-          <div class="explainer reveal" aria-label="Who can see this Code">
-            <p class="explainer-title"><span>Who can see this Code</span><span>Private to its owner</span></p>
+          <div class="explainer reveal" aria-label="Who can see this workspace">
+            <p class="explainer-title"><span>Who can see this workspace</span><span>Private to its owner</span></p>
             <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Owner · files, chats, agent</small></div><span class="tag tag-run">Owner</span></div>
-            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or Code reviewer<small>Read-only, every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
+            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or reviewer<small>Read-only, every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
             <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Everyone else<small>No access</small></div><span class="tag">None</span></div>
           </div>
         </div>
@@ -366,7 +385,7 @@
           <li class="reveal"><h3>Your own MCP servers</h3><p>Sign in to GitHub, Slack, Google Workspace and more with your own account. Only your chats can use them.</p></li>
           <li class="reveal"><h3>Personal secrets</h3><p>Stored encrypted, visible only to you, used only in your chats.</p></li>
         </ul>
-        <div class="connect-row center-row" aria-label="Coding agents a Code can run on">
+        <div class="connect-row center-row" aria-label="Coding agents a workspace can run on">
           <span class="chip"><svg aria-hidden="true" fill="#D97757" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude Code</span>
           <span class="chip"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>Codex</span>
           <span class="chip"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>Cursor</span>
@@ -381,7 +400,7 @@
       <div class="wrap faq-grid">
         <div class="reveal">
           <p class="kicker">FAQ</p>
-          <h2 class="h2">Code, <span class="dim">answered.</span></h2>
+          <h2 class="h2">Studio, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
           <details open><summary>Which coding plans can we bring?</summary><p>Claude Code, Codex, Cursor, Muse, Pi and Antigravity. Connect an account by browser login (Claude Code, Codex, Cursor, Muse) or by API key. The login stays on the server.</p></details>
@@ -389,10 +408,10 @@
           <details><summary>Can we see how much of a plan is left?</summary><p>Yes. Each account has a live usage check that reads the coding CLI&#x27;s own usage or status, so you see the limit the vendor reports.</p></details>
           <details><summary>Can someone using my shared account see my login?</summary><p>Not through the app, and runs can&#x27;t reach it either: every coding run is confined to its own workspace and files, so it cannot read another account&#x27;s login files on the server. Still, share an account only with people and Crews you trust.</p></details>
           <details><summary>Is there a terminal?</summary><p>No. There is no standalone terminal or shell. You ask the agent, and it runs the commands for you, each one in its own sandbox.</p></details>
-          <details><summary>What can my team audit when using Claude Code?</summary><p>In AgentWorks Code, admins and assigned Code reviewers can read a person&#x27;s chats, files and costs without changing them; every review view is recorded. The company can review cost, usage and output centrally. This describes review of the AgentWorks workspace, not a promise of a complete event log from the native coding CLI.</p></details>
-          <details><summary>Who can see my Code?</summary><p>Only you. A Code can&#x27;t be shared with other people. Admins and anyone an admin names as a Code reviewer can also read its chats, files and costs, read-only, and every view is recorded. The Code tells you this in its settings.</p></details>
-          <details><summary>How is it isolated?</summary><p>Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent&#x27;s own files are protected. The sandbox covers commands. Some coding agents&#x27; built-in read tools aren&#x27;t sandboxed yet, so treat a Code as private to people, not sealed off from the server.</p></details>
-          <details><summary>Can other people or agents use my Code?</summary><p>No. Other people can&#x27;t be added to it, and other people&#x27;s agents and tools can&#x27;t call into it. Your Code can call your own Crews and workflows.</p></details>
+          <details><summary>What can my team audit when using Claude Code?</summary><p>In AgentWorks Studio, admins and assigned reviewers can read a person&#x27;s chats, files and costs without changing them; every review view is recorded. The company can review cost, usage and output centrally. This describes review of the AgentWorks workspace, not a promise of a complete event log from the native coding CLI.</p></details>
+          <details><summary>Who can see my workspace?</summary><p>Only you. A workspace can&#x27;t be shared with other people; what you share is a Crew built in it. Admins and anyone an admin names as a reviewer can also read its chats, files and costs, read-only, and every view is recorded. The workspace tells you this in its settings.</p></details>
+          <details><summary>How is it isolated?</summary><p>Every command the agent runs is sandboxed with Linux Landlock and gets its own private /tmp, and the agent&#x27;s own files are protected. The sandbox covers commands. Some coding agents&#x27; built-in read tools aren&#x27;t sandboxed yet, so treat a workspace as private to people, not sealed off from the server.</p></details>
+          <details><summary>Can other people or agents use my workspace?</summary><p>No. Other people can&#x27;t be added to it, and other people&#x27;s agents and tools can&#x27;t call into it. Your workspace can call your own Crews and workflows.</p></details>
         </div>
       </div>
     </section>
@@ -400,7 +419,7 @@
     <section class="cta">
       <div class="wrap">
         <h2>Bring your team's coding plans in. <span class="dim">See usage in week one.</span></h2>
-        <p>We set up AgentWorks with your team, connect the coding accounts you already have and open the first Codes together.</p>
+        <p>We set up AgentWorks with your team, connect the coding accounts you already have and open the first workspaces together.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="/product/">All products</a>
@@ -425,7 +444,7 @@
             <li><a href="/brain/">Brain</a></li>
             <li><a href="/vault/">Vault</a></li>
             <li><a href="/llm-gateway/">LLM Gateway</a></li>
-            <li><a href="/code/">Code</a></li>
+            <li><a href="/studio/">Studio</a></li>
             <li><a href="/agentbridge/">AgentBridge</a></li>
             <li><a href="/network/">Free agent network</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>

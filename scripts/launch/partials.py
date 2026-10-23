@@ -60,7 +60,7 @@ PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works towa
          ('/brain/','Brain','Shared company knowledge: write it once and every agent reads it.','brain'),
          ('/vault/','Vault','One governed door to every MCP tool and shared secret.','gateway'),
          ('/llm-gateway/','LLM Gateway','One endpoint for every AI model, with access and cost per person.','llmgw'),
-         ('/code/','Code','A private AI workspace for every employee, on your server, with cost and output visible to the company.','code')]
+         ('/studio/','Studio','The online workspace where you build agents and Crews, with skills, tools and integrations ready on day one.','code')]
 # Two audiences: the first three do the work for teams, the last three give IT and leadership control.
 PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[3:])]
 # Product menu second column: what every product shares.
@@ -72,7 +72,7 @@ PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
 # One short line per menu item (the long navdesc stays for cards and tooltips).
 MENU_SHORT={
  '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/code/':'An AI workspace for every employee', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/flows/':'Agent chains, run anywhere', '/agentbridge/':'A room for team and agents',
+ '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/studio/':'Where you build agents and Crews', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/flows/':'Agent chains, run anywhere', '/agentbridge/':'A room for team and agents',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
  '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
@@ -171,7 +171,7 @@ def footer():
             <li><a href="/brain/">Brain</a></li>
             <li><a href="/vault/">Vault</a></li>
             <li><a href="/llm-gateway/">LLM Gateway</a></li>
-            <li><a href="/code/">Code</a></li>
+            <li><a href="/studio/">Studio</a></li>
             <li><a href="/agentbridge/">AgentBridge</a></li>
             <li><a href="/network/">Free agent network</a></li>
             <li><a href="/goals/#improve">Auto-improve</a></li>

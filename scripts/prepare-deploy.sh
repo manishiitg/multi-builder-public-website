@@ -128,7 +128,7 @@ cp -R network dist/network
 cp -R llm-gateway dist/llm-gateway
 cp -R goals dist/goals
 cp -R crews dist/crews
-cp -R code dist/code
+cp -R studio dist/studio
 cp -R about dist/about
 cp -R ecommerce dist/ecommerce
 cp -R brain dist/brain

@@ -84,7 +84,7 @@ body=f'''  <main id="main">
         <div class="section-head reveal">
           <p class="kicker">Use cases</p>
           <h2>Start with the goal that hurts most. <span class="dim">Or the platform your teams need.</span></h2>
-          <p class="lede">Engineering goals come with their playbooks, an example goal and a four-week pilot. The platform gives every team Code, Expert Crews and governed tools.</p>
+          <p class="lede">Engineering goals come with their playbooks, an example goal and a four-week pilot. The platform gives every team Studio, Expert Crews and governed tools.</p>
         </div>
         {''.join(f'<p class="tpl-kind">{g}</p><div class="uc-grid">'+''.join(f'<a class="uc-link" href="{h}"><b>{t}</b><span>{d}</span></a>' for h,t,d,i in items)+'</div>' for g,items in uc_nav_groups())}
       </div>

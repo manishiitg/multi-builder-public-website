@@ -470,7 +470,7 @@ function assertDeployPayload() {
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/goals/', '/crews/', '/code/', '/brain/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/first-goal/', '/docs/guides/slack/']) {
+  for (const route of ['/', '/product/', '/goals/', '/crews/', '/studio/', '/brain/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/first-goal/', '/docs/guides/slack/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
   for (const route of ['/docs/guides/', '/docs/developers/', '/docs/overview/', '/docs/core/', '/docs/core/browser/', '/docs/workflow/', '/docs/multiagent/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/', '/docs/relay/', '/docs/security/']) {
