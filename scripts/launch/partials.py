@@ -9,6 +9,10 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
+# Shared demo login, public on purpose (owner 2026-10-24: show it on the site).
+DEMO='https://demo.agentworkshq.com/'
+DEMO_USER='demo'
+DEMO_PASS='0-YcbbgwUBJ5gVpwVrX3'
 V='launch78'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
@@ -132,6 +136,7 @@ def header(active=None):
       </nav>
       <div class="header-actions">
         <a class="link" href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="link" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
         <a class="btn btn-primary btn-sm" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
@@ -148,6 +153,7 @@ def header(active=None):
 {ment}
 {mlinks}
       <a href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
       <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
     </div>
   </header>
