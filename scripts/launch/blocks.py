@@ -31,7 +31,7 @@ def tiers(heading='h3'):
             <p class="tier-desc">Want to try it first? Set up one agent with a goal and a metric yourself.</p>
             <ul class="tier-list">
               <li>Goals with measured targets</li>
-              <li>Auto-improvement toward your goals</li>
+              <li>Autopilot toward your goals</li>
               <li>{_GOAL_PB} premade Goal playbooks</li>
               <li>Approvals and autonomy limits</li>
               <li>Secrets vault, sandbox, run logs and cost per goal</li>

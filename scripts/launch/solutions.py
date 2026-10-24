@@ -61,7 +61,7 @@ def _sol_page(u):
           <li><h3>Set the goal</h3><p>Pick a premade agent or describe the outcome, then agree the metric and target with us.</p></li>
           <li><h3>Run</h3><p>Agents work through your tools on a schedule, with your approval on anything that goes out.</p></li>
           <li><h3>Measure</h3><p>Every run records what it did and what it moved, so you see progress, not activity.</p></li>
-          <li><h3>Auto-improve</h3><p>It fixes what broke, drops what didn't work and tries the next idea.</p></li>
+          <li><h3>Autopilot improves it</h3><p>It fixes what broke, drops what didn't work and tries the next idea.</p></li>
         </ol>
       </div>
     </section>

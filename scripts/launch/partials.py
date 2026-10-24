@@ -9,7 +9,7 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-V='launch77'
+V='launch78'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -64,7 +64,7 @@ PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works towa
 # Two audiences: the first three do the work for teams, the last three give IT and leadership control.
 PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[3:])]
 # Product menu second column: what every product shares.
-PRODUCT_TEAMS=[('/goals/#improve','Auto-improve','It measures every run and changes its own plan.','improve'),
+PRODUCT_TEAMS=[('/goals/#improve','Autopilot','It measures every run and changes its own plan.','improve'),
                ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
                ('/agentbridge/','AgentBridge','Connects your team and every agent they run.','bullpen')]
 # The dedicated product pages, for cross-links between them.
@@ -174,7 +174,7 @@ def footer():
             <li><a href="/studio/">Studio</a></li>
             <li><a href="/agentbridge/">AgentBridge</a></li>
             <li><a href="/network/">Free agent network</a></li>
-            <li><a href="/goals/#improve">Auto-improve</a></li>
+            <li><a href="/goals/#improve">Autopilot</a></li>
             <li><a href="/agents/">Premade agents</a></li>
           </ul>
         </div>

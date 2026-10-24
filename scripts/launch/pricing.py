@@ -5,7 +5,7 @@ _PB_N=f"{_PB.N_CREW + _PB.N_GOALS}"
 ROWS=[
  ("Goals",None),
  ("Goals with measured targets",(Y,Y)),
- ("Auto-improvement toward your goals",(Y,Y)),
+ ("Autopilot toward your goals",(Y,Y)),
  ("Premade Goal playbooks",(str(_PB.N_GOALS),str(_PB.N_GOALS))),
  ("Approvals and autonomy limits",(Y,Y)),
  ("Encrypted secrets vault and sandboxed code execution",(Y,Y)),
