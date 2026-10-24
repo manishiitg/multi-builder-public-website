@@ -33,7 +33,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Product</p>
         <h1>One platform. <span class="dim">Agents inside your process.</span></h1>
-        <p class="lede">For your teams: Goals work toward a number you set and measure every run, Crews turn your team's know-how into experts anyone can ask, and Flows run fixed steps the same way every time. For IT and leadership: Brain is the shared knowledge every agent reads, Vault governs every MCP tool and shared secret, LLM Gateway (coming soon) controls who can call which model, and Code gives every employee a private AI workspace with cost and usage visible to the company. All of it runs on the AI plan you already pay for.</p>
+        <p class="lede">For your teams: Goals work toward a number you set and measure every run, Crews turn your team's know-how into experts anyone can ask, and Flows run fixed steps the same way every time. For IT and leadership: Brain is the shared knowledge every agent reads, Vault governs every MCP tool and shared secret, LLM Gateway (coming soon) controls who can call which model, and Studio gives every employee a ready AI workspace with cost and usage visible to the company. AgentBridge connects everyone's personal AI, like Claude, ChatGPT, Cowork and Cursor, to the company's agents. All of it runs on the AI plan you already pay for.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#demo">Watch the 60-second demo</a>
