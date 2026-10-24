@@ -73,6 +73,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Why do CI tests become flaky?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Selectors change, timing varies and test data drifts. AgentWorks classifies a failed browser test before proposing a reviewed repair for a test-only breakage. Real bugs become findings, and the release gate records a pass, fail or needs-review decision with links to the runs behind it."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Does it replace our test framework?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -240,7 +248,8 @@
           <h2 class="h2">Questions, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
-          <details open><summary>Does it replace our test framework?</summary><p>No. Agents write and run Playwright tests in your repository and keep them as normal code your team can read and change.</p></details>
+          <details open><summary>Why do CI tests become flaky?</summary><p>Selectors change, timing varies and test data drifts. AgentWorks classifies a failed browser test before proposing a reviewed repair for a test-only breakage. Real bugs become findings, and the release gate records a pass, fail or needs-review decision with links to the runs behind it.</p></details>
+          <details><summary>Does it replace our test framework?</summary><p>No. Agents write and run Playwright tests in your repository and keep them as normal code your team can read and change.</p></details>
           <details><summary>Can it change tests without review?</summary><p>Only test-only repairs are proposed, and they wait for review by default. Production code is never touched by the QA agents.</p></details>
           <details><summary>What if a failure is a real bug?</summary><p>It becomes a finding with video, logs and steps to reproduce, and the release gate reports it as a fail.</p></details>
         </div>
