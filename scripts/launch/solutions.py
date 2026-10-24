@@ -3,6 +3,42 @@ import html as _h
 import tpl as _tpl
 from sol_data import SOLUTIONS
 
+
+def _ops(u):
+    e=_h.escape
+    goal,(mlabel,mval,mpct),(ft,fd),(ct,cd),people,cowork,code=u['ops']
+    return f'''
+    <section class="section-tight" id="run">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">How this team runs on agents</p>
+          <h2>A goal on top. Agents doing the work. <span class="dim">People approving what matters.</span></h2>
+        </div>
+        <div class="ops reveal" aria-label="Example: how Goals, Flows, Crews, people and their own AI fit together">
+          <div class="ops-goal">
+            <p class="ops-k"><span class="ops-ic ic-goal"></span>Goal <em>Illustrative</em></p>
+            <p class="ops-title">&ldquo;{e(goal)}&rdquo;</p>
+            <div class="ops-meter"><small>{e(mlabel)}</small><b>{e(mval)}</b><span class="ops-bar"><i class="ob{int(round(mpct/10.0)*10)}"></i></span></div>
+            <p class="ops-sub">Agents own the target end to end. <b>Autopilot</b> checks the number every day and changes what is not working.</p>
+          </div>
+          <div class="ops-row">
+            <div class="ops-card"><p class="ops-k"><span class="ops-ic ic-flow"></span>Flow</p><p class="ops-title">{e(ft)}</p><p class="ops-sub">{e(fd)}</p></div>
+            <div class="ops-card"><p class="ops-k"><span class="ops-ic ic-crew"></span>Crew</p><p class="ops-title">{e(ct)}</p><p class="ops-sub">{e(cd)}</p></div>
+            <div class="ops-card ops-people"><p class="ops-k"><span class="ops-ic ic-person"></span>People</p><p class="ops-title">Approve exceptions only</p><p class="ops-sub">{e(people)}</p></div>
+          </div>
+          <div class="ops-base">
+            <p class="ops-k"><span class="ops-ic ic-net"></span>Everyone&rsquo;s personal AI connects in, through AgentBridge</p>
+            <div class="ops-uses">
+              <p><span class="hub-chips"><span class="chip">{logo('claude')}Claude Cowork</span><span class="chip">{logo('openai')}ChatGPT</span></span><span>{e(cowork)}</span></p>
+              <p><span class="hub-chips"><span class="chip">{logo('claude')}Claude Code</span><span class="chip">{logo('openai')}Codex</span><span class="chip">{logo('cursor')}Cursor</span></span><span>{e(code)}</span></p>
+              <p><span class="hub-chips"><span class="chip">{tool('slack')}Slack</span><span class="chip">{tool('whatsapp')}WhatsApp</span></span><span>Everyone else asks and approves where they already talk.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+'''
+
 def _sol_page(u):
     e=_h.escape
     pains=''.join(f'<li class="reveal"><span class="num">0{i+1}</span><div><b>{e(t)}</b><span>{e(d)}</span></div></li>' for i,(t,d) in enumerate(u['pains']))
@@ -17,11 +53,11 @@ def _sol_page(u):
         <p class="lede">{e(u['lede'])}</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="#agents">See the agents</a>
+          <a class="btn btn-ghost" href="#run">See how the team runs on agents</a>
         </div>
       </div>
     </section>
-
+{_ops(u)}
     <section class="section-tight">
       <div class="wrap split">
         <ul class="pain">{pains}</ul>

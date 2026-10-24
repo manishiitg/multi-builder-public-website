@@ -1187,3 +1187,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .ops-row, .ops-uses { grid-template-columns: 1fr; }
   .ops-legend { grid-template-columns: 1fr 1fr; }
 }
+.ops-bar i.ob10 { width: 10%; }
+.ops-bar i.ob20 { width: 20%; }
+.ops-bar i.ob30 { width: 30%; }
+.ops-bar i.ob40 { width: 40%; }
+.ops-bar i.ob50 { width: 50%; }
+.ops-bar i.ob60 { width: 60%; }
+.ops-bar i.ob70 { width: 70%; }
+.ops-bar i.ob80 { width: 80%; }
+.ops-bar i.ob90 { width: 90%; }
+.ops-bar i.ob100 { width: 100%; }

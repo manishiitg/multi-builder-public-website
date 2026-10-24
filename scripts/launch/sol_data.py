@@ -2,12 +2,12 @@
 # `agents` names must match catalog.json (Crew agents or Goal playbooks); tpl.by_name fails the build otherwise.
 
 SOLUTIONS=[
- dict(slug='sales', nav='Sales & GTM', icon='<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
-  navdesc='Follow up every lead and book more demos.',
+ dict(slug='sales', nav='GTM Ops', icon='<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  navdesc='Agents run outbound and follow-ups. Reps take the calls.',
   title='AI Agents for Sales and GTM - Lead Follow-up and Booked Demos | AgentWorks',
   desc='AI agents for sales teams: research every new lead, follow up within minutes, watch competitors and report pipeline, working toward a booked-demos goal.',
-  kicker='Use cases · Sales & GTM',
-  h1='Every lead answered in minutes.', h1dim='More demos on the calendar.',
+  kicker='Use cases · GTM Ops',
+  h1='Agents run your outbound and follow-ups.', h1dim='Your reps take the calls.',
   lede='Leads go cold while founders and small sales teams juggle everything else. AgentWorks agents research each new lead, write a personal first email, follow up until they book or say no, and change the approach when replies drop.',
   goal=('Book more sales demos','Demos booked per week',('6','target 5')),
   pains=[('Leads wait hours for a reply','By the time someone answers, the lead has booked a call with a competitor.'),
@@ -18,11 +18,11 @@ SOLUTIONS=[
   faq=[('Will it send emails without me?','Not unless you allow it. By default every outbound email waits for your approval, and you can raise the limit once you trust it. The Docs guide "Approvals and autonomy" explains the four levels.'),
        ('Does it work with our CRM?','Yes, through MCP or the CRM\'s website in the agent\'s own browser. HubSpot, Notion and Airtable are common starting points.'),
        ('How is this different from a sales sequencer?','A sequencer sends what you wrote on a schedule. AgentWorks works toward a goal: it measures bookings, drops what doesn\'t work and tries what might.')]),
- dict(slug='shopify', nav='Shopify stores', icon='<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
-  navdesc='Stuck orders, reviews and support, handled.',
+ dict(slug='shopify', nav='Shopify Ops', icon='<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
+  navdesc='Orders, returns, stock and support, run by agents.',
   title='AI Agents for Shopify Stores - Orders, Support and Reviews | AgentWorks',
   desc='AI agents for Shopify stores: catch stuck orders, answer customers on email and WhatsApp, reply to reviews and recover failed payments, working toward store goals.',
-  kicker='Use cases · Shopify stores',
+  kicker='Use cases · Shopify Ops',
   h1='No order stuck, no customer left waiting.', h1dim='Even when you\'re not at the desk.',
   lede='Running a store means hundreds of small exceptions: a payment that failed, an order stuck in fulfilment, a customer asking where their parcel is. AgentWorks agents catch them, fix what they can, and tell you only about the ones that need you.',
   goal=('Keep every order moving','Orders stuck over 24 hours',('0','target 0')),
@@ -84,7 +84,91 @@ SOLUTIONS=[
        ('Is this available today?','Yes. Every agent on this page is in the agent library today, and each one links to its source.')]),
 ]
 
+
+SOLUTIONS += [
+ dict(slug='growth', nav='Growth & Customer Analytics', icon='<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
+  navdesc='Ask why a number moved. Get the evidence.',
+  title='AI Agents for Growth and Customer Analytics - Why Your Numbers Moved | AgentWorks',
+  desc='AI growth analysts for teams without one: watch conversion, activation and retention every day, explain why a number moved with evidence, and track the fix.',
+  kicker='Use cases · Growth & Customer Analytics',
+  h1='Ask why the number moved.', h1dim='Get the evidence, not a guess.',
+  lede='Most growing companies have the data but no analyst. AgentWorks agents watch your funnel, activation and retention every day, explain each drop with the evidence behind it, and follow the fix until the number recovers.',
+  goal=('Recover checkout conversion','Checkout conversion',('3.1%','target 3.5%')),
+  pains=[('Drops are noticed late','Conversion or activation slides for a week before anyone looks.'),
+         ('Nobody has time to dig','The question "why did it move?" waits for an analyst you have not hired.'),
+         ('Fixes are not followed up','A change ships, and nobody checks whether the number came back.')],
+  agents=['Funnel Analyst','Product Adoption Analyst','Lifecycle Analyst','Funnel and Conversion Intelligence','Activation and Retention Intelligence'],
+  connectors='Mixpanel, PostHog or your analytics through MCP, your database, Slack and your ticketing tool.',
+  faq=[('Do we need a data team?','No. Agents read the analytics and database you already have. We connect them with you on the first call.'),
+       ('Will it change our product?','No. It explains and recommends. Changes go to your team, and it checks the number afterwards.'),
+       ('Which numbers can it watch?','Any you can query: signups, activation, conversion, retention, revenue per user.')]),
+ dict(slug='engineering', nav='Engineering Ops', icon='<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>',
+  navdesc='Release checks, incidents, security and cloud cost.',
+  title='AI Agents for Engineering Ops - Release Quality, Incidents, Security and Cloud Cost | AgentWorks',
+  desc='AI agents for small engineering teams: test every release, investigate incidents first, fix security findings and cut cloud waste, with engineers approving the changes.',
+  kicker='Use cases · Engineering Ops',
+  h1='Agents check every release and take the first look at every incident.', h1dim='Engineers review and approve.',
+  lede='Small teams ship several times a week with nobody dedicated to QA, on-call triage, security or cloud cost. AgentWorks agents run those jobs every day and hand engineers a finished first pass: the failing test, the likely cause, the proposed fix.',
+  goal=('Ship releases without regressions','Releases with a regression',('1 of 14','target 0')),
+  pains=[('Releases wait on manual checks','Someone clicks through the app before every release, or nobody does.'),
+         ('Incidents start from zero','The on-call engineer spends the first hour just finding where to look.'),
+         ('Security and cost pile up','Findings and idle cloud spend sit in a backlog nobody owns.')],
+  agents=['Release Quality Assistant','Browser Journey QA Analyst','Incident Investigator','Security Remediation Coordinator','Cloud Cost Analyst'],
+  connectors='GitHub, your CI, logs and monitoring through MCP, your cloud account, Slack and Linear or Jira.',
+  faq=[('Will it push code?','It proposes changes as pull requests. Merging stays with your engineers.'),
+       ('Does it replace our on-call?','No. It takes the first look and hands the on-call engineer the evidence and a likely cause.'),
+       ('Where can I go deeper?','Each job has its own page: release quality, incident response, security testing and cloud cost, under Enterprise.')]),
+]
+
+# How one team runs on agents, per use case: (goal, meter, flow, crew, people, cowork line, coding line)
+OPS = {
+ 'sales': ('Book 5 qualified demos a week', ('Booked this week', '4 of 5', 80),
+           ('New lead → first email', 'Research the company, pick the trigger, write a personal first email, follow up until they book or say no.'),
+           ('Sales expert', 'Answers reps and prospects: pricing, case fit, "do you integrate with our CRM?", checked against your policy.'),
+           'Key accounts and discounts come to the founder or head of sales for one-tap approval.',
+           'The head of sales asks Cowork or ChatGPT "who replied this week?" and approves a discount from the same chat.',
+           'A rep’s coding agent pulls the account notes from the Sales expert before a call.'),
+ 'shopify': ('Keep every order moving', ('Orders stuck over 24 h', '2 left', 90),
+           ('Stuck order → resolved', 'Spot payment, fulfilment or shipping issues, fix what the rules allow, message the customer.'),
+           ('Store expert', 'Answers "where is my order?" on WhatsApp and email from the order history and your policies.'),
+           'Refunds over your limit and unhappy key customers come to the store owner first.',
+           'The founder asks Cowork "what went wrong with orders today?" and approves two refunds there.',
+           'The developer’s coding agent asks the Store expert which SKUs keep failing before changing the checkout.'),
+ 'growth': ('Recover checkout conversion to 3.5%', ('Conversion this week', '3.1%', 62),
+           ('Daily metric check', 'Read the funnel every morning, flag any drop, break it down by release, device and source.'),
+           ('Growth analyst', 'Answers "why did signups drop?" with the evidence: the release, the screen, the tickets.'),
+           'The head of product decides the fix; the agent tracks whether the number comes back.',
+           'The head of product asks ChatGPT "why did activation dip?" and gets the analyst’s answer with charts.',
+           'An engineer’s Claude Code receives the evidence and the failing screen, and proposes the fix.'),
+ 'engineering': ('Zero regressions in releases', ('Clean releases this month', '13 of 14', 93),
+           ('Release check', 'Run the user journeys on every build, file failures with steps and screenshots, block the release if needed.'),
+           ('Incident expert', 'Answers "what changed before the errors started?" from logs, deploys and past incidents.'),
+           'Engineers review the proposed fix and approve the merge.',
+           'The engineering lead asks Cowork "is today’s release safe to ship?"',
+           'Each engineer’s Claude Code, Codex or Cursor takes the failing test and the likely cause, and opens the fix.'),
+ 'support': ('Answer customers within 15 minutes', ('Median first reply', '11 min', 100),
+           ('New ticket → first reply', 'Read the ticket and the order, answer from your docs, tag and route the rest.'),
+           ('Support expert', 'Answers the team: "what do we tell a customer about late delivery?" from your approved answers.'),
+           'Refunds, complaints and sensitive cases go to a person with the context already gathered.',
+           'The support lead asks Cowork "what are customers upset about this week?"',
+           'An engineer’s coding agent asks the Support expert which bug customers report most.'),
+ 'finance': ('Collect overdue payments', ('Overdue invoices', '6.2% of receivables', 70),
+           ('Invoice → reminder', 'Read overdue invoices, write a polite reminder from your own inbox, attach the invoice, escalate step by step.'),
+           ('Finance expert', 'Answers "what is this charge?" and "can we give 30 days?" from your policy and past deals.'),
+           'Key accounts and write-offs come to the head of finance on WhatsApp.',
+           'The head of finance asks Cowork "how much came in this week?" and approves a write-off there.',
+           'A developer’s coding agent asks the Finance expert why an invoice failed to sync.'),
+ 'marketing': ('Grow organic and AI-search traffic', ('Organic clicks this quarter', '+9%', 60),
+           ('Weekly visibility check', 'Ask ChatGPT, Perplexity and Gemini your buyers’ questions, record who they recommend, find the gaps.'),
+           ('Growth marketer', 'Answers "which pages should we fix first?" with the data behind each pick.'),
+           'Publishing and big page changes wait for the marketing lead.',
+           'The marketing lead asks ChatGPT "do AI assistants recommend us yet?"',
+           'A developer’s Cursor fixes the technical SEO issues the agent filed.'),
+}
+for _u in SOLUTIONS:
+    _u['ops'] = OPS[_u['slug']]
+_ORDER = ['sales', 'shopify', 'growth', 'engineering', 'support', 'finance', 'marketing']
+SOLUTIONS.sort(key=lambda _u: _ORDER.index(_u['slug']))
+
 def sol_nav_items():
-    items=[('/ecommerce/','E-commerce operations','Agentic operations, with your team in control.','<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>')]+[(f'/solutions/{u["slug"]}/',u['nav'],u['navdesc'],u['icon']) for u in SOLUTIONS]
-    items.append(('/enterprise/','Engineering ops','QA, incidents, DevOps and cloud cost.','<path d="m8 9-4 3 4 3M16 9l4 3-4 3"/>'))
-    return items
+    return [(f'/solutions/{u["slug"]}/',u['nav'],u['navdesc'],u['icon']) for u in SOLUTIONS]
