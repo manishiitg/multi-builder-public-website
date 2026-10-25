@@ -53,7 +53,7 @@ def _page(u):
     steps=''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t,d in u['steps'])
     pbs=''.join(
         f'<li><a href="{e(_catalog_by_name(p)["source"])}" target="_blank" rel="noreferrer">{e(p)}</a></li>'
-        if u['slug']=='release-quality' else f'<li>{e(p)}</li>'
+        if u['slug'] in ('release-quality','security-testing') else f'<li>{e(p)}</li>'
         for p in u['playbooks'])
     gname,gmetric,(gval,gsub)=u['goal']
     if u.get('product'):
