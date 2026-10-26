@@ -49,7 +49,7 @@ Pages: `/` (home), `/product/`, `/agents/`, `/pricing/`, `/enterprise/`, five en
 
 ## Audience and structure (owner, 2026-10-26)
 
-The site sells to enterprises and B2B companies only. One menu: Solutions (by team, order in `SOL_ORDER` in partials.py), Platform (`/platform/`, all capabilities on one page; the detail pages stay as "learn more" links), How we work (`/pricing/`, no price numbers until the owner says), Blog. Primary action everywhere: Book a call; second: Try the demo. No self-serve download links, no client names or logos yet, never "Autopilot". The free AgentBridge network is a small X experiment: it keeps `/network/` (footer link only). `/studio/` redirects to `/crews/` (Studio merged into Crew).
+The site sells to enterprises and B2B companies only. One menu: Solutions (by team, order in `SOL_ORDER` in partials.py), Platform (`/platform/`, all capabilities on one page; the detail pages stay as "learn more" links), How we work (`/pricing/`, no price numbers until the owner says), Blog. Primary action everywhere: Book a call; second: Try the demo. No self-serve download links, no client names or logos yet, never "Autopilot". The free AgentBridge network is a small X experiment: it keeps `/network/` (footer link only). Studio is shown as its own product (owner 2026-10-26: Crew internally, but users see a different product: my private AI workspace vs an agent for the team); `/studio/` is the landing page for the "AI workspace for every employee" ad.
 
 ## Blog and harness page (2026-10-26)
 

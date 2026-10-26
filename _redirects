@@ -98,6 +98,4 @@
 /code/ /studio/ 301
 /code/index.html /studio/ 301
 
-# Studio merged into Crew (owner 2026-10-17); the site sells one platform (2026-10-26).
-/studio/ /crews/ 301
-/studio /crews/ 301
+/studio /studio/ 301

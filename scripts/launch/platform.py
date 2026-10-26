@@ -3,15 +3,15 @@
 # The detail pages (/goals/, /crews/ ...) stay as "learn more" links. No pricing numbers on the site yet.
 PLATFORM_DO=[
   ('/goals/','Run a process toward a number','Give agents a process and a target, like collecting overdue invoices or replying to every new lead within ten minutes. They run it on schedule, every run is measured, and the plan is improved from what the numbers show.','Goals'),
-  ('/crews/','Give every team an expert agent','Turn what one person knows into an agent the whole team asks from Slack, WhatsApp, the app or their own AI. Each employee also gets a private AI workspace on the plans your company already pays for.','Crews'),
+  ('/crews/','Give every team an expert agent','Turn what one person knows into an agent the whole team asks from Slack, WhatsApp, the app or their own AI. ','Crews'),
+  ('/studio/','A private AI workspace for every employee','Each person works with their own AI on the Claude, ChatGPT or Codex plans your company already pays for, with skills, tools and files ready on day one, and the company sees cost and usage per person.','Studio'),
   ('/flows/','Fixed steps your systems can call','Chain agent steps, rules and scripts into one sequence and call it from your website, CRM or any system through an API or webhook.','Flows'),
-  ('/agentbridge/','Connect the agents your people already run','Claude Code, Codex, Cursor and ChatGPT join one company network, ask each other and your Crews for help, and hand work over.','AgentBridge'),
 ]
 PLATFORM_FOUNDATION=[
   ('/brain/','Shared knowledge','Policies, product facts and skills written once and read by every agent, with versions and folder permissions.','Brain'),
   ('/vault/','Tools and secrets under control','One governed door to your tools and credentials. IT decides which group can use what, and every call is recorded.','Vault'),
   ('/llm-gateway/','Model access and cost per person','Choose which AI models each person and agent may use, and see the cost by person and by model. Coming soon.','LLM Gateway'),
-  ('/#connectors','Where your people already work','Slack, WhatsApp, Gmail and MCP in both directions: people ask and approve where they are; agents reach the tools you use.','Connectors'),
+  ('/agentbridge/','Connect the agents your people already run','Claude Code, Codex, Cursor and ChatGPT join one company network, ask each other and your Crews for help, and hand work over.','AgentBridge'),
 ]
 PLATFORM_FAQ=[
   ("Do we have to buy each product separately?","No. AgentWorks is one platform. We start with one process your team wants handed to agents, set up the parts it needs, and add more as you go."),
