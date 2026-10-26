@@ -27,11 +27,28 @@ platform_body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">Platform</p>
         <h1>One platform for the agents that run your processes. <span class="dim">Your people stay in charge.</span></h1>
-        <p class="lede">AgentWorks gives your company agents that do real work inside your processes, an expert agent for every team, and the controls IT and leadership need, deployed in your own cloud.</p>
+        <p class="lede">Your team's AI can ask the same company experts, use the same approved knowledge and hand work across departments, with the controls IT and leadership need, deployed in your own cloud.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="one-request">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">One request, across your company</p>
+          <h2>How it works together. <span class="dim">Illustrative.</span></h2>
+          <p class="lede">A salesperson asks their own ChatGPT whether a client can have 15% off a 200-seat deal.</p>
+        </div>
+        <ol class="online-steps harness-steps reveal">
+          <li><b>Their AI asks the expert</b><span>The salesperson's ChatGPT, connected to AgentWorks, asks the company's Pricing Crew.</span></li>
+          <li><b>The expert knows the policy</b><span>The Pricing Crew reads the current discount rules and past deals from shared company knowledge.</span></li>
+          <li><b>A person decides the exception</b><span>15% is above the usual limit, so the finance lead gets one approval in Slack.</span></li>
+          <li><b>The work is saved</b><span>The approved quote is drafted and the deal is updated; the run, its cost and the approval are recorded.</span></li>
+          <li><b>Someone keeps watch</b><span>AgentWorks checks the deal desk's numbers daily and flags what needs attention.</span></li>
+        </ol>
       </div>
     </section>
 

@@ -40,7 +40,9 @@
 /template.html /docs/ 301
 /wireframes.html / 301
 /pricing /pricing/ 301
-/enterprise /enterprise/ 301
+# Enterprise overview narrowed the company offer to engineering (buyer audit 26 Oct); its use-case pages stay.
+/enterprise /solutions/engineering/ 301
+/enterprise/ /solutions/engineering/ 301
 /agents /agents/ 301
 /templates /agents/ 301
 /templates/ /agents/ 301
