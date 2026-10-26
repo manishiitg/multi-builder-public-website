@@ -6,7 +6,7 @@ OUT=os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 def tpl(mode): return subprocess.check_output([sys.executable,'tpl.py',mode],text=True).rstrip()
 import tpl as _T
 def fill(s, **kw):
-    s=s.replace('{{SIGNUP}}',SIGNUP).replace('{{CAL}}',CAL).replace('{{GH}}',GH).replace('{{INSTALL}}',INSTALL).replace('{{DEMO}}',DEMO).replace('{{DEMO_USER}}',DEMO_USER).replace('{{DEMO_PASS}}',DEMO_PASS)
+    s=s.replace('{{SIGNUP}}',SIGNUP).replace('{{CAL}}',CAL).replace('{{GH}}',GH).replace('{{INSTALL}}',INSTALL).replace('{{DEMO}}',DEMO)
     for k,v in kw.items(): s=s.replace('{{'+k+'}}',v)
     import re
     s=re.sub(r'\{\{LOGO:(\w+)\}\}',lambda m: logo(m.group(1)),s)

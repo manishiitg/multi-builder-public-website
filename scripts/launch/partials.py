@@ -9,11 +9,9 @@ PAYPAL_SUBSCRIBE='https://www.paypal.com/webapps/billing/plans/subscribe?plan_id
 CAL=CAL_URL
 GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
-# Shared demo login, public on purpose (owner 2026-10-24: show it on the site).
+# The demo; its own sign-in screen shows the shared login (owner 2026-10-26).
 DEMO='https://demo.agentworkshq.com/'
-DEMO_USER='demo'
-DEMO_PASS='0-YcbbgwUBJ5gVpwVrX3'
-V='launch79'
+V='launch80'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
