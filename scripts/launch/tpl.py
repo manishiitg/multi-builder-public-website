@@ -7,6 +7,9 @@ CATALOG = json.loads((Path(__file__).resolve().parent / "catalog.json").read_tex
 CREW = [dict(x, kind="crew") for x in CATALOG["crew"]]
 GOALS = [dict(x, kind="goal") for x in sorted(CATALOG["playbooks"], key=lambda p: (p["area"], p["order"]))]
 ALL = CREW + GOALS
+# Plain buyer-language outcome per agent (Astra, buyer audit 26 Oct); the catalog purpose stays as the fallback.
+_OUT = Path(__file__).resolve().parent / "card_outcomes.json"
+OUTCOMES = json.loads(_OUT.read_text()) if _OUT.exists() else {}
 N_CREW, N_GOALS = len(CREW), len(GOALS)
 GH_PLAYBOOKS = "https://github.com/manishiitg/agentworks/tree/main/playbooks"
 
@@ -41,11 +44,12 @@ def by_name(name):
 def card(t, heading="h3"):
     e = html.escape
     kind = '<span class="tag tag-crew">Crew</span>' if t["kind"] == "crew" else '<span class="tag tag-goal">Goal</span>'
-    role = f'<p class="tpl-goal"><span>Role</span>{e(t["role"])}</p>' if t["kind"] == "crew" and t.get("role") else ""
+    outcome = OUTCOMES.get(t.get("id"))
+    role = f'<p class="tpl-goal"><span>Role</span>{e(t["role"])}</p>' if t["kind"] == "crew" and t.get("role") and not outcome else ""
     return f'''<article class="tpl" data-cat="{t["team"]}">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ICON[t["team"]]}</svg></span><span class="tpl-cat">{e(t["area"])}</span></div>
             <{heading}>{e(t["name"])}</{heading}>
-            <p>{e(t["purpose"])}</p>
+            <p>{e(outcome or t["purpose"])}</p>
             {role}
             <div class="tpl-foot">{kind}<a class="tpl-src" href="{e(t["source"])}" target="_blank" rel="noreferrer">Source</a></div>
           </article>'''
