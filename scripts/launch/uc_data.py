@@ -157,7 +157,7 @@ USECASES=[
   title='AgentWorks Vault - Govern Every MCP Tool and Shared Secret Your AI Agents Use',
   desc='Vault is one MCP endpoint for every AI client in your company. Admins connect servers once, grant tools and secrets by group, and every call is checked against policy and recorded in an audit log.',
   kicker='Vault · Enterprise',
-  h1='One door to every MCP tool.', h1dim='Every call checked and recorded.',
+  h1='Control which tools your company\'s AI can use.', h1dim='Every call checked and recorded.',
   lede='People plug MCP servers into Claude, ChatGPT, Cursor and their own agents, each with its own tokens and no oversight. Vault gives your company one governed MCP endpoint: admins connect servers once, people sign in with the company account, and every tool call is checked against the groups and rules you set.',
   cta_label='Book a call',
   goal=('Every MCP tool call governed','Tool calls with a grant and an audit record',('100%','of calls through Vault, target 100%')),

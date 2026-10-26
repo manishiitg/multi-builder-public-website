@@ -11,7 +11,7 @@ GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
 # The demo; its own sign-in screen shows the shared login (owner 2026-10-26).
 DEMO='https://demo.agentworkshq.com/'
-V='launch81'
+V='launch82'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -63,7 +63,7 @@ PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works towa
          ('/flows/','Flows','A fixed chain of agents you run from anywhere.','relay'),
          ('/brain/','Brain','Shared company knowledge: write it once and every agent reads it.','brain'),
          ('/vault/','Vault','One governed door to every MCP tool and shared secret.','gateway'),
-         ('/llm-gateway/','LLM Gateway','One endpoint for every AI model, with access and cost per person.','llmgw'),
+         ('/llm-gateway/','LLM Gateway','Coming soon: manage model access and see the cost per person.','llmgw'),
          ('/studio/','Studio','The online workspace where you build agents and Crews, with skills, tools and integrations ready on day one.','code')]
 # Two audiences: the first three do the work for teams, the last three give IT and leadership control.
 PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[3:])]

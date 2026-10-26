@@ -145,7 +145,7 @@ code_body=f'''  <main id="main">
 ], h2='One server for every coding agent.', dim='Illustrative examples.')}
     <section class="section-tight">
       <div class="wrap">
-        {uc_pills(['Private until you add co-owners','Admins can review, every view recorded','Every command sandboxed','Cost per person, workspace and plan'])}
+        {uc_pills(['Private until you add co-owners','Admins and assigned reviewers can review, every view recorded','Every command sandboxed','Cost per person, workspace and plan'])}
       </div>
     </section>
 
@@ -161,7 +161,7 @@ code_body=f'''  <main id="main">
           <div class="explainer reveal" aria-label="Who can see this workspace">
             <p class="explainer-title"><span>Who can see this workspace</span><span>Private until you add co-owners</span></p>
             <div class="row"><span class="avatar avatar-ava">A</span><div class="grow">Ava<small>Owner · files, chats, agent</small></div><span class="tag tag-run">Owner</span></div>
-            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or reviewer<small>Can read, never change · every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
+            <div class="row"><span class="avatar avatar-otto">C</span><div class="grow">Admin or assigned reviewer<small>Can read, never change · every view recorded</small></div><span class="tag tag-wait">Audited</span></div>
             <div class="row"><span class="avatar avatar-rio">R</span><div class="grow">Everyone else<small>Uses what you share, such as a Crew</small></div><span class="tag">Shared</span></div>
           </div>
         </div>

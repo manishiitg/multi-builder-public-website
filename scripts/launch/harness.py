@@ -35,7 +35,7 @@ harness_body=f'''  <main id="main">
         <div class="section-head reveal">
           <p class="kicker">The six parts</p>
           <h2>Every part of a harness. <span class="dim">Already in one place.</span></h2>
-          <p class="lede">Most agent failures today are not the model. They are a missing tool, an unclear instruction, no check on the result, or no record of what happened. These are the parts that prevent them, and where each one lives in AgentWorks.</p>
+          <p class="lede">Agent failures often are not the model. They are a missing tool, an unclear instruction, no check on the result, or no record of what happened. These are the parts that prevent them, and where each one lives in AgentWorks.</p>
         </div>
         <figure class="harness-figure reveal"><img src="/assets/blog/harness-engineering-explained/six-parts-ring.webp" alt="A model in the centre with six parts around it: instructions and context, tools, work loop, guardrails, checks and records" width="1600" height="900" loading="lazy"></figure>
         <div class="harness-table reveal">
@@ -53,7 +53,7 @@ harness_body=f'''  <main id="main">
       <div class="wrap">
         <div class="section-head center reveal">
           <p class="kicker">One person or the whole company</p>
-          <h2>Most harness engineering stops at one laptop. <span class="dim">Yours doesn't have to.</span></h2>
+          <h2>Harness engineering often stops at one laptop. <span class="dim">Yours doesn't have to.</span></h2>
           <p class="lede">Claude Code, Codex and Cursor are excellent harnesses for one person. AgentWorks is the shared one for the company, built around the agents your people already use.</p>
         </div>
         <div class="online-pair">

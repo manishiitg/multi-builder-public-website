@@ -34,12 +34,12 @@ const guidesNav = [
     { slug: 'share-secrets', label: 'Share secrets safely', blurb: 'One API key in Vault that your team\'s agents can use, without pasting it around.' }
   ] },
   { group: 'Automate', pages: [
-    { slug: 'publish-relay', label: 'Publish your first Relay', blurb: 'Describe a task, test the draft, and publish a versioned API.' },
-    { slug: 'incoming-gmail', label: 'Give your project an email address', blurb: 'Email a Crew, workflow, or Code and continue the chat by reply.' },
+    { slug: 'publish-relay', label: 'Publish your first Flow', blurb: 'Describe a task, test the draft, and publish a versioned API.' },
+    { slug: 'incoming-gmail', label: 'Give your project an email address', blurb: 'Email a Crew, Goal or Studio workspace and continue the chat by reply.' },
     { slug: 'gmail', label: 'Connect Gmail and control what it sends', blurb: 'Connect your mailbox, grant read or send, and approve every send.' }
   ] },
-  { group: 'Coming soon', soon: true, pages: [
-    { slug: 'intro-2-minutes', label: 'What AgentWorks does in 2 minutes', blurb: 'The two-minute tour of goals, crews, and Auto-improve.' },
+  { group: 'Guides coming soon', soon: true, pages: [
+    { slug: 'intro-2-minutes', label: 'What AgentWorks does in 2 minutes', blurb: 'The two-minute tour of how your company’s AI works together.' },
     { slug: 'premade-agent', label: 'Install a premade agent', blurb: 'Pick an agent, install it, point it at your goal.' },
     { slug: 'progress-report', label: 'Read progress and “Did for you”', blurb: 'Reports, evidence, and what each status asks of you.' },
     { slug: 'invite-teammates', label: 'Invite teammates', blurb: 'Add people, split jobs, share approvals.' },

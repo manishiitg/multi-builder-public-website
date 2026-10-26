@@ -1248,3 +1248,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .sol-ic svg { width: 18px; height: 18px; }
 .control.two { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 720px) { .control.two { grid-template-columns: 1fr; } }
+/* Harness table as cards on phones (Astra buyer audit 26 Oct). */
+@media (max-width: 640px) {
+  .harness-table { border: 0; background: none; overflow: visible; }
+  .harness-table table { min-width: 0; }
+  .harness-table thead { display: none; }
+  .harness-table tr { display: block; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); margin-bottom: 12px; }
+  .harness-table th, .harness-table td { display: block; border: 0; padding: 10px 16px 0; }
+  .harness-table td:last-child { padding-bottom: 14px; }
+  .harness-table tbody th { white-space: normal; padding-top: 14px; }
+}

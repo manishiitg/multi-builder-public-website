@@ -106,7 +106,7 @@ body=f'''  <main id="main">
     <section class="cta">
       <div class="wrap">
         <h2>Start with one goal or one expert. <span class="dim">We'll set it up with you.</span></h2>
-        <p>Start from a premade agent or describe your own. Ten minutes to set up, on the AI plan you already have.</p>
+        <p>We set up your first agents with your team, agree how success is measured and connect the tools they need.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>

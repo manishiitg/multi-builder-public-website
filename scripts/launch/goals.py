@@ -32,7 +32,7 @@ goals_body=f'''  <main id="main">
           <li><h2>Set the goal</h2><p>An outcome in plain words, the metric that proves it, and the target.</p></li>
           <li><h2>Run</h2><p>Agents plan the steps, connect your tools and run on schedule.</p></li>
           <li><h2>Measure</h2><p>Every run records what it did and what it moved.</p></li>
-          <li><h2>Every run improves it</h2><p>It fixes what broke, drops what didn't work and tries what's next.</p></li>
+          <li><h2>Review each run, improve the next</h2><p>What broke gets fixed, what didn't work gets dropped, and the next idea gets tried.</p></li>
         </ol>
       </div>
     </section>
@@ -128,7 +128,7 @@ goals_body=f'''  <main id="main">
     <section class="cta">
       <div class="wrap">
         <h2>Pick one goal. <span class="dim">Watch the number move.</span></h2>
-        <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
+        <p>We set up your first Goal with your team, agree how success is measured and connect the tools it needs.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>

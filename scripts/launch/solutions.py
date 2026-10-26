@@ -24,7 +24,7 @@ def _ops(u):
           <div class="ops-row">
             <div class="ops-card"><p class="ops-k"><span class="ops-ic ic-flow"></span>Flow</p><p class="ops-title">{e(ft)}</p><p class="ops-sub">{e(fd)}</p></div>
             <div class="ops-card"><p class="ops-k"><span class="ops-ic ic-crew"></span>Crew</p><p class="ops-title">{e(ct)}</p><p class="ops-sub">{e(cd)}</p></div>
-            <div class="ops-card ops-people"><p class="ops-k"><span class="ops-ic ic-person"></span>People</p><p class="ops-title">Approve exceptions only</p><p class="ops-sub">{e(people)}</p></div>
+            <div class="ops-card ops-people"><p class="ops-k"><span class="ops-ic ic-person"></span>People</p><p class="ops-title">Approve the exceptions</p><p class="ops-sub">{e(people)}</p></div>
           </div>
           <div class="ops-base">
             <p class="ops-k"><span class="ops-ic ic-net"></span>Everyone&rsquo;s personal AI connects in, through AgentBridge</p>
@@ -95,9 +95,9 @@ def _sol_page(u):
         </div>
         <ol class="loop reveal">
           <li><h3>Set the goal</h3><p>Pick a premade agent or describe the outcome, then agree the metric and target with us.</p></li>
-          <li><h3>Run</h3><p>Agents work through your tools on a schedule, with your approval on anything that goes out.</p></li>
+          <li><h3>Run</h3><p>Agents work through your tools on a schedule. You choose which actions run on their own and which wait for a person; we agree those rules during setup.</p></li>
           <li><h3>Measure</h3><p>Every run records what it did and what it moved, so you see progress, not activity.</p></li>
-          <li><h3>Every run improves it</h3><p>It fixes what broke, drops what didn't work and tries the next idea.</p></li>
+          <li><h3>Review each run, improve the next</h3><p>What broke gets fixed, what didn't work gets dropped, and the next idea gets tried.</p></li>
         </ol>
       </div>
     </section>
@@ -127,7 +127,7 @@ def _sol_page(u):
         <p>Book a short call. We connect your tools, pick the agent and agree the metric together.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="/pricing/">See pricing</a>
+          <a class="btn btn-ghost" href="/pricing/">How we work</a>
         </div>
       </div>
     </section>

@@ -59,7 +59,7 @@ download_body=f'''  <main id="main">
         <p>We customize and deploy AgentWorks for your company: your cloud, your tools, your approval rules.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="/pricing/">See pricing</a>
+          <a class="btn btn-ghost" href="/pricing/">How we work</a>
         </div>
       </div>
     </section>

@@ -14,7 +14,7 @@ body=f'''  <main id="main" data-tpl-filter>
       <div class="wrap">
         <p class="kicker">Premade agents</p>
         <h1>Premade agents, ready to start today. <span class="dim">{_tpl.N_CREW + _tpl.N_GOALS} of them.</span></h1>
-        <p class="lede">{_tpl.N_CREW} Crew agents you talk to in chat, Slack or WhatsApp, and {_tpl.N_GOALS} Goal playbooks that run on their own against a target. Pick one in the app, or ask the Builder to install any of them by name. Each ships with its setup steps, the tools it needs and guardrails that ask before anything reaches a customer. The source is public: read any of them, and modify them locally for development and testing.</p>
+        <p class="lede">{_tpl.N_CREW} Crew agents you talk to in chat, Slack or WhatsApp, and {_tpl.N_GOALS} Goal playbooks that run on their own against a target. Choose a starting point for your team's pilot; we adapt it to your tools and rules. Each ships with its setup steps, the tools it needs and guardrails that ask before anything reaches a customer. The source is public: read any of them, and modify them locally for development and testing.</p>
         <label class="search"><span class="sr-only">Search agents</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <input type="search" placeholder="Search: invoices, refunds, Shopify, SEO, incidents…" data-tpl-search>
@@ -39,7 +39,7 @@ body=f'''  <main id="main" data-tpl-filter>
         <div class="section-head reveal">
           <p class="kicker">Agent library</p>
           <h2>Read every agent before you install it.</h2>
-          <p class="lede">Each Crew agent and Goal playbook is a versioned, plain-Markdown skill package with its setup checks, required tools and the evidence it keeps. Fork one, or write your own from the template.</p>
+          <p class="lede">Each Crew agent and Goal playbook is a versioned, plain-Markdown skill package with its setup checks, required tools and the evidence it keeps. Each is a starting point we adapt to your tools and rules; your engineers can read and extend them.</p>
         </div>
         <p class="center-row"><a class="btn btn-ghost" href="{_tpl.GH_PLAYBOOKS}" target="_blank" rel="noreferrer">Browse the library on GitHub</a></p>
       </div>

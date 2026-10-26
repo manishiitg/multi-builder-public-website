@@ -129,7 +129,7 @@ crews_body=f'''  <main id="main">
         <p>We build your first Crew with the team that owns the knowledge, then connect it to the tools your people already use.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="/pricing/">See plans</a>
+          <a class="btn btn-ghost" href="/pricing/">How we work</a>
         </div>
       </div>
     </section>

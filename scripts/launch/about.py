@@ -4,7 +4,7 @@ about_body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">About</p>
         <h1>AgentWorks is built by XTECH. <span class="dim">A small team in India.</span></h1>
-        <p class="lede">We make AI agents work inside company processes, with your people in control: agents track the goal, measure every run and improve the next one, and a person approves what matters. Goals is self-serve, and we customize and deploy the rest for companies under a commercial license. The source is public.</p>
+        <p class="lede">We make AI agents work inside company processes, with your people in control: agents track the goal, measure every run and improve the next one, and a person approves what matters. We connect your team's AI, build the first company agents with you and deploy AgentWorks in your environment, under a commercial license. The source is public.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{GH}" target="_blank" rel="noreferrer">See the code on GitHub</a>
@@ -17,7 +17,7 @@ about_body=f'''  <main id="main">
         <ul class="control">
           <li class="reveal"><h3>Company</h3><p>AgentWorks is a product of <b>XTECH</b>, a partnership firm in India, founded in December 2025. XTECH operates agentworkshq.com and is the company behind the AgentWorks platform and its custom deployments.</p></li>
           <li class="reveal"><h3>Founder</h3><p>Founded and run by Manish Prakash. You can find him on <a href="https://in.linkedin.com/in/manishiitg" target="_blank" rel="noreferrer">LinkedIn</a> and <a href="https://x.com/manish_iitg" target="_blank" rel="noreferrer">X</a>.</p></li>
-          <li class="reveal"><h3>What we build</h3><p>A source-available platform with six products: Goals, Crews and Flows for your teams, and Brain, Vault and Studio for IT and leadership. <a href="/product/">See the products</a>.</p></li>
+          <li class="reveal"><h3>What we build</h3><p>One source-available platform for your team's AI and your company's agents. <a href="/platform/">See the platform</a>.</p></li>
           <li class="reveal"><h3>How we work with companies</h3><p>We scope a deployment on a call, customize it for your processes, tools and approval rules, and deploy it in your own cloud. <a href="/pricing/">See how it works</a>.</p></li>
           <li class="reveal"><h3>Source code</h3><p>The source is public under the Business Source License 1.1, with a commercial license for business use, at <a href="{GH}" target="_blank" rel="noreferrer">github.com/manishiitg/agentworks</a>.</p></li>
           <li class="reveal"><h3>Contact</h3><p>Email <a href="mailto:manish@agentworkshq.com">manish@agentworkshq.com</a> or <a href="{CAL}" target="_blank" rel="noreferrer">book a 30-minute call</a>.</p></li>
@@ -31,7 +31,7 @@ about_body=f'''  <main id="main">
         <p>Book a short call and we'll scope a deployment around your company.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="/pricing/">Pricing</a>
+          <a class="btn btn-ghost" href="/pricing/">How we work</a>
         </div>
       </div>
     </section>
