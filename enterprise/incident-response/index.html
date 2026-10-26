@@ -73,6 +73,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "How does AI triage of a failed CI build work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AgentWorks classifies CI and deployment failures with evidence to help your team decide whether the code, the test or the infrastructure needs attention. It correlates signals into an incident record with impact, severity, a timeline and a first root-cause analysis. Remediation is prepared and validated, then waits for approval before execution through authorized paths with rollback ready."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Will it take actions in production on its own?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -242,7 +250,8 @@
           <h2 class="h2">Questions, <span class="dim">answered.</span></h2>
         </div>
         <div class="faq">
-          <details open><summary>Will it take actions in production on its own?</summary><p>Not unless you allow it. Remediation is prepared and validated, then waits for approval; execution runs only through the paths you authorize.</p></details>
+          <details open><summary>How does AI triage of a failed CI build work?</summary><p>AgentWorks classifies CI and deployment failures with evidence to help your team decide whether the code, the test or the infrastructure needs attention. It correlates signals into an incident record with impact, severity, a timeline and a first root-cause analysis. Remediation is prepared and validated, then waits for approval before execution through authorized paths with rollback ready.</p></details>
+          <details><summary>Will it take actions in production on its own?</summary><p>Not unless you allow it. Remediation is prepared and validated, then waits for approval; execution runs only through the paths you authorize.</p></details>
           <details><summary>Which tools does it read?</summary><p>Whatever your team uses for CI, logs, metrics and alerts, through MCP servers, APIs or its own browser.</p></details>
           <details><summary>Does it replace our incident tool?</summary><p>No. It works alongside it, posting status and findings where your team already coordinates.</p></details>
         </div>
