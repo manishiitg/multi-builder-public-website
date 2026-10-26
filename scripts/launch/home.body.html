@@ -10,7 +10,15 @@
           <a class="btn btn-ghost" href="{{DEMO}}" target="_blank" rel="noreferrer">Try the demo</a>
           <a class="btn btn-ghost" href="#run">See how a team runs on agents</a>
         </div>
-        <p class="hero-note demo-login">Try the full product: log in at <a href="{{DEMO}}" target="_blank" rel="noreferrer">demo.agentworkshq.com</a> as <code>{{DEMO_USER}}</code> with password <code>{{DEMO_PASS}}</code>. Everyone shares this login, so use sample data only.</p>
+        <div class="demo-card" role="note" aria-label="Demo login">
+          <p class="demo-card-title">Try the full product</p>
+          <dl class="demo-card-login">
+            <div><dt>Go to</dt><dd><a href="{{DEMO}}" target="_blank" rel="noreferrer">demo.agentworkshq.com</a></dd></div>
+            <div><dt>Username</dt><dd><code>{{DEMO_USER}}</code></dd></div>
+            <div><dt>Password</dt><dd><code>{{DEMO_PASS}}</code></dd></div>
+          </dl>
+          <p class="demo-card-note">Everyone shares this login, so use sample data only.</p>
+        </div>
         <p class="hero-note">Everyone keeps their personal AI (Claude, ChatGPT, Cowork, Cursor) and connects it to your company&rsquo;s agents · <a class="hero-watch" href="/goals/#demo">Watch the 60-second demo</a></p>
         <div class="feed reveal" aria-label="Example: a day of work done by agents">
           <p class="feed-h"><span>Today, done by agents</span><em>Illustrative</em></p>
