@@ -17,5 +17,13 @@
       "scripts/launch/studio.py"
     ],
     "notes": "Recommended approval process, not a claim that Studio enforces repository or release approval. Workspace review does not promise a complete native CLI event log."
-  }
+  },
+  "screenshots": [
+    {
+      "status": "pending",
+      "needed": "Real sample Studio workspace with reviewable change and check results.",
+      "reason": "Studio is not exposed in current shared demo navigation; demo setup agent has no verified sample and cannot prepare one during current refactor. Do not substitute a Flow screenshot as Studio.",
+      "retake_after_refactor": "Capture when Studio sample exists; avoid Autopilot and Getting started panels. Recheck workspace review coverage against the current product."
+    }
+  ]
 }

@@ -7,34 +7,46 @@ image: cover.webp
 draft: true
 ---
 
-## Start with one outcome
+Maya starts each morning copying new enquiries into a sheet, checking the sales policy and deciding who needs a reply. Tomorrow she does it again. *(Illustrative example.)*
 
-![An illustrative support workflow with an input, a finished result and an exception: new requests, reviewed replies, and cases needing a person](define-done.webp "Illustrative example: prepare support replies for a person to review.")
+The problem is the repeated handoff. Give your agents a shared process, with a result your team can inspect.
 
-Coordinate AI agents by giving them one shared outcome, distinct jobs and a clear handoff between jobs. Start with a process you already understand. For example: prepare a reply to each new support request, using the current policy, with uncertain cases set aside for a person.
+## 1. Decide what a useful result looks like
 
-Define what counts as done before choosing agents. A draft saved for review is different from a reply sent to a customer. Choose the result you actually need and the record that will prove it happened.
+![New enquiries become qualified leads or questions for a person](define-done.webp "Illustrative process: qualification first; a customer message is a separate action.")
 
-## Give each step a job and a handoff
+Tell your agents what your team needs at the end: a saved recommendation for each new enquiry, backed by the sales policy.
 
-![A four-stage flow: collect requests with a script, draft replies with an agent, review with a person, and save the approved result with a script](handoffs.webp "Pass the request, the relevant policy and the saved result forward.")
+Keep uncertain cases visible. A lead assessed, a reply drafted and a message sent are different results.
 
-Use a script for fixed work such as collecting records or saving a result. Use an agent where judgment helps, such as interpreting a request or drafting a reply. Add another specialist only when the next job needs different skills or context.
+## 2. Give each handoff a clear job
 
-Each handoff should say what was checked, where the output is saved and what remains unresolved. The next step should read that result rather than reconstruct the previous conversation. Put human review where your process calls for it.
+![A script collects leads, an agent assesses them, a person reviews and a script saves the result](handoffs.webp "Each step passes its result and open questions to the next.")
 
-## Make the next run pick up cleanly
+Use scripts for fixed work and agents where judgment helps. Each handoff says what was checked, where the result is saved and what is still open.
 
-![A recurring run reads new requests and saved progress, then separates completed work, work needing another attempt and requests with nothing to do](repeat.webp "A schedule starts the work. Saved progress keeps repeated work useful.")
+Your team reviews the decisions you choose. Add specialists only when the work needs them.
 
-Choose a schedule that matches when new work arrives. Keep a saved record of which items were handled, which are waiting and which failed. Before trying an action again, check whether the previous attempt already took effect.
+## 3. Pick up where the last run stopped
 
-Treat “no new requests” as a valid result with evidence. Treat missing access or an unreadable source as a problem. Neither should be disguised as a batch of completed replies.
+![A recurring run reads new inputs and saved progress rather than repeating completed actions](repeat.webp "A schedule starts the work; saved progress makes it repeatable.")
 
-## Review results, then improve the process
+Give each run the new enquiries and the saved progress. Check whether an action already happened before trying it again.
 
-![An example run review compares expected work, saved outputs and unresolved cases, then points to a specific process improvement](review-results.webp "Ask what changed in the business, and open the evidence behind the answer.")
+“No new enquiries” can be a useful answer. “I could not read the source” is a problem your team needs to see.
 
-Review the saved outputs and unresolved cases, not just whether the agent finished speaking. If replies keep needing the same correction, improve the policy or instructions. If records are missing, fix the collection step. Change the part the evidence points to.
+## How AgentWorks does this
 
-[AgentWorks Goals](/goals/) connects an outcome and a metric with recurring steps that can combine scripts, agents and human review. Start with one workflow and check its actual results before expanding it.
+![Real AgentWorks demo Flow showing completed lead-loading and qualification steps with a saved result](demo-run.webp "Real demo screenshot: Deal desk Flow, fictional sample data. This is a saved result, not evidence of a customer message being sent.")
+
+Open Deal desk in the demo. Its Flow keeps the steps and returned recommendation together, so you can inspect what happened.
+
+For work that repeats toward a target, AgentWorks Goals adds the outcome, metric and recurring steps. Your team can follow the evidence.
+
+## Save this before you automate the next process
+
+![Checklist: define done, divide the work, save progress, name human decisions and check the result](checklist.webp "Save this checklist and use it for one process first.")
+
+Pick a process your team already understands. When a run disappoints, fix the unclear instruction, missing input or failed step the evidence points to.
+
+[Try it in the demo](https://demo.agentworkshq.com/) · [Explore AgentWorks Goals](/goals/)

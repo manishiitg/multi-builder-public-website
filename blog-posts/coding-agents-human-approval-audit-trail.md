@@ -7,34 +7,46 @@ image: cover.webp
 draft: true
 ---
 
-## Agree on the work and the decision
+Ravi asks an agent to fix a broken export. It replies “done”. His team still needs to know what changed, what was checked and whether anyone approved the release. *(Illustrative example.)*
 
-![A coding brief separates the requested change, what the agent may do now, and the action that needs a person's approval](brief.webp "Illustrative brief: fix a CSV export, prepare the change, and wait before releasing it.")
+Make that decision easy to review before the change reaches your users.
 
-To run a coding agent with human approval, define what it can do now and the specific action that must wait. For example: investigate a broken export, prepare a fix and run the relevant checks; ask before releasing it. Name the person who makes that decision.
+## 1. Say what can happen now
 
-A written instruction explains the process. Where an approval must be enforced, use the relevant tool or repository permission as well. A chat message alone is not an access control.
+![A coding assignment distinguishes the requested fix, work allowed now and release approval](brief.webp "Illustrative brief: prepare and check the export fix; wait before release.")
 
-## Approve the change you can inspect
+Give your agent a specific job and name the action that needs your approval. It can investigate, prepare the fix and run the relevant checks while you retain the release decision.
 
-![An approval packet contains the change, the checks and known limits, followed by a decision tied to that version](approval.webp "A useful approval refers to a concrete change and a named next action.")
+Use actual tool or repository permissions where approval must be enforced.
 
-Ask the agent for a short review packet: what changed, the change itself, the checks it ran and anything still unverified. Let the reviewer inspect the work before approving the next action. A statement that tests passed is useful only alongside which tests ran and their results.
+## 2. Review the change, not just the summary
 
-Record the decision against the exact version reviewed, such as its commit. If that version changes, the earlier decision no longer describes the new work. Keep approval to merge separate from approval to release when those are different decisions in your process.
+![A reviewer sees the change, checks and limits before approving a specific version and action](approval.webp "The decision belongs to the version you actually reviewed.")
 
-## Keep a trail from request to outcome
+Ask for the diff, check results and remaining limits. Then decide whether that version is ready for the next action.
 
-![A connected sequence of records: request, proposed change, check results, human decision, and release evidence](trail.webp "A review trail connects the request to the result without guessing the missing steps.")
+Record who approved what. If the change moves on, review it again. Approval to merge and approval to release can be separate decisions.
 
-Keep the original request, the proposed change, check results, the reviewer's decision and evidence of what shipped linked together. Record failures and unfinished checks too. A successful build supports a claim that code compiled; it does not prove the live feature worked.
+## 3. Keep the evidence together
 
-Use this trail to answer practical questions: why did this change happen, who approved which action, and what was verified afterward? Keep passwords, tokens and private account credentials out of the record.
+![A connected record of request, change, checks, human decision and release evidence](trail.webp "A build result and a live result answer different questions.")
 
-## Know what your workspace records
+Link the request, saved change, check results, human decision and release evidence. Include failures and unfinished checks so the next person knows where to pick up.
 
-![Two columns distinguish AgentWorks Studio workspace review from a complete native coding-agent command log](review-scope.webp "Workspace review and command-level logging answer different questions.")
+A passing build does not prove the live feature worked. Keep passwords and tokens out of the trail.
 
-[AgentWorks Studio](/studio/) lets admins and assigned reviewers inspect workspace chats, files and costs without changing them, and records those review views. These records help a team review work and usage centrally. They are not a promise of a complete event log from the coding agent's own command-line tool.
+## How AgentWorks does this
 
-Before relying on any workspace as your audit trail, check which decisions, commands and release events it actually records. Keep missing evidence with the repository or deployment system, and link it to the change. Agree on that process before the first release.
+![Studio workspace review covers chats, files and costs; complete native command history must be checked separately](review-scope.webp "Studio review coverage. A real Studio demo screenshot is still needed before this draft is ready to publish.")
+
+AgentWorks Studio lets admins and assigned reviewers inspect chats, files and costs without changing them, and records review views. Your team can review work centrally.
+
+That is not a complete native coding-agent command log. Link missing repository and release evidence to the change.
+
+## Keep this checklist beside your next change
+
+![Checklist: agree on scope, name the approver, inspect the exact change, keep checks and verify the release](checklist.webp "Save this checklist for your next agent-assisted change.")
+
+Start with one small change. Make it easy for your reviewer to see the work, decide and find the evidence later.
+
+[Try the AgentWorks demo](https://demo.agentworkshq.com/) · [Explore Studio](/studio/)

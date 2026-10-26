@@ -1,39 +1,51 @@
 ---
 title: Harness engineering, explained for people who run a business
-description: An AI agent is a model plus a harness. The model decides how well it thinks; the harness decides whether it does the job every day. Here is what the harness is, in pictures.
+description: Your agent needs more than a prompt. See how instructions, tools, connected steps and saved results turn a useful answer into work your team can repeat.
 date: 2026-10-26
 tag: Explainer
 image: cover.webp
 ---
 
-## An agent is a model plus a harness
+Maya gets a useful lead summary from her agent. The next morning she has to paste the policy again, find the source sheet and explain where to save the result. *(Illustrative example.)*
 
-![A model in the centre with six parts around it: instructions and context, tools, work loop, guardrails, checks and records](six-parts-ring.webp "The model thinks. The ring around it decides whether the work gets done.")
+The missing piece is the working setup around the model. Building that setup is called **harness engineering**.
 
-The model is the part everyone talks about: Claude, GPT, Gemini. The harness is everything around it. Builders now call designing that layer **harness engineering**.
+## 1. Put the job and rules within reach
 
-## Why the harness matters more now
+![A model surrounded by the harness: job and policy, tools, connected steps, human decisions, checks and saved context](instructions.webp "The model needs the right context each time it works.")
 
-![Two agents on the same model: one guesses, emails the wrong people and leaves no record; the other reads the right list, waits for approval, checks its work and records everything](same-model.webp "Same model, same request. Only the harness is different.")
+Write down the job, the current policy and what a useful result looks like. Give your agent access to those materials and the tools it actually needs.
 
-Today's models are all good enough for most office work. When an agent fails, it is usually the harness: a missing tool, an unclear rule, no check on the result, or no record of what happened.
+Your team should not have to rebuild that context in every chat.
 
-## The six parts
+## 2. Connect the steps
 
-![Six cards: instructions, tools, work loop, guardrails, checks and records, each with a one-line meaning](six-parts-grid.webp "If an agent goes wrong, one of these six is usually the reason.")
+![A process connects source data, agent judgment, a human decision and a saved result](connected-work.webp "The harness connects the thinking to the work.")
 
-Each part answers one question: what is it told, what can it use, how does the work run, what may it touch, did it work, and what is the evidence.
+Use a fixed step for predictable work, such as fetching records. Let an agent handle judgment, such as assessing an enquiry. Put a person where your process needs a decision.
 
-## Whose harness is it?
+Pass a saved result between steps, not a vague “done”.
 
-![One person's laptop compared with the whole company: shared instructions, granted tools, runs on schedule, anyone can use it, and it stays](laptop-vs-company.webp "A harness on one laptop helps one person. A shared one works for the team.")
+## 3. Check the result and keep the record
 
-Coding agents like Claude Code, Codex and Cursor are excellent harnesses for one person. A company needs the same parts shared: one set of instructions and tools, one place where every run is recorded, and people approving what matters.
+![A result is checked against the job, saved with evidence and used to improve the next run](evidence.webp "Check what happened before deciding what to improve.")
 
-## Where to start
+Open the output and compare it with the job. Keep the source, result and any unresolved question together.
 
-![Five steps: pick one process, define done, script the known parts, add a check and a person, review weekly](where-to-start.webp "Start with one process, not a platform-wide plan.")
+When something fails, fix the missing input, unclear rule or broken step. Changing the model is only one possible response.
 
-Pick one process that is frequent and rule-based. Write down what done looks like as a number, let plain scripts do the known parts and agents do the judgment, put a person on the decisions that matter, and look at the results every week. When something goes wrong, fix the harness, not the person.
+## How AgentWorks does this
 
-[See how AgentWorks gives your company one shared harness →](/harness-engineering/)
+![Real AgentWorks demo Flow with completed steps and its stored qualification result](demo-run.webp "Real demo screenshot: Deal desk Flow using fictional sample data. The record lets you inspect the result behind the status.")
+
+In AgentWorks, the work can live in a shared process with instructions, tools and saved results. The demo’s Deal desk Flow shows its steps beside the recommendation they returned.
+
+That is the useful part of a harness: your team can open the work and inspect it.
+
+## Save this harness checklist
+
+![Checklist: clear job, available knowledge, appropriate tools, connected steps and inspectable result](checklist.webp "Start with one process your team repeats.")
+
+Before adding another agent, check that the existing one has what it needs to do the job and leave a useful result.
+
+[Try it in the demo](https://demo.agentworkshq.com/) · [Explore the AgentWorks harness](/harness-engineering/)

@@ -16,6 +16,16 @@
       "https://agentworkshq.com/goals/",
       "scripts/launch/goals.py"
     ],
-    "notes": "Support process is illustrative. No actual run figures or performance claims."
-  }
+    "notes": "Maya and sales process are illustrative. The screenshot is a real fictional Deal desk Flow run, not proof of a Goal run or sent message."
+  },
+  "screenshots": [
+    {
+      "file": "demo-run.webp",
+      "source": "https://demo.agentworkshq.com/relays/wf_d9301fa7/dashboard",
+      "captured": "2026-10-26",
+      "sample": "Deal desk Flow: fictional sample lead L210; load_lead and sales_qualification completed; returned nurture recommendation. No customer message is shown or implied.",
+      "capture": "Actual browser screenshot; cropped to the selected run and placed in the standard editorial frame. No UI text or status altered.",
+      "retake_after_refactor": "Retake if Flow run detail, result rendering, or workspace panel styling changes. No Autopilot or Getting started panel captured."
+    }
+  ]
 }

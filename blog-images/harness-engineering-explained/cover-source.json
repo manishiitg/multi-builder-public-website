@@ -1,0 +1,7 @@
+{
+  "generator": "Built-in ImageGen",
+  "prompt": "Use case: illustration-story. Asset: 1600x900 landscape editorial cover for an AgentWorks article explaining harness engineering. A central small glowing amber glass sphere rests inside an elegant functional workbench built from warm cream paper and ceramic, surrounded by connected stations: a blue instruction booklet, tidy tool tray, looping task conveyor, a human hand reviewing a card, a check station and a filing drawer. Show that the useful system around the thinking core turns an idea into finished work. Sophisticated architectural cut-paper illustration with tactile shadows and fine charcoal details. Restrained amber and sky-blue palette, generous negative space. No humanoid robots, no readable text, no numbers, no logos, no UI screenshots, no watermark. Landscape 16:9, all objects within frame.",
+  "output": "assets/blog/harness-engineering-explained/cover.webp",
+  "width": 1600,
+  "height": 900
+}
