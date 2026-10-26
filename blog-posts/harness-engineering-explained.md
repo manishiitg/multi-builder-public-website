@@ -3,7 +3,7 @@ title: Harness engineering, explained for people who run a business
 description: Your agent needs more than a prompt. See how instructions, tools, connected steps and saved results turn a useful answer into work your team can repeat.
 date: 2026-10-26
 tag: Explainer
-image: cover.webp
+image: cover-v2.webp
 ---
 
 Maya gets a useful lead summary from her agent. The next morning she has to paste the policy again, find the source sheet and explain where to save the result. *(Illustrative example.)*
