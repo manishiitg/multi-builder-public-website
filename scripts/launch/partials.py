@@ -11,7 +11,7 @@ GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
 # The demo; its own sign-in screen shows the shared login (owner 2026-10-26).
 DEMO='https://demo.agentworkshq.com/'
-V='launch80'
+V='launch81'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -113,46 +113,35 @@ def _drop(label, overview, groups, menu_id, current):
           <div class="nav-panel{wide}" id="{menu_id}"><a class="pm-all" href="{oh}">{ot} <span aria-hidden="true">→</span></a><div class="pm-cols">{cols}</div></div>
         </div>'''
 
+# Enterprise/B2B site (owner 2026-10-26): one menu of solutions by team, one Platform page,
+# How we work, Blog. Products are capabilities of one platform, not separate things to buy.
+SOL_ORDER=['sales','support','finance','shopify','marketing','growth','engineering']
+NAV=[('/platform/','Platform','platform'),('/pricing/','How we work','pricing'),('/blog/','Blog','blog')]
 def header(active=None):
-    from uc_data import uc_nav_items, uc_nav_groups
-    from sol_data import sol_nav_items
-    sol=sol_nav_items()
-    prod=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT]
-    teams=[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT_TEAMS]
-    ent=uc_nav_items()
+    from sol_data import SOLUTIONS
+    by={u['slug']:u for u in SOLUTIONS}
+    sol=[(f'/solutions/{k}/',by[k]['nav'],by[k]['navdesc'],by[k]['icon']) for k in SOL_ORDER if k in by]
     links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV)
-    mprod='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in PRODUCT+PRODUCT_TEAMS)
-    ment='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in ent)
     mlinks='\n'.join(f'      <a href="{h}">{t}</a>' for h,t,k in NAV)
     msol='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in sol)
     return f'''  <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
-{_drop('Product',('/product/','How AgentWorks works'),[('For your teams',prod[:3]),('For IT and leadership',prod[3:]),('Built in',teams)],'product-menu',active=='product')}
-{_drop('Use cases',('/agents/','All premade agents'),[(None,sol)],'usecase-menu',active in ('solutions','agents'))}
-{_drop('Enterprise',('/enterprise/','Enterprise overview'),uc_nav_groups(),'enterprise-menu',active=='enterprise')}
+{_drop('Solutions',('/agents/','All premade agents'),[('By team',sol)],'usecase-menu',active in ('solutions','agents'))}
 {links}
       </nav>
       <div class="header-actions">
-        <a class="link" href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
         <a class="link" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
         <a class="btn btn-primary btn-sm" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
     </div>
     <div class="wrap mobile-menu" id="mobile-menu" data-mobile-menu>
-      <p class="mm-label">Product</p>
-      <a class="sub" href="/product/">Overview</a>
-{mprod}
-      <p class="mm-label">Use cases</p>
-      <a class="sub" href="/agents/">All premade agents</a>
+      <p class="mm-label">Solutions</p>
 {msol}
-      <p class="mm-label">Enterprise</p>
-      <a class="sub" href="/enterprise/">Overview</a>
-{ment}
+      <a class="sub" href="/agents/">All premade agents</a>
 {mlinks}
-      <a href="{GH}" target="_blank" rel="noreferrer">GitHub</a>
       <a href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
       <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
     </div>
@@ -160,48 +149,45 @@ def header(active=None):
 '''
 
 def footer():
+    from sol_data import SOLUTIONS
+    by={u['slug']:u for u in SOLUTIONS}
+    sol_links='\n'.join(f'            <li><a href="/solutions/{k}/">{by[k]["nav"]}</a></li>' for k in SOL_ORDER if k in by)
     return f'''  <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
         <div>
           <a class="brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
-          <p class="blurb">One platform for your people, their AI and your company's agents. Customized and deployed in your own cloud.</p>
+          <p class="blurb">AI agents that run your company's processes, with your people approving what matters. Customized and deployed in your own cloud.</p>
         </div>
         <div>
-          <h2 class="fh">Product</h2>
+          <h2 class="fh">Solutions</h2>
           <ul>
-            <li><a href="/product/">Overview</a></li>
+{sol_links}
+            <li><a href="/agents/">Premade agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="fh">Platform</h2>
+          <ul>
+            <li><a href="/platform/">Overview</a></li>
             <li><a href="/goals/">Goals</a></li>
             <li><a href="/crews/">Crews</a></li>
             <li><a href="/flows/">Flows</a></li>
             <li><a href="/brain/">Brain</a></li>
             <li><a href="/vault/">Vault</a></li>
             <li><a href="/llm-gateway/">LLM Gateway</a></li>
-            <li><a href="/studio/">Studio</a></li>
             <li><a href="/agentbridge/">AgentBridge</a></li>
-            <li><a href="/network/">Free agent network</a></li>
-            <li><a href="/goals/#improve">Autopilot</a></li>
-            <li><a href="/agents/">Premade agents</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="fh">Plans</h2>
-          <ul>
-            <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="/pricing/#onboarding">Custom deployment</a></li>
-            <li><a href="/enterprise/">Enterprise</a></li>
-            <li><a href="{GH}" target="_blank" rel="noreferrer">Source code</a></li>
           </ul>
         </div>
         <div>
           <h2 class="fh">Resources</h2>
           <ul>
+            <li><a href="/pricing/">How we work</a></li>
             <li><a href="/docs/">Docs</a></li>
-            <li><a href="{GH}/tree/main/docs" target="_blank" rel="noreferrer">Developer docs (GitHub)</a></li>
-                        <li><a href="{INSTALL}">Download</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/harness-engineering/">Harness engineering</a></li>
-            <li><a href="/free-tools/">Free agent tools</a></li>
+            <li><a href="/network/">Free agent network</a></li>
+            <li><a href="{GH}" target="_blank" rel="noreferrer">Source code</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
           </ul>
         </div>

@@ -39,53 +39,51 @@ def compare():
     return '\n        '.join(out)
 
 FAQ_PRICING=[
- ("What can I use without a call?","Goals. Download the app, connect your AI plan and set up your first Goal yourself. Every other product comes with an Enterprise deployment."),
  ("How is Enterprise priced?","A one-time setup fee for customizing and deploying it for your company, then a monthly fee for the platform, updates, support and ongoing changes. We scope both on a call, based on the processes, tools and where it runs."),
  ("What's included in Enterprise?","Everything: Goals, Crews, Flows, Brain, Studio, AgentBridge, Vault and, when it ships, LLM Gateway, deployed in your own cloud, set up for your processes, with SSO, audit logs, custom integrations and dedicated support."),
  ("Is the source code available?","Yes. The source is public under the Business Source License 1.1. Using it in the operation of your business, or offering it to others, needs a commercial license from us, which is included in Enterprise. Each version converts to the Apache License 2.0 after three years."),
  ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
- ("Which AI plan should I use?","Light use works on a $20 plan. If agents run all day, a $100–$200 plan (Claude Max or ChatGPT Pro) is the sweet spot. You can connect several and route each job to the one that fits."),
- ("Can I move from Goals to Enterprise?","Yes. It's the same engine, so your goals and playbooks move across."),
 ]
 
 body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker">Pricing</p>
-        <h1>Built for your company. <span class="dim">Customized and deployed with you.</span></h1>
-        <p class="lede">AgentWorks is an Enterprise deployment: every product, customized for your processes and deployed in your own cloud, with a one-time setup fee and a monthly fee. Want to try it first? Goals is self-serve. Every plan runs on the AI subscription you already pay for.</p>
+        <p class="kicker">How we work</p>
+        <h1>We don't hand you a login. <span class="dim">We build it around your company.</span></h1>
+        <p class="lede">AgentWorks is deployed for each company: customized for your processes, connected to your tools and running in your own cloud. A one-time setup fee covers that work, and a monthly fee covers the platform, updates, support and changes as you grow. We scope both on a call.</p>
       </div>
     </section>
 
-    <section class="section-tight">
-      <div class="wrap">
-        {tiers()}
-      </div>
-    </section>
 
     <section class="section" id="onboarding">
       <div class="wrap">
         <div class="section-head center reveal">
-          <p class="kicker">How Enterprise works</p>
-          <h2>We don't hand you a login. <span class="dim">We build it around your company.</span></h2>
-          <p class="lede">A one-time setup fee covers customizing and deploying it. A monthly fee covers the platform, updates, support and changes as you grow.</p>
+          <p class="kicker">Three steps</p>
+          <h2>One process first. <span class="dim">Results before scale.</span></h2>
         </div>
         <ol class="pilot">
           <li class="reveal"><small>Step 1 · 30 minutes</small><h3>Scope it on a call</h3><p>Which process to start with, which tools it touches, who approves what, and where it should run. We tell you honestly if it's a fit.</p></li>
           <li class="reveal"><small>Step 2 · Setup</small><h3>We customize and deploy</h3><p>We deploy in your cloud, connect your tools, load your company knowledge into Brain, set access and approval rules, and build the first agents with your team.</p></li>
           <li class="reveal"><small>Step 3 · Every month</small><h3>It runs, we improve it</h3><p>Your team uses it day to day. We review what the agents did with you, fix what isn't working and add the next process.</p></li>
         </ol>
-        <p class="tpl-more center-row"><a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a><a class="btn btn-ghost" href="{INSTALL}">Or try Goals yourself</a></p>
+        <p class="tpl-more center-row"><a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a></p>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Compare plans</p>
-          <h2>Everything in each plan.</h2>
+          <p class="kicker">What's included</p>
+          <h2>Everything your deployment needs. <span class="dim">One platform, set up with you.</span></h2>
         </div>
-        {compare()}
+        <ul class="control">
+          <li class="reveal"><h3>Agents for your processes</h3><p>Goals that run a process toward a number, Crews your teams ask, Flows your systems call, and the premade agents to start from. <a href="/platform/">See the platform</a>.</p></li>
+          <li class="reveal"><h3>Built around your tools</h3><p>Integrations, company knowledge and approval rules set up for your processes, by us, with your team.</p></li>
+          <li class="reveal"><h3>Company controls</h3><p>Single sign-on (SAML or OIDC), SCIM, Vault for tools and secrets, audit log export, every run recorded with its cost.</p></li>
+          <li class="reveal"><h3>Your cloud</h3><p>Deployed in your VPC or private cloud, on the AI plans you already pay for. We never mark up model tokens.</p></li>
+          <li class="reveal"><h3>Commercial license</h3><p>The source is public under the Business Source License; your deployment comes with a commercial license.</p></li>
+          <li class="reveal"><h3>Support that stays</h3><p>Dedicated support with an SLA, a monthly review of what the agents did, and changes as you add teams.</p></li>
+        </ul>
       </div>
     </section>
 
@@ -93,7 +91,7 @@ body=f'''  <main id="main">
       <div class="wrap faq-grid">
         <div class="reveal">
           <p class="kicker">FAQ</p>
-          <h2 class="h2">Pricing questions.</h2>
+          <h2 class="h2">Questions, answered.</h2>
           <p class="muted">Still unsure? <a href="{CAL}" target="_blank" rel="noreferrer">Book 30 minutes with us.</a></p>
         </div>
         <div class="faq">
@@ -106,16 +104,15 @@ body=f'''  <main id="main">
       <div class="wrap">
         <div>
           <h2>Tell us your first process. <span class="dim">We'll build around it.</span></h2>
-          <p>Book a call and we'll scope an Enterprise deployment around your company. Or try Goals yourself first.</p>
+          <p>Book a call and we'll scope a pilot around one of your processes.</p>
           <div class="cta-actions">
             <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
-            <a class="btn btn-ghost" href="{INSTALL}">Try Goals</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 '''
-PRICE_LD={"@type":"WebPage","name":"AgentWorks Pricing","url":"https://agentworkshq.com/pricing/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
+PRICE_LD={"@type":"WebPage","name":"How AgentWorks works","url":"https://agentworkshq.com/pricing/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
 BC=lambda name,path: {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgentWorks","item":"https://agentworkshq.com/"},{"@type":"ListItem","position":2,"name":name,"item":"https://agentworkshq.com"+path}]}
-pages['pricing/index.html']=head('AgentWorks Pricing - Enterprise Deployment, or Try Goals Yourself','AgentWorks is an Enterprise deployment: Goals, Crews, Flows, Brain, Studio, AgentBridge and Vault, customized and deployed in your own cloud with a setup fee and a monthly fee. Goals is also self-serve. Runs on your own AI plan.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()
+pages['pricing/index.html']=head('How AgentWorks Works - Deployed and Customized for Your Company','AgentWorks is deployed for each company: customized for your processes, connected to your tools and running in your own cloud, with a one-time setup fee and a monthly fee scoped on a call.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()

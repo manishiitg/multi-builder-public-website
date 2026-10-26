@@ -1,4 +1,4 @@
-# /goals/: the Goals product in depth (goal, metric, measure, Autopilot, autonomy, the plan).
+# /goals/: the Goals product in depth (goal, metric, measure, improve, autonomy, the plan).
 FAQ_GOALS=[FAQ_HOME[0]]+[q for q in FAQ_PRODUCT if not q[0].startswith("What's the difference")]+[
  ("What's the difference between a Goal and a Crew?","A Goal owns an outcome and keeps working on its own schedule. A Crew is an expert you or your team ask for help, in Slack, WhatsApp or from Claude and ChatGPT. Goals can hand steps to Crews."),
 ]
@@ -32,7 +32,7 @@ goals_body=f'''  <main id="main">
           <li><h2>Set the goal</h2><p>An outcome in plain words, the metric that proves it, and the target.</p></li>
           <li><h2>Run</h2><p>Agents plan the steps, connect your tools and run on schedule.</p></li>
           <li><h2>Measure</h2><p>Every run records what it did and what it moved.</p></li>
-          <li><h2>Autopilot improves it</h2><p>It fixes what broke, drops what didn't work and tries what's next.</p></li>
+          <li><h2>Every run improves it</h2><p>It fixes what broke, drops what didn't work and tries what's next.</p></li>
         </ol>
       </div>
     </section>
@@ -74,7 +74,7 @@ goals_body=f'''  <main id="main">
       <div class="wrap">
         <div class="feature">
           <div class="reveal">
-            <p class="kicker">Autopilot</p>
+            <p class="kicker">Improve</p>
             <h2>It finds what would move the goal. <span class="dim">Then it does it.</span></h2>
             <p class="lede">After runs, AgentWorks reviews the evidence against your goal. It repairs broken steps, drops ideas that didn't work, does the work nobody was doing, and comes back later to check whether it helped.</p>
           </div>
@@ -131,7 +131,7 @@ goals_body=f'''  <main id="main">
         <p>Start from a premade agent or describe your own goal. Ten minutes to set up, on the AI plan you already have.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="{INSTALL}">Download the app</a>
+          <a class="btn btn-ghost" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
         </div>
       </div>
     </section>

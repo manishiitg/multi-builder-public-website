@@ -19,7 +19,7 @@ def _ops(u):
             <p class="ops-k"><span class="ops-ic ic-goal"></span>Goal <em>Illustrative</em></p>
             <p class="ops-title">&ldquo;{e(goal)}&rdquo;</p>
             <div class="ops-meter"><small>{e(mlabel)}</small><b>{e(mval)}</b><span class="ops-bar"><i class="ob{int(round(mpct/10.0)*10)}"></i></span></div>
-            <p class="ops-sub">Agents own the target end to end. <b>Autopilot</b> checks the number every day and changes what is not working.</p>
+            <p class="ops-sub">Agents own the target end to end. Every day the number is checked and what is not working gets changed.</p>
           </div>
           <div class="ops-row">
             <div class="ops-card"><p class="ops-k"><span class="ops-ic ic-flow"></span>Flow</p><p class="ops-title">{e(ft)}</p><p class="ops-sub">{e(fd)}</p></div>
@@ -97,7 +97,7 @@ def _sol_page(u):
           <li><h3>Set the goal</h3><p>Pick a premade agent or describe the outcome, then agree the metric and target with us.</p></li>
           <li><h3>Run</h3><p>Agents work through your tools on a schedule, with your approval on anything that goes out.</p></li>
           <li><h3>Measure</h3><p>Every run records what it did and what it moved, so you see progress, not activity.</p></li>
-          <li><h3>Autopilot improves it</h3><p>It fixes what broke, drops what didn't work and tries the next idea.</p></li>
+          <li><h3>Every run improves it</h3><p>It fixes what broke, drops what didn't work and tries the next idea.</p></li>
         </ol>
       </div>
     </section>

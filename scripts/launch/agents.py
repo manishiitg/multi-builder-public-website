@@ -52,7 +52,7 @@ body=f'''  <main id="main" data-tpl-filter>
           <p>Describe the outcome in a sentence. AgentWorks proposes the plan, the tools and the metric, and you approve it.</p>
           <div class="cta-actions">
             <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
-            <a class="btn btn-ghost" href="{INSTALL}">Download the app</a>
+            <a class="btn btn-ghost" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
           </div>
         </div>
       </div>

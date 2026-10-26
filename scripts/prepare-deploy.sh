@@ -137,6 +137,7 @@ cp -R download dist/download
 cp -R free-tools dist/free-tools
 cp -R blog dist/blog
 cp -R harness-engineering dist/harness-engineering
+cp -R platform dist/platform
 mkdir -p dist/assets/blog
 cp -R assets/blog/. dist/assets/blog/
 

@@ -21,9 +21,13 @@ ORG={"@type":"Organization","@id":"https://agentworkshq.com/#organization","name
 SOFT={"@type":"SoftwareApplication","@id":"https://agentworkshq.com/#software","name":"AgentWorks","applicationCategory":"BusinessApplication","operatingSystem":"Web, macOS, Linux","description":"AI teammates that work toward a goal: Crew teammates you message in Slack or WhatsApp, and Goals that run, measure and adjust toward a target.","url":"https://agentworkshq.com/","codeRepository":GH,"offers":[{"@type":"Offer","name":"Goals (self-serve)"},{"@type":"Offer","name":"Enterprise"}]}
 
 pages={}
+def sol_cards():
+    from sol_data import SOLUTIONS
+    by={u['slug']:u for u in SOLUTIONS}
+    return '\n'.join(f'''          <a class="sol-card" href="/solutions/{k}/"><span class="sol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{by[k]['icon']}</svg></span><b>{by[k]['nav']}</b><span>{by[k]['navdesc']}</span></a>''' for k in SOL_ORDER if k in by)
 body=open('home.body.html').read()
-pages['index.html']=head('AgentWorks - Agents Do the Work, Your People Make the Calls','Give agents a goal and they run your business processes every day: follow-ups, reminders, first replies and reports. Goals, Flows and Crews do the work, Autopilot improves it, and people approve only what matters.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME),SCRIPTED=scripted_section())+footer()
-for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'studio.py', 'brain.py', 'download.py', 'about.py', 'relays.py', 'bullpen.py', 'network.py', 'llmgateway.py', 'usecases.py', 'solutions.py', 'legal.py', 'harness.py', 'blog.py']:
+pages['index.html']=head('AgentWorks - AI Agents That Run Your Company Processes','AgentWorks deploys AI agents into your company processes: follow-ups, collections, first replies and reports run every day inside your tools, in your own cloud, with every run recorded and your people approving what matters.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME),SCRIPTED=scripted_section(),SOLCARDS=sol_cards())+footer()
+for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'studio.py', 'brain.py', 'download.py', 'about.py', 'relays.py', 'bullpen.py', 'network.py', 'llmgateway.py', 'usecases.py', 'solutions.py', 'legal.py', 'harness.py', 'platform.py', 'blog.py']:
     exec(open(name).read())
 for path,content in pages.items():
     import os
