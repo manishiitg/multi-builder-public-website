@@ -57,6 +57,7 @@ USECASES=[
          ('Fix and verify','Findings are reviewed for severity, fixes go through approval, and each one is re-tested before it is closed.')],
   playbooks=['Application Security Assessment and Remediation','Role and Permission Validation','Authentication and Session Validation'],
   faq=[('How does AI permission testing across roles and tenants work?','AgentWorks turns a permission matrix across roles, ownership and tenants into tests that run every release. Scope, targets and rules of engagement are approved before testing. Findings are reviewed for severity, fixes go through approval, and each issue is re-tested before it is closed.'),
+       ('What should vulnerability remediation automation include?','Start with an authorized scope, assess the application and access rules, review proposed fixes and re-test before closing a finding. AgentWorks supports authorized AppSec and role and tenant permission testing through to verified closure.'),
        ('Is this a penetration test?','It runs authorized, scoped assessments continuously. It complements, and does not replace, an independent pentest where you need one for compliance.'),
        ('Where does sensitive evidence go?','Evidence stays in your environment with restricted access. Nothing leaves unless you configure it to.'),
        ('Can it push fixes itself?','Fixes are proposed and reviewed first. Delivery follows your normal approval path.')]),
