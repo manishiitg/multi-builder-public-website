@@ -1148,6 +1148,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .online-col.after li::before { content: "\2713"; color: var(--green-text); }
 .online-steps { list-style: none; counter-reset: os; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .online-steps li { counter-increment: os; display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 14px; background: var(--amber-soft); }
+.online-dev { margin: 36px auto 14px; max-width: 760px; text-align: center; font-size: 15px; color: var(--text-2); }
 .online-steps li::before { content: counter(os); font-weight: 700; color: var(--amber-text); font-size: 13px; }
 .online-steps b { font-size: 15px; }
 .online-steps span { font-size: 14px; color: var(--muted); }
