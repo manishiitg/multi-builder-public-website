@@ -1,0 +1,21 @@
+{
+  "cover": {
+    "generator": "Built-in ImageGen",
+    "prompt": "Use case: illustration-story. Asset: 1600x900 landscape editorial blog cover for AgentWorks, recurring business workflows. A beautifully crafted miniature paper-and-ceramic workshop on a warm cream surface: a loop of connected task trays carries a small document from an inbox, through two distinct helpful abstract agent stations, to a human review desk, then into a completed folder. Clear visual sequence and recurring loop, grounded architectural cut-paper shapes, no humanoid robots. Amber and sky blue accents with charcoal fine lines, restrained tactile shadows, generous negative space, sophisticated business editorial illustration. Camera slightly overhead, clean wide composition. No text, no numbers, no logos, no UI screenshots, no watermark. All objects fully in frame; landscape 16:9.",
+    "format": "WebP",
+    "width": 1600,
+    "height": 900
+  },
+  "diagrams": {
+    "generator": "Repository HTML renderer",
+    "command": "python3 scripts/render-blog-images.py coordinate-ai-agents-recurring-workflows"
+  },
+  "content_basis": {
+    "checked": "2026-10-26",
+    "sources": [
+      "https://agentworkshq.com/goals/",
+      "scripts/launch/goals.py"
+    ],
+    "notes": "Support process is illustrative. No actual run figures or performance claims."
+  }
+}

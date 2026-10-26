@@ -1,0 +1,21 @@
+{
+  "cover": {
+    "generator": "Built-in ImageGen",
+    "prompt": "Use case: illustration-story. Asset: 1600x900 landscape editorial blog cover for AgentWorks, coding agents with human approval and a review trail. A beautifully crafted miniature paper-and-ceramic desk scene on warm cream: an abstract coding workspace with neat blue code-like strokes on a standing panel, an amber change sheet waiting at a human hand's review point, then a sequence of saved document cards forming a visible trail to a closed archive. The hand considers the change sheet rather than pressing an automatic approve button. Calm intentional process, elegant cut-paper architecture and tactile shadows, amber and sky accents with charcoal lines, generous negative space. No humanoid robots. No readable text, no numbers, no logos, no UI screenshots, no watermark. All objects fully in frame; landscape 16:9.",
+    "format": "WebP",
+    "width": 1600,
+    "height": 900
+  },
+  "diagrams": {
+    "generator": "Repository HTML renderer",
+    "command": "python3 scripts/render-blog-images.py coding-agents-human-approval-audit-trail"
+  },
+  "content_basis": {
+    "checked": "2026-10-26",
+    "sources": [
+      "https://agentworkshq.com/studio/",
+      "scripts/launch/studio.py"
+    ],
+    "notes": "Recommended approval process, not a claim that Studio enforces repository or release approval. Workspace review does not promise a complete native CLI event log."
+  }
+}
