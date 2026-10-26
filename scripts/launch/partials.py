@@ -13,10 +13,12 @@ INSTALL='/download/'
 DEMO='https://demo.agentworkshq.com/'
 DEMO_USER='demo'
 DEMO_PASS='0-YcbbgwUBJ5gVpwVrX3'
-V='launch78'
+V='launch79'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
+    # og is a file in assets/og/ (1200x630), or a site path such as a blog cover (1600x900).
+    og_url, og_w, og_h = (og, 1600, 900) if og.startswith('/') else ('/assets/og/'+og, 1200, 630)
     return f'''<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -33,13 +35,13 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
   <meta property="og:site_name" content="AgentWorks">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://agentworkshq.com/assets/og/{og}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://agentworkshq.com{og_url}">
+  <meta property="og:image:width" content="{og_w}">
+  <meta property="og:image:height" content="{og_h}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{desc}">
-  <meta name="twitter:image" content="https://agentworkshq.com/assets/og/{og}">
+  <meta name="twitter:image" content="https://agentworkshq.com{og_url}">
   <meta name="twitter:creator" content="@manish_iitg">
   <link rel="canonical" href="{url}">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -199,6 +201,8 @@ def footer():
             <li><a href="/docs/">Docs</a></li>
             <li><a href="{GH}/tree/main/docs" target="_blank" rel="noreferrer">Developer docs (GitHub)</a></li>
                         <li><a href="{INSTALL}">Download</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/harness-engineering/">Harness engineering</a></li>
             <li><a href="/free-tools/">Free agent tools</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
           </ul>

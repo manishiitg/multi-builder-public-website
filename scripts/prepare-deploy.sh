@@ -135,6 +135,10 @@ cp -R brain dist/brain
 cp -R vault dist/vault
 cp -R download dist/download
 cp -R free-tools dist/free-tools
+cp -R blog dist/blog
+cp -R harness-engineering dist/harness-engineering
+mkdir -p dist/assets/blog
+cp -R assets/blog/. dist/assets/blog/
 
 python3 scripts/render-site-footer.py
 

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harness engineering, explained for people who run a business - AgentWorks Blog</title>
+  <meta name="description" content="An AI agent is a model plus a harness. The model decides how well it thinks; the harness decides whether it does the job every day. Here is what the harness is, in pictures.">
+  <meta name="theme-color" content="#fbfbf9">
+  <meta name="color-scheme" content="light">
+  <meta name="application-name" content="AgentWorks">
+  <meta property="og:title" content="Harness engineering, explained for people who run a business - AgentWorks Blog">
+  <meta property="og:description" content="An AI agent is a model plus a harness. The model decides how well it thinks; the harness decides whether it does the job every day. Here is what the harness is, in pictures.">
+  <meta property="og:url" content="https://agentworkshq.com/blog/harness-engineering-explained/">
+  <meta property="og:site_name" content="AgentWorks">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://agentworkshq.com/assets/blog/harness-engineering-explained/cover.webp">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Harness engineering, explained for people who run a business - AgentWorks Blog">
+  <meta name="twitter:description" content="An AI agent is a model plus a harness. The model decides how well it thinks; the harness decides whether it does the job every day. Here is what the harness is, in pictures.">
+  <meta name="twitter:image" content="https://agentworkshq.com/assets/blog/harness-engineering-explained/cover.webp">
+  <meta name="twitter:creator" content="@manish_iitg">
+  <link rel="canonical" href="https://agentworkshq.com/blog/harness-engineering-explained/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/agentworks-logo.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=2">
+  <link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png?v=2">
+  <link rel="shortcut icon" href="/favicon.ico?v=2">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css?v=workforce1">
+  <link rel="stylesheet" href="/launch.css?v=launch79">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "image": "https://agentworkshq.com/assets/blog/harness-engineering-explained/cover.webp",
+      "headline": "Harness engineering, explained for people who run a business",
+      "description": "An AI agent is a model plus a harness. The model decides how well it thinks; the harness decides whether it does the job every day. Here is what the harness is, in pictures.",
+      "datePublished": "2026-10-26",
+      "dateModified": "2026-10-26",
+      "url": "https://agentworkshq.com/blog/harness-engineering-explained/",
+      "author": {
+        "@id": "https://agentworkshq.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://agentworkshq.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://agentworkshq.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AgentWorks",
+          "item": "https://agentworkshq.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://agentworkshq.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Harness engineering, explained for people who run a business",
+          "item": "https://agentworkshq.com/blog/harness-engineering-explained/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
+      <nav class="nav" aria-label="Primary">
+        <div class="nav-drop" data-drop>
+          <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="product-menu" data-drop-btn>Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="nav-panel pm-wide pm-3" id="product-menu"><a class="pm-all" href="/product/">How AgentWorks works <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>For your teams</p><a class="pm-item" href="/goals/" title="Give an AI agent a goal and a metric. It works toward the target and measures every run."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Goals</b><small>A goal and a metric</small></span></a><a class="pm-item" href="/crews/" title="Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/flows/" title="A fixed chain of agents you run from anywhere."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg></span><span><b>Flows</b><small>Agent chains, run anywhere</small></span></a></div><div class="pm-col"><p class=pm-group>For IT and leadership</p><a class="pm-item" href="/brain/" title="Shared company knowledge: write it once and every agent reads it."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg></span><span><b>Brain</b><small>Shared knowledge for every agent</small></span></a><a class="pm-item" href="/vault/" title="One governed door to every MCP tool and shared secret."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>Vault</b><small>Governed MCP access</small></span></a><a class="pm-item" href="/llm-gateway/" title="One endpoint for every AI model, with access and cost per person."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/></svg></span><span><b>LLM Gateway</b><small>Model access and cost</small></span></a><a class="pm-item" href="/studio/" title="The online workspace where you build agents and Crews, with skills, tools and integrations ready on day one."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Studio</b><small>Where you build agents and Crews</small></span></a></div><div class="pm-col"><p class=pm-group>Built in</p><a class="pm-item" href="/goals/#improve" title="It measures every run and changes its own plan."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Autopilot</b><small>Gets better every run</small></span></a><a class="pm-item" href="/#connectors" title="Slack, WhatsApp, Gmail and MCP, both ways."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg></span><span><b>Connectors</b><small>Slack, WhatsApp, Gmail, MCP</small></span></a><a class="pm-item" href="/agentbridge/" title="Connects your team and every agent they run."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0M11.5 19a4.5 4.5 0 0 1 9 0"/></svg></span><span><b>AgentBridge</b><small>A room for team and agents</small></span></a></div></div></div>
+        </div>
+        <div class="nav-drop" data-drop>
+          <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="usecase-menu" data-drop-btn>Use cases <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="nav-panel" id="usecase-menu"><a class="pm-all" href="/agents/">All premade agents <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><a class="pm-item" href="/solutions/sales/" title="Agents run outbound and follow-ups. Reps take the calls."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>GTM Ops</b><small>Follow up every lead</small></span></a><a class="pm-item" href="/solutions/shopify/" title="Orders, returns, stock and support, run by agents."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span><span><b>Shopify Ops</b><small>Orders, returns, stock</small></span></a><a class="pm-item" href="/solutions/growth/" title="Ask why a number moved. Get the evidence."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></span><span><b>Growth & Customer Analytics</b><small></small></span></a><a class="pm-item" href="/solutions/engineering/" title="Release checks, incidents, security and cloud cost."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Engineering Ops</b><small></small></span></a><a class="pm-item" href="/solutions/support/" title="Fast first replies, sensitive ones handed to you."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><span><b>Customer support</b><small>Fast, safe first replies</small></span></a><a class="pm-item" href="/solutions/finance/" title="Chase invoices, recover payments, weekly numbers."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M9 12h6M9 16h4M9 8h3"/></svg></span><span><b>Finance & billing</b><small>Invoices and payments</small></span></a><a class="pm-item" href="/solutions/marketing/" title="SEO, AI search visibility and conversion."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Marketing & growth</b><small>SEO and AI search</small></span></a></div></div></div>
+        </div>
+        <div class="nav-drop" data-drop>
+          <button type="button" class="nav-drop-btn" aria-expanded="false" aria-controls="enterprise-menu" data-drop-btn>Enterprise <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="nav-panel pm-wide" id="enterprise-menu"><a class="pm-all" href="/enterprise/">Enterprise overview <span aria-hidden="true">→</span></a><div class="pm-cols"><div class="pm-col"><p class=pm-group>Engineering goals</p><a class="pm-item" href="/enterprise/release-quality/" title="AI QA that writes, runs and repairs your browser tests."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span><span><b>Release quality</b><small>AI QA for every release</small></span></a><a class="pm-item" href="/enterprise/incident-response/" title="First RCA before the war room fills up."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg></span><span><b>Incident response</b><small>First RCA in minutes</small></span></a><a class="pm-item" href="/enterprise/security-testing/" title="Authorized AppSec and permission testing, driven to closure."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><span><b>Security testing</b><small>AppSec to verified fix</small></span></a><a class="pm-item" href="/enterprise/cloud-cost/" title="Find cost anomalies and prove the savings."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/></svg></span><span><b>Cloud cost</b><small>Anomalies to savings</small></span></a><a class="pm-item" href="/enterprise/growth-analytics/" title="An AI growth analyst for funnels, retention and search."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><b>Growth analytics</b><small>Funnels, retention, SEO</small></span></a></div><div class="pm-col"><p class=pm-group>AI platform for teams</p><a class="pm-item" href="/studio/" title="An AI workspace for every employee, with cost and usage visible to the company."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg></span><span><b>Studio</b><small>Where you build agents and Crews</small></span></a><a class="pm-item" href="/crews/" title="Build a DevOps or product expert once; every engineer asks it from their own CLI."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M3 11h3M18 11h3"/></svg></span><span><b>Expert Crews</b><small>Experts anyone can ask</small></span></a><a class="pm-item" href="/vault/" title="One governed door to every MCP tool and shared secret your company uses."><span class="pm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg></span><span><b>Vault</b><small>Governed MCP access</small></span></a></div></div></div>
+        </div>
+        <a href="/pricing/">Pricing</a>
+        <a href="/docs/">Docs</a>
+      </nav>
+      <div class="header-actions">
+        <a class="link" href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="link" href="https://demo.agentworkshq.com/" target="_blank" rel="noreferrer">Try the demo</a>
+        <a class="btn btn-primary btn-sm" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Book a call</a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="wrap mobile-menu" id="mobile-menu" data-mobile-menu>
+      <p class="mm-label">Product</p>
+      <a class="sub" href="/product/">Overview</a>
+      <a class="sub" href="/goals/">Goals</a>
+      <a class="sub" href="/crews/">Crews</a>
+      <a class="sub" href="/flows/">Flows</a>
+      <a class="sub" href="/brain/">Brain</a>
+      <a class="sub" href="/vault/">Vault</a>
+      <a class="sub" href="/llm-gateway/">LLM Gateway</a>
+      <a class="sub" href="/studio/">Studio</a>
+      <a class="sub" href="/goals/#improve">Autopilot</a>
+      <a class="sub" href="/#connectors">Connectors</a>
+      <a class="sub" href="/agentbridge/">AgentBridge</a>
+      <p class="mm-label">Use cases</p>
+      <a class="sub" href="/agents/">All premade agents</a>
+      <a class="sub" href="/solutions/sales/">GTM Ops</a>
+      <a class="sub" href="/solutions/shopify/">Shopify Ops</a>
+      <a class="sub" href="/solutions/growth/">Growth & Customer Analytics</a>
+      <a class="sub" href="/solutions/engineering/">Engineering Ops</a>
+      <a class="sub" href="/solutions/support/">Customer support</a>
+      <a class="sub" href="/solutions/finance/">Finance & billing</a>
+      <a class="sub" href="/solutions/marketing/">Marketing & growth</a>
+      <p class="mm-label">Enterprise</p>
+      <a class="sub" href="/enterprise/">Overview</a>
+      <a class="sub" href="/enterprise/release-quality/">Release quality</a>
+      <a class="sub" href="/enterprise/incident-response/">Incident response</a>
+      <a class="sub" href="/enterprise/security-testing/">Security testing</a>
+      <a class="sub" href="/enterprise/cloud-cost/">Cloud cost</a>
+      <a class="sub" href="/enterprise/growth-analytics/">Growth analytics</a>
+      <a class="sub" href="/studio/">Studio</a>
+      <a class="sub" href="/crews/">Expert Crews</a>
+      <a class="sub" href="/vault/">Vault</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://demo.agentworkshq.com/" target="_blank" rel="noreferrer">Try the demo</a>
+      <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Book a call</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero post-hero">
+      <div class="wrap">
+        <p class="kicker"><a href="/blog/">Blog</a> · Explainer · <time datetime="2026-10-26">26 October 2026</time></p>
+        <h1>Harness engineering, explained for people who run a business</h1>
+        <p class="lede">An AI agent is a model plus a harness. The model decides how well it thinks; the harness decides whether it does the job every day. Here is what the harness is, in pictures.</p>
+        <figure class="post-cover"><img src="/assets/blog/harness-engineering-explained/cover.webp" alt="" width="1600" height="900" fetchpriority="high"></figure>
+      </div>
+    </section>
+    <section class="section-tight post-body">
+      <div class="wrap">
+        <article class="prose">
+<h2>An agent is a model plus a harness</h2>
+<figure><img src="/assets/blog/harness-engineering-explained/six-parts-ring.webp" alt="A model in the centre with six parts around it: instructions and context, tools, work loop, guardrails, checks and records" width="1600" height="900" loading="lazy" decoding="async"><figcaption>The model thinks. The ring around it decides whether the work gets done.</figcaption></figure>
+<p>The model is the part everyone talks about: Claude, GPT, Gemini. The harness is everything around it. Builders now call designing that layer <strong>harness engineering</strong>.</p>
+<h2>Why the harness matters more now</h2>
+<figure><img src="/assets/blog/harness-engineering-explained/same-model.webp" alt="Two agents on the same model: one guesses, emails the wrong people and leaves no record; the other reads the right list, waits for approval, checks its work and records everything" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Same model, same request. Only the harness is different.</figcaption></figure>
+<p>Today's models are all good enough for most office work. When an agent fails, it is usually the harness: a missing tool, an unclear rule, no check on the result, or no record of what happened.</p>
+<h2>The six parts</h2>
+<figure><img src="/assets/blog/harness-engineering-explained/six-parts-grid.webp" alt="Six cards: instructions, tools, work loop, guardrails, checks and records, each with a one-line meaning" width="1600" height="900" loading="lazy" decoding="async"><figcaption>If an agent goes wrong, one of these six is usually the reason.</figcaption></figure>
+<p>Each part answers one question: what is it told, what can it use, how does the work run, what may it touch, did it work, and what is the evidence.</p>
+<h2>Whose harness is it?</h2>
+<figure><img src="/assets/blog/harness-engineering-explained/laptop-vs-company.webp" alt="One person's laptop compared with the whole company: shared instructions, granted tools, runs on schedule, anyone can use it, and it stays" width="1600" height="900" loading="lazy" decoding="async"><figcaption>A harness on one laptop helps one person. A shared one works for the team.</figcaption></figure>
+<p>Coding agents like Claude Code, Codex and Cursor are excellent harnesses for one person. A company needs the same parts shared: one set of instructions and tools, one place where every run is recorded, and people approving what matters.</p>
+<h2>Where to start</h2>
+<figure><img src="/assets/blog/harness-engineering-explained/where-to-start.webp" alt="Five steps: pick one process, define done, script the known parts, add a check and a person, review weekly" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Start with one process, not a platform-wide plan.</figcaption></figure>
+<p>Pick one process that is frequent and rule-based. Write down what done looks like as a number, let plain scripts do the known parts and agents do the judgment, put a person on the decisions that matter, and look at the results every week. When something goes wrong, fix the harness, not the person.</p>
+<p><a href="/harness-engineering/">See how AgentWorks gives your company one shared harness →</a></p>
+        </article>
+      </div>
+    </section>
+    <section class="cta">
+      <div class="wrap">
+        <h2>Tell us the process. <span class="dim">We'll show you how agents fit.</span></h2>
+        <p>Book a short call and we'll scope a deployment around your company.</p>
+        <div class="cta-actions">
+          <a class="btn btn-amber" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Book a call</a>
+          <a class="btn btn-ghost" href="/blog/">More articles</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
+          <p class="blurb">One platform for your people, their AI and your company's agents. Customized and deployed in your own cloud.</p>
+        </div>
+        <div>
+          <h2 class="fh">Product</h2>
+          <ul>
+            <li><a href="/product/">Overview</a></li>
+            <li><a href="/goals/">Goals</a></li>
+            <li><a href="/crews/">Crews</a></li>
+            <li><a href="/flows/">Flows</a></li>
+            <li><a href="/brain/">Brain</a></li>
+            <li><a href="/vault/">Vault</a></li>
+            <li><a href="/llm-gateway/">LLM Gateway</a></li>
+            <li><a href="/studio/">Studio</a></li>
+            <li><a href="/agentbridge/">AgentBridge</a></li>
+            <li><a href="/network/">Free agent network</a></li>
+            <li><a href="/goals/#improve">Autopilot</a></li>
+            <li><a href="/agents/">Premade agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="fh">Plans</h2>
+          <ul>
+            <li><a href="/pricing/">Pricing</a></li>
+            <li><a href="/pricing/#onboarding">Custom deployment</a></li>
+            <li><a href="/enterprise/">Enterprise</a></li>
+            <li><a href="https://github.com/manishiitg/agentworks" target="_blank" rel="noreferrer">Source code</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="fh">Resources</h2>
+          <ul>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="https://github.com/manishiitg/agentworks/tree/main/docs" target="_blank" rel="noreferrer">Developer docs (GitHub)</a></li>
+                        <li><a href="/download/">Download</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/harness-engineering/">Harness engineering</a></li>
+            <li><a href="/free-tools/">Free agent tools</a></li>
+            <li><a href="/llms.txt">llms.txt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="fh">Company</h2>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IrGuhEQLUL5dEFGm4OWRJvz5M0KOaizd2SH2-oadqBESndvBRGq8s1MF41uOI931Xu1NrhfZu" target="_blank" rel="noreferrer">Book a call</a></li>
+            <li><a href="https://x.com/manish_iitg" target="_blank" rel="noreferrer">X / Twitter</a></li>
+            <li><a href="https://in.linkedin.com/in/manishiitg" target="_blank" rel="noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 XTECH, India · AgentWorks is a product of XTECH, source-available under the Business Source License 1.1. · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refunds/">Refunds</a></p>
+        <p>Runs on the AI plan you already pay for.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/launch.js?v=launch79"></script>
+  <script src="/analytics.js?v=1"></script>
+</body>
+</html>

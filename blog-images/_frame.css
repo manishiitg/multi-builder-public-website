@@ -1,0 +1,57 @@
+/* Building blocks for blog illustrations (1600x900). Colours and fonts match launch.css. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --surface-2: #f5f5f2; --line: rgba(15,15,20,.09); --line-2: rgba(15,15,20,.16);
+  --text: #0e0e12; --text-2: #45454f; --muted: #676771;
+  --amber: #f5a524; --amber-soft: rgba(245,165,36,.16); --amber-text: #b45309;
+  --sky: #0ea5e9; --sky-soft: rgba(14,165,233,.12); --sky-text: #0369a1;
+  --green: #10b981; --green-soft: rgba(16,185,129,.14); --green-text: #047857;
+  --red-soft: rgba(225,29,72,.10); --red-text: #be123c;
+  --violet: #7c3aed; --violet-soft: rgba(124,58,237,.11); --violet-text: #6d28d9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1600px; height: 900px; overflow: hidden; background: var(--bg); color: var(--text);
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.canvas { width: 1600px; height: 900px; padding: 72px 88px; display: flex; flex-direction: column; gap: 36px; position: relative;
+  background: radial-gradient(1200px 600px at 85% -10%, rgba(245,165,36,.10), transparent 60%), radial-gradient(900px 500px at -10% 110%, rgba(14,165,233,.08), transparent 60%), var(--bg); }
+.kicker { font-family: "JetBrains Mono", monospace; font-size: 24px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber-text); }
+.title { font-size: 60px; line-height: 1.06; letter-spacing: -.03em; font-weight: 600; max-width: 1300px; }
+.title .dim, .dim { color: var(--muted); }
+.lead { font-size: 26px; line-height: 1.4; color: var(--text-2); max-width: 1200px; }
+.row { display: flex; gap: 28px; align-items: stretch; }
+.col { display: flex; flex-direction: column; gap: 20px; }
+.grow { flex: 1; }
+.center { align-items: center; justify-content: center; text-align: center; }
+.fill { flex: 1; min-height: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 26px; padding: 36px 40px;
+  box-shadow: 0 1px 2px rgba(15,15,20,.04), 0 18px 44px rgba(15,15,20,.08); display: flex; flex-direction: column; gap: 12px; }
+.card.soft { background: var(--surface-2); box-shadow: none; }
+.card.amber { border-color: rgba(245,165,36,.55); box-shadow: 0 0 0 4px var(--amber-soft), 0 18px 44px rgba(15,15,20,.08); }
+.card.green { border-color: rgba(16,185,129,.5); box-shadow: 0 0 0 4px var(--green-soft), 0 18px 44px rgba(15,15,20,.08); }
+.card h3 { font-size: 40px; letter-spacing: -.02em; font-weight: 600; line-height: 1.15; }
+.card p { font-size: 28px; line-height: 1.4; color: var(--text-2); }
+.card .big { font-size: 96px; font-weight: 600; letter-spacing: -.03em; line-height: 1; }
+.pill { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; white-space: nowrap; font-size: 24px; font-weight: 600; padding: 9px 18px; border-radius: 999px;
+  background: var(--surface-2); color: var(--text-2); font-family: "JetBrains Mono", monospace; letter-spacing: .02em; }
+.pill.amber { background: var(--amber-soft); color: var(--amber-text); }
+.pill.sky { background: var(--sky-soft); color: var(--sky-text); }
+.pill.green { background: var(--green-soft); color: var(--green-text); }
+.pill.red { background: var(--red-soft); color: var(--red-text); }
+.pill.violet { background: var(--violet-soft); color: var(--violet-text); }
+.dot { width: 14px; height: 14px; border-radius: 50%; background: var(--amber); display: inline-block; }
+.flow { display: flex; align-items: stretch; gap: 0; }
+.flow > .card { flex: 1; }
+.arrow { width: 44px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 34px; flex: none; }
+.list { display: flex; flex-direction: column; gap: 22px; }
+.list .item { display: flex; gap: 16px; align-items: flex-start; font-size: 32px; line-height: 1.35; color: var(--text-2); }
+.list .item b { color: var(--text); font-weight: 600; }
+.yes::before { content: "✓"; color: var(--green-text); font-weight: 700; }
+.no::before { content: "✕"; color: var(--red-text); font-weight: 700; }
+.brandmark { position: absolute; right: 88px; bottom: 36px; font-size: 22px; font-weight: 600; color: var(--muted); letter-spacing: -.01em; }
+.brandmark::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: var(--amber); margin-right: 10px; vertical-align: 1px; }
+.ring { width: 600px; height: 600px; border-radius: 50%; border: 2px dashed var(--line-2); display: flex; align-items: center; justify-content: center; position: relative; }
+.core { width: 270px; height: 270px; border-radius: 50%; background: var(--text); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 44px; font-weight: 600; gap: 4px; }
+.core small { font-size: 24px; font-weight: 400; color: rgba(255,255,255,.7); }
+.orbit { position: absolute; transform: translate(-50%,-50%); }
+.mono { font-family: "JetBrains Mono", monospace; }
+.orbit.pill { font-size: 28px; padding: 12px 22px; }
+.card.tight { justify-content: center; }

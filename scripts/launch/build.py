@@ -23,7 +23,7 @@ SOFT={"@type":"SoftwareApplication","@id":"https://agentworkshq.com/#software","
 pages={}
 body=open('home.body.html').read()
 pages['index.html']=head('AgentWorks - Agents Do the Work, Your People Make the Calls','Give agents a goal and they run your business processes every day: follow-ups, reminders, first replies and reports. Goals, Flows and Crews do the work, Autopilot improves it, and people approve only what matters.','/',extra_ld=ld(ORG,{"@type":"WebSite","@id":"https://agentworkshq.com/#website","name":"AgentWorks","url":"https://agentworkshq.com/"},SOFT,faq_ld(FAQ_HOME)))+header()+fill(body,TEMPLATES=tpl('home'),AGENT_TOTAL=str(_T.N_CREW+_T.N_GOALS),AGENT_SPLIT=f'{_T.N_CREW} Crew agents and {_T.N_GOALS} Goal playbooks',TIERS=tiers(),FAQ=faq(FAQ_HOME),SCRIPTED=scripted_section())+footer()
-for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'studio.py', 'brain.py', 'download.py', 'about.py', 'relays.py', 'bullpen.py', 'network.py', 'llmgateway.py', 'usecases.py', 'solutions.py', 'legal.py']:
+for name in ['pricing.py', 'enterprise.py', 'agents.py', 'product.py', 'goals.py', 'crews.py', 'studio.py', 'brain.py', 'download.py', 'about.py', 'relays.py', 'bullpen.py', 'network.py', 'llmgateway.py', 'usecases.py', 'solutions.py', 'legal.py', 'harness.py', 'blog.py']:
     exec(open(name).read())
 for path,content in pages.items():
     import os
