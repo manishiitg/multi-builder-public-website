@@ -1258,3 +1258,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .harness-table td:last-child { padding-bottom: 14px; }
   .harness-table tbody th { white-space: normal; padding-top: 14px; }
 }
+/* Platform menu: two columns of products with longer lines (owner 2026-10-27). */
+#platform-menu.nav-panel.pm-wide { width: 640px; }
+#platform-menu .pm-cols { grid-auto-columns: minmax(0, 1fr); }

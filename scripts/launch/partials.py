@@ -11,7 +11,7 @@ GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
 # The demo; its own sign-in screen shows the shared login (owner 2026-10-26).
 DEMO='https://demo.agentworkshq.com/'
-V='launch82'
+V='launch84'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -85,6 +85,12 @@ MENU_SHORT={
  '/enterprise/growth-analytics/':'Funnels, retention, SEO', 
  '/vault/':'Governed MCP access',
 }
+# Platform menu lines (owner 2026-10-27).
+MENU_SHORT.update({h:d for h,t,d,i in [
+ ('/goals/','','Run a process toward a number',''),('/crews/','','An expert agent for every team',''),
+ ('/studio/','','A private AI workspace per employee',''),('/flows/','','Fixed steps your systems call. Early access',''),
+ ('/brain/','','Shared company knowledge',''),('/vault/','','Tools and secrets under control',''),
+ ('/llm-gateway/','','Model access and cost. Coming soon',''),('/agentbridge/','','Connects the agents your people run','')]})
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
         'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
@@ -116,7 +122,13 @@ def _drop(label, overview, groups, menu_id, current):
 # Enterprise/B2B site (owner 2026-10-26): one menu of solutions by team, one Platform page,
 # How we work, Blog. Products are capabilities of one platform, not separate things to buy.
 SOL_ORDER=['sales','support','finance','shopify','marketing','growth','engineering']
-NAV=[('/platform/','Platform','platform'),('/pricing/','How we work','pricing'),('/blog/','Blog','blog')]
+NAV=[('/pricing/','How we work','pricing'),('/blog/','Blog','blog')]
+# Platform menu (owner 2026-10-27: show each product in the top menu): overview page plus every product.
+PLAT_DO=[('/goals/','Goals','Run a process toward a number','goal'),('/crews/','Crews','An expert agent for every team','crew'),
+         ('/studio/','Studio','A private AI workspace per employee','code'),('/flows/','Flows','Fixed steps your systems call. Early access','relay')]
+PLAT_FOUNDATION=[('/brain/','Brain','Shared company knowledge','brain'),('/vault/','Vault','Tools and secrets under control','gateway'),
+                 ('/llm-gateway/','LLM Gateway','Model access and cost. Coming soon','llmgw'),('/agentbridge/','AgentBridge','Connects the agents your people run','bullpen')]
+PLAT_KEYS=('platform','goals','crews','studio','flows','brain','vault','llm-gateway','llmgateway','agentbridge','bullpen')
 def header(active=None):
     from sol_data import SOLUTIONS
     by={u['slug']:u for u in SOLUTIONS}
@@ -124,11 +136,13 @@ def header(active=None):
     links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV)
     mlinks='\n'.join(f'      <a href="{h}">{t}</a>' for h,t,k in NAV)
     msol='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in sol)
+    mplat='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in PLAT_DO+PLAT_FOUNDATION)
     return f'''  <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
 {_drop('Solutions',('/agents/','All premade agents'),[('By team',sol)],'usecase-menu',active in ('solutions','agents'))}
+{_drop('Platform',('/platform/','Platform overview'),[('What it does',[(h,t,d,_PICON[i]) for h,t,d,i in PLAT_DO]),('Foundation',[(h,t,d,_PICON[i]) for h,t,d,i in PLAT_FOUNDATION])],'platform-menu',active in PLAT_KEYS)}
 {links}
       </nav>
       <div class="header-actions">
@@ -141,6 +155,9 @@ def header(active=None):
       <p class="mm-label">Solutions</p>
 {msol}
       <a class="sub" href="/agents/">All premade agents</a>
+      <p class="mm-label">Platform</p>
+      <a class="sub" href="/platform/">Overview</a>
+{mplat}
 {mlinks}
       <a href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
       <a class="btn btn-primary" href="{SIGNUP}" target="_blank" rel="noreferrer">Book a call</a>
