@@ -47,12 +47,12 @@ def tiers(heading='h3'):
 FAQ_HOME=[
  ("Does every step use AI?","No. Work that should run the same way every time, like pulling data, calling an API or applying a change, runs as a scripted step: plain code with no AI, whose output is checked before the workflow moves on. Agents take the steps that need judgment, and rules like \"over $200 needs approval\" are decided in code."),
  ("Does our team need to know how to code?","No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks."),
- ("What's the difference between Crew and Goals?","A Crew teammate does what you ask, when you ask, in Slack, WhatsApp or the app. A Goal has a target, like \"every lead contacted within an hour\", and keeps running, measuring and adjusting toward it. Teammates often work on goals."),
+ ("What is a Team?","The people who work together and their AI agents, in one place. Anyone in the Team can ask anyone's agent, hand work over as a task and see where it is. Developers bring Claude Code, Codex or Cursor; everyone else uses the app, Slack or WhatsApp."),
  ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi, Muse and Antigravity. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."),
  ("How do we get started?","Book a short call. We pick one process with your team, run a four-week pilot on it in your own environment, and review the measured results with you before anything grows."),
- ("Can people use a Crew from Claude or ChatGPT?","Yes. Share a Crew and people ask it from Claude, ChatGPT, Cursor, Claude Code, Codex or the agentworks CLI, through MCP. Each person gets their own conversation, and the Crew's private chats and data stay private."),
+ ("Can people use an agent from Claude or ChatGPT?","Yes. Share an agent and people ask it from Claude, ChatGPT, Cursor, Claude Code, Codex or the agentworks CLI, through MCP. Each person gets their own conversation, and private chats and data stay private."),
  ("Do my people have to switch AI tools?","No. People keep Claude Code, Codex, Cursor, ChatGPT or whatever they already use. AgentWorks connects those tools to your company's agents, knowledge and rules."),
- ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per teammate or goal once you trust it."),
+ ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per agent once you trust it."),
 ]
 def faq(items, heading=None):
     out=[]
