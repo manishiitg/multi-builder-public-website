@@ -1,6 +1,10 @@
-# Open AgentBridge network installers (owner 2026-10-21). /install.sh stays the desktop app installer (Download page).
-/network/install.sh https://network.agentworkshq.com/api/downloads/cli/install-agentworks.sh 302
-/network/install.ps1 https://network.agentworkshq.com/api/downloads/cli/install-agentworks.ps1 302
+# The open network server is retired (owner 2026-11-25). Old CLI install lines now install from the default server.
+# /install.sh stays the desktop app installer (Download page).
+/network/install.sh https://agents.excellencetechnologies.in/api/downloads/cli/install-agentworks.sh 302
+/network/install.ps1 https://agents.excellencetechnologies.in/api/downloads/cli/install-agentworks.ps1 302
+/network/ /agentbridge/ 301
+/network /agentbridge/ 301
+/network/index.html /agentbridge/ 301
 /bullpen/ /agentbridge/ 301
 /bullpen /agentbridge/ 301
 /bullpen/index.html /agentbridge/ 301

@@ -204,7 +204,6 @@ def footer():
             <li><a href="/docs/">Docs</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/harness-engineering/">Harness engineering</a></li>
-            <li><a href="/network/">Free agent network</a></li>
             <li><a href="{GH}" target="_blank" rel="noreferrer">Source code</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
           </ul>
