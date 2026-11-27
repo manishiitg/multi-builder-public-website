@@ -4,7 +4,7 @@ ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..
 _CAT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'catalog.json')))
 N_AGENTS=len(_CAT['crew'])+len(_CAT['playbooks'])
 CARDS=[
- ('agentworks-home-og.jpg','AI made each person faster.','AgentWorks makes the team faster.','team'),
+ ('agentworks-home-og.jpg','Everyone on your team has AI.','AgentWorks makes the team faster.','team'),
  ('agentworks-product-og.jpg','One goal. One metric.','An agent that doesn’t stop at done.','loop'),
  ('agentworks-agents-og.jpg',f'{N_AGENTS} premade agents,','ready to start today.','agents'),
  ('agentworks-pricing-og.jpg','Built for your company.','Customized and deployed with you.','tiers'),
