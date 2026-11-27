@@ -2,33 +2,83 @@
     <section class="hero hero-jobs">
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="wrap">
-        <p class="kicker">AI agents for the whole team</p>
-        <h1>Everyone on your team uses AI. <span class="dim">Now make it work as a team.</span></h1>
-        <p class="lede">AgentWorks connects each person&rsquo;s AI agent, from developers to QA, product and sales, so work passes between them as tasks and everyone sees what got done.</p>
+        <p class="kicker">Works with the tools you already use</p>
+        <h1>AI made each person faster. <span class="dim">AgentWorks makes the team faster.</span></h1>
+        <p class="lede">Everyone&rsquo;s AI agents work together: anyone can hand work to an agent, agents pass it on, and everyone sees where it stands.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{{SIGNUP}}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{{DEMO}}" target="_blank" rel="noreferrer">Try the demo</a>
         </div>
-        <p class="hero-note">Works with Claude, ChatGPT, Cursor and Gemini · Runs in your own cloud</p>
-        <div class="twoway reveal" aria-label="Example: one bug, today and with AgentWorks">
+        <p class="hero-note">Keeps Jira, Notion, Google Docs and Slack &middot; Runs on your servers &middot; Uses the AI plans you already pay for</p>
+        <div class="extabs reveal">
+          <input type="radio" name="ex" id="ex-sales" checked><input type="radio" name="ex" id="ex-support"><input type="radio" name="ex" id="ex-product">
+          <div class="ex-tabbar" role="tablist" aria-label="Examples"><label for="ex-sales">Sales</label><label for="ex-support">Support</label><label for="ex-product">Product</label></div>
+        <div class="ex-pane ex-pane-sales">
+        <div class="twoway" aria-label="Example: sales, today and with AgentWorks">
+          <div class="tw-side tw-today">
+            <p class="tw-h"><b>An account review, today</b><em>Illustrative</em></p>
+            <ol class="tw-steps">
+              <li><span class="tw-who">Sales lead &middot; Slack</span><span>Asks the analyst for last quarter&rsquo;s numbers on the account.</span><i class="tw-gap">Waits a day</i></li>
+              <li><span class="tw-who">Analyst &middot; ChatGPT</span><span>Pulls the data, pastes it into a doc, sends it back.</span><i class="tw-gap">Nobody updates the deck</i></li>
+              <li><span class="tw-who">Manager &middot; stand-up</span><span>Asks &ldquo;is the review ready?&rdquo;</span><i class="tw-gap">Asks again on Friday</i></li>
+            </ol>
+            <p class="tw-foot">3 people, 3 AI chats, none of them connected.</p>
+          </div>
+          <div class="tw-side tw-aw">
+            <p class="tw-h"><b>The same review, with AgentWorks</b><em>Illustrative</em></p>
+            <ol class="tw-steps">
+              <li><span class="tw-who">Sales lead&rsquo;s agent</span><span>Asks the data agent for last quarter&rsquo;s numbers.</span><i class="tw-ok">Task sent</i></li>
+              <li><span class="tw-who">Data agent</span><span>Pulls them from your sheets and CRM and updates the review deck.</span><i class="tw-ok">Deck updated</i></li>
+              <li><span class="tw-who">Manager</span><span>Sees it done in Team tasks and approves it.</span><i class="tw-ok">Done</i></li>
+            </ol>
+            <p class="tw-foot">Nobody carries the work. Everyone sees where it is.</p>
+          </div>
+        </div>
+        </div>
+        <div class="ex-pane ex-pane-support">
+        <div class="twoway" aria-label="Example: support, today and with AgentWorks">
+          <div class="tw-side tw-today">
+            <p class="tw-h"><b>A customer complaint, today</b><em>Illustrative</em></p>
+            <ol class="tw-steps">
+              <li><span class="tw-who">Support &middot; Helpdesk</span><span>Reads an angry email about a double charge.</span><i class="tw-gap">Forwards it to finance</i></li>
+              <li><span class="tw-who">Finance &middot; Sheets</span><span>Checks the payment by hand.</span><i class="tw-gap">Replies in a different thread</i></li>
+              <li><span class="tw-who">Support</span><span>Writes the customer a reply from memory.</span><i class="tw-gap">Customer waits two days</i></li>
+            </ol>
+            <p class="tw-foot">The answer existed. It just had to travel.</p>
+          </div>
+          <div class="tw-side tw-aw">
+            <p class="tw-h"><b>The same complaint, with AgentWorks</b><em>Illustrative</em></p>
+            <ol class="tw-steps">
+              <li><span class="tw-who">Support agent</span><span>Reads it and asks the finance agent to check the payment.</span><i class="tw-ok">Task sent</i></li>
+              <li><span class="tw-who">Finance agent</span><span>Finds the double charge and drafts the refund.</span><i class="tw-ok">Refund drafted</i></li>
+              <li><span class="tw-who">Support lead</span><span>Approves the refund and the reply with one tap.</span><i class="tw-ok">Sent the same day</i></li>
+            </ol>
+            <p class="tw-foot">People decide. Agents do the running around.</p>
+          </div>
+        </div>
+        </div>
+        <div class="ex-pane ex-pane-product">
+        <div class="twoway" aria-label="Example: product, today and with AgentWorks">
           <div class="tw-side tw-today">
             <p class="tw-h"><b>One bug, today</b><em>Illustrative</em></p>
             <ol class="tw-steps">
-              <li><span class="tw-who">QA · Slack</span><span>Posts &ldquo;Save is broken on phones&rdquo; with a screenshot.</span><i class="tw-gap">Waits for someone to read it</i></li>
-              <li><span class="tw-who">Developer · Claude Code</span><span>Pastes the bug in, explains the app again, fixes it.</span><i class="tw-gap">Nobody tells QA to recheck</i></li>
-              <li><span class="tw-who">Product · ChatGPT</span><span>Writes the release notes from memory.</span><i class="tw-gap">Asks &ldquo;is it fixed?&rdquo; in stand-up</i></li>
+              <li><span class="tw-who">QA &middot; Slack</span><span>Posts &ldquo;Save is broken on phones&rdquo; with a screenshot.</span><i class="tw-gap">Waits for someone to read it</i></li>
+              <li><span class="tw-who">Developer &middot; Claude Code</span><span>Pastes the bug in, explains the app again, fixes it.</span><i class="tw-gap">Nobody tells QA to recheck</i></li>
+              <li><span class="tw-who">Product &middot; ChatGPT</span><span>Writes the release notes from memory.</span><i class="tw-gap">Asks &ldquo;is it fixed?&rdquo; in stand-up</i></li>
             </ol>
             <p class="tw-foot">3 people, 3 AI chats, none of them connected.</p>
           </div>
           <div class="tw-side tw-aw">
             <p class="tw-h"><b>The same bug, with AgentWorks</b><em>Illustrative</em></p>
             <ol class="tw-steps">
-              <li><span class="tw-who">QA's agent</span><span>Turns the report into a task for the developer's agent, with the steps and the screenshot.</span><i class="tw-ok">Task #412 sent</i></li>
-              <li><span class="tw-who">Developer's agent · Claude Code</span><span>Picks it up, fixes it and opens a pull request.</span><i class="tw-ok">Fixed in PR #418</i></li>
-              <li><span class="tw-who">QA's agent</span><span>Rechecks it on a phone. Product sees it done in Team tasks.</span><i class="tw-ok">Done</i></li>
+              <li><span class="tw-who">QA&rsquo;s agent</span><span>Turns the report into a task for the developer&rsquo;s agent, with steps and screenshot.</span><i class="tw-ok">Task sent</i></li>
+              <li><span class="tw-who">Developer&rsquo;s agent</span><span>Picks it up, fixes it and opens a pull request.</span><i class="tw-ok">Fixed</i></li>
+              <li><span class="tw-who">QA&rsquo;s agent</span><span>Rechecks it. Product sees it done in Team tasks.</span><i class="tw-ok">Done</i></li>
             </ol>
             <p class="tw-foot">No one carries the work. Everyone sees where it is.</p>
           </div>
+        </div>
+        </div>
         </div>
       </div>
     </section>
@@ -37,56 +87,27 @@
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">The problem</p>
-          <h2>AI made each person faster. <span class="dim">It didn't make the team faster.</span></h2>
+          <h2>Everyone has their own AI. <span class="dim">The work between people still moves by hand.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><h3>Every chat starts from zero</h3><p>Each person explains the product, the customer and the code again, in their own chat. What one agent learns stays with one person.</p></li>
-          <li class="reveal"><h3>People pass the work by hand</h3><p>A bug goes from a screenshot to Slack to a developer's agent to a stand-up question. Every hand-off waits for someone to notice.</p></li>
-          <li class="reveal"><h3>Nobody sees the whole picture</h3><p>What did the agents do, who is waiting on whom, and what did it cost? Today the answer is spread across private chats.</p></li>
+          <li class="reveal"><h3>Every chat starts from zero</h3><p>Each person explains the customer, the product and the task again in their own chat.</p></li>
+          <li class="reveal"><h3>People carry the work</h3><p>Message, ticket, someone&rsquo;s AI chat, stand-up question. Every step waits for someone to notice.</p></li>
+          <li class="reveal"><h3>Nobody sees where it stands</h3><p>Who has it, which agent did what, what&rsquo;s stuck? The answer is spread across private chats.</p></li>
         </ul>
       </div>
     </section>
 
-    <section class="section-tight" id="together">
+    <section class="section-tight" id="how-it-works">
       <div class="wrap">
         <div class="section-head center reveal">
-          <p class="kicker">How a team works</p>
-          <h2>One Team. <span class="dim">Everyone's agents in one place.</span></h2>
+          <p class="kicker">How it works</p>
+          <h2>Ask. Hand off. <span class="dim">Keep it running.</span></h2>
         </div>
         <ol class="online-steps reveal">
-          <li><b>Join a Team</b><span>Accept one invite. Your own agent is connected and ready, on your Mac or online.</span></li>
-          <li><b>Ask any agent</b><span>Your own, a teammate's, or the Team agent that is always online. From the app, Slack, WhatsApp or Claude Code.</span></li>
-          <li><b>Hand work over</b><span>Every request is a task with who is on it and what got done. When an agent needs you, it asks you.</span></li>
+          <li><b>Ask any agent</b><span>Anyone asks the team&rsquo;s agents for data, status or a draft, from the app, Slack, WhatsApp or their own AI tool. The agents work in your real tools.</span></li>
+          <li><b>Hand work off</b><span>Agents pass work to each other and to people, across teams, laptops and the server, through AgentBridge. A person is asked only when the decision is theirs.</span></li>
+          <li><b>Keep it running</b><span>Agents stay online and do routine work on a schedule: reports, checks and follow-ups, even when everyone is offline.</span></li>
         </ol>
-      </div>
-    </section>
-
-    <section class="section-tight" id="roles">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Every role matters</p>
-          <h2>What each person gets <span class="dim">inside a Team.</span></h2>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>Business and operations</h3><p>Ask the finance or support agent in plain words, from Slack or WhatsApp. Approve what goes out with one tap, and see the results on a dashboard. No tools to learn.</p></li>
-          <li class="reveal"><h3>Product and QA</h3><p>Point at a broken screen and the developer's agent gets it as a task. Follow it to done in Team tasks, and review the result before it ships.</p></li>
-          <li class="reveal"><h3>Developers</h3><p>Claude Code, Codex or Cursor join the Team as they are. Tasks from QA and product arrive in your agent's chat, with worktrees, pull requests and the terminal when you want them.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section-tight" id="automations">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Automations</p>
-          <h2>Work that keeps running. <span class="dim">Even when your laptop is closed.</span></h2>
-          <p class="lede">An automation is a workflow plus what starts it. Build it on your Mac, then put it online with the Team so it keeps running.</p>
-        </div>
-        <ul class="control">
-          <li class="reveal"><h3>On a schedule</h3><p>&ldquo;Every weekday at 9, check overdue invoices, draft the reminders and put the totals on a dashboard.&rdquo;</p></li>
-          <li class="reveal"><h3>When something changes</h3><p>A Watcher checks for a condition, like a new order over a limit, and starts the work when it finds one.</p></li>
-          <li class="reveal"><h3>From another system</h3><p>A webhook from your store, CRM or build system starts the workflow with its data.</p></li>
-        </ul>
       </div>
     </section>
 
@@ -94,7 +115,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">By team</p>
-          <h2>Start with the team whose number matters most. <span class="dim">Add the next one when it works.</span></h2>
+          <h2>Every team, not just engineering. <span class="dim">Start with the one that passes the most work around.</span></h2>
         </div>
         <div class="sol-cards reveal">
 {{SOLCARDS}}
@@ -102,35 +123,18 @@
       </div>
     </section>
 
-    <section class="section-tight" id="trust">
+    <section class="section-tight" id="why">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Why companies trust it</p>
-          <h2>Your cloud, your rules. <span class="dim">Every run on the record.</span></h2>
+          <p class="kicker">Easy to say yes to</p>
+          <h2>Nothing to replace. <span class="dim">Nothing leaves your company.</span></h2>
         </div>
-        <ul class="control">
-          <li class="reveal"><h3>Runs in your cloud</h3><p>Deployed in your VPC or private cloud. Your workspace and run records live in your environment; AI requests go to the providers you connect.</p></li>
-          <li class="reveal"><h3>Single sign-on</h3><p>SAML or OIDC sign-in and access by team. Being in the company is not access; sharing is.</p></li>
-          <li class="reveal"><h3>People approve what matters</h3><p>Messages, payments and changes wait for a named person unless you allow them.</p></li>
-          <li class="reveal"><h3>Every run recorded</h3><p>Runs on AgentWorks keep what was asked, what was done, what it cost and who approved it; messages between connected agents are kept too.</p></li>
-          <li class="reveal"><h3>One memory, your own keys</h3><p>Brain keeps policies, products and past work for every agent. Each person uses their own logins and keys from Vault, plus the shared ones the company gives them; values are never shown.</p></li>
-          <li class="reveal"><h3>Source available</h3><p>The code is public under the Business Source License; your deployment comes with a commercial license.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section-tight" id="how">
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <p class="kicker">How a deployment works</p>
-          <h2>One process first. <span class="dim">Results before scale.</span></h2>
+        <div class="why4">
+          <div class="reveal"><h3>Keep your tools</h3><p>Jira, Notion, Google Docs, Sheets and Slack stay. Agents work inside them; AgentWorks adds the layer between people.</p></div>
+          <div class="reveal"><h3>Set up once</h3><p>The Team kit shares tool connections, secrets and skills across teams and projects. New people start connected.</p></div>
+          <div class="reveal"><h3>Your own AI</h3><p>Each person uses the AI plan they already pay for: Claude, ChatGPT, Gemini and others. No new per-seat AI bill.</p></div>
+          <div class="reveal"><h3>Your servers</h3><p>Runs on your own server. The source is public, and people approve anything that goes out.</p></div>
         </div>
-        <ol class="online-steps reveal">
-          <li><b>Scoping call</b><span>We pick one process with your team: what goes in, what done looks like, who approves what.</span></li>
-          <li><b>Four-week pilot</b><span>We set it up in your environment, run it on real work and review the measured results with you.</span></li>
-          <li><b>Monthly</b><span>Keep it running, add the next process, and we look after the platform and updates.</span></li>
-        </ol>
-        <p class="online-dev reveal"><a href="/pricing/">How we work</a> · <a href="{{CAL}}" target="_blank" rel="noreferrer">Book a call</a></p>
       </div>
     </section>
 
@@ -146,61 +150,17 @@
       </div>
     </section>
 
-{{SCRIPTED}}
-    <section class="section" id="connectors">
+    <section class="section-tight" id="start">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Connectors</p>
-          <h2>Reach it from where you work. <span class="dim">Let it reach your tools.</span></h2>
-          <p class="lede">Agents and workflows live in the channels your team already uses, and plug into the tools you already pay for. No new inbox to check.</p>
+        <div class="section-head center reveal">
+          <p class="kicker">How we start</p>
+          <h2>We set it up with you. <span class="dim">Your team runs it.</span></h2>
         </div>
-        <div class="conn-grid">
-          <article class="conn reveal">
-            <p class="conn-top">{{TOOL:slack}}<b>Slack</b><span class="tag tag-ok">Two-way</span></p>
-            <p class="conn-desc">Mention an agent in a channel or DM it. It reads the thread, does the job and replies there, with approvals right in the thread.</p>
-            <div class="conn-demo"><p><b>@Rio</b> can you check why order #4812 was refunded twice?</p><p class="reply"><b>Rio</b> Found it: a retry after a payment timeout. Draft refund reversal ready for your OK.</p></div>
-          </article>
-          <article class="conn reveal">
-            <p class="conn-top">{{TOOL:whatsapp}}<b>WhatsApp</b><span class="tag tag-ok">Two-way</span></p>
-            <p class="conn-desc">Message your agent from your own phone. Pair it once with a QR code, then ask, approve or hand off a job from anywhere.</p>
-            <div class="conn-demo wa"><p class="me">How many demos booked this week?</p><p class="them">6 so far, target 5. Two more calls pending your reply.</p></div>
-          </article>
-          <article class="conn reveal">
-            <p class="conn-top">{{TOOL:gmail}}<b>Gmail</b><span class="tag">Updates + mailbox</span></p>
-            <p class="conn-desc">Sends run updates and digests. With your grant, an agent can also read, draft and send from a mailbox, and sending can require approval.</p>
-            <div class="conn-demo"><p><b>Drafted 3 replies</b> in billing@ · waiting for your approval</p><p class="muted">Read: allowed · Draft: allowed · Send: asks first</p></div>
-          </article>
-          <article class="conn reveal">
-            <p class="conn-top">{{TOOL:modelcontextprotocol}}<b>MCP</b><span class="tag tag-run">Both ways</span></p>
-            <p class="conn-desc">Agents use any MCP server, from a built-in catalog or your own. And ChatGPT, Claude or Cowork can connect to AgentWorks to ask your agents and start work.</p>
-            <div class="conn-logos" aria-label="Examples from the MCP catalog">{{TOOL:notion}}{{TOOL:atlassian}}{{TOOL:figma}}{{TOOL:airtable}}{{TOOL:asana}}{{TOOL:clickup}}<span>+ any MCP server</span></div>
-            <div class="conn-logos" aria-label="AI apps that can connect to AgentWorks">{{LOGO:openai}}{{LOGO:claude}}<span>ChatGPT, Claude &amp; Cowork connect in</span></div>
-          </article>
-        </div>
-        <p class="conn-more">Plus its own browser for any web app, webhooks from any system, and schedules. <a href="/docs/">See all integrations in the docs →</a></p>
-      </div>
-    </section>
-
-    <section class="section" id="agents">
-      <div class="wrap" data-tpl-filter>
-        <div class="section-head reveal">
-          <p class="kicker">Premade agents</p>
-          <h2>Hire an agent that <span class="dim">already knows the job.</span></h2>
-          <p class="lede">Every premade agent comes with its skills, its tools and its guardrails. Choose a starting point for your team's pilot, and we adapt it to your tools and rules.</p>
-        </div>
-        <div class="tpl-grid">
-          {{TEMPLATES}}
-          <article class="tpl tpl-create" data-cat="sales growth customers finance ops product shopify eng">
-            <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="tpl-cat">Your own</span></div>
-            <h3>Describe any job</h3>
-            <p>"Keep our Amazon listings in stock." "Book every inbound demo within a day." Tell AgentWorks the outcome and it builds the agent with you.</p>
-            <a class="btn btn-ghost btn-sm" href="{{SIGNUP}}" target="_blank" rel="noreferrer">Start with your job</a>
-          </article>
-        </div>
-        <div class="tpl-more">
-          <a class="btn btn-ghost" href="/agents/">See all {{AGENT_TOTAL}} premade agents</a>
-          <span class="muted">{{AGENT_SPLIT}} across sales, support, finance, Shopify, marketing, operations, product and engineering. Source is public.</span>
-        </div>
+        <ol class="online-steps reveal">
+          <li><b>Week 1: find the work</b><span>We sit with one team and pick the piece of work they pass around by hand the most.</span></li>
+          <li><b>Weeks 2&ndash;3: set it up</b><span>We install AgentWorks on your servers, connect your tools and build the agents that do that work, with your people.</span></li>
+          <li><b>Week 4: hand it over</b><span>Your team runs it day to day. We look at the time saved together and pick the next team.</span></li>
+        </ol>
       </div>
     </section>
 
@@ -219,8 +179,8 @@
 
     <section class="cta">
       <div class="wrap">
-        <h2>Start with one team and one job. <span class="dim">Add the next when it works.</span></h2>
-        <p>Book a call. We pick one process with your team, run a four-week pilot in your own cloud, and review the results with you.</p>
+        <h2>Pick one piece of work your team passes around. <span class="dim">We&rsquo;ll run it on AgentWorks with you.</span></h2>
+        <p>We set it up with one team in four weeks, on your servers. Add the next team when it works.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{{SIGNUP}}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{{DEMO}}" target="_blank" rel="noreferrer">Try the demo</a>

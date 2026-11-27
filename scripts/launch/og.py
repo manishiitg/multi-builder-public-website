@@ -4,7 +4,7 @@ ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..
 _CAT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'catalog.json')))
 N_AGENTS=len(_CAT['crew'])+len(_CAT['playbooks'])
 CARDS=[
- ('agentworks-home-og.jpg','Give an AI agent a goal and a metric.','It works toward the target and measures every run.','story'),
+ ('agentworks-home-og.jpg','AI made each person faster.','AgentWorks makes the team faster.','team'),
  ('agentworks-product-og.jpg','One goal. One metric.','An agent that doesn’t stop at done.','loop'),
  ('agentworks-agents-og.jpg',f'{N_AGENTS} premade agents,','ready to start today.','agents'),
  ('agentworks-pricing-og.jpg','Built for your company.','Customized and deployed with you.','tiers'),
@@ -17,6 +17,7 @@ ART={
 'agents':'''<div class="art list"><p><b>Invoice Chasing</b><span>Finance</span></p><p><b>Sales Follow-up</b><span>Sales</span></p><p><b>Support Reply Drafter</b><span>Support</span></p><p><b>Store Operations</b><span>Shopify</span></p></div>''',
 'tiers':'''<div class="art list"><p class="hl"><b>Enterprise</b><span>Custom</span></p><p><b>Goals only</b><span>Self-serve</span></p></div>''',
 'eng':'''<div class="art list"><p><b>Browser QA</b><span>8 playbooks</span></p><p><b>Reliability</b><span>4 playbooks</span></p><p><b>Expert Crews</b><span>MCP &middot; CLI</span></p><p><b>Studio</b><span>Usage by team</span></p></div>''',
+'team':'''<div class="art list"><p><b>Sales lead&rsquo;s agent</b><span>Asks</span></p><p><b>Data agent</b><span>Pulls the numbers</span></p><p><b>Review deck</b><span>Updated</span></p><p class="hl"><b>Manager</b><span>Sees it done</span></p></div>''',
 'none':'',
 }
 CSS=open(os.path.join(ROOT,'assets','fonts','fonts.css')).read().replace('url("','url("file://'+os.path.join(ROOT,'assets','fonts')+'/')

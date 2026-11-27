@@ -123,8 +123,8 @@ const pageExpectations = [
     name: 'home',
     file: 'index.html',
     route: '/index.html',
-    title: 'AgentWorks - Your Team and Its AI Agents, Working Together',
-    h1: 'Everyone on your team uses AI. Now make it work as a team.',
+    title: 'AgentWorks - AI made each person faster. Make the team faster.',
+    h1: 'AI made each person faster. AgentWorks makes the team faster.',
     canonical: 'https://agentworkshq.com/',
     ogImage: 'assets/og/agentworks-home-og.jpg',
     allowTallSections: true

@@ -11,7 +11,7 @@ GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
 # The demo; its own sign-in screen shows the shared login (owner 2026-10-26).
 DEMO='https://demo.agentworkshq.com/'
-V='launch85'
+V='launch86'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
