@@ -2,16 +2,15 @@ import html, json, sys
 from pathlib import Path
 
 # Premade agents come from the product's open-source catalog, snapshotted into catalog.json
-# by sync_catalog.py: Crew agents (always-on teammates) and Goal playbooks (goal-driven automations).
+# by sync_catalog.py. Only the Crew agents are shown (owner 2026-11-28: Goals are no longer offered).
 CATALOG = json.loads((Path(__file__).resolve().parent / "catalog.json").read_text())
 CREW = [dict(x, kind="crew") for x in CATALOG["crew"]]
-GOALS = [dict(x, kind="goal") for x in sorted(CATALOG["playbooks"], key=lambda p: (p["area"], p["order"]))]
-ALL = CREW + GOALS
+ALL = CREW
 # Plain buyer-language outcome per agent (Astra, buyer audit 26 Oct); the catalog purpose stays as the fallback.
 _OUT = Path(__file__).resolve().parent / "card_outcomes.json"
 OUTCOMES = json.loads(_OUT.read_text()) if _OUT.exists() else {}
-N_CREW, N_GOALS = len(CREW), len(GOALS)
-GH_PLAYBOOKS = "https://github.com/manishiitg/agentworks/tree/main/playbooks"
+N_CREW = len(CREW)
+GH_PLAYBOOKS = "https://github.com/manishiitg/agentworks/tree/main/playbooks/crew-agents"
 
 # Filter tabs on /agents/, in page order.
 TEAMS = [
@@ -43,9 +42,9 @@ def by_name(name):
 
 def card(t, heading="h3"):
     e = html.escape
-    kind = '<span class="tag tag-crew">Crew</span>' if t["kind"] == "crew" else '<span class="tag tag-goal">Goal</span>'
+    kind = '<span class="tag tag-crew">Agent</span>'
     outcome = OUTCOMES.get(t.get("id"))
-    role = f'<p class="tpl-goal"><span>Role</span>{e(t["role"])}</p>' if t["kind"] == "crew" and t.get("role") and not outcome else ""
+    role = f'<p class="tpl-goal"><span>Role</span>{e(t["role"])}</p>' if t.get("role") and not outcome else ""
     return f'''<article class="tpl" data-cat="{t["team"]}">
             <div class="tpl-top"><span class="tpl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ICON[t["team"]]}</svg></span><span class="tpl-cat">{e(t["area"])}</span></div>
             <{heading}>{e(t["name"])}</{heading}>
@@ -63,6 +62,6 @@ if __name__ == "__main__":
     mode = sys.argv[1]
     if mode == "home":
         print(cards(by_name(n) for n in HOME_FEATURED))
-    elif mode.startswith("team:"):  # team:<team>:<crew|goal>
-        _, team, kind = mode.split(":")
-        print(cards(t for t in ALL if t["team"] == team and t["kind"] == kind))
+    elif mode.startswith("team:"):  # team:<team>
+        team = mode.split(":")[1]
+        print(cards(t for t in ALL if t["team"] == team))

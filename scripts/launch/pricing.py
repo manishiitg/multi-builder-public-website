@@ -1,56 +1,20 @@
-Y='<span class="yes" aria-label="Included">✓</span>'
-N='<span class="no" aria-label="Not included">—</span>'
-import tpl as _PB
-_PB_N=f"{_PB.N_CREW + _PB.N_GOALS}"
-ROWS=[
- ("Goals",None),
- ("Goals with measured targets",(Y,Y)),
- ("Autopilot toward your goals",(Y,Y)),
- ("Premade Goal playbooks",(str(_PB.N_GOALS),str(_PB.N_GOALS))),
- ("Approvals and autonomy limits",(Y,Y)),
- ("Encrypted secrets vault and sandboxed code execution",(Y,Y)),
- ("Run logs and cost per goal",(Y,Y)),
- ("Products for the whole company",None),
- ("Crews: expert agents your team asks, with premade Crew agents",(N,Y)),
- ("Flows: fixed agent chains behind an API",(N,Y)),
- ("Brain: shared company knowledge for every agent",(N,Y)),
- ("Studio: an online AI workspace per employee, with cost and usage by person",(N,Y)),
- ("AgentBridge: every agent on one network",(N,Y)),
- ("Vault: governed MCP access, shared secrets and audit",(N,Y)),
- ("LLM Gateway: model access and cost per person",(N,"Coming soon")),
- ("Company controls",None),
- ("Custom integrations and playbooks built with you",(N,Y)),
- ("SSO (SAML / OIDC) and SCIM",(N,Y)),
- ("Audit log export",(N,Y)),
- ("Commercial license",(N,Y)),
- ("Deployment & support",None),
- ("Where it runs","Your Mac or server|Your VPC or private cloud"),
- ("Onboarding",("Docs","Set up with you")),
- ("Support",("Community","Dedicated + SLA")),
-]
-def compare():
-    out=['<div class="compare-wrap"><table class="compare"><caption class="sr-only">Plan comparison</caption><thead><tr><th scope="col">Feature</th><th scope="col">Goals only</th><th scope="col">Enterprise</th></tr></thead><tbody>']
-    for label,vals in ROWS:
-        if vals is None:
-            out.append(f'<tr class="grp"><th scope="rowgroup" colspan="3">{label}</th></tr>'); continue
-        if isinstance(vals,str): vals=vals.split('|')
-        out.append(f'<tr><th scope="row">{label}</th>'+''.join(f'<td>{v}</td>' for v in vals)+'</tr>')
-    out.append('</tbody></table></div>')
-    return '\n        '.join(out)
-
+# /pricing/ "How we work" (owner 2026-11-28): product plus a four-week setup with one team on the company's
+# servers, then the licence. No prices, no free tier, no hosted plan.
 FAQ_PRICING=[
- ("How is Enterprise priced?","A one-time setup fee for customizing and deploying it for your company, then a monthly fee for the platform, updates, support and ongoing changes. We scope both on a call, based on the processes, tools and where it runs."),
- ("What's included in Enterprise?","Everything: Goals, Crews, Flows, Brain, Studio, AgentBridge, Vault and, when it ships, LLM Gateway, deployed in your own cloud, set up for your processes, with SSO, audit logs, custom integrations and dedicated support."),
- ("Is the source code available?","Yes. The source is public under the Business Source License 1.1. Using it in the operation of your business, or offering it to others, needs a commercial license from us, which is included in Enterprise. Each version converts to the Apache License 2.0 after three years."),
- ("Do I need my own AI plan?","Yes. AgentWorks runs on the Claude, ChatGPT, Gemini or Cursor plan you already pay for, through that vendor's own coding agent (or its API key). We never mark up tokens, so your AI bill stays with your provider."),
+ ("What does the four-week setup include?","We pick one team and one piece of work they pass around by hand. We install AgentWorks on your servers, connect the tools that work touches, set up the Team kit, and build the agents with your people. At the end your team runs it."),
+ ("How is it priced?","A fixed setup with a clear scope, then the product licence. We agree both on a call once we know the team and the work."),
+ ("Do we have to change our tools?","No. Jira, Notion, Google Docs and Sheets, Slack and the rest stay. Agents work inside them."),
+ ("Do we need new AI subscriptions?","No. Each person uses the AI plan they already pay for (Claude, ChatGPT, Gemini, Cursor and others), or the team uses a shared key. We never mark up model costs."),
+ ("Is the source code available?","Yes. The source is public under the Business Source License 1.1. Using it in the operation of your business needs a commercial licence from us, which comes with the setup. Each version converts to the Apache License 2.0 after three years."),
+ ("What happens after the first team?","Add the next team when the first one works. Its agents use the same Team kit, Brain and tool connections, so each team starts faster."),
 ]
 
 body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">How we work</p>
-        <h1>We don't hand you a login. <span class="dim">We build it around your company.</span></h1>
-        <p class="lede">AgentWorks is deployed for each company: customized for your processes, connected to your tools and running in your own cloud. A one-time setup fee covers that work, and a monthly fee covers the platform, updates, support and changes as you grow. We scope both on a call.</p>
+        <h1>We set it up with you. <span class="dim">Your team runs it.</span></h1>
+        <p class="lede">In four weeks we set AgentWorks up with one of your teams, on your servers: one piece of work they pass around by hand, the tools it touches, and the agents that do it. Then your team runs it, and you add the next team when it works.</p>
       </div>
     </section>
 
@@ -58,13 +22,13 @@ body=f'''  <main id="main">
     <section class="section" id="onboarding">
       <div class="wrap">
         <div class="section-head center reveal">
-          <p class="kicker">Three steps</p>
-          <h2>One process first. <span class="dim">Results before scale.</span></h2>
+          <p class="kicker">Four weeks</p>
+          <h2>One team first. <span class="dim">Then the next.</span></h2>
         </div>
         <ol class="pilot">
-          <li class="reveal"><small>Step 1 · 30 minutes</small><h3>Scope it on a call</h3><p>Which process to start with, which tools it touches, who approves what, and where it should run. We tell you honestly if it's a fit.</p></li>
-          <li class="reveal"><small>Step 2 · Setup</small><h3>We customize and deploy</h3><p>We deploy in your cloud, connect your tools, load your company knowledge into Brain, set access and approval rules, and build the first agents with your team.</p></li>
-          <li class="reveal"><small>Step 3 · Every month</small><h3>It runs, we improve it</h3><p>Your team uses it day to day. We review what the agents did with you, fix what isn't working and add the next process.</p></li>
+          <li class="reveal"><small>Step 1 &middot; 30 minutes</small><h3>Pick the work on a call</h3><p>Which team, which piece of work moves between people by hand, which tools it touches and who decides what. We tell you honestly if it&rsquo;s a fit.</p></li>
+          <li class="reveal"><small>Step 2 &middot; Four weeks</small><h3>We set it up with your team</h3><p>We install AgentWorks on your servers, connect your tools in the Team kit, add your company knowledge to Brain, and build the agents with the people who do the work.</p></li>
+          <li class="reveal"><small>Step 3 &middot; After</small><h3>Your team runs it</h3><p>The team asks its agents, hands work off and lets routine jobs run. When it works, the next team joins on the same setup.</p></li>
         </ol>
         <p class="tpl-more center-row"><a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a></p>
       </div>
@@ -73,16 +37,16 @@ body=f'''  <main id="main">
     <section class="section">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">What's included</p>
-          <h2>Everything your deployment needs. <span class="dim">One platform, set up with you.</span></h2>
+          <p class="kicker">What you get</p>
+          <h2>The product and the setup. <span class="dim">Done with you, not for you.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><h3>Agents for your processes</h3><p>Goals that run a process toward a number, Crews your teams ask, Flows your systems call, and the premade agents to start from. <a href="/platform/">See the platform</a>.</p></li>
-          <li class="reveal"><h3>Built around your tools</h3><p>Integrations, company knowledge and approval rules set up for your processes, by us, with your team.</p></li>
-          <li class="reveal"><h3>Company controls</h3><p>Single sign-on (SAML or OIDC), SCIM, Vault for tools and secrets, audit log export, every run recorded with its cost.</p></li>
-          <li class="reveal"><h3>Your cloud</h3><p>Deployed in your VPC or private cloud, on the AI plans you already pay for. We never mark up model tokens.</p></li>
-          <li class="reveal"><h3>Commercial license</h3><p>The source is public under the Business Source License; your deployment comes with a commercial license.</p></li>
-          <li class="reveal"><h3>Support that stays</h3><p>Dedicated support with an SLA, a monthly review of what the agents did, and changes as you add teams.</p></li>
+          <li class="reveal"><h3>Agents for one piece of work</h3><p>The agents your team needs for the work you picked, built from premade agents where they fit. <a href="/platform/">How it works</a>.</p></li>
+          <li class="reveal"><h3>Your tools connected</h3><p>Jira, Notion, Google Docs, Slack and the rest, connected once in the Team kit and shared across teams.</p></li>
+          <li class="reveal"><h3>On your servers</h3><p>Installed on your own server or a Mac, on the AI plans your people already pay for.</p></li>
+          <li class="reveal"><h3>People stay in charge</h3><p>Anything that goes out waits for a person unless you allow it; everyone sees who, person or agent, is on what.</p></li>
+          <li class="reveal"><h3>Commercial licence</h3><p>The source is public under the Business Source License; your company runs it under a commercial licence.</p></li>
+          <li class="reveal"><h3>Your team owns it</h3><p>We hand it over with your people trained on it, so the next piece of work doesn&rsquo;t wait for us.</p></li>
         </ul>
       </div>
     </section>
@@ -103,8 +67,8 @@ body=f'''  <main id="main">
     <section class="cta">
       <div class="wrap">
         <div>
-          <h2>Tell us your first process. <span class="dim">We'll build around it.</span></h2>
-          <p>Book a call and we'll scope a pilot around one of your processes.</p>
+          <h2>Pick one piece of work your team passes around. <span class="dim">We&rsquo;ll set it up with you.</span></h2>
+          <p>Book a short call about the work and the team.</p>
           <div class="cta-actions">
             <a class="btn btn-primary" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           </div>
@@ -113,6 +77,6 @@ body=f'''  <main id="main">
     </section>
   </main>
 '''
-PRICE_LD={"@type":"WebPage","name":"How AgentWorks works","url":"https://agentworkshq.com/pricing/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
+PRICE_LD={"@type":"WebPage","name":"How we work with AgentWorks","url":"https://agentworkshq.com/pricing/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
 BC=lambda name,path: {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgentWorks","item":"https://agentworkshq.com/"},{"@type":"ListItem","position":2,"name":name,"item":"https://agentworkshq.com"+path}]}
-pages['pricing/index.html']=head('How AgentWorks Works - Deployed and Customized for Your Company','AgentWorks is deployed for each company: customized for your processes, connected to your tools and running in your own cloud, with a one-time setup fee and a monthly fee scoped on a call.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('Pricing','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()
+pages['pricing/index.html']=head('How We Work - AgentWorks Set Up With One Team in Four Weeks','In four weeks we set AgentWorks up with one of your teams on your servers: one piece of work they pass around by hand, your tools connected, the agents built with your people. Then your team runs it.','/pricing/',og='agentworks-pricing-og.jpg',extra_ld=ld(PRICE_LD,BC('How we work','/pricing/'),SOFT,faq_ld(FAQ_PRICING)))+header('pricing')+body+footer()

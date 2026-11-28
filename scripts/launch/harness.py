@@ -3,10 +3,10 @@
 HARNESS_PARTS=[
   ('Instructions and context','What the agent is told and what it can look up: its job, the rules, the know-how, and what happened last time.','Project and per-agent instructions, skills, shared company knowledge in Brain, and memory that carries from one run to the next.','/brain/','Brain'),
   ('Tools','What the agent can act with, and how each tool explains itself so the agent uses it correctly.','MCP servers, a browser, files, the database, Gmail, Slack and WhatsApp, granted per group through Vault.','/vault/','Vault'),
-  ('The work loop','How the work runs: which steps need judgment, which are the same every time, and what starts them.','Goal steps (agent steps for judgment, scripted steps for known work), Crews you can ask any time, schedules and condition triggers.','/goals/','Goals'),
+  ('The work loop','How the work runs: which steps need judgment, which are the same every time, and what starts them.','Agents anyone on the team can ask, hand-offs between agents and people, and routine jobs on a schedule.','/platform/','How it works'),
   ('Guardrails','What the agent may touch, and what waits for a person.','Access per group, secrets that reach work only as environment variables, step-level file access, and people approving the steps that matter.','/vault/','Vault'),
-  ('Checks','How you know a run did its job, not just that it finished.','Output checks on every step, a goal with a number and a target, and a review of every run against them.','/goals/','Goals'),
-  ('Records','The evidence: what was asked, what the agent did, what it cost and who approved it.','Every run recorded with its steps, results, cost and the person who asked or approved, visible to the people the work is shared with.','/product/','Product'),
+  ('Checks','How you know a run did its job, not just that it finished.','People review what matters before it goes out, and everyone sees who, person or agent, is on what.','/platform/','How it works'),
+  ('Records','The evidence: what was asked, what the agent did, what it cost and who approved it.','Every run recorded with its steps, results, cost and the person who asked or approved, visible to the people the work is shared with.','/agentbridge/','AgentBridge'),
 ]
 HARNESS_FAQ=[
   ("What is harness engineering?","An AI agent is a model plus a harness: the instructions, tools, work loop, guardrails, checks and records around the model. Harness engineering is designing that layer so the agent does the job reliably, not just once in a demo."),
@@ -73,7 +73,7 @@ harness_body=f'''  <main id="main">
               <li>Instructions, skills and knowledge shared in one place</li>
               <li>Tools and secrets granted per group, never copied around</li>
               <li>Runs on a schedule, on a trigger, or when anyone asks</li>
-              <li>Every step checked, every goal measured against its target</li>
+              <li>Every step checked, and people approve what goes out</li>
               <li>Every run recorded: steps, result, cost and who approved</li>
             </ul>
           </div>
@@ -92,7 +92,7 @@ harness_body=f'''  <main id="main">
           <li><b>An agent checks each one against the order</b><span>Its instructions and the refund policy skill tell it what a valid request looks like.</span></li>
           <li><b>A rule in code flags anything over $200</b><span>A guardrail that does not depend on the agent remembering it.</span></li>
           <li><b>A person approves the big ones</b><span>In Slack or WhatsApp, with the agent's reasoning attached.</span></li>
-          <li><b>Script issues the refunds and records the run</b><span>Every refund, approval and cost lands in the run record, and the goal tracks how fast refunds close.</span></li>
+          <li><b>Script issues the refunds and records the run</b><span>Every refund, approval and cost lands in the run record, so anyone can ask where a refund stands.</span></li>
         </ol>
       </div>
     </section>

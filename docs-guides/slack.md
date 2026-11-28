@@ -22,7 +22,7 @@ Your crew lives in Slack like a teammate. It only responds when mentioned, it ke
 
 ## What happens next
 
-Routine jobs stop needing you. The crew runs them on schedule, posts short status updates to the channel, and only threads you when something needs approval or goes off track. Move the goal's autonomy up when you trust it — see [Approvals and autonomy](approvals-autonomy.md).
+Routine jobs stop needing you. The agents run them on schedule, post short status updates to the channel, and only thread you when something needs approval or goes off track. You can raise an agent's limits when you trust it.
 
 ## FAQs
 
@@ -33,7 +33,7 @@ No. It responds to @mentions and reads the thread it is working in, within stric
 Yes. Scheduled updates, finished jobs, and approvals come to you — in the channel thread for the job, or by DM if you set that up. You never have to go looking for status.
 
 **What can it do from Slack?**
-Anything the goal allows: research, drafts, file updates, tool actions, and sending messages — each gated by your approval settings. Outward-facing actions always ask first at the default level.
+Anything you allow: research, drafts, file updates, tool actions, and sending messages — each gated by your approval settings. Outward-facing actions always ask first at the default level.
 
 **Two of us share a channel. Whose job is it?**
 Whoever mentioned the crew. Each thread is one job with its own history, so teammates can run separate jobs in the same channel without interference.

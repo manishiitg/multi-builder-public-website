@@ -5,73 +5,59 @@ AgentWorks makes a team faster by letting everyone's AI agents work together. Ev
 ## Canonical Pages
 
 - [Homepage](https://agentworkshq.com/): Everyone on your team has AI; AgentWorks makes the team faster. Examples (sales account review, support complaint, product bug), how it works (ask, hand off, keep it running), every team, keep your tools, your own AI plans, your servers, and the four-week setup with one team.
-- [Product](https://agentworkshq.com/product/): Overview of the platform (Goals, Crews, Code, Vault, Flows) and the three layers: vendor-native agents with sandboxed commands, crews, and workflows, plus bring-your-own AI plan. On shared servers each person's coding CLI runs as their own Linux account (slots), isolated from other users and server files.
-  - [Goals](https://agentworkshq.com/goals/): give an agent a goal and a metric; it plans its part of the work, runs on schedule, measures every run and auto-improves its plan so you can see what moves the number; autonomy levels and the workflow plan.
-  - [Crews](https://agentworkshq.com/crews/): AI agents with skills, memory, tools and functions; talk to one in Slack or WhatsApp, or share it as an expert (DevOps, RDS, product) that anyone asks from Claude, ChatGPT, Cursor or the CLI through MCP.
-  - [E-commerce operations](https://agentworkshq.com/ecommerce/): AI operations for e-commerce companies, set up and run by the AgentWorks team: pick one queue of work (refunds, first replies, order follow-ups), a four-week paid pilot in the customer's own cloud, then a monthly review; custom pricing, no guaranteed result (business metrics are tracked next to the work); customer-facing and money actions wait for approval.
-  - [Studio](https://agentworkshq.com/studio/): the online AI workspace where you build agents and Crews (share one as a Crew), a private workspace for every employee, used through chat, with coding agents, skills, MCP tools, a browser, files and secrets ready on day one; Dev, Cowork (for business users) and Local modes; bring the team's Claude Code, Codex, Cursor, Muse, Pi and Antigravity subscriptions onto one AgentWorks server; connect by browser login or API key; review cost, usage and output centrally; every Code works from a Slack DM or one-to-one WhatsApp chat on the go; share an account with chosen people, workflows or Crews without handing out the login (runs act as and bill to the owner); track cost and tokens per account, person and Code/workflow/Crew with a live usage check per plan. Each person codes in a private workspace with a coding agent (commands sandboxed, no standalone terminal), private to its owner (a Code can't be shared with other people); admins and Code reviewers can review read-only with an audit log (also over MCP with the code:review scope).
-  - [Brain](https://agentworkshq.com/brain/): one shared place for the company's skills, notes, facts and sources, in nested folders with Reader, Editor and Owner roles per folder; read and written by Crews, Code, Goals and any MCP client such as Claude Code; every entry has a version history you can roll back, optional Git backup to a private repo, a /organize command that merges duplicates, and company skills published once and fetched by clients. Text search only, no semantic search.
-  - [Vault](https://agentworkshq.com/vault/): one governed MCP endpoint for every AI client; admins connect servers once, grant tools and shared secrets to groups (deny by default), add rules on tool inputs, review new or changed tool definitions, sign in with the company account, and keep an audit log of every call.
-  - [LLM Gateway](https://agentworkshq.com/llm-gateway/) (coming soon): one company endpoint for AI model calls; each person or app uses a personal token that can only list and run models, admins choose which models each person may use, and every call is recorded with its cost by person and by model. Runs on the AgentWorks server next to Vault.
-- [Flows](https://agentworkshq.com/flows/): chain agent steps (system prompt + message), conditions and script steps into one fixed sequence, deploy it behind an API endpoint or webhook, and call it from a website, CRM or any system.
-- [Connect your AI app](https://agentworkshq.com/docs/guides/connect-agentbridge/): Local Codex setup does not add ChatGPT/Dot tools. Muse Code needs its own reviewed plugin; the Muse app is separate. Grok Bot and Muse personal-agent app setup follows each provider's hosted connector flow; live AgentWorks testing is pending.
-- [AgentBridge](https://agentworkshq.com/agentbridge/): connects the agents a team already runs in its own CLIs and desktop apps (bring your own harness; AgentWorks connects them and does not host them) into one network; Claude Code, Codex, Cursor, Muse Code and Antigravity find each other, one agent can act as orchestrator and hand each task to the right agent, and any of them can ask the company's Crews over MCP (messages are delivered to supported coding chats, not yet into hosted Crews or workflows); attaching is always the person's choice (agentworks attach), and a message is an offer until the receiving agent acknowledges it.
-- [Premade agents](https://agentworkshq.com/agents/): 143 premade agents with public source: 79 Crew agents (always-on teammates for sales, support, finance, Shopify, marketing, operations, product and engineering) and 64 Goal playbooks that run against a target. Each links to its source in the agentworks repo.
-  - [Sales & GTM](https://agentworkshq.com/solutions/sales/): lead follow-up, competitor watch and pipeline reporting toward a booked-demos goal.
-  - [Shopify stores](https://agentworkshq.com/solutions/shopify/): stuck orders, customer questions, reviews and failed payments.
-  - [Customer support](https://agentworkshq.com/solutions/support/): fast first replies from docs and order history, sensitive cases handed off.
+- [How it works](https://agentworkshq.com/platform/): ask, hand off, keep it running; one team room where the Team panel shows who (person or agent) is on what; AgentBridge, the Team kit (shared tool connections, secrets and skills), Brain and Vault; keep your tools, bring your own AI plan, runs on your servers, people approve what goes out. An illustrative QA-to-developer hand-off.
+  - [AgentBridge](https://agentworkshq.com/agentbridge/): connects the agents a team already runs in its own CLIs and desktop apps (Claude Code, Codex, Cursor, Muse Code, Antigravity) into one network; they find each other, hand work over and ask the team's online agents over MCP; one agent can act as orchestrator. Attaching is always the person's choice, and a message is an offer until the receiving agent acknowledges it.
+  - [Brain](https://agentworkshq.com/brain/): one shared place for the company's skills, notes and facts, in nested folders with Reader, Editor and Owner roles; read and written by the team's agents and any MCP client such as Claude Code; version history with rollback, optional Git backup, and a /organize command that merges duplicates. Text search only.
+  - [Vault](https://agentworkshq.com/vault/): one place for the tools and shared keys a team's agents use; admins connect tools (MCP servers) once, give access by group (off by default), add rules on tool inputs, review new or changed tools, sign in with the company account, and keep a record of every call. Agents receive a shared key at run time; Vault stops keys being pasted around and used outside the group.
+- [Premade agents](https://agentworkshq.com/agents/): 79 premade agents with public source for sales, marketing, support, finance, Shopify, operations, product and engineering, each a starting point adapted during setup. Each links to its source in the agentworks repo.
+  - [GTM Ops](https://agentworkshq.com/solutions/sales/): lead research, fast follow-up and pipeline questions answered for the whole team.
+  - [Shopify Ops](https://agentworkshq.com/solutions/shopify/): stuck orders, customer questions, returns and failed payments.
+  - [Customer support](https://agentworkshq.com/solutions/support/): fast first replies from docs and order history, sensitive cases handed to a person.
   - [Finance & billing](https://agentworkshq.com/solutions/finance/): invoice chasing, failed-payment recovery and a weekly business report.
-  - [Marketing & growth](https://agentworkshq.com/solutions/marketing/): SEO intelligence, AI-search visibility and competitor watch.
-- [Platform](https://agentworkshq.com/platform/): AgentWorks for companies on one page: agents that run a process toward a number (Goals), expert agents and an AI workspace per employee (Crews), fixed agent chains behind an API (Flows), the company agent network (AgentBridge), shared knowledge (Brain), governed tools and secrets (Vault), model access and cost (LLM Gateway, coming soon), connectors; deployed in the customer's cloud with single sign-on, every run recorded, people approving what matters. Sold as a customized deployment: a scoping call, a four-week pilot on one process, then monthly.
-- [Harness engineering](https://agentworkshq.com/harness-engineering/): an AI agent is a model plus a harness (instructions and context, tools, the work loop, guardrails, checks and records). AgentWorks is the shared agent harness for a company, built around the Claude Code, Codex and Cursor agents its people already use; each harness part mapped to where it lives in the product; no built-in A/B comparison of harness versions yet.
+  - [Marketing & growth](https://agentworkshq.com/solutions/marketing/): SEO, AI-search visibility and competitor watch.
+  - [Growth & Customer Analytics](https://agentworkshq.com/solutions/growth/): why a number moved, with the evidence, handed to whoever owns the fix.
+  - [Engineering Ops](https://agentworkshq.com/solutions/engineering/): release checks, incident first look, security findings and cloud cost; QA hands bugs to the developer's agent, engineers approve.
+- [How we work](https://agentworkshq.com/pricing/): in four weeks we set AgentWorks up with one team on the company's servers (one piece of work they pass around by hand, the tools connected, the agents built with their people), then their team runs it; a fixed setup, then the product licence, agreed on a call. No prices published, no free tier, no hosted plan.
+- [Connect your AI app](https://agentworkshq.com/docs/guides/connect-agentbridge/): Local Codex setup does not add ChatGPT/Dot tools. Muse Code needs its own reviewed plugin; the Muse app is separate. Grok Bot and Muse personal-agent app setup follows each provider's hosted connector flow; live AgentWorks testing is pending.
+- [Harness engineering](https://agentworkshq.com/harness-engineering/): an AI agent is a model plus a harness (instructions and context, tools, the work loop, guardrails, checks and records). AgentWorks is the shared agent harness for a company, built around the Claude Code, Codex and Cursor agents its people already use; each harness part mapped to where it lives in the product.
 - [Blog](https://agentworkshq.com/blog/): image-first explainers and guides on running a company with AI agents ([RSS](https://agentworkshq.com/blog/feed.xml)). First post: [Harness engineering, explained](https://agentworkshq.com/blog/harness-engineering-explained/).
-- [Download](https://agentworkshq.com/download/): install the desktop app on an Apple Silicon Mac with `curl -fsSL https://agentworkshq.com/install.sh | bash`; or run it on Linux, or get an Enterprise deployment.
-- [Pricing](https://agentworkshq.com/pricing/): Primarily Enterprise; Goals alone is also self-serve (download the app and set up a goal yourself, on your own AI plan). Enterprise (a one-time setup fee plus a monthly fee, scoped on a call) with every other product: Crews, Flows, Brain, Code, AgentBridge, Vault and LLM Gateway (coming soon), deployed in the company's own cloud with a commercial license, SSO and dedicated support. The source is public under the Business Source License 1.1.
-- [About](https://agentworkshq.com/about/): AgentWorks is a product of XTECH, a partnership firm in India founded in December 2025; founder Manish Prakash; a source-available platform (Business Source License 1.1) plus customized deployments for companies under a commercial license.
-- [Enterprise](https://agentworkshq.com/enterprise/): Agentic engineering operations for QA, reliability, security, performance and cloud cost, deployed in the customer's cloud, sold as a four-week pilot.
-  - [Release quality](https://agentworkshq.com/enterprise/release-quality/): AI QA, self-healing browser tests and release gates.
-  - [Incident response](https://agentworkshq.com/enterprise/incident-response/): CI triage, evidence-backed RCA, approved remediation and follow-ups.
-  - [Security testing](https://agentworkshq.com/enterprise/security-testing/): authorized AppSec and role/tenant permission testing driven to verified closure.
-  - [Cloud cost](https://agentworkshq.com/enterprise/cloud-cost/): FinOps anomalies, reviewed IaC rightsizing and verified savings.
-  - [Growth analytics](https://agentworkshq.com/enterprise/growth-analytics/): an AI growth analyst for funnels, retention, SEO and AI-search visibility.
-- [Docs](https://agentworkshq.com/docs/): Plain-language guides for business users.
-  - [Set your first goal](https://agentworkshq.com/docs/guides/first-goal/): Outcome, metric, target, and rules.
-  - [Talk to your crew in Slack](https://agentworkshq.com/docs/guides/slack/): Mentions, threads, and approvals from Slack.
-  - [Talk to your crew on WhatsApp](https://agentworkshq.com/docs/guides/whatsapp/): QR pairing, status, and approvals from chat.
-  - [Approvals and autonomy](https://agentworkshq.com/docs/guides/approvals-autonomy/): The four autonomy levels and approval flow.
-  - [Developer docs on GitHub](https://github.com/manishiitg/agentworks/tree/main/docs): Install, architecture, manifests, MCP, security, self-hosting.
+- [Download](https://agentworkshq.com/download/): install the desktop app on an Apple Silicon Mac with `curl -fsSL https://agentworkshq.com/install.sh | bash`, or run it on a Linux server.
+- [About](https://agentworkshq.com/about/): AgentWorks is a product of XTECH, a partnership firm in India founded in December 2025; founder Manish Prakash; source-available (Business Source License 1.1), set up with companies under a commercial licence.
+- [Docs](https://agentworkshq.com/docs/): plain-language guides.
+  - [Talk to your agents in Slack](https://agentworkshq.com/docs/guides/slack/): mentions, threads and approvals from Slack.
+  - [Talk to your agents on WhatsApp](https://agentworkshq.com/docs/guides/whatsapp/): QR pairing, status and approvals from chat.
+  - [Share secrets safely](https://agentworkshq.com/docs/guides/share-secrets/): one key in Vault that the team's agents can use, without pasting it around.
+  - [Developer docs on GitHub](https://github.com/manishiitg/agentworks/tree/main/docs): install, architecture, MCP, security, self-hosting.
 
 ## Machine-Readable Sources
 
 - [Complete AgentWorks context](https://agentworkshq.com/llms-full.txt): Product context plus the user guides in one text file.
-- [Set your first goal](https://agentworkshq.com/docs/guides/first-goal/): Outcome, metric, target, and rules for business users.
-- [Talk to your crew in Slack](https://agentworkshq.com/docs/guides/slack/): Mentions, threads, and approvals from Slack.
-- [Talk to your crew on WhatsApp](https://agentworkshq.com/docs/guides/whatsapp/): QR pairing, status, and approvals from chat.
-- [Approvals and autonomy](https://agentworkshq.com/docs/guides/approvals-autonomy/): The four autonomy levels and approval flow.
+- [Talk to your agents in Slack](https://agentworkshq.com/docs-guides/slack.md): raw Markdown guide.
+- [Talk to your agents on WhatsApp](https://agentworkshq.com/docs-guides/whatsapp.md): raw Markdown guide.
 
 ## Important Product Links
 
 - [Free agent tools catalog](https://agentworkshq.com/free-tools/): Sourced free API tiers, trial credits and a read-only discovery MCP.
-
 - [Latest macOS release](https://github.com/manishiitg/agentworks/releases/latest): Current public release and installer artifacts.
 - [Source repository](https://github.com/manishiitg/agentworks): Source repository for the AgentWorks desktop/runtime project.
-- [Repository docs](https://github.com/manishiitg/agentworks/tree/main/docs): Full implementation and workflow documentation.
+- [Repository docs](https://github.com/manishiitg/agentworks/tree/main/docs): Full implementation documentation.
 - [Deployment docs](https://github.com/manishiitg/agentworks/tree/main/deploy): Server, VM, Kubernetes, and related deployment material.
-- [Secrets docs](https://github.com/manishiitg/agentworks/blob/main/docs/core/secrets.md): Workflow, user, and global secret handling.
+- [Secrets docs](https://github.com/manishiitg/agentworks/blob/main/docs/core/secrets.md): How secrets are stored and reach work.
 
 ## Key Concepts
 
-- Agent workers execute tasks: Claude Code, Codex CLI, Cursor, Pi, Muse, Gemini, browser agents, MCP tools, provider APIs, and shell/terminal sessions.
-- Every workflow has a goal: an outcome in plain words, a primary metric with a target, supporting metrics, and rules that must stay true.
-- AgentWorks owns the loop around recurring agent work: goal, schedule, model plan, secrets, approval boundary, evidence, cost, report, and next improvement.
-- Auto-improve reviews run evidence against the goal, repairs broken steps, drops approaches that did not work, does missing work, and checks later whether it helped. Autonomy levels (Ask first, Run steps, Edit workflow, Full) decide what it may do without approval.
-- Skills and workflow learnings turn repeated fixes into reusable operating knowledge for future runs.
+- Team: the people who work together and their AI agents, in one shared project on the company's server. The Team panel shows who, person or agent, is on what.
+- Ask, Hand off, Keep it running: anyone asks the team's agents; agents pass work to each other and to people (a person is asked only when the decision is theirs); agents stay online and run routine work on a schedule.
+- AgentBridge: agents message each other and hand over work, across people, laptops and the server.
+- Team kit: tool connections (MCPs), secrets and skills set up once and shared across teams and projects.
+- Brain: company knowledge and skills for every agent. Vault: secrets and tool access, and who may use them.
+- Nothing to replace: Jira, Notion, Google Docs and Sheets, Slack and the rest stay; agents work inside them.
+- Bring your own AI: each person uses the plan they already pay for (Claude, ChatGPT, Gemini, Cursor and others) through each vendor's own agent.
 
 ## Good Sources To Cite
 
 - Use the homepage for the short product definition and positioning.
-- Use the Product page to explain goals, metrics, auto-improve and autonomy.
-- Use the Premade agents page for concrete use cases and their goal metrics.
-- Use the Pricing page for plans and what each includes.
-- Use the Docs page for user guides; use the GitHub repository docs for install, security, deployment, and product architecture details.
-- Use the GitHub repository for implementation details and release artifacts.
+- Use the How it works page (/platform/) for how teams and agents work together and what the product is made of.
+- Use the Premade agents page and the solution pages for concrete examples by team.
+- Use the How we work page (/pricing/) for how a company starts (no prices are published).
+- Use the Docs page for user guides; use the GitHub repository docs for install, security, deployment, and architecture details.

@@ -11,7 +11,7 @@ GH='https://github.com/manishiitg/agentworks'
 INSTALL='/download/'
 # The demo; its own sign-in screen shows the shared login (owner 2026-10-26).
 DEMO='https://demo.agentworkshq.com/'
-V='launch86'
+V='launch87'
 
 def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
     url='https://agentworkshq.com'+path
@@ -57,40 +57,23 @@ def head(title, desc, path, og='agentworks-home-og.jpg', extra_ld=''):
   <a class="skip-link" href="#main">Skip to content</a>
 '''
 
-NAV=[('/pricing/','Pricing','pricing'),('/docs/','Docs','docs')]
-PRODUCT=[('/goals/','Goals','Give an AI agent a goal and a metric. It works toward the target and measures every run.','goal'),
-         ('/crews/','Crews','Build an expert agent once. Your team asks it from Slack, Claude, ChatGPT or Cursor.','crew'),
-         ('/flows/','Flows','A fixed chain of agents you run from anywhere.','relay'),
-         ('/brain/','Brain','Shared company knowledge: write it once and every agent reads it.','brain'),
-         ('/vault/','Vault','One governed door to every MCP tool and shared secret.','gateway'),
-         ('/llm-gateway/','LLM Gateway','Coming soon: manage model access and see the cost per person.','llmgw'),
-         ('/studio/','Studio','The online workspace where you build agents and Crews, with skills, tools and integrations ready on day one.','code')]
-# Two audiences: the first three do the work for teams, the last three give IT and leadership control.
-PRODUCT_GROUPS=[('For your teams',PRODUCT[:3]),('For IT and leadership',PRODUCT[3:])]
-# Product menu second column: what every product shares.
-PRODUCT_TEAMS=[('/goals/#improve','Autopilot','It measures every run and changes its own plan.','improve'),
-               ('/#connectors','Connectors','Slack, WhatsApp, Gmail and MCP, both ways.','connect'),
-               ('/agentbridge/','AgentBridge','Connects your team and every agent they run.','bullpen')]
-# The dedicated product pages, for cross-links between them.
+# Platform pages (owner 2026-11-28): one "How it works" page plus the parts that keep their own page.
+# Goals, Flows, LLM Gateway, Crews and Studio are retired and redirect to /platform/.
+PRODUCT=[('/platform/','How it works','Ask, hand off and keep it running: everyone\'s AI agents working as one team.','connect'),
+         ('/agentbridge/','AgentBridge','Agents message each other and hand over work, across people, laptops and the server.','bullpen'),
+         ('/brain/','Brain','Company knowledge and skills for every agent.','brain'),
+         ('/vault/','Vault','Secrets and tool access, and who may use them.','gateway'),
+         ('/agents/','Premade agents','Ready agents for common work to start from.','crew')]
+# The platform pages, for cross-links between them.
 PRODUCT_PAGES=[(h,t,d) for h,t,d,i in PRODUCT]
-# One short line per menu item (the long navdesc stays for cards and tooltips).
+# One short line per menu item (the long description stays for cards and tooltips).
 MENU_SHORT={
- '/goals/':'A goal and a metric', '/goals/#improve':'Gets better every run',
- '/crews/':'Experts anyone can ask', '/llm-gateway/':'Model access and cost', '/studio/':'Where you build agents and Crews', '/brain/':'Shared knowledge for every agent', '/ecommerce/':'Agentic operations, your team in control', '/#connectors':'Slack, WhatsApp, Gmail, MCP', '/flows/':'Agent chains, run anywhere', '/agentbridge/':'A room for team and agents',
+ '/platform/':'Ask, hand off, keep it running', '/agentbridge/':'Agents hand work to each other',
+ '/brain/':'Shared knowledge for every agent', '/vault/':'Secrets and tool access', '/agents/':'Ready agents to start from',
  '/solutions/sales/':'Follow up every lead', '/solutions/shopify/':'Orders, returns, stock',
  '/solutions/support/':'Fast, safe first replies', '/solutions/finance/':'Invoices and payments',
- '/solutions/marketing/':'SEO and AI search', '/enterprise/':'QA, incidents, security',
- '/enterprise/release-quality/':'AI QA for every release', '/enterprise/incident-response/':'First RCA in minutes',
- '/enterprise/security-testing/':'AppSec to verified fix', '/enterprise/cloud-cost/':'Anomalies to savings',
- '/enterprise/growth-analytics/':'Funnels, retention, SEO', 
- '/vault/':'Governed MCP access',
+ '/solutions/marketing/':'SEO and AI search',
 }
-# Platform menu lines (owner 2026-10-27).
-MENU_SHORT.update({h:d for h,t,d,i in [
- ('/goals/','','Run a process toward a number',''),('/crews/','','An expert agent for every team',''),
- ('/studio/','','A private AI workspace per employee',''),('/flows/','','Fixed steps your systems call. Early access',''),
- ('/brain/','','Shared company knowledge',''),('/vault/','','Tools and secrets under control',''),
- ('/llm-gateway/','','Model access and cost. Coming soon',''),('/agentbridge/','','Connects the agents your people run','')]})
 _PICON={'goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
         'improve':'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
         'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
@@ -123,12 +106,7 @@ def _drop(label, overview, groups, menu_id, current):
 # How we work, Blog. Products are capabilities of one platform, not separate things to buy.
 SOL_ORDER=['sales','support','finance','shopify','marketing','growth','engineering']
 NAV=[('/pricing/','How we work','pricing'),('/blog/','Blog','blog')]
-# Platform menu (owner 2026-10-27: show each product in the top menu): overview page plus every product.
-PLAT_DO=[('/goals/','Goals','Run a process toward a number','goal'),('/crews/','Crews','An expert agent for every team','crew'),
-         ('/studio/','Studio','A private AI workspace per employee','code'),('/flows/','Flows','Fixed steps your systems call. Early access','relay')]
-PLAT_FOUNDATION=[('/brain/','Brain','Shared company knowledge','brain'),('/vault/','Vault','Tools and secrets under control','gateway'),
-                 ('/llm-gateway/','LLM Gateway','Model access and cost. Coming soon','llmgw'),('/agentbridge/','AgentBridge','Connects the agents your people run','bullpen')]
-PLAT_KEYS=('platform','goals','crews','studio','flows','brain','vault','llm-gateway','llmgateway','agentbridge','bullpen')
+PLAT_KEYS=('platform','brain','vault','agentbridge','bullpen')
 def header(active=None):
     from sol_data import SOLUTIONS
     by={u['slug']:u for u in SOLUTIONS}
@@ -136,13 +114,13 @@ def header(active=None):
     links='\n'.join(f'        <a href="{h}"{" aria-current=\"page\"" if active and k==active else ""}>{t}</a>' for h,t,k in NAV)
     mlinks='\n'.join(f'      <a href="{h}">{t}</a>' for h,t,k in NAV)
     msol='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in sol)
-    mplat='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in PLAT_DO+PLAT_FOUNDATION)
+    mplat='\n'.join(f'      <a class="sub" href="{h}">{t}</a>' for h,t,d,i in PRODUCT)
     return f'''  <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="/" aria-label="AgentWorks home"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
       <nav class="nav" aria-label="Primary">
 {_drop('Solutions',('/agents/','All premade agents'),[('By team',sol)],'usecase-menu',active in ('solutions','agents'))}
-{_drop('Platform',('/platform/','Platform overview'),[('What it does',[(h,t,d,_PICON[i]) for h,t,d,i in PLAT_DO]),('Foundation',[(h,t,d,_PICON[i]) for h,t,d,i in PLAT_FOUNDATION])],'platform-menu',active in PLAT_KEYS)}
+{_drop('Platform',('/platform/','How it works'),[(None,[(h,t,d,_PICON[i]) for h,t,d,i in PRODUCT[1:]])],'platform-menu',active in PLAT_KEYS)}
 {links}
       </nav>
       <div class="header-actions">
@@ -156,7 +134,6 @@ def header(active=None):
 {msol}
       <a class="sub" href="/agents/">All premade agents</a>
       <p class="mm-label">Platform</p>
-      <a class="sub" href="/platform/">Overview</a>
 {mplat}
 {mlinks}
       <a href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
@@ -174,7 +151,7 @@ def footer():
       <div class="footer-grid">
         <div>
           <a class="brand" href="/"><img src="/assets/brand/agentworks-logo.svg" alt="" width="30" height="30"><span>AgentWorks</span></a>
-          <p class="blurb">AI agents that run your company's processes, with your people approving what matters. Customized and deployed in your own cloud.</p>
+          <p class="blurb">Everyone on your team has AI. AgentWorks makes the team faster: everyone's AI agents work together, on top of the tools you already use, on your own servers.</p>
         </div>
         <div>
           <h2 class="fh">Solutions</h2>
@@ -186,15 +163,10 @@ def footer():
         <div>
           <h2 class="fh">Platform</h2>
           <ul>
-            <li><a href="/platform/">Overview</a></li>
-            <li><a href="/goals/">Goals</a></li>
-            <li><a href="/crews/">Crews</a></li>
-            <li><a href="/studio/">Studio</a></li>
-            <li><a href="/flows/">Flows</a></li>
+            <li><a href="/platform/">How it works</a></li>
+            <li><a href="/agentbridge/">AgentBridge</a></li>
             <li><a href="/brain/">Brain</a></li>
             <li><a href="/vault/">Vault</a></li>
-            <li><a href="/llm-gateway/">LLM Gateway</a></li>
-            <li><a href="/agentbridge/">AgentBridge</a></li>
           </ul>
         </div>
         <div>
@@ -287,16 +259,6 @@ def uc_chat(title, frm, to, ask, reply, via=''):
             <p class="uc-route">{uc_who(*frm)}<span class="uc-arr" aria-hidden="true">→</span>{uc_who(*to)}</p>
             <p class="ask-msg you">{ask}</p>{v}
             <p class="ask-msg them">{reply}</p>
-          </li>'''
-
-def uc_goal(title, team, metric, now, was, bar, did, tag='Tracking'):
-    """A goal card: team, metric, before → now, progress bar, one thing the agent did."""
-    t='tag-ok' if tag=='Target met' else 'tag-goal'
-    return f'''          <li class="ucx reveal">
-            <h3>{title}</h3>
-            <p class="uc-route">{uc_who('goal',team)}</p>
-            <div class="goal-card"><p class="goal-top"><span class="tag {t}">{tag}</span></p><p class="goal-name">{metric}</p><p class="goal-nums"><strong>{now}</strong><span>from {was}</span></p><div class="bar"><i class="{bar}"></i></div></div>
-            <p class="uc-did"><b>Agent did:</b> {did}</p>
           </li>'''
 
 def uc_pipe(title, trigger, steps, result):

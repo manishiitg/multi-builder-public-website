@@ -4,7 +4,7 @@ about_body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">About</p>
         <h1>AgentWorks is built by XTECH. <span class="dim">A small team in India.</span></h1>
-        <p class="lede">We make AI agents work inside company processes, with your people in control: agents track the goal, measure every run and improve the next one, and a person approves what matters. We connect your team's AI, build the first company agents with you and deploy AgentWorks in your environment, under a commercial license. The source is public.</p>
+        <p class="lede">Everyone on a team has AI now, but each person's AI works alone. We build AgentWorks so everyone's AI agents work together: anyone hands work to an agent, agents pass it on, and everyone sees where it stands. We set it up with one of your teams on your servers, then your team runs it under a commercial licence. The source is public.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{GH}" target="_blank" rel="noreferrer">See the code on GitHub</a>

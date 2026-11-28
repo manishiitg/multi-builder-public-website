@@ -18,7 +18,7 @@ Your API keys and passwords start with you: nobody else's agent can use them. Va
 
 1. **Save the secret once.** In Vault → Secrets, create it and paste the value. From now on only the name is ever shown or saved in projects — never the value.
 2. **Grant use to a group.** Open Access, pick a group, go to Permissions → Secrets, and tick the secret. The built-in **Platform** group covers everyone on your team; it starts empty, so tick only what the whole team truly needs.
-3. **Tell teammates where to pick it.** In their own project — a Crew, Code, Goal, or workflow — they open Integrations → Secrets and choose it from **Platform secrets**. Their project stores just the name.
+3. **Tell teammates where to pick it.** In their own project — a Crew, Code or workflow — they open Integrations → Secrets and choose it from **Platform secrets**. Their project stores just the name.
 4. **Rotate by replacing, not re-sharing.** Paste the new value under the same name in Vault and everyone keeps working — no project needs editing. Rotate the key with its provider first: Vault stores the replacement, it can't disable the old key for you.
 
 ## FAQs

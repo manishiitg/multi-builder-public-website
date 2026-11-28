@@ -6,7 +6,7 @@ video: crew-whatsapp
 
 **What you'll do:** pair WhatsApp once with a QR code, then message your crew like a colleague and approve work from your phone.
 
-WhatsApp is the same crew as everywhere else — it knows your goals, your rules, and your approvals. Pairing connects one phone per workspace user, and stays connected until you remove it.
+WhatsApp reaches the same agents as everywhere else — they know your work, your rules, and your approvals. Pairing connects one phone per workspace user, and stays connected until you remove it.
 
 ![WhatsApp pairing in the app: scan the QR code to link a device (code blurred here)](/assets/docs/guides/whatsapp-pair.webp)
 
@@ -19,7 +19,7 @@ WhatsApp is the same crew as everywhere else — it knows your goals, your rules
 
 ## What happens next
 
-WhatsApp becomes your pocket view of every goal: progress notes arrive as jobs complete, and approvals wait for a one-word reply. For longer work — reviewing a plan, reading a full report — the message points you to the app, where everything is laid out.
+WhatsApp becomes your pocket view of the team's work: progress notes arrive as jobs complete, and approvals wait for a one-word reply. For longer work — reviewing a plan, reading a full report — the message points you to the app, where everything is laid out.
 
 ## FAQs
 
@@ -30,10 +30,10 @@ The number you paired during setup. It belongs to your workspace, so everyone yo
 No. It only sees the conversation with the paired number — your other chats are never visible to it.
 
 **Can it send messages on my behalf?**
-Only with your approval at the default level. Outward-facing sends always ask first; you raise that limit per goal when you trust it. See [Approvals and autonomy](approvals-autonomy.md).
+Only with your approval at the default level. Outward-facing sends always ask first; you can raise that limit per agent when you trust it.
 
 **What if I lose my phone?**
-Remove the session in Integrations → WhatsApp. The crew keeps your goals and history; pair the new phone with a fresh QR code and carry on.
+Remove the session in Integrations → WhatsApp. The agents keep your work and history; pair the new phone with a fresh QR code and carry on.
 
 **How do I end a chat and start fresh?**
 WhatsApp has no threads, so say it in words: `done`, `new session`, or `stop` ends the current chat. Anything after that starts clean.

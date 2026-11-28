@@ -36,9 +36,9 @@ When something fails, fix the missing input, unclear rule or broken step. Changi
 
 ## How AgentWorks does this
 
-![Real AgentWorks demo Flow with completed steps and its stored qualification result](demo-run.webp "Real demo screenshot: Deal desk Flow using fictional sample data. The record lets you inspect the result behind the status.")
+![Real AgentWorks demo run with completed steps and its stored qualification result](demo-run.webp "Real demo screenshot: the Deal desk run, using fictional sample data. The record lets you inspect the result behind the status.")
 
-In AgentWorks, the work can live in a shared process with instructions, tools and saved results. The demo’s Deal desk Flow shows its steps beside the recommendation they returned.
+In AgentWorks, the work can live in a shared process with instructions, tools and saved results. The demo’s Deal desk run shows its steps beside the recommendation they returned.
 
 That is the useful part of a harness: your team can open the work and inspect it.
 

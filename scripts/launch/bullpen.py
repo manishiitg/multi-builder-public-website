@@ -1,7 +1,7 @@
 # AgentBridge: connects a team's people and every agent they run.
 def _ic(k): return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+{'crew':'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>','goal':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'}[k]+'</svg>'
 FAQ_BULLPEN=[
- ("What is AgentBridge?","One network for the coding agents your team already runs in its own CLIs and desktop apps. Once you connect them, they find each other and hand work over, and any of them can ask your Crews over MCP."),
+ ("What is AgentBridge?","One network for the coding agents your team already runs in its own CLIs and desktop apps. Once you connect them, they find each other and hand work over, and any of them can ask your team's online agents over MCP."),
  ("Do my agents run inside AgentWorks?","No. You bring your own harness. Each agent keeps running in your own CLI or app, with your accounts and settings. AgentWorks only connects them."),
  ("Can a teammate read my chats?","No. They can ask your agent a question, and it shares only what you allow."),
  ("Who can see my agent?","Each agent is in one of two states: Connected, which only you can reach, or Published to the network, which your team can reach. You connect each chat yourself; nothing joins on its own."),
@@ -15,7 +15,7 @@ body=f'''  <main id="main">
       <div class="wrap">
         <p class="kicker">AgentBridge <span class="tag">Enterprise</span></p>
         <h1>All your agents, <span class="dim">one network.</span></h1>
-        <p class="lede">One network for your team's supported coding agents, including Claude Code, Codex, Cursor, Muse Code and Antigravity. Your agents keep running where they run today, and any of them can ask your Crews over MCP. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
+        <p class="lede">One network for your team's supported coding agents, including Claude Code, Codex, Cursor, Muse Code and Antigravity. Your agents keep running where they run today, and any of them can ask your team's online agents over MCP. Pick one as the orchestrator, and it hands each task to the right agent. You approve the result.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="#how">How you use it</a>
@@ -35,9 +35,9 @@ body=f'''  <main id="main">
             <div class="net-node"><span class="net-ic">{logo("cursor")}</span><b>frontend-fixes</b><small>Cursor · your app</small><em>Fixes the UI bugs</em></div>
             <div class="net-node"><span class="net-ic"><span class="mono-logo">M</span></span><b>docs-update</b><small>Muse Code · your CLI</small><em>Updates the docs</em></div>
             <div class="net-node"><span class="net-ic"><img src="/assets/brand/ai/antigravity.svg" alt="" width="16" height="16" /></span><b>release-check</b><small>Antigravity · your app</small><em>Checks the build</em></div>
-            <div class="net-node net-aw"><span class="net-ic">{_ic('crew')}</span><b>support-crew</b><small>Crew · asked over MCP</small><em>Lists open bug reports</em></div>
+            <div class="net-node net-aw"><span class="net-ic">{_ic('crew')}</span><b>support-crew</b><small>Online agent · asked over MCP</small><em>Lists open bug reports</em></div>
           </div>
-          <p class="net-foot">Your CLIs and apps hand work to each other and ask your Crews over MCP. Results come back to the orchestrator, and you approve.</p>
+          <p class="net-foot">Your CLIs and apps hand work to each other and ask your team's online agents over MCP. Results come back to the orchestrator, and you approve.</p>
         </div>
       </div>
     </section>
@@ -83,8 +83,8 @@ body=f'''  <main id="main">
             <p class="ask-msg them">Picked it up. Continuing.</p>
           </li>
           <li class="ucx reveal">
-            <h3>Ask a Crew</h3>
-            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{_ic('crew')}</span>Support Crew</span></p>
+            <h3>Ask an online agent</h3>
+            <p class="uc-route"><span class="uc-who"><span class="net-ic">{logo("claude")}</span>Claude Code</span><span class="uc-arr" aria-hidden="true">→</span><span class="uc-who"><span class="net-ic">{_ic('crew')}</span>Support agent</span></p>
             <p class="ask-msg you">Any open bug reports about checkout?</p>
             <p class="ask-msg them">Three, all with a coupon applied.</p>
           </li>
@@ -119,7 +119,7 @@ body=f'''  <main id="main">
         <ol class="loop loop-3 reveal">
           <li><h2>Connect</h2><p>Ask your agent to connect its own chat. Each app has its own setup.</p></li>
           <li><h2>Pick a lead</h2><p>Choose one agent as the orchestrator.</p></li>
-          <li><h2>Give it a goal</h2><p>It hands out the work. You approve the result.</p></li>
+          <li><h2>Give it the job</h2><p>It hands out the work. You approve the result.</p></li>
         </ol>
         <p class="uc-rules reveal"><span>Nothing joins on its own</span><span>Connected, or published to the network</span><span>Agents ask, people approve</span><span>Private chats stay private</span></p>
         <p class="center-row"><a href="/docs/guides/connect-agentbridge/">Choose the setup for your AI app →</a></p>
@@ -144,11 +144,11 @@ body=f'''  <main id="main">
         <p>Tell us which tools your people use, and we will connect them with you.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
-          <a class="btn btn-ghost" href="/product/">How AgentWorks works</a>
+          <a class="btn btn-ghost" href="/platform/">How AgentWorks works</a>
         </div>
       </div>
     </section>
   </main>
 '''
 BULLPEN_LD={"@type":"WebPage","name":"AgentBridge by AgentWorks","url":"https://agentworkshq.com/agentbridge/","isPartOf":{"@id":"https://agentworkshq.com/#website"}}
-pages['agentbridge/index.html']=head('AgentBridge by AgentWorks - Connect Your Team and Every Agent','AgentBridge connects the coding agents your team already runs in its own CLIs and desktop apps into one network with an orchestrator, and lets them ask your Crews. Each person chooses what joins.','/agentbridge/',extra_ld=ld(BULLPEN_LD,BC('AgentBridge','/agentbridge/'),faq_ld(FAQ_BULLPEN)))+header('product')+body+footer()
+pages['agentbridge/index.html']=head('AgentBridge by AgentWorks - Connect Your Team and Every Agent','AgentBridge connects the coding agents your team already runs in its own CLIs and desktop apps into one network with an orchestrator, and lets them ask the team\'s online agents. Each person chooses what joins.','/agentbridge/',extra_ld=ld(BULLPEN_LD,BC('AgentBridge','/agentbridge/'),faq_ld(FAQ_BULLPEN)))+header('agentbridge')+body+footer()

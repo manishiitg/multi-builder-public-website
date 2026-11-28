@@ -37,11 +37,11 @@ Give each run the new enquiries and the saved progress. Check whether an action 
 
 ## How AgentWorks does this
 
-![Real AgentWorks demo Flow showing completed lead-loading and qualification steps with a saved result](demo-run.webp "Real demo screenshot: Deal desk Flow, fictional sample data. This is a saved result, not evidence of a customer message being sent.")
+![Real AgentWorks demo run showing completed lead-loading and qualification steps with a saved result](demo-run.webp "Real demo screenshot: the Deal desk run, fictional sample data. This is a saved result, not evidence of a customer message being sent.")
 
-Open Deal desk in the demo. Its Flow keeps the steps and returned recommendation together, so you can inspect what happened.
+Open Deal desk in the demo. Its run keeps the steps and returned recommendation together, so you can inspect what happened.
 
-For work that repeats toward a target, AgentWorks Goals adds the outcome, metric and recurring steps. Your team can follow the evidence.
+For work that repeats, AgentWorks agents stay online and run it on a schedule, and anyone on the team can ask where it stands.
 
 ## Save this before you automate the next process
 
@@ -49,4 +49,4 @@ For work that repeats toward a target, AgentWorks Goals adds the outcome, metric
 
 Pick a process your team already understands. When a run disappoints, fix the unclear instruction, missing input or failed step the evidence points to.
 
-[Try it in the demo](https://demo.agentworkshq.com/) · [Explore AgentWorks Goals](/goals/)
+[Try it in the demo](https://demo.agentworkshq.com/) · [See how it works](/platform/)

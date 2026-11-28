@@ -22,29 +22,21 @@ const launchV = /V='([^']+)'/.exec(fs.readFileSync(path.join(__dirname, 'launch'
 
 const guidesNav = [
   { group: 'Start here', pages: [
-    { slug: 'first-goal', label: 'Set your first goal', blurb: 'Outcome, metric, target, and rules — your first running goal.' },
-    { slug: 'slack', label: 'Talk to your crew in Slack', blurb: 'Mention the crew, follow the thread, approve from Slack.' },
-    { slug: 'whatsapp', label: 'Talk to your crew on WhatsApp', blurb: 'Pair once with a QR code, approve from your phone.' },
-    { slug: 'share-browser', label: 'Let your agent use a browser', blurb: 'Its own managed window, or tabs from your Chrome or Edge.' },
-    { slug: 'approvals-autonomy', label: 'Approvals and autonomy', blurb: 'What asks first, and the four autonomy levels.' }
+    { slug: 'slack', label: 'Talk to your agents in Slack', blurb: 'Mention the bot, follow the thread, approve from Slack.' },
+    { slug: 'whatsapp', label: 'Talk to your agents on WhatsApp', blurb: 'Pair once with a QR code, approve from your phone.' },
+    { slug: 'share-browser', label: 'Let your agent use a browser', blurb: 'Its own managed window, or tabs from your Chrome or Edge.' }
   ] },
   { group: 'Work together', pages: [
     { slug: 'connect-agentbridge', label: 'Connect your AI app', blurb: 'Connect a coding chat, or add hosted tools to ChatGPT.' },
-    { slug: 'share-workflow', label: 'Share a workflow', blurb: 'Owners, editors, readers — share a workflow and know what each level can do.' },
     { slug: 'share-secrets', label: 'Share secrets safely', blurb: 'One API key in Vault that your team\'s agents can use, without pasting it around.' }
   ] },
-  { group: 'Automate', pages: [
-    { slug: 'publish-relay', label: 'Publish your first Flow', blurb: 'Describe a task, test the draft, and publish a versioned API.' },
-    { slug: 'incoming-gmail', label: 'Give your project an email address', blurb: 'Email a Crew, Goal or Studio workspace and continue the chat by reply.' },
+  { group: 'Connect', pages: [
+    { slug: 'incoming-gmail', label: 'Give your project an email address', blurb: 'Email your agents and continue the chat by reply.' },
     { slug: 'gmail', label: 'Connect Gmail and control what it sends', blurb: 'Connect your mailbox, grant read or send, and approve every send.' }
   ] },
   { group: 'Guides coming soon', soon: true, pages: [
-    { slug: 'intro-2-minutes', label: 'What AgentWorks does in 2 minutes', blurb: 'The two-minute tour of how your company’s AI works together.' },
-    { slug: 'premade-agent', label: 'Install a premade agent', blurb: 'Pick an agent, install it, point it at your goal.' },
-    { slug: 'progress-report', label: 'Read progress and “Did for you”', blurb: 'Reports, evidence, and what each status asks of you.' },
     { slug: 'invite-teammates', label: 'Invite teammates', blurb: 'Add people, split jobs, share approvals.' },
-    { slug: 'ai-plan', label: 'Connect your AI plan', blurb: 'Run on the Claude, ChatGPT, Gemini, or Cursor plan you pay for.' },
-    { slug: 'billing', label: 'How billing works', blurb: 'How a custom deployment is billed.' }
+    { slug: 'ai-plan', label: 'Connect your AI plan', blurb: 'Run on the Claude, ChatGPT, Gemini, or Cursor plan you pay for.' }
   ] }
 ];
 
@@ -253,13 +245,13 @@ function pageTemplate({ title, description, route, rawPath, kicker, crumbs, side
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="AgentWorks">
 <meta property="og:type" content="article">
-<meta property="og:image" content="${siteOrigin}/assets/og/agentworks-docs-og.jpg">
+<meta property="og:image" content="${siteOrigin}/assets/og/agentworks-home-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeHtml(title)} - AgentWorks Docs">
 <meta name="twitter:description" content="${escapeHtml(description)}">
-<meta name="twitter:image" content="${siteOrigin}/assets/og/agentworks-docs-og.jpg">
+<meta name="twitter:image" content="${siteOrigin}/assets/og/agentworks-home-og.jpg">
 <link rel="canonical" href="${canonical}">
 ${rawPath ? `<link rel="alternate" type="text/markdown" href="/docs-guides/${rawPath}.md" title="Raw Markdown">` : ''}
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -392,7 +384,7 @@ function sectionHome({ title, description, route, kicker, intro, nav, crumbs, de
 
 sectionHome({
   title: 'AgentWorks guides',
-  description: 'Task-based AgentWorks guides for business users: run goals, talk to your crew in Slack and WhatsApp, share work safely, and publish Relays.',
+  description: 'Task-based AgentWorks guides: talk to your team’s agents in Slack and WhatsApp, connect your AI app, share secrets safely, and give agents a browser and an email address.',
   route: '/docs/',
   kicker: 'Guides',
   intro: 'Task-based guides for founders, sales leads, store owners, and support leads. No code, no jargon — just outcomes.',
@@ -445,24 +437,14 @@ const marketingRoutes = [
   { route: '/solutions/support/', changefreq: 'monthly', priority: '0.8' },
   { route: '/solutions/finance/', changefreq: 'monthly', priority: '0.8' },
   { route: '/solutions/marketing/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/enterprise/', changefreq: 'monthly', priority: '0.9' },
-  { route: '/enterprise/release-quality/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/enterprise/incident-response/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/enterprise/security-testing/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/enterprise/cloud-cost/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/enterprise/growth-analytics/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/solutions/growth/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/solutions/engineering/', changefreq: 'monthly', priority: '0.8' },
+  { route: '/platform/', changefreq: 'monthly', priority: '0.9' },
   { route: '/vault/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/product/', changefreq: 'monthly', priority: '0.9' },
-  { route: '/goals/', changefreq: 'monthly', priority: '0.9' },
-  { route: '/crews/', changefreq: 'monthly', priority: '0.9' },
-  { route: '/studio/', changefreq: 'monthly', priority: '0.8' },
   { route: '/about/', changefreq: 'monthly', priority: '0.6' },
-  { route: '/ecommerce/', changefreq: 'monthly', priority: '0.8' },
   { route: '/brain/', changefreq: 'monthly', priority: '0.8' },
   { route: '/download/', changefreq: 'monthly', priority: '0.8' },
-  { route: '/flows/', changefreq: 'monthly', priority: '0.6' },
   { route: '/agentbridge/', changefreq: 'monthly', priority: '0.6' },
-  { route: '/llm-gateway/', changefreq: 'monthly', priority: '0.6' },
   { route: '/docs/', changefreq: 'weekly', priority: '0.8' }
 ];
 const docRoutes = renderedGuides.map(guide => ({ route: guide.route, changefreq: 'monthly', priority: '0.7' }));

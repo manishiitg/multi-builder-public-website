@@ -36,7 +36,7 @@ PRIVACY=[
  ('The AgentWorks app', '<p>If you run the AgentWorks app on your own computer or server, your workspace, files, secrets and conversations stay on your machine. We do not receive them.</p>'),
  ('Hosted AgentWorks', '''<p>When we host or operate AgentWorks for you, we process:</p>
 <ul><li><b>Account data:</b> names, email addresses and roles of the people you invite.</li>
-<li><b>Workspace data:</b> the goals, workflows, files, memory, logs and connected-tool data your agents work with. You own this data. We process it only to provide the service to you, as your processor.</li>
+<li><b>Workspace data:</b> the projects, files, memory, logs and connected-tool data your agents work with. You own this data. We process it only to provide the service to you, as your processor.</li>
 <li><b>Billing data:</b> {BILLING_DATA}</li></ul>
 <p>We do not sell personal data, and we do not use your workspace data to train AI models.</p>'''),
  ('AI providers', '<p>AgentWorks runs AI agents on your own AI plan (for example Anthropic, OpenAI, Google or Cursor). Prompts and content your agents send to those providers are handled under your agreement with them and their policies.</p>'),
@@ -50,7 +50,7 @@ PRIVACY=[
 TERMS=[
  ('Agreement', f'<p>These terms are an agreement between you (or the organization you represent) and {COMPANY}, India ("we", "us"), for AgentWorks services that we host or operate for you. By using the service you accept them. Enterprise customers may have a separate written agreement, which takes precedence where it differs.</p>'),
  ('The source code', '<p>The AgentWorks source code is licensed under the Business Source License 1.1 for versions first published on or after 2026-10-09; earlier versions remain under the license they were released with. Your use of the source code on your own machines is governed by that license, not by these terms.</p>'),
- ('The service', '<p>AgentWorks lets you set goals and run AI agents, crews and workflows that work toward them using your connected tools and your own AI plan. We onboard customers by hand and may change or improve features over time. We will not remove a core feature you are paying for without reasonable notice.</p>'),
+ ('The service', '<p>AgentWorks lets your team&rsquo;s AI agents work together, hand work to each other and to people, and run routine jobs, using your connected tools and your own AI plan. We onboard customers by hand and may change or improve features over time. We will not remove a core feature you are paying for without reasonable notice.</p>'),
  ('Your account', '<p>You are responsible for the accounts you create, for keeping credentials safe, and for what happens under your workspace. Tell us promptly if you suspect unauthorized access.</p>'),
  ('Your AI plan and connected tools', '<p>Agents run on AI subscriptions and API keys you provide, and act through tools you connect (such as Slack, WhatsApp, Gmail, MCP servers or websites). Those providers bill you directly and their terms apply to your use of them. You are responsible for having the right to connect them and to let agents act in them.</p>'),
  ('Agent actions and approvals', '<p>AI agents can make mistakes. You choose how much each agent or workflow may do on its own, and outward actions such as sending messages ask for your approval by default. You are responsible for reviewing outputs and for actions you approve or allow agents to take automatically.</p>'),

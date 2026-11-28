@@ -2,21 +2,18 @@
 import os, subprocess, json, tempfile, sys
 ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
 _CAT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'catalog.json')))
-N_AGENTS=len(_CAT['crew'])+len(_CAT['playbooks'])
+N_AGENTS=len(_CAT['crew'])
 CARDS=[
  ('agentworks-home-og.jpg','Everyone on your team has AI.','AgentWorks makes the team faster.','team'),
- ('agentworks-product-og.jpg','One goal. One metric.','An agent that doesn’t stop at done.','loop'),
+ ('agentworks-product-og.jpg','Ask. Hand off.','Keep it running.','how'),
  ('agentworks-agents-og.jpg',f'{N_AGENTS} premade agents,','ready to start today.','agents'),
- ('agentworks-pricing-og.jpg','Built for your company.','Customized and deployed with you.','tiers'),
- ('agentworks-enterprise-og.jpg','Agentic engineering operations,','in your own cloud.','eng'),
- ('agentworks-404-og.jpg','This page isn’t here.','Your goals still are.','none'),
+ ('agentworks-pricing-og.jpg','One team, four weeks.','We set it up with you.','setup'),
+ ('agentworks-404-og.jpg','This page isn’t here.','Your team’s work still is.','none'),
 ]
 ART={
-'story':'''<div class="art card"><p class="ask">"Book more sales demos. <b>I want 5 a week.</b>"</p><p class="big">1 <i>&rarr;</i> 6</p><p class="sub">demos booked a week &middot; on track</p><svg viewBox="0 0 320 110" preserveAspectRatio="none"><line x1="0" y1="24" x2="320" y2="24" stroke="#10b981" stroke-width="2" stroke-dasharray="4 6"/><polyline points="0,100 53,100 107,70 160,74 213,46 267,8 320,14" fill="none" stroke="#f5a524" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>''',
-'loop':'''<div class="art grid4"><div><s>01</s><b>Set the goal</b></div><div><s>02</s><b>Run</b></div><div><s>03</s><b>Measure</b></div><div><s>04</s><b>Improve</b></div></div>''',
+'how':'''<div class="art grid4"><div><s>01</s><b>Ask</b></div><div><s>02</s><b>Hand off</b></div><div><s>03</s><b>Keep it running</b></div><div><s>04</s><b>See where it stands</b></div></div>''',
 'agents':'''<div class="art list"><p><b>Invoice Chasing</b><span>Finance</span></p><p><b>Sales Follow-up</b><span>Sales</span></p><p><b>Support Reply Drafter</b><span>Support</span></p><p><b>Store Operations</b><span>Shopify</span></p></div>''',
-'tiers':'''<div class="art list"><p class="hl"><b>Enterprise</b><span>Custom</span></p><p><b>Goals only</b><span>Self-serve</span></p></div>''',
-'eng':'''<div class="art list"><p><b>Browser QA</b><span>8 playbooks</span></p><p><b>Reliability</b><span>4 playbooks</span></p><p><b>Expert Crews</b><span>MCP &middot; CLI</span></p><p><b>Studio</b><span>Usage by team</span></p></div>''',
+'setup':'''<div class="art list"><p><b>Week 1</b><span>Pick the work</span></p><p><b>Weeks 2&ndash;3</b><span>Connect tools, build agents</span></p><p><b>Week 4</b><span>Your team runs it</span></p><p class="hl"><b>Next team</b><span>Same setup</span></p></div>''',
 'team':'''<div class="art list"><p><b>Sales lead&rsquo;s agent</b><span>Asks</span></p><p><b>Data agent</b><span>Pulls the numbers</span></p><p><b>Review deck</b><span>Updated</span></p><p class="hl"><b>Manager</b><span>Sees it done</span></p></div>''',
 'none':'',
 }

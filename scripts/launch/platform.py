@@ -1,33 +1,36 @@
-# /platform/: everything AgentWorks does, on one page for a company buyer (owner 2026-10-26: the site sells
-# to enterprises and B2B companies; products are capabilities of one platform, not separate things to buy).
-# The detail pages (/goals/, /crews/ ...) stay as "learn more" links. No pricing numbers on the site yet.
-PLATFORM_DO=[
-  ('/goals/','Run a process toward a number','Give agents a process and a target, like collecting overdue invoices or replying to every new lead within ten minutes. They run it on schedule, every run is measured, and the plan is improved from what the numbers show.','Goals'),
-  ('/crews/','Give every team an expert agent','Turn what one person knows into an agent the whole team asks from Slack, WhatsApp, the app or their own AI. ','Crews'),
-  ('/studio/','A private AI workspace for every employee','Each person works with their own AI on the Claude, ChatGPT or Codex plans your company already pays for, with skills, tools and files ready on day one, and the company sees cost and usage per person.','Studio'),
-  ('/flows/','Fixed steps your systems can call','Early access. Chain agent steps, rules and scripts into one sequence and call it from your website, CRM or any system through an API or webhook.','Flows'),
+# /platform/: how AgentWorks works, on one page (owner 2026-11-28: the story is the whole team getting faster;
+# Goals, Flows, LLM Gateway, Crews and Studio pages are retired and redirect here).
+PLATFORM_HOW=[
+  ('Ask','Anyone asks the team&rsquo;s agents for data, status or a draft, from the app, Slack, WhatsApp or their own AI tool. The agents work in the company&rsquo;s real tools, so nobody waits for the one person who knows.'),
+  ('Hand off','Any person or agent hands work to another agent and gets the result back, across teams, laptops and the server. A person is pulled in only when the decision is theirs.'),
+  ('Keep it running','Agents stay online and run routine work on a schedule: the daily report, the follow-ups, the checks. It is done before anyone asks.'),
 ]
-PLATFORM_FOUNDATION=[
-  ('/brain/','Shared knowledge','Policies, product facts and skills written once and read by every agent, with versions and folder permissions.','Brain'),
-  ('/vault/','Tools and secrets under control','One governed door to your tools and credentials. IT decides which group can use what, and every call is recorded.','Vault'),
-  ('/llm-gateway/','Model access and cost per person','Choose which AI models each person and agent may use, and see the cost by person and by model. Coming soon.','LLM Gateway'),
-  ('/agentbridge/','Connect the agents your people already run','Claude Code, Codex, Cursor and ChatGPT join one company network, ask each other and your Crews for help, and hand work over.','AgentBridge'),
+PLATFORM_PARTS=[
+  ('One team room','People and their agents work in one shared project on your server. The Team panel shows who, person or agent, is on what, so the stand-up becomes a glance.',None),
+  ('AgentBridge','Agents message each other and hand over work, across people, laptops and the server. Claude Code, Codex, Cursor and the team&rsquo;s other agents join the same network.','/agentbridge/'),
+  ('Team kit','Tool connections (MCPs), secrets and skills set up once and shared across teams and projects. A new teammate or project starts with every system already connected.',None),
+  ('Brain','Company knowledge and skills written once and read by every agent, with versions and folder permissions.','/brain/'),
+  ('Vault','Secrets and tool access in one place: who may use which tool and credential, with every call recorded.','/vault/'),
+  ('Premade agents','Ready agents for common work, such as invoice chasing, sales follow-up and support replies, to start from and adapt.','/agents/'),
 ]
 PLATFORM_FAQ=[
-  ("Do we have to buy each product separately?","No. AgentWorks is one platform. We start with one process your team wants handed to agents, set up the parts it needs, and add more as you go."),
-  ("Where does it run?","In your own cloud or private infrastructure, with single sign-on. Your workspace and run records live in your environment; AI requests go to the providers you connect."),
-  ("Which AI models does it use?","The Claude, ChatGPT, Gemini or Cursor plans your company already pays for, through each vendor's own agent. You can change models without rebuilding the work."),
-  ("How do people stay in control?","Anything that goes out, such as emails, messages or payments, waits for a person's approval unless you allow it. Every run is recorded with what it did, what it cost and who approved it."),
-  ("How do we start?","Book a short call. We pick one process with you, run a four-week pilot on it in your environment, then review the results together."),
+  ("Do we have to replace Jira, Notion or Slack?","No. Your tools stay where they are. Agents work inside them through connections set up once in the Team kit (open the ticket, fill the sheet, post the summary), and AgentWorks adds the missing part: who does it next and where it stands."),
+  ("Is it only for engineering teams?","No. Sales, support, finance, marketing, operations, product and engineering use it the same way. Developers keep their worktrees, pull requests, editor and terminal; everyone else works in chat."),
+  ("Which AI does it use?","The plans your people already pay for: Claude, ChatGPT, Gemini, Cursor and others, through each vendor's own agent. People keep the AI tool they like, side by side on the same team, with no new per-seat AI bill."),
+  ("Where does it run?","On your own server, or on a Mac. Your work, files and chats stay in your environment; AI requests go only to the providers you connect. The source is public, so your security team can read it."),
+  ("Can an agent send something on its own?","Not unless you allow it. Emails, messages, payments and posts wait for a person by default."),
+  ("How do we start?","Book a short call. In four weeks we set AgentWorks up with one of your teams on your servers, around one piece of work they pass around by hand. Then your team runs it."),
 ]
-def _cards(items):
-    return '\n'.join(f'''          <li class="reveal"><h3>{t}</h3><p>{d}</p><p><a href="{h}">{n} &rarr;</a></p></li>''' for h,t,d,n in items)
+def _how(items):
+    return '\n'.join(f'''          <li><b>{t}</b><span>{d}</span></li>''' for t,d in items)
+def _parts(items):
+    return '\n'.join(f'''          <li class="reveal"><h3>{t}</h3><p>{d}</p>{f'<p><a href="{h}">More about {t} &rarr;</a></p>' if h else ''}</li>''' for t,d,h in items)
 platform_body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker">Platform</p>
-        <h1>One platform for the agents that run your processes. <span class="dim">Your people stay in charge.</span></h1>
-        <p class="lede">Your team's AI can ask the same company experts, use the same approved knowledge and hand work across departments, with the controls IT and leadership need, deployed in your own cloud.</p>
+        <p class="kicker">How it works</p>
+        <h1>Everyone&rsquo;s AI agents, working as one team. <span class="dim">On top of the tools you already use.</span></h1>
+        <p class="lede">Everyone on your team has AI, but each person&rsquo;s AI works alone and the work between people still moves by hand. AgentWorks connects them: anyone hands work to an agent, agents pass it on, and everyone sees where it stands.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
@@ -35,31 +38,42 @@ platform_body=f'''  <main id="main">
       </div>
     </section>
 
-    <section class="section-tight" id="one-request">
+    <section class="section-tight" id="how">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">One request, across your company</p>
-          <h2>How it works together. <span class="dim">Illustrative.</span></h2>
-          <p class="lede">A salesperson asks their own ChatGPT whether a client can have 15% off a 200-seat deal.</p>
+          <p class="kicker">Three things</p>
+          <h2>Ask. Hand off. Keep it running.</h2>
         </div>
         <ol class="online-steps harness-steps reveal">
-          <li><b>Their AI asks the expert</b><span>The salesperson's ChatGPT, connected to AgentWorks, asks the company's Pricing Crew.</span></li>
-          <li><b>The expert knows the policy</b><span>The Pricing Crew reads the current discount rules and past deals from shared company knowledge.</span></li>
-          <li><b>A person decides the exception</b><span>15% is above the usual limit, so the finance lead gets one approval in Slack.</span></li>
-          <li><b>The work is saved</b><span>The approved quote is drafted and the deal is updated; the run, its cost and the approval are recorded.</span></li>
-          <li><b>Someone keeps watch</b><span>AgentWorks checks the deal desk's numbers daily and flags what needs attention.</span></li>
+{_how(PLATFORM_HOW)}
         </ol>
       </div>
     </section>
 
-    <section class="section-tight">
+    <section class="section-tight" id="one-request">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">What it does</p>
-          <h2>The work agents take on. <span class="dim">Four ways to use it.</span></h2>
+          <p class="kicker">One piece of work, across the team</p>
+          <h2>What it looks like. <span class="dim">Illustrative example.</span></h2>
+          <p class="lede">QA finds a broken checkout button the day before a release.</p>
+        </div>
+        <ol class="online-steps harness-steps reveal">
+          <li><b>QA hands it off</b><span>The tester tells their agent what broke. It opens the Jira ticket with the steps and a screenshot.</span></li>
+          <li><b>The developer&rsquo;s agent picks it up</b><span>It lands as a task with the developer&rsquo;s agent, details attached, and the fix starts.</span></li>
+          <li><b>A person decides</b><span>The developer reviews the change. Nothing ships without them.</span></li>
+          <li><b>Everyone sees it</b><span>The PM asks &ldquo;is checkout fixed?&rdquo; and gets the answer from an agent, without pinging anyone.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-tight" id="parts">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">What it&rsquo;s made of</p>
+          <h2>Set up once for the company. <span class="dim">Shared by every team.</span></h2>
         </div>
         <ul class="control two">
-{_cards(PLATFORM_DO)}
+{_parts(PLATFORM_PARTS)}
         </ul>
       </div>
     </section>
@@ -67,28 +81,16 @@ platform_body=f'''  <main id="main">
     <section class="section-tight">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Shared foundation</p>
-          <h2>What every agent runs on. <span class="dim">Set up once for the company.</span></h2>
-        </div>
-        <ul class="control two">
-{_cards(PLATFORM_FOUNDATION)}
-        </ul>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Control</p>
-          <h2>Built for how companies buy software. <span class="dim">Not a tool someone installed on a laptop.</span></h2>
+          <p class="kicker">Easy to say yes to</p>
+          <h2>Nothing to replace. <span class="dim">Nothing leaves your company.</span></h2>
         </div>
         <ul class="control">
-          <li class="reveal"><h3>Your cloud</h3><p>Deployed in your VPC or private cloud, customized to your processes, tools and approval rules.</p></li>
-          <li class="reveal"><h3>Single sign-on</h3><p>SAML or OIDC sign-in, with access by team and person. Being in the company is not access; sharing is.</p></li>
-          <li class="reveal"><h3>Every run recorded</h3><p>Runs on AgentWorks keep what was asked, what was done, what it cost and who approved it; messages between connected agents are kept too. Visible to the people the work is shared with.</p></li>
-          <li class="reveal"><h3>People approve what matters</h3><p>Outgoing messages, payments and changes wait for a named person unless you allow them.</p></li>
-          <li class="reveal"><h3>Your AI plans</h3><p>Runs on the Claude, ChatGPT, Gemini or Cursor plans you already pay for. No new model contract.</p></li>
-          <li class="reveal"><h3>Source available</h3><p>The code is public under the Business Source License, with a commercial license for your deployment.</p></li>
+          <li class="reveal"><h3>Keep your tools</h3><p>Jira, Notion, Google Docs and Sheets, Slack and the rest stay. AgentWorks is a layer on top.</p></li>
+          <li class="reveal"><h3>Bring your own AI</h3><p>Each person uses the AI plan they already pay for. No forced switch, no second AI bill per seat.</p></li>
+          <li class="reveal"><h3>Your servers</h3><p>Runs on your own server or a Mac. Your work, files and chats stay with you.</p></li>
+          <li class="reveal"><h3>People approve what goes out</h3><p>Emails, messages, payments and posts wait for a person unless you allow them.</p></li>
+          <li class="reveal"><h3>Every role</h3><p>Developers get worktrees, pull requests and terminals. Everyone else asks in plain words.</p></li>
+          <li class="reveal"><h3>Source available</h3><p>The code is public under the Business Source License; your company runs it under a commercial licence.</p></li>
         </ul>
       </div>
     </section>
@@ -107,8 +109,8 @@ platform_body=f'''  <main id="main">
 
     <section class="cta">
       <div class="wrap">
-        <h2>Tell us the process. <span class="dim">We'll show you how agents fit.</span></h2>
-        <p>Book a short call and we'll scope a pilot around one of your processes.</p>
+        <h2>Pick one piece of work your team passes around. <span class="dim">We&rsquo;ll set it up with you.</span></h2>
+        <p>In four weeks, one team, on your servers. Then your team runs it.</p>
         <div class="cta-actions">
           <a class="btn btn-amber" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
           <a class="btn btn-ghost" href="/pricing/">How we work</a>
@@ -117,5 +119,5 @@ platform_body=f'''  <main id="main">
     </section>
   </main>
 '''
-pages['platform/index.html']=head('AgentWorks Platform - AI Agents for Company Processes','One platform for agents that run your company processes, expert agents for every team, and the controls IT needs: your cloud, single sign-on, every run recorded, people approving what matters.','/platform/',extra_ld=ld(faq_ld(PLATFORM_FAQ),BC('Platform','/platform/')))+header('platform')+platform_body+footer()
-SITEMAP_EXTRA=globals().get('SITEMAP_EXTRA',[])+[('/platform/','2026-10-26')]
+pages['platform/index.html']=head('How AgentWorks Works - Everyone\'s AI Agents Working as One Team','Anyone asks the team\'s agents, hands work off and keeps routine work running, on top of the tools you already use. AgentBridge, Team kit, Brain and Vault, on your servers.','/platform/',og='agentworks-product-og.jpg',extra_ld=ld(faq_ld(PLATFORM_FAQ),BC('How it works','/platform/')))+header('platform')+platform_body+footer()
+SITEMAP_EXTRA=globals().get('SITEMAP_EXTRA',[])+[('/platform/','2026-11-28')]

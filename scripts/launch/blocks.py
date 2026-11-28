@@ -1,59 +1,6 @@
 from partials import *
 import html as H
 
-import tpl as _TT
-_GOAL_PB=_TT.N_GOALS
-def tiers(heading='h3'):
-    return f'''<div class="tiers two">
-          <article class="tier tier-featured reveal" id="custom">
-            <span class="tier-badge">Set up with you</span>
-            <p class="tier-name">Enterprise</p>
-            <p class="tier-price"><strong>Custom</strong></p>
-            <p class="tier-desc">Every product, customized for your company and deployed in your own cloud, with the controls your IT and security teams need.</p>
-            <ul class="tier-list">
-              <li class="head">Every product, including</li>
-              <li>Goals, Crews, Flows, Brain and Studio</li>
-              <li>AgentBridge and Vault, LLM Gateway (coming soon)</li>
-              <li>All premade Crew agents</li>
-              <li>Customized deployment and integrations built with you</li>
-              <li>Self-hosted in your VPC or private cloud</li>
-              <li>SSO (SAML / OIDC), SCIM and audit log export</li>
-              <li>A commercial license, dedicated support and SLA</li>
-            </ul>
-            <div class="tier-foot">
-              <a class="btn btn-amber btn-block" href="{CAL}" target="_blank" rel="noreferrer">Book a call</a>
-              <small>One-time setup fee, then a monthly fee · scoped on a call</small>
-            </div>
-          </article>
-          <article class="tier reveal">
-            <p class="tier-name">Goals only</p>
-            <p class="tier-price"><strong>Self-serve</strong></p>
-            <p class="tier-desc">Want to try it first? Set up one agent with a goal and a metric yourself.</p>
-            <ul class="tier-list">
-              <li>Goals with measured targets</li>
-              <li>Autopilot toward your goals</li>
-              <li>{_GOAL_PB} premade Goal playbooks</li>
-              <li>Approvals and autonomy limits</li>
-              <li>Secrets vault, sandbox, run logs and cost per goal</li>
-              <li>Runs on the AI plan you already pay for</li>
-            </ul>
-            <div class="tier-foot">
-              <a class="btn btn-ghost btn-block" href="{DEMO}" target="_blank" rel="noreferrer">Try the demo</a>
-              <small>macOS app or Linux</small>
-            </div>
-          </article>
-        </div>'''
-
-FAQ_HOME=[
- ("Does every step use AI?","No. Work that should run the same way every time, like pulling data, calling an API or applying a change, runs as a scripted step: plain code with no AI, whose output is checked before the workflow moves on. Agents take the steps that need judgment, and rules like \"over $200 needs approval\" are decided in code."),
- ("Does our team need to know how to code?","No. Pick a premade agent or describe what you want in plain words, and AgentWorks sets it up with you. Engineers can go deeper with custom tools, skills and playbooks."),
- ("What is a Team?","The people who work together and their AI agents, in one place. Anyone in the Team can ask anyone's agent, hand work over as a task and see where it is. Developers bring Claude Code, Codex or Cursor; everyone else uses the app, Slack or WhatsApp."),
- ("Which AI plans can I use?","Claude (Pro or Max), ChatGPT (Plus or Pro), Gemini, Cursor and Muse, through each vendor's own coding agent: Claude Code, Codex, Cursor, Pi, Muse and Antigravity. Sign in with your subscription, or give that agent an API key. Pi can also route to OpenRouter and other providers."),
- ("How do we get started?","Book a short call. We pick one process with your team, run a four-week pilot on it in your own environment, and review the measured results with you before anything grows."),
- ("Can people use an agent from Claude or ChatGPT?","Yes. Share an agent and people ask it from Claude, ChatGPT, Cursor, Claude Code, Codex or the agentworks CLI, through MCP. Each person gets their own conversation, and private chats and data stay private."),
- ("Do my people have to switch AI tools?","No. People keep Claude Code, Codex, Cursor, ChatGPT or whatever they already use. AgentWorks connects those tools to your company's agents, knowledge and rules."),
- ("Can a teammate send something without me?","Not unless you allow it. Anything that goes out, like emails, messages, payments and posts, waits for your approval by default. You can raise the limits per agent once you trust it."),
-]
 def faq(items, heading=None):
     out=[]
     for i,(q,a) in enumerate(items):
@@ -64,34 +11,3 @@ def faq_ld(items):
     import json
     return json.dumps({"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in items]}, ensure_ascii=False, indent=2)
 
-# "Not everything should be agentic": scripted steps next to agent steps. Used on Home, Product and Goals.
-def scripted_section(sid='scripted'):
-    return f'''    <section class="section" id="{sid}">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker">Scripted where it counts</p>
-          <h2>Not everything should be agentic. <span class="dim">Script what's known. Use agents for judgment.</span></h2>
-          <p class="lede">Pulling data, calling an API or applying a change should happen the same way every time. AgentWorks runs that work as scripted steps: plain code with no AI in the loop, checked before the workflow moves on. Agents take the steps that need judgment, and the two hand off through files and data, not chat.</p>
-        </div>
-        <div class="plan reveal" aria-label="Example: a workflow that mixes scripted and agent steps">
-          <div class="plan-head"><b>Refund review</b><span class="tag">Illustrative</span></div>
-          <div class="pipe">
-            <p class="pipe-name">Runs every morning</p>
-            <ol>
-              <li class="st det"><small>Script</small><b>Pull yesterday's refund requests</b><em>API call, no AI</em></li>
-              <li class="st agent"><small>Agent</small><b>Check each against the order</b><em>judgment</em></li>
-              <li class="st cond"><small>Rule</small><b>Over $200?</b><em>decided in code</em></li>
-              <li class="st human"><small>Approval</small><b>You approve the big ones</b><em>human step</em></li>
-              <li class="st det"><small>Script</small><b>Issue the refunds</b><em>same way every time</em></li>
-            </ol>
-          </div>
-          <div class="plan-foot"><span><i class="lg det"></i>Script: code, no AI</span><span><i class="lg agent"></i>Agent</span><span><i class="lg cond"></i>Rule in code</span><span><i class="lg human"></i>Human approval</span></div>
-        </div>
-        <ul class="control engine-points">
-          <li class="reveal"><h3>Same result every time</h3><p>A scripted step runs as code and must exit cleanly and pass its output check before the next step starts. If it fails, the run stops and says why, instead of guessing.</p></li>
-          <li class="reveal"><h3>Cheaper and faster</h3><p>No model tokens for work that doesn't need thinking. Agents spend your AI plan only where judgment moves the result.</p></li>
-          <li class="reveal"><h3>Written for you, readable by you</h3><p>Describe the step and the Builder writes the script and tests it before it runs. The code is yours to read, review and change, and every run is logged.</p></li>
-        </ul>
-      </div>
-    </section>
-'''

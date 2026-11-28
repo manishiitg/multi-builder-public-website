@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const CATALOG = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, 'launch', 'catalog.json'), 'utf8'));
-const CATALOG_TOTAL = CATALOG.crew.length + CATALOG.playbooks.length;
+const CATALOG_TOTAL = CATALOG.crew.length;
 const http = require('http');
 const path = require('path');
 const { spawnSync } = require('child_process');
@@ -12,7 +12,6 @@ const siteOrigin = 'https://agentworkshq.com';
 const requiredFiles = [
   'index.html',
   '404.html',
-  'product/index.html',
   'docs/index.html',
   'docs.css',
   'launch.css',
@@ -21,9 +20,7 @@ const requiredFiles = [
   'site-header.css',
   'site-header.js',
   'pricing/index.html',
-  'enterprise/index.html',
   'agents/index.html',
-  'enterprise/release-quality/index.html',
   'privacy/index.html',
   'terms/index.html',
   'refunds/index.html',
@@ -32,21 +29,13 @@ const requiredFiles = [
   'solutions/support/index.html',
   'solutions/finance/index.html',
   'solutions/marketing/index.html',
-  'enterprise/incident-response/index.html',
-  'enterprise/security-testing/index.html',
-  'enterprise/cloud-cost/index.html',
-  'enterprise/growth-analytics/index.html',
-  'goals/index.html',
-  'crews/index.html',
-  'studio/index.html',
+  'solutions/growth/index.html',
+  'solutions/engineering/index.html',
   'about/index.html',
-  'ecommerce/index.html',
   'brain/index.html',
   'download/index.html',
   'vault/index.html',
-  'flows/index.html',
   'agentbridge/index.html',
-  'llm-gateway/index.html',
   'blog/index.html',
   'blog/feed.xml',
   'blog/harness-engineering-explained/index.html',
@@ -72,26 +61,18 @@ const requiredFiles = [
   'icon-256.png',
   '.well-known/mcp-client.json',
   'assets/brand/agentworks-logo.svg',
-  'assets/docs/guides/first-goal.webp',
-  'assets/docs/guides/goal-metric-card.webp',
   'assets/docs/guides/slack-thread.webp',
   'assets/docs/guides/slack-setup.webp',
   'assets/docs/guides/whatsapp-pair.webp',
-  'assets/docs/guides/autonomy-levels.webp',
   'assets/docs/guides/approval-decision.webp',
-  'docs-guides/first-goal.md',
   'docs-guides/connect-agentbridge.md',
   'docs/guides/connect-agentbridge/index.html',
   'docs-guides/slack.md',
   'docs-guides/whatsapp.md',
-  'docs-guides/approvals-autonomy.md',
-  'docs/guides/first-goal/index.html',
   'docs/guides/slack/index.html',
   'docs/guides/whatsapp/index.html',
-  'docs/guides/approvals-autonomy/index.html',
   'assets/fonts/fonts.css',
   'assets/og/agentworks-home-og.jpg',
-  'assets/og/agentworks-docs-og.jpg',
   'assets/og/agentworks-404-og.jpg',
   'assets/video/guides/connect-ai-provider.mp4',
   'assets/video/guides/connect-ai-provider-poster.jpg',
@@ -133,40 +114,20 @@ const pageExpectations = [
     name: 'pricing',
     file: 'pricing/index.html',
     route: '/pricing/',
-    title: 'How AgentWorks Works - Deployed and Customized for Your Company',
-    h1: "We don't hand you a login. We build it around your company.",
+    title: 'How We Work - AgentWorks Set Up With One Team in Four Weeks',
+    h1: 'We set it up with you. Your team runs it.',
     canonical: 'https://agentworkshq.com/pricing/',
     ogImage: 'assets/og/agentworks-pricing-og.jpg',
-    allowTallSections: true
-  },
-  {
-    name: 'enterprise',
-    file: 'enterprise/index.html',
-    route: '/enterprise/',
-    title: 'AgentWorks Enterprise - Agentic Engineering Operations',
-    h1: 'Agentic engineering operations, in your own cloud.',
-    canonical: 'https://agentworkshq.com/enterprise/',
-    ogImage: 'assets/og/agentworks-enterprise-og.jpg',
     allowTallSections: true
   },
   {
     name: 'agents',
     file: 'agents/index.html',
     route: '/agents/',
-    title: 'AgentWorks Premade Agents - Ready-Made AI Teammates and Goals',
+    title: 'AgentWorks Premade Agents - Ready-Made AI Agents for Every Team',
     h1: `Premade agents, ready to start today. ${CATALOG_TOTAL} of them.`,
     canonical: 'https://agentworkshq.com/agents/',
     ogImage: 'assets/og/agentworks-agents-og.jpg',
-    allowTallSections: true
-  },
-  {
-    name: 'uc-release-quality',
-    file: 'enterprise/release-quality/index.html',
-    route: '/enterprise/release-quality/',
-    title: 'AgentWorks for Release Quality - AI QA and Self-Healing Tests',
-    h1: 'No release ships without a QA decision. AI agents own the tests.',
-    canonical: 'https://agentworkshq.com/enterprise/release-quality/',
-    ogImage: 'assets/og/agentworks-enterprise-og.jpg',
     allowTallSections: true
   },
   {
@@ -180,43 +141,13 @@ const pageExpectations = [
     allowTallSections: true
   },
   {
-    name: 'product',
-    file: 'product/index.html',
-    route: '/product/',
-    title: 'AgentWorks Product - Goals, Crews, Studio and Flows',
-    h1: 'One platform. Agents inside your process.',
-    canonical: 'https://agentworkshq.com/product/',
-    ogImage: 'assets/og/agentworks-product-og.jpg',
-    allowTallSections: true
-  },
-  {
-    name: 'goals',
-    file: 'goals/index.html',
-    route: '/goals/',
-    title: 'AgentWorks Goals - AI Agents That Work Toward Your Number and Measure It',
-    h1: "One goal. One metric. An agent that doesn't stop at done.",
-    canonical: 'https://agentworkshq.com/goals/',
-    ogImage: 'assets/og/agentworks-product-og.jpg',
-    allowTallSections: true
-  },
-  {
-    name: 'crews',
-    file: 'crews/index.html',
-    route: '/crews/',
-    title: 'AgentWorks Crews - Build an Expert AI Agent Once, Share It With Your Team',
-    h1: 'Build an expert once. Your whole team can ask it.',
-    canonical: 'https://agentworkshq.com/crews/',
-    ogImage: 'assets/og/agentworks-product-og.jpg',
-    allowTallSections: true
-  },
-  {
     name: 'docs',
     file: 'docs/index.html',
     route: '/docs/',
     title: 'AgentWorks guides - AgentWorks Docs',
     h1: 'AgentWorks guides',
     canonical: 'https://agentworkshq.com/docs/',
-    ogImage: 'assets/og/agentworks-docs-og.jpg',
+    ogImage: 'assets/og/agentworks-home-og.jpg',
     allowTallSections: true
   },
   {
@@ -224,7 +155,7 @@ const pageExpectations = [
     file: '404.html',
     route: '/404.html',
     title: 'Page Not Found - AgentWorks',
-    h1: "This page isn't here. Your goals still are.",
+    h1: "This page isn't here. Your team’s work still is.",
     canonical: 'https://agentworkshq.com/404.html',
     ogImage: 'assets/og/agentworks-404-og.jpg'
   }
@@ -439,8 +370,11 @@ function assertDeployPayload() {
   for (const icon of manifest.icons) assertFileExists(stripUrlSuffix(icon.src).replace(/^\//, ''));
 
   const redirects = readDist('_redirects');
-  if (!redirects.includes('/automations/:slug/ /product/ 301')) fail('legacy automation redirect missing');
-  if (!redirects.includes('/how/ /product/ 301')) fail('legacy product redirect missing');
+  if (!redirects.includes('/automations/:slug/ /platform/ 301')) fail('legacy automation redirect missing');
+  if (!redirects.includes('/how/ /platform/ 301')) fail('legacy product redirect missing');
+  for (const r of ['/goals/ /platform/ 301', '/flows/ /platform/ 301', '/llm-gateway/ /platform/ 301', '/product/ /platform/ 301', '/crews/ /platform/ 301', '/studio/ /platform/ 301', '/enterprise/ /solutions/engineering/ 301', '/ecommerce/ /solutions/shopify/ 301', '/docs/guides/first-goal/ /docs/ 301']) {
+    if (!redirects.includes(r)) fail(`retired page redirect missing: ${r}`);
+  }
   if (!redirects.includes('/deploy/ https://github.com/manishiitg/agentworks/tree/main/deploy 301')) fail('deployment docs redirect missing');
   if (!redirects.includes('/wireframes.html / 301')) fail('wireframes redirect missing');
   for (const rule of [
@@ -462,18 +396,21 @@ function assertDeployPayload() {
   }
 
   const llms = readDist('llms.txt');
-  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/docs/guides/first-goal/') || !llms.includes('https://github.com/manishiitg/agentworks/tree/main/docs') || !llms.includes('https://agentworkshq.com/product/') || !llms.includes('https://agentworkshq.com/agents/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
+  if (!llms.includes('# AgentWorks') || !llms.includes('https://agentworkshq.com/docs/') || !llms.includes('https://agentworkshq.com/docs/guides/slack/') || !llms.includes('https://github.com/manishiitg/agentworks/tree/main/docs') || !llms.includes('https://agentworkshq.com/platform/') || !llms.includes('https://agentworkshq.com/agents/') || !llms.includes('https://agentworkshq.com/llms-full.txt')) {
     fail('llms.txt missing canonical AgentWorks content');
   }
   if (llms.includes('/docs/developers/') || llms.includes('/docs-content/')) fail('llms.txt links a retired docs route');
+  for (const retired of ['/goals/', '/flows/', '/llm-gateway/', '/product/', '/crews/', '/studio/', '/enterprise/', '/ecommerce/', 'first-goal', 'Auto-improve', 'LLM Gateway']) {
+    if (llms.includes(retired)) fail(`llms.txt mentions a retired page or product: ${retired}`);
+  }
 
   const llmsFull = readDist('llms-full.txt');
-  for (const phrase of ['Complete Product and Documentation Context', 'Set your first goal', 'Talk to your crew in Slack', 'tree/main/docs']) {
+  for (const phrase of ['Complete Product and Documentation Context', 'Talk to your crew in Slack', 'tree/main/docs']) {
     if (!llmsFull.includes(phrase)) fail(`llms-full.txt missing ${phrase}`);
   }
 
   const sitemap = readDist('sitemap.xml');
-  for (const route of ['/', '/product/', '/goals/', '/crews/', '/studio/', '/brain/', '/pricing/', '/enterprise/', '/enterprise/release-quality/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/first-goal/', '/docs/guides/slack/']) {
+  for (const route of ['/', '/platform/', '/brain/', '/pricing/', '/agents/', '/solutions/shopify/', '/docs/', '/docs/guides/slack/']) {
     if (!sitemap.includes(`<loc>${siteOrigin}${route}</loc>`)) fail(`sitemap missing ${route}`);
   }
   for (const route of ['/docs/guides/', '/docs/developers/', '/docs/overview/', '/docs/core/', '/docs/core/browser/', '/docs/workflow/', '/docs/multiagent/', '/docs/getting-started/', '/docs/getting-started/first-workflow/', '/docs/workflow/auto_improvement_framework/', '/docs/relay/', '/docs/security/']) {
@@ -482,11 +419,11 @@ function assertDeployPayload() {
 
   const docsHome = readDist('docs/index.html');
   if (!/<h1>AgentWorks guides<\/h1>/.test(docsHome)) fail('docs/index.html lacks the guides headline');
-  for (const needle of ['href="/docs/guides/first-goal/"', 'https://github.com/manishiitg/agentworks/tree/main/docs', 'class="docs-dev-home"', 'class="docs-dev-link"']) {
+  for (const needle of ['href="/docs/guides/slack/"', 'https://github.com/manishiitg/agentworks/tree/main/docs', 'class="docs-dev-home"', 'class="docs-dev-link"']) {
     if (!docsHome.includes(needle)) fail(`docs/index.html missing ${needle}`);
   }
 
-  for (const file of ['docs/guides/first-goal/index.html', 'docs/guides/slack/index.html', 'docs/guides/whatsapp/index.html', 'docs/guides/approvals-autonomy/index.html']) {
+  for (const file of ['docs/guides/slack/index.html', 'docs/guides/whatsapp/index.html', 'docs/guides/share-secrets/index.html']) {
     const html = readDist(file);
     if (!html.includes('rel="alternate" type="text/markdown"') || !html.includes('BreadcrumbList') || !/<h1>[^<]+<\/h1>/.test(html) || !html.includes('class="docs-side"') || !html.includes('On this page') || !html.includes('/analytics.js')) {
       fail(`${file} lacks static documentation chrome`);
@@ -556,7 +493,7 @@ function assertDeployPayload() {
   if (!siteFooter.includes('/privacy/') || !siteFooter.includes('/terms/') || !siteFooter.includes('/refunds/')) {
     fail('marketing footer lost its policy links');
   }
-  for (const file of ['docs/index.html', 'docs/guides/first-goal/index.html', 'docs/guides/slack/index.html', 'docs/guides/whatsapp/index.html']) {
+  for (const file of ['docs/index.html', 'docs/guides/slack/index.html', 'docs/guides/whatsapp/index.html']) {
     if (footerOf(readDist(file)) !== siteFooter) fail(`${file} footer differs from the site footer`);
   }
 
@@ -723,7 +660,6 @@ async function assertRenderedPages() {
     }
     const docsArticleRoutes = [
       { route: '/docs/guides/connect-agentbridge/', h1: 'Connect your AI app to AgentWorks', name: 'guide connect-agentbridge' },
-      { route: '/docs/guides/first-goal/', h1: 'Set your first goal', name: 'guide first-goal' },
       { route: '/docs/guides/slack/', h1: 'Talk to your crew in Slack', name: 'guide slack' },
       { route: '/docs/guides/whatsapp/', h1: 'Talk to your crew on WhatsApp', name: 'guide whatsapp' }
     ];
@@ -835,7 +771,7 @@ async function assertRenderedPages() {
     }));
     await missingPage.close();
     if (missingMetrics.title !== 'Page Not Found - AgentWorks') fail('missing route rendered wrong title');
-    if (missingMetrics.h1 !== "This page isn't here. Your goals still are.") fail('missing route rendered wrong h1');
+    if (missingMetrics.h1 !== "This page isn't here. Your team’s work still is.") fail('missing route rendered wrong h1');
     if (missingMetrics.manifest !== '/site.webmanifest') fail('missing route manifest link mismatch');
   } finally {
     await browser.close();

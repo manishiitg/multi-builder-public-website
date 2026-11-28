@@ -114,22 +114,14 @@ for asset in "${storyboard_assets[@]}"; do
   cp "assets/storyboard/${asset}" dist/assets/storyboard/
 done
 mkdir -p dist/docs
-cp -R product dist/product
 cp -R solutions dist/solutions
 cp -R privacy dist/privacy
 cp -R terms dist/terms
 cp -R refunds dist/refunds
 cp -R pricing dist/pricing
-cp -R enterprise dist/enterprise
 cp -R agents dist/agents
-cp -R flows dist/flows
 cp -R agentbridge dist/agentbridge
-cp -R llm-gateway dist/llm-gateway
-cp -R goals dist/goals
-cp -R crews dist/crews
-cp -R studio dist/studio
 cp -R about dist/about
-cp -R ecommerce dist/ecommerce
 cp -R brain dist/brain
 cp -R vault dist/vault
 cp -R download dist/download

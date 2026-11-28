@@ -12,7 +12,7 @@ download_body=f'''  <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Download</p>
-        <h1>Get AgentWorks. <span class="dim">Start with Goals.</span></h1>
+        <h1>Get AgentWorks. <span class="dim">On your Mac.</span></h1>
         <p class="lede">The desktop app for Apple Silicon Macs. Paste one line into Terminal and it installs, opens, and keeps itself up to date.</p>
       </div>
     </section>

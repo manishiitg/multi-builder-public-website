@@ -49,4 +49,4 @@ That is not a complete native coding-agent command log. Link missing repository 
 
 Start with one small change. Make it easy for your reviewer to see the work, decide and find the evidence later.
 
-[Try the AgentWorks demo](https://demo.agentworkshq.com/) · [Explore Studio](/studio/)
+[Try the AgentWorks demo](https://demo.agentworkshq.com/) · [See how it works](/platform/)
